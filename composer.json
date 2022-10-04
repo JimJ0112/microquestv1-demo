@@ -1,5 +1,2 @@
 {
-    "require": {
-        "backend/backend": "2.0.*"
-    }
 }
