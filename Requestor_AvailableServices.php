@@ -23,7 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
-<body id="Requestor_AvailableServicesBackground">
+<body id="Requestor_AvailableServicesBackground" onload="getServices()">
 
 <img src="img/b.jpg" id="RequestboardBackground"/>
 
@@ -55,7 +55,6 @@
 								</td>
 					 		</tr>
 						</table>
-
 					</li>
 
 					<li class="AvailableServicesContainer-ControlItem"> 
@@ -137,7 +136,7 @@
 
 
 
-
+<script src="js/Requestor_AvailableServices.js"> </script>
 
 
 </body>

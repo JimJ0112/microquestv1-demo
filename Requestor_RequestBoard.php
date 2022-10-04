@@ -78,9 +78,9 @@ session_start();
 					</li>
 
 					<li class="RequestsContainer-ControlItem" id="RequestsCategoryContainer"> 
-						<select id="RequestCategory"> 
-							<option> Category</option>
-						</select> 
+						
+							<input type="button" id="CreateRequestButton" value="Create Request">
+						
 					</li>
 
 				</ul>
