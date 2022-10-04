@@ -34,7 +34,7 @@
 					}
 				?>
 			</li></a>
-		<a href="../Backend/Logout.php"><li class="Nav-item" id="LogOutButton" title="Log Out">Log out</li></a>
+		<a href="Logout.php"><li class="Nav-item" id="LogOutButton" title="Log Out">Log out</li></a>
 		
 	</ul>
 </div>

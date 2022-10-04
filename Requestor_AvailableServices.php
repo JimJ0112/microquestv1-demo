@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	
+
 	if(!isset($_SESSION["userEmail"])){
-        header("location:LoginForm.php?msg=Please Login First");
+        header("location:Login.php?msg=Please Login First");
     }
 
     if(isset($_SESSION["municipality"])){
