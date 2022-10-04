@@ -47,7 +47,7 @@ function nextForm(){
         RegistrationBackButton.style.display = "block";
         RegistrationRegisterButton.style.display = "none";
         RegistrationNextButton.disabled = true;
-        checkInputs_GeneralInfo();
+        //checkInputs_GeneralInfo();
 
 
 
@@ -62,6 +62,7 @@ function nextForm(){
         RegistrationRegisterButton.style.display = "block";
         RegistrationNextButton.disabled = true;
         checkInputs_GeneralInfo();
+        checkInputs_ResponderInfo();
 
 
     }  else if(GeneralInfoFormDisplay  === "none" && ResponderInfoFormDisplay   === "block"){
@@ -74,7 +75,7 @@ function nextForm(){
         RegistrationBackButton.style.display = "block";
         RegistrationRegisterButton.style.display = "block";
         RegistrationNextButton.disabled = true;
-        checkInputs_GeneralInfo();
+        checkInputs_ResponderInfo();
 
 
     }else {
@@ -162,7 +163,7 @@ function checkInputs_ConfirmPassword(){
             passwordmatch.style.color = "darkred";
             ConfirmPassword.focus();
         }
-        checkInputs_GeneralInfo();
+        //checkInputs_GeneralInfo();
 
 }
 
@@ -195,19 +196,23 @@ function checkInputs_GeneralInfo(){
     FirstName = document.getElementById("FirstName");
     MiddleName= document.getElementById("MiddleName");
     LastName= document.getElementById("LastName");
-    Email= document.getElementById("Email");
     Municipality= document.getElementById("Municipality");
     Address= document.getElementById("Address");
+    Birthdate = document.getElementById("Birthdate");
+    Male= document.getElementById("Male");
+    Female = document.getElementById("Female");
 
 
-   // console.log("checkInputs_GeneralInfo")
+   console.log("checkInputs_GeneralInfo")
     
-    if( FirstName !="" &&
-        MiddleName!="" &&
-        LastName  !="" &&
-        Email     !="" &&
-        Municipality!="" &&
-        Address !=""
+    if( FirstName.value !="" &&
+        MiddleName.value !="" &&
+        LastName.value  !="" &&
+        Municipality.value!="" &&
+        Address.value !="" &&
+        Birthdate.value != "" &&
+        Male.checked == true ||
+        Female.checked == true
     ){
         //console.log("type");
         RegistrationNextButton.disabled = false;
@@ -221,14 +226,36 @@ function checkInputs_GeneralInfo(){
 
 }
 
+
 function checkInputs_ResponderInfo(){
+
+    var RegistrationRegisterButton = document.getElementById("RegistrationRegisterButton");
+
+
+
     Education= document.getElementById("Education");
     IDType= document.getElementById("IDType");
     IDFile= document.getElementById("IDFile");
     IDNumber= document.getElementById("IDNumber");
     IDExpirationDate= document.getElementById("IDExpirationDate");
-    Specialization= document.getElementById("Specialization");
+    Specialization= document.getElementById("specialization");
     ProfilePicture = document.getElementById("ProfilePicture ");
+
+    if( 
+        Education.value !="" &&
+        IDType.value !="" &&
+        IDFile.files.size  != 0 &&
+        IDNumber.value!="" &&
+        IDExpirationDate.value !="" &&
+        Specialization.value != "" &&
+        ProfilePicture.files.size != 0
+    ){
+        console.log("type");
+        RegistrationRegisterButton.disabled = false;
+    } else{
+        console.log("not type");
+        RegistrationRegisterButton.disabled = true;
+    }
 
 }
 
@@ -417,3 +444,74 @@ function attemptTimer(){
 
 }
 
+
+
+/*Set data to specialization drop down */
+
+// gets all services 
+function getServices(){
+    
+    
+    var xmlhttp = new XMLHttpRequest();
+    
+  
+    
+
+    xmlhttp.open("POST", "Backend/Get_Specializations.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+           
+  
+
+            var dataArray = this.response;
+            dataArray = JSON.parse(dataArray);
+          
+            dataArray = categories(dataArray);
+
+            console.log(dataArray);
+            setData(dataArray);
+
+     
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send();
+    
+}// end of function
+
+
+//  extracting categories
+function categories(array){
+    var dataArray = array;
+    var number = dataArray.length;
+    var newData = [];
+ 
+
+
+    for(var i = 0; i<number; i++){
+  
+        newData[i] = dataArray[i]['serviceCategory']
+    }
+    newData.sort();
+
+    return newData;
+
+}
+
+// set data to dropdown
+
+function setData(array){
+    var dataArray = array;
+    var number = dataArray.length;
+    var specializations = document.getElementById('specialization');
+    for(var i=0; i<number;i++){
+        var option = document.createElement('option');
+        option.innerText = dataArray[i];
+        option.value = dataArray[i];
+        specializations.add(option);
+    }
+}

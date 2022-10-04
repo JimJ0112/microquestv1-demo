@@ -86,11 +86,11 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         }
 
     } else {
-        header("location: ../LoginForm.php?msg= Login Failed!");
+        header("location: ../Login.php?msg= Login Failed!");
     }// end of inner if
 
 } else {
-    header("location: ../LoginForm.php?msg= Login Failed!");
+    header("location: ../Login.php?msg= Login Failed!");
 }
 
 

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
-<body onload="init()">
+<body onload="getServices()">
 
 
 		<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
@@ -53,7 +53,7 @@
 								
 					</div>
 				
-					<!-- 1st page -->
+					<!-- 2nd page -->
 					<div id="EmailVerificationForm">
 						<div id="EmailVerificationForm1">
 
@@ -80,7 +80,7 @@
 					</div>
 
 
-				<!-- 2nd page -->
+				<!-- 3rd page -->
 				<div id="GeneralInfoForm">
 					<div id="GeneralInfoForm1">
 					
@@ -136,8 +136,8 @@
 
 						<div class="inputItem"> 
 							Sex: <br/>
-							<input type="radio" name="Sex"  value="Male" id="Sex"> Male 
-							<input type="radio" name="Sex"  value="Female" id="Sex"> Female 
+							<input type="radio" name="Sex"  value="Male" id="Male" oninput="checkInputs_GeneralInfo()"> Male 
+							<input type="radio" name="Sex"  value="Female" id="Female" oninput="checkInputs_GeneralInfo()"> Female 
 
 						</div><br/>
 						
@@ -146,14 +146,14 @@
 				</div>
 
 
-				<!--3rd page-->
+				<!--4th page-->
 
 				<div id="ResponderInfoForm">
 					<div id="ResponderInfoForm1">
 					
 						<div class="inputItem"> 
 							Educational Attainment: <br/>
-							<select name="Education" class="Registration-TextBox" id="Education"> 
+							<select name="Education" class="Registration-TextBox" id="Education" oninput=" checkInputs_ResponderInfo()"> 
 								<option selected="" disabled="">Select  Education</option>
                      			<option value="Elementary Graduate">Elementary Graduate</option>
                      			<option value="Secondary Graduate">Secondary Graduate</option>
@@ -166,7 +166,7 @@
 
 						<div class="inputItem"> 
 							Identification Card: <br/>
-							<select name="IDType" class="Registration-TextBox" id="IDType"> 
+							<select name="IDType" class="Registration-TextBox" id="IDType" oninput=" checkInputs_ResponderInfo()"> 
 								<option value="Driver's License"> Driver's License</option>    
                     			<option value="Philhealth"> Philhealth</option>    
                     			<option value="Voter's ID"> Voter's ID</option> 
@@ -175,12 +175,12 @@
 
 						<div class="inputItem"> 
 							ID: <br/>
-							<input type="file" name="IDFile" id="IDFile"> 
+							<input type="file" name="IDFile" id="IDFile" oninput=" checkInputs_ResponderInfo()"> 
 						</div><br/>
 
 						<div class="inputItem"> 
 							ID Number: <br/>
-							<input type="text" name="IDNumber" class="Registration-TextBox" id="IDNumber"> 
+							<input type="text" name="IDNumber" class="Registration-TextBox" id="IDNumber" oninput=" checkInputs_ResponderInfo()"> 
 						</div><br/>
 						
 					</div>
@@ -189,20 +189,20 @@
 					
 						<div class="inputItem"> 
 							ID Expiration date: <br/>
-								<input type="date" name="IDExpirationDate" class="Registration-TextBox" id="IDExpirationDate"> 
+								<input type="date" name="IDExpirationDate" class="Registration-TextBox" id="IDExpirationDate" oninput=" checkInputs_ResponderInfo()"> 
 								
 						</div> <br/>
 
 						<div class="inputItem"> 
 							Work Specialization: <br/>
-							<select name="Specialization" class="Registration-TextBox" id="Specialization"> 
+							<select name="Specialization" class="Registration-TextBox" id="specialization" oninput="checkInputs_ResponderInfo()"> 
 							</select>
 						</div> <br/>
 
 
 						<div class="inputItem"> 
 							Profile Picture <br/>
-							<input type="file" name="ProfilePicture" id="ProfilePicture" > 
+							<input type="file" name="ProfilePicture" id="ProfilePicture" oninput=" checkInputs_ResponderInfo()" > 
 	
 
 						</div><br/>
