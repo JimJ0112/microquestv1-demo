@@ -23,7 +23,7 @@
 		<div id="RegistrationContainer">
 
 			<!--Form -->
-			<form action="backend/RegisterBackend.php" method="post" enctype="multipart/form-data">
+			<form action="Backend/RegisterBackend.php" method="post" enctype="multipart/form-data">
 				<input type="hidden" name="userType" value="Responder">
 				<!-- 1st page -->
 					<div id="AccountInfoForm">
