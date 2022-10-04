@@ -99,7 +99,7 @@ if($exists){
 
 
 
-                header("location:Requestor_AvailableServices.php");
+                header("location:../Requestor_AvailableServices.php");
             }
         }
 }
