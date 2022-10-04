@@ -8,6 +8,6 @@ $DBHandler-> updateColumn("users","USERSTATUS","offline","email",$useremail);
 
 
 session_destroy();
-header("Location:../Login.php");
+header("Location:Login.php");
 
 ?>
