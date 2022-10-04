@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../Classes/DBHandler.php';
+require_once('../Classes/DBHandler.php');
 $useremail = $_SESSION["userEmail"];
 
 $DBHandler = new DBHandler();
