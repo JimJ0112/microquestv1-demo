@@ -15,6 +15,7 @@ class DBHandler {
 function __construct(){
     
     /* Localhost connection */
+    
     /*
     $this->dbservername = "localhost";
     $this->dbusername = "root";
@@ -23,10 +24,13 @@ function __construct(){
     */
 
     /* remote database connection */
+    
     $this->dbservername = "remotemysql.com";
     $this->dbusername = "Ze2pK93XLv";
     $this->dbpassword = "ytsYYcZNGw";
     $this->dbname = "Ze2pK93XLv";
+
+    
 
     $this-> dbconnection = mysqli_connect($this->dbservername,$this->dbusername,$this->dbpassword,$this->dbname);
  

@@ -460,7 +460,7 @@ function getServices(){
 
     xmlhttp.open("POST", "Backend/Get_Specializations.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
            
