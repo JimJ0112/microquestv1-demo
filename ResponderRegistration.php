@@ -23,25 +23,25 @@
 		<div id="RegistrationContainer">
 
 			<!--Form -->
-			<form action="" method="" enctype="multipart/form-data">
-
+			<form action="backend/RegisterBackend.php" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="userType" value="Responder">
 				<!-- 1st page -->
 					<div id="AccountInfoForm">
 						<div id="AccountInfoForm1">
 
 							<div class="inputItem"> 
 								Username: <br/>
-								<input type="text" name="Username" class="Registration-TextBox" id="Username" oninput="checkInputs_AccountInfo()"> 
+								<input type="text" name="userName" class="Registration-TextBox" id="Username" oninput="checkInputs_AccountInfo()"> 
 							</div><br/>
 
 							<div class="inputItem"> 
 								Email: <br/>
-								<input type="email" name="Email" class="Registration-TextBox" id="Email" oninput="checkInputs_AccountInfo()"> 
+								<input type="email" name="userEmail" class="Registration-TextBox" id="Email" oninput="checkInputs_AccountInfo()"> 
 							</div><br/>
 				
 							<div class="inputItem"> 
 								Password: <br/>
-								<input type="password" name="Password" class="Registration-TextBox" id="Password" oninput="checkInputs_AccountInfo()"> 
+								<input type="password" name="userPassword" class="Registration-TextBox" id="Password" oninput="checkInputs_AccountInfo()"> 
 							</div><br/>
 				
 							<div class="inputItem"> 
@@ -86,18 +86,30 @@
 					
 						<div class="inputItem"> 
 							First name: <br/>
-							<input type="text" name="FirstName" class="Registration-TextBox" id="FirstName" oninput="checkInputs_GeneralInfo()"> 
+							<input type="text" name="firstName" class="Registration-TextBox" id="FirstName" oninput="checkInputs_GeneralInfo()"> 
 						</div> <br/>
 
 						<div class="inputItem"> 
 							Middle name: <br/>
-							<input type="text" name="MiddleName" class="Registration-TextBox" id="MiddleName" oninput="checkInputs_GeneralInfo()"> 
+							<input type="text" name="middleName" class="Registration-TextBox" id="MiddleName" oninput="checkInputs_GeneralInfo()"> 
 						</div> <br/>
 
 						<div class="inputItem"> 
 							Last name: <br/>
-							<input type="text" name="LastName" class="Registration-TextBox" id="LastName" oninput="checkInputs_GeneralInfo()"> 
+							<input type="text" name="lastName" class="Registration-TextBox" id="LastName" oninput="checkInputs_GeneralInfo()"> 
 						</div><br/>
+
+						<div class="inputItem"> 
+							Birthdate: <br/>
+							<input type="date" class="Registration-TextBox" id="Birthdate" name="birthDate" oninput="checkInputs_GeneralInfo()"> 
+						</div><br/>
+
+						<div class="inputItem"> 
+							Sex: <br/>
+							<input type="radio" name="Sex"  value="Male" id="Male" oninput="checkInputs_GeneralInfo()"> Male 
+							<input type="radio" name="Sex"  value="Female" id="Female" oninput="checkInputs_GeneralInfo()"> Female 
+
+						</div>
 
 						
 					</div>
@@ -105,13 +117,8 @@
 					<div id="GeneralInfoForm2">
 					
 						<div class="inputItem"> 
-							Birthdate: <br/>
-							<input type="date" class="Registration-TextBox" id="Birthdate" name="Birthdate" oninput="checkInputs_GeneralInfo()"> 
-						</div><br/>
-
-						<div class="inputItem"> 
 							Municipality: <br/>
-								<select name="Municipality" class="Registration-TextBox" id="Municipality" oninput="checkInputs_GeneralInfo()"> 
+								<select name="municipality" class="Registration-TextBox" id="Municipality" oninput="checkInputs_GeneralInfo()"> 
 									<option selected="" disabled="">Select City / Municipality</option>
                      				<option value="Abucay">Abucay</option>
                      				<option value="Bagac">Bagac</option>
@@ -129,17 +136,19 @@
 						</div> <br/>
 
 						<div class="inputItem"> 
-							Address: <br/>
-							<input type="text" name="Address" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()"> 
+							House No: <br/>
+							<input type="text" name="houseNumber" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()"> 
 						</div> <br/>
 
+						<div class="inputItem"> 
+							Street: <br/>
+							<input type="text" name="street" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()"> 
+						</div> <br/>
 
 						<div class="inputItem"> 
-							Sex: <br/>
-							<input type="radio" name="Sex"  value="Male" id="Male" oninput="checkInputs_GeneralInfo()"> Male 
-							<input type="radio" name="Sex"  value="Female" id="Female" oninput="checkInputs_GeneralInfo()"> Female 
-
-						</div><br/>
+							Baranggay: <br/>
+							<input type="text" name="baranggay" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()"> 
+						</div> <br/> <br/><br/>
 						
 					</div>
 
@@ -153,7 +162,7 @@
 					
 						<div class="inputItem"> 
 							Educational Attainment: <br/>
-							<select name="Education" class="Registration-TextBox" id="Education" oninput=" checkInputs_ResponderInfo()"> 
+							<select name="education" class="Registration-TextBox" id="Education" oninput=" checkInputs_ResponderInfo()"> 
 								<option selected="" disabled="">Select  Education</option>
                      			<option value="Elementary Graduate">Elementary Graduate</option>
                      			<option value="Secondary Graduate">Secondary Graduate</option>
@@ -166,7 +175,7 @@
 
 						<div class="inputItem"> 
 							Identification Card: <br/>
-							<select name="IDType" class="Registration-TextBox" id="IDType" oninput=" checkInputs_ResponderInfo()"> 
+							<select name="idType" class="Registration-TextBox" id="IDType" oninput=" checkInputs_ResponderInfo()"> 
 								<option value="Driver's License"> Driver's License</option>    
                     			<option value="Philhealth"> Philhealth</option>    
                     			<option value="Voter's ID"> Voter's ID</option> 
@@ -175,12 +184,12 @@
 
 						<div class="inputItem"> 
 							ID: <br/>
-							<input type="file" name="IDFile" id="IDFile" oninput=" checkInputs_ResponderInfo()"> 
+							<input type="file" name="idFile" id="IDFile" oninput=" checkInputs_ResponderInfo()"> 
 						</div><br/>
 
 						<div class="inputItem"> 
 							ID Number: <br/>
-							<input type="text" name="IDNumber" class="Registration-TextBox" id="IDNumber" oninput=" checkInputs_ResponderInfo()"> 
+							<input type="text" name="idNumber" class="Registration-TextBox" id="IDNumber" oninput=" checkInputs_ResponderInfo()"> 
 						</div><br/>
 						
 					</div>
@@ -189,20 +198,20 @@
 					
 						<div class="inputItem"> 
 							ID Expiration date: <br/>
-								<input type="date" name="IDExpirationDate" class="Registration-TextBox" id="IDExpirationDate" oninput=" checkInputs_ResponderInfo()"> 
+								<input type="date" name="idExpiration" class="Registration-TextBox" id="IDExpirationDate" oninput=" checkInputs_ResponderInfo()"> 
 								
 						</div> <br/>
 
 						<div class="inputItem"> 
 							Work Specialization: <br/>
-							<select name="Specialization" class="Registration-TextBox" id="specialization" oninput="checkInputs_ResponderInfo()"> 
+							<select name="specialization" class="Registration-TextBox" id="specialization" oninput="checkInputs_ResponderInfo()"> 
 							</select>
 						</div> <br/>
 
 
 						<div class="inputItem"> 
 							Profile Picture <br/>
-							<input type="file" name="ProfilePicture" id="ProfilePicture" oninput=" checkInputs_ResponderInfo()" > 
+							<input type="file" name="userPhoto" id="ProfilePicture" oninput=" checkInputs_ResponderInfo()" > 
 	
 
 						</div><br/>
@@ -211,21 +220,21 @@
 
 				</div>
 
-
-
-			</form>
-
-			<input type="button" id="RegistrationBackButton" value= "Back" onclick="backForm()" > 
-			<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled> 
+				<input type="button" id="RegistrationBackButton" value= "Back" onclick="backForm()" > 
+				<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled> 
 
 			
 				<input type="submit" id="RegistrationRegisterButton" value= "Register">
 			
 
+			</form>
+
+
+
 		</div>
 
 
-		<script src="js/Registration.js"> </script>
+		<script src="js/Responder_Registration.js"> </script>
 
 </body>
 </html>

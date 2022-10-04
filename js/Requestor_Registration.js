@@ -244,11 +244,12 @@ function checkInputs_ResponderInfo(){
     if( 
         Education.value !="" &&
         IDType.value !="" &&
-        IDFile.files.size  != 0 &&
+       // IDFile.files.size  != 0 &&
         IDNumber.value!="" &&
-        IDExpirationDate.value !="" &&
-        Specialization.value != "" &&
-        ProfilePicture.files.size != 0
+        IDExpirationDate.value !="" 
+       // IDExpirationDate.value !="" &&
+        //Specialization.value != "" &&
+        //ProfilePicture.files.size != 0
     ){
         console.log("type");
         RegistrationRegisterButton.disabled = false;

@@ -11,7 +11,7 @@ $exists = $DBHandler->exists("userprofile","userEmail",$userEmail);
 
 if($exists){
     
-        header("location: ../LoginForm.php?msg=User $email already exists!");
+        header("location: ../Login.php?msg=User $email already exists!");
 } else {
 
         $userType = $_POST['userType'];
@@ -27,7 +27,7 @@ if($exists){
 
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
-        $userGender= $_POST['userGender'];
+        $userGender= $_POST['Sex'];
 
         $education = $_POST['education'];
         $municipality= $_POST['municipality'];
@@ -83,7 +83,7 @@ if($exists){
                 $_SESSION["userID"]=$userID;
                 $specialization = $DBHandler-> getData("userprofile","userEmail",$userEmail,"specialization");
                 $_SESSION['specialization'] = $specialization;
-                header("location:../CreateService.php?newUser=true");
+                //header("location:../CreateService.php?newUser=true");
 
             } else {
                 
@@ -99,7 +99,7 @@ if($exists){
 
 
 
-                header("location:../User_Profile.php");
+                header("location:../Requestor_AvailableServices.php");
             }
         }
 }
