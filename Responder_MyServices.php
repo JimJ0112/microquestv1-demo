@@ -18,7 +18,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>
-		Available Services
+		My Services
 	</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -29,14 +29,14 @@
 
 <!-- NavBar-->
 <?php
-	require_once("imports/RequestorNavBar.php");
+	require_once("imports/ResponderNavBar.php");
 
 ?>
 
 <!--Main-->
 	<div id="AvailableServicesContainer">
 
-		<center> <h1 id="AvailableServicesTitle"> Available Services </h1> </center>
+		<center> <h1 id="AvailableServicesTitle"> Responder - My Services </h1> </center>
 
 		<div id="ServicesContainer">
 			
@@ -46,6 +46,7 @@
 
 					<li class="AvailableServicesContainer-ControlItem">
 						<table>
+							<!--
 							<tr>
 								<td>
 									<img src="img/g838.png" class="RequestsContainer-ControlItemIcon">
@@ -54,6 +55,7 @@
 									<span class="PageIndicator"> Available Services </span>
 								</td>
 					 		</tr>
+							-->
 						</table>
 					</li>
 
@@ -65,16 +67,16 @@
 								</td>
 
 								<td>
-									<a href="Requestor_RequestBoard.php"> <span> My Requests</span> </a>
+									<a href="Requestor_RequestBoard.php"> <span> RequestBoard </span> </a>
 								</td>
 							</tr>
 	   					</table>
 					</li>
 
 					<li class="AvailableServicesContainer-ControlItem" id="AvailableServicesCategoryContainer"> 
-						<select id="AvailableServicesCategory"> 
-							<option> Category</option>
-						</select> 
+						
+							<input type="Button" id="OfferaServiceButton" value="Offer a Service"> 
+					
 					</li>
 
 				</ul>

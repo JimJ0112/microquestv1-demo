@@ -23,7 +23,36 @@
 
 	
 		<a href="Responder_Transactions.php"><li class="Nav-item" title="My Transactions">Transactions</li></a>
+		
+		<a href="<?php
+
+					$pagename = basename($_SERVER['PHP_SELF']);
+						if($pagename === "Responder_MyServices.php"){
+							echo "Responder_RequestBoard.php"; 
+						}else if($pagename ==="Responder_RequestBoard.php"){
+							echo "Responder_MyServices.php";
+						}else{
+							echo $pagename;
+						}
+				
+				?>">
+		<li class="Nav-item" title="My Services">
+
+				<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+						if($pagename === "Responder_MyServices.php"){
+							echo "RequestBoard"; 
+						}else if($pagename ==="Responder_RequestBoard.php"){
+							echo "My Services";
+						}else{
+							echo $pagename;
+						}
+				?>
+		</li></a>
+		
+
 		<a href="Responder_Transactions.php"><li class="Nav-item" title="My Messages">Messages</li></a>
+		
 		<a href="Responder_Transactions.php">
 			<li class="Nav-item" title="Me">
 				<?php

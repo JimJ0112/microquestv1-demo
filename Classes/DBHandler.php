@@ -25,11 +25,12 @@ function __construct(){
 
     /* remote database connection */
     
+    ///* 
     $this->dbservername = "remotemysql.com";
     $this->dbusername = "Ze2pK93XLv";
     $this->dbpassword = "ytsYYcZNGw";
     $this->dbname = "Ze2pK93XLv";
-
+    //*/
     
 
     $this-> dbconnection = mysqli_connect($this->dbservername,$this->dbusername,$this->dbpassword,$this->dbname);
@@ -792,8 +793,8 @@ public function getOtherServices(){
 // 09/06/2022 1:28am nilagyan ko muna ng servicesinfo.serviceStatus = 'Active', not sure if that's a good idea tho
    
 
-    //$query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active' GROUP BY serviceCategory";
-    $query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active'";
+    $query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active' GROUP BY serviceCategory";
+    //$query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active'";
 
 
     $result = mysqli_query($this->dbconnection, $query);

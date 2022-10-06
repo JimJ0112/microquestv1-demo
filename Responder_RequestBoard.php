@@ -25,7 +25,7 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
-<body id="Responder_RequestBoardBackground" onload="<?php
+<body id="Responder_RequestBoardBackground" style="zoom:90%;" onload="<?php
        if(isset($_SESSION['specialization'])){
 
             $specialization = $_SESSION['specialization'];
@@ -113,7 +113,7 @@ session_start();
 				</li>
 				-->
 
-				<li class="RequestsContainer-ControlItem" id="RequestsCategoryContainer"> 
+				<li class="RequestsContainer-ControlItem" id="RequestsSearchContainer"> 
 					<button>🔍</button>
 					<span> <input type="Search" placeholder="Search.."> </span>
 

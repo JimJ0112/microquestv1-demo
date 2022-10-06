@@ -83,7 +83,7 @@ if($exists){
                 $_SESSION["userID"]=$userID;
                 $specialization = $DBHandler-> getData("userprofile","userEmail",$userEmail,"specialization");
                 $_SESSION['specialization'] = $specialization;
-                //header("location:../CreateService.php?newUser=true");
+                header("location:../Responder_Requestboard.php?newUser=true");
 
             } else {
                 

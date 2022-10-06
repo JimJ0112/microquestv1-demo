@@ -1,1 +1,7 @@
-{}
+{
+    "name": "microquest-demo",
+    "description": "A short description of what your package does",
+    "require": {
+
+    }
+}
