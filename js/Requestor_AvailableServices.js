@@ -184,8 +184,9 @@ function getServices(){
                 //dataArray = categories(dataArray);
                 setData(dataArray);
 
-            console.log(positions(dataArray));
+            //console.log(positions(dataArray));
 
+            console.log(categories(dataArray))
      
         }else{
             console.log(err);

@@ -21,16 +21,16 @@ function __construct(){
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "microquestdbv2";
-    */
+    //*/
 
     /* remote database connection */
     
-    ///* 
+   // /* 
     $this->dbservername = "remotemysql.com";
     $this->dbusername = "Ze2pK93XLv";
     $this->dbpassword = "ytsYYcZNGw";
     $this->dbname = "Ze2pK93XLv";
-    //*/
+   //*/
     
 
     $this-> dbconnection = mysqli_connect($this->dbservername,$this->dbusername,$this->dbpassword,$this->dbname);

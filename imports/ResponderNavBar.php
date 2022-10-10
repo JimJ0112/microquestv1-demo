@@ -8,12 +8,13 @@
 	<title>
 		Responder Requestboard
 	</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/NavBar.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 <body>
 
-<img src="img/b.jpg" id="RequestboardBackground"/>
 
 <!-- NavBar-->
 <div id="NavContainer">
@@ -32,10 +33,11 @@
 						}else if($pagename ==="Responder_RequestBoard.php"){
 							echo "Responder_MyServices.php";
 						}else{
-							echo $pagename;
+							echo "Responder_RequestBoard.php"; 
 						}
 				
 				?>">
+
 		<li class="Nav-item" title="My Services">
 
 				<?php
@@ -45,7 +47,7 @@
 						}else if($pagename ==="Responder_RequestBoard.php"){
 							echo "My Services";
 						}else{
-							echo $pagename;
+							echo "RequestBoard"; 
 						}
 				?>
 		</li></a>

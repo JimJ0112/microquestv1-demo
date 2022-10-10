@@ -1,0 +1,18 @@
+{
+    "name": "microQuest",
+    "lang": "en-us",
+    "short_name": "microQuest",
+    "description": "A sample PWA for testing purposes",
+    "start_url": "index.php",
+    "scope": "/",
+    "display": "standalone",
+    "theme_color": "#2f3d58",
+    "background_color": "#9F2B68",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "img/logo512.png",
+            "sizes": "512x512"
+        }
+    ]
+}

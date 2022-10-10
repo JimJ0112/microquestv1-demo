@@ -20,12 +20,21 @@
 	<title>
 		Available Services
 	</title>
+
+	
+    <link rel="manifest" href="manifest.json">
+    
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <meta content='yes' name='mobile-web-app-capable'/>
+	
+	<link rel="stylesheet" type="text/css" href="css/Requestor_AvailableServices.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
 
 </head>
 <body id="Requestor_AvailableServicesBackground" onload="getServices()">
 
-<img src="img/b.jpg" id="RequestboardBackground"/>
+<img src="img/b.jpg" id="BodyBackgroundImg"/>
 
 <!-- NavBar-->
 <?php

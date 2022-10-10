@@ -23,7 +23,14 @@ session_start();
 	<title>
 		microQuest - Login
 	</title>
+
+	
+    <link rel="manifest" href="manifest.json">
+    
+
+
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/Login.css">
 
 	<meta content='yes' name='apple-mobile-web-app-capable'/>
     <meta content='yes' name='mobile-web-app-capable'/>

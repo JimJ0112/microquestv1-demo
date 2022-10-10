@@ -6,12 +6,12 @@
 	<title>
 		Responder Requestboard
 	</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-
+	
+	<link rel="stylesheet" type="text/css" href="css/NavBar.css">
 </head>
 <body>
 
-<img src="img/b.jpg" id="RequestboardBackground"/>
+<!--<img src="img/b.jpg" id="RequestboardBackground"/>-->
 
 <!-- NavBar-->
 <div id="NavContainer">

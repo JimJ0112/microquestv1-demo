@@ -22,7 +22,16 @@ session_start();
 	<title>
 		Responder Requestboard
 	</title>
+
+	
+    <link rel="manifest" href="manifest.json">
+    
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <meta content='yes' name='mobile-web-app-capable'/>
+
+	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/Responder_RequestBoard.css">
 
 </head>
 <body id="Responder_RequestBoardBackground" style="zoom:90%;" onload="<?php
@@ -46,7 +55,8 @@ session_start();
     
     ?>">
 
-<img src="img/b.jpg" id="RequestboardBackground"/>
+<img src="img/b.jpg" id="BodyBackgroundImg"/>
+
 
 <!-- NavBar-->
 
@@ -114,8 +124,10 @@ session_start();
 				-->
 
 				<li class="RequestsContainer-ControlItem" id="RequestsSearchContainer"> 
-					<button>🔍</button>
-					<span> <input type="Search" placeholder="Search.."> </span>
+			
+						<button id="RequestBoardSearchButton">🔍</button>
+					 	<input type="Search" placeholder="Search.." id="RequestBoardSearchBox"> 
+			
 
 				</li>
 

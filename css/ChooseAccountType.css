@@ -1,0 +1,293 @@
+/*Local Font Styles */
+
+
+@font-face {
+	font-family: "OPTICopperplate-Heavy";
+	src: url("../fonts/OPTICopperplate-Heavy.otf");
+
+}
+
+@font-face {
+	font-family: "Retroking";
+	src: url("../fonts/Retroking.ttf");
+
+}
+
+@font-face {
+	font-family: "Palatino Linotype";
+	src: url("../fonts/Palatino Linotype.ttf");
+
+}
+
+
+@font-face {
+	font-family: "brush script mt kursiv";
+	src: url("../fonts/brush script mt kursiv.ttf");
+
+}
+
+
+
+/*ChooseAccountType.html*/
+
+
+#ChooseAccountType-Body{
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	display: grid;
+
+	width: 100%;
+	height: 100%;
+	background-color:rgb(52,42,41);
+
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-position: center;
+
+
+}
+
+#ChooseAccountTypeBackground{
+	width: 100vw;
+	height: 100vh;
+	background-color:rgb(68, 55, 53);
+
+}
+
+#ChooseAccountTypeBackground1{
+	width: 100vw;
+	height: 100vh;
+	z-index: 3;
+	position: fixed;
+	background-color:rgb(68, 55, 53);
+	border-radius: 0 0 0 100%;
+	margin-left: 30%;
+	margin-top: 0;
+	
+}
+
+
+#ChooseAccountTypeBackground2{
+	width: 75vw;
+	height: 60vh;
+	z-index:4;
+	position: fixed;
+	background-color:rgb(43, 34, 33);
+	border-radius: 0 100% 0 0;
+
+	margin-top: 45vh;
+
+	background-image: url("../img/businessidea.png");
+	background-size: contain;
+
+	
+	
+}
+
+#ChooseAccountTypeBackground3{
+	width: 50vw;
+	height: 500px;
+	z-index:1;
+	position: fixed;
+	background-color:rgb(247, 42, 10);
+	background-color:rgb(43, 34, 33);
+
+	
+	
+}
+
+#ChooseAccountTypeBackground4{
+	width: 75vw;
+	height: 60vh;
+	background-image: url("../img/businessidea.png");
+	background-size: contain;
+	z-index: 2;
+	position: fixed;
+}
+
+
+
+
+#ChooseAccountType-Container{
+	position: absolute;
+	z-index: 6;
+	width: 60vw;
+	height: 600px;
+	background-color: white;
+
+	align-self: center;
+	align-items: center;
+	margin-left: 18%;
+	margin-top: 2%;
+	padding:0;
+	
+	overflow: hidden;
+}
+
+#microQuestLogo{
+	z-index: 9;
+	position: absolute;
+	width: 200px;
+	height: 100px;
+	right: 50px;
+	top:10px
+}
+
+#SelectAccountType{
+	font-family: brush script mt kursiv;
+	font-size:50px;
+	margin: 20px;
+
+}
+
+.ChooseAccountType-Option{
+	height: fit-content;
+	width: 350px;
+	
+	display: inline-block;
+	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	font: Arial;
+	letter-spacing: -1px;
+	padding: 0;
+	filter: grayscale(100%);
+	margin: 0;
+}
+
+.ChooseAccountType-Option:hover{
+
+	filter: grayscale(0%);
+	background-color: rgba(128, 128, 128, 0.432);
+}
+
+
+#Responder{
+
+	margin: 10px;
+	margin-top: 0;
+}
+
+#Requestor{
+	margin: 10px;
+	margin-top: 0;
+}
+
+.Option-Image{
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 100%;
+	border: 6px solid rgb(80, 45, 23);
+	cursor: pointer;
+}
+
+
+#ChooseAccountType-Footer{
+	background-color:rgba(43, 34, 33, 0.342);
+	position: absolute;
+	width: 100%;
+	margin: 0;
+	z-index: 0;
+	height: 80px;
+	bottom: 0;
+
+}
+
+.ChooseAccountType-Button{
+	float: right;
+	margin:5px;
+	height: 40px;
+	width: 100px;
+	margin-right: 10px;
+	margin-top: 20px;
+	background-color: transparent;
+	border: 0;
+	font-size: large;
+	font-weight: bolder;
+	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	font: Arial;
+}
+
+
+.ChooseAccountType-Button:hover{
+	color: rgb(255, 196, 1);
+}
+
+
+#Next{
+
+	margin-right: 80px;
+	background-color: rgb(80, 45, 23);
+	color: white;
+
+}
+
+#Next:disabled{
+	filter: grayscale(100%);
+	cursor: not-allowed;
+}
+
+#Next:hover{
+	background-color: rgb(136, 75, 38);
+	color: rgb(255, 196, 1);
+}
+
+.CheckMark{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top:0;
+	right: 100px;
+	background-color: white;
+	border-radius: 100%;
+	opacity: 0;
+}
+
+
+#ResponderCheck{
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+
+#ResponderCheck + #ResponderCheckMark{
+	cursor: pointer;
+}
+
+
+
+#ResponderCheck:checked + #ResponderCheckMark {
+	
+}
+
+
+#RequestorCheck{
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+
+#RequestorCheck + #RequestorCheckMark{
+	cursor: pointer;
+}
+
+#RequestorCheck:checked + #RequestorCheckMark {
+
+}
+
+#Responder:active{
+	filter: grayscale(0);
+}
+
+#Requestor:active{
+	
+	filter: grayscale(0);
+	
+}
+

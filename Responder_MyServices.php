@@ -20,12 +20,20 @@
 	<title>
 		My Services
 	</title>
+
+	
+    <link rel="manifest" href="manifest.json">
+    
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <meta content='yes' name='mobile-web-app-capable'/>
+	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/Responder_MyServices.css">
 
 </head>
-<body id="Requestor_AvailableServicesBackground" onload="getServices()">
+<body id="Requestor_AvailableServicesBackground" onload="getServices()" style="zoom:90%;">
 
-<img src="img/b.jpg" id="RequestboardBackground"/>
+<img src="img/b.jpg" id="BodyBackgroundImg"/>
 
 <!-- NavBar-->
 <?php
@@ -67,7 +75,7 @@
 								</td>
 
 								<td>
-									<a href="Requestor_RequestBoard.php"> <span> RequestBoard </span> </a>
+									<a href="Responder_RequestBoard.php"> <span> RequestBoard </span> </a>
 								</td>
 							</tr>
 	   					</table>
@@ -138,7 +146,15 @@
 
 
 
+
+
+
+
 <script src="js/Requestor_AvailableServices.js"> </script>
+
+
+
+
 
 
 </body>

@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,27 +10,27 @@
 	<title>
 		Requestor Transactions
 	</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 
+	
+    <link rel="manifest" href="manifest.json">
+    
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <meta content='yes' name='mobile-web-app-capable'/>
+
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/Requestor_Transactions.css">
 </head>
 <body id="Responder_TransactionsBackground">
 
-<img src="img/b.jpg" id="RequestboardBackground"/>
+<img src="img/b.jpg" id="BodyBackgroundImg"/>
 
 <!-- NavBar-->
-<div id="NavContainer">
-	<img src="img/logo.png" id="Nav-Logo" title="Home"> 
-	<ul id="NavBar">
-		
 
-	
-		<a> <li class="Nav-item" title="My Transactions">RequestBoard</li> </a>
-		<a> <li class="Nav-item" title="My Messages">Messages </li> </a>
-		<a> <li class="Nav-item" title="Me">User Profile</li> </a>
-		<a> <li class="Nav-item" id="LogOutButton" title="Log Out">Log out</li> </a>
-	
-	</ul>
-</div>
+<?php
+	require_once("imports/RequestorNavBar.php");
+
+?>
 
 <div id="TransactionsBackContainer">
 

@@ -6,7 +6,16 @@
 	<title>
 		Requestor Registration
 	</title>
+
+	
+    <link rel="manifest" href="manifest.json">
+    
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <meta content='yes' name='mobile-web-app-capable'/>
+	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/Registration.css">
+
 
 </head>
 <body onload="init()">

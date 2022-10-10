@@ -21,7 +21,15 @@ session_start();
 	<title>
 		Requestor's Requestboard
 	</title>
+
+	
+    <link rel="manifest" href="manifest.json">
+    
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <meta content='yes' name='mobile-web-app-capable'/>
+	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/Requestor_RequestBoard.css">
 
 </head>
 <body id="Requestor_RequestBoardBackground" onload=
@@ -33,7 +41,7 @@ session_start();
 	?>
 >
 
-<img src="img/b.jpg" id="RequestboardBackground"/>
+<img src="img/b.jpg" id="BodyBackgroundImg"/>
 
 <!-- NavBar-->
 <?php
