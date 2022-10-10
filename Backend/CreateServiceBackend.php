@@ -105,7 +105,7 @@ if(isset($_POST["formType"])){
 
     }
 
-        header("location:../MyServices.php");
+        //header("location:../Responder_MyServices.php");
 
 
 }

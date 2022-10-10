@@ -48,7 +48,7 @@ function positions(array){
 function createServiceElements(Number){
  
     DataNumber = Number;
-    div = document.getElementById("AvailServiceContent");
+    div = document.getElementById("OtherServicesContainer");
    
     
     for(var i = 0;i<DataNumber;i++){
@@ -182,8 +182,8 @@ function getServices(){
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
-            document.getElementById("AvailServiceContent").innerHTML = "";
-            selectedCategory = document.getElementById("selectedCategory");
+            document.getElementById("OtherServicesContainer").innerHTML = "";
+            //selectedCategory = document.getElementById("selectedCategory");
   
 
             
@@ -233,9 +233,9 @@ function selectCategory(string){
 function setCategory(string){
     var data = string;
 
-    var regularServices = document.getElementById("regularServicesForm");
-    var pasabuy = document.getElementById("pasabuyForm");
-    var otherServices = document.getElementById("otherCategoriesForm");
+    var regularServices = document.getElementById("regularServicesFormBack");
+    var pasabuy = document.getElementById("pasabuyFormBack");
+    var otherServices = document.getElementById("otherCategoriesFormBack");
     var serviceCategoryRegular = document.getElementById("serviceCategoryRegular");
     getPositions(data);
 
@@ -262,9 +262,9 @@ function setCategory(string){
 // for closing the forms
 
 function closeForms(){
-    var regularServices = document.getElementById("regularServicesForm");
-    var pasabuy = document.getElementById("pasabuyForm");
-    var otherServices = document.getElementById("otherCategoriesForm");
+    var regularServices = document.getElementById("regularServicesFormBack");
+    var pasabuy = document.getElementById("pasabuyFormBack");
+    var otherServices = document.getElementById("otherCategoriesFormBack");
 
 
     regularServices.style.display = "none";

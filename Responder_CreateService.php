@@ -42,6 +42,7 @@ session_start();
 
 <!-- forms -->
 <div id="regularServicesFormBack" class="formBack">
+
     <form action="Backend/CreateServiceBackend.php" method="post" enctype="multipart/form-data" id="regularServicesForm" class="ServicePopUp"> 
         <input type="hidden" name="formType" value="regularServices">
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
@@ -52,18 +53,32 @@ session_start();
      
                     <td> Service Position </td>
               
+                    <td>
                         <select name="servicePosition" id="servicePositionDropDown" onchange="otherPosition()">
                             <option value="Delivery"> Delivery </option>
                         </select><br/>
+                    </td>
                
-          
+                </tr>
+                <tr>
+                    <td>
+                        Other Service Position:
+                    </td>
+
+                    <td>
                         <input name="otherServicePosition" id="otherServicePosition" type="text" placeholder="Please enter"/>
+                    </td>
+                </tr>
+
+                <tr>
+          
+            
 
            
                     <td> Rate </td>
                     <td>
                         <input type="number" name="rate">
-                    </td> <br/>
+                    </td> 
                 </tr>
 
                 <tr>
@@ -241,7 +256,7 @@ session_start();
                     <table>
                         <tr>
                             <td>
-                                <image src="img/requests.png" class="RequestsButtonImage"> 
+                                <image src="img/work-icon.png" class="RequestsButtonImage"> 
                                 
                             </td>
 
