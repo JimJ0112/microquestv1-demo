@@ -7,6 +7,7 @@
 		microQuest - Choose Account Type
 	</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/ChooseAccountType.css">
 
 </head>
 <body id="ChooseAccountType-Body">
