@@ -83,7 +83,7 @@
 
 					<li class="AvailableServicesContainer-ControlItem" id="AvailableServicesCategoryContainer"> 
 						
-							<input type="Button" id="OfferaServiceButton" value="Offer a Service"> 
+							<a href="Responder_CreateService.php" id="OfferaServiceButton" >Offer a Service </a>
 					
 					</li>
 
