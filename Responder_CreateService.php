@@ -246,7 +246,7 @@ session_start();
                             </td>
 
                             <td>
-                                <span id="RequestsButtonText"> RequestBoard </span> 
+                                <a href="Responder_RequestBoard.php"> <span id="RequestsButtonText"> RequestBoard </span> </a>
                             </td>
                         <tr>
                     </table>
@@ -261,7 +261,7 @@ session_start();
                             </td>
 
                             <td>
-                                <span id="RequestsButtonText"> My Services </span> 
+                                <a href="Responder_MyServices.php"> <span id="RequestsButtonText"> My Services </span> </a>
                             </td>
                         <tr>
                     </table>
