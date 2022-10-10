@@ -41,7 +41,7 @@ session_start();
 
 
 <!-- forms -->
-
+<div id="regularServicesFormBack" class="formBack">
     <form action="Backend/CreateServiceBackend.php" method="post" enctype="multipart/form-data" id="regularServicesForm" class="ServicePopUp"> 
         <input type="hidden" name="formType" value="regularServices">
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
@@ -80,10 +80,11 @@ session_start();
             <br/> <br/> <br/> <br/>
         <input type="submit"/>
     </form>
-
+</div>
 
 <!-- For Pasabuy -->
 
+<div id="pasabuyFormBack" class="formBack">
     <form action="Backend/CreateServiceBackend.php" method="post" enctype="multipart/form-data" id="pasabuyForm" class="ServicePopUp"> 
         <input type="hidden" name="formType" value="pasabuy">
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
@@ -141,9 +142,10 @@ session_start();
         <br/> <br/> <br/>
         <input type="submit">
     </form>
-
+</div>
 <!-- For other categories -->
 
+<div id="otherCategoriesFormBack" class="formBack">
     <form action="Backend/CreateServiceBackend.php" method="post" enctype="multipart/form-data" id="otherCategoriesForm" class="ServicePopUp"> 
 
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
@@ -186,9 +188,15 @@ session_start();
 
             <input type="submit"/>
     </form>
-
+</div>
 
 <!-- Main -->
+<?php
+            if(isset($_GET['newUser'])){
+                echo" <a href='Responder_Home.php'> <div class='createRequestButton'> Skip for now </div> <a/>";
+            }
+?>
+
 <div id="Responder_CreateServiceMainBack">
     
         <br/>
@@ -201,22 +209,48 @@ session_start();
     <center>
 
 
-        <?php
-            if(isset($_GET['newUser'])){
-                echo" <a href='Responder_Home.php'> <div class='createRequestButton'> Skip for now </div> <a/>";
-            }
-        ?>
+
 
 
 
        
-            <div id="CreateServiceMainSearchContainer">
-                <form method="GET" action="Backend/Get_products.php"> 
+            <div id="CreateServiceControlsContainer">
+                <form method="GET" action="Backend/Get_products.php" id="SearchForm"> 
                     <button id="CreateServiceSearchButton">🔍</button>
                     <span>
-                        <input type="Search" name="q" id="CreateServiceSearch">
+                        <input type="Search" name="q" id="CreateServiceSearch" placeholder="Search..">
                     </span>
                 </form>
+
+                <div id="ControlItemRequestsButton">
+                    <table>
+                        <tr>
+                            <td>
+                                <image src="img/requests.png" class="RequestsButtonImage"> 
+                                
+                            </td>
+
+                            <td>
+                                <span id="RequestsButtonText"> RequestBoard </span> 
+                            </td>
+                        <tr>
+                    </table>
+                </div>
+
+                <div id="ControlItemRequestsButton">
+                    <table>
+                        <tr>
+                            <td>
+                                <image src="img/requests.png" class="RequestsButtonImage"> 
+                                
+                            </td>
+
+                            <td>
+                                <span id="RequestsButtonText"> My Services </span> 
+                            </td>
+                        <tr>
+                    </table>
+                </div>
             <div>
       
 
@@ -225,29 +259,45 @@ session_start();
 
 
 
-    <div id="createServiceMain"> 
+    <div id="createServiceNavMain"> 
 
      <ul>
-        <li class="serviceCard-main" onclick="setCategory('Home Service')"> 
-            <image src="img/work-icon.png" class="bannerImage"> 
-            <span class="categoryTitle"> Home Services </span> 
+        <li class="serviceNavItem" onclick="setCategory('Home Service')"> 
+            <table>
+                <tr>
+                    <td> <image src="img/work-icon.png" class="bannerImage"> </td>
+                    <td> <span class="categoryTitle"> Home Services </span> </td>
+                </tr>
+            </table>
         </li> 
 
 
-        <li class="serviceCard-main" onclick="setCategory('Pasabuy')"> 
-            <image src="img/work-icon.png" class="bannerImage"> 
-             <span class="categoryTitle"> Pasabuy </span> 
+        <li class="serviceNavItem" onclick="setCategory('Pasabuy')"> 
+            <table>
+                <tr>
+                    <td> <image src="img/work-icon.png" class="bannerImage"> </td>
+                    <td> <span class="categoryTitle"> Pasabuy </span> </td>
+                </tr>
+            </table>
         </li>
 
 
-        <li class="serviceCard-main" onclick="setCategory('Computer related work')">
-            <image src="img/work-icon.png" class="bannerImage"> 
-             <span class="categoryTitle"> Computer Related </span>  
+        <li class="serviceNavItem" onclick="setCategory('Computer related work')">
+            <table>
+                <tr>
+                    <td> <image src="img/work-icon.png" class="bannerImage"> </td>
+                    <td> <span class="categoryTitle"> Computer Related </span>  </td>
+                </tr>
+            </table>
         </li>
 
-        <li class="serviceCard-main" onclick="setCategory('Other')"> 
-            <image src="img/work-icon.png" class="bannerImage"> 
-             <span class="categoryTitle"> Other </span> 
+        <li class="serviceNavItem" onclick="setCategory('Other')"> 
+            <table>
+                <tr>
+                    <td> <image src="img/work-icon.png" class="bannerImage"> </td>
+                    <td> <span class="categoryTitle"> Other </span> </td>
+                </tr>
+            </table>
         </li>
      </ul>
 
