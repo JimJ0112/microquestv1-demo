@@ -204,3 +204,27 @@
 	filter: brightness(1);
 
 }
+
+
+
+#RequestCategory{
+	background-color:transparent;
+	border: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color:rgb(84, 47, 7);
+	cursor: pointer;
+
+	border: 3px solid rgb(84, 47, 7);
+	
+	width: 300px;
+	font-weight: bold;
+}
+
+.CreateRequestControlsDropDown{
+	height: 100%;
+
+	width: fit-content;
+	margin: auto;
+	padding:10px;
+}

@@ -27,7 +27,7 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/Requestor_CreateRequest.css">
 
-    <!--<script src="js/createService.js"> </script>-->
+    <script src="js/CreateRequest.js"> </script>
 
 
     <title> Create a Request </title>
@@ -90,8 +90,8 @@ session_start();
             </div>
 
             <div class="CreateRequestControlsDropDown" id="AvailableServicesCategoryContainer"> 
-						<select id="AvailableServicesCategory"> 
-							<option> Category</option>
+						<select id="RequestCategory"> 
+							<option selected disabled> Category</option>
 						</select> 
 			</div>
       
