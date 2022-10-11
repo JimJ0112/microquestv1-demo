@@ -123,3 +123,7 @@ a{
 	filter: brightness(100%);
 	filter: invert(0.3);
 }
+
+.navControlSelected{
+	color:black;
+}
