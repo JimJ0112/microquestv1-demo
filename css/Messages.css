@@ -1,0 +1,207 @@
+/*Local Font Styles */
+
+
+@font-face {
+	font-family: "OPTICopperplate-Heavy";
+	src: url("../fonts/OPTICopperplate-Heavy.otf");
+
+}
+
+@font-face {
+	font-family: "Retroking";
+	src: url("../fonts/Retroking.ttf");
+
+}
+
+@font-face {
+	font-family: "Palatino Linotype";
+	src: url("../fonts/Palatino Linotype.ttf");
+
+}
+
+
+@font-face {
+	font-family: "brush script mt kursiv";
+	src: url("../fonts/brush script mt kursiv.ttf");
+
+}
+
+
+
+/*Responder_RequestBoard*/
+
+
+body{
+	background-image:url('../img/b.jpg');
+	background-position: center;
+	background-size: cover;
+
+}
+
+
+
+#MessagesMainContainer{
+	display: grid;
+	grid-template-columns: 1.75fr 5fr;
+	grid-template-areas: "Conversations  Messages ";
+	width: 80%;
+	height:100%;
+	margin: auto;
+	overflow: hidden;
+	overflow-y: scroll;
+	margin-top: 150px;
+	
+
+}
+
+#MessagesMainBack{
+	
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	display: grid;
+	padding: auto;
+	
+	
+}
+
+
+
+
+
+/* Conversations list*/
+#Conversations{
+	border: 1px solid white;
+	width: 100%;
+	height: 100%;
+	grid-area: Conversations;
+	background-color: gray;
+	z-index: 10;
+	overflow: hidden;
+}
+
+#conversationsContent{
+	
+	background-color: rgb(94, 74, 71);
+}
+
+#conversationsList{
+	background-color: rgb(237, 230, 217);
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+
+.messageUserPhoto{
+	width: 50px;
+	height: 50px;
+	border-radius: 100px;
+	object-fit: cover;
+	border: 2px solid black;
+	margin:auto;
+
+}
+
+.inboxCard{
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
+}
+
+.inboxUserName{
+	font-weight: bolder;
+}
+
+.lastMessageP{
+	font-weight: lighter;
+	font-size: smaller;
+	color: gray;
+	text-align: center;
+}
+
+.messageProfilePic{
+	display: grid;
+}
+
+#Chats{
+	font-family: Retroking;
+	font-weight: lighter;
+	text-align: center;
+	color: white;
+}
+
+/* Messages */
+#Messages{
+	border: 1px solid white;
+	width: 100%;
+	height: 100%;
+	grid-area: Messages;
+	background-color: white;
+
+}
+
+#messageForm{
+	background-color: rgb(199, 199, 204);
+	margin: auto;
+	padding: 5px;
+	display: grid;
+	height: 46px;
+
+}
+
+#messageForm table{
+	
+	margin: auto;
+	padding: auto;
+	
+}
+
+#messageBody{
+	width: 600px;
+	height: 40px;
+}
+#send{
+	height: 40px;
+	width: 80px;
+}
+#file{
+	height: 40px;	
+	width: 50px;
+}
+
+#messagesConversation{
+	width: 100%;
+	height: 500px;
+	background-color: white;
+	overflow:hidden;
+	overflow-y: scroll;
+	display: grid;
+	
+	
+}
+
+.messageContainer{
+	padding:10px;
+}
+
+.messageCard{
+	padding: 10px;
+	margin:auto;
+}
+
+#conversationUserName{
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-weight: bolder;
+	
+	
+}
+
+#conversationHeader{
+	overflow: hidden;
+	background-color: rgb(199, 199, 204);
+
+}

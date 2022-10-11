@@ -1,0 +1,39 @@
+/*Local Font Styles */
+
+
+@font-face {
+	font-family: "OPTICopperplate-Heavy";
+	src: url("../fonts/OPTICopperplate-Heavy.otf");
+
+}
+
+@font-face {
+	font-family: "Retroking";
+	src: url("../fonts/Retroking.ttf");
+
+}
+
+@font-face {
+	font-family: "Palatino Linotype";
+	src: url("../fonts/Palatino Linotype.ttf");
+
+}
+
+
+@font-face {
+	font-family: "brush script mt kursiv";
+	src: url("../fonts/brush script mt kursiv.ttf");
+
+}
+
+
+/*Requestor_AvailableServices.html*/
+#Requestor_AvailableServicesBackground{
+	background-image: url("../img/3490.png");
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: repeat;
+	background-origin: border-box;
+
+}

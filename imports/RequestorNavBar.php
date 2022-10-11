@@ -21,7 +21,7 @@
 
 	
 		<a href="Requestor_Transactions.php"><li class="Nav-item" title="My Transactions">Transactions</li></a>
-		<a href="Requestor_Transactions.php"><li class="Nav-item" title="My Messages">Messages </li></a>
+		<a href="Messages.php"><li class="Nav-item" title="My Messages">Messages </li></a>
 		<a href="Requestor_Transactions.php"><li class="Nav-item" title="Me">
 				<?php
 				    if(isset($_SESSION["userName"])){

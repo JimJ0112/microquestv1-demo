@@ -53,7 +53,7 @@
 		</li></a>
 		
 
-		<a href="Responder_Transactions.php"><li class="Nav-item" title="My Messages">Messages</li></a>
+		<a href="Messages.php"><li class="Nav-item" title="My Messages">Messages</li></a>
 		
 		<a href="Responder_Transactions.php">
 			<li class="Nav-item" title="Me">
