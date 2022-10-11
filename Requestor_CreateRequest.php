@@ -6,7 +6,7 @@ session_start();
 
     if(isset($_SESSION["userType"])){
         $usertype = $_SESSION["userType"];
-        if($usertype != "Responder"){
+        if($usertype != "Requestor"){
             header("location: User_Profile.php?msg= Not a Reponder");
         }
     }

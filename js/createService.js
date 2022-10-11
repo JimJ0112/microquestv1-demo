@@ -55,7 +55,7 @@ function createServiceElements(Number){
    // create elements for rows
    var card = document.createElement('div');
    var BannerContainer = document.createElement('div');
-   var br = document.createElement('br');
+   //var br = document.createElement('br');
    
 
 
@@ -71,8 +71,8 @@ function createServiceElements(Number){
 
    // append elements to the row
    card.appendChild(BannerContainer);
-   card.appendChild(br);
-   card.appendChild(br);
+   //card.appendChild(br);
+   //card.appendChild(br);
    card.appendChild(data);
 
 

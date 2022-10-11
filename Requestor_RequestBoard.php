@@ -87,7 +87,9 @@ session_start();
 
 					<li class="RequestsContainer-ControlItem" id="RequestsCategoryContainer"> 
 						
-							<input type="button" id="CreateRequestButton" value="Create Request">
+							<a href="Requestor_CreateRequest.php" id="CreateRequestButton" value="Create Request">
+								Create Request
+							</a>
 						
 					</li>
 
