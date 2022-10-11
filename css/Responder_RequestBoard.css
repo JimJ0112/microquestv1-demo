@@ -69,6 +69,8 @@
 	min-height: 1000px;
 	max-height: 100%;
 	padding: 0;
+	overflow: hidden;
+	/*overflow-y: scroll;*/
 }
 
 #RequestsContainer-Controls{
@@ -205,6 +207,8 @@
 	overflow: hidden;
 	grid-column-gap: 50px;
 	grid-row-gap: 50px;
+	overflow-y: scroll;
+
 }
 
 .requestCard{

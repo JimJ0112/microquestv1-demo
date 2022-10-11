@@ -46,21 +46,53 @@ function setOptions(array){
     var dataArray = array;
     var number = dataArray.length;
 
-    var serviceCard = document.getElementById("RequestCategory");
+    var serviceDropDown = document.getElementById("DropDownRequestCategory");
     for(var i = 0; i<number;i++){
         
         
         var option = new Option;
         option.innerText = dataArray[i]["serviceCategory"];
         option.value = dataArray[i]["serviceCategory"];
-        serviceCard.add(option);
+        serviceDropDown.add(option);
 
     }
 
     var option = new Option;
     option.innerText = "Other";
     option.value = "Other";
-    serviceCard.add(option);
+    serviceDropDown.add(option);
 
+    
+}
+
+function setCategory(){
+    var serviceDropDown = document.getElementById("DropDownRequestCategory");
+    var regularRequestForm = document.getElementById("regularRequestForm");
+    var pasabuyRequestForm = document.getElementById("pasabuyRequestForm");
+    var otherCategoriesRequestForm = document.getElementById("otherCategoriesRequestForm");
+    var requestCategory = document.getElementById("requestCategory");
+    var DisplayCategory = document.getElementById("DisplayCategory");
+
+    serviceDropDownValue = serviceDropDown.value;
+
+    if(serviceDropDownValue === "Other"){
+
+        regularRequestForm.style.display = 'none';
+        otherCategoriesRequestForm.style.display = 'grid';
+        pasabuyRequestForm.style.display = 'none';
+
+    } else if(serviceDropDownValue === "Pasabuy"){
+
+        regularRequestForm.style.display = 'none';
+        otherCategoriesRequestForm.style.display = 'none';
+        pasabuyRequestForm.style.display = 'grid';
+
+    } else{
+        regularRequestForm.style.display = 'grid';
+        otherCategoriesRequestForm.style.display = 'none';
+        pasabuyRequestForm.style.display = 'none';
+        DisplayCategory.innerText = serviceDropDownValue;
+        requestCategory.value = serviceDropDownValue;
+    }
     
 }

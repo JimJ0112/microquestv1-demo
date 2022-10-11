@@ -45,6 +45,8 @@ session_start();
 			//echo'getCategories();';
 			//echo'setSpecialization();';
 			//echo 'setSpecialization()';
+			
+
 			echo 'init();';
         } else{
 			

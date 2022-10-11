@@ -37,7 +37,7 @@ $dueDate= $_POST["dueDate"];
  
   echo $DBHandler-> registerRequest($requestCategory,$requestTitle,$requestDescription,$requestExpectedPrice,$isNegotiable,$datePosted,$dueDate,$requestorID,$requestorMunicipality);
 
-  header("location: ../RequestBoard.php");
+  header("location: ../Requestor_RequestBoard.php");
 
 
 }

@@ -26,6 +26,8 @@
 
 }
 
+
+
 /*Responder_Transactions.html*/
 
 
@@ -44,6 +46,7 @@
 	font-family: Retroking;
 
 	font-weight: lighter;
+
 }
 
 #CreateRequestControlsContainer{
@@ -93,27 +96,25 @@
 	grid-area: search;
 }
 
-#Responder_CreateServiceMain{
+#Requestor_CreateRequestMain{
 	margin-top: 0;
 	margin: auto;
 	background-color: white;
 	width: 80%;
-	height: 900px;
+	min-height: 900px;
+	height: fit-content;
 	border: 5px solid rgb(136, 75, 38);
 	padding: 0;
 	overflow:hidden;
-	
-
-
-
+	overflow-y: scroll;
 
 }
 
-#Responder_CreateServiceMainBack{
+#Requestor_CreateRequestMainBack{
 	position: absolute;
 	top:0;
 	margin: auto;
-	padding-top: 100px;
+	padding-top: 300px;
 	
 	width: 100%;
 	height: fit-content;
@@ -207,7 +208,7 @@
 
 
 
-#RequestCategory{
+#DropDownRequestCategory{
 	background-color:transparent;
 	border: none;
 	font-family: Arial, Helvetica, sans-serif;
@@ -216,7 +217,6 @@
 	cursor: pointer;
 
 	border: 3px solid rgb(84, 47, 7);
-	
 	width: 300px;
 	font-weight: bold;
 }
@@ -227,4 +227,117 @@
 	width: fit-content;
 	margin: auto;
 	padding:10px;
+}
+
+
+/*Forms*/
+.requestForm{
+	font-family: Arial, Helvetica, sans-serif;
+	margin: auto;
+	
+	width: 50%;
+	display: none;
+	padding:10px;
+	
+}
+
+#FormsContainer{
+	width: 100%;
+	height: fit-content;
+	display: grid;
+	align-content: center;
+	font-size: larger;
+}
+
+
+.requestForm input{
+	border: 3px solid rgb(63, 50, 48);
+	height: 30px;
+	width:400px;
+	border-radius: 5px;
+}
+.requestForm input[type="text"]{
+	margin:auto;
+
+}
+
+.requestForm input[type="number"]{
+	margin:auto;
+
+}
+
+.requestForm input[type="date"]{
+	width:300px;
+	margin:auto;
+	text-align: center;
+
+}
+
+.requestForm select{
+	width:200px;
+	margin:auto;
+	text-align: center;
+	border: 3px solid rgb(63, 50, 48);
+
+}
+.requestForm textarea{
+	
+	margin:auto;
+	
+	resize: none;
+	border: 3px solid rgb(63, 50, 48);
+
+
+}
+
+.requestForm input[type="file"]{
+
+	text-align: center;
+	margin: auto;
+
+}
+
+.requestForm input[type="submit"]{
+	width: 200px;
+	height: fit-content;
+	margin: auto;
+	background-color: rgb(63, 50, 48);
+	color: white;
+	padding: 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: lighter;
+	font-size: large;
+}
+
+
+.requestForm input[type="submit"]:hover{
+
+	background-color: rgb(144, 110, 30);
+	color: white;
+
+}
+
+#regularRequestForm{
+	display: none;
+	margin: auto;
+	margin-top: 10px;
+}
+#pasabuyRequestForm{
+	display: none;
+	margin: auto;
+	margin-top: 10px;
+}
+
+#otherCategoriesRequestForm{
+	display: grid;
+	margin: auto;
+	margin-top: 10px;
+}
+
+#DisplayCategory{
+	font-family:Retroking;
+	font-weight:light;
+	font-size: 50px;
 }

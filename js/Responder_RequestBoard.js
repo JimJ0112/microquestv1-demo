@@ -269,12 +269,17 @@ function setCategory(category){
 
             if(dataArray != "failed to fetch"){
                 dataArray = JSON.parse(dataArray);
+                
                 console.log(dataArray);
 
                 var number = dataArray.length;
                 createRequestElements(number);
                 setData(dataArray);
+
+                
             }
+
+            
 
      
         }else{
@@ -561,7 +566,7 @@ function addCategories(data){
         select.add(option);
     }
     
-    setSpecialization();
+   // setSpecialization();
 
 }
 
@@ -636,5 +641,12 @@ function setSpecialization(){
 /*Initialization of the page*/
 function init(){
     getCategories();
-    setSpecialization();
+    //setSpecialization();
+    var select = document.getElementById("RequestCategory");
+    var specialization = sessionStorage.getItem('specialization');
+    select.value = specialization;
+
+    var timeout = setTimeout(function(){
+        setSpecialization();
+    }, 500)
 }
