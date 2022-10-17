@@ -1,7 +1,6 @@
 <?php
-
 session_start();
-include '../Classes/AdminDBHandler.php';
+include '../classes/AdminDBHandler.php';
 $DBHandler = new AdminDBHandler();
 
 if(isset($_POST["email"]) && isset($_POST["password"])){
