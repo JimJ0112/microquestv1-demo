@@ -457,6 +457,58 @@ public function getUserRow($tablename,$column,$condition){
   
 }
 
+// getting user row from users table
+public function getUserByTypeRow($tablename,$column,$condition,$userType){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    $userType = mysqli_real_escape_string($this->dbconnection, $userType);
+   
+   
+    $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND userType = '$userType'";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+    $file;
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+                //if(strpos($row['ID_FILETYPE'],"image")){
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['idFile']);
+                    $row['idFile'] = $file;
+                /*} else {
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['IDCARD']);
+                    $row['IDCARD'] = $file;
+                    
+                  } 
+                */
+
+                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+                $row['userPhoto'] = $file;
+
+                $file = 'data:image/image/png;base64,'.base64_encode($row['otherIDFile']);
+                $row['otherIDFile'] = $file;
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
 // get Products row 
 public function getProducts($tablename,$column,$condition,$orderby = null){
     $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);

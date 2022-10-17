@@ -16,6 +16,8 @@ session_start();
     
     <meta content='yes' name='apple-mobile-web-app-capable'/>
     <meta content='yes' name='mobile-web-app-capable'/>
+    <script src="js/adminDashboard.js"> </script>
+
 
     <title>Document</title>
 </head>
@@ -91,9 +93,22 @@ session_start();
 
             <ul id="NavMenu_Contents">
 
-                <li> Approve Requestors</li>
-                <li> Approve Responders</li>
+                <li onclick="getRequestors()"> Approve Requestors</li>
+                <li onclick="getResponders()"> Approve Responders</li>
                 <li> Show Reports </li>
+
+                <?php
+
+                   $adminType= $_SESSION["microquest_AdminType"];
+
+                   if($adminType === "Super Admin"){
+                        echo "<li> Create Admin Account </li>";
+                   } else {
+
+                   }
+
+                
+                ?>
 
             </ul>
     </div>
