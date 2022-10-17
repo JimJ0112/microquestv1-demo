@@ -55,11 +55,11 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         $_SESSION["microquest_AdminType"] =$adminType;
         $_SESSION["microquest_AdminStatus"] =$adminStatus;
 
-        header("Location: adminDashboard.php");
+        header("Location: ../adminDashboard.php");
 
 
     } else{
-        header("Location: ../login.php?msg= email or password incorrect");
+        header("Location: ../login.php?msg=email or password incorrect");
     }
 
 }

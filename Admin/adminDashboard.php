@@ -12,6 +12,11 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/NavBar.css">
 
+    <link rel="manifest" href="../manifest.json">
+    
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <meta content='yes' name='mobile-web-app-capable'/>
+
     <title>Document</title>
 </head>
 <body>

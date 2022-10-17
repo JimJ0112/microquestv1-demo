@@ -25,7 +25,7 @@ session_start();
 	</title>
 
 	
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="../manifest.json">
     
 
 
