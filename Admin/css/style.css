@@ -1,0 +1,146 @@
+/*Local Font Styles */
+
+
+@font-face {
+	font-family: "OPTICopperplate-Heavy";
+	src: url("../fonts/OPTICopperplate-Heavy.otf");
+
+}
+
+@font-face {
+	font-family: "Retroking";
+	src: url("../fonts/Retroking.ttf");
+
+}
+
+@font-face {
+	font-family: "Palatino Linotype";
+	src: url("../fonts/Palatino Linotype.ttf");
+
+}
+
+
+@font-face {
+	font-family: "brush script mt kursiv";
+	src: url("../fonts/brush script mt kursiv.ttf");
+
+}
+
+/*General Format */
+
+body{
+	padding: 0;
+	margin: 0;
+	zoom:70%;
+
+	
+}
+
+#BodyBackgroundImg {
+	width: 100%;
+	position: absolute;
+	overflow: hidden;
+	object-fit: cover;
+	height: 100%;
+	opacity: 99%;
+}
+
+a{
+	text-decoration: none;
+
+}
+
+/* For sliders */
+
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+  
+  .slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+  
+  input:checked + .slider {
+	background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+	border-radius: 34px;
+  }
+  
+  .slider.round:before {
+	border-radius: 50%;
+  }
+
+
+/*Nav */
+.RequestsContainer-ControlItemIcon{
+	width: 40px;
+	height: 40px;
+	margin: 0;
+	filter: brightness(100%);
+	filter: invert(0.3);
+}
+
+.navControlSelected{
+	color:black;
+}
+
+/*Scroll bars*/
+*::-webkit-scrollbar {
+	width: 5px;
+	z-index: 1;
+
+  }
+   
+  *::-webkit-scrollbar-track {
+	/*box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);*/
+  }
+   
+  *::-webkit-scrollbar-thumb {
+	background-color: rgb(78, 45, 20);
+	outline: 1px solid slategrey;
+}
