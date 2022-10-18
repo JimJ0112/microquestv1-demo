@@ -115,7 +115,7 @@ session_start();
     </div>
 
     <div id="DashBoardContent">
-                    <table id="">
+                    <table id="DashBoardContent_Table">
                     </table>
 
     </div>
