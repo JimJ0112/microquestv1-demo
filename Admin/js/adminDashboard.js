@@ -8,7 +8,7 @@ function getResponders(){
 
     xmlhttp.open("POST", "backend/Get_Responders.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
             var dataArray = this.response;
@@ -18,9 +18,6 @@ function getResponders(){
 
         
 
-            //console.log(positions(dataArray));
-
-            console.log(categories(dataArray))
      
         }else{
             console.log(err);
@@ -42,7 +39,7 @@ function getRequestors(){
 
     xmlhttp.open("POST", "backend/Get_Requestors.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
             var dataArray = this.response;
@@ -52,9 +49,7 @@ function getRequestors(){
 
         
 
-            //console.log(positions(dataArray));
 
-            console.log(categories(dataArray))
      
         }else{
             console.log(err);
