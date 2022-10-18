@@ -11,6 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/NavBar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 
     <link rel="manifest" href="../manifest.json">
     
@@ -113,6 +114,7 @@ session_start();
             </ul>
     </div>
 
+    <div id="DashBoardContent"> </div>
     
 
     <script src="js/navbar.js"> </script>
