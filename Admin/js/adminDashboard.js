@@ -63,20 +63,48 @@ function getRequestors(){
 
 
 // create elements to be appended 
-function createServiceElements(Number){
+function createUserElements(Number){
  
     DataNumber = Number;
-    div = document.getElementById("AvailableServicesContainer-Content");
+    table = document.getElementById("DashBoardContent_Table");
    
     
     for(var i = 0;i<DataNumber;i++){
     
    // create elements for rows
-    var card = document.createElement('div');
-    var ServiceTitleBackground = document.createElement('div');
-    var serviceTitle = document.createElement('span');
-    var BannerContainer = document.createElement('div');
-    var br = document.createElement('br');
+    var tr = document.createElement('tr');
+
+    baranggay = document.createElement('td');
+    birthDate = document.createElement('td');
+    education = document.createElement('td');
+    firstName= document.createElement('td');
+    houseNo= document.createElement('td');
+    idExpiration= document.createElement('td');
+    idFile= document.createElement('td');
+    idFileType= document.createElement('td');
+    idNumber= document.createElement('td');
+    idType= document.createElement('td');
+    lastName= document.createElement('td');
+    municipality= document.createElement('td');
+    otherIDFile= document.createElement('td');
+    otherIDNumber= document.createElement('td');
+    otherIDType= document.createElement('td');
+    otheridExpiration= document.createElement('td');
+    specialization= document.createElement('td');
+    street= document.createElement('td');
+    userEmail= document.createElement('td');
+    userGender= document.createElement('td');
+    userID= document.createElement('td');
+    userName= document.createElement('td');
+    userPhoto= document.createElement('td');
+    userStatus= document.createElement('td');
+    userType= document.createElement('td');
+    userControls = document.createElement('td');
+    acceptButton = document.createElement('button');
+    cancelButton = document.createElement('button');
+
+
+
    
 
 
@@ -85,21 +113,71 @@ function createServiceElements(Number){
 
 
    // set attributes
-    card.setAttribute('class','AvailableService-Card');
-    ServiceTitleBackground.setAttribute('class','ServiceTitleBackground');
-    serviceTitle.setAttribute('class','serviceTitle');
-    BannerContainer.setAttribute('class','BannerContainer');
-    
+   baranggay.setAttribute("class","baranggay");
+   birthDate.setAttribute("class","birthDate");
+   education.setAttribute("class","education");
+   firstName.setAttribute("class","firstName");
+   houseNo.setAttribute("class","houseNo");
+   idExpiration.setAttribute("class","idExpiration");
+   idFile.setAttribute("class","idFile");
+   idFileType.setAttribute("class","idFileType");
+   idNumber.setAttribute("class","idNumber");
+   idType.setAttribute("class","idType");
+   lastName.setAttribute("class","lastName");
+   municipality.setAttribute("class","municipality");
+   otherIDFile.setAttribute("class","otherIDFile");
+   otherIDNumber.setAttribute("class","otherIDNumber");
+   otherIDType.setAttribute("class","otherIDType");
+   otheridExpiration.setAttribute("class","otheridExpiration");
+   specialization.setAttribute("class","specialization");
+   street.setAttribute("class","street");
+   /userEmail.setAttribute("class","userEmail");
+   userGender.setAttribute("class","userGender");
+   userID.setAttribute("class","userID");
+   /userName.setAttribute("class","userName");
+   /userPhoto.setAttribute("class","userPhoto");
+   userStatus.setAttribute("class","userStatus");
+   /userType.setAttribute("class","userType");
+   userControls.setAttribute("class","userControls");
+   acceptButton.setAttribute("class","acceptButton");
+   cancelButton.setAttribute("class","cancelButton");
+   acceptButton.innerText = "Accept";
+   cancelButton.innerText = "Cancel";
 
 
    // append elements to the row
-    ServiceTitleBackground.appendChild(serviceTitle);
-    card.appendChild(ServiceTitleBackground);
-    card.appendChild(BannerContainer);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userName);
+   tr.appendChild(userEmail);
+   tr.appendChild(userType);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
+   tr.appendChild(userPhoto);
    
 
 
-    div.append(card);
+    table.append(tr);
 
     } 
     

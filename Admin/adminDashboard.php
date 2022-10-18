@@ -114,7 +114,11 @@ session_start();
             </ul>
     </div>
 
-    <div id="DashBoardContent"> </div>
+    <div id="DashBoardContent">
+                    <table id="">
+                    </table>
+
+    </div>
     
 
     <script src="js/navbar.js"> </script>
