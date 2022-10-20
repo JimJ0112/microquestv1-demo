@@ -25,3 +25,15 @@ function hideNavMenu(){
 
 
 }
+
+
+function showProfileDropDown(){
+    var profileDropdown = document.getElementById("profileDropdown");
+
+    profileDropdownDisplay = profileDropdown.style.display;
+    if(profileDropdownDisplay === "none"){
+        profileDropdown.style.display = "block";
+    } else{
+        profileDropdown.style.display = "none";
+    }
+}

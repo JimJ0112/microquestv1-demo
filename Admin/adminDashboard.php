@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+    if(!isset($_SESSION["microquest_AdminUsername"])){
+
+        header("Location:Login.php");
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +14,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/NavBar.css">
     <link rel="stylesheet" href="css/dashboard.css">
@@ -38,7 +44,7 @@ session_start();
 
                 <li class="navItem"> <img src="img/logo.png" id="Nav-Logo" title="Home"> </li>
 
-               <li class="navItem" id="adminName">
+               <li class="navItem" id="adminName" onclick="showProfileDropDown()">
                     <table>
                         <tr>
                             <td>
@@ -66,6 +72,13 @@ session_start();
 
             </ul>
         </div>
+
+        <ul id="profileDropdown" style="display: none;";> 
+            <li> Settings </li>
+            <a href="backend/Logout.php"> <li> Log out </li> </a>
+            
+
+        </ul>
 
         
   
@@ -116,6 +129,9 @@ session_start();
 
     <div id="DashBoardContent">
                     <table id="DashBoardContent_Table">
+                        <img src="../img/logo.png" id="loadingImage"/>
+                        <thead> </thead>
+                        <tbody id="DashBoardContent_TableBody"> </tbody>
                     </table>
 
     </div>

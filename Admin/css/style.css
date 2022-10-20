@@ -131,7 +131,8 @@ a{
 
 /*Scroll bars*/
 *::-webkit-scrollbar {
-	width: 5px;
+	width: 10px;
+	height: 10px;
 	z-index: 1;
 
   }
@@ -143,4 +144,6 @@ a{
   *::-webkit-scrollbar-thumb {
 	background-color: rgb(78, 45, 20);
 	outline: 1px solid slategrey;
+	height: 2px;
+	width: 2px;
 }

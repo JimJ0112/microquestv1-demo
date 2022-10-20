@@ -6,15 +6,20 @@ function getResponders(){
     
 
 
-    xmlhttp.open("POST", "backend/Get_Responders.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
+
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 || this.status === 200){ 
+
+            
+            document.getElementById("DashBoardContent_TableBody").innerHTML = "";
+            document.getElementById("loadingImage").style.display = "none";
+           
             hideNavMenu();
-            table = document.getElementById("DashBoardContent_Table");
-            table.innerHtml = "";
+            
+
            
             var dataArray = this.response;
+           
 
                 dataArray = JSON.parse(dataArray);
                 console.log(dataArray);
@@ -28,10 +33,15 @@ function getResponders(){
 
      
         }else{
-            console.log(err);
+            //document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading...";
+            document.getElementById("loadingImage").style.display = "block";
+            
+            //console.log(err);
         }      
     };
     
+    xmlhttp.open("POST", "backend/Get_Responders.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send();
     
 }// end of function
@@ -39,20 +49,18 @@ function getResponders(){
 
 // gets Requestors
 function getRequestors(){
-    
-    
     var xmlhttp = new XMLHttpRequest();
-    
 
-
-    xmlhttp.open("POST", "backend/Get_Requestors.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
+   
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 || this.status === 200){ 
+
+
+            document.getElementById("DashBoardContent_TableBody").innerHTML = "";
+            document.getElementById("loadingImage").style.display = "none";
+
+
             hideNavMenu();
-            table = document.getElementById("DashBoardContent_Table");
-            table.innerHtml = "";
-           
             var dataArray = this.response;
 
                 dataArray = JSON.parse(dataArray);
@@ -67,10 +75,14 @@ function getRequestors(){
 
      
         }else{
-            console.log(err);
+            //document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading..";
+            document.getElementById("loadingImage").style.display = "block";
+            //console.log(err);
         }      
     };
-    
+
+    xmlhttp.open("POST", "backend/Get_Requestors.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send();
     
 }// end of function
@@ -81,7 +93,8 @@ function getRequestors(){
 function createUserElements(Number){
  
     DataNumber = Number;
-    table = document.getElementById("DashBoardContent_Table");
+    table = document.getElementById("DashBoardContent_TableBody");
+    table.innerHtml = "";
    
     
     for(var i = 0;i<DataNumber;i++){
@@ -163,6 +176,7 @@ function createUserElements(Number){
    // append elements to the row
    userControls.appendChild(acceptButton);
    userControls.appendChild(cancelButton);
+   tr.appendChild(userControls);
    tr.appendChild(userID);
    tr.appendChild(userPhoto);
    tr.appendChild(userName);
@@ -186,7 +200,7 @@ function createUserElements(Number){
    tr.appendChild(otherIDFile);
    tr.appendChild(otherIDNumber);
    tr.appendChild(otheridExpiration);
-   tr.appendChild(userControls);
+  
    //tr.appendChild(userPhoto);
    //tr.appendChild(userPhoto);
    //tr.appendChild(userPhoto);
@@ -250,6 +264,19 @@ function setData(array){
         image.setAttribute('class','userPhotoImage');
         image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
         userPhoto[i].appendChild(image);
+
+        var idFileImage = new Image();
+        idFileImage.src = dataArray[i]["idFile"];
+        idFileImage.setAttribute('class','idFileImage');
+        image.setAttribute('onerror',"this.src='img/laundry_servics.jpg'");
+        idFile[i].appendChild(idFileImage);
+
+        var otherIDFileImage = new Image();
+        otherIDFileImage.src = dataArray[i]["otherIDFile"];
+        otherIDFileImage.setAttribute('class','otherIDFileImage');
+        otherIDFileImage.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
+        otherIDFile[i].appendChild(otherIDFileImage);
+        
 
 
         baranggay[i].innerText= dataArray[i]['baranggay']
