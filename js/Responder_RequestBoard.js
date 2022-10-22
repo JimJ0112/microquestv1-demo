@@ -648,5 +648,6 @@ function init(){
 
     var timeout = setTimeout(function(){
         setSpecialization();
-    }, 500)
+        console.log("1");
+    }, 1000)
 }

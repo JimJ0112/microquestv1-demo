@@ -38,10 +38,12 @@ session_start();
        if(isset($_SESSION['specialization'])){
 
             $specialization = $_SESSION['specialization'];
+
+			echo "sessionStorage.setItem('specialization'".",'$specialization');";
         	echo 'setCategory(\''.$specialization.'\');';
 			
 
-			echo "sessionStorage.setItem('specialization'".",'$specialization');";
+			
 			//echo'getCategories();';
 			//echo'setSpecialization();';
 			//echo 'setSpecialization()';

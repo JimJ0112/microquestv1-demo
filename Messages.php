@@ -34,7 +34,13 @@ session_start();
 	<script src="js/conversations.js">  </script>
 
 </head>
-<body id="MessagesBackground" onload="initMessages()">
+<body id="MessagesBackground" onload="<?php 
+	if(isset($_SESSION['userID'])){
+   	 	$userID = $_SESSION['userID'];
+    	echo "getMessages($userID);";
+    	echo "sessionStorage.setItem('myID','$userID');";
+	}
+?>">
 
 <!--<img src="img/b.jpg" id="BodyBackgroundImg"/>-->
 
@@ -43,13 +49,7 @@ session_start();
 	require_once("imports/RequestorNavBar.php");
 ?>
 
-<?php 
-	if(isset($_SESSION['userID'])){
-   	 	$userID = $_SESSION['userID'];
-    	echo "<script> getMessages($userID); </script>";
-    	echo "<script> sessionStorage.setItem('myID','$userID')</script>";
-	}
-?>
+
 
 
 <!-- main -->

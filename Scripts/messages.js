@@ -90,9 +90,7 @@ function getMessages(/*id*/){
     var query = "userID="+ userID;     
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/Get_userMessages.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload= function() {
+    xmlhttp.onreadystatechange= function() {
         if (this.readyState === 4 || this.status === 200){ 
            
             var dataArray = this.response;
@@ -110,6 +108,7 @@ function getMessages(/*id*/){
 
             } else {
                 console.log(dataArray);
+                document.getElementById('inbox').innerText ="Loading...";
             }
 
 
@@ -119,6 +118,8 @@ function getMessages(/*id*/){
         }      
     };
     
+    xmlhttp.open("POST", "Backend/Get_userMessages.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
     
 }// end of function
