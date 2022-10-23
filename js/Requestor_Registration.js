@@ -205,12 +205,19 @@ function checkInputs_GeneralInfo(){
 
    console.log("checkInputs_GeneralInfo")
     
-    if( FirstName.value !="" &&
+   date = new Date(); 
+   var month = date.getMonth()+1; 
+   var day = date.getDate(); 
+   var year = date.getFullYear()-18; 
+   var dob;
+    
+
+        if( FirstName.value !="" &&
         MiddleName.value !="" &&
         LastName.value  !="" &&
         Municipality.value!="" &&
         Address.value !="" &&
-        Birthdate.value != "" &&
+   //dito     Birthdate.value != "" && dob.document.getElementById(Birthdate).value > date &&
         Male.checked == true ||
         Female.checked == true
     ){
@@ -516,3 +523,5 @@ function setData(array){
         specializations.add(option);
     }
 }
+
+

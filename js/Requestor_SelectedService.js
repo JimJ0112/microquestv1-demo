@@ -801,3 +801,48 @@ function getMyInfo(ID,userType){
     xmlhttp.send(query);
     
 }// end of function
+
+//------------------------------------------------------------------------------------------------------------------
+
+function getServices(category){
+
+    var position = position;
+    
+    var xmlhttp = new XMLHttpRequest();
+    
+    query = "&condition=" + category;
+    console.log(query)
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var dataArray = this.response;
+            console.log(dataArray);
+            document.getElementById("AvailServiceContent").innerHTML="";
+
+            if(dataArray === "failed to fetch"){
+                console.log(dataArray);
+            } else{
+
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+                var number = dataArray.length;
+
+                createServiceElements(number);
+                setData(dataArray)
+            }
+
+     
+        }else{
+            //console.log(err);
+            document.getElementById("AvailServiceContent").innerText = "Loading...";
+        }      
+    };
+    
+    
+    xmlhttp.open("POST", "Backend/Get_positions.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+    
+}// end of function

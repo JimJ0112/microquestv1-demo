@@ -30,9 +30,16 @@
 	<link rel="stylesheet" type="text/css" href="css/Requestor_SelectedService.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
-
+    <script src="js/Requestor_SelectedService.js"> </script>
 </head>
-<body id="Requestor_AvailableServicesBackground" onload="getServices()">
+<body id="Requestor_AvailableServicesBackground" onload="<?php
+    
+    if(isset($_GET["category"])){
+        $category = $_GET["category"];
+        echo "getServices('$category');";
+    }
+
+?>">
 
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
 

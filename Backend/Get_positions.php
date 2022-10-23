@@ -11,7 +11,13 @@ $condition = $_POST['condition'];
 $categories = $DBHandler->getServices($tablename,$column,$condition,'servicePosition');
 
 
+
+if($categories === "failed to fetch"){
+    echo "failed to fetch";
+} else {
     echo json_encode($categories);
+}
+    
  
 
    

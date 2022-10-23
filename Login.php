@@ -93,9 +93,9 @@ session_start();
 		</center>
 
 
-				<div id="FormControls">
+				<div id="FormControls">	
 
-					<label> USERNAME</label><br/>
+					<label> EMAIL</label><br/>
 					<input type="email" class="Form-Input" name="email"> <br/> <br/> <br/>
 					<label> PASSWORD</label><br/>
 					<input type="password" class="Form-Input" name="password"> <br/>

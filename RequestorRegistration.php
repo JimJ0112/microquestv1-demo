@@ -1,3 +1,13 @@
+<?php
+
+	/*date_default_timezone_set("Asia/Manila");
+	function getAge ($dob){
+		$bday = new DateTime($dob);
+		$today = new DateTime(date('m.d.y'));
+	}
+	$diff = $today->diff($bday);
+	*/
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +29,8 @@
 
 </head>
 <body onload="init()">
+
+
 
 	<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
 
@@ -111,7 +123,8 @@
 
 						<div class="inputItem"> 
 							Birthdate: <br/>
-							<input type="date" class="Registration-TextBox" id="Birthdate" name="birthDate" oninput="checkInputs_GeneralInfo()"> 
+
+							<input type="date" class="Registration-TextBox" id="Birthdate" name="birthDate"  oninput="checkInputs_GeneralInfo()"/> 
 						</div><br/>
 
 						<div class="inputItem"> 
