@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-       // header("location:Login.php");
+        header("location:Login.php");
 	   // ra inom hehe
 	   // 
 
