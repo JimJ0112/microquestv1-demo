@@ -16,7 +16,7 @@ function __construct(){
     
     /* Localhost connection */
     
-    //*
+    /*
     $this->dbservername = "localhost:3307";
     $this->dbusername = "root";
     $this->dbpassword = "";
@@ -25,7 +25,7 @@ function __construct(){
 
     /* remote database connection */
     
-    /* 
+    ///* 
     $this->dbservername = "remotemysql.com";
     $this->dbusername = "Ze2pK93XLv";
     $this->dbpassword = "ytsYYcZNGw";
