@@ -45,6 +45,10 @@
 	
 	width: 80%;
 	min-height: 900px;
+	height: fit-content;
+	margin-top: 0;
+	border: 2px solid rgb(102, 40, 8);
+	padding: 0;
 
 }
 
@@ -55,6 +59,17 @@
 	height: 200%;
 	display: grid;
 	align-content: center;
-	border: 1px solid orange;
 	top:2;
+	padding: 0;
+}
+
+#Requestor_SelectedServiceMainControls{
+	background-color: rgb(179, 99, 77);
+	margin-top: 0;
+	display: grid;
+}
+
+#AvailServiceFormContainer{
+	display: none;
+	position: absolute;
 }
