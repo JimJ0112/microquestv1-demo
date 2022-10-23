@@ -42,6 +42,18 @@
 
 ?>
 
+
+
+
+<svg width="1440" class="arc" height="72" viewBox="0 0 1440 72" fill="none" aria-hidden="true" focusable="false">
+         <path d="M-400 176C139.222 -24.794 1028.42 -10.941 1440 13.8751V176L-400 176Z" fill="white"></path>
+</svg>
+
+
+
+
+
+
 <!--Main-->
 	<div id="AvailableServicesContainer">
 

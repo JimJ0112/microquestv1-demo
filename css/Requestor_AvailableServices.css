@@ -248,3 +248,11 @@ body{
 	filter: brightness(100%);
 	filter: invert(0.3);
 }
+
+#Requestor_SelectedServiceMain{
+	border: 1px solid rgb(79, 30, 6);
+}
+
+#Requestor_SelectedServiceMainBack{
+	border: none;
+}
