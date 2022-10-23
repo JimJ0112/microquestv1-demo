@@ -72,7 +72,7 @@ session_start();
 
 	<form id="LoginForm" form action="Backend/LoginBackend.php" method="post">
 		<center>
-		<h1 id="Welcome"> Welcome </h1>
+		<h1 id="Welcome"> Test </h1>
 		<h2 id="Back"> Back</h2> 
 		</center>
 
