@@ -31,6 +31,7 @@ function initMessages() {
     var int = self.setInterval(function () {
    
     setConversation();
+    seenMessage();
     }, 2000); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.
 }
 

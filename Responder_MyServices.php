@@ -31,7 +31,7 @@
 	<link rel="stylesheet" type="text/css" href="css/Responder_MyServices.css">
 
 </head>
-<body id="Requestor_AvailableServicesBackground" onload="getServices()" style="zoom:90%;">
+<body  onload="getServices()">
 
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
 
@@ -150,7 +150,7 @@
 
 
 
-<script src="js/Requestor_AvailableServices.js"> </script>
+<script src="js/Responder_AvailableServices.js"> </script>
 
 
 

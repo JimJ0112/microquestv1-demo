@@ -23,52 +23,56 @@
 		
 
 	
-		<a href="Responder_Transactions.php"><li class="Nav-item" title="My Transactions">Transactions</li></a>
-		
-<!--
-		<a href="<?php
-		/*
-
-
-					$pagename = basename($_SERVER['PHP_SELF']);
-						if($pagename === "Responder_MyServices.php"){
-							echo "Responder_RequestBoard.php"; 
-						}else if($pagename ==="Responder_RequestBoard.php"){
-							echo "Responder_MyServices.php";
-						}else{
-							echo "Responder_RequestBoard.php"; 
-						}
-		*/
-				
-				?>">
-
-
-		<li class="Nav-item" title="My Services">
-
-		
+		<a href="Responder_Transactions.php">
+			<li class="Nav-item" title="My Transactions">
 				<?php
-
-				/*
 					$pagename = basename($_SERVER['PHP_SELF']);
-						if($pagename === "Responder_MyServices.php"){
-							echo "RequestBoard"; 
-						}else if($pagename ==="Responder_RequestBoard.php"){
-							echo "My Services";
-						}else{
-							echo "RequestBoard"; 
-						}
-
-				*/
-
+					if($pagename === "Responder_Transactions.php"){
+						echo '<u> Transactions </u>';
+					} else{
+						echo "Transactions";
+					}
 				?>
-		</li></a>
--->
+			</li>
+		</a>
 
-		<a href="Responder_RequestBoard.php"> <li class="Nav-item" title="RequestBoard"> RequestBoard </li> </a>
-		<a href="Responder_MyServices.php"> <li class="Nav-item" title="My Services"> My Services  </li> </a>
-		
+		<a href="Responder_RequestBoard.php">
+			 <li class="Nav-item" title="RequestBoard"> 
+			 	<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+					if($pagename === "Responder_RequestBoard.php"){
+						echo '<u> RequestBoard </u>';
+					} else{
+						echo "RequestBoard";
+					}
+				?>
+			</li> 
+		</a>
 
-		<a href="Messages.php"><li class="Nav-item" title="My Messages">Messages</li></a>
+		<a href="Responder_MyServices.php"> 
+			<li class="Nav-item" title="My Services"> 
+				<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+					if($pagename === "Responder_MyServices.php"){
+						echo '<u> My Services </u>';
+					} else{
+						echo "My Services";
+					}
+				?>
+			</li> 
+		</a>
+		<a href="Messages.php">
+			<li class="Nav-item" title="My Messages">
+				<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+					if($pagename === "Messages.php"){
+						echo '<u> Messages </u>';
+					} else{
+						echo "Messages";
+					}
+				?>
+			</li>
+		</a>
 		
 		<a href="Responder_Transactions.php">
 			<li class="Nav-item" title="Me">
@@ -84,6 +88,7 @@
 				?>
 			</li>
 		</a>
+		
 		<a href="Backend/Logout.php"><li class="Nav-item" id="LogOutButton" title="Log Out">Log out</li></a>
 		
 	</ul>

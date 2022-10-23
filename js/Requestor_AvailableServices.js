@@ -86,6 +86,9 @@ function setData(array){
         serviceTitle[i].innerHTML = "<center> <b>"+ dataArray[i]['serviceCategory'] +"</b> </center>";
         serviceCard[i].setAttribute("onclick","selectCategory('" + dataArray[i]['serviceCategory'] + "')");
 
+        
+        
+
         var image = new Image();
         image.src = dataArray[i]['bannerImage'];
 
@@ -205,7 +208,7 @@ function selectCategory(string){
     sessionStorage.setItem("selectedCategory",category);
 
     if(category != "Pasabuy"){
-        location.href= "SelectedService.php?category=" + category;
+        location.href= "Requestor_SelectedService.php?category=" + category;
     } else {
         location.href= "PasabuyService.php?category=" + category;
     }

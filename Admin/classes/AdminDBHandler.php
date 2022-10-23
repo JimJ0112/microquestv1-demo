@@ -12,7 +12,7 @@ class AdminDBHandler {
 
 // constructor
 
-function __construct(){
+function __construct(){ 
     
     /* Localhost connection */
     

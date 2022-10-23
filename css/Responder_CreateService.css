@@ -30,7 +30,8 @@
 
 
 #Responder_CreateServiceBackground{
-	background-image: url("../img/3490.png");
+		/*background-image: url("../img/3490.png");*/
+
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;

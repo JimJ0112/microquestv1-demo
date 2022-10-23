@@ -41,7 +41,7 @@ session_start();
 
 <body onload="getServices()" id="Responder_CreateServiceBackground">
     <?php
-                require_once("imports/ResponderNavBar.php");
+                require_once("imports/RequestorNavBar.php");
     ?>
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
 

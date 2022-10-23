@@ -76,7 +76,7 @@ function setCategory(){
     serviceDropDownValue = serviceDropDown.value;
 
     if(serviceDropDownValue === "Other"){
-
+        DisplayCategory.innerText = serviceDropDownValue;
         regularRequestForm.style.display = 'none';
         otherCategoriesRequestForm.style.display = 'grid';
         pasabuyRequestForm.style.display = 'none';

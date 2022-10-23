@@ -1,11 +1,16 @@
 <?php 
 session_start();
 
-/*
-    if(isset($_SESSION["userName"])){
-        header("location:User_Profile.php");
+
+    if(isset($_SESSION["userEmail"]) && isset($_SESSION["userType"])){
+		$userType = $_SESSION["userType"];
+       	if($userType ==="Responder"){
+			header("location:Responder_RequestBoard.php");
+		} else if($userType ==="Requestor"){
+			header("location:Requestor_AvailableServices.php");
+		}
     }
-*/
+
     if(isset($_GET["msg"])){
         $msg = $_GET["msg"];
 

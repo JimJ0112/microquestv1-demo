@@ -27,7 +27,7 @@
     <meta content='yes' name='apple-mobile-web-app-capable'/>
     <meta content='yes' name='mobile-web-app-capable'/>
 	
-	<link rel="stylesheet" type="text/css" href="css/Requestor_AvailableServices.css">
+	<link rel="stylesheet" type="text/css" href="css/Requestor_SelectedService.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
 
@@ -42,110 +42,159 @@
 
 ?>
 
-<!--Main-->
-	<div id="AvailableServicesContainer">
 
-		<center> <h1 id="AvailableServicesTitle"> Available Services </h1> </center>
+<div id="contractBackGround"> 
+    <div id="closeButton" onclick="hideContract()"> X </div>
+        <br/> <br/>
+        <br/> <br/>
+    <div id="contractDiv"> 
 
-		<div id="ServicesContainer">
-			
-			<div id="AvailableServicesContainer-Controls">
+    </div>
 
-				<ul id="AvailableServicesContainer-ControlItems">
+</div>
 
-					<li class="AvailableServicesContainer-ControlItem">
-						<table>
-							<tr>
-								<td>
-									<img src="img/g838.png" class="RequestsContainer-ControlItemIcon">
-								</td>
-								<td>
-									<span class="PageIndicator"> Available Services </span>
-								</td>
-					 		</tr>
-						</table>
-					</li>
+<center>
+    <div id="AvailServiceFormContainer"> 
+    <div id="closeButton" onclick="closeForms()"> X </div><br/> <br/> <br/>
+     <div id="AvailServiceForm"> 
+        
+        <form action="Backend/RegisterServiceOrder.php" method="post">
 
-					<li class="AvailableServicesContainer-ControlItem"> 
-						<table>
-							<tr>
-								<td>
-									<img src="img/requests.png"class="AvailableServicesContainer-ControlItemIcon"> 
-								</td>
+            <h3> Confirm Transaction </h3> <br/><br/><br/>
 
-								<td>
-									<a href="Requestor_RequestBoard.php"> <span> My Requests</span> </a>
-								</td>
-							</tr>
-	   					</table>
-					</li>
+            <input type="hidden" name="formServiceID" id="formServiceID"/>
+            <input type="hidden" name="requestorID" id="formRequestorID" value="<?php echo $_SESSION["userID"] ?> "/>
+      
+                <label> Category </label> <br/>
+                <input type="text" name="category" id="Category" readonly> <br/> 
+        
 
-					<li class="AvailableServicesContainer-ControlItem" id="AvailableServicesCategoryContainer"> 
-						<select id="AvailableServicesCategory"> 
-							<option> Category</option>
-						</select> 
-					</li>
+        
+                <label> Service </label> <br/>
+                <input type="text" name="position" id="Position" readonly> <br/>
+            
 
-				</ul>
+    
+                <label> Responder ID </label> <br/>
+                <input type="text" name="responderID" id="responderID" readonly> <br/>
+  
 
-			</div>
+                <label> Price  </label> <br/>
+                Php <input type="text" name="servicePrice" id="servicePrice" readonly> <br/>
+  
 
+         
+                <label> Select Date </label> <br/>
+                
+                <?php
+                            date_default_timezone_set("Asia/Manila");
+                            $today = date("Y-m-d");
+                            $nextFiveDays =  date("Y-m-d",strtotime($today . ' +5 day'));
+                          
+                ?>
 
+                <input type = "date" name="dueDate" id="dueDate" min="<?php echo $today; ?>" max="<?php echo $nextFiveDays; ?>" value="<?php echo $today;?>"onchange="availableTimeSlots()"required> <br/>
 
-			<div id="AvailableServicesContainer-Content">
+                <label> Time Slot </label> <br/>
+                <select id="responderTimeSlots" name="responderTimeSlots" onchange="availableTimeSlots()" required>
+                    <option default hidden> Choose time</option>
+                    <option class="timeSlot" value="9:00  to 10:00 AM"> 9:00  to 10:00 AM</option>
+                    <option class="timeSlot" value="10:00 to 11:00 AM"> 10:00 to 11:00 AM</option>
+                    <option class="timeSlot" value="11:00 to 12:00 PM"> 11:00 to 12:00 PM</option>
+                    <option class="timeSlot" value="12:00 to 01:00 PM"> 12:00 to 01:00 PM</option>
+                    <option class="timeSlot" value="01:00 to 02:00 PM"> 01:00 to 02:00 PM</option>
+                    <option class="timeSlot" value="02:00 to 03:00 PM"> 02:00 to 03:00 PM</option>
+                    <option class="timeSlot" value="03:00 to 04:00 PM"> 03:00 to 04:00 PM</option>
+                    <option class="timeSlot" value="04:00 to 05:00 PM"> 04:00 to 05:00 PM</option>
+                    <option class="timeSlot" value="05:00 to 06:00 PM"> 05:00 to 06:00 PM</option>
 
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>
-
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>
-
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>
-
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>
-
-			</div>
-
-			
+                </select> <br/>
 
 
-		
-	</div>
+
+                <label> Additional Notes </label> <br/>
+
+                <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()"></textarea> <br/><br/>
+                <a href="#" onclick="showContract()">Terms and Conditions </a> <br/> <br/>
+                <input type="hidden" name="contract" id="contractInput"/>
+                <input type="checkBox" required/>
+                <label> I agree to the terms and conditions </label>
+                <br/> <br/>
+                
+ 
+                <input type="submit" value="Confirm">
+
+        </form>
+
+
+     </div>
 
 
 
 
-<script src="js/Requestor_AvailableServices.js"> </script>
+
+    </div>
+</center>
+
+<div id="Requestor_SelectedServiceMainBack">
+    <div id="Requestor_SelectedServiceMain">
+        <center>
+            <h2 id="selectedCategory">  </h2>
+            <br/>
+
+            <form method="GET"> 
+                Search <input type="Search" name="q">
+            </form>
+
+            <br/>
+        </center>
+    
+
+        <br/>
+        <h3> What service do you need? </h3>
+
+        <div id="AvailServiceContent">
+        
+        </div>
+
+
+        <center>
+            <div id="Responders">
+
+                <table>
+                <tr>
+                    <td>My Location </td> <br/>
+                    <td><h5 id="myLocation"> </h5> </td>
+                </tr>
+                </table>
+
+                <h5> Nearest Responders: </h5>
+                <div id="SuggestedResponders">
+                </div> 
+
+                <h5> Other available responders </h5>
+                <div id="AllResponders">
+            
+                </div> 
+
+            </div>
+        </center>
+
+    </div>
+</div>
+
+
+
+
+
+
+    
+
+
+
+
+
+
 
 
 </body>

@@ -16,7 +16,7 @@ function __construct(){
     
     /* Localhost connection */
     
-    /*
+    //*
     $this->dbservername = "localhost:3307";
     $this->dbusername = "root";
     $this->dbpassword = "";
@@ -25,7 +25,7 @@ function __construct(){
 
     /* remote database connection */
     
-    ///* 
+    /* 
     $this->dbservername = "remotemysql.com";
     $this->dbusername = "Ze2pK93XLv";
     $this->dbpassword = "ytsYYcZNGw";
@@ -2158,7 +2158,7 @@ public function updateConversationStatus($userID,$myID){
     $userID = mysqli_real_escape_string($this->dbconnection, $userID);
     $myID = mysqli_real_escape_string($this->dbconnection, $myID);
 
-    $query = "UPDATE $tablename SET conversationStatus = 'Seen' WHERE (senderID = $myID AND recieverID = $userID OR senderID= $userID AND recieverID = $myID); ";
+    $query = "UPDATE $tablename SET conversationStatus = 'Seen' WHERE (senderID = $myID AND recieverID = $userID OR senderID= $userID AND recieverID = $myID) ";
 
     $result = mysqli_query($this->dbconnection, $query);    
   

@@ -308,7 +308,8 @@
 }
 
 #Responder_RequestBoardBackground{
-	background-image: url("../img/3490.png");
+		/*background-image: url("../img/3490.png");*/
+
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -356,7 +357,7 @@
 /*Requestor_RequestBoard.html*/
 
 #Requestor_RequestBoardBackground{
-	background-image: url("../img/3490.png");
+	/* background-image: url("../img/3490.png"); */
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;

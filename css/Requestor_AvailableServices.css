@@ -26,10 +26,13 @@
 
 }
 
+body{
+	zoom: 80%;
+}
 
 /*Requestor_AvailableServices.html*/
 #Requestor_AvailableServicesBackground{
-	background-image: url("../img/3490.png");
+	/*background-image: url("../img/3490.png");*/
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -205,7 +208,7 @@
 
 .ServiceBanner:hover{
 
-	filter: brightness(80%);
+	/*filter: brightness(80%);*/
 }
 
 .ServiceTitle{

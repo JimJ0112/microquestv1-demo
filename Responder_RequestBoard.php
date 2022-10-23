@@ -34,7 +34,7 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/Responder_RequestBoard.css">
 
 </head>
-<body id="Responder_RequestBoardBackground" style="zoom:90%;" onload="<?php
+<body onload="<?php
        if(isset($_SESSION['specialization'])){
 
             $specialization = $_SESSION['specialization'];
@@ -56,6 +56,14 @@ session_start();
 			echo'getCategories();';
 			echo 'setSpecialization()';
         }
+
+
+
+		if(isset($_SESSION['userID'])){
+   	 		$userID = $_SESSION['userID'];
+    		
+    		echo "sessionStorage.setItem('myID','$userID');";
+		}
     
     ?>">
 

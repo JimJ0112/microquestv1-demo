@@ -29,11 +29,32 @@
 
 /*Requestor_AvailableServices.html*/
 #Requestor_AvailableServicesBackground{
-	background-image: url("../img/3490.png");
+		/*background-image: url("../img/3490.png");*/
+
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: repeat;
 	background-origin: border-box;
 
+}
+
+#Requestor_SelectedServiceMain{
+	background-color: white;
+	margin: auto;
+	
+	width: 80%;
+	min-height: 900px;
+
+}
+
+#Requestor_SelectedServiceMainBack{
+	position: absolute;
+	z-index: 3;
+	width: 100%;
+	height: 200%;
+	display: grid;
+	align-content: center;
+	border: 1px solid orange;
+	top:2;
 }

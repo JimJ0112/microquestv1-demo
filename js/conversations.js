@@ -94,7 +94,7 @@ function setUsersData(array){
             messageProfilePic[i].appendChild(image);
 
             //setConversation[i].href= "MessagesV2.php?selectedConversationID="+dataArray[i]['recieverID']+"&selectedConversationUsername="+dataArray[i]['recieverUserName'];
-            setConversation[i].setAttribute("onclick","selectConversation(" + dataArray[i]['recieverID'] +", '"+ dataArray[i]['recieverUserName'] +"')");
+            setConversation[i].setAttribute("onclick","selectConversation(" + dataArray[i]['recieverID'] +", '"+ dataArray[i]['recieverUserName'] +"','"+dataArray[i]['recieverUserPhoto']+"')");
         
 
         } else if(myID === dataArray[i]['recieverID']){
@@ -112,7 +112,9 @@ function setUsersData(array){
             messageProfilePic[i].appendChild(image);
 
             //setConversation[i].href= "MessagesV2.php?selectedConversationID="+dataArray[i]['senderID']+"&selectedConversationUsername="+dataArray[i]['senderUserName'];
-            setConversation[i].setAttribute("onclick","selectConversation(" + dataArray[i]['senderID'] +", '"+ dataArray[i]['senderUserName'] +"')");
+            //setConversation[i].setAttribute("onclick","selectConversation(" + dataArray[i]['senderID'] +", '"+ dataArray[i]['senderUserName'] +"')");
+            setConversation[i].setAttribute("onclick","selectConversation(" + dataArray[i]['senderID'] +", '"+ dataArray[i]['senderUserName'] +"','"+dataArray[i]['senderUserPhoto']+"')");
+
             
 
             if(dataArray[i]['conversationStatus'] === "New Message"){
@@ -122,7 +124,7 @@ function setUsersData(array){
                 lastMessageDiv[i].appendChild(newMessageTag);
 
                 var messageNotification = document.getElementById('messageNotification');
-                messageNotification.play();
+                //messageNotification.play();
             }
         
         }
@@ -138,8 +140,8 @@ function setUsersData(array){
 
 
 // for getting messages 
-function getMessages(/*id*/){
-    //userID = id;
+function getMessages(){
+  
     userID = sessionStorage.getItem('myID');
     var query = "userID="+ userID;     
     var xmlhttp = new XMLHttpRequest();
@@ -351,7 +353,7 @@ function seenMessage(){
                 console.log(dataArray);
             }
 
-
+            getMessages();
      
         }else{
             console.log(err);
@@ -366,13 +368,19 @@ function seenMessage(){
 
 /* set currently clicked conversation id to session storage */
 
-function selectConversation(id,username){
+function selectConversation(id,username,userPic){
 
     console.log(id);
     var username = username;
     var id = id;
-    console.log(id);
+    var userPic = userPic;
+
+    var conversationImage = document.getElementById("conversationImage");
+    conversationImage.src = userPic;
+    console.log(userPic);
     sessionStorage.setItem("selectedConversation",id);
     selectedUserName.setItem("selectedUserName",username);
+
+
 
 }

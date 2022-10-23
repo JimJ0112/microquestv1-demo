@@ -109,6 +109,8 @@ body{
 	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
 	cursor: pointer;
+
+	
 }
 
 .inboxUserName{
@@ -120,6 +122,11 @@ body{
 	font-size: smaller;
 	color: gray;
 	text-align: center;
+
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100px;
 }
 
 .messageProfilePic{
@@ -131,6 +138,7 @@ body{
 	font-weight: lighter;
 	text-align: center;
 	color: white;
+	margin: 0;
 }
 
 /* Messages */
@@ -189,8 +197,15 @@ body{
 }
 
 .messageCard{
-	padding: 10px;
+	padding: 20px;
 	margin:auto;
+
+	min-width: 100px;
+	min-height: 50px;
+
+	max-width: 150px;
+	font-family: Arial, Helvetica, sans-serif;
+	word-break: break-all;
 }
 
 #conversationUserName{
@@ -204,5 +219,41 @@ body{
 #conversationHeader{
 	overflow: hidden;
 	background-color: rgb(199, 199, 204);
+	
 
+}
+
+#conversationSearch{
+	width: 300px;
+	height:30px;
+}
+
+.chatlistButton{
+	
+	height: 30px;
+	cursor: pointer;
+}
+
+.messageDate{
+	font-size:small;
+	color:gray;
+	font-family: Arial, Helvetica, sans-serif;
+	margin:5px;
+}
+
+#conversationImage{
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 100%;
+	margin-right: 10px;
+}
+
+
+.newMessageTag{
+	background-color: blue;
+	color:white;
+	border-radius: 10px;
+	width: fit-content;
+	padding: 5px;
 }
