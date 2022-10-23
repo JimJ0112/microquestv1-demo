@@ -2,7 +2,8 @@
 session_start();
 
        // header("location:Login.php");
-	   // jim: ra inom hehe
+	   // ra inom hehe
+	   // 
 
 ?>
 
