@@ -138,16 +138,18 @@
 
 <div id="Requestor_SelectedServiceMainBack">
     <div id="Requestor_SelectedServiceMain">
-        <center>
-            <h2 id="selectedCategory">  </h2>
-            <br/>
+      
+            <div id="Requestor_SelectedServiceMainControls">
+                <h2 id="selectedCategory">  </h2>
+                <br/>
 
-            <form method="GET"> 
-                Search <input type="Search" name="q">
-            </form>
+                <form method="GET"> 
+                    Search <input type="Search" name="q">
+                </form>
 
-            <br/>
-        </center>
+                <br/>
+            </div>
+        
     
 
         <br/>
