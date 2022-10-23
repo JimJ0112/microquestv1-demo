@@ -140,19 +140,32 @@
     <div id="Requestor_SelectedServiceMain">
       
             <div id="Requestor_SelectedServiceMainControls">
-                <h2 id="selectedCategory">  </h2>
-                <br/>
+                <Table> 
+                    <tr>
+                        <td>
+                            <img> Search
+                        </td>
 
-                <form method="GET"> 
-                    Search <input type="Search" name="q">
-                </form>
+                        <td>
+                            <input type="Search" name="q" class="SearchBar">
+                        </td>
 
-                <br/>
+                    </tr>
+
+                </table>
+                
+               
+
+        
+           
+         
+
             </div>
         
     
 
         <br/>
+        <h2 id="selectedCategory">  </h2>
         <h3> What service do you need? </h3>
 
         <div id="AvailServiceContent">

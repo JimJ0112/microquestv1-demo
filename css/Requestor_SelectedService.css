@@ -66,10 +66,15 @@
 #Requestor_SelectedServiceMainControls{
 	background-color: rgba(119, 65, 32, 0.644);
 	margin-top: 0;
-	display: grid;
 	margin: 0;
 	width: 100%;
 	height: 70px;
+}
+
+#Requestor_SelectedServiceMainControls table{
+	height: 100%;
+	margin-right:10px;
+	float: right;
 }
 
 #AvailServiceFormContainer{
