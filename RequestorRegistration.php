@@ -1,13 +1,9 @@
 <?php
 
-	/*date_default_timezone_set("Asia/Manila");
-	function getAge ($dob){
-		$bday = new DateTime($dob);
-		$today = new DateTime(date('m.d.y'));
-	}
-	$diff = $today->diff($bday);
-	*/
-?>
+	date_default_timezone_set("Asia/Manila");
+	
+	
+?>	
 <!DOCTYPE html>
 <html>
 <head>

@@ -983,6 +983,57 @@ $query = "SELECT servicesinfo.responderID, userprofile.userName,userprofile.user
 }
 
 
+// get responders based on their services 
+
+
+public function getAllAvailableResponders($position,$category){
+
+    $position= mysqli_real_escape_string($this->dbconnection, $position);
+    //$municipality = mysqli_real_escape_string($this->dbconnection, $municipality);
+    $category= mysqli_real_escape_string($this->dbconnection, $category);
+
+    
+   
+// 29/05/2022 9:51pm nilagyan ko muna ng group by tong query na to para hindi dumoble, need to check out later - jim 
+// 09/06/2022 1:28am nilagyan ko muna ng servicesinfo.serviceStatus = 'Active', not sure if that's a good idea tho
+$query = "SELECT servicesinfo.responderID, userprofile.userName,userprofile.userPhoto,userprofile.municipality, servicesinfo.rate, servicesinfo.serviceID FROM userprofile INNER JOIN servicesinfo ON servicesinfo.responderID = userprofile.userID WHERE servicesinfo.servicePosition = '$position' AND userprofile.userType = 'Responder' AND servicesinfo.serviceCategory = '$category' AND servicesinfo.serviceStatus = 'Active' GROUP BY userprofile.userID";
+   
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+    $file;
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+                $row['userPhoto'] = $file;
+                
+
+
+                
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+
 // get product Categories row 
 public function getProductCategories(){
     $tablename = "products";

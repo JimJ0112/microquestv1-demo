@@ -10,7 +10,9 @@ $municipality = $_POST["municipality"];
 $category = $_POST['category'];
 
 
-$responders = $DBHandler-> getAvailableResponders($position,$municipality,$category);
+
+
+$responders = $DBHandler->getAllAvailableResponders($position,$category);
 
 
 if($responders === "failed to fetch"){

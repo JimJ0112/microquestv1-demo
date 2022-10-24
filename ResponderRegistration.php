@@ -14,10 +14,12 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Registration.css">
+	<script src="js/Responder_Registration.js"> </script>
+
 
 </head>
-<body onload="getServices()">
 
+<body onload="getServices()">
 
 		<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
 		<img src="img/b1.jpg" id="RegistrationBackground">

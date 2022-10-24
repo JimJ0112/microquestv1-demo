@@ -60,88 +60,139 @@
 
 </div>
 
-<center>
+
     <div id="AvailServiceFormContainer"> 
-    <div id="closeButton" onclick="closeForms()"> X </div><br/> <br/> <br/>
-     <div id="AvailServiceForm"> 
+        <div id="AvailServiceForm"> 
         
-        <form action="Backend/RegisterServiceOrder.php" method="post">
+            <div id="closeButton" onclick="closeForms()"> X </div>
+            <form action="Backend/RegisterServiceOrder.php" method="post">
 
             <h3> Confirm Transaction </h3> <br/><br/><br/>
 
             <input type="hidden" name="formServiceID" id="formServiceID"/>
             <input type="hidden" name="requestorID" id="formRequestorID" value="<?php echo $_SESSION["userID"] ?> "/>
       
-                <label> Category </label> <br/>
-                <input type="text" name="category" id="Category" readonly> <br/> 
+            <Table>
+                <tr>
+                    <td>
+                        <label> Category </label>
+                    </td>
+
+                    <td>
+                        <input type="text" name="category" id="Category" readonly>
+                    </td>
+                </tr>
         
 
-        
-                <label> Service </label> <br/>
-                <input type="text" name="position" id="Position" readonly> <br/>
-            
+                <tr>
+                    <td>
+                        <label> Service </label> 
+                    </td>
 
-    
-                <label> Responder ID </label> <br/>
-                <input type="text" name="responderID" id="responderID" readonly> <br/>
-  
+                    <td>
+                        <input type="text" name="position" id="Position" readonly> <br/>
+                    </td>
 
-                <label> Price  </label> <br/>
-                Php <input type="text" name="servicePrice" id="servicePrice" readonly> <br/>
-  
+                </tr>
 
-         
-                <label> Select Date </label> <br/>
-                
-                <?php
+
+                <tr>
+                    <td>
+                        <label> Responder ID </label> 
+                    </td>
+
+                    <td>
+                        <input type="text" name="responderID" id="responderID" readonly> 
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label> Price  </label> 
+                    </td>
+
+                    <td>
+                        Php <input type="text" name="servicePrice" id="servicePrice" readonly> 
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        <label> Select Date </label>
+                    </td>
+
+                    <td>
+                        <?php
                             date_default_timezone_set("Asia/Manila");
                             $today = date("Y-m-d");
                             $nextFiveDays =  date("Y-m-d",strtotime($today . ' +5 day'));
-                          
-                ?>
+                        ?>
 
-                <input type = "date" name="dueDate" id="dueDate" min="<?php echo $today; ?>" max="<?php echo $nextFiveDays; ?>" value="<?php echo $today;?>"onchange="availableTimeSlots()"required> <br/>
+                        <input type = "date" name="dueDate" id="dueDate" min="<?php echo $today; ?>" max="<?php echo $nextFiveDays; ?>" value="<?php echo $today;?>"onchange="availableTimeSlots()"required> <br/>
+                        </td>
 
-                <label> Time Slot </label> <br/>
-                <select id="responderTimeSlots" name="responderTimeSlots" onchange="availableTimeSlots()" required>
-                    <option default hidden> Choose time</option>
-                    <option class="timeSlot" value="9:00  to 10:00 AM"> 9:00  to 10:00 AM</option>
-                    <option class="timeSlot" value="10:00 to 11:00 AM"> 10:00 to 11:00 AM</option>
-                    <option class="timeSlot" value="11:00 to 12:00 PM"> 11:00 to 12:00 PM</option>
-                    <option class="timeSlot" value="12:00 to 01:00 PM"> 12:00 to 01:00 PM</option>
-                    <option class="timeSlot" value="01:00 to 02:00 PM"> 01:00 to 02:00 PM</option>
-                    <option class="timeSlot" value="02:00 to 03:00 PM"> 02:00 to 03:00 PM</option>
-                    <option class="timeSlot" value="03:00 to 04:00 PM"> 03:00 to 04:00 PM</option>
-                    <option class="timeSlot" value="04:00 to 05:00 PM"> 04:00 to 05:00 PM</option>
-                    <option class="timeSlot" value="05:00 to 06:00 PM"> 05:00 to 06:00 PM</option>
+                </tr>
 
-                </select> <br/>
+                <tr>
+                    <td>
+                        <label> Time Slot </label> <br/>
+                    </td>
 
+                    <td>
 
+                        <select id="responderTimeSlots" name="responderTimeSlots" onchange="availableTimeSlots()" required>
+                            <option default hidden> Choose time</option>
+                            <option class="timeSlot" value="9:00  to 10:00 AM"> 9:00  to 10:00 AM</option>
+                            <option class="timeSlot" value="10:00 to 11:00 AM"> 10:00 to 11:00 AM</option>
+                            <option class="timeSlot" value="11:00 to 12:00 PM"> 11:00 to 12:00 PM</option>
+                            <option class="timeSlot" value="12:00 to 01:00 PM"> 12:00 to 01:00 PM</option>
+                            <option class="timeSlot" value="01:00 to 02:00 PM"> 01:00 to 02:00 PM</option>
+                            <option class="timeSlot" value="02:00 to 03:00 PM"> 02:00 to 03:00 PM</option>
+                            <option class="timeSlot" value="03:00 to 04:00 PM"> 03:00 to 04:00 PM</option>
+                            <option class="timeSlot" value="04:00 to 05:00 PM"> 04:00 to 05:00 PM</option>
+                            <option class="timeSlot" value="05:00 to 06:00 PM"> 05:00 to 06:00 PM</option>
 
-                <label> Additional Notes </label> <br/>
+                        </select> <br/>
+                     </td>
 
-                <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()"></textarea> <br/><br/>
-                <a href="#" onclick="showContract()">Terms and Conditions </a> <br/> <br/>
-                <input type="hidden" name="contract" id="contractInput"/>
-                <input type="checkBox" required/>
-                <label> I agree to the terms and conditions </label>
-                <br/> <br/>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label> Additional Notes </label>
+                    </td>
+
+                    <td>
+
+                        <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()"></textarea> <br/><br/>
+                    </td>
+
+                </tr>
+                
+                </table>
+
+                    <a href="#" onclick="showContract()">Terms and Conditions </a> <br/> <br/>
+                    <input type="hidden" name="contract" id="contractInput"/>
+                    <input type="checkBox" required/>
+                    <label> I agree to the terms and conditions </label>
+                    <br/> <br/>
                 
  
                 <input type="submit" value="Confirm">
 
-        </form>
+            </form>
 
 
-     </div>
+        </div>
 
 
 
 
 
     </div>
-</center>
+
 
 <div id="Requestor_SelectedServiceMainBack">
     <div id="Requestor_SelectedServiceMain">
@@ -172,35 +223,17 @@
     
 
         <br/>
-        <h2 id="selectedCategory">  </h2>
-        <h3> What service do you need? </h3>
+        <center> 
+            <h2 id="selectedCategory">  </h2>
+        </center>
+        <h3 id="WhatService"> What service do you need? </h3>
+        <script> setSelectedCategory(); </script>
+
+
 
         <div id="AvailServiceContent">
-        
         </div>
 
-
-        <center>
-            <div id="Responders">
-
-                <table>
-                <tr>
-                    <td>My Location </td> <br/>
-                    <td><h5 id="myLocation"> </h5> </td>
-                </tr>
-                </table>
-
-                <h5> Nearest Responders: </h5>
-                <div id="SuggestedResponders">
-                </div> 
-
-                <h5> Other available responders </h5>
-                <div id="AllResponders">
-            
-                </div> 
-
-            </div>
-        </center>
 
     </div>
 </div>
@@ -209,6 +242,42 @@
 
 
 
+        <div id="RespondersBack">
+            <div id="Responders">
+                <div id="closeButtonBack">
+                    <div id="closeButton" onclick="closeResponders()"> X </div>
+                </div>
+
+                <table>
+                    <tr>
+                        <td>My Location: </td> <br/>
+                        <td><span id="myLocation"> </span> </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label class="switch">
+ 						        <input type="checkbox" id="nearestResponderSlider" onchange="setNearestResponders()">
+ 						        <span class="slider round"></span>
+					        </label>
+                        </td>
+                        <td>
+                            Nearest Responders
+                        </td>
+                </tr>
+
+                </table>
+
+            
+                <div id="SuggestedResponders">
+                </div> 
+
+            
+                </div> 
+
+            </div>
+        </div>
+      
 
     
 

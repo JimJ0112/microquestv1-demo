@@ -2,12 +2,15 @@ var selectedCategory = sessionStorage.getItem("selectedCategory");
 var loc = sessionStorage.getItem("municipality");
 function setSelectedCategory(){
 
+var selectedCategory = sessionStorage.getItem("selectedCategory");
+
     var selected = document.getElementById("selectedCategory");
     selected.innerText = selectedCategory;
     document.getElementById('myLocation').innerText=loc;
 
     getPositions(selectedCategory);
 }
+setSelectedCategory();
 
 
 // gets data from php 
@@ -113,11 +116,13 @@ function createServiceElements(Number){
     
 
 
-    var data = document.createElement('p');
+    var serviceTitleBackground = document.createElement('div');
+    var data = document.createElement('span');
 
 
 
     // set attributes
+    serviceTitleBackground.setAttribute('class','serviceTitleBackground');
     card.setAttribute('class','serviceCard');
     BannerContainer.setAttribute('class','BannerContainer');
     data.setAttribute('class','serviceTitle');
@@ -125,9 +130,10 @@ function createServiceElements(Number){
 
     // append elements to the row
     card.appendChild(BannerContainer);
-    card.appendChild(br);
-    card.appendChild(br);
-    card.appendChild(data);
+    //card.appendChild(br);
+    //card.appendChild(br);
+    serviceTitleBackground.appendChild(data);
+    card.appendChild(serviceTitleBackground);
 
 
     div.append(card);
@@ -151,13 +157,15 @@ function setData(array){
 
     for(var i = 0; i<number;i++){
         
-        serviceTitle[i].innerHTML = "<center> <h2>"+ dataArray[i]['servicePosition'] +"</h2> </center>";
-        serviceCard[i].setAttribute("onclick","getsuggestedResponders('" + dataArray[i]['servicePosition'] +"')");
-
+        serviceTitle[i].innerHTML =  dataArray[i]['servicePosition'];
+        //serviceCard[i].setAttribute("onclick","getAvailableResponders('" + dataArray[i]['servicePosition'] +"')");
+        //selectResponders(
+        serviceCard[i].setAttribute("onclick","selectResponders('" + dataArray[i]['servicePosition'] +"')");
+        
         var image = new Image();
         image.src = dataArray[i]['bannerImage'];
         image.setAttribute('class','bannerImage');
-        image.setAttribute('onerror',"this.src='Images/RequestBanners/others.jpg'");
+        image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
         BannerContainer[i].appendChild(image);
 
     }
@@ -199,7 +207,6 @@ function getsuggestedResponders(position){
     divCategory.value = sessionStorage.getItem("selectedCategory");
     divPosition.value= position;
 
-    console.log(divCategory.value);
 
 
     var xmlhttp = new XMLHttpRequest();
@@ -207,17 +214,15 @@ function getsuggestedResponders(position){
     query = "position=" + position + "&municipality=" + municipality +"&category=" + category;
     console.log(query)
 
-    xmlhttp.open("POST", "Backend/SuggestResponders.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
 
            
             // refresh the div to avoid duplication in appending
              var suggestedResponders = document.getElementById("SuggestedResponders");
-             suggestedResponders.innerHTML ="";
-             document.getElementById("Responders").style.display="block";
+             document.getElementById("SuggestedResponders").innerHTML = "";
+             document.getElementById("RespondersBack").style.display="grid";
 
             var dataArray = this.response;
 
@@ -234,12 +239,16 @@ function getsuggestedResponders(position){
             }
 
      
-            getAvailableResponders(position);
+            //getAvailableResponders(position);
         }else{
-            console.log(err);
+            //console.log(err);
+            document.getElementById("SuggestedResponders").innerHTML = "Loading...";
+
         }      
     };
     
+    xmlhttp.open("POST", "Backend/SuggestResponders.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
 
 
@@ -275,11 +284,18 @@ function createSuggestedRespondersElements(Number){
     var selectButton = document.createElement('p');
     var viewProfile = document.createElement('a');
     var br = document.createElement('br');
+    var table = document.createElement('table');
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    var td1 = document.createElement('td');
+    var responderInfoDiv = document.createElement('div');
     
 
 
 
     // set attributes
+    responderInfoDiv.setAttribute('class','responderInfoDiv');
+    table.setAttribute('class','responderCardTable');
     selectButton.innerText = "Select";
     viewProfile.innerText = "View Profile";
     viewProfile.setAttribute('class','viewProfile');
@@ -292,21 +308,35 @@ function createSuggestedRespondersElements(Number){
     suggestedResponderProfilePic.setAttribute('class','suggestedResponderPic');
     
     
+    td.appendChild(viewProfile);
+    td1.appendChild(selectButton);
+    tr.appendChild(td);
+    tr.appendChild(td1);
+    table.appendChild(tr);
+
+    responderInfoDiv.appendChild(ID);
+    responderInfoDiv.appendChild(name);
+
+    responderInfoDiv.appendChild(municipality);
+
+    responderInfoDiv.appendChild(rate);
 
 
-    // append elements to the row
-    card.appendChild(ID);
-    card.appendChild(br);
-    card.appendChild(suggestedResponderProfilePic);
-    card.appendChild(br);
-    card.appendChild(name);
-    card.appendChild(br);
-    card.appendChild(municipality);
-    card.appendChild(br);
-    card.appendChild(rate);
-    card.appendChild(br);
-    card.appendChild(viewProfile);
-    card.appendChild(selectButton);
+    //append elements to the row
+    //card.appendChild(ID);
+    //card.appendChild(br);
+    //card.appendChild(suggestedResponderProfilePic);
+    //card.appendChild(br);
+    //card.appendChild(name);
+    //card.appendChild(br);
+    //card.appendChild(municipality);
+    //card.appendChild(br);
+    //card.appendChild(rate);
+
+    card.appendChild(suggestedResponderProfilePic)
+    card.appendChild(responderInfoDiv);
+    card.appendChild(table);
+  
     
     
 
@@ -343,7 +373,7 @@ function setResponderData(array){
         ID[i].innerHTML = dataArray[i]['responderID'];
         name[i].innerHTML  = "<b> Username: </b>"+dataArray[i]['userName'];
         municipality[i].innerHTML  = "<b> Municipality: </b>"+dataArray[i]['municipality'];
-        rate[i].innerHTML  = "<b> Rate: </b>"+dataArray[i]['rate'];
+        rate[i].innerHTML  = "<b> Rate: </b> Php "+dataArray[i]['rate'];
         viewProfile[i].href= "Public_Profile.php?userID=" +  dataArray[i]['responderID'] + "&userType=Responder";
         selectButton[i].setAttribute('onclick','selectResponder('+ dataArray[i]['serviceID']+','+ dataArray[i]['responderID']+','+dataArray[i]['rate']+')');
         
@@ -359,77 +389,40 @@ function setResponderData(array){
 
 
 //----------------------------------------------------Available responders -------------------------------------------------------
-// set suggested responders data 
-function setAvailableResponderData(array){
-
-    var dataArray = array;
-    var number = dataArray.length;
 
 
-    var responderCard = document.getElementsByClassName("availableResponderCard");
-
-    var availableViewProfile = document.getElementsByClassName('availableViewProfile');
-    var availableSelectButton = document.getElementsByClassName('availableSelectButton');
-
-    var ID= document.getElementsByClassName('availableResponderID');
-    var name= document.getElementsByClassName('availableResponderName');
-    var municipality= document.getElementsByClassName('availableResponderMunicipality');
-    var rate= document.getElementsByClassName('availableResponderRate');
-    var availableResponderProfilePic = document.getElementsByClassName('availableResponderProfilePic');
-   // var selectButton.innerText = "Select";
-   //var viewProfile.innerText = "View Profile";
-
-    for(var i = 0; i<number;i++){
-
-
-        ID[i].innerHTML = dataArray[i]['responderID'];
-        name[i].innerHTML = "<b> Username: </b>"+dataArray[i]['userName'];
-        municipality[i].innerHTML = "<b> Municipality: </b>"+dataArray[i]['municipality'];
-        rate[i].innerHTML = "<b> Rate: </b>"+ dataArray[i]['rate'];
-
-        availableViewProfile[i].href= "Public_Profile.php?userID=" +  dataArray[i]['responderID'] + "&userType=Responder";
-        availableSelectButton[i].setAttribute('onclick','selectResponder('+dataArray[i]['serviceID'] +','+ dataArray[i]['responderID']+','+dataArray[i]['rate']+')');
-        
-        var image = new Image();
-        image.src = dataArray[i]['userPhoto'];
-        image.setAttribute('class','availableUserPhoto');
-        availableResponderProfilePic[i].appendChild(image);
-
-    }
-
-}
-
-
-
-// 31-05-2022: has issues in displaying - fixed
 // For available responders not on the location
-function getAvailableResponders(position,category){
+function getAvailableResponders(position){
     var position = position;
+    sessionStorage.setItem("selectedPosition", position);
     var category =  sessionStorage.getItem("selectedCategory");
     var municipality = sessionStorage.getItem('municipality');
+
+    
     
     var xmlhttp = new XMLHttpRequest();
     
     query = "position=" + position + "&municipality=" + municipality + "&category=" + category;
     console.log(query)
 
-    xmlhttp.open("POST", "Backend/AvailableResponders.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
+
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
 
            
             // refresh the div to avoid duplication in appending
-             AllResponders = document.getElementById("AllResponders");
-             AllResponders.innerHTML = "";
-             document.getElementById("Responders").style.display="block";
+            var suggestedResponders = document.getElementById("SuggestedResponders");
+            document.getElementById("SuggestedResponders").innerHTML = "";
+
+            document.getElementById("RespondersBack").style.display="grid";
 
             var dataArray = this.response;
             console.log(dataArray);
+
             if(dataArray === "Unable to load other available responders"){
 
-                AllResponders.innerText = "No other available responders";
+                suggestedResponders.innerText = "No other available responders";
                 
             } else{
 
@@ -437,74 +430,28 @@ function getAvailableResponders(position,category){
                 console.log(dataArray);
  
                 var number = dataArray.length
+                /*
                 createAvailableRespondersElements(number);
                 setAvailableResponderData(dataArray);
+                */
+                createSuggestedRespondersElements(number);
+                setResponderData(dataArray);
             }
 
      
         }else{
-            console.log(err);
+            //console.log(err);
+            document.getElementById("SuggestedResponders").innerHTML = "Loading...";
         }      
     };
-    
+
+    xmlhttp.open("POST", "Backend/AvailableResponders.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
     
 }// end of function
 
 
-// create elements for responders to be appended 
-function createAvailableRespondersElements(Number){
- 
-    DataNumber = Number;
-    div = document.getElementById("AllResponders");
-    
-   
-    
-    for(var i = 0;i<DataNumber;i++){
-    
-    // create elements for rows
-    var card = document.createElement('div');
-    var availableResponderProfilePic = document.createElement('div');
-
-    var ID = document.createElement('p');
-    var name = document.createElement('p');
-    var municipality = document.createElement('p');
-    var rate = document.createElement('p');
-    var selectButton = document.createElement('p');
-    var viewProfile = document.createElement('a');
-    
-
-
-
-    // set attributes
-    selectButton.innerText = "Select";
-    viewProfile.innerText = "View Profile";
-    selectButton.setAttribute('class','availableSelectButton');
-    viewProfile.setAttribute('class','availableViewProfile');
-    card.setAttribute('class','availableResponderCard');
-    ID.setAttribute('class','availableResponderID');
-    name.setAttribute('class','availableResponderName');
-    municipality.setAttribute('class','availableResponderMunicipality');
-    rate.setAttribute('class','availableResponderRate');
-    availableResponderProfilePic.setAttribute('class','availableResponderProfilePic');
-
-
-    // append elements to the row
-    card.appendChild(ID);
-    card.appendChild(availableResponderProfilePic);
-    card.appendChild(name);
-    card.appendChild(municipality);
-    card.appendChild(rate);
-    card.appendChild(viewProfile);
-    card.appendChild(selectButton);
-
-
-    div.append(card);
-
-    } 
-    
-    
-} // end of function
 
 
 
@@ -514,6 +461,11 @@ function selectResponder(serviceID,responderID,rate){
     var responderID = responderID;
     var rate = rate;
 
+    
+    var selectedCategory = document.getElementById("selectedCategory");
+    var Category = document.getElementById("Category");
+
+    
     divResponderID =document.getElementById("responderID");
     divServicePrice =document.getElementById("servicePrice");
     divServiceID = document.getElementById('formServiceID');
@@ -525,10 +477,11 @@ function selectResponder(serviceID,responderID,rate){
     divResponderID.value = responderID;
     divServicePrice.value = rate;
     divServiceID.value = serviceID;
+    Category.value = selectedCategory.innerText;
 
     availableTimeSlots();
     var form = document.getElementById('AvailServiceFormContainer'); 
-    form.style.display = "block";
+    form.style.display = "grid";
 
     generateContract();
     //console.log(responderInfoArray);
@@ -549,7 +502,7 @@ var modal = document.getElementById("AvailServiceFormContainer");
 
 }
 
-//-------------------------------------chech timeslots-------------------------------------------------------
+//-------------------------------------check timeslots-------------------------------------------------------
 
 function availableTimeSlots(){
     var responderID = document.getElementById('responderID').value;
@@ -846,3 +799,59 @@ function getServices(category){
     xmlhttp.send(query);
     
 }// end of function
+
+
+// for close button
+
+function closeResponders(){
+    document.getElementById("RespondersBack").style.display = "none";
+}
+
+
+//nearest responders
+function setNearestResponders(){
+    var nearestResponderSlider = document.getElementById("nearestResponderSlider");
+    var  position = sessionStorage.getItem("selectedPosition");
+
+    if(nearestResponderSlider.checked === true){
+       
+       getsuggestedResponders(position);
+       console.log("true");
+
+    } else {
+        getAvailableResponders(position);
+       console.log("false");
+
+    }
+}
+
+
+function selectResponders(position){
+    var position = position;
+    sessionStorage.setItem("selectedPosition",position);
+
+    myLocation = document.getElementById("myLocation");
+    userLocation = sessionStorage.getItem("municipality");
+    myLocation.innerText = userLocation;
+
+    var nearestResponderSlider = document.getElementById("nearestResponderSlider");
+
+    document.getElementById("RespondersBack").style.display="grid";
+
+    var PositionTB = document.getElementById("Position");
+    PositionTB.value = position;
+
+
+    if(nearestResponderSlider.checked === true){
+       
+        getsuggestedResponders(position);
+        console.log("true");
+ 
+     } else {
+         getAvailableResponders(position);
+        console.log("false");
+ 
+     }
+
+
+}

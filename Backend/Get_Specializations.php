@@ -9,7 +9,7 @@ $tablename = "servicesinfo";
 $column = "serviceStatus";
 $condition ="Active";
 //$categories = $DBHandler->getServicesForSpecialization($tablename,$column,$condition,'serviceCategory');
-$categories = $DBHandler->getServicesForSpecialization($tablename,$column,$condition);
+$categories = $DBHandler->getServicesForSpecialization($tablename,$column,$condition,'serviceCategory');
 
 
     echo json_encode($categories);
