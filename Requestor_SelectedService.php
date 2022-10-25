@@ -39,6 +39,13 @@
         echo "getServices('$category');";
     }
 
+    if(isset($_SESSION["userID"]) && isset($_SESSION["userType"])){
+        $userID = $_SESSION["userID"];
+        $userType = $_SESSION["userType"];
+
+        echo  "getMyInfo($userID,'$userType')";
+    }
+
 ?>">
 
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
@@ -51,11 +58,12 @@
 
 
 <div id="contractBackGround"> 
-    <div id="closeButton" onclick="hideContract()"> X </div>
-        <br/> <br/>
-        <br/> <br/>
-    <div id="contractDiv"> 
 
+    <div id="contractDivContainer">
+        <div id="closeButton" onclick="hideContract()"> X </div>
+        <div id="contractDiv"> 
+
+        </div>
     </div>
 
 </div>
@@ -65,6 +73,7 @@
         <div id="AvailServiceForm"> 
         
             <div id="closeButton" onclick="closeForms()"> X </div>
+
             <form action="Backend/RegisterServiceOrder.php" method="post">
 
             <h3> Confirm Transaction </h3> <br/><br/><br/>
@@ -166,7 +175,7 @@
 
                     <td>
 
-                        <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()"></textarea> <br/><br/>
+                        <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()" cols="40" rows="5"></textarea> <br/><br/>
                     </td>
 
                 </tr>

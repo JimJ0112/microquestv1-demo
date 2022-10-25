@@ -10,7 +10,7 @@ var selectedCategory = sessionStorage.getItem("selectedCategory");
 
     getPositions(selectedCategory);
 }
-setSelectedCategory();
+
 
 
 // gets data from php 
@@ -673,7 +673,7 @@ function generateContract(){
 
 function showContract(){
     contractBackGround = document.getElementById('contractBackGround');
-    contractBackGround.style.display = "block";
+    contractBackGround.style.display = "grid";
     contractDiv = document.getElementById('contractDiv');
     contractDiv.style.display = "block";
 }

@@ -30,8 +30,8 @@ $contract = $_POST['contract'];
 echo $contract;
 
 $result = $DBHandler->registerServiceTransaction($formServiceID,$responderID,$requestorID,$servicePrice,$dueDate,$responderTimeSlots,$additionalNotes,$transactionStartDate,$contract);
-//echo $result;
+echo $result;
 
-header("location:../RequestApplications-Services.php");
+header("location:../Requestor_Transactions.php");
 
 

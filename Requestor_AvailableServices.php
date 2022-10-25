@@ -81,11 +81,7 @@
 	   					</table>
 					</li>
 
-					<li class="AvailableServicesContainer-ControlItem" id="AvailableServicesCategoryContainer"> 
-						<select id="AvailableServicesCategory"> 
-							<option> Category</option>
-						</select> 
-					</li>
+
 
 				</ul>
 
