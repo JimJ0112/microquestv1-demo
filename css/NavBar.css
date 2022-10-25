@@ -8,7 +8,7 @@
 	display: grid;
 	overflow: hidden;
 	top:0;
-	background-color: rgba(22, 8, 2, 0.778);
+	background-color: rgb(22, 8, 2);
 
 }
 
@@ -24,7 +24,7 @@
 	position: absolute;
 	left: 50px;
 	overflow: hidden;
-	z-index: 18;
+	z-index: 19;
 	overflow: hidden;
 	
 	

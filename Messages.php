@@ -65,8 +65,9 @@ session_start();
 
 
 <!-- main -->
-<br/> <br/> <br/> 
+
 <div id="MessagesMainBack">
+<br/> <br/> <br/> 
 	
 	<div id="MessagesMainContainer">
 

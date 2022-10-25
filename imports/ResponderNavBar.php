@@ -40,7 +40,7 @@
 			 <li class="Nav-item" title="RequestBoard"> 
 			 	<?php
 					$pagename = basename($_SERVER['PHP_SELF']);
-					if($pagename === "Responder_RequestBoard.php"){
+					if($pagename === "Responder_RequestBoard.php" || $pagename === "RequestInfo.php"){
 						echo '<u> RequestBoard </u>';
 					} else{
 						echo "RequestBoard";

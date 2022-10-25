@@ -1,0 +1,249 @@
+/*request info */
+
+#requestInfoContentBack{
+    position:absolute;
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    top:200px;
+    background-color: #3535352a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#requestInfoContent{
+    display: grid;
+  
+    margin:auto;
+    width: 80%;
+    height: 100%;
+    top:100px;
+}
+
+#requestInfoContentTable{
+    width: 80%;
+    height: fit-content;
+    margin: auto;
+    
+    
+}
+
+#requestInfoContentTable td{
+    width: 80%;
+    height: fit-content;
+    
+    padding: 5px;
+  
+}
+
+#requestorProfile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    object-fit: cover;
+    border: 1px solid black;
+    background-color: gray;
+    margin: 5px;
+    background-color: white;
+}
+
+
+#requestInfoMain{
+   
+    box-shadow: 1px 8px 10px #353535;
+    border-radius: 50px;
+    width: 100%;
+    height: fit-content;
+    
+    background-color: white;
+    margin: auto;
+    padding-top: 10px;
+
+}
+
+#requestInfoMain h3{
+    margin:30px;
+
+}
+#requestInfoMain h1{
+    margin:30px;
+
+}
+
+#applyButton{
+    margin: 30px;
+    width: 150px;
+    height: 80px;
+}
+
+#messageMe{
+
+	box-shadow: 1px 8px 10px #353535;
+    border-radius: 50px;
+    width: fit-content;
+    height: fit-content;
+    padding: 50px;
+    background-color: white;
+    margin: auto;
+ 
+    top:5px;
+    
+   
+}
+#messageMeTd{
+
+    width: fit-content;
+    overflow: hidden;
+}
+
+
+#viewFeedBacks{
+    
+    box-shadow: 1px 8px 10px #353535;
+    border-radius: 50px;
+    width: 80%;
+    height: fit-content;
+    padding: 50px;
+    background-color: white;
+    margin: auto;
+}
+
+
+
+#formBackground{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(2px);
+    display: none;
+    
+}
+
+/* My Services */
+#myServicesNav{
+    display: grid;
+    width: 100%;
+
+    height: 100px;
+    align-content: center;
+    padding: auto;
+    
+}
+
+#MyServicesButton{
+    width: 200px;
+    outline: auto;
+    height: 100px;
+    text-align: center;
+}
+
+#MyProducts{
+ 
+}
+
+#myServicesContent{
+    display: grid;
+   
+    
+    height: 100%;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 10px;
+
+
+    
+
+}
+
+.myServiceCard{
+    border:1px solid black;
+    height: 200px;
+    margin: 5px;
+    cursor: pointer;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    width: 500px;
+    padding: 5px;
+
+
+}
+
+.certificateImage{
+    width: 100px;
+    height: 100px;
+    
+}
+
+.delist{
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+   
+
+}
+
+.update{
+    width: 100%;
+    height: 30px;
+    
+}
+
+#updateFormBackground{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(2px);
+    display: none;
+    
+}
+
+#updateService{
+    background-color:brown;
+    width: 300px;
+    height: 200px;
+}
+
+
+/*Pasabuy form - avail service*/
+
+#pasabuyFormContainer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(2px);
+    display: none;
+}
+
+
+.userPhotoPic{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    object-fit: cover;
+    border: 1px solid black;
+    background-color: gray;
+    margin: 5px;
+}
+
+
+/*ResponderRegistration.html*/
+@keyframes backButtonMove{
+	from{margin:10px;}
+	to{margin-left:0px;}
+}
+
+#Registration-BackButton{
+	width: 90px;
+	height: 50px;
+	
+	margin:10px;
+	cursor: pointer;
+	filter: brightness(30%);
+
+}
+
+#Registration-BackButton:hover{
+	animation-name: backButtonMove;
+	animation-duration: 0.5s;	
+	animation-iteration-count: infinite;
+}
