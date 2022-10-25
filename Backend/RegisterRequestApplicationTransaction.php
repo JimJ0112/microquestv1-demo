@@ -19,6 +19,6 @@ echo $requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestD
 $result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate);
 echo $result;
 
-header("location:../Requests-Orders.php");
+header("location:../Responder_Transactions.php");
 
 

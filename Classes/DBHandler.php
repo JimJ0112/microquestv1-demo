@@ -1842,7 +1842,7 @@ public function getCancelledTransactions($ID,$column,$transactionType){
 }// end of function
 
 
-// get cancelled transactions
+// get accepted transactions
 public function getAcceptedTransactions($ID,$column,$transactionType){
 
     $ID = mysqli_real_escape_string($this->dbconnection, $ID);
@@ -1935,8 +1935,196 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
   
 }// end of function
 
+// get delivered transactions
+public function getDeliveredTransactions($ID,$column,$transactionType){
 
-// get cancelled transactions
+    $ID = mysqli_real_escape_string($this->dbconnection, $ID);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $transactionType = mysqli_real_escape_string($this->dbconnection, $transactionType);
+
+    $tablename = "transactions";
+
+   
+
+    if($transactionType === "Request"){
+        // added AND transactionStatus = 'pending'
+        $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'delivered';";
+
+        $result = mysqli_query($this->dbconnection, $query);
+        $resultCheck = mysqli_num_rows($result);
+        $data = array();
+        
+    
+        if($resultCheck > 0){
+           
+    
+                while($row = mysqli_fetch_assoc($result)){
+                    
+    
+    
+    
+                    $data[] = $row;
+                    
+                 
+                }
+                
+                return $data;
+            
+            
+            
+    
+        } else {return "failed to fetch";}
+
+    } else if($transactionType === "Service"){
+       // $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM transactions INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.responderID = 11;";
+       // added AND transactionStatus = 'pending'
+       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'delivered';";
+
+        $result = mysqli_query($this->dbconnection, $query);
+        $resultCheck = mysqli_num_rows($result);
+        $data = array();
+        $file;
+        
+    
+        if($resultCheck > 0){
+           
+    
+                while($row = mysqli_fetch_assoc($result)){
+                    
+    
+    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                    $row['certificateFile'] = $file;
+                    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                    $row['bannerImage'] = $file;
+    
+                    $data[] = $row;
+                    
+                 
+                }
+                
+                return $data;
+            
+            
+            
+    
+        } else {return "failed to fetch";}
+
+    } else {
+        echo "failed query"; 
+    }
+   
+
+ 
+    //$query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID;";
+
+
+
+
+
+
+        
+  
+}// end of function
+
+
+// get delivered transactions
+public function getPaidTransactions($ID,$column,$transactionType){
+
+    $ID = mysqli_real_escape_string($this->dbconnection, $ID);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $transactionType = mysqli_real_escape_string($this->dbconnection, $transactionType);
+
+    $tablename = "transactions";
+
+   
+
+    if($transactionType === "Request"){
+        // added AND transactionStatus = 'pending'
+        $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'paid' OR transactionStatus = 'payment confirmed';";
+
+        $result = mysqli_query($this->dbconnection, $query);
+        $resultCheck = mysqli_num_rows($result);
+        $data = array();
+        
+    
+        if($resultCheck > 0){
+           
+    
+                while($row = mysqli_fetch_assoc($result)){
+                    
+    
+    
+    
+                    $data[] = $row;
+                    
+                 
+                }
+                
+                return $data;
+            
+            
+            
+    
+        } else {return "failed to fetch";}
+
+    } else if($transactionType === "Service"){
+       // $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM transactions INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.responderID = 11;";
+       // added AND transactionStatus = 'pending'
+       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'paid' OR transactionStatus = 'payment confirmed';";
+
+        $result = mysqli_query($this->dbconnection, $query);
+        $resultCheck = mysqli_num_rows($result);
+        $data = array();
+        $file;
+        
+    
+        if($resultCheck > 0){
+           
+    
+                while($row = mysqli_fetch_assoc($result)){
+                    
+    
+    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                    $row['certificateFile'] = $file;
+                    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                    $row['bannerImage'] = $file;
+    
+                    $data[] = $row;
+                    
+                 
+                }
+                
+                return $data;
+            
+            
+            
+    
+        } else {return "failed to fetch";}
+
+    } else {
+        echo "failed query"; 
+    }
+   
+
+ 
+    //$query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID;";
+
+
+
+
+
+
+        
+  
+}// end of function
+
+// get completed / finished transactions
+
+/*
 public function getCompletedTransactions($ID,$column,$transactionType){
 
     $ID = mysqli_real_escape_string($this->dbconnection, $ID);
@@ -2029,10 +2217,105 @@ public function getCompletedTransactions($ID,$column,$transactionType){
   
 }// end of function
 
+*/
+
+
+// get completed / finished transactions
+
+public function getCompletedTransactions($ID,$column,$transactionType){
+
+    $ID = mysqli_real_escape_string($this->dbconnection, $ID);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $transactionType = mysqli_real_escape_string($this->dbconnection, $transactionType);
+
+    $tablename = "transactions";
+
+   
+
+    if($transactionType === "Request"){
+        // added AND transactionStatus = 'pending'
+        $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND (transactions.transactionStatus = 'completed' ) ORDER BY transactions.transactionID DESC";
+
+        $result = mysqli_query($this->dbconnection, $query);
+        $resultCheck = mysqli_num_rows($result);
+        $data = array();
+        
+    
+        if($resultCheck > 0){
+           
+    
+                while($row = mysqli_fetch_assoc($result)){
+                    
+    
+    
+    
+                    $data[] = $row;
+                    
+                 
+                }
+                
+                return $data;
+            
+            
+            
+    
+        } else {return "failed to fetch";}
+
+    } else if($transactionType === "Service"){
+       // $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM transactions INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.responderID = 11;";
+       // added AND transactionStatus = 'pending'
+       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND (transactions.transactionStatus = 'completed' OR transactions.transactionStatus = 'paid' OR transactions.transactionStatus = 'payment confirmed')ORDER BY transactions.transactionID DESC;";
+
+        $result = mysqli_query($this->dbconnection, $query);
+        $resultCheck = mysqli_num_rows($result);
+        $data = array();
+        $file;
+        
+    
+        if($resultCheck > 0){
+           
+    
+                while($row = mysqli_fetch_assoc($result)){
+                    
+    
+    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                    $row['certificateFile'] = $file;
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                    $row['bannerImage'] = $file;
+
+                    $data[] = $row;
+                    
+                 
+                }
+                
+                return $data;
+            
+            
+            
+    
+        } else {return "failed to fetch";}
+
+    } else {
+        echo "failed query"; 
+    }
+   
+
+ 
+    //$query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID;";
+
+
+
+
+
+
+        
+  
+}// end of function
 
 
 // get timeslots
-// get cancelled transactions
 public function getMyTimeSlots($responderID,$date){
 
     $responderID = mysqli_real_escape_string($this->dbconnection, $responderID);

@@ -1,7 +1,20 @@
 <?php
 	session_start();
-?>
 
+	if(!isset($_SESSION["userEmail"])){
+        header("location:Login.php?msg=Please Login First");
+    }
+
+    if(isset($_SESSION["municipality"])){
+        $municipality = $_SESSION["municipality"];
+
+        echo"<script> sessionStorage.setItem('municipality','$municipality')</script>";
+    }
+
+	if(isset($_SESSION["userID"])){
+		$userID = $_SESSION["userID"];
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,92 +29,81 @@
     
     <meta content='yes' name='apple-mobile-web-app-capable'/>
     <meta content='yes' name='mobile-web-app-capable'/>
-
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Requestor_Transactions.css">
-</head>
-<body id="Responder_TransactionsBackground">
 
-<img src="img/b.jpg" id="BodyBackgroundImg"/>
+	<script src="js/Requestor_Transactions.js"> </script>
+
+</head>
+<body onload="setTransactionType()">
 
 <!-- NavBar-->
-
 <?php
 	require_once("imports/RequestorNavBar.php");
 
 ?>
 
-<div id="TransactionsBackContainer">
 
-	<center> <h1 id="TransactionsTitle"> Requestor's Transactions </h1> </center>
-	
-	<div id="TransactionsContainer">
-		<div id="TransactionsContainer-Controls">
+<?php
 
-			<ul id="TransactionsContainer-ControlItems">
+	if(isset($_SESSION["userID"])){
+		$userID = $_SESSION["userID"];
+		echo"<script> sessionStorage.setItem('userID',$userID) </script>";
+	}
 
-				<li class="TransactionsContainer-ControlItem">
-					<table>
-						<tr>
-							<td>
-								<img src="img/requests.png" class="TransactionsContainer-ControlItemIcon">
-							</td>
-							<td>
-								
-				
-					<select id="TransactionsCategory"> 
-						<option style="color: black;"> Request Applications </option>
-						<option style="color: black;"> On going Requests</option>
-						<option style="color: black;"> Completed Requests</option>
-						<option style="color: black;"> Cancelled </option>
-					</select> 
+?>
+<div id="TransactionsBackContainerBack">
+
+	<table id="TransactionsNav">
+
+
+		<tr>
+			<td id="TransactionTypeTd"> 
+
+				<select id="TransactionTypeDropDown" onchange="setTransactionType()">
+					<option value= "Services">Services</option>
+					<option value= "Requests">Requests</option>
+				</select> 
 			
-							</td>
-					 	</tr>
-					</table>
+			</td>
 
-				</li>
+			<td id="TransactionsNavItem1" class="TransactionsNavItems" onclick="clickedNavItem(0,<?php echo $userID; ?>)"> Orders </td>
+			<td id="TransactionsNavItem2" class="TransactionsNavItems" onclick="clickedNavItem(1,<?php echo $userID; ?>)"> Accepted Orders </td>
+			<td id="TransactionsNavItem3" class="TransactionsNavItems" onclick="clickedNavItem(2,<?php echo $userID; ?>)"> Delivered </td>
+			<td id="TransactionsNavItem4" class="TransactionsNavItems" onclick="clickedNavItem(3,<?php echo $userID; ?>)"> Paid </td>
+			<td id="TransactionsNavItem5" class="TransactionsNavItems" onclick="clickedNavItem(4,<?php echo $userID; ?>)"> Finished </td>
+			<td id="TransactionsNavItem6" class="TransactionsNavItems" onclick="clickedNavItem(5,<?php echo $userID; ?>)"> Cancelled </td>
+		</tr>
 
-				<li class="TransactionsContainer-ControlItem"> 
-					<table>
-						<tr>
-							<td>
-								<img src="img/work-icon.png" class="RequestsContainer-ControlItemIcon"> 
-							</td>
+	</table>
 
-							<td>
-								<select id="TransactionsCategory" style="color:white"> 
-									<option style="color: black;"> Service Orders</option>
-									<option style="color: black;"> On going Jobs</option>
-									<option style="color: black;"> Completed Jobs</option>
-									<option style="color: black;"> Cancelled </option>
-								</select> 
-							</td>
-						</tr>
-	   				</table>
-				</li>
+	<table id="TransactionsContainer">
+		<thead>
+			<tr id="TransactionsContainerThead">
+				<td>  - </td>
+				<td>Transaction ID </td>
+				<td>Start Date</td>
+				<td>Responder ID</td>
+				<td>Responder Name</td>
+				<td>Service ID</td>
+				<td>Category</td>
+				<td>Position</td>
+				<td>Price</td>
+				<!--<td>Rate</td> -->
+				<td>TimeSlot</td>
+				<td>Due Date</td>
+				<td>Additional Notes</td>
+				<td>Contract</td>
+				<td> Status</td>
+			</tr>
+					
+		</thead>
+		<tbody id="TransactionsContainerBody"> </tbody>
 
+		
 
-
-			</ul>
-
-		</div>
-
-		<div id="TransactionsContainer-Content">
-
-
-			<center> <h1> There is currently no Request Application </h1></center>
-
-
-
-
-
-		</div>
-
-	</div>
-
-
+	</table>
 </div>
 
 </body>

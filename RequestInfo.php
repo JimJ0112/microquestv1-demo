@@ -1,7 +1,7 @@
 <?php 
 session_start();
     if(!isset($_SESSION["userEmail"])){
-        header("location:LoginForm.php?msg=Please Login First");
+        header("location:Login.php?msg=Please Login First");
     }
 
      
@@ -56,7 +56,7 @@ session_start();
 
 <div id="formBackground"> 
     
-    <div>
+    <div id="AreYouSureDialog">
         <center>
         <h3> Are you sure you want to apply to this request?</h3> 
         <input type="Button" value="Yes" onclick="acceptApplyForm()"/>
@@ -90,26 +90,31 @@ session_start();
 
         <table id="requestInfoContentTable">
          <tr>
-            <td>
+            <td >
                 <div id="requestInfoMain"> 
 
                     <center> <h1 id="requestTitle">Title </h1> </center>
 
                     <center>  <h3 id="category"> category </h3> </center>
-
-          
-                    <h3> Requestor's Location: <span id="requestorLocation"> location </span> </h3> <br/> <br/> <br/> 
-
-                    <h3> Date posted: <span id="datePosted">  </span> </h3>
-                    <h3> Due date: <span id="dueDate"> 01/01/2022 </span> </h3>
-                    <h3> Expected price: Php <span id="expectedPrice"> price </span> </h3>
-                    <h3> <span id="isNegotiable"> negotiable </span> </h3> <br/> <br/> 
-
-                    <h3> Notes: </h3> 
-                    <center>
-                        <p id="requestNotes"> more details </p>
-                    </center>
-
+                    <Table id="requestDataTable">
+                        <tr>
+                            <td id="requestData" ><h3> Requestor's Location: </td><td id="requestData" ><span id="requestorLocation"> location </span> </h3></td> <br/> <br/> <br/> 
+                        </tr>
+                        <tr>
+                            <td id="requestData" ><h3> Date posted: </td><td id="requestData" ><span id="datePosted">  </span> </h3></td>
+                        </tr>  
+                        <tr>
+                            <td id="requestData" ><h3> Due date: </td><td id="requestData" ><span id="dueDate"> 01/01/2022 </span> </h3></td>
+                        </tr>   
+                        <tr> 
+                            <td id="requestData" ><h3> Expected price:  </td><td id="requestData" ><span id="expectedPrice"> price </span></br> 
+                            <span id="isNegotiable"> Negotiable </span></td> 
+                        </tr>
+                        <tr>        
+                            <td ><h3> Request Description: </h3></td> 
+                            <td ><p id="requestNotes"> more details </p></td>
+                        </tr>                         
+                    </Table>
 
             
                     <center>
@@ -132,7 +137,7 @@ session_start();
                     <center>
                         <form action="Backend/insertMessage.php" method="post">
                             <div id="requestorImageContainer"> </div> <br/>
-                            <a id="requestorName"> Requestor Name </a> <br/>
+                            <b><a id="requestorName"> Requestor Name </a></b> <br/>
                             <label> Send me a message </label> <br/>
 
                             <input type="hidden" name="recieverID" id="recieverID"/>

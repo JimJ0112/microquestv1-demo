@@ -58,8 +58,8 @@ category.innerText= dataArray[0]['requestCategory'];
 requestorLocation.innerText= dataArray[0]['requestorMunicipality'];
 datePosted.innerText = dataArray[0]['datePosted'];
 dueDate.innerText = dataArray[0]['dueDate'];
-expectedPrice.innerText = dataArray[0]['requestExpectedPrice'];
-isNegotiable.innerText = dataArray[0]['isNegotiable'];
+expectedPrice.innerText = "₱"+ dataArray[0]['requestExpectedPrice'];
+isNegotiable.innerText = "("+ dataArray[0]['isNegotiable'] + ")";
 
 
 
@@ -141,7 +141,7 @@ function checkText(){
 
 // show modal
 function showApplyForm(){
-    document.getElementById('formBackground').style.display = "block";
+    document.getElementById('formBackground').style.display = "grid";
 }
 
 

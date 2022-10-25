@@ -30,8 +30,9 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Responder_MyServices.css">
 
+	<script src="js/Responder_AvailableServices.js"> </script>
 </head>
-<body  onload="getServices()">
+<body  onload="">
 
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
 
@@ -39,6 +40,13 @@
 <?php
 	require_once("imports/ResponderNavBar.php");
 
+?>
+
+
+<?php
+	$userID = $_SESSION["userID"];
+	
+	echo"<script> getMyServices($userID) </script>";
 ?>
 
 <!--Main-->

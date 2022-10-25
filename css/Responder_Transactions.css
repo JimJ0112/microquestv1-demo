@@ -29,153 +29,192 @@
 
 
 /*Responder_Transactions.html*/
-#Responder_TransactionsBackground{
-	/*background-image: url("../img/3490.png");*/
-
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: repeat;
-	background-origin: border-box;
-
-}
-
-
-
-
-#TransactionsBackground{
-	width: 100%;
-	position: absolute;
-	overflow: hidden;
-	object-fit: cover;
-	height: 100%;
-	opacity: 99%;
-
-}
-
-#TransactionsBackContainer{
-	position: absolute;
-
-	width: 99%;
-	height: 100%;
-
-	margin: auto;
-	margin-top: 100px;
-	margin-left: 5px;
+#TransactionsBackContainerBack{
 	
-}
+	width: 100%;
+	height: 200%;
+	position: relative;
+	top:110px;
+	
+	background-color: rgb(243, 240, 240);
 
-#TransactionsTitle{
-	font-family: Retroking;
-	color: white;
-	font-weight: lighter;
 }
 
 #TransactionsContainer{
-	margin-top: 0;
+	width: 100%;
+	height: fit-content;
 	margin: auto;
 	background-color: white;
-	width: 80%;
-	height: 100%;
-
-	border: 5px solid rgb(136, 75, 38);
-	min-height: 1000px;
-	max-height: 100%;
-	padding: 0;
-}
-
-#TransactionsContainer-Controls{
-
-	width: 100%;
-	height: 70px;
-	background-color: rgba(119, 65, 32, 0.644);
-	display: inline-block;
-	overflow: hidden;
-
-
-	
-}
-
-#TransactionsContainer-ControlItems{
-
-	list-style-type: none;
-	width: auto;
-	color: white;
+	margin-top: 0;
+	margin-bottom: 0;
 	font-family: Arial, Helvetica, sans-serif;
-
-	vertical-align: text-top;
-	
-}
-
-.TransactionsContainer-ControlItem{
-	width: fit-content;
-	display: inline-block;
-	margin-right: 100px;
-	font-size: large;
-	cursor: pointer;
-}
-
-.TransactionsContainer-ControlItem span{
-	margin:auto;
-	vertical-align: top;
 	text-align: center;
-
-
 }
 
-.TransactionsContainer-ControlItem:hover{
-	color:rgb(252, 174, 6);
-}
-
-#TransactionsCategoryContainer{
-	float: right;
-	margin: 10px;
-	width: fit-content;
-
-
-}
-
-#TransactionsCategory{
-	background-color:transparent;
-	border: none;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: large;
-	color:rgb(252, 174, 6);
-	cursor: pointer;
-
-}
-
-.TransactionsContainer-ControlItemIcon{
-	width: 40px;
-	height: 40px;
-	margin: 0;
-	filter: brightness(100%);
-	filter: invert(0.3);
-}
-
-#TransactionsContainer-Content{
-
-	/*
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	*/
+#TransactionsContainerThead{
+	color: gray;
 	padding: 10px;
-	align-content: center;
-	overflow: hidden;
-	text-align: center;
+	font-size: small;
 }
 
-.Transactions-Card{
-	border: 5px solid rgb(63, 50, 48);
-	width: 200px;
-	height: 300px;
+#TransactionsContainerBody td{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	padding: 5px;
+	border-right: 0.5px solid rgba(143, 141, 141, 0.29);
+	border-bottom: 0.5px solid rgba(143, 141, 141, 0.29);
+
+	font-size: small;
+
+}
+
+#TransactionsContainerBody{
+	height: fit-content;
+	border: 1px solid black;
+}
+
+.contractAgreement{
+	width: 50px;
+	overflow: hidden;
+}
+
+#TransactionsNav{
+	width: 100%;
+	height: fit-content;
+	margin: auto;
+	background-color: rgb(225, 223, 223);
+	margin-top: 10px;
+	margin-bottom: 0;
+	overflow: hidden;
+	padding: 5px;
+	display: grid;
+	
+
+}
+
+#TransactionsNav td{
+	display: inline;
+	list-style-type: none;
+	
+	padding:15px;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin: 10px;
+	cursor: pointer;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
+	
+}
+
+#TransactionsNav td:hover{
+
+	border-bottom: 4px solid rgb(48, 30, 8);
+}
+
+
+#TransactionsNav tr{
+
+	height: 50px;
+	width: 100%;
+	
 	margin: auto;
+
+
+
+}
+
+#TransactionsNav tbody{
+	padding-top: 10px;
+}
+
+#TransactionTypeTd{
+	margin-right: 100px;
+	width: 500px;
+	border-bottom: none;
+	display: none;
+}
+
+#TransactionTypeDropDown{
+	background-color: transparent;
+	border: none;
+	font-weight: bold;
+	font-size: larger;
+	width: 200px;
 	text-align: center;
-	display: grid;
+	height: 100%;
+	cursor: pointer;
+}
+
+td{
+	padding: 20px;
+	width: 400px;
+	
+}
+
+.AcceptButton{
+	background-color: rgb(9, 106, 9);
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	border: none;
+	margin: 5px;
+	padding: 5px;
+	cursor: pointer;
+	
+}
+
+.AcceptButton:hover{
+	background-color: rgb(38, 194, 38);
+
 	
 }
 
 
+.CancelButton{
+	background-color: rgb(136, 18, 18);
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	border: none;
+	margin: 5px;
+	padding: 5px;
+	cursor: pointer;
+
+}
+
+.CancelButton:hover{
+	background-color: rgb(224, 28, 28);
+	
+
+}
+
+.DeliverButton{
+	background-color: rgb(18, 75, 136);
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	border: none;
+	margin: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.DeliverButton:hover{
+	background-color: rgb(19, 102, 191);
+	
+
+}
+
+.ConfirmPaymentButton{
+	background-color: rgb(18, 136, 40);
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	border: none;
+	margin: 5px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.ConfirmPaymentButton:hover{
+	background-color: rgb(33, 171, 58);
+	
+
+}
