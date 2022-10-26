@@ -106,5 +106,63 @@
 	</table>
 </div>
 
+
+<div id="paymentPopUpBack"> 
+	<div id="paymentPopUp"> 
+	
+	<form action="Backend/UpdateRequestTransaction.php" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="transactionID" id="TransactionIDInput"/>
+
+		<?php
+		 $userType = $_SESSION["userType"];
+		?>
+		<input type="hidden" name="userType" value="<?php echo $userType; ?>"/>
+		<input type="hidden" name="update" value="paid"/>
+		<center> <h4>  Please Enter your proof of payment  </h4> 
+		<input type="file" name="paymentFile"> <br/>  <br/>  <br/>  <br/>  <br/>
+		
+
+		<input type="submit" value="Confirm"/> 
+		<input type="button" value="Cancel" onclick="closePaymentForm()"/>
+		</center>
+	</form>
+
+	</div>
+
+</div>
+
+
+
+<div id="giveFeedBackPopUpBack"> 
+	<div id="giveFeedBackPopUp"> 
+	
+	<form action="" method="post" enctype="multipart/form-data">
+		
+		<center>
+			<br/>
+			<input type="hidden" name="transactionID" id="TransactionIDInput"/>
+			<h3> Please Enter your feedbacks </h3>
+			<br/><br/><br/>
+			<textarea name="feedback"> 
+
+			</textarea>  <br/><br/><br/><br/><br/><br/>
+
+			<input type="radio" name="rate" value="1"/>
+			<input type="radio" name="rate" value="2"/>
+			<input type="radio" name="rate" value="3"/>
+			<input type="radio" name="rate" value="4"/>
+			<input type="radio" name="rate" value="5"/>
+
+			<br/><br/>
+
+			<input type="submit" value="Confirm"/> 
+			<input type="button" value="Cancel" onclick="closeFeedbackForm()"/>
+		</center>
+	</form>
+
+	</div>
+
+</div>
+
 </body>
 </html>

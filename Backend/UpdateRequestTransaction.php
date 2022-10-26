@@ -25,3 +25,17 @@ echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$c
 date_default_timezone_set("Asia/Manila");
 $today = date("Y-m-d");
 
+if(isset($_POST["userType"])){
+    $usertype = $_POST["userType"];
+
+    if($usertype === "Requestor"){
+        header("location: ../Requestor_Transactions.php");
+    } else {
+        header("location: ../Responder_Transactions.php");
+    }
+
+}
+
+
+//header("location: ../");
+

@@ -710,6 +710,7 @@ function SetFinishedData(dataArray){
         button1.setAttribute('class','AcceptButton');
         button1.innerText = "Give Feedback";
        // button1.setAttribute('onclick',"cancelServiceOrder(" +dataArray[i]['transactionID'] + ",'cancelled')" );
+        button1.setAttribute('onclick',"setFeedbackForm(" + dataArray[i]['transactionID'] + ")" );
         controlsTd[i].appendChild(button1);
 
 
@@ -828,7 +829,9 @@ function SetDeliveredData(dataArray){
         button.setAttribute('class','ConfirmPaymentButton');
         button.innerText = "Pay";
         //confirmPaymentServiceOrder
-        button.setAttribute('onclick',"confirmPaymentServiceOrder(" +dataArray[i]['transactionID'] + ",'paid')" );
+       // button.setAttribute('onclick',"confirmPaymentServiceOrder(" +dataArray[i]['transactionID'] + ",'paid')" );
+
+       button.setAttribute("onclick","setPaymentForm(" +dataArray[i]['transactionID'] + ")" );
 
         controlsTd[i].appendChild(button);
 
@@ -1359,7 +1362,8 @@ function SetFinishedRequestsData(dataArray){
         button.innerText = "Give a Feedback";
 
        // button.setAttribute('onclick',"acceptServiceOrder(" +dataArray[i]['transactionID'] + ",'accepted')" );
-        controlsTd[i].appendChild(button);
+       button.setAttribute('onclick',"setFeedbackForm(" + dataArray[i]['transactionID'] + ")");
+       controlsTd[i].appendChild(button);
         
 
     
@@ -1491,7 +1495,8 @@ function SetDeliveredRequestsData(dataArray){
         button.setAttribute('class','AcceptButton');
         button.innerText = "Pay";
 
-        button.setAttribute('onclick',"acceptServiceOrder(" +dataArray[i]['transactionID'] + ",'paid')" );
+        //button.setAttribute('onclick',"acceptServiceOrder(" +dataArray[i]['transactionID'] + ",'paid')" );
+        button.setAttribute("onclick","setPaymentForm(" +dataArray[i]['transactionID'] + ")" );
         controlsTd[i].appendChild(button);
         
 
@@ -1695,6 +1700,38 @@ function confirmPaymentRequest(transactionID,update){
 
 
 
+function setPaymentForm(transactionID){
+    transactionID = transactionID;
+    document.getElementById("TransactionIDInput").value = transactionID;
+    document.getElementById("paymentPopUpBack").style.display = "grid";
+
+}
+
+
+function closePaymentForm(){
+
+    document.getElementById("paymentPopUpBack").style.display = "none";
+
+}
+
+
+
+function setFeedbackForm(transactionID){
+    transactionID = transactionID;
+    document.getElementById("giveFeedBackPopUpBack").style.display = "grid";
+
+}
+
+
+function closeFeedbackForm(){
+
+    document.getElementById("giveFeedBackPopUpBack").style.display = "none";
+
+}
+
+
+
+
 
 function cancelRequestApplication(transactionID,update){
     var transactionID = transactionID;
@@ -1747,6 +1784,7 @@ function deliverRequestApplication(transactionID,update){
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getDeliveredRequests(transactionsUserId);
+
  
             
 
