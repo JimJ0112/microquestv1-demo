@@ -30,6 +30,7 @@ session_start();
 
 	if(isset($_SESSION["userType"])){
 		$userType = $_SESSION["userType"];
+
 		if($userType === "Responder"){
 			require_once("imports/ResponderNavBar.php");
 
@@ -38,54 +39,87 @@ session_start();
 
 		}
 	}
-?>
-<div id="viewUserProfileContent">
-    <table id="viewUserProfileTable">
-        <tr>
-            <td id="userImageContainerTd">
-                <div id="userImageContainer"></div>
-            </td>
-            <td>
-                <div id="userNameAndType">
-                        <h1><span id="userName">UserName</span></h1>
-                    <span id="userType"></br></br></br>usertype</span>
-                </div>
-            </td>
-            <td>
-                <div id="messageMe">
-                    <center>
-                        <form action="Backend/insertMessage.php" method="post">
-                            <label> MESSAGE </label> <br/>
 
-                            <input type="hidden" name="recieverID" id="recieverID"/>
-                            <input type="hidden" name="senderID" value='<?php echo $_SESSION['userID']; ?>'>
-                            <input type="hidden" name="senderUserName" value='<?php echo $_SESSION['userName']; ?>'>
-                            <input type="hidden" name="recieverUserName" id="recieverUserName">
+    if(isset($_GET["userID"])&& isset($_GET["userType"])){
+
+        $userID = $_GET["userID"];
+        $userType = $_GET["userType"];
+
+        echo"<script> getUserInfo($userID,'$userType');</script> ";
+    }
+?>
+
+<div id="viewUserProfileContent">
+    <div id="viewUserProfileTableBackground">
+        <table id="viewUserProfileTable">
+            <tr>
+                <td id="userImageContainerTd">
+                    <div id="userImageContainer"></div>
+                </td>
+                <td>
+                    <div id="userNameAndType">
+
+                           <h1><span id="userName">UserName</span></h1>
+    
+                            <p id="userType">usertype</p> 
+
+                    </div>
+                </td>
+
+                <td>
+                    <div id="messageMe">
+                        <center>
+                            <form action="Backend/insertMessage.php" method="post">
+                                <label> MESSAGE </label> <br/>
+
+                                <input type="hidden" name="recieverID" id="recieverID"/>
+                                <input type="hidden" name="senderID" value='<?php echo $_SESSION['userID']; ?>'>
+                                <input type="hidden" name="senderUserName" value='<?php echo $_SESSION['userName']; ?>'>
+                                <input type="hidden" name="recieverUserName" id="recieverUserName">
                  
-                            <textarea name="messageBody" id="requestInfoMessageBody" oninput="checkText()"> </textarea> <br/>
-                            <input type="submit" value="SEND" id="send" disabled/>
+                                <textarea name="messageBody" id="requestInfoMessageBody" oninput="checkText()"> </textarea> <br/>
+                                <input type="submit" value="SEND" id="send" disabled/>
                 
-                        </form>
-                    </center>
-                </div>
-            </td>
-    </table>
-    <table id="viewUserProfileNav">
-        <tr>
-            <td name="userPost" id="userNav" type="button" onclick="post()">
-               Posts
-            </td>
-            <td name="userAbout" id="userNav" type="button" onclick="about()">
-                About
-            </td>
-            <td name="userReviews" id="userNav" type="button" onclick="reviews()">
-                Reviews
-            </td>
-            <td name="userMore" id="userNav" type="button" onclick="more()">
-                More
-            </td>
-        </tr>
-    </table>
+                            </form>
+                        </center>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table id="viewUserProfileNav">
+            <tr>
+                <td name="userPost" class="userPost" id="userNav" type="button" onclick="post()">
+                   <?php
+                    if(isset($_GET["userType"])){
+                        $userType = $_GET["userType"];
+                        if($userType === "Requestor"){
+                            echo"Posted Requests";
+                        } else if ($userType === "Responder"){
+                            echo"Services";
+                        }
+                    } else{
+                        echo"Posts";
+                    }
+                   
+                   ?> 
+                </td>
+                <td name="userAbout" class="userAbout" id="userNav" type="button" onclick="about()">
+                    About
+                </td>
+                <td name="userReviews" class="userReviews" id="userNav" type="button" onclick="reviews()">
+                    Reviews
+                </td>
+                <td name="userMore"  class="userMore" id="userNav" type="button" onclick="more()">
+                    More
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+    
+    <div id="ContainerBackground">
+       
         <div id="postContainer">
 			<div id="postContainer-Content">
 				<div class="postCard">
@@ -102,30 +136,39 @@ session_start();
 				</div>
 			</div> 
         </div>
+
         <div id="aboutContainer">
             <div id="aboutContainer-Content">
                 <table class="userInfoTable">
-                    <tr>
-                        <td class="userEmail">Email</td><td> alden@richard.com </td>
+                    <tr class="userInfoTR">
+                        <td>Email</td>
+                        <td class="userEmail"> alden@richard.com </td>
                     </tr>
-                    <tr>
-					    <td class="userFullName">Full Name</td> <td> Alden Richard </td>
+                   
+                    <tr class="userInfoTR">
+					    <td>Full Name</td>
+                         <td class="userFullName"> Alden Richard </td>
                     </tr>
-                    <tr>
-					    <td class="userAge">Age</td><td> 32 </td>
+                    <tr class="userInfoTR">
+					    <td>Age</td>
+                        <td class="userAge"> 32 </td>
                     </tr>
-                    <tr>
-					    <td class="userDob">Birthday</td><td> May 17, 1990 </td>
+                    <tr class="userInfoTR">
+					    <td>Birthday</td>
+                        <td class="userDob"> May 17, 1990 </td>
                     </tr>
-                    <tr>
-					    <td class="userSpecialization">Spcialization</td><td> Arts </td>
+                    <tr class="userInfoTR">
+					    <td>Spcialization</td>
+                        <td class="userSpecialization">  </td>
                     </tr>
-                    <tr>
-					    <td class="userLocation">Location</td><td> Abucay </td>
+                    <tr class="userInfoTR">
+					    <td>Location</td>
+                        <td class="userSpecialization"> Abucay </td>
                     </tr>
                 </table>
             </div>
 		</div> 
+
         <div id="reviewContainer">
 			<div id="reviewContainer-Content">
 				<div class="reviewCard">
@@ -139,9 +182,15 @@ session_start();
 				</div>
 			</div> 
         </div>
+
         <div id="moreContainer">
             content
         </div>
+    </div>
+
 </div>  
+
+<script src="js/ViewUserProfile.js"> </script>
+
 </body>
 </html>

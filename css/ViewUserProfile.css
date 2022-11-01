@@ -1,5 +1,28 @@
 body{
-    background-color: #3a2719e8;
+   /* background-color: #3a2719e8; */
+   background-color: rgb(231, 226, 226);
+
+
+}
+
+#viewUserProfileContent{
+    position:absolute;
+    /*width: 80%;*/
+    height: fit-content;
+    display: grid;
+    top:15%;
+    font-family: Arial, Helvetica, sans-serif;
+    /*margin-left: 10%;*/
+    /*margin-right: 10%; */
+    width: 100%;
+ 
+    background-image: url("../img/businessidea.png");
+    background-size: 900px;
+    
+    
+  
+
+    
 }
 
 #viewUserProfileTable{
@@ -9,6 +32,8 @@ body{
 
 #userNameAndType{
     margin: 10px;
+    display: grid;
+    grid-column-gap: 0px;
 }
 
 #userName{
@@ -19,65 +44,136 @@ body{
     font-size: 25px;
 }
 
+#viewUserProfileNav{
+   
+    width: 50%;
+    /*margin: auto;*/
+    
+}
+
+.userPost{
+    
+}
+
+.userMore{
+    
+
+}
+
+#viewUserProfileTableBackground{
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    margin: auto;
+    margin-left: 0;
+    border-bottom: 1px solid rgb(167, 165, 165);
+    padding-top: 100px;
+    background-image: linear-gradient(rgba(65, 34, 11, 0.725), rgb(248, 248, 245));
+   
+}
+
 #userNav{
     width:25%;
     height: 50px;
     text-align: center;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    cursor: pointer;
+    
+
+    /*box-shadow: 1px 1px 5px #535252;*/
+    
     
 }
 
 #userNav:hover{
-    background-color: wheat;
-    cursor: default;
+    background-color: rgb(82, 45, 16);
+    color: white;
+    
+    /*cursor: default;*/
 }
 
+#ContainerBackground{
+    width: 80%;
+    height: 1000px;
+    background-color: white;
+
+
+    display: grid;
+    margin: auto;
+    border-radius: 20px;
+    padding-top: 20px;
+    margin-top: 10px;
+    
+
+}
 
 #postContainer{
     display: none;
     height:fit-content;
-    background-color: wheat;
+    background-color: rgba(82, 45, 16, 0.649);
+    width: 80%;
+
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+    margin-top:5px;
+
 }
 
 #aboutContainer{
     display: none;
     height:fit-content;
-    background-color: wheat;
+    background-color: rgba(144, 101, 68, 0.649);
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+    margin-top:5px;
+    font-weight: bold;
+
+
+}
+.userInfoTR{
+    margin-bottom: 100px;
+    margin-top: 100px;
+    padding: 100px;
 }
 
 #reviewContainer{
     display: none;
     height:fit-content;
-    background-color: wheat;
+    background-color: rgba(82, 45, 16, 0.649);
+
+  
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+    margin-top:5px;
+
+
 }
 
 #moreContainer{
     display: none;
     height:fit-content;
-    background-color: wheat;
-}
-
-
-
-
-
-
-
-
-
-#viewUserProfileContent{
-    position:absolute;
+    background-color: rgba(82, 45, 16, 0.649);
+    border-radius: 10px;
+    padding: 10px;
     width: 80%;
-    height: fit-content;
-    display: grid;
-    top:15%;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: auto;
+    margin-top:5px;
+
 }
+
+
+
+
+
+
 
 #userImageContainer{
-    border : white 2px solid;
+   
     border-radius: 100px;
     height: 200px;
     width: 200px;
@@ -109,5 +205,18 @@ body{
 
 }
 
+.userProfileUserPhoto{
+    border : white 2px solid;
+    border-radius: 100px;
+    height: 200px;
+    width: 200px;
+   
+ 
+   
+
+    object-fit: cover;
+    background-color: white;
+    
+}
 
 
