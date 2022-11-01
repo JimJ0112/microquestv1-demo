@@ -1,0 +1,344 @@
+/*Local Font Styles */
+
+
+@font-face {
+	font-family: "OPTICopperplate-Heavy";
+	src: url("../fonts/OPTICopperplate-Heavy.otf");
+
+}
+
+@font-face {
+	font-family: "Retroking";
+	src: url("../fonts/Retroking.ttf");
+
+}
+
+@font-face {
+	font-family: "Palatino Linotype";
+	src: url("../fonts/Palatino Linotype.ttf");
+
+}
+
+
+@font-face {
+	font-family: "brush script mt kursiv";
+	src: url("../fonts/brush script mt kursiv.ttf");
+
+}
+
+
+
+/*Responder_Transactions.html*/
+
+
+#Responder_CreateServiceBackground{
+		/*background-image: url("../img/3490.png");*/
+
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: repeat;
+	background-origin: border-box;
+
+}
+
+#RequestOrdersTitle{
+	color: white;
+	font-family: Retroking;
+
+	font-weight: lighter;
+
+}
+
+#CreateRequestControlsContainer{
+	width: 100%;
+	overflow: hidden;
+	height: 50px;
+	background-color: rgba(119, 65, 32, 0.644);
+	display: inline-block;
+	overflow: hidden;
+	z-index: 5;
+	padding:5px;
+
+	margin:0;
+}
+
+#SearchForm{
+	width:fit-content;
+	height: fit-content;
+	float:right;
+	margin: 10px;
+	margin-right: 20px;
+}
+
+#CreateServiceSearchButton{
+	width:fit-content;
+	background-color: rgb(63, 50, 48);
+	color: white;
+	margin: 0;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: lighter;
+	height: 30px;
+	grid-area: button;
+}
+
+#CreateServiceSearch{
+	width:fit-content;
+	background-color: rgb(255, 255, 255);
+	
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	margin: 0;
+	font-weight: lighter;
+	height: 30px;
+	grid-area: search;
+}
+
+#Requestor_CreateRequestMain{
+	margin-top: 0;
+	margin: auto;
+	background-color: white;
+	width: 80%;
+	min-height: 900px;
+	height: fit-content;
+	border: 5px solid rgb(136, 75, 38);
+	padding: 0;
+	overflow:hidden;
+	overflow-y: scroll;
+
+}
+
+#Requestor_CreateRequestMainBack{
+	position: absolute;
+	top:0;
+	margin: auto;
+	padding-top: 300px;
+	
+	width: 100%;
+	height: fit-content;
+}
+
+
+#createServiceNavMain{
+	display: inline-block;
+	height: 70px;
+	width: 100%;
+	background-color: rgba(112, 75, 23, 0.254);
+	overflow: hidden;
+	text-align: center;
+	padding: 5px;
+	margin-top: 0;
+	margin: 0;
+}
+
+.serviceNavItem{
+	display: inline-block;
+	margin-right:30px;
+	margin-left: 30px;
+	cursor:pointer;
+	margin-top: auto;
+	margin-bottom: 30px;
+	font-family: Palatino Linotype;
+	padding: 5px;
+	
+
+}
+
+
+.serviceNavItem:hover{
+	background-color: rgba(63, 42, 13, 0.254);
+	border-radius: 10px;
+
+}
+
+#createServiceNavMain ul li{
+	list-style-type: none;
+	margin-top: 0;
+	
+}
+
+#ControlItemRequestsButton{
+	width: fit-content;
+	height: fit-content;
+	
+	float: left;
+	margin-left: 20px;
+	cursor: pointer;
+	padding:2px;
+	border-radius: 10px;
+}
+
+#ControlItemRequestsButton table:hover{
+	background-color: rgba(112, 75, 23, 0.254);
+	border-radius: 10px;
+}
+
+.controlImage{
+	width: 30px;
+	height: 30px;
+	object-fit: contain;
+}
+
+.RequestsButtonImage{
+	width: 40px;
+	height: 40px;
+	object-fit: contain;
+}
+
+#RequestsButtonText{
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.bannerImage{
+	width:100%;
+	height: 100%;
+	filter: brightness(0.5);
+	object-fit: cover;
+}
+
+.bannerImage:hover{
+
+	filter: brightness(1);
+
+}
+
+
+
+#DropDownRequestCategory{
+	background-color:transparent;
+	border: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: large;
+	color:rgb(84, 47, 7);
+	cursor: pointer;
+
+	border: 3px solid rgb(84, 47, 7);
+	width: 300px;
+	font-weight: bold;
+}
+
+.CreateRequestControlsDropDown{
+	height: 100%;
+
+	width: fit-content;
+	margin: auto;
+	padding:10px;
+}
+
+
+/*Forms*/
+.requestForm{
+	font-family: Arial, Helvetica, sans-serif;
+	margin: auto;
+	
+	width: 50%;
+	display: none;
+	padding:10px;
+	
+}
+
+#FormsContainer{
+	width: 100%;
+	height: fit-content;
+	display: grid;
+	align-content: center;
+	font-size: larger;
+}
+
+
+.requestForm input{
+	border: 3px solid rgb(63, 50, 48);
+	height: 30px;
+	width:400px;
+	border-radius: 5px;
+}
+.requestForm input[type="text"]{
+	margin:auto;
+
+}
+
+.requestForm input[type="number"]{
+	margin:auto;
+
+}
+
+.requestForm input[type="date"]{
+	width:300px;
+	margin:auto;
+	text-align: center;
+
+}
+
+.requestForm select{
+	width:200px;
+	margin:auto;
+	text-align: center;
+	border: 3px solid rgb(63, 50, 48);
+
+}
+.requestForm textarea{
+	
+	margin:auto;
+	
+	resize: none;
+	border: 3px solid rgb(63, 50, 48);
+
+
+}
+
+.requestForm input[type="file"]{
+
+	text-align: center;
+	margin: auto;
+
+}
+
+.requestForm input[type="submit"]{
+	width: 200px;
+	height: fit-content;
+	margin: auto;
+	background-color: rgb(63, 50, 48);
+	color: white;
+	padding: 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: lighter;
+	font-size: large;
+}
+
+
+.requestForm input[type="submit"]:hover{
+
+	background-color: rgb(144, 110, 30);
+	color: white;
+
+}
+
+#regularRequestForm{
+	display: none;
+	margin: auto;
+	margin-top: 10px;
+}
+#pasabuyRequestForm{
+	display: none;
+	margin: auto;
+	margin-top: 10px;
+}
+
+#otherCategoriesRequestForm{
+	display: grid;
+	margin: auto;
+	margin-top: 10px;
+}
+
+#DisplayCategory{
+	font-family:Retroking;
+	font-weight:light;
+	font-size: 50px;
+}

@@ -1,0 +1,325 @@
+/*Local Font Styles */
+
+
+@font-face {
+	font-family: "OPTICopperplate-Heavy";
+	src: url("../fonts/OPTICopperplate-Heavy.otf");
+
+}
+
+@font-face {
+	font-family: "Retroking";
+	src: url("../fonts/Retroking.ttf");
+
+}
+
+@font-face {
+	font-family: "Palatino Linotype";
+	src: url("../fonts/Palatino Linotype.ttf");
+
+}
+
+
+@font-face {
+	font-family: "brush script mt kursiv";
+	src: url("../fonts/brush script mt kursiv.ttf");
+
+}
+
+/*Responder_Transactions.html*/
+
+
+#Responder_CreateServiceBackground{
+		/*background-image: url("../img/3490.png");*/
+
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: repeat;
+	background-origin: border-box;
+
+}
+
+#RequestOrdersTitle{
+	color: white;
+	font-family: Retroking;
+
+	font-weight: lighter;
+}
+
+#CreateServiceControlsContainer{
+	width: 100%;
+	overflow: hidden;
+	height: 50px;
+	background-color: rgba(119, 65, 32, 0.644);
+	display: inline-block;
+	overflow: hidden;
+	z-index: 5;
+	padding:5px;
+
+	margin:0;
+}
+
+#SearchForm{
+	width:fit-content;
+	height: fit-content;
+	float:right;
+	margin: 10px;
+	margin-right: 20px;
+}
+
+#CreateServiceSearchButton{
+	width:fit-content;
+	background-color: rgb(63, 50, 48);
+	color: white;
+	margin: 0;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: lighter;
+	height: 30px;
+	grid-area: button;
+}
+
+#CreateServiceSearch{
+	width:fit-content;
+	background-color: rgb(255, 255, 255);
+	
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	margin: 0;
+	font-weight: lighter;
+	height: 30px;
+	grid-area: search;
+}
+
+#Responder_CreateServiceMain{
+	margin-top: 0;
+	margin: auto;
+	background-color: white;
+	width: 80%;
+	height: 900px;
+	border: 5px solid rgb(136, 75, 38);
+	padding: 0;
+	overflow:hidden;
+	
+
+
+
+
+}
+
+#Responder_CreateServiceMainBack{
+	position: absolute;
+	top:0;
+	margin: auto;
+	padding-top: 100px;
+	
+	width: 100%;
+	height: fit-content;
+}
+
+
+#createServiceNavMain{
+	display: inline-block;
+	height: 70px;
+	width: 100%;
+	background-color: rgba(112, 75, 23, 0.254);
+	overflow: hidden;
+	text-align: center;
+	padding: 5px;
+	margin-top: 0;
+	margin: 0;
+}
+
+.serviceNavItem{
+	display: inline-block;
+	margin-right:30px;
+	margin-left: 30px;
+	cursor:pointer;
+	margin-top: auto;
+	margin-bottom: 30px;
+	font-family: Palatino Linotype;
+	padding: 5px;
+	
+
+}
+
+
+.serviceNavItem:hover{
+	background-color: rgba(63, 42, 13, 0.254);
+	border-radius: 10px;
+
+}
+
+#createServiceNavMain ul li{
+	list-style-type: none;
+	margin-top: 0;
+	
+}
+
+#ControlItemRequestsButton{
+	width: fit-content;
+	height: fit-content;
+	
+	float: left;
+	margin-left: 20px;
+	cursor: pointer;
+	padding:2px;
+	border-radius: 10px;
+}
+
+#ControlItemRequestsButton table:hover{
+	background-color: rgba(112, 75, 23, 0.254);
+	border-radius: 10px;
+}
+
+.controlImage{
+	width: 30px;
+	height: 30px;
+	object-fit: contain;
+}
+
+.RequestsButtonImage{
+	width: 40px;
+	height: 40px;
+	object-fit: contain;
+}
+
+#RequestsButtonText{
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*Forms*/
+
+.ServicePopUp{
+
+	background-color: white;
+	padding:50px;
+	margin: auto;
+	width:70%;
+	height: 90%;
+	border: 4px solid rgba(112, 75, 23, 0.254);
+
+	
+}
+
+.formBack{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 20;
+	display: grid;
+	align-content: center;
+	background-color: rgba(0, 0, 0, 0.129);
+	display:none;
+}
+
+#regularServicesForm{
+	display: block;
+}
+
+#regularServicesFormBack{
+	display: none;
+}
+
+#pasabuyFormBack{
+	display: none;
+}
+
+#pasabuyForm{
+
+}
+
+#otherCategoriesFormBack{
+	display: none;
+}
+
+#closeButton{
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	font-weight: bolder;
+	float: right;
+
+	text-align: center;
+	font-size: xx-large;
+	
+	margin: 0;
+	padding:20px;
+
+}
+
+#closeButton:hover{
+	background-color: rgba(233, 22, 22, 0.701);
+	border-radius: 10px;
+	color: rgb(248, 248, 248);
+
+}
+
+
+#OtherServicesContainer{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: max-content;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	overflow: hidden;
+	overflow-y: scroll;
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.serviceCard{
+	border: 1px solid black;
+	width: 100%;
+	height: 100px;
+	cursor: pointer;
+	overflow: hidden;
+	display: grid;
+	text-align: center;
+	align-content: center;
+	padding: auto;
+
+
+}
+
+.BannerContainer{
+
+	
+	
+}
+.bannerImage{
+	width:100%;
+	height: 100%;
+	filter: brightness(0.5);
+	object-fit: cover;
+}
+
+.bannerImage:hover{
+
+	filter: brightness(1);
+
+}
+
+.serviceTitle{
+	position: absolute;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: rgba(13, 35, 82, 0.555);
+	padding: 10px;
+	margin: auto;
+	z-index: 10;
+	color: white;
+	font-weight: lighter;
+	border: 2px solid white;
+}
+
+a{
+	text-decoration: none;
+
+}

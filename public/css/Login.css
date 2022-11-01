@@ -1,0 +1,263 @@
+/*Local Font Styles */
+
+
+@font-face {
+	font-family: "OPTICopperplate-Heavy";
+	src: url("../fonts/OPTICopperplate-Heavy.otf");
+
+}
+
+@font-face {
+	font-family: "Retroking";
+	src: url("../fonts/Retroking.ttf");
+
+}
+
+@font-face {
+	font-family: "Palatino Linotype";
+	src: url("../fonts/Palatino Linotype.ttf");
+
+}
+
+
+@font-face {
+	font-family: "brush script mt kursiv";
+	src: url("../fonts/brush script mt kursiv.ttf");
+
+}
+
+
+
+/*Login.html*/
+
+#LoginBody{
+	
+	padding: 0;
+	margin: 0;
+	/*
+	display: grid;
+	grid-template-areas:"Loginleft Loginleft Loginright";
+	
+	width: 100%;
+	height: 100%;
+	*/
+	background-color:rgb(52,42,41);
+
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-position: center;
+	display: grid;
+	align-content: center;
+	zoom: 100%;
+}
+
+#Logo{
+	position: absolute;
+
+	z-index: 2;
+	margin-top: 40px;
+	margin-left: 40px;
+	text-shadow: 2px 2px 5px #000000;
+	text-align: center;
+	line-height: 40px;
+
+
+
+
+}
+
+#Micro{
+	font-family: Retroking;
+	font-size: 70px;
+	text-align: center;
+	color: white;
+	margin: 10px;
+
+	
+}
+
+#Quest{
+	text-align: center;
+	margin: 10px;	
+	font-size: 40px;
+	text-indent: 0px;
+	color: white;
+
+	font-family: OPTICopperplate-Heavy;
+
+	display: inline-block;
+
+}
+
+
+
+/*	
+#LoginBg-left{
+	
+	height: 100vh;
+
+	grid-area: Loginleft;
+	margin: 0;
+	padding: 0;
+
+	
+	
+}
+
+
+#LoginBg-right{
+	
+	height: auto;
+	
+	grid-area: Loginright;
+	margin: 0;
+	background-color:rgb(23, 20, 15);
+
+	background-image: url("../img/businessidea.png");
+	background-size: contain;
+}
+*/
+
+#LoginForm{
+	position: absolute;
+	z-index: 6;
+	background-color:rgb(52,42,41);
+	right: 20%;
+
+	margin-top: clamp(7%,10%,15%);
+	width: 350px;
+	height: 450px;
+	color:white;
+	
+	vertical-align: bottom;
+}
+
+#LoginTable{
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	position: absolute;
+}
+
+#LoginTable-left{
+	width: 70%;
+	/* display: grid; */
+	align-content: center;
+	padding: 0;
+	
+}
+
+#LoginTable-right{
+	width: 30%;
+
+	height: auto;
+	
+	margin: 0;
+	background-color:rgb(23, 20, 15);
+
+	background-image: url("../img/businessidea.png");
+	background-size: contain;
+}
+
+#FormControls{
+	text-align: left;
+	width: fit-content;
+	margin: auto;
+	color: white;
+}
+
+.Form-Input{
+	border: 1px solid white;
+	height: 40px;
+	width: 250px;
+	background-color:rgb(52,42,41);
+	color: white;
+}
+
+#FormControls-Buttons{
+
+	height: fit-content;
+	text-align: right;
+}
+
+.LoginForm-button{
+	background-color: transparent;
+	border: none;
+	font-weight: bold;
+	font-family:'Times New Roman', Times, serif;
+	font-size: large;
+	cursor: pointer;
+	
+}
+
+#LoginButton{
+	color: rgb(228, 176, 81);
+}
+
+#CancelButton{
+	color: white;
+}
+#RegisterButton{
+	color: rgb(228, 176, 81);
+	cursor: pointer;
+}
+
+#Welcome{
+	font-weight: light;
+	font-family:retroking;
+	margin-bottom: 0;
+}
+#Back{
+	margin-top: 0;
+	font-weight: light;
+	font-family:retroking;
+	font:palatino linotype;
+}
+
+
+
+/*Carousel*/
+
+.carousel{ 
+	width: 100%; 
+	height: 200%;
+	
+	zoom: 100%;
+	
+
+	margin: auto;
+}
+  
+  /* Slideshow container */
+  .slideshow-container {
+	/*max-width: 1000px;*/
+
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+	display: none;
+  }
+  
+  /* Fading animation */
+  .fade {
+	animation-name: fade;
+	animation-duration: 1.5s;
+  }
+
+  .SlideImages{
+	object-fit: cover;
+	width: 100%;
+	height: 655px;
+	opacity: 1px;
+	filter: blur(0px);
+	
+
+  }
+  
+  @keyframes fade {
+	from {opacity: .4}
+	to {opacity: 1}
+  }
+
+

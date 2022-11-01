@@ -1,0 +1,12 @@
+Payment Date: 2022-10-17T20:48:04
+Reciever Email: tester@testing.com
+Amount: Php 5000
+filename: 20221017204818_jimmanrique12@gmail.com_tester@testing.com_Payment.png
+Directory: payment_files/jimmanrique12@gmail.com//20221017204818_jimmanrique12@gmail.com_tester@testing.com_Payment.png
+-------------------------------------------------------
+Payment Date: 2022-10-17T20:48:53
+Reciever Email: jlmmanrique@bpsu.edu.ph
+Amount: Php 8000
+filename: 20221017204921_jimmanrique12@gmail.com_jlmmanrique@bpsu.edu.ph_Payment.png
+Directory: payment_files/jimmanrique12@gmail.com//20221017204921_jimmanrique12@gmail.com_jlmmanrique@bpsu.edu.ph_Payment.png
+-------------------------------------------------------
