@@ -45,7 +45,7 @@ requestDueDate = document.getElementById('requestDueDate');
 /*message me portion */
 getUserFeedbacks(dataArray[0]['requestorID']);
 requestorName.innerText= dataArray[0]['userName'];
-requestorName.href="Public_Profile.php?userID=" +  dataArray[0]['requestorID'] + "&userType=Requestor";
+requestorName.href="ViewUserProfile.php?userID=" +  dataArray[0]['requestorID'] + "&userType=Requestor";
 recieverID.value = dataArray[0]['requestorID'];
 recieverUserName.value= dataArray[0]['userName'];
 

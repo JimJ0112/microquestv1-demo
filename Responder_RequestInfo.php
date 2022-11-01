@@ -20,7 +20,7 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/RequestInfo.css">
 
-    <script src="js/RequestInfo.js"> </script>
+    <script src="js/Responder_RequestInfo.js"> </script>
 
     <title> Request </title>
 </head>

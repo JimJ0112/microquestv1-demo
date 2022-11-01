@@ -136,7 +136,7 @@ function setData(array){
         requestorLocation[i].innerHTML = "<b>"+dataArray[i]['requestorMunicipality'] +"</b>";
         requestorUserName[i].href = "Public_Profile.php?userID=" +  dataArray[i]['requestorID'] + "&userType=Requestor";
 
-        viewRequest[i].href = "RequestInfo.php?requestID=" + dataArray[i]['requestID'];
+        viewRequest[i].href = "Responder_RequestInfo.php?requestID=" + dataArray[i]['requestID'];
         var image = new Image();
         image.src = dataArray[i]['userPhoto'];
         image.setAttribute('class','userPhotoPic');
@@ -483,7 +483,7 @@ function setPasabuyData(array){
         viewMore[i].innerText= "View More";
       
 
-        viewMore[i].href = "RequestInfo.php?requestID=" + dataArray[i]['pasabuyrequestID'];
+        viewMore[i].href = "Responder_RequestInfo.php?requestID=" + dataArray[i]['pasabuyrequestID'];
 
         //productImageDIV[i].innerHTML= "<b>Due date: </b>"+dataArray[i]['productImageDIV'];
         //userPhotoDIV[i]
