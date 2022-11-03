@@ -1798,3 +1798,13 @@ function deliverRequestApplication(transactionID,update){
     //getRequestApplications(myID);
     
 }// end of function
+
+
+
+// show payment proof output file
+
+function showPaymentProofFile(event){
+    var imageContainer = document.getElementById("paymentFileOutput");
+    imageContainer.src =  URL.createObjectURL(event.target.files[0]);
+
+}

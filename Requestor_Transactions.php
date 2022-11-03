@@ -119,7 +119,10 @@
 		<input type="hidden" name="userType" value="<?php echo $userType; ?>"/>
 		<input type="hidden" name="update" value="paid"/>
 		<center> <h4>  Please Enter your proof of payment  </h4> 
-		<input type="file" name="paymentFile"> <br/>  <br/>  <br/>  <br/>  <br/>
+		<br/>
+
+		<img id="paymentFileOutput"/> <br/> <br/>
+		<input type="file" name="paymentFile" onchange="showPaymentProofFile(event)"> <br/>  <br/> <br/>
 		
 
 		<input type="submit" value="Confirm"/> 

@@ -316,7 +316,7 @@ public function getRow($tablename,$column,$condition,$orderby = null){
 }
 
 
-// get Rows 
+// get Categories
 public function getCategories($tablename,$column,$condition,$groupby = null){
     $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
     $column = mysqli_real_escape_string($this->dbconnection, $column);
@@ -450,6 +450,35 @@ public function getUserRow($tablename,$column,$condition){
         
         
         
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+// get data, 1 column only
+public function getProfilePic($tablename,$column,$condition,$name){
+
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    $name = mysqli_real_escape_string($this->dbconnection, $name);
+
+    $query = "SELECT $name FROM $tablename WHERE $column = '$condition'";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+
+
+    if($resultCheck > 0){
+       
+        $row = mysqli_fetch_array($result);
+        $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+        $row['userPhoto'] = $file;
+
+
+        return $row[$name];
 
     } else {return "failed to fetch";}
 

@@ -547,3 +547,17 @@ function setData(array){
       
       document.getElementById("Birthdate").setAttribute("max", max);
     };
+
+
+
+    
+  function showProfilePicOutput(event){
+    var imageOutputContainer = document.getElementById("userProfilePicOutput");
+    imageOutputContainer.src =  URL.createObjectURL(event.target.files[0]);
+
+  }
+
+  function showIDPicOutput(event){
+    var userIDPicOutput = document.getElementById("userIDPicOutput");
+    userIDPicOutput.src =  URL.createObjectURL(event.target.files[0]);
+  }

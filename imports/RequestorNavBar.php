@@ -6,7 +6,7 @@
 	<title>
 		Responder Requestboard
 	</title>
-	
+	<script src="js/NavBar.js"> </script>
 	<link rel="stylesheet" type="text/css" href="css/NavBar.css">
 </head>
 <body>
@@ -69,21 +69,38 @@
 				?>
 			</li>
 		</a>
-		<a onclick='openNavMenu()'>
-			<li class="Nav-item" title="Me" id="userInfoNav">
-				<div id="NavImageContainer"> </div>
-				<?php
-				    if(isset($_SESSION["userName"])){
-						$username = $_SESSION["userName"];
-						$usertype = $_SESSION["userType"];
-						$municipality = $_SESSION["municipality"] ;
 
-						echo "<b> $username </b> <span id='caret'> ▼ </span> <br/>";
-						echo " <span style='font-weight: lighter; font-size:small;'> $usertype </span> | <span style='font-weight: lighter; font-size:small;'> $municipality </span>";
-					}
-				?>
+		<span onclick='openNavMenu()'>
+			<li class="Nav-item" title="Me" id="userInfoNav">
+		
+			<table id="NavItemTable">
+				<tr>
+					<td class="NavTD">
+						<div id='NavImageContainer'> </div>
+					</td>
+
+				
+					<td class="NavTD">
+						<?php
+				    		if(isset($_SESSION["userName"])){
+								$username = $_SESSION["userName"];
+								$usertype = $_SESSION["userType"];
+								$municipality = $_SESSION["municipality"] ;
+
+								echo "<b> $username </b>  <br/>";
+								echo " <span style='font-weight: lighter; font-size:small;'> $usertype </span> | <span style='font-weight: lighter; font-size:small;'> $municipality </span>";
+							}
+						?>
+					</td>
+
+					<td class="NavTD">
+						<span id='caret'> ▼ </span>
+					</td>
+				</tr>
+			</table>
+
 			</li>
-		</a>
+		</span>
 
 			<!--
 				<a href="Backend/Logout.php"><li class="Nav-item" id="LogOutButton" title="Log Out">Log out</li></a>
@@ -102,7 +119,10 @@
 
 	</div>
 
-	<script src="js/NavBar.js"> </script>
+	<?php
+		$userID = $_SESSION["userID"];
+		echo "<script > getUserImage($userID)</script>";
+	?>
 	
 
 

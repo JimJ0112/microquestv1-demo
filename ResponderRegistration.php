@@ -36,6 +36,7 @@
 				<input type="hidden" name="userType" value="Responder">
 				<!-- 1st page -->
 					<div id="AccountInfoForm">
+						<span class="formPageIndicator"> 1 out of 4</span>
 						<div id="AccountInfoForm1">
 
 							<div class="inputItem"> 
@@ -64,6 +65,7 @@
 				
 					<!-- 2nd page -->
 					<div id="EmailVerificationForm">
+						<span class="formPageIndicator"> 2 out of 5</span>
 						<div id="EmailVerificationForm1">
 
 							<div class="inputItem"> 
@@ -91,6 +93,7 @@
 
 				<!-- 3rd page -->
 				<div id="GeneralInfoForm">
+					<span class="formPageIndicator"> 3 out of 4</span>
 					<div id="GeneralInfoForm1">
 					
 						<div class="inputItem"> 
@@ -167,6 +170,7 @@
 				<!--4th page-->
 
 				<div id="ResponderInfoForm">
+					<span class="formPageIndicator"> 4 out of 4</span>
 					<div id="ResponderInfoForm1">
 					
 						<div class="inputItem"> 
@@ -192,8 +196,10 @@
 						</div> <br/>
 
 						<div class="inputItem"> 
+							<img id="userIDPicOutput"> <br/>
 							ID: <br/>
-							<input type="file" name="idFile" id="IDFile" oninput=" checkInputs_ResponderInfo()"> 
+
+							<input type="file" name="idFile" id="IDFile" oninput=" checkInputs_ResponderInfo()" onchange="showIDPicOutput(event)"> 
 						</div><br/>
 
 						<div class="inputItem"> 
@@ -219,8 +225,9 @@
 
 
 						<div class="inputItem"> 
+							<img id="userProfilePicOutput"> <br/>
 							Profile Picture <br/>
-							<input type="file" name="userPhoto" id="ProfilePicture" oninput=" checkInputs_ResponderInfo()" > 
+							<input type="file" name="userPhoto" id="ProfilePicture" oninput=" checkInputs_ResponderInfo()" onchange="showProfilePicOutput(event)"> 
 	
 
 						</div><br/>

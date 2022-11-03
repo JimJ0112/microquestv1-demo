@@ -145,12 +145,13 @@
 	height: 100%;
 	cursor: pointer;
 }
-
+/*
 td{
 	padding: 20px;
 	width: 400px;
 	
 }
+*/
 
 .AcceptButton{
 	background-color: rgb(9, 106, 9);
@@ -254,4 +255,11 @@ td{
 	background-color: white;
 	width: 50%;
 	height: 500px;
+}
+
+
+#paymentFileOutput{
+	width: 200px;
+	height: 250px;
+	border: 1px solid black;
 }

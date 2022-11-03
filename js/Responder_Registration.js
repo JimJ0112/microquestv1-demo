@@ -286,6 +286,7 @@ function emailVerification(){
    var userEmail = document.getElementById('Email').value;
 
    var code = Math.floor(Math.random()*90000) + 10000;
+   //var code = 1;
    sessionStorage.setItem('vercode',code);
 
    var query  = "userEmail="+userEmail+"&code="+code;
@@ -544,3 +545,15 @@ window.onload = function() {
 
     getServices();
   };
+
+
+  function showProfilePicOutput(event){
+    var imageOutputContainer = document.getElementById("userProfilePicOutput");
+    imageOutputContainer.src =  URL.createObjectURL(event.target.files[0]);
+
+  }
+
+  function showIDPicOutput(event){
+    var userIDPicOutput = document.getElementById("userIDPicOutput");
+    userIDPicOutput.src =  URL.createObjectURL(event.target.files[0]);
+  }

@@ -735,10 +735,11 @@ input::-webkit-inner-spin-button {
 	font-weight: bold;
 	color: rgb(63, 50, 48);
 	font-size: large;
-	display: grid;
+	display: block;
 	align-content: center;
 	padding: auto;
 	height: 500px;
+	margin-top: 0;
 	
 
 }
@@ -753,6 +754,7 @@ input::-webkit-inner-spin-button {
 	height: fit-content;
 	/*margin-left: 30%;*/
 	margin: auto;
+	margin-top: 50px;
 	
 
 }
@@ -1935,4 +1937,26 @@ input::-webkit-inner-spin-button {
 
 	position:absolute;
 	z-index: 7;
+}
+
+
+
+.formPageIndicator{
+	
+	opacity: 50%;
+	margin-top: 0;
+
+}
+
+#userProfilePicOutput{
+	width: 70px;
+	height: 70px;
+	object-fit: contain;
+}
+
+#userIDPicOutput{
+	width: 100px;
+	height: 70px;
+	object-fit: contain;
+
 }
