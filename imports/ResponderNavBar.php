@@ -11,6 +11,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/NavBar.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="../js/NavBar.js"> </script>
 
 </head>
 <body>
@@ -94,6 +95,8 @@
 	</ul>
 </div>
 
+	<div id="navMenu">
 
+	</div>
 </body>
 </html>
