@@ -69,23 +69,41 @@
 				?>
 			</li>
 		</a>
-		<a href="Requestor_Transactions.php"><li class="Nav-item" title="Me">
+		<a onclick='openNavMenu()'>
+			<li class="Nav-item" title="Me" id="userInfoNav">
+				<div id="NavImageContainer"> </div>
 				<?php
 				    if(isset($_SESSION["userName"])){
 						$username = $_SESSION["userName"];
 						$usertype = $_SESSION["userType"];
 						$municipality = $_SESSION["municipality"] ;
 
-						echo "<b> $username </b> <br/>";
+						echo "<b> $username </b> <span id='caret'> ▼ </span> <br/>";
 						echo " <span style='font-weight: lighter; font-size:small;'> $usertype </span> | <span style='font-weight: lighter; font-size:small;'> $municipality </span>";
 					}
 				?>
-			</li></a>
-		<a href="Backend/Logout.php"><li class="Nav-item" id="LogOutButton" title="Log Out">Log out</li></a>
-		
+			</li>
+		</a>
+
+			<!--
+				<a href="Backend/Logout.php"><li class="Nav-item" id="LogOutButton" title="Log Out">Log out</li></a>
+			-->	
 	</ul>
 </div>
 
+
+	<div id="navMenu" style="display:none;">
+		<ul>
+		<a href=""><li class="NavMenu-item" title="Log Out">View Profile  </li></a>
+		<a href=""><li class="NavMenu-item" title="Log Out">Edit Profile  </li></a>
+		<a href="Backend/Logout.php"><li class="NavMenu-item" title="Log Out">Log out</li></a>
+
+		</ul>
+
+	</div>
+
+	<script src="js/NavBar.js"> </script>
+	
 
 
 </body>
