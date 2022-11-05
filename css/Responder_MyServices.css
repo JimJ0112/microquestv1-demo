@@ -170,7 +170,7 @@
 	filter: invert(0.3);
 }
 
-#AvailableServicesContainer-Content{
+#AvailableServicesContainer_Content{
 
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;

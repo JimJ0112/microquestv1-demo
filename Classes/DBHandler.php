@@ -245,6 +245,26 @@ public function exists($tablename,$column,$name){
   
 }
 
+// check if exists
+public function existsLike($tablename,$column,$name){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $name = mysqli_real_escape_string($this->dbconnection, $name);
+
+    $query = "SELECT * FROM $tablename WHERE $column LIKE '%$name'";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+
+
+    if($resultCheck > 0){
+        return true;
+    } else {
+        return false;
+    }
+  
+}
+
 /*------------------------------------------GET FUNCTIONS---------------------------------------------- */
 // get data, 1 column only
 public function getData($tablename,$column,$condition,$name){

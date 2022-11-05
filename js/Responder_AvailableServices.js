@@ -27,7 +27,7 @@ function categories(array){
 function createServiceElements(Number){
  
     DataNumber = Number;
-    div = document.getElementById("AvailableServicesContainer-Content");
+    div = document.getElementById("AvailableServicesContainer_Content");
    
     
     for(var i = 0;i<DataNumber;i++){
@@ -39,11 +39,6 @@ function createServiceElements(Number){
     var BannerContainer = document.createElement('div');
     var br = document.createElement('br');
    
-
-
-   
-
-
 
    // set attributes
     card.setAttribute('class','AvailableService-Card');
@@ -84,7 +79,7 @@ function setData(array){
     for(var i = 0; i<number;i++){
         
         serviceTitle[i].innerHTML = "<center> <b>"+ dataArray[i]['serviceCategory'] +"</b> </center>";
-        serviceCard[i].setAttribute("onclick","selectCategory('" + dataArray[i]['serviceCategory'] + "')");
+        //serviceCard[i].setAttribute("onclick","selectCategory('" + dataArray[i]['serviceCategory'] + "')");
 
         
         
@@ -168,12 +163,11 @@ function getMyServices(userID){
     var xmlhttp = new XMLHttpRequest();
     
   
-    
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
-            document.getElementById("AvailableServicesContainer-Content").innerHTML = "";
+            document.getElementById("AvailableServicesContainer_Content").innerHTML = "";
             
             //selectedCategory = document.getElementById("selectedCategory");
   
@@ -184,22 +178,22 @@ function getMyServices(userID){
 
                 // positions(dataArray);
                 var number = dataArray.length;
-                createServiceElements(number);
+                //createServiceElements(number);
                 //dataArray = categories(dataArray);
-                setData(dataArray);
+                //setData(dataArray);
 
             //console.log(positions(dataArray));
 
-            console.log(categories(dataArray))
+            console.log(dataArray)
      
         }else{
-            document.getElementById("AvailableServicesContainer-Content").innerHTML = "Loading..";
+            document.getElementById("AvailableServicesContainer_Content").innerHTML = "Loading..";
 
         }      
     };
     
     
-    xmlhttp.open("POST", "Backend/Get_otherServices.php", true);
+    xmlhttp.open("POST", "Backend/Get_myServices.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
     

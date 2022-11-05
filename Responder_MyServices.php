@@ -39,7 +39,6 @@
 <!-- NavBar-->
 <?php
 	require_once("imports/ResponderNavBar.php");
-
 ?>
 
 
@@ -101,7 +100,7 @@
 
 
 
-			<div id="AvailableServicesContainer-Content">
+			<div id="AvailableServicesContainer_Content">
 
 				<div class="AvailableService-Card">
 

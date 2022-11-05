@@ -28,7 +28,7 @@ function getUserImage(id){
             var imageContainer = document.getElementById("NavImageContainer");
             var dataArray = this.response;
             dataArray = JSON.parse(dataArray);
-            console.log(dataArray);
+           // console.log(dataArray);
 
             
             var image = new Image();

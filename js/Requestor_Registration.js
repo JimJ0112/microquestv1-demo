@@ -175,11 +175,16 @@ function checkInputs_AccountInfo(){
     Email= document.getElementById("Email");
     Password= document.getElementById("Password");
     ConfirmPassword= document.getElementById("ConfirmPassword");
+    var checkedUserNameResult = sessionStorage.getItem("userNameExists");
+    var checkedEmailResult = sessionStorage.getItem("EmailExists");
+    
 
     if(Username.value != "" &&
        Email.value != ""&&
        Password.value != ""&&
-       ConfirmPassword.value !=""
+       ConfirmPassword.value !=""&&
+       checkedUserNameResult === "false" &&
+       checkedEmailResult === "false"
     ){
         RegistrationNextButton.disabled = false;
     } else{
@@ -560,4 +565,126 @@ function setData(array){
   function showIDPicOutput(event){
     var userIDPicOutput = document.getElementById("userIDPicOutput");
     userIDPicOutput.src =  URL.createObjectURL(event.target.files[0]);
+  }
+
+
+
+
+  function checkUserName(){
+    
+    var xmlhttp = new XMLHttpRequest();
+    var username = document.getElementById("Username").value;
+    var userNameChecker = document.getElementById("userNameChecker");
+    var query = "userName="+username;
+    
+  
+    if(!username.replace(/\s/g, '').length){
+        userNameChecker.innerText ="";
+    } else{
+
+        xmlhttp.open("POST", "Backend/CheckUserName.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+               
+               
+                var dataArray = this.response;
+                console.log(dataArray);
+                
+                if(dataArray === "true"){
+                    userNameChecker.innerText = "UserName already exists!";
+                    userNameChecker.style.color = "red";
+                    sessionStorage.setItem("userNameExists",true);
+                    checkInputs_AccountInfo();
+                
+                } else{
+                    userNameChecker.innerText = username + " is available";
+                    userNameChecker.style.color = "green";
+                    sessionStorage.setItem("userNameExists",false);
+                    checkInputs_AccountInfo()
+
+                }
+    
+    
+         
+            }else{
+                console.log(err);
+            
+            }      
+        };
+        
+        xmlhttp.send(query);
+       
+    }
+    
+
+
+}
+
+
+function checkEmail(){
+    
+    var xmlhttp = new XMLHttpRequest();
+    var Email = document.getElementById("Email").value;
+    var emailChecker = document.getElementById("emailChecker");
+    
+
+
+    var query = "Email="+Email;
+    
+    var regexCheck  = validateEmail(Email);
+  
+  
+    if(regexCheck){
+
+        xmlhttp.open("POST", "Backend/CheckEmail.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+               
+               
+                var dataArray = this.response;
+                console.log(dataArray);
+                
+                if(dataArray === "true"){
+                    emailChecker.innerText = "Email already exists!";
+                    emailChecker.style.color = "red";
+                    sessionStorage.setItem("EmailExists",true);
+                    checkInputs_AccountInfo();
+                } else{
+                    emailChecker.innerText = Email + " is available";
+                    emailChecker.style.color = "green";
+                    sessionStorage.setItem("EmailExists",false);
+                    checkInputs_AccountInfo();
+
+                }
+    
+    
+         
+            }else{
+                console.log(err);
+            
+            }      
+        };
+        
+        xmlhttp.send(query);
+        checkInputs_AccountInfo();
+
+    } else{
+
+        if(Email != ""){
+        emailChecker.innerText = "Please Enter a valid email address";
+        emailChecker.style.color = "red";
+        } else{
+            emailChecker.innerText = "";
+        }
+
+    }
+    
+}
+
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    var reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    return re.test(email);
   }

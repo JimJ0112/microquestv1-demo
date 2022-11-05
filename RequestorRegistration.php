@@ -50,12 +50,16 @@
 
 							<div class="inputItem"> 
 								Username: <br/>
-								<input type="text" name="userName" class="Registration-TextBox" id="Username" oninput="checkInputs_AccountInfo()"> 
+								<input type="text" name="userName" class="Registration-TextBox" id="Username" oninput="checkUserName()" onkeyup="checkInputs_AccountInfo()"> 
+								<br/>
+								<span id="userNameChecker" class="checker"> </span>
 							</div><br/>
 
 							<div class="inputItem"> 
 								Email: <br/>
-								<input type="email" name="userEmail" class="Registration-TextBox" id="Email" oninput="checkInputs_AccountInfo()"> 
+								<input type="email" name="userEmail" class="Registration-TextBox" id="Email" oninput="checkEmail()" onkeyup="checkInputs_AccountInfo()"> 
+								<br/>
+								<span id="emailChecker" class="checker"> </span>
 							</div><br/>
 				
 							<div class="inputItem"> 

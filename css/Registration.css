@@ -1960,3 +1960,7 @@ input::-webkit-inner-spin-button {
 	object-fit: contain;
 
 }
+
+.checker{
+	font-size: small;
+}
