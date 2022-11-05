@@ -38,20 +38,36 @@ function createServiceElements(Number){
     var serviceTitle = document.createElement('span');
     var BannerContainer = document.createElement('div');
     var br = document.createElement('br');
+    var servicePosition = document.createElement('p');
+    var serviceStatus= document.createElement('p');
+    var rate= document.createElement('p');
+    var ratings= document.createElement('p');
+    var infoDiv = document.createElement('infoDiv');
    
 
    // set attributes
-    card.setAttribute('class','AvailableService-Card');
+    card.setAttribute('class','AvailableService_Card');
     ServiceTitleBackground.setAttribute('class','ServiceTitleBackground');
     serviceTitle.setAttribute('class','serviceTitle');
     BannerContainer.setAttribute('class','BannerContainer');
-    
+    servicePosition.setAttribute('class','servicePosition');
+    serviceStatus.setAttribute('class','serviceStatus');
+    rate.setAttribute('class','rate');
+    ratings.setAttribute('class','ratings');
+    infoDiv.setAttribute('class','infoDiv');
 
 
    // append elements to the row
     ServiceTitleBackground.appendChild(serviceTitle);
     card.appendChild(ServiceTitleBackground);
     card.appendChild(BannerContainer);
+
+    infoDiv.appendChild(servicePosition);
+    infoDiv.appendChild(rate);
+    infoDiv.appendChild(ratings);
+    infoDiv.appendChild(serviceStatus);
+    card.appendChild(infoDiv);
+
    
 
 
@@ -76,12 +92,20 @@ function setData(array){
     var serviceTitle = document.getElementsByClassName('serviceTitle');
     var serviceCard = document.getElementsByClassName("AvailableService-Card");
 
+    var servicePosition = document.getElementsByClassName('servicePosition');
+    var serviceStatus = document.getElementsByClassName('serviceStatus');
+    var rate = document.getElementsByClassName('rate');
+    var ratings = document.getElementsByClassName('ratings');
+
     for(var i = 0; i<number;i++){
         
-        serviceTitle[i].innerHTML = "<center> <b>"+ dataArray[i]['serviceCategory'] +"</b> </center>";
+        serviceTitle[i].innerHTML = " <b>"+ dataArray[i]['serviceCategory'] +"</b>";
         //serviceCard[i].setAttribute("onclick","selectCategory('" + dataArray[i]['serviceCategory'] + "')");
 
-        
+        servicePosition[i].innerHTML = " <b> Position: </b> "+ dataArray[i]['servicePosition'];
+        serviceStatus[i].innerHTML = " <b>Status: </b> "+ dataArray[i]['serviceStatus'];
+        rate[i].innerHTML = " <b> Rate: Php</b>"+ dataArray[i]['rate'];
+        ratings[i].innerHTML = " <b> Ratings: </b> 5.0 ⭐";
         
 
         var image = new Image();
@@ -178,13 +202,12 @@ function getMyServices(userID){
 
                 // positions(dataArray);
                 var number = dataArray.length;
-                //createServiceElements(number);
-                //dataArray = categories(dataArray);
-                //setData(dataArray);
+                createServiceElements(number);
+                setData(dataArray);
 
             //console.log(positions(dataArray));
 
-            console.log(dataArray)
+           
      
         }else{
             document.getElementById("AvailableServicesContainer_Content").innerHTML = "Loading..";

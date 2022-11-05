@@ -38,7 +38,7 @@
 
 <!-- NavBar-->
 <?php
-	require_once("imports/ResponderNavBar.php");
+	require_once("imports/ResponderNavBar.php"); 
 ?>
 
 
@@ -102,7 +102,7 @@
 
 			<div id="AvailableServicesContainer_Content">
 
-				<div class="AvailableService-Card">
+				<div class="AvailableService_Card">
 
 					<div class="ServiceTitleBackground">
 						<span class="ServiceTitle"> Service Title </span>
@@ -112,7 +112,7 @@
 				
 				</div>
 
-				<div class="AvailableService-Card">
+				<div class="AvailableService_Card">
 
 					<div class="ServiceTitleBackground">
 						<span class="ServiceTitle"> Service Title </span>
@@ -122,7 +122,7 @@
 				
 				</div>
 
-				<div class="AvailableService-Card">
+				<div class="AvailableService_Card">
 
 					<div class="ServiceTitleBackground">
 						<span class="ServiceTitle"> Service Title </span>
@@ -132,7 +132,7 @@
 				
 				</div>
 
-				<div class="AvailableService-Card">
+				<div class="AvailableService_Card">
 
 					<div class="ServiceTitleBackground">
 						<span class="ServiceTitle"> Service Title </span>
