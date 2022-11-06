@@ -2861,5 +2861,87 @@ public function registerServiceFeedback($myID,$revieweeID,$serviceID,$transactio
 }// end of function
 
 
+// reported services
+
+public function registerReportService($reportedAccountID,$reporterAccountID,$reportCategory,$reportDescription,$reportEvidence,$reportedServiceID,$reportedRequestID,$reportDate){
+
+
+    
+    $tablename = "reportsinfo";
+
+    //reportID	reportedAccountID	reporterAccountID	reportCategory	reportDescription	reportEvidence	reportedServiceID	reportedRequestID	reportDate	
+  
+    
+    $reportedAccountID= mysqli_real_escape_string($this->dbconnection,$reportedAccountID);
+    $reporterAccountID= mysqli_real_escape_string($this->dbconnection,$reporterAccountID);
+    $reportCategory= mysqli_real_escape_string($this->dbconnection,$reportCategory);
+    $reportDescription= mysqli_real_escape_string($this->dbconnection,$reportDescription);
+    $reportEvidence= mysqli_real_escape_string($this->dbconnection,$reportEvidence);
+    $reportedServiceID= $reportedServiceID;
+    $reportedRequestID= $reportedRequestID;
+    $reportDate= mysqli_real_escape_string($this->dbconnection,$reportDate);
+    $reportStatus = "pending";
+
+ 
+
+    
+
+    //$query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','',$reportedServiceID,$reportedRequestID,'$reportDate','$reportStatus')";
+    $query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','$reportEvidence',$reportedServiceID,null,'$reportDate','$reportStatus')";
+    
+        if(mysqli_query($this->dbconnection,$query)){
+            return 1;
+        } else {
+            return mysqli_error($this->dbconnection);
+        }
+    
+   
+    //return mysqli_query($this->dbconnection, $query);
+
+
+}
+
+// reported Requests
+
+public function registerReportRequest($reportedAccountID,$reporterAccountID,$reportCategory,$reportDescription,$reportEvidence,$reportedServiceID,$reportedRequestID,$reportDate){
+
+
+    
+    $tablename = "reportsinfo";
+
+    //reportID	reportedAccountID	reporterAccountID	reportCategory	reportDescription	reportEvidence	reportedServiceID	reportedRequestID	reportDate	
+  
+    
+    $reportedAccountID= mysqli_real_escape_string($this->dbconnection,$reportedAccountID);
+    $reporterAccountID= mysqli_real_escape_string($this->dbconnection,$reporterAccountID);
+    $reportCategory= mysqli_real_escape_string($this->dbconnection,$reportCategory);
+    $reportDescription= mysqli_real_escape_string($this->dbconnection,$reportDescription);
+    $reportEvidence= mysqli_real_escape_string($this->dbconnection,$reportEvidence);
+    $reportedServiceID= $reportedServiceID;
+    $reportedRequestID= $reportedRequestID;
+    $reportDate= mysqli_real_escape_string($this->dbconnection,$reportDate);
+    $reportStatus = "pending";
+
+ 
+
+    
+
+    //$query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','',$reportedServiceID,$reportedRequestID,'$reportDate','$reportStatus')";
+    $query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','$reportEvidence',null,$reportedRequestID,'$reportDate','$reportStatus')";
+    
+        if(mysqli_query($this->dbconnection,$query)){
+            return 1;
+        } else {
+            return mysqli_error($this->dbconnection);
+        }
+    
+   
+    //return mysqli_query($this->dbconnection, $query);
+
+
+}
+
+
+
 }// end of class
 

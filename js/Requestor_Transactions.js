@@ -838,8 +838,9 @@ function SetDeliveredData(dataArray){
         var button1 = document.createElement('button');
         button1.setAttribute('class','CancelButton');
         button1.innerText = "Report";
+        button1.setAttribute("onclick","showReportForm(" +dataArray[i]["responderID"] +","+dataArray[i]["serviceID"]+",'service','responder')");
         controlsTd[i].appendChild(button1);
-
+        //showReportForm(id,profile,name,email,type)
 
 
     }
@@ -1808,3 +1809,75 @@ function showPaymentProofFile(event){
     imageContainer.src =  URL.createObjectURL(event.target.files[0]);
 
 }
+
+
+// show report form
+/*
+function showReportForm(id,topicID,type,userType){
+    reportPopUpBack = document.getElementById("reportPopUpBack");
+    reportPopUpBack.style.display = "block";
+
+    ReportedAccountID = document.getElementById("ReportedAccountID");
+    ReportedAccountProfile = document.getElementById("ReportedAccountProfile");
+    ReportedAccountName = document.getElementById("ReportedAccountName");
+    ReportedAccountEmail = document.getElementById("ReportedAccountEmail");
+    ReportedAccountType = document.getElementById("ReportedAccountType");
+
+    ReportedAccountID.value = id;
+    getProfile(id,userType);
+
+}
+
+function hideReportForm(){
+    reportPopUpBack = document.getElementById("reportPopUpBack");
+    reportPopUpBack.style.display = "none";
+
+
+
+}
+
+function getProfile(id,userType){
+    var query = "userID=" + id +"&userType="+userType;
+    console.log(query);
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "Backend/Get_publicProfile.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+            var dataArray = this.response;
+           
+
+            dataArray = JSON.parse(dataArray);
+            console.log(dataArray);
+            setReportUserData(dataArray);
+  
+
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send(query);
+}
+
+
+function setReportUserData(dataArray){
+    var dataArray = dataArray;
+
+    ReportedAccountProfile = document.getElementById("ReportedAccountProfile");
+    ReportedAccountName = document.getElementById("ReportedAccountName");
+    ReportedAccountEmail = document.getElementById("ReportedAccountEmail");
+    ReportedAccountType = document.getElementById("ReportedAccountType");
+
+
+    
+    ReportedAccountProfile.src = dataArray[0]["userPhoto"];
+    ReportedAccountName.innerText = dataArray[0]["userName"];
+    ReportedAccountEmail.innerText = dataArray[0]["userEmail"];
+    ReportedAccountType.innerText = dataArray[0]["userType"];
+    
+}
+*/

@@ -34,6 +34,8 @@
 	<link rel="stylesheet" type="text/css" href="css/Requestor_Transactions.css">
 
 	<script src="js/Requestor_Transactions.js"> </script>
+	<script src="js/report.js"> </script>
+
 
 </head>
 <body onload="setTransactionType()">
@@ -160,6 +162,69 @@
 
 			<input type="submit" value="Confirm"/> 
 			<input type="button" value="Cancel" onclick="closeFeedbackForm()"/>
+		</center>
+	</form>
+
+	</div>
+
+</div>
+
+
+<div id="reportPopUpBack"> 
+	<div id="reportPopUp"> 
+	
+	<form action="backend/RegisterReport.php" method="post" enctype="multipart/form-data">
+		
+		<center>
+			<br/>
+			<p> Reported Account:</p> 
+			
+			<?php
+				$userID = $_SESSION["userID"];
+			?>
+			
+			<input type="hidden" id="ReportedAccountID" name="ReportedAccountID"/>
+			<input type="hidden" id="ReporterAccountID" name="ReporterAccountID" value="<?php echo $userID;?>"/>
+
+			
+
+			<img id="ReportedAccountProfile"> <br/>
+			<span id="ReportedAccountName"> Dummy Acc </span> <br/>
+			<span id="ReportedAccountEmail"> Dummy Email </span> <br/>
+			<span id="ReportedAccountType"> Responder </span> 
+			<br/> <br/>
+			<hr/>
+			<input type="hidden" name="transactionReportID" id="TransactionReportIDInput"/>
+			<input type="hidden" name="transactionType" id="TransactionTypeInput"/>
+
+			<h3> Please Select a problem </h3>
+			
+		
+			<select id="reportType" name="reportType" onchange="otherProblems()">
+				<option value="Pretending to be someone"> Pretending to be someone </option>
+				<option value="Posting inappropriate things"> Posting inappropriate things </option>
+				<option value="Harassment or bullying"> Harassment or bullying </option>
+				<option value="Doing inappropriate things during transaction"> Doing inappropriate things during transaction </option>
+				<option value="Something Else"> Something Else </option>
+			</select> <br/><br/>
+			<input type="text" id="otherReportType" name="otherReportType" placeholder="Other Report type"/>
+			<br/><br/>
+
+
+			<div id="reportProofOutputBackground">
+				<div id="closeImage" onclick="closeImage()"> ✕ </div>
+				<img id="reportProofOutput"> 
+			</div>
+			<br/>
+			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)"/><br/><br/>
+
+			<span> Description: </span> <br/>
+			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8"></textarea>  
+			<br/><br/>
+		
+
+			<input type="submit" value="Submit Report"/> 
+			<input type="button" value="Cancel" onclick="hideReportForm()"/>
 		</center>
 	</form>
 
