@@ -1797,6 +1797,93 @@ public function requestTransactionExists($requestID,$responderID,$requestorID){
   
 }// end of function
 
+//check if report exists already
+public function reportExists($reporterID,$reportedID){
+
+    $reporterID= mysqli_real_escape_string($this->dbconnection, $requestID);
+    $reportedID = mysqli_real_escape_string($this->dbconnection, $responderID);
+ 
+
+    $tablename = "reportsinfo";
+
+   
+
+    $query = "SELECT * FROM $tablename WHERE reportedAccountID = $reportedID AND reporterAccountID = $reporterID AND (reportedServiceID = NULL AND reportedRequestID = NULL)";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+        
+    
+    if($resultCheck > 0){
+        return true;
+    } else {
+        return false;
+    }
+
+
+
+        
+  
+}// end of function
+
+// check if request report exists already
+public function reportRequestExists($reporterID,$reportedID,$requestID){
+
+    $reporterID= mysqli_real_escape_string($this->dbconnection, $requestID);
+    $reportedID = mysqli_real_escape_string($this->dbconnection, $responderID);
+    $requestID = mysqli_real_escape_string($this->dbconnection, $requestID);
+
+    $tablename = "reportsinfo";
+
+   
+
+    $query = "SELECT * FROM $tablename WHERE (reportedAccountID = $reportedID AND reporterAccountID = $reporterID) AND reportedRequestID = $requestID";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+        
+    
+    if($resultCheck > 0){
+        return true;
+    } else {
+        return false;
+    }
+
+
+
+        
+  
+}// end of function
+
+//check if service report exists already
+public function reportServiceExists($reporterID,$reportedID,$serviceID){
+
+    $reporterID= mysqli_real_escape_string($this->dbconnection, $reporterID);
+    $reportedID = mysqli_real_escape_string($this->dbconnection, $reportedID);
+    $serviceID= mysqli_real_escape_string($this->dbconnection, $serviceID);
+
+    $tablename = "reportsinfo";
+
+   
+
+    $query = "SELECT * FROM $tablename WHERE (reportedAccountID = $reportedID AND reporterAccountID = $reporterID) AND reportedServiceID = $serviceID";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+        
+    
+    if($resultCheck > 0){
+        return true;
+    } else {
+        return false;
+    }
+
+
+
+        
+  
+}// end of function
+
 // get cancelled transactions
 public function getCancelledTransactions($ID,$column,$transactionType){
 
@@ -2737,6 +2824,7 @@ public function registerRequestTransaction($requestID,$responderID,$requestorID,
     $additionalNotes = '';
     $transactionsStatus = "pending";
     $contractAgreement = "";
+    $paymentFile = "";
 
 
 
@@ -2745,7 +2833,7 @@ public function registerRequestTransaction($requestID,$responderID,$requestorID,
    //	transactionID	requestID	serviceID	requestorID	responderID	price	transactionStatus	transactionStartDate	transactionEndDate	
 
 
-    $query = "INSERT INTO $tablename VALUES(0,$requestID,null,$requestorID,$responderID,$price,'$transactionsStatus','$transactionStartDate',null,'$requestDueDate','$timeslot','$additionalNotes','$contractAgreement')";
+    $query = "INSERT INTO $tablename VALUES(0,$requestID,null,$requestorID,$responderID,$price,'$transactionsStatus','$transactionStartDate',null,'$requestDueDate','$timeslot','$additionalNotes','$contractAgreement','$paymentFile')";
 
     $result = mysqli_query($this->dbconnection, $query);
  
@@ -2767,6 +2855,7 @@ public function registerServiceTransaction($formServiceID,$responderID,$requesto
     $contract = mysqli_real_escape_string($this->dbconnection,$contract);
     
     $transactionsStatus = "pending";
+    $paymentFile = "";
 
    
 
@@ -2777,7 +2866,7 @@ public function registerServiceTransaction($formServiceID,$responderID,$requesto
    //	transactionID	requestID	serviceID	requestorID	responderID	price	transactionStatus	transactionStartDate	transactionEndDate	
 
 
-    $query = "INSERT INTO $tablename VALUES(0,null,$formServiceID,$requestorID,$responderID,$servicePrice,'$transactionsStatus','$transactionStartDate',null,'$dueDate','$responderTimeSlots','$additionalNotes','$contract')";
+    $query = "INSERT INTO $tablename VALUES(0,null,$formServiceID,$requestorID,$responderID,$servicePrice,'$transactionsStatus','$transactionStartDate',null,'$dueDate','$responderTimeSlots','$additionalNotes','$contract','$paymentFile')";
 
     $result = mysqli_query($this->dbconnection, $query);
  

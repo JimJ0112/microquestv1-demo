@@ -1,3 +1,7 @@
+//global variables
+var checkReportResult;
+
+
 function setTransactionType(){
     TransactionTypeDropDown = document.getElementById('TransactionTypeDropDown');
 
@@ -417,6 +421,8 @@ function createElements(number){
         transactionStartDate = document.createElement('td');
         transactionStatus = document.createElement('td');
        // userID = document.createElement('td');
+        //isReported = document.createElement('input');
+        isReported = document.createElement('span');
 
 
         // set element attributes
@@ -436,6 +442,8 @@ function createElements(number){
         transactionStatus.setAttribute('class','transactionStatus');
         //userID.setAttribute('class','userID');
         controlsTd.setAttribute('class','controlsTd');
+        isReported.setAttribute('type','hidden');
+        isReported.setAttribute('class','isReported');
 
         tr.appendChild(controlsTd)
         tr.appendChild(transactionID)
@@ -455,6 +463,7 @@ function createElements(number){
        
 
         table.appendChild(tr);
+        table.appendChild(isReported);
 
 
 
@@ -804,8 +813,17 @@ function SetDeliveredData(dataArray){
     transactionStartDate= document.getElementsByClassName('transactionStartDate');
     transactionStatus= document.getElementsByClassName('transactionStatus');
     controlsTd= document.getElementsByClassName('controlsTd');
+    isReported = document.getElementsByClassName('isReported');
     for(var i = 0;i<number;i++){
 
+
+        myID = sessionStorage.getItem("userID");
+        reportedID = dataArray[i]["responderID"];
+        serviceIDParam = dataArray[i]["serviceID"];
+        requestID = null;
+        transactionType = "service";
+        checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i);
+        
         RequestorName[i].innerText = dataArray[i]['ResponderName'];
         additionalNotes[i].innerText = dataArray[i]['additionalNotes'];
         //contractAgreement[i].innerText = dataArray[i]['contractAgreement'];
@@ -822,6 +840,8 @@ function SetDeliveredData(dataArray){
         transactionStartDate[i].innerText = dataArray[i]['transactionStartDate'];
         transactionStatus[i].innerText = dataArray[i]['transactionStatus'];
         //controlsTd[i].innerText = dataArray[i]['dueDate'];
+        
+
 
         transactionStatus[i].style.color = "green";
 
@@ -833,13 +853,42 @@ function SetDeliveredData(dataArray){
 
        button.setAttribute("onclick","setPaymentForm(" +dataArray[i]['transactionID'] + ")" );
 
-        controlsTd[i].appendChild(button);
+       controlsTd[i].appendChild(button);
 
-        var button1 = document.createElement('button');
-        button1.setAttribute('class','CancelButton');
-        button1.innerText = "Report";
-        button1.setAttribute("onclick","showReportForm(" +dataArray[i]["responderID"] +","+dataArray[i]["serviceID"]+",'service','responder')");
-        controlsTd[i].appendChild(button1);
+
+
+
+        //checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,getResults);
+        //reportCheckResult = localStorage.getItem("reportCheckResult");
+       //reportCheckResult = checkReports(myID,reportedID,serviceIDParam,requestID,transactionType);
+        //checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i);
+
+        
+            //reportCheckResult = document.getElementsByClassName('isReported')[i];
+            
+    
+            reportCheckResult = getResults(i);
+        
+        console.log(reportCheckResult);
+        
+        if(reportCheckResult  === "true"){
+            var button1 = document.createElement('button');
+            button1.setAttribute('class','CancelButton');
+            button1.innerText = "Reported";
+            button1.disabled = true;
+            button1.style.backgroundColor = "gray";
+            button1.setAttribute("onclick","showReportForm(" +dataArray[i]["responderID"] +","+dataArray[i]["serviceID"]+",'service','responder')");
+            controlsTd[i].appendChild(button1);
+
+        } else if(reportCheckResult  === "false"){
+
+            var button1 = document.createElement('button');
+            button1.setAttribute('class','CancelButton');
+            button1.innerText = "Report";
+            button1.setAttribute("onclick","showReportForm(" +dataArray[i]["responderID"] +","+dataArray[i]["serviceID"]+",'service','responder')");
+            controlsTd[i].appendChild(button1);
+        }
+
         //showReportForm(id,profile,name,email,type)
 
 
@@ -1881,3 +1930,98 @@ function setReportUserData(dataArray){
     
 }
 */
+
+/*
+ function checkReports(myID,reportedID,serviceID,requestID,transactionType){
+    var myID = myID;
+    var reportedID =reportedID;
+    var serviceID =serviceID;
+    var requestID =requestID;
+    var transactionType =transactionType;
+
+    var query = "reporterID="+myID+"&reportedID="+reportedID+"&serviceID="+serviceID+"&requestID="+requestID+"&transactionType="+transactionType;
+    var xmlhttp = new XMLHttpRequest();
+
+
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+            var dataArray = this.response;
+            //console.log(dataArray);
+            
+            return dataArray;
+            //localStorage.setItem("reportCheckResult",dataArray);
+           //callback(dataArray);
+
+            
+        }else{
+            //console.log(err);
+            
+        }      
+        
+       
+    };
+    
+    xmlhttp.open("POST", "Backend/CheckReport.php");
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded",true);
+    xmlhttp.send(query);
+
+  
+
+}
+*/
+
+
+ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum){
+    var myID = myID;
+    var reportedID =reportedID;
+    var serviceID =serviceID;
+    var requestID =requestID;
+    var transactionType =transactionType;
+
+    let myPromise = new Promise(function(resolve, reject) {
+
+        var query = "reporterID="+myID+"&reportedID="+reportedID+"&serviceID="+serviceID+"&requestID="+requestID+"&transactionType="+transactionType;
+        var xmlhttp = new XMLHttpRequest();
+
+
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+           
+                var dataArray = this.response;
+                //console.log(dataArray);
+            
+                //return dataArray;
+                // document.getElementsByClassName('isReported')[rowNum].value = dataArray;
+                 document.getElementsByClassName('isReported')[rowNum].innerText = dataArray;
+
+
+                //localStorage.setItem("reportCheckResult",dataArray);
+                //callback(dataArray);
+
+            
+            }else{
+                //console.log(err);
+            
+            }      
+        
+       
+        };
+     
+    
+        xmlhttp.open("POST", "Backend/CheckReport.php");
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded",true);
+        xmlhttp.send(query);
+    });
+  
+
+}
+
+
+function getResults(number){
+     var result = document.getElementsByClassName('isReported')[number].innerText;
+     
+     return result;
+
+}
+

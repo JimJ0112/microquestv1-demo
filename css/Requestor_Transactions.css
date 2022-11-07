@@ -341,3 +341,7 @@ td{
 #otherReportType{
 	display: none;
 }
+
+.isReported{
+	display: none;
+}
