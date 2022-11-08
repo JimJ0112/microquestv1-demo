@@ -31,6 +31,6 @@ if($transactionType === "service"){
 //echo $result = $DBHandler->registerReport($ReportedAccountID,$ReporterAccountID,$reportType,$reportDescription,$reportProof,$serviceID,$requestID,$reportDate);
 
 
-//header("location:../Requestor_Transactions.php");
+header("location:../Requestor_Transactions.php");
 
 

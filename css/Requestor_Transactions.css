@@ -345,3 +345,10 @@ td{
 .isReported{
 	display: none;
 }
+
+.additionalNotes{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 50px;
+}

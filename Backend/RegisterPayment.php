@@ -14,16 +14,18 @@ $condition = "transactionID";
 
 $name = $_POST['update'];
 $conditionvalue = $_POST['transactionID'];
+$paymentFile = file_get_contents($_FILES["paymentFile"]["tmp_name"]);
 
 
-echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
-
+//echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
+$result = $DBHandler -> setPayment($name,$conditionvalue,$paymentFile);
 
 
 // $query = "UPDATE $tablename SET $column = '$name' WHERE $condition = '$conditionvalue' ";
 
 date_default_timezone_set("Asia/Manila");
 $today = date("Y-m-d");
+
 
 if(isset($_POST["userType"])){
     $usertype = $_POST["userType"];
@@ -35,6 +37,7 @@ if(isset($_POST["userType"])){
     }
 
 }
+
 
 
 //header("location: ../");

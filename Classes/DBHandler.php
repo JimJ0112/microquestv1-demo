@@ -1829,8 +1829,8 @@ public function reportExists($reporterID,$reportedID){
 // check if request report exists already
 public function reportRequestExists($reporterID,$reportedID,$requestID){
 
-    $reporterID= mysqli_real_escape_string($this->dbconnection, $requestID);
-    $reportedID = mysqli_real_escape_string($this->dbconnection, $responderID);
+    $reporterID= mysqli_real_escape_string($this->dbconnection, $reporterID);
+    $reportedID = mysqli_real_escape_string($this->dbconnection, $reportedID);
     $requestID = mysqli_real_escape_string($this->dbconnection, $requestID);
 
     $tablename = "reportsinfo";
@@ -1910,7 +1910,8 @@ public function getCancelledTransactions($ID,$column,$transactionType){
                 while($row = mysqli_fetch_assoc($result)){
                     
     
-    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
     
                     $data[] = $row;
                     
@@ -1948,6 +1949,9 @@ public function getCancelledTransactions($ID,$column,$transactionType){
                     $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
                     $row['bannerImage'] = $file;
     
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
+
                     $data[] = $row;
                     
                  
@@ -2004,7 +2008,8 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
                 while($row = mysqli_fetch_assoc($result)){
                     
     
-    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
     
                     $data[] = $row;
                     
@@ -2041,6 +2046,9 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
     
                     $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
                     $row['bannerImage'] = $file;
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
 
                     $data[] = $row;
                     
@@ -2096,7 +2104,8 @@ public function getDeliveredTransactions($ID,$column,$transactionType){
     
                 while($row = mysqli_fetch_assoc($result)){
                     
-    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
     
     
                     $data[] = $row;
@@ -2134,6 +2143,9 @@ public function getDeliveredTransactions($ID,$column,$transactionType){
                     
                     $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
                     $row['bannerImage'] = $file;
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
     
                     $data[] = $row;
                     
@@ -2190,7 +2202,8 @@ public function getPaidTransactions($ID,$column,$transactionType){
     
                 while($row = mysqli_fetch_assoc($result)){
                     
-    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
     
     
                     $data[] = $row;
@@ -2228,6 +2241,9 @@ public function getPaidTransactions($ID,$column,$transactionType){
                     
                     $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
                     $row['bannerImage'] = $file;
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
     
                     $data[] = $row;
                     
@@ -2382,7 +2398,8 @@ public function getCompletedTransactions($ID,$column,$transactionType){
     
                 while($row = mysqli_fetch_assoc($result)){
                     
-    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
     
     
                     $data[] = $row;
@@ -2420,6 +2437,9 @@ public function getCompletedTransactions($ID,$column,$transactionType){
 
                     $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
                     $row['bannerImage'] = $file;
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
 
                     $data[] = $row;
                     
@@ -2595,6 +2615,25 @@ public function updateColumn($tablename,$column,$name,$condition,$conditionvalue
     $conditionvalue = mysqli_real_escape_string($this->dbconnection, $conditionvalue);
 
     $query = "UPDATE $tablename SET $column = '$name' WHERE $condition = '$conditionvalue' ";
+
+    $result = mysqli_query($this->dbconnection, $query);
+
+
+        
+  
+}
+
+// update paymentcolumn 
+public function setPayment($name,$conditionvalue,$paymentFile){
+    $tablename = "transactions";
+    $column = "transactionStatus";
+    $condition = "transactionID";
+    $name = mysqli_real_escape_string($this->dbconnection, $name);
+    $conditionvalue = mysqli_real_escape_string($this->dbconnection, $conditionvalue);
+    $paymentFile = mysqli_real_escape_string($this->dbconnection,$paymentFile); 
+    $column2 = "paymentFile";
+
+    $query = "UPDATE $tablename SET $column = '$name', $column2 = '$paymentFile' WHERE $condition = '$conditionvalue' ";
 
     $result = mysqli_query($this->dbconnection, $query);
 

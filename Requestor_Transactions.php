@@ -14,6 +14,17 @@
 	if(isset($_SESSION["userID"])){
 		$userID = $_SESSION["userID"];
 	}
+
+	if(isset($_SESSION["userType"])){
+		$userType = $_SESSION["userType"];
+		if($userType != "Requestor"){
+			header("location:Responder_Transactions.php");
+		} else{
+
+		}
+	} else {
+		header("location:Login.php?msg=Please Login First");
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +44,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Requestor_Transactions.css">
 
-	<script src="js/Requestor_Transactions.js"> </script>
+	<script src="js/Requestor_ServiceTransactions.js"> </script>
+	<script src="js/Requestor_RequestTransactions.js"> </script>
 	<script src="js/report.js"> </script>
 
 
@@ -88,12 +100,12 @@
 				<td>Start Date</td>
 				<td>Responder ID</td>
 				<td>Responder Name</td>
-				<td>Service ID</td>
+				<td id="ServiceIDHeader">Service ID</td>
 				<td>Category</td>
-				<td>Position</td>
+				<td id="ServicePositionHeader">Position</td>
 				<td>Price</td>
 				<!--<td>Rate</td> -->
-				<td>TimeSlot</td>
+				<td id="ServiceTimeSlotHeader">TimeSlot</td>
 				<td>Due Date</td>
 				<td>Additional Notes</td>
 				<td>Contract</td>
@@ -112,7 +124,7 @@
 <div id="paymentPopUpBack"> 
 	<div id="paymentPopUp"> 
 	
-	<form action="Backend/UpdateRequestTransaction.php" method="post" enctype="multipart/form-data">
+	<form action="Backend/RegisterPayment.php" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="transactionID" id="TransactionIDInput"/>
 
 		<?php

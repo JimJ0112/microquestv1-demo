@@ -14,6 +14,15 @@
 	if(isset($_SESSION["userID"])){
 		$userID = $_SESSION["userID"];
 	}
+
+	if(isset($_SESSION["userType"])){
+		$userType = $_SESSION["userType"];
+		if($userType != "Responder"){
+			header("location:Requestor_Transactions.php");
+		} 
+	} else {
+		header("location:Login.php?msg=Please Login First");
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,7 +42,11 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Responder_Transactions.css">
 
-	<script src="js/Responder_Transactions.js"> </script>
+	<!--<script src="js/Responder_Transactions.js"> </script>-->
+	<script src="js/Responder_ServiceTransactions.js"> </script>
+	<script src="js/Responder_RequestTransactions.js"> </script>
+	<script src="js/report.js"> </script>
+
 
 </head>
 <body onload="setTransactionType()">
@@ -81,17 +94,17 @@
 	<table id="TransactionsContainer">
 		<thead>
 			<tr id="TransactionsContainerThead">
-				<td>  - </td>
+			<td>  - </td>
 				<td>Transaction ID </td>
 				<td>Start Date</td>
-				<td>Requestor ID</td>
-				<td>Requestor Name</td>
-				<td>Service ID</td>
+				<td>Responder ID</td>
+				<td>Responder Name</td>
+				<td id="ServiceIDHeader">Service ID</td>
 				<td>Category</td>
-				<td>Position</td>
+				<td id="ServicePositionHeader">Position</td>
 				<td>Price</td>
 				<!--<td>Rate</td> -->
-				<td>TimeSlot</td>
+				<td id="ServiceTimeSlotHeader">TimeSlot</td>
 				<td>Due Date</td>
 				<td>Additional Notes</td>
 				<td>Contract</td>
@@ -104,6 +117,69 @@
 		
 
 	</table>
+</div>
+
+
+<div id="reportPopUpBack"> 
+	<div id="reportPopUp"> 
+	
+	<form action="backend/RegisterReport.php" method="post" enctype="multipart/form-data">
+		
+		<center>
+			<br/>
+			<p> Reported Account:</p> 
+			
+			<?php
+				$userID = $_SESSION["userID"];
+			?>
+			
+			<input type="hidden" id="ReportedAccountID" name="ReportedAccountID"/>
+			<input type="hidden" id="ReporterAccountID" name="ReporterAccountID" value="<?php echo $userID;?>"/>
+
+			
+
+			<img id="ReportedAccountProfile"> <br/>
+			<span id="ReportedAccountName"> Dummy Acc </span> <br/>
+			<span id="ReportedAccountEmail"> Dummy Email </span> <br/>
+			<span id="ReportedAccountType"> Responder </span> 
+			<br/> <br/>
+			<hr/>
+			<input type="hidden" name="transactionReportID" id="TransactionReportIDInput"/>
+			<input type="hidden" name="transactionType" id="TransactionTypeInput"/>
+
+			<h3> Please Select a problem </h3>
+			
+		
+			<select id="reportType" name="reportType" onchange="otherProblems()">
+				<option value="Pretending to be someone"> Pretending to be someone </option>
+				<option value="Posting inappropriate things"> Posting inappropriate things </option>
+				<option value="Harassment or bullying"> Harassment or bullying </option>
+				<option value="Doing inappropriate things during transaction"> Doing inappropriate things during transaction </option>
+				<option value="Something Else"> Something Else </option>
+			</select> <br/><br/>
+			<input type="text" id="otherReportType" name="otherReportType" placeholder="Other Report type"/>
+			<br/><br/>
+
+
+			<div id="reportProofOutputBackground">
+				<div id="closeImage" onclick="closeImage()"> ✕ </div>
+				<img id="reportProofOutput"> 
+			</div>
+			<br/>
+			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)"/><br/><br/>
+
+			<span> Description: </span> <br/>
+			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8"></textarea>  
+			<br/><br/>
+		
+
+			<input type="submit" value="Submit Report"/> 
+			<input type="button" value="Cancel" onclick="hideReportForm()"/>
+		</center>
+	</form>
+
+	</div>
+
 </div>
 
 </body>
