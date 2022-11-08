@@ -74,6 +74,10 @@
 				?>
 			</li>
 		</a>
+
+		<li class="Nav-item" id="Nav-notif"> 
+			<img src="img/bellIcon.png" class="bellIcon" onclick="showNotifs()"/>
+		</li>
 		
 		<span onclick='openNavMenu()'>
 			<li class="Nav-item" title="Me" id="userInfoNav">
@@ -122,6 +126,11 @@
 		<a href="Backend/Logout.php"><li class="NavMenu-item" title="Log Out">Log out</li></a>
 
 		</ul>
+
+	</div>
+
+	<div id="navNotifs" style="display:none;" >
+
 
 	</div>
 

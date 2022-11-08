@@ -159,21 +159,32 @@
 			<br/>
 			<input type="hidden" name="transactionID" id="TransactionIDInput"/>
 			<h3> Please Enter your feedbacks </h3>
+			<br/>
+
+			<label> Your Feedback:  </label> <br/>
+			<textarea name="feedback" id="feedbackInput" cols="40" rows="10" placeholder="Your Feedback..."></textarea>
 			<br/><br/><br/>
-			<textarea name="feedback"> 
 
-			</textarea>  <br/><br/><br/><br/><br/><br/>
+			<div class="rate">
+				<input type="radio" name="rate" value="1" id="star1" class="star"/>
+					<label for="star1" title="text"> </label>
+				<input type="radio" name="rate" value="2" id="star2" class="star"/>
+					<label for="star2" title="text"> </label>
+				<input type="radio" name="rate" value="3" id="star3" class="star"/>
+					<label for="star3" title="text"> </label>
+				<input type="radio" name="rate" value="4" id="star4" class="star"/>
+					<label for="star4" title="text"> </label>
+				<input type="radio" name="rate" value="5" id="star5" class="star"/>
+					<label for="star5" title="text"> </label>
+			</div>
 
-			<input type="radio" name="rate" value="1"/>
-			<input type="radio" name="rate" value="2"/>
-			<input type="radio" name="rate" value="3"/>
-			<input type="radio" name="rate" value="4"/>
-			<input type="radio" name="rate" value="5"/>
+			<br/><br/> <br/><br/>
 
-			<br/><br/>
-
-			<input type="submit" value="Confirm"/> 
-			<input type="button" value="Cancel" onclick="closeFeedbackForm()"/>
+			<div id="ButtonsDivFeedback">
+				<input type="submit" value="Confirm" /> 
+				<input type="button" value="Cancel" onclick="closeFeedbackForm()"/>
+			</div>
+			
 		</center>
 	</form>
 

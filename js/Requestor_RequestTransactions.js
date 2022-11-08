@@ -781,7 +781,7 @@ function SetDeliveredRequestsData(dataArray){
         transactionStatus[i].style.color = "blue";
         var button = document.createElement('button');
         button.setAttribute('class','AcceptButton');
-        button.innerText = "Pay";
+        button.innerText = "Save Payment";
 
         //button.setAttribute('onclick',"acceptServiceOrder(" +dataArray[i]['transactionID'] + ",'paid')" );
         button.setAttribute("onclick","setPaymentForm(" +dataArray[i]['transactionID'] + ")" );
@@ -789,8 +789,6 @@ function SetDeliveredRequestsData(dataArray){
         
 
     
-
-
 
         myID = sessionStorage.getItem("userID");
         reportedID = dataArray[i]["responderID"];
@@ -989,6 +987,7 @@ function closePaymentForm(){
 function setFeedbackForm(transactionID){
     transactionID = transactionID;
     document.getElementById("giveFeedBackPopUpBack").style.display = "grid";
+    document.getElementById("giveFeedBackPopUp").style.display = "grid";
 
 }
 
@@ -996,6 +995,8 @@ function setFeedbackForm(transactionID){
 function closeFeedbackForm(){
 
     document.getElementById("giveFeedBackPopUpBack").style.display = "none";
+    document.getElementById("giveFeedBackPopUp").style.display = "none";
+
 
 }
 

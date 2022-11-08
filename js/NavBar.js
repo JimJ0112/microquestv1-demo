@@ -48,3 +48,16 @@ function getUserImage(id){
     xmlhttp.send(query);
 }
 
+function showNotifs(){
+    navNotifs = document.getElementById("navNotifs");
+    navNotifsDisplay = document.getElementById("navNotifs").style.display;
+
+    
+    if(navNotifsDisplay === "none"){
+        navNotifs.style.display = "block";
+
+    }else{
+        navNotifs.style.display = "none";
+        
+    }
+}
