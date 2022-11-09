@@ -109,7 +109,7 @@ session_start();
 
                 <li onclick="getRequestors()"> Approve Requestors</li>
                 <li onclick="getResponders()"> Approve Responders</li>
-                <li> Show Reports </li>
+                <li onclick="getAllReports()"> Show Reports </li>
 
                 <?php
 

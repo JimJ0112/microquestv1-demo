@@ -66,6 +66,12 @@
 		echo"<script> sessionStorage.setItem('userID',$userID) </script>";
 	}
 
+	if(isset($_GET["q"])){
+		$mode = $_GET["q"];
+		if($mode === 1){
+			//echo "<script> </script>";
+		}
+	}
 ?>
 <div id="TransactionsBackContainerBack">
 
@@ -153,17 +159,23 @@
 <div id="giveFeedBackPopUpBack"> 
 	<div id="giveFeedBackPopUp"> 
 	
-	<form action="" method="post" enctype="multipart/form-data">
+	<form action="Backend/serviceFeedBackBackend.php" method="post" enctype="multipart/form-data">
 		
 		<center>
 			<br/>
-			<input type="hidden" name="transactionID" id="TransactionIDInput"/>
+			<?php $myUserID = $_SESSION["userID"];?>
+			<input type="hidden" name="myID" value="<?php echo $myUserID;?>"/>
+			<input type="hidden" name="serviceTransactionID" id="TransactionFeedbackID"/>
+			<input type="hidden" name="serviceRevieweeID" id="serviceRevieweeFeedbackID"/>
+			<input type="hidden" name="serviceID" id="serviceFeedbackID"/>
+			<input type="hidden" name="userType" id="Responder"/>
 			<h3> Please Enter your feedbacks </h3>
 			<br/>
 
 			<label> Your Feedback:  </label> <br/>
 			<textarea name="feedback" id="feedbackInput" cols="40" rows="10" placeholder="Your Feedback..."></textarea>
 			<br/><br/><br/>
+			
 
 			<div class="rate">
 				<input type="radio" name="rate" value="1" id="star1" class="star"/>

@@ -49,15 +49,19 @@ function getUserImage(id){
 }
 
 function showNotifs(){
+    bellIcon = document.getElementById("bellIcon");
     navNotifs = document.getElementById("navNotifs");
     navNotifsDisplay = document.getElementById("navNotifs").style.display;
 
     
     if(navNotifsDisplay === "none"){
         navNotifs.style.display = "block";
+        bellIcon.style.borderBottom = "3px solid yellow";
 
     }else{
         navNotifs.style.display = "none";
+        bellIcon.style.borderBottom = "none";
+
         
     }
 }

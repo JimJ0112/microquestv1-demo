@@ -322,3 +322,170 @@ function hideNavMenu(){
 
 
 }
+
+
+// for reports
+
+function getAllReports(){
+    
+    
+    var xmlhttp = new XMLHttpRequest();
+    
+
+
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+            
+            document.getElementById("DashBoardContent_TableBody").innerHTML = "";
+            document.getElementById("loadingImage").style.display = "none";
+           
+            hideNavMenu();
+            
+
+            var dataArray = this.response;
+           
+
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+
+                var number = dataArray.length;
+                createReportElements(number);
+                setReportData(dataArray);
+
+
+        
+
+     
+        }else{
+            //document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading...";
+            document.getElementById("loadingImage").style.display = "block";
+            
+            //console.log(err);
+        }      
+    };
+    
+    xmlhttp.open("POST", "backend/Get_Reports.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send();
+    
+}// end of function
+
+
+
+// create Report elements
+// create elements to be appended 
+function createReportElements(Number){
+ 
+    DataNumber = Number;
+    table = document.getElementById("DashBoardContent_TableBody");
+    table.innerHtml = "";
+   
+    
+    for(var i = 0;i<DataNumber;i++){
+    
+   // create elements for rows
+    var tr = document.createElement('tr');
+
+    reportCategory = document.createElement('td');
+    reportDate = document.createElement('td');
+    reportDescription = document.createElement('td');
+    reportEvidenceContainer = document.createElement('td');
+    reportID = document.createElement('td');
+    reportStatus = document.createElement('td');
+    reportedAccountID = document.createElement('td');
+    reportedRequestID = document.createElement('td');
+    reportedServiceID = document.createElement('td');
+    reporterAccountID = document.createElement('td');
+   
+
+
+
+   // set attributes
+  reportCategory.setAttribute("class","reportCategory");
+  reportDate.setAttribute("class","reportDate");
+  reportDescription.setAttribute("class","reportDescription");
+  reportEvidenceContainer.setAttribute("class","reportEvidenceContainer");
+  reportID.setAttribute("class","reportID");
+  reportStatus.setAttribute("class","reportStatus");
+  reportedAccountID.setAttribute("class","reportedAccountID");
+  reportedRequestID.setAttribute("class","reportedRequestID");
+  reportedServiceID.setAttribute("class","reportedServiceID");
+  reporterAccountID.setAttribute("class","reporterAccountID");
+
+
+   // append elements to the row
+   tr.appendChild(reportID);
+   tr.appendChild(reportedAccountID);
+   tr.appendChild(reporterAccountID);
+   tr.appendChild(reportedRequestID);
+   tr.appendChild(reportedServiceID);
+   tr.appendChild(reportCategory);
+   tr.appendChild(reportDate);
+   tr.appendChild(reportDescription);
+   tr.appendChild(reportEvidenceContainer);
+   tr.appendChild(reportStatus);
+
+ 
+  
+
+   
+
+
+    table.append(tr);
+
+    } 
+    
+    
+} // end of function
+
+
+// set Report data
+
+// set positions data 
+function setReportData(array){
+
+    var dataArray = array;
+    var number = dataArray.length;
+
+   // set attributes
+
+   reportCategory = document.getElementsByClassName("reportCategory");
+   reportDate= document.getElementsByClassName("reportDate");
+   reportDescription= document.getElementsByClassName("reportDescription");
+   reportEvidenceContainer= document.getElementsByClassName("reportEvidenceContainer");
+   reportID= document.getElementsByClassName("reportID");
+   reportStatus= document.getElementsByClassName("reportStatus");
+   reportedAccountID= document.getElementsByClassName("reportedAccountID");
+   reportedRequestID= document.getElementsByClassName("reportedRequestID");
+   reportedServiceID= document.getElementsByClassName("reportedServiceID");
+   reporterAccountID= document.getElementsByClassName("reporterAccountID");
+
+
+    for(var i = 0; i<number;i++){
+        
+
+
+        var image = new Image();
+        image.src = dataArray[i]['reportEvidence'];
+
+        image.setAttribute('class','reportEvidence');
+        image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
+        reportEvidenceContainer[i].appendChild(image);
+
+        reportCategory[i].innerText = dataArray[i]["reportCategory"];
+        reportDate[i].innerText = dataArray[i]["reportDate"];
+        reportDescription[i].innerText = dataArray[i]["reportDescription"];
+        reportID[i].innerText = dataArray[i]["reportID"];
+        reportStatus[i].innerText = dataArray[i]["reportStatus"];
+        reportedAccountID[i].innerText = dataArray[i]["reportedAccountID"];
+        reportedRequestID[i].innerText = dataArray[i]["reportedRequestID"];
+        reportedServiceID[i].innerText = dataArray[i]["reportedServiceID"];
+        reporterAccountID[i].innerText = dataArray[i]["reporterAccountID"];
+        
+
+
+    }
+
+}

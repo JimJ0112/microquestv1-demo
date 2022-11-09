@@ -983,7 +983,7 @@ function closePaymentForm(){
 }
 
 
-
+/*
 function setFeedbackForm(transactionID){
     transactionID = transactionID;
     document.getElementById("giveFeedBackPopUpBack").style.display = "grid";
@@ -999,6 +999,7 @@ function closeFeedbackForm(){
 
 
 }
+*/
 
 
 

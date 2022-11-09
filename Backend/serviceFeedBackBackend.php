@@ -40,7 +40,7 @@ $userType = $_POST["userType"];
     
     echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
 
-//header("location: ../RequestBoard.php");
+header("location: ../Requestor_Transactions.php?q=1");
 
 
 

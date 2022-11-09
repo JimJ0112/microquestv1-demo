@@ -715,7 +715,7 @@ function SetFinishedData(dataArray){
         button1.setAttribute('class','AcceptButton');
         button1.innerText = "Give Feedback";
        // button1.setAttribute('onclick',"cancelServiceOrder(" +dataArray[i]['transactionID'] + ",'cancelled')" );
-        button1.setAttribute('onclick',"setFeedbackForm(" + dataArray[i]['transactionID'] + ")" );
+        button1.setAttribute('onclick',"setFeedbackForm(" + dataArray[i]['transactionID'] +","+dataArray[i]['responderID']+","+dataArray[i]['serviceID']+")" );
         controlsTd[i].appendChild(button1);
 
                
@@ -1074,9 +1074,27 @@ function closePaymentForm(){
 
 
 
-function setFeedbackForm(transactionID){
-    transactionID = transactionID;
-    document.getElementById("giveFeedBackPopUpBack").style.display = "grid";
+function setFeedbackForm(transactionID,responderID,serviceID){
+   var transactionID1 = transactionID;
+   var serviceRevieweeID1 = responderID;
+   var serviceID1 = serviceID;
+
+
+   var transactionIDInput = document.getElementById("TransactionFeedbackID");
+   var serviceRevieweeIDInput= document.getElementById("serviceRevieweeFeedbackID");
+   var serviceIDInput= document.getElementById("serviceFeedbackID");
+
+
+   document.getElementById("giveFeedBackPopUpBack").style.display = "grid";
+   document.getElementById("giveFeedBackPopUp").style.display = "grid";
+
+    
+   document.getElementById("TransactionFeedbackID").value = transactionID1 
+   document.getElementById("serviceRevieweeFeedbackID").value = serviceRevieweeID1
+   document.getElementById("serviceFeedbackID").value = serviceID1
+
+
+
 
 }
 
@@ -1084,6 +1102,8 @@ function setFeedbackForm(transactionID){
 function closeFeedbackForm(){
 
     document.getElementById("giveFeedBackPopUpBack").style.display = "none";
+    document.getElementById("giveFeedBackPopUp").style.display = "none";
+
 
 }
 

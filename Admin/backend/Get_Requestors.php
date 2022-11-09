@@ -20,6 +20,5 @@ $Responders = $DBHandler->getUserByTypeRow($tablename,$column,$condition,$userTy
 if($Responders === "failed to fetch"){
     echo $Responders;
 } else{
-
     echo json_encode($Responders);
 }
