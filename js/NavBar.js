@@ -22,7 +22,7 @@ function getUserImage(id){
     var query = "userID=" + id;
 
     
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
             document.getElementById("NavImageContainer").innerHTML = "";
             var imageContainer = document.getElementById("NavImageContainer");

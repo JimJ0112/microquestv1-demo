@@ -22,7 +22,7 @@ function selectConversation(id,username){
 }
 
 
-function initMessages() { 
+function init() { 
     // This is the function the browser first runs when it's loaded.
    
     setConversation();
@@ -31,7 +31,6 @@ function initMessages() {
     var int = self.setInterval(function () {
    
     setConversation();
-    seenMessage();
     }, 2000); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.
 }
 
@@ -326,4 +325,40 @@ function seenMessage(){
 
     
 
+}
+
+
+
+// show payment proof output file
+
+function showMessageImageFile(event){
+    var imageContainer = document.getElementById("imageFileOutput");
+    var messageImageFileOutputContainer = document.getElementById("messageImageFileOutputContainer");
+    var messageImageFile = document.getElementById("messageImageFile");
+
+    imageContainer.src =  URL.createObjectURL(event.target.files[0]);
+    messageImageFileOutputContainer.style.display ="block";
+    messageImageFile.style.display = "none";
+
+}
+
+function closeMessageFile(){
+    var imageContainer = document.getElementById("imageFileOutput");
+    var messageImageFileOutputContainer = document.getElementById("messageImageFileOutputContainer");
+    var messageImageFile = document.getElementById("messageImageFile");
+
+ 
+    messageImageFileOutputContainer.style.display ="none";
+    messageImageFile.style.display = "block";
+    messageImageFile.value = "";
+}
+
+function closeMessageSendPhotoBack(){
+    messageSendPhotoBack = document.getElementById('messageSendPhotoBack');
+    messageSendPhotoBack.style.display = "none";
+}
+
+function openMessageSendPhotoBack(){
+    messageSendPhotoBack = document.getElementById('messageSendPhotoBack');
+    messageSendPhotoBack.style.display = "grid";
 }

@@ -1,5 +1,6 @@
 
 // create elements to be appended 
+/*
 function createRequestElements(Number){
  
     DataNumber = Number;
@@ -96,6 +97,83 @@ function createRequestElements(Number){
     
     
 } // end of function
+*/
+
+// create elements to be appended 
+function createRequestElements(Number){
+ 
+    DataNumber = Number;
+    div = document.getElementById("RequestsContainer-Content");
+   
+    
+    for(var i = 0;i<DataNumber;i++){
+    
+    // create elements for rows
+    var wrapper = document.createElement('div'); 
+    var card = document.createElement('div');
+    var request_card__image = document.createElement('div');
+    var requestorLocation = document.createElement('div');
+    var requestorUserName = document.createElement('div');
+    var requestDescription = document.createElement('div');
+    var dueDate = document.createElement('div');
+    var request_card__unit_stats = document.createElement('div');
+    var one_third = document.createElement('div');
+    var requestCategory = document.createElement('div');
+    var requestTitle = document.createElement('div');
+    var no_border = document.createElement('div');
+    var requestExpectedPrice = document.createElement('div');
+    var isNegotiable = document.createElement('div');
+
+
+
+    // set attributes
+     wrapper.setAttribute("class","wrapper"); 
+     card.setAttribute("class","request-card"); 
+     request_card__image.setAttribute("class","request-card__image"); 
+     requestorLocation.setAttribute("class","requestorLocation"); 
+     requestorUserName.setAttribute("class","requestorUserName"); 
+     requestDescription.setAttribute("class","requestDescription"); 
+     dueDate.setAttribute("class","dueDate"); 
+     request_card__unit_stats.setAttribute("class","request-card__unit-stats"); 
+     one_third.setAttribute("class","one-third"); 
+     requestCategory.setAttribute("class","requestCategory"); 
+     requestTitle.setAttribute("class","requestTitle"); 
+     no_border.setAttribute("class","no_border"); 
+     requestExpectedPrice.setAttribute("class","requestExpectedPrice"); 
+     isNegotiable.setAttribute("class","isNegotiable"); 
+
+
+    // append elements to the row
+
+    one_third.appendChild(requestCategory);
+    one_third.appendChild(requestTitle);
+    no_border.appendChild(requestExpectedPrice);
+    no_border.appendChild(isNegotiable);
+
+
+    request_card__unit_stats.appendChild(one_third);
+    request_card__unit_stats.appendChild(no_border);
+
+    
+
+    card.appendChild(request_card__image);
+    
+    card.appendChild(requestorUserName);
+    card.appendChild(requestorLocation);
+    card.appendChild(requestDescription);
+    card.appendChild(dueDate);
+    card.appendChild(request_card__unit_stats);
+
+
+    wrapper.appendChild(card);
+
+
+    div.append(wrapper);
+
+    } 
+    
+    
+} // end of function
 
 
 // set positions data 
@@ -104,65 +182,45 @@ function setData(array){
     var dataArray = array;
     var number = dataArray.length;
 
-    var serviceCard = document.getElementsByClassName("requestCard");
-    var dueDate = document.getElementsByClassName( 'dueDate');
-    var isNegotiable = document.getElementsByClassName('isNegotiable');
-    var requestCategory = document.getElementsByClassName( 'requestCategory');
-    var requestDescription = document.getElementsByClassName('requestDescription');
-    var requestExpectedPrice = document.getElementsByClassName('requestExpectedPrice');
-    var requestID = document.getElementsByClassName('requestID');
-    var requestTitle = document.getElementsByClassName('requestTitle');
-    var requestorID= document.getElementsByClassName('requestorID');
-    var requestorUserName= document.getElementsByClassName('requestorUserName');
-    var requestorLocation= document.getElementsByClassName('requestorLocation');
-    var viewRequest = document.getElementsByClassName('viewRequest');
-    var userPhotoDiv = document.getElementsByClassName('userPhotoDiv');
-    var requestBannerDiv = document.getElementsByClassName('requestBannerDiv');
+    wrapper = document.getElementsByClassName("wrapper"); 
+    card= document.getElementsByClassName("request-card"); 
+    request_card__image= document.getElementsByClassName("request-card__image"); 
+    requestorLocation= document.getElementsByClassName("requestorLocation"); 
+    requestorUserName= document.getElementsByClassName("requestorUserName"); 
+    requestDescription= document.getElementsByClassName("requestDescription"); 
+    dueDate= document.getElementsByClassName("dueDate"); 
+    request_card__unit_stats= document.getElementsByClassName("request-card__unit-stats"); 
+    one_third= document.getElementsByClassName("one-third"); 
+    requestCategory= document.getElementsByClassName("requestCategory"); 
+    requestTitle= document.getElementsByClassName("requestTitle"); 
+    no_border= document.getElementsByClassName("no_border"); 
+    requestExpectedPrice= document.getElementsByClassName("requestExpectedPrice"); 
+    isNegotiable= document.getElementsByClassName("isNegotiable"); 
 
 
 
 
     for(var i = 0; i<number;i++){
         
-        dueDate[i].innerHTML= "<b>Due date: </b>"+dataArray[i]['dueDate'];
-        isNegotiable[i].innerHTML = "<b>Negotiable: </b>"+dataArray[i]['isNegotiable'];
-        requestCategory[i].innerHTML = "<b>Category: </b>"+dataArray[i]['requestCategory'];
-        requestDescription[i].innerHTML = "<b>Description: </b>"+dataArray[i]['requestDescription'];
-        requestExpectedPrice[i].innerHTML = "<b>Expected Price: </b>"+dataArray[i]['requestExpectedPrice'];
-       //requestID[i].innerHTML ="<b>Request ID: </b>"+ dataArray[i]['requestID'];
-        requestTitle[i].innerHTML = "<b>Title: </b>"+dataArray[i]['requestTitle'];
-        requestorID[i].innerHTML = "<b>Requestor ID: </b>"+dataArray[i]['requestorID'];
-        requestorUserName[i].innerHTML = "<b style='color:black;'>"+dataArray[i]['userName'] +"</b> <br/>";
+        dueDate[i].innerHTML= dataArray[i]['dueDate'];
+        isNegotiable[i].innerHTML = dataArray[i]['isNegotiable'];
+        requestCategory[i].innerHTML = dataArray[i]['requestCategory'];
+        requestDescription[i].innerHTML = dataArray[i]['requestDescription'];
+        requestExpectedPrice[i].innerHTML = dataArray[i]['requestExpectedPrice'];
+      
+        requestTitle[i].innerHTML = dataArray[i]['requestTitle'];
+        //[i].innerHTML = "<b>Requestor ID: </b>"+dataArray[i]['requestorID'];
+        requestorUserName[i].innerHTML = dataArray[i]['userName'] +"</b> <br/>";
         requestorLocation[i].innerHTML = "<b>"+dataArray[i]['requestorMunicipality'] +"</b>";
-        requestorUserName[i].href = "Public_Profile.php?userID=" +  dataArray[i]['requestorID'] + "&userType=Requestor";
+        requestorUserName[i].innerHTML = "<a href = 'ViewUserProfile.php?userID="+dataArray[i]['requestorID']+"&userType=Requestor'>" + dataArray[i]['userName'] +"</a>";
 
-        viewRequest[i].href = "Responder_RequestInfo.php?requestID=" + dataArray[i]['requestID'];
+        //requestorUserName[i].innerHTML = "<a href = 'Responder_RequestInfo.php?requestID=" + dataArray[i]['requestID'] + "'> "+ dataArray[i]['userName']+"</a>";
+        
         var image = new Image();
         image.src = dataArray[i]['userPhoto'];
         image.setAttribute('class','userPhotoPic');
-        userPhotoDiv[i].appendChild(image);
-        /*
-        var requestBannerImage = new Image();
+        request_card__image[i].appendChild(image);
 
-        if(dataArray[i]['requestCategory'] === "Computer related work"){
-            requestBannerImage.src = "Images/RequestBanners/ComputerRelated.jpeg";
-            requestBannerImage.setAttribute('class','bannerImage');
-            requestBannerDiv[i].appendChild(requestBannerImage);
-
-        }else if(dataArray[i]['requestCategory'] === "Home Service"){
-            requestBannerImage.src = "Images/RequestBanners/HomeServices.jpg";
-            requestBannerImage.setAttribute('class','bannerImage');
-            requestBannerDiv[i].appendChild(requestBannerImage);
-            
-        }else{
-
-            requestBannerImage.src = "Images/RequestBanners/others.jpg";
-            requestBannerImage.setAttribute('class','bannerImage');
-            requestBannerDiv[i].appendChild(requestBannerImage);
-        }
-        
-
-        */
 
     }
 

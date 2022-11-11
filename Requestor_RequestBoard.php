@@ -98,28 +98,41 @@ session_start();
 			</div>
 
 			<div id="RequestsContainer-Content">
-				<div class="requestCard">
+			<div class="wrapper">
+    				<div class="request-card">
+    		  			<div class="request-card__image request-card__image">
+						    <div class="requestTitle">Traditional Art</div>
+							<div class="requestCategory">Art<sup></sup></div>
+						</div>
+			
+						
 
+      					<div class="requestDescription">
+    		   		 		drawing mo ko ng makisig na mythical creature
+    		  			</div>
+			
+			
+      						<div class="request-card__unit-stats request-card__unit-stats clearfix">
+    		    				<div class="one-third">
+									<div class="requestExpectedPrice">150</div>
+    		    		  			<div class="isNegotiable">Negotiable</div>
+    		    		  			
+    		    				</div>
+			
+    		    				<div class="one-third no-border">
+    		    		  			<div class="dueDateValue">Tomorrow</div>
+    		    		  			<div class="dueDate">dueDate</div>
+    		    				</div>
+    		  				</div>
 
-					<ul class="RequestInfoList">
-						<li class="RequestCategory"> Category </li>
-						<li class="requestDescription"> Desciption</li>
-						<li class="Deadline"> Deadline </li>
-						<li class="Price"> Php pice</li>
-						<li class="PriceNegotiable"> Negotiable</li>
-					</ul>
+   					</div> <!-- end request-card -->
 
-					<footer class="requestcard-footer">
-						<button class="UpdateButton" onclick="showUpdateRequest()"> Update</button>
-						<button class="ReviewButton" onclick="showViewRequest()"> Review </button>
-					</footer>
+  				</div>
+
+					
 
 				
-				</div>
-
-
-
-			</div>
+			
 
 		</div>
 	</div>

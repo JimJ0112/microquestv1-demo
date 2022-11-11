@@ -141,46 +141,52 @@ session_start();
 
 		</div>
 
-		<div id="RequestsContainer-Content" >
+			<div id="RequestsContainer-Content">
 
-		<div class="wrapper">
-    <div class="request-card">
-      <div class="request-card__image request-card__image">
-        <img id="userPhotoPic" alt="Profile"/>
-      </div>
-      <div class="requestorLocation">Abucay</div>
-      <div class="requestorUserName">James</div>
-      <div class="requestDescription">
-        drawing mo ko ng makisig na mythical creature
-      </div>
-	  <div class="dueDate">November 12</div>
+				<div class="wrapper">
+    				<div class="request-card">
+    		  			<div class="request-card__image request-card__image">
+    		    			<img id="userPhotoPic" class="userPhotoPic" alt="Profile"/>
+    		  			</div>
+			
+    		 			
+			
+    		  			<div class="requestorUserName">James</div>
 
-      <div class="request-card__unit-stats request-card__unit-stats clearfix">
-        <div class="one-third">
-          <div class="requestCategory">Art<sup></sup></div>
-          <div class="requestTitle">Traditional Art</div>
-        </div>
+						<div class="requestorLocation">Abucay</div>
+			
+      					<div class="requestDescription">
+    		   		 		drawing mo ko ng makisig na mythical creature
+    		  			</div>
+			
+			  			<div class="dueDate">November 12</div>
+			
+      						<div class="request-card__unit-stats request-card__unit-stats clearfix">
+    		    				<div class="one-third">
+    		    		  			<div class="requestCategory">Art<sup></sup></div>
+    		    		  			<div class="requestTitle">Traditional Art</div>
+    		    				</div>
+			
+    		    				<div class="one-third no-border">
+    		    		  			<div class="requestExpectedPrice">150</div>
+    		    		  			<div class="isNegotiable">Negotiable</div>
+    		    				</div>
+    		  				</div>
+			
+   					</div> <!-- end request-card -->
 
-        <div class="one-third no-border">
-          <div class="requestExpectedPrice">150</div>
-          <div class="isNegotiable">Negotiable</div>
-        </div>
+  				</div> <!-- end of wrapper-->
+			
+			
 
-      </div>
-
-    </div> <!-- end request-card barbarian-->
-  </div>
-
-	
+			</div>
 
 		</div>
+
 
 	</div>
 
 
-</div>
-
-
-<!--<script src="js/Responder_RequestBoard.js"> </script>--> 
+<script src="js/Responder_RequestBoard.js"> </script> 
 </body>
 </html>

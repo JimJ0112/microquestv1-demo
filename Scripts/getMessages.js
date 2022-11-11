@@ -202,7 +202,7 @@ function setMessagesData(array){
         } else if(dataArray[i]['messageReciever'] === myID){
             
             div[i].setAttribute('style','float:left; background-color:lightgray; border-radius: 20px 20px 20px 0px; text-align:center;');
-            //seenMessage();
+            seenMessage();
         }
 
         

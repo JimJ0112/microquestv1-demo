@@ -22,8 +22,7 @@ function hideViewRequest(){
 }
 
 
-
-/* Fetching data and appending data elements */
+/* Fetching data and appending data elements 
 // create elements for data
 function createElements(number){
     var number = number;
@@ -101,8 +100,76 @@ function createElements(number){
     }
 
 }
+*/
 
+function createElements(number){
+    var number = number;
+
+    var div = document.getElementById('RequestsContainer-Content');
+
+
+
+    
+    for(var i=0; i<number; i++){
+
+        
+        var requestTitle= document.createElement('div');
+        var requestCategory= document.createElement('div');
+        var requestDescription= document.createElement('div');
+        var requestExpectedPrice= document.createElement('div');
+        var isNegotiable= document.createElement('div');
+        var dueDateValue= document.createElement('div');
+        var request_card__image= document.createElement('div');
+        var one_third= document.createElement('div');
+        var no_border= document.createElement('div');
+        var dueDateValue= document.createElement('div');
+        var request_card__unit_stats= document.createElement('div');
+        var request_card= document.createElement('div');
+        var wrapper= document.createElement('div');
+        var dueDate= document.createElement('div');
+
+         
+         requestTitle.setAttribute('class','requestTitle');
+         requestCategory.setAttribute('class','requestCategory');
+         requestDescription.setAttribute('class','requestDescription');
+         requestExpectedPrice.setAttribute('class','requestExpectedPrice');
+         isNegotiable.setAttribute('class','isNegotiable');
+         dueDateValue.setAttribute('class','dueDateValue');
+         dueDate.setAttribute('class','dueDate');
+         request_card__image.setAttribute('class','request-card__image');
+         one_third.setAttribute('class','one-third');
+         no_border.setAttribute('class','no-border');
+         request_card__unit_stats.setAttribute('class','request-card__unit-stats' );
+         request_card.setAttribute('class','request-card');
+         wrapper.setAttribute('class','wrapper');
+        
+
+         request_card__image.appendChild(requestTitle);
+         request_card__image.appendChild(requestCategory);
+
+         one_third.appendChild(requestExpectedPrice);
+         one_third.appendChild(isNegotiable);
+         no_border.appendChild(dueDateValue);
+         no_border.appendChild(dueDate);
+
+         request_card__unit_stats.appendChild(one_third);
+         request_card__unit_stats.appendChild(no_border);
+
+         request_card.appendChild(request_card__image);
+         request_card.appendChild(requestDescription);
+         request_card.appendChild(request_card__unit_stats);
+
+         wrapper.appendChild(request_card);
+         
+        div.appendChild(wrapper);
+
+        
+
+    }
+
+}
 // set positions data 
+/*
 function setData(array){
 
 var dataArray = array;
@@ -146,6 +213,53 @@ UpdateButton= document.getElementsByClassName('UpdateButton');
     }
 
 }
+*/
+
+function setData(array){
+
+    var dataArray = array;
+    var number = dataArray.length;
+    
+    
+    myRequestCard = document.getElementsByClassName('requestCard');
+    
+    requestTitle = document.getElementsByClassName('requestTitle');
+    requestCategory = document.getElementsByClassName('requestCategory');
+    requestDescription = document.getElementsByClassName('requestDescription');
+    requestExpectedPrice = document.getElementsByClassName('requestExpectedPrice');
+    isNegotiable = document.getElementsByClassName('isNegotiable');
+    dueDateValue = document.getElementsByClassName('dueDateValue');
+    dueDate = document.getElementsByClassName('dueDate');
+    
+        for(var i = 0; i< number; i++){
+    
+            requestTitle[i].innerText= dataArray[i]['requestTitle'];
+            requestCategory[i].innerText= dataArray[i]['requestCategory'];
+            requestDescription[i].innerText= dataArray[i]['requestDescription'];
+            requestExpectedPrice[i].innerText= '₱' + dataArray[i]['requestExpectedPrice'];
+            isNegotiable[i].innerText= dataArray[i]['isNegotiable'];
+            dueDateValue[i].innerText= dataArray[i]['dueDate'];
+            dueDate[i].innerText='due date';
+
+/*
+            datePosted[i].innerHTML = "<b> Date Posted: </b>"+dataArray[i]['datePosted'];
+            dueDate[i].innerHTML = "<b> Due Date: </b>"+dataArray[i]['dueDate'];
+            isNegotiable[i].innerHTML = "<b> Negotiable: </b>"+dataArray[i]['isNegotiable'];
+            requestCategory[i].innerHTML ="<b> Category: </b>"+ dataArray[i]['requestCategory'];
+            requestDescription[i].innerHTML = "<b> Description: </b>"+ dataArray[i]['requestDescription'];
+            requestExpectedPrice[i].innerHTML = "<b> Expected Price: </b> Php "+ dataArray[i]['requestExpectedPrice'];
+            requestID[i].innerHTML = "<b> Request ID: </b>"+dataArray[i]['requestID'];
+            requestStatus[i].innerHTML = dataArray[i]['requestStatus'];
+            requestTitle[i].innerHTML = "<b>Title: </b> "+dataArray[i]['requestTitle'];
+    
+            UpdateButton[i].setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
+            ReviewButton[i].setAttribute('onclick',"viewForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"','"+dataArray[i]['requestStatus']+"')");
+    */
+        }
+    
+    }
+
+
 
 function getMyRequests(userID){
     var userID = userID;

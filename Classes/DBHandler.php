@@ -2848,16 +2848,16 @@ $recieverUserName= mysqli_real_escape_string($this->dbconnection,$recieverUserNa
 
 
 if(isset($messageFileType) && isset($messageFile)){
-$messageFile = mysqli_real_escape_string($this->dbconnection,$messageFile);
-$messageFileType = mysqli_real_escape_string($this->dbconnection,$messageFileType);
+    $messageFile = mysqli_real_escape_string($this->dbconnection,$messageFile);
+    $messageFileType = mysqli_real_escape_string($this->dbconnection,$messageFileType);
 
 } else {
     $messageFile = "";
-$messageFileType ="";
+    $messageFileType ="";
 
 }
 
-$tablename = "messages";
+    $tablename = "messages";
 
     
 
@@ -2865,6 +2865,32 @@ $tablename = "messages";
     return mysqli_query($this->dbconnection, $query);
 
 }
+
+
+public function sendPhotoMessage($senderID,$recieverID,$messageBody,$messageDate,$messageTime,$firstChat,$senderUserName,$recieverUserName,$messageFileType,$messageFile){
+
+    $senderID= mysqli_real_escape_string($this->dbconnection,$senderID);
+    $recieverID= mysqli_real_escape_string($this->dbconnection,$recieverID);
+    $messageBody= mysqli_real_escape_string($this->dbconnection,$messageBody);
+    $messageDate = mysqli_real_escape_string($this->dbconnection,$messageDate);
+    $messageTime = mysqli_real_escape_string($this->dbconnection,$messageTime);
+    $messageStatus = "New";
+    $firstChat = mysqli_real_escape_string($this->dbconnection,$firstChat );
+    $senderUserName = mysqli_real_escape_string($this->dbconnection,$senderUserName);
+    $recieverUserName= mysqli_real_escape_string($this->dbconnection,$recieverUserName);
+ 
+        $messageFile =mysqli_real_escape_string($this->dbconnection, $messageFile);
+        $messageFileType = mysqli_real_escape_string($this->dbconnection,$messageFileType);
+    
+    
+        $tablename = "messages";
+    
+        
+    
+        $query = "INSERT INTO $tablename() VALUES (0,$senderID,$recieverID,'$messageBody','$messageDate','$messageTime','$messageStatus','$messageFile','$messageFileType',$firstChat,'$senderUserName','$recieverUserName')";
+        return mysqli_query($this->dbconnection, $query) or die (mysqli_error($this->dbconnection));
+    
+    }
 
 
 // register request application

@@ -67,7 +67,7 @@ session_start();
                     <td class="home_computerRelated_Td"> Service:&nbsp </td>
                
                     <td>
-                        <select name="servicePosition" id="servicePositionDropDown" onchange="otherPosition()">
+                        <select required name="servicePosition" id="servicePositionDropDown" onchange="otherPosition()">
                             
                         </select><span class="asteriskRequiredField"> * </span>
                       
@@ -80,7 +80,7 @@ session_start();
 
                     <td class="home_computerRelated_Td"> Rate:&nbsp </td>
                     <td>
-                        <input type="number" name="rate"> <span class="asteriskRequiredField"> * </span>
+                        <input required type="number" name="rate"> <span class="asteriskRequiredField"> * </span>
                     </td> 
                 </tr>
 

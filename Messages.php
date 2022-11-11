@@ -117,8 +117,7 @@ session_start();
 						</td>
 -->
 
-					<td> </td>
-					<td> </td>
+
 					</tr>
 
 				</table>
@@ -168,7 +167,7 @@ session_start();
 
 						<table>
                				<tr>
-                    			<td> <input type="button" id="file" value="📎"> </td>
+                    			<td> <input type="button" id="file" value="📎" onclick="openMessageSendPhotoBack()"> </td>
                     			<td> <input type="text" id="messageBody" oninput="checkText()" placeholder="Send Message.."> </td>
                     			<td> <input type="button" id="send" value="SEND" onclick="sendMessage()" disabled> </td>
                				<tr>
@@ -191,6 +190,39 @@ session_start();
 
 </div>
 
+				<div id="messageSendPhotoBack"> 
+					<div id="messageSendPhoto">
+							<form action="backend/insertPhotoMessage.php" method="post" enctype="multipart/form-data">
+								<div id="closeImage" onclick="closeMessageSendPhotoBack()"> ✕ </div>
+                				<input type="hidden" name="senderID" value="<?php echo $_SESSION["userID"]?>">
+                				<input type="hidden" name="recieverID" id="sendPhotoRecieverID">
+                				<input type="hidden" name="senderUserName" value='<?php echo $_SESSION['userName']; ?>'>
+                				<input type="hidden" name="recieverUserName" id="sendPhotoRecieverUserName">
+
+
+                	    		<center>
+									<br/>
+                	    			<input type="text" id="messageSendPhotoBody" name="message" oninput="checkText()" placeholder="Send Message.."> 
+									<br/>
+									<br/>
+									<div id="messageImageFileOutputContainer">
+										<div id="closeImage" onclick="closeMessageFile()"> ✕ </div>
+										<img id="imageFileOutput"/>
+									</div>
+									<br/>
+									<input type="file" name="messageImageFile" id="messageImageFile" oninput="showMessageImageFile(event)" required/>
+									<br/>
+									<br/>
+
+
+                	    			<input type="submit" id="send" value="SEND"> 
+								</center>
+							</form>
+
+        			</div>
+				</div>
+
+</script> scrollToBottom(); </script>
 <script src="js/messages.js">  </script>
 
 

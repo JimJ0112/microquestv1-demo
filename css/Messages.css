@@ -224,8 +224,9 @@ body{
 }
 
 #conversationSearch{
-	width: 300px;
+	width: 320px;
 	height:30px;
+	margin: auto;
 }
 
 .chatlistButton{
@@ -256,4 +257,54 @@ body{
 	border-radius: 10px;
 	width: fit-content;
 	padding: 5px;
+}
+
+
+#messageSendPhotoBack{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.246);
+	display: grid;
+	align-content: center;
+	z-index: 20;
+	display: none;
+}
+
+#messageSendPhoto{
+	width: 40%;
+	height: 500px;
+	background-color: white;
+	margin: auto;
+}
+
+#closeImage{
+	float: right;
+	cursor: pointer;
+	font-weight: bolder;
+	z-index: 20;
+}
+
+#messageImageFileOutputContainer{
+
+	width: 200px;
+	height:250px;
+	
+	position: relative;
+	display: none;
+}
+
+#imageFileOutput{
+	width: 200px;
+	height:250px;
+	border: 1px solid black;
+	
+	left: 0;
+	z-index: 5;
+	object-fit: contain;
+}
+
+.conversationMessageImage{
+	width: 90px;
+	height: 90px;
 }
