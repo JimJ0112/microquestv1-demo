@@ -90,6 +90,7 @@
 
 				
 					<td class="NavTD">
+						
 						<?php
 				    		if(isset($_SESSION["userName"])){
 								$username = $_SESSION["userName"];

@@ -123,7 +123,7 @@ session_start();
                                 $usertype = $_SESSION["userType"];
 
                                 if($usertype === "Responder"){
-                                    echo "<input type=button value=Apply id=applyButton class=button onclick='showApplyForm()'/>";
+                                    echo "<input type=button value=APPLY id=applyButton class=button onclick='showApplyForm()'/>";
                                 }
                             }
 

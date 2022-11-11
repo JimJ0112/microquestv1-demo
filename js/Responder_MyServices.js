@@ -1,3 +1,9 @@
+function submitEditChanges(){
+    serviceViewForm = document.getElementById("serviceViewForm");
+    serviceViewForm.submit();
+}
+
+
 
 function categories(array){
     var dataArray = array;
@@ -42,7 +48,7 @@ function createServiceElements(Number){
     var serviceStatus= document.createElement('p');
     var rate= document.createElement('p');
     var ratings= document.createElement('p');
-    var infoDiv = document.createElement('infoDiv');
+    var infoDiv = document.createElement('div');
    
 
    // set attributes
@@ -90,7 +96,7 @@ function setData(array){
     var selectedCategory = sessionStorage.getItem("selectedCategory");
     var BannerContainer = document.getElementsByClassName('BannerContainer');
     var serviceTitle = document.getElementsByClassName('serviceTitle');
-    var serviceCard = document.getElementsByClassName("AvailableService-Card");
+    var serviceCard = document.getElementsByClassName("AvailableService_Card");
 
     var servicePosition = document.getElementsByClassName('servicePosition');
     var serviceStatus = document.getElementsByClassName('serviceStatus');
@@ -114,6 +120,10 @@ function setData(array){
         image.setAttribute('class','ServiceBanner');
         image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
         BannerContainer[i].appendChild(image);
+
+
+        //"showServiceView(serviceID,serviceCategory,servicePosition,rate,certification,certificateFile,serviceStatus)
+        serviceCard[i].setAttribute("onclick","showServiceView("+dataArray[i]["serviceID"]+",'"+dataArray[i]["serviceCategory"]+"','"+dataArray[i]["servicePosition"]+"',"+dataArray[i]["rate"]+",'"+dataArray[i]["certification"]+"','"+dataArray[i]["certificationFile"]+"','"+dataArray[i]["serviceStatus"]+"')");
     }
 
 }
@@ -236,3 +246,96 @@ function selectCategory(string){
     }
 
 }
+
+function closeServiceView(){
+    myServiceViewBack = document.getElementById("myServiceViewBack");
+    myServiceViewBack.style.display = "none";
+}
+
+
+function showServiceView(serviceID,serviceCategory,servicePosition,rate,certification,certificateFile,serviceStatus){
+
+    serviceIDViewContainer  = document.getElementById("serviceIDViewContainer");
+    serviceCategoryViewContainer = document.getElementById("serviceCategoryViewContainer");
+    servicePositionViewContainer = document.getElementById("servicePositionViewContainer");
+    rateViewContainer = document.getElementById("rateViewContainer");
+    certificationViewContainer = document.getElementById("certificationViewContainer");
+    certificateFileViewContainer = document.getElementById("certificateFileViewContainer");
+    serviceStatusViewContainer = document.getElementById("serviceStatusViewContainer");
+    myServiceViewEditButton = document.getElementById("myServiceViewEditButton");
+    serviceIDHidden = document.getElementById("serviceIDHidden");
+
+
+    myServiceViewBack = document.getElementById("myServiceViewBack");
+    myServiceViewForm = document.getElementById("myServiceViewForm");
+    myServiceViewTable = document.getElementById("myServiceViewTable");
+
+
+    
+    ServiceFormID = document.getElementById("ServiceFormID");
+    ServiceFormCategory = document.getElementById("ServiceFormCategory");
+    ServiceFormPosition = document.getElementById("ServiceFormPosition");
+    ServiceFormRate = document.getElementById("ServiceFormRate");
+    //ServiceFormCertification = document.getElementById("ServiceFormCertification");
+    ServiceFormStatus = document.getElementById("ServiceFormStatus");
+
+    ServiceFormCategory.value = serviceCategory
+    ServiceFormPosition.value = servicePosition;
+    ServiceFormRate.value = rate;
+    //ServiceFormCertification.value = certification;
+    ServiceFormStatus.value = serviceStatus;
+    ServiceFormID.innerText = serviceID;
+    serviceIDHidden.value = serviceID;
+
+    
+    serviceIDViewContainer.innerText  =  serviceID
+    serviceCategoryViewContainer.innerText =  serviceCategory
+    servicePositionViewContainer.innerText = servicePosition
+    rateViewContainer.innerText = rate
+    certificationViewContainer.innerText = certification
+    certificateFileViewContainer.innerText = certificateFile
+    serviceStatusViewContainer.innerText = serviceStatus
+
+    myServiceViewBack.style.display = "grid";
+    myServiceViewTable.style.display = "block";
+    myServiceViewForm.style.display = "none";
+    myServiceViewEditButton.innerText = "Edit";
+
+
+
+        
+
+
+    
+}
+
+function editMyService(){
+    myServiceViewTable = document.getElementById("myServiceViewTable");
+    myServiceViewForm = document.getElementById("myServiceViewForm");
+    myServiceViewEditButton = document.getElementById("myServiceViewEditButton");
+
+    myServiceViewTable.style.display = "none";
+    myServiceViewForm.style.display = "block";
+    myServiceViewEditButton.innerText = "Cancel";
+    myServiceViewEditButton.style.backgroundColor="red";
+    myServiceViewEditButton.style.color="white";
+    myServiceViewEditButton.setAttribute("onclick","closeEditMyService()");
+
+
+}
+
+function closeEditMyService(){
+    myServiceViewTable = document.getElementById("myServiceViewTable");
+    myServiceViewForm = document.getElementById("myServiceViewForm");
+    myServiceViewEditButton = document.getElementById("myServiceViewEditButton");
+
+    myServiceViewTable.style.display = "block";
+    myServiceViewForm.style.display = "none";
+    myServiceViewEditButton.innerText = "Edit";
+    myServiceViewEditButton.setAttribute("onclick","editMyService()");
+    myServiceViewEditButton.style.backgroundColor="white";
+    myServiceViewEditButton.style.color="black";
+}
+
+
+

@@ -33,13 +33,14 @@ session_start();
     <title> Offer a Service </title>
 </head>
 
-<body onload="getServices()" id="Responder_CreateServiceBackground">
+<!--<body onload="getServices()" id="Responder_CreateServiceBackground"> -->
+<body id="Responder_CreateServiceBackground"> 
     <?php
                 require_once("imports/ResponderNavBar.php");
     ?>
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
 
-
+<script>otherPosition(); </script>
 <!-- forms -->
 <div id="regularServicesFormBack" class="formBack">
 
@@ -47,48 +48,50 @@ session_start();
         <input type="hidden" name="formType" value="regularServices">
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
         <input type="hidden" name="serviceCategory" id="serviceCategoryRegular">
-            <div id="closeButton" onclick="closeForms()"> X </div>
-            <table>
-                <tr>
+            <div id="closeButton" onclick="closeForms()"> ✕ </div>
+            <table id="home_computerRelated_Table">
+
+            <tr class="home_computerRelated_Tr">
+                    <td class="home_computerRelated_Td" id="OtherServicePositionText"  style="display:none">
+                        Other Service:
+                    </td>
+
+                    <td>
+                    <span class="asteriskRequiredField" title="This Field is Required" id="asteriskRequiredFieldHidden"  style="display:none"> * </span>
+                        <input name="otherServicePosition"  id="otherServicePosition" type="text" placeholder="Please enter" style="display:none"/>
+                        
+                    </td>
+                </tr>
+                <tr class="home_computerRelated_Tr">
      
-                    <td> Service Position </td>
-              
+                    <td class="home_computerRelated_Td"> Service:&nbsp </td>
+               
                     <td>
                         <select name="servicePosition" id="servicePositionDropDown" onchange="otherPosition()">
-                            <option value="Delivery"> Delivery </option>
-                        </select><br/>
+                            
+                        </select><span class="asteriskRequiredField"> * </span>
+                      
                     </td>
                
                 </tr>
-                <tr>
-                    <td>
-                        Other Service Position:
-                    </td>
+                
 
-                    <td>
-                        <input name="otherServicePosition" id="otherServicePosition" type="text" placeholder="Please enter"/>
-                    </td>
-                </tr>
+                <tr class="home_computerRelated_Tr">
 
-                <tr>
-          
-            
-
-           
-                    <td> Rate </td>
+                    <td class="home_computerRelated_Td"> Rate:&nbsp </td>
                     <td>
-                        <input type="number" name="rate">
+                        <input type="number" name="rate"> <span class="asteriskRequiredField"> * </span>
                     </td> 
                 </tr>
 
-                <tr>
-                    <td>Training/Certificate</td>
-                    <td> <input type="text" name="certification"> </td> <br/>
+                <tr class="home_computerRelated_Tr">
+                    <td class="home_computerRelated_Td">Training/Certificate:&nbsp</td>
+                    <td> <input type="text" name="certification">  </td> <br/>
                 </tr>
 
-                <tr>
-                    <td>Training/Certificate File </td>
-                    <td> <input type="file" name="certificateFile"> </td><br/>
+                <tr class="home_computerRelated_Tr">
+                    <td class="home_computerRelated_Td">Training/Certificate File:&nbsp </td>
+                    <td><input type="file" name="certificateFile"></td><br/>
                 </tr>
         
             </table>
@@ -104,11 +107,11 @@ session_start();
         <input type="hidden" name="formType" value="pasabuy">
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
         <input type="hidden" name="serviceCategory" id="serviceCategory" value="Pasabuy">
-        <div id="closeButton" onclick="closeForms()"> X </div>
+        <div id="closeButton" onclick="closeForms()"> ✕ </div>
         
         <h3> Add Item </h3>
 
-        <table>
+        <table id="pasabayTable">
 
             <tr> 
                 
@@ -138,7 +141,7 @@ session_start();
 
             <tr>
                 <td> Product Price </td>
-                <td> Php <input name="productPrice" type="number"/></td>
+                <td> <input placeholder="Php" name="productPrice" type="number"/></td>
             </tr>
 
             <tr>
@@ -165,23 +168,30 @@ session_start();
 
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
         <input type="hidden" name="formType" value="otherCategories">
-        <div id="closeButton" onclick="closeForms()"> X </div>
-            <table>
+        <div id="closeButton" onclick="closeForms()"> ✕ </div>
+            <table id="otherTable">
                 <tr>
                     <td> Category </td>
-                    <td> <input type="text" name="serviceCategory" id="serviceCategory"> </td>
+                    <td> 
+                        <input type="text" name="serviceCategory" id="serviceCategory"> 
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span>
+                    </td>
                 </tr>
 
                 <tr>
-                    <td> Service Position </td>
+                    <td> Service: </td>
                     <td> 
                         <input type="text" name="servicePosition"/>
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span>
                     </td>
                 </tr>
 
                 <tr>
                     <td> Rate </td>
-                    <td> <input type="number" name="rate"> </td> 
+                    <td> 
+                        <input type="number" name="rate"> 
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span>
+                    </td> 
                 </tr>
 
                 <tr>
@@ -193,12 +203,12 @@ session_start();
                     <td>Training/Certificate File </td>
                     <td> <input type="file" name="certificateFile"> </td>
                 </tr>
-
+                <!--
                 <tr>
                     <td>Banner Image </td>
                     <td> <input type="file" name="bannerImage" accept="image/*"> </td>
                 </tr>
-        
+                -->
             </table>
 
             <input type="submit"/>
@@ -213,7 +223,7 @@ session_start();
 ?>
 
 <div id="Responder_CreateServiceMainBack">
-    
+   
         <br/>
             <center> <h1 id="RequestOrdersTitle"> Offer a Service</h1> </center>
         <br/>
@@ -222,13 +232,7 @@ session_start();
  <div id="Responder_CreateServiceMain">
 
     <center>
-
-
-
-
-
-
-       
+ 
             <div id="CreateServiceControlsContainer">
                 <form method="GET" action="Backend/Get_products.php" id="SearchForm"> 
                     <button id="CreateServiceSearchButton">🔍</button>
@@ -273,10 +277,11 @@ session_start();
     
 
 
-
+<div>
     <div id="createServiceNavMain"> 
 
      <ul>
+        
         <li class="serviceNavItem" onclick="setCategory('Home Service')"> 
             <table>
                 <tr>
@@ -306,7 +311,15 @@ session_start();
             </table>
         </li>
 
-        <li class="serviceNavItem" onclick="setCategory('Other')"> 
+        <!--<li class="serviceNavItem" onclick="setCategory('Other')"> 
+            <table>
+                <tr>
+                    <td> <image src="img/work-icon.png" class="controlImage"> </td>
+                    <td> <span class="categoryTitle"> Other </span> </td>
+                </tr>
+            </table>
+        </li>-->
+        <li class="serviceNavItem" onclick="getServices()"> 
             <table>
                 <tr>
                     <td> <image src="img/work-icon.png" class="controlImage"> </td>
@@ -314,13 +327,14 @@ session_start();
                 </tr>
             </table>
         </li>
+     
      </ul>
 
     </div>
+</div>
 
-
-    <h4> Other Services </h4>
-
+    
+<!--<button onclick="getServices()" value="Click me" id="otherButton">Other Services</button>--> 
     <div id="OtherServicesContainer">
         
     </div>

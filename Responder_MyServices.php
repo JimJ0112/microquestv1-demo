@@ -30,7 +30,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Responder_MyServices.css">
 
-	<script src="js/Responder_AvailableServices.js"> </script>
+	<script src="js/Responder_MyServices.js"> </script>
 </head>
 <body  onload="">
 
@@ -59,20 +59,6 @@
 
 				<ul id="AvailableServicesContainer-ControlItems">
 
-					<li class="AvailableServicesContainer-ControlItem">
-						<table>
-							<!--
-							<tr>
-								<td>
-									<img src="img/g838.png" class="RequestsContainer-ControlItemIcon">
-								</td>
-								<td>
-									<span class="PageIndicator"> Available Services </span>
-								</td>
-					 		</tr>
-							-->
-						</table>
-					</li>
 
 					<li class="AvailableServicesContainer-ControlItem"> 
 						<table>
@@ -150,9 +136,180 @@
 		
 	</div>
 
+</div>
+
+<div id="myServiceViewBack">
+	
+	<div id="myServiceView"> 
+	<div id="closeButton" onclick="closeServiceView()"> ✕ </div>
+
+	<table id="myServiceViewTable"> 
+		<tr>
+			<td>
+				<b>
+					ID
+				</b>
+			</td>
+
+			<td id="serviceIDViewContainer">
+				serviceID
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<b>
+					Category
+				</b>
+			</td>
+
+			<td id="serviceCategoryViewContainer">
+				serviceCategory
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<b>
+					Service
+				</b>
+			</td>
+
+			<td id="servicePositionViewContainer">
+				servicePosition
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<b>
+					Rate
+				</b>
+			</td>
+
+			<td id="rateViewContainer">
+				rate
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<b>
+					Certification
+				</b>
+			</td>
+
+			<td id="certificationViewContainer">
+				certification
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<b>
+					Certificate File
+				</b>
+			</td>
+
+			<td id="certificateFileViewContainer">
+				certificateFile
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<b>
+					Status
+				</b>
+			</td>
+
+			<td id="serviceStatusViewContainer">
+				serviceStatus
+			</td>
+		</tr>
+
+	</table>
 
 
+	<form method="post" action="Backend/UpdateService.php" enctype="multipart/form-data" id="serviceViewForm"> 
+			<table id="myServiceViewForm"> 
+				<tr>
+					<td>
+						<b>
+							ID
+						</b>
+					</td>
 
+					<td id="ServiceFormID">
+						
+					</td>
+					<input type = "hidden" name="serviceID" id="serviceIDHidden"/>
+				</tr>
+
+				<tr>
+					<td>
+						<b>
+							Category
+						</b>
+					</td>
+
+					<td>
+						<input type="text" name="category" id="ServiceFormCategory" required/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<b>
+							Service
+						</b>
+					</td>
+
+					<td>
+						<input type="text" name="position" id="ServiceFormPosition" required/>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<b>
+							Rate
+						</b>
+					</td>
+
+					<td >
+						<input type="text" name="rate" id="ServiceFormRate" required/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<b>
+							Status
+						</b>
+					</td>
+
+					<td>
+						<input type="button" name="" id="ServiceFormStatus" required/>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<input type="Button" id="submitChanges" value="Save Changes" onclick="submitEditChanges()">
+					</td>
+				</tr>
+			</table>
+	</form>
+
+	<center>
+		<br/>
+		<button id="myServiceViewEditButton" onclick="editMyService()"> Edit </button>
+	</center>
+
+	</div>
+	
+</div>
 
 
 

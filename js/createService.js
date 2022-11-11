@@ -104,9 +104,10 @@ function setData(array){
 
 
         var image = new Image();
-        image.src = dataArray[i]['bannerImage'];
+        //image.src = dataArray[i]['bannerImage'];
+        image.src = "img/work-icon.png";
         image.setAttribute('class','bannerImage');
-        image.setAttribute('onerror',"this.src='Images/RequestBanners/others.jpg'");
+        image.setAttribute('onerror',"this.src='img/work-icon.png'");
         BannerContainer[i].appendChild(image);
 
     }
@@ -233,11 +234,22 @@ function selectCategory(string){
 function setCategory(string){
     var data = string;
 
+   
     var regularServices = document.getElementById("regularServicesFormBack");
     var pasabuy = document.getElementById("pasabuyFormBack");
     var otherServices = document.getElementById("otherCategoriesFormBack");
     var serviceCategoryRegular = document.getElementById("serviceCategoryRegular");
     getPositions(data);
+
+    var tb = document.getElementById("otherServicePosition");
+    var tr = document.getElementById("OtherServicePositionText");
+    var asterisk = document.getElementById("asteriskRequiredFieldHidden");
+
+
+
+    regularServices.style.display = "none";
+    pasabuy.style.display = "none";
+    otherServices.style.display = "none";
 
     if(data === "Pasabuy"){
         pasabuy.style.display="grid";
@@ -266,10 +278,21 @@ function closeForms(){
     var pasabuy = document.getElementById("pasabuyFormBack");
     var otherServices = document.getElementById("otherCategoriesFormBack");
 
+   
+    var tb = document.getElementById("otherServicePosition");
+    var tr = document.getElementById("OtherServicePositionText");
+    var asterisk = document.getElementById("asteriskRequiredFieldHidden");
+
+
 
     regularServices.style.display = "none";
     pasabuy.style.display = "none";
     otherServices.style.display = "none";
+
+    asterisk.style.display="none";
+    tb.style.display="none";
+    tr.style.display="none";
+
 
 }
 
@@ -392,12 +415,24 @@ function setOptions(array){
 function otherPosition(){
     var serviceCard = document.getElementById("servicePositionDropDown");
     var tb = document.getElementById("otherServicePosition");
+    var tr = document.getElementById("OtherServicePositionText");
+    var asterisk = document.getElementById("asteriskRequiredFieldHidden");
+
+
     
-    if(serviceCard.value==="Other"){
+    if(serviceCard.value !="Other"){
+
+        tb.style.display="none";
+        tr.style.display= "none";
+        asterisk.style.display="none";
+
+    } else {
 
         tb.style.display="block";
-    } else {
-        tb.style.display="none";
+        tr.style.display= "block";
+        asterisk.style.display= "inline";
+
+
     }
 }
 

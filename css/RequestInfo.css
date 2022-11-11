@@ -264,8 +264,6 @@
 #requestDataTable{
     color: #3a2719;
     background-color: wheat;
-    border-bottom-left-radius: 46px;
-    border-bottom-right-radius: 46px;
 }
 
 #requestData{
@@ -274,4 +272,15 @@
 
 body{
     background-color: #3a2719e8;
+}
+
+#applyButton{
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+
+#applyButton:hover{
+    border: 5px solid rgb(240, 132, 25);
+    border-radius: 25px;
 }

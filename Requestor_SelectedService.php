@@ -72,7 +72,7 @@
     <div id="AvailServiceFormContainer"> 
         <div id="AvailServiceForm"> 
         
-            <div id="closeButton" onclick="closeForms()"> X </div>
+            <div id="closeButton" onclick="closeForms()"> ✕ </div>
 
             <form action="Backend/RegisterServiceOrder.php" method="post">
 
@@ -254,7 +254,7 @@
         <div id="RespondersBack">
             <div id="Responders">
                 <div id="closeButtonBack">
-                    <div id="closeButton" onclick="closeResponders()"> X </div>
+                    <div id="closeButton" onclick="closeResponders()"> ✕ </div>
                 </div>
 
                 <table>

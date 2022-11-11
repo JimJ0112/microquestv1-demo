@@ -1,3 +1,9 @@
+
+function submitForm(){
+    RegistrationForm = document.getElementById("RegistrationForm");
+    RegistrationForm.submit();
+}
+
 /* Dropdown menus */
 
 
@@ -687,4 +693,5 @@ function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     var reg = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return re.test(email);
-  }
+}
+

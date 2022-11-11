@@ -2687,6 +2687,23 @@ public function updateSenderReciever($userID,$myID){
     return $result;
 }
 
+
+public function updateMyService($serviceID,$category,$position,$rate){
+    $tablename = "servicesinfo";
+    $serviceID = mysqli_real_escape_string($this->dbconnection, $serviceID);
+    $category = mysqli_real_escape_string($this->dbconnection, $category);
+    $position = mysqli_real_escape_string($this->dbconnection, $position);
+    $rate = mysqli_real_escape_string($this->dbconnection, $rate);
+ 
+
+    $query = "UPDATE $tablename SET serviceCategory = '$category', servicePosition = '$position', rate = $rate WHERE serviceID = $serviceID;";
+
+    $result = mysqli_query($this->dbconnection, $query) or die(mysqli_error($this->dbconnection));
+        
+  
+    return $result;
+}
+
 /*---------------------------------DELETE FUNCTIONS----------------------------------------------------- */
 
 // update columns 
