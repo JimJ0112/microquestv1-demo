@@ -1,10 +1,14 @@
 
 
 // for targeting a conversation
-function selectConversation(id,username){
+function selectConversation(id,username,userImage){
 
-    userID = id;
-    userName = username;
+   var userID = id;
+   var userName = username;
+   var conversationImage = document.getElementById('conversationImage');
+   var messagesContentEmpty = document.getElementById('messagesContentEmpty');
+   var messagesContent = document.getElementById("messagesContent");
+
     //headerID = document.getElementById('conversationUserID');
     //headerUserName = document.getElementById('conversationUserName');
 
@@ -16,6 +20,10 @@ function selectConversation(id,username){
 
     // refreshing this session variable to be used in auto scrolling 
     sessionStorage.setItem("bottomMessage",0);
+    conversationImage.src = userImage;
+
+    messagesContentEmpty.style.display = "none";
+    messagesContent.style.display = "grid";
     
     setConversation();
 
@@ -188,10 +196,12 @@ function setMessagesData(array){
     var date = document.getElementsByClassName('messageDate');
     //var sender= document.getElementsByClassName('messageSender');
     var message= document.getElementsByClassName('message');
+
+    
     for(var i = 0; i<number;i++){
         
         date[i].innerText = dataArray[i]['messageDate'];
-      //  sender[i].innerText = dataArray[i]['messageSender'];
+        //sender[i].innerText = dataArray[i]['messageSender'];
         message[i].innerText = dataArray[i]['messageBody'];
         //message[i].setAttribute("onclick","selectConversation('" + dataArray[i]['messageBody'] + "')");
 
@@ -199,13 +209,37 @@ function setMessagesData(array){
             
             div[i].setAttribute('style','float:right; background-color:skyblue; border-radius: 20px 20px 0px 20px; ');
             
+
+            
+            document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageReciever'];
+            document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['recieverUserName'];
+       
         } else if(dataArray[i]['messageReciever'] === myID){
             
             div[i].setAttribute('style','float:left; background-color:lightgray; border-radius: 20px 20px 20px 0px; text-align:center;');
-            //seenMessage();
+            
+
+            seenMessage();
+            document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageSender'];
+            document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['senderUserName'];
+       
         }
 
-        
+        base64String = dataArray[i]['messageFile'];
+
+        var stringLength = base64String.length - 'data:image/png;base64,'.length;
+
+        if(stringLength> 1000){
+            var image = new Image();
+            image.src= dataArray[i]['messageFile'];
+            image.setAttribute("class","conversationMessageImage");
+            div[i].appendChild(image); 
+         
+            //console.log(stringLength);
+
+        }
+
+
         
     }
 
@@ -229,7 +263,7 @@ function setMessagesData(array){
 function scrollToBottom(){
 
     var number =  sessionStorage.getItem('bottomMessage');
-    var elem = document.getElementsByClassName('messageCard')[number-1];
+    var elem = document.getElementsByClassName('messageCard')[number];
     var div = document.getElementById("messagesConversation");
     div.scrollTo(0,div.scrollHeight);
     console.log(elem);

@@ -79,6 +79,7 @@ function setUsersData(array){
     var lastMessageDiv = document.getElementsByClassName('lastMessageDiv');
     var lastMessageP = document.getElementsByClassName('lastMessageP');
     var setConversation = document.getElementsByClassName('setConversation');
+
     for(var i = 0; i<number;i++){
 
         if (myID === dataArray[i]['senderID']){
@@ -96,6 +97,7 @@ function setUsersData(array){
             //setConversation[i].href= "MessagesV2.php?selectedConversationID="+dataArray[i]['recieverID']+"&selectedConversationUsername="+dataArray[i]['recieverUserName'];
             setConversation[i].setAttribute("onclick","selectConversation(" + dataArray[i]['recieverID'] +", '"+ dataArray[i]['recieverUserName'] +"','"+dataArray[i]['recieverUserPhoto']+"')");
         
+            
 
         } else if(myID === dataArray[i]['recieverID']){
 
@@ -200,10 +202,10 @@ function selectConversation(id,username){
     setConversation();
     
 
-}
+}  
 
 
-function init() { 
+function initMessages() { 
     // This is the function the browser first runs when it's loaded.
     getMessages();
     //setConversation();
@@ -215,7 +217,7 @@ function init() {
     }, 2000); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.
 }
 
-
+/*
 function sendMessage(){
     headerID = document.getElementById('conversationUserID').innerText;
     recieverID = headerID;
@@ -243,6 +245,7 @@ function sendMessage(){
             //var number = dataArray.length
             //createSenderElements(number);
             //setUsersData(dataArray);
+            
 
             } else {
                 console.log(dataArray);
@@ -259,8 +262,9 @@ function sendMessage(){
     document.getElementById('messageBody').value = "";
 
 }
+*/
 
-
+/*
 function setConversation(){
     userID = sessionStorage.getItem("selectedConversation");
     myID = sessionStorage.getItem('myID');
@@ -307,12 +311,13 @@ function setConversation(){
 
 
 
-
-
+*/
 
 
 
 // scrolling to bottom of the conversation
+
+/*
 function scrollToBottom(){
 
     var number =  sessionStorage.getItem('bottomMessage');
@@ -321,6 +326,7 @@ function scrollToBottom(){
     div.scrollTo(0,div.scrollHeight);
     console.log(elem);
 }
+*/
 
 // for closing the forms
 
@@ -374,13 +380,17 @@ function selectConversation(id,username,userPic){
     var username = username;
     var id = id;
     var userPic = userPic;
+    var recieverID = document.getElementById("recieverID");
 
     var conversationImage = document.getElementById("conversationImage");
     conversationImage.src = userPic;
     console.log(userPic);
     sessionStorage.setItem("selectedConversation",id);
-    selectedUserName.setItem("selectedUserName",username);
+    sessionStorage.setItem("selectedUserName",username);
+    recieverID.value = id;
 
+
+    
 
 
 }

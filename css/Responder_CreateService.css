@@ -207,7 +207,7 @@
 	height: fit-content;
 	border: 10px solid rgb(136 75 38);
 	border-radius: 50px;
-	
+	animation: fadein 1s;
 	
 }
 
@@ -291,7 +291,7 @@
 	padding: auto;
 	position: relative;
 	background-color: rgb(112 75 23 / 25%);
-
+	animation: fadein 1.25s;
 }
 
 .serviceCard:hover{

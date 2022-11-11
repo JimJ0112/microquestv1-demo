@@ -85,9 +85,9 @@
 			</div>
 
 
-
+			
 			<div id="AvailableServicesContainer_Content">
-
+			<!--
 				<div class="AvailableService_Card">
 
 					<div class="ServiceTitleBackground">
@@ -126,7 +126,7 @@
 					
 					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
 				
-				</div>
+				</div>-->
 
 			</div>
 
@@ -142,8 +142,9 @@
 	
 	<div id="myServiceView"> 
 	<div id="closeButton" onclick="closeServiceView()"> ✕ </div>
-
-	<table id="myServiceViewTable"> 
+	<div id="serviceTableTitle"> Service Details </div>
+	<table id="myServiceViewTable">
+		
 		<tr>
 			<td>
 				<b>
@@ -229,10 +230,11 @@
 		</tr>
 
 	</table>
-
+</center>
 
 	<form method="post" action="Backend/UpdateService.php" enctype="multipart/form-data" id="serviceViewForm"> 
 			<table id="myServiceViewForm"> 
+				
 				<tr>
 					<td>
 						<b>
@@ -294,7 +296,8 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr>	
+					<td></td>
 					<td>
 						<input type="Button" id="submitChanges" value="Save Changes" onclick="submitEditChanges()">
 					</td>
@@ -302,10 +305,9 @@
 			</table>
 	</form>
 
-	<center>
-		<br/>
+		<div id="closeBtn">
 		<button id="myServiceViewEditButton" onclick="editMyService()"> Edit </button>
-	</center>
+		</div>
 
 	</div>
 	

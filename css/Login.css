@@ -130,7 +130,11 @@
 	color:white;
 	
 	vertical-align: bottom;
+	animation: fadein 1.5s;	
 }
+
+
+
 
 #LoginTable{
 	width: 100%;

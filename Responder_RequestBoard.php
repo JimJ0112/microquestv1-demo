@@ -142,7 +142,7 @@ session_start();
 		</div>
 
 			<div id="RequestsContainer-Content">
-
+		<!--
 				<div class="wrapper">
     				<div class="request-card">
     		  			<div class="request-card__image request-card__image">
@@ -173,9 +173,9 @@ session_start();
     		    				</div>
     		  				</div>
 			
-   					</div> <!-- end request-card -->
+   					</div> end request-card 
 
-  				</div> <!-- end of wrapper-->
+  				</div>-->
 			
 			
 

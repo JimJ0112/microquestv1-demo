@@ -26,8 +26,8 @@ if($senderID != $recieverID){
     
     $messageDate = date("Y-m-d H:i:s",time());
     $messageTime = time();
-    //$firstChat =  $DBHandler->firstConversation($senderID,$recieverID);
-    $firstChat = 1;
+    $firstChat =  $DBHandler->firstConversation($senderID,$recieverID);
+    //$firstChat = 1;
 
     if($firstChat === 1){
 
@@ -51,7 +51,7 @@ if($senderID != $recieverID){
        
         $updateSender = $DBHandler-> updateSenderReciever($recieverID,$senderID);
          echo $updateSender;
-        // header("location:../Messages.php");
+            header("location:../Messages.php");
 
 
     } else{
@@ -75,13 +75,13 @@ if($senderID != $recieverID){
  
             echo $result;
 
-            //header("location:../Messages.php");
+            header("location:../Messages.php");
 
     }
     
 } else{
     echo "failed";
-   // header("location:../Messages.php?msg=message to self coming soon..");
+    header("location:../Messages.php?msg=message to self coming soon..");
 
 
 }
