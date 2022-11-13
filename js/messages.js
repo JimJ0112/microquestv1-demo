@@ -1,4 +1,4 @@
-
+// this file targets the messaging functions 
 
 // for targeting a conversation
 function selectConversation(id,username,userImage){
@@ -210,9 +210,8 @@ function setMessagesData(array){
             div[i].setAttribute('style','float:right; background-color:skyblue; border-radius: 20px 20px 0px 20px; ');
             
 
-            
-            document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageReciever'];
-            document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['recieverUserName'];
+            //document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageReciever'];
+            //document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['recieverUserName'];
        
         } else if(dataArray[i]['messageReciever'] === myID){
             
@@ -220,8 +219,8 @@ function setMessagesData(array){
             
 
             seenMessage();
-            document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageSender'];
-            document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['senderUserName'];
+            //document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageSender'];
+            //document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['senderUserName'];
        
         }
 
@@ -263,7 +262,7 @@ function setMessagesData(array){
 function scrollToBottom(){
 
     var number =  sessionStorage.getItem('bottomMessage');
-    var elem = document.getElementsByClassName('messageCard')[number];
+    var elem = document.getElementsByClassName('messageCard')[number-1];
     var div = document.getElementById("messagesConversation");
     div.scrollTo(0,div.scrollHeight);
     console.log(elem);
