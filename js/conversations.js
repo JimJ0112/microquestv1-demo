@@ -1,3 +1,7 @@
+// this file targets the process of displaying the message contacts
+
+
+
 
 // create elements to be appended 
 function createSenderElements(Number){
@@ -217,119 +221,6 @@ function initMessages() {
     }, 2000); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.
 }
 
-/*
-function sendMessage(){
-    headerID = document.getElementById('conversationUserID').innerText;
-    recieverID = headerID;
-    sender = sessionStorage.getItem('myID');
-    conversationID = sessionStorage.getItem('conversationID');
-    messageBody = document.getElementById('messageBody').value;
-    senderUserName = sessionStorage.getItem('myUserName');
-    recieverUserName = sessionStorage.getItem('selectedUserName');
-
-    var query = "recieverID="+ userID + "&senderID=" + sender+"&messageBody=" + messageBody + "&senderUserName="+senderUserName+"&recieverUserName="+recieverUserName ;     
-    console.log(query);
-    var xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open("POST", "Backend/insertMessage.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload= function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            var dataArray = this.response;
-
-            if(dataArray != "failed to fetch"){
-            
-            //dataArray = JSON.parse(dataArray);
-            //console.log(dataArray);
-            //var number = dataArray.length
-            //createSenderElements(number);
-            //setUsersData(dataArray);
-            
-
-            } else {
-                console.log(dataArray);
-            }
-
-            setConversation(sender);
-     
-        }else{
-            console.log(err);
-        }      
-    };
-    
-    xmlhttp.send(query);
-    document.getElementById('messageBody').value = "";
-
-}
-*/
-
-/*
-function setConversation(){
-    userID = sessionStorage.getItem("selectedConversation");
-    myID = sessionStorage.getItem('myID');
-    //userID = id;
-    var query = "userID="+ userID+"&myID="+myID;     
-    console.log(query);
-    var xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open("POST", "Backend/Get_userConversation.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload= function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            document.getElementById('conversationsList').innerHTML = "";
-            
-
-            var dataArray = this.response;
-
-            if(dataArray != "failed to fetch"){
-            
-            dataArray = JSON.parse(dataArray);
-            console.log(dataArray);
-            var number = dataArray.length;
-            createConversationElements(number);
-            setMessagesData(dataArray);
-
-
-            } else {
-                console.log(dataArray);
-            }
-
-
-     
-        }else{
-            console.log(err);
-        }      
-    };
-    
-    xmlhttp.send(query);
-
-    
-
-}
-
-
-
-*/
-
-
-
-// scrolling to bottom of the conversation
-
-/*
-function scrollToBottom(){
-
-    var number =  sessionStorage.getItem('bottomMessage');
-    var elem = document.getElementsByClassName('messageCard')[number-1];
-    var div = document.getElementById("conversation");
-    div.scrollTo(0,div.scrollHeight);
-    console.log(elem);
-}
-*/
-
-// for closing the forms
-
 
 
 function seenMessage(){
@@ -388,9 +279,5 @@ function selectConversation(id,username,userPic){
     sessionStorage.setItem("selectedConversation",id);
     sessionStorage.setItem("selectedUserName",username);
     recieverID.value = id;
-
-
-    
-
 
 }

@@ -78,7 +78,7 @@ session_start();
                                 <input type="hidden" name="recieverUserName" id="recieverUserName">
                  
                                 <textarea name="messageBody" id="requestInfoMessageBody" oninput="checkText()"> </textarea> <br/>
-                                <input type="submit" value="SEND" id="send" disabled/>
+                                <input type="submit" value="SEND" id="send"/>
                 
                             </form>
                         </center>

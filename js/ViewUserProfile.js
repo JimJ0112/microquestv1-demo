@@ -10,21 +10,7 @@ var userReviews = document.getElementsByClassName("userReviews")[0];
 var userMore = document.getElementsByClassName("userMore")[0];
 
 function post() {
-    //x = document.getElementById("postContainer");
-    /*
-    userPost.style.backgroundColor = "rgb(82, 45, 16)";
-    userPost.style.color = "white";
 
-    userAbout.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userAbout.style.color = "black";
-
-    userReviews.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userReviews.style.color = "black";
-
-    
-    userMore.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userMore.style.color = "black";
-    */
 
     userPost.style.borderBottom = "5px solid rgb(22, 8, 2)";
 
@@ -44,22 +30,7 @@ function post() {
 
 
 function about() {
-    //y = document.getElementById("aboutContainer");
 
-    /*
-    userPost.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userPost.style.color = "black";
-
-    userAbout.style.backgroundColor = "rgb(82, 45, 16)";
-    userAbout.style.color = "white";
-
-    userReviews.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userReviews.style.color = "black";
-
-    
-    userMore.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userMore.style.color = "black";
-    */
 
     userPost.style.borderBottom = "none";
 
@@ -78,23 +49,7 @@ function about() {
 
 
 function reviews() {
-    //z = document.getElementById("reviewContainer");
 
-    /*
-    userPost.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userPost.style.color = "black";
-
-    userAbout.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userAbout.style.color = "black";
-
-    userReviews.style.backgroundColor = "rgb(82, 45, 16)";
-    userReviews.style.color = "white";
-
-    
-    userMore.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userMore.style.color = "black";
-
-    */
 
     userPost.style.borderBottom = "none";
 
@@ -112,23 +67,6 @@ function reviews() {
 }
 
 function more() {
-    //i = document.getElementById("moreContainer");
-
-    /*
-    userPost.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userPost.style.color = "black";
-
-    userAbout.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userAbout.style.color = "black";
-
-    userReviews.style.backgroundColor = "rgba(183, 183, 225, 0.358)";
-    userReviews.style.color = "black";
-
-    
-    userMore.style.backgroundColor = "rgb(82, 45, 16)";
-    userMore.style.color = "white";
-
-    */
 
     
     userPost.style.borderBottom = "none";
@@ -172,6 +110,7 @@ function getUserInfo(userID,userType){
               dataArray = JSON.parse(dataArray);
               console.log(dataArray); 
               setData(dataArray);
+              setMessagesData(dataArray[0]['userID'],dataArray[0]['userName'])
 
           }
 
@@ -223,5 +162,14 @@ function setData(dataArray){
   userDob.innerText = dataArray[0]["birthDate"];
   userSpecialization.innerText = dataArray[0]["specialization"];
   userLocation.innerText = dataArray[0]["municipality"];
+
+}
+
+function setMessagesData(id,userName){
+  recieverID = document.getElementById('recieverID');
+  recieverUserName = document.getElementById('recieverUserName');
+
+  recieverUserName.value = userName;
+  recieverID.value = id;
 
 }
