@@ -110,7 +110,7 @@ function getUserInfo(userID,userType){
               dataArray = JSON.parse(dataArray);
               console.log(dataArray); 
               setData(dataArray);
-              setMessagesData(dataArray[0]['userID'],dataArray[0]['userName'])
+              console.log(setMessagesData(dataArray[0]['userID'],dataArray[0]['userName']));
 
           }
 
@@ -172,4 +172,5 @@ function setMessagesData(id,userName){
   recieverUserName.value = userName;
   recieverID.value = id;
 
+  return recieverID;
 }
