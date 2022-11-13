@@ -491,6 +491,7 @@ function showMessageImageFile(event){
     var messageImageFile = document.getElementById("messageImageFile");
 
     imageContainer.src =  URL.createObjectURL(event.target.files[0]);
+    
     messageImageFileOutputContainer.style.display ="block";
     messageImageFile.style.display = "none";
 
