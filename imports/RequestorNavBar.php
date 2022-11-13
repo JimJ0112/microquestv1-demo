@@ -9,7 +9,7 @@
 	<script src="js/NavBar.js"> </script>
 	<link rel="stylesheet" type="text/css" href="css/NavBar.css">
 </head>
-<body>
+<body onload="init()">
 
 <!--<img src="img/b.jpg" id="RequestboardBackground"/>-->
 
@@ -67,6 +67,7 @@
 						echo "Messages";
 					}
 				?>
+				<span id="redDotOnNotification"> • </span>
 			</li>
 		</a>
 
@@ -134,7 +135,8 @@
 
 	<?php
 		$userID = $_SESSION["userID"];
-		echo "<script > getUserImage($userID)</script>";
+		echo "<script > getUserImage($userID); getNewMessages($userID) </script>";
+
 	?>
 	
 

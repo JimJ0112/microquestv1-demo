@@ -191,7 +191,7 @@ a{
 #Responders{
 
 	margin: auto;
-	width: fit-content;
+	width: 50%;
 	height:fit-content;
 	display: grid;
 	align-content: center;
@@ -323,23 +323,18 @@ a{
 } 
 
 .selectButton{
-	background-color: rgb(91, 47, 20);
 	color: white;
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
-
 	cursor: pointer;
 	padding: 9px;
-	margin-left:5px;
 
 }
 
 .viewProfile{
-	background-color: rgb(91, 47, 20);
 	color: white;
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
-	padding: 10px;
 }
 
 .responderCard td{
@@ -349,6 +344,7 @@ margin: 10px;
 padding:5px;
 background-color:rgb(91, 47, 20) ;
 font-size: 80%;
+border-radius: 20px
 }
 
 .responderCardTable{
@@ -358,7 +354,8 @@ font-size: 80%;
 	align-content: center;
 	position: absolute;
 	bottom: 0;
-	left: 20%px;
+	left: 20px;
+	border-spacing: 5px;
 	
 	
 }

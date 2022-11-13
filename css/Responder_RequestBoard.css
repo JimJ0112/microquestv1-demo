@@ -209,6 +209,11 @@ body{
 	width: 100%;
 }
 
+#RequestsContainer-Content::-webkit-scrollbar-thumb{
+	background-color: none;
+	outline: none;
+}
+
 .requestCard{
 	border: 5px solid rgb(63, 50, 48);
 	width: fit-content;
@@ -580,7 +585,7 @@ body{
 
 
 .request-card {
-  background: white;
+  background-color: wheat;
   width: 300px;
   display: inline-block;
   margin: auto;
@@ -642,7 +647,9 @@ body{
   margin-bottom: 10px;  
   height:70px;
 }
-
+a{
+	color: #645f4b;
+}
 .request-card__unit-stats {
   background: #EC9B3B;
 }

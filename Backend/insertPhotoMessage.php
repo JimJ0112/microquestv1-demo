@@ -45,13 +45,21 @@ if($senderID != $recieverID){
 
         $result = $DBHandler->sendPhotoMessage($senderID,$recieverID,$messageBody,$messageDate,$messageTime,$firstChat,$senderUserName,$recieverUserName,$messageFileType,$messageImageFile);
  
-        $DBHandler-> updateConversation($recieverID,$senderID,$messageBody,$messageDate);
+        $DBHandler-> updateConversation($senderID,$recieverID,"Photo",$messageDate);
 
         
        
-        $updateSender = $DBHandler-> updateSenderReciever($recieverID,$senderID);
-         echo $updateSender;
-            header("location:../Messages.php");
+        //$updateSender = $DBHandler-> updateSenderReciever($recieverID,$senderID);
+         //echo $updateSender;
+         //$tablename = "userprofile";
+         //$column = 'userID';
+         //$name = 'userPhoto';
+         //$condition = $recieverID;
+
+         //$userProfile = $DBHandler->getImage($tablename,$column,$condition,$name);
+
+            //header("location:../Messages.php?selectedUserName=$recieverUserName&selectedConversation=$recieverID&userProfile=$userProfile");
+            //header("location:../Messages.php?selectedUserName=$recieverUserName&selectedConversation=$recieverID);
 
 
     } else{
@@ -75,7 +83,9 @@ if($senderID != $recieverID){
  
             echo $result;
 
-            header("location:../Messages.php");
+            //header("location:../Messages.php");
+            //header("location:../Messages.php?selectedUserName=$recieverUserName&selectedConversation=$recieverID");
+
 
     }
     

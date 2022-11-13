@@ -182,42 +182,51 @@ if(isset($_SESSION["userName"])){
 
 </div>
 
-				<div id="messageSendPhotoBack"> 
-					<div id="messageSendPhoto">
-							<form action="backend/insertPhotoMessage.php" method="post" enctype="multipart/form-data">
-								<div id="closeImage" onclick="closeMessageSendPhotoBack()"> ✕ </div>
-                				<input type="hidden" name="senderID"  value="<?php echo $_SESSION["userID"]?>">
-                				<input type="hidden" name="recieverID" id="sendPhotoRecieverID">
-                				<input type="hidden" name="senderUserName" value='<?php echo $_SESSION['userName']; ?>'>
-                				<input type="hidden" name="recieverUserName" id="sendPhotoRecieverUserName">
 
+			<div id="messageSendPhotoBack"> 
+				<div id="messageSendPhoto">
+						<form action="backend/insertPhotoMessage.php" method="post" enctype="multipart/form-data" target="votar" id="messageSendPhotoForm">
+							<div id="closeImage" onclick="closeMessageSendPhotoBack()"> ✕ </div>
+            				<input type="hidden" name="senderID"  value="<?php echo $_SESSION["userID"]?>">
+            				<input type="hidden" name="recieverID" id="sendPhotoRecieverID">
+            				<input type="hidden" name="senderUserName" value='<?php echo $_SESSION['userName']; ?>'>
+            				<input type="hidden" name="recieverUserName" id="sendPhotoRecieverUserName">
 
                 	    		<center>
-									<br/>
-                	    			<input type="text" id="messageSendPhotoBody" name="message" oninput="checkText()" placeholder="Send Message.."> 
-									<br/>
-									<br/>
-									<div id="messageImageFileOutputContainer">
-										<div id="closeImage" onclick="closeMessageFile()"> ✕ </div>
-										<img id="imageFileOutput"/>
-									</div>
-									<br/>
-									<input type="file" name="messageImageFile" id="messageImageFile" oninput="showMessageImageFile(event)" required/>
-									<br/>
-									<br/>
+								<br/>
+            	    			<input type="text" id="messageSendPhotoBody" name="message" oninput="checkText()" placeholder="Send Message.."> 
+								<br/>
+								<br/>
+								<div id="messageImageFileOutputContainer">
+									<div id="closeImage" onclick="closeMessageFile()"> ✕ </div>
+									<img id="imageFileOutput"/>
+								</div>
+								<br/>
+								<input type="file" name="messageImageFile" id="messageImageFile" oninput="showMessageImageFile(event)" required/>
+								<br/>
+								<br/>
+            	    			<input type="button" id="send" value="SEND" onclick="sendForm()"> 
+							</center>
+						</form>
+        		</div>
+			</div>
 
+</div>
 
-                	    			<input type="submit" id="send" value="SEND"> 
-								</center>
-							</form>
-
-        			</div>
-				</div>
+<div id="viewImageBack">
+	<div id="viewImage">
+		<div id="closeImage" class="closeImageClass" onclick="closeImage()"> ✕ </div>
+		<img id="viewImageFile"/>
+	</div>
+</div>
 
 
 <script> noMessageSelected(); </script>
 <script src="js/messages.js">  </script>
 
 
+
+
+<iframe name="votar" style="display:none;"></iframe>
 </body>
 </html>

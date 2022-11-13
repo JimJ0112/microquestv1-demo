@@ -187,6 +187,8 @@ function createConversationElements(Number){
 } // end of function
 
 // set messages data 
+
+/*
 function setMessagesData(array){
 
     var dataArray = array;
@@ -222,7 +224,7 @@ function setMessagesData(array){
             div[i].setAttribute('style','float:left; background-color:lightgray; border-radius: 20px 20px 20px 0px; text-align:center;');
             
 
-            seenMessage();
+            //seenMessage();
             document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageSender'];
             document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['senderUserName'];
        
@@ -246,6 +248,121 @@ function setMessagesData(array){
         
     }
 
+    var lastmessagecount = sessionStorage.getItem('bottomMessage');
+    if(number > lastmessagecount){
+
+     scrollToBottom();
+     sessionStorage.setItem('bottomMessage',number);
+     
+
+    }
+    
+
+  
+
+}
+
+*/
+
+function setMessagesData(array){
+
+    var dataArray = array;
+    var number = dataArray.length;
+    var myID = sessionStorage.getItem('myID');
+    var conversationUserName = document.getElementById('conversationUserName');
+    conversationUserName.innerText = sessionStorage.getItem('selectedUserName');
+    
+
+    var div = document.getElementsByClassName("messageCard");
+    var date = document.getElementsByClassName('messageDate');
+    //var sender= document.getElementsByClassName('messageSender');
+    var message= document.getElementsByClassName('message');
+
+    
+    for(var i = 0; i<number;i++){
+        
+        date[i].innerText = dataArray[i]['messageDate'];
+        //sender[i].innerText = dataArray[i]['messageSender'];
+        message[i].innerText = dataArray[i]['messageBody'];
+        //message[i].setAttribute("onclick","selectConversation('" + dataArray[i]['messageBody'] + "')");
+
+        if(dataArray[i]['messageSender'] === myID ){
+            
+            div[i].setAttribute('style','float:right; background-color:skyblue; border-radius: 20px 20px 0px 20px; ');
+            
+
+            document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageReciever'];
+            document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['recieverUserName'];
+       
+        } else if(dataArray[i]['messageReciever'] === myID){
+            
+            div[i].setAttribute('style','float:left; background-color:lightgray; border-radius: 20px 20px 20px 0px; text-align:center;');
+            
+
+            //seenMessage();
+            document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageSender'];
+            document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['senderUserName'];
+       
+        }
+
+        base64String = dataArray[i]['messageFile'];
+
+        var stringLength = base64String.length - 'data:image/png;base64,'.length;
+
+        if(stringLength> 1000){
+            var image = new Image();
+            image.src= dataArray[i]['messageFile'];
+            image.setAttribute("class","conversationMessageImage");
+            image.setAttribute("onclick","viewImage('" + dataArray[i]['messageFile'] + "')");
+            div[i].appendChild(image); 
+         
+            //console.log(stringLength);
+
+        }
+
+        
+    }
+
+    var lastnumber = number - 1;
+
+    console.log(lastnumber);
+    console.log(dataArray);
+
+    // check if the last message to append was mine and set seen status 
+    /*
+    if(dataArray[lastnumber]['messageReciever'] === myID){
+        
+            div[lastnumber].setAttribute('style','float:left; background-color:lightgray; border-radius: 20px 20px 20px 0px; text-align:center;');
+        
+            seenMessage();
+            document.getElementById("sendPhotoRecieverID").value = dataArray[lastnumber]['messageSender'];
+            document.getElementById("sendPhotoRecieverUserName").value = dataArray[lastnumber]['senderUserName'];
+   
+            base64String = dataArray[lastnumber]['messageFile'];
+
+            var stringLength = base64String.length - 'data:image/png;base64,'.length;
+
+                if(stringLength> 1000){
+                    var image = new Image();
+                    image.src= dataArray[number]['messageFile'];
+                    image.setAttribute("class","conversationMessageImage");
+                    div[lastnumber].appendChild(image); 
+                
+                    //console.log(stringLength);
+                
+                }
+
+    }
+    */
+
+    if(dataArray[lastnumber]['messageReciever'] === myID){
+        seenMessage();
+        console.log("you have seened the message");
+    }
+
+
+
+    //scrolls to the bottom when there's a new message
     var lastmessagecount = sessionStorage.getItem('bottomMessage');
     if(number > lastmessagecount){
 
@@ -413,3 +530,27 @@ function noMessageSelected(){
     }
 }
 */
+
+function sendForm(){
+    messageSendPhotoForm = document.getElementById('messageSendPhotoForm');
+    messageSendPhotoForm.submit();
+    closeMessageSendPhotoBack();
+    closeMessageFile();
+}
+
+
+
+function viewImage(image){
+    var image = image;
+    var viewImageFile = document.getElementById('viewImageFile');
+
+
+    viewImageFile.src=image;
+    document.getElementById('viewImageBack').style.display = "grid";
+
+
+}
+
+function closeImage(){
+    document.getElementById('viewImageBack').style.display = "none";
+}

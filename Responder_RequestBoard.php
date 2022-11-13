@@ -10,6 +10,10 @@ session_start();
         echo"<script> sessionStorage.setItem('municipality','$municipality')</script>";
     }
 
+	if(isset($_SESSION["userID"])){
+		$userID = $_SESSION["userID"];
+		echo "<script > sessionStorage.setItem('myID',$userID); </script>";
+	}
 	
 ?>
 

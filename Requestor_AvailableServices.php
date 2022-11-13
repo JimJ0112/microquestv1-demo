@@ -11,6 +11,12 @@
         echo"<script> sessionStorage.setItem('municipality','$municipality')</script>";
     }
 
+	if(isset($_SESSION["userID"])){
+		$userID = $_SESSION["userID"];
+		echo "<script > sessionStorage.setItem('myID',$userID); </script>";
+	}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -142,7 +148,7 @@
 
 
 
-<script src="js/Requestor_AvailableServices.js"> </script>
+<!--<script src="js/Requestor_AvailableServices.js"> </script>-->
 
 
 </body>

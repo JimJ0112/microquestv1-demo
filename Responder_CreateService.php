@@ -64,7 +64,7 @@ session_start();
                 </tr>
                 <tr class="home_computerRelated_Tr">
      
-                    <td class="home_computerRelated_Td"> Service:&nbsp </td>
+                    <td class="home_computerRelated_Td column1_td"> Service:&nbsp </td>
                
                     <td>
                         <select required name="servicePosition" id="servicePositionDropDown" onchange="otherPosition()">
@@ -78,18 +78,18 @@ session_start();
 
                 <tr class="home_computerRelated_Tr">
 
-                    <td class="home_computerRelated_Td"> Rate:&nbsp </td>
+                    <td class="home_computerRelated_Td column1_td"> Rate:&nbsp </td>
                     <td>
                         <input required type="number" name="rate"> <span class="asteriskRequiredField"> * </span>
                     </td> 
                 </tr>
 
                 <tr class="home_computerRelated_Tr">
-                    <td class="home_computerRelated_Td">Training/Certificate:&nbsp</td>
+                    <td class="home_computerRelated_Td column1_td">Training/Certificate:&nbsp</td>
                     <td> <input type="text" name="certification">  </td> <br/>
                 </tr>
 
-                <tr class="home_computerRelated_Tr">
+                <tr class="home_computerRelated_Tr column1_td">
                     <td class="home_computerRelated_Td">Training/Certificate File:&nbsp </td>
                     <td><input type="file" name="certificateFile"></td><br/>
                 </tr>
@@ -115,7 +115,7 @@ session_start();
 
             <tr> 
                 
-                <td> Category </td>
+                <td class="column1_td"> Category </td>
                 <td>
                     <select name="itemCategory">
                         <option value= "Groceries"> Groceries </option>
@@ -125,32 +125,32 @@ session_start();
 
             </tr>
             <tr>
-                <td> Product Name </td>
+                <td class="column1_td"> Product Name </td>
                 <td> <input name="productName" type="text"/></td>
             </tr>
 
             <tr>
-                <td> Product Brand </td>
+                <td class="column1_td"> Product Brand </td>
                 <td> <input name="productBrand" type="text"/></td>
             </tr>
 
             <tr>
-                <td> Product Description </td>
+                <td class="column1_td"> Product Description </td>
                 <td> <input name="productDescription" type="text"/></td>
             </tr>
 
             <tr>
-                <td> Product Price </td>
+                <td class="column1_td"> Product Price </td>
                 <td> <input placeholder="Php" name="productPrice" type="number"/></td>
             </tr>
 
             <tr>
-                <td> Delivery fee </td>
+                <td class="column1_td"> Delivery fee </td>
                 <td> <input type="number" name="rate"> </td> 
             </tr>
 
             <tr>
-                <td> Product Picture </td>
+                <td class="column1_td"> Product Picture </td>
                 <td> <input name="productImage" type="file"/> </td>
             </tr>
 
@@ -171,7 +171,7 @@ session_start();
         <div id="closeButton" onclick="closeForms()"> ✕ </div>
             <table id="otherTable">
                 <tr>
-                    <td> Category </td>
+                    <td class="column1_td"> Category </td>
                     <td> 
                         <input type="text" name="serviceCategory" id="serviceCategory"> 
                         <span class="asteriskRequiredField" title="This Field is Required"> * </span>
@@ -179,7 +179,7 @@ session_start();
                 </tr>
 
                 <tr>
-                    <td> Service: </td>
+                    <td class="column1_td"> Service: </td>
                     <td> 
                         <input type="text" name="servicePosition"/>
                         <span class="asteriskRequiredField" title="This Field is Required"> * </span>
@@ -187,7 +187,7 @@ session_start();
                 </tr>
 
                 <tr>
-                    <td> Rate </td>
+                    <td class="column1_td"> Rate </td>
                     <td> 
                         <input type="number" name="rate"> 
                         <span class="asteriskRequiredField" title="This Field is Required"> * </span>
@@ -195,12 +195,12 @@ session_start();
                 </tr>
 
                 <tr>
-                    <td>Training/Certificate</td>
+                    <td class="column1_td">Training/Certificate</td>
                     <td> <input type="text" name="certification"> </td> 
                 </tr>
 
                 <tr>
-                    <td>Training/Certificate File </td>
+                    <td class="column1_td">Training/Certificate File </td>
                     <td> <input type="file" name="certificateFile"> </td>
                 </tr>
                 <!--

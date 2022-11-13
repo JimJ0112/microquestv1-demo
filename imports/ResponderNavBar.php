@@ -72,6 +72,7 @@
 						echo "Messages";
 					}
 				?>
+				<span id="redDotOnNotification"> • </span>
 			</li>
 		</a>
 

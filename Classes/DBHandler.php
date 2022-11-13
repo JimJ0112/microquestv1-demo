@@ -141,29 +141,6 @@ public function verifyuser($email,$password){
 
 }
 
-// tatry ko irevamp to
-/*
-public function firstConversation($myID,$userID){
-    $tablename = "messages";
-    $myID = mysqli_real_escape_string($this->dbconnection, $myID);
-    $userID = mysqli_real_escape_string($this->dbconnection, $userID);
-
-    $query = "SELECT * FROM $tablename WHERE messageSender = $myID AND messageReciever=$userID OR messageSender = $userID AND messageReciever=$myID";
-   
-    //$query = "SELECT messages.*, sender.userName, sender.userPhoto, reciever.userName, reciever.userPhoto FROM messages INNER JOIN userprofile as sender ON(messages.messageSender = sender.userID) INNER JOIN userprofile as reciever ON(messages.messageReciever = reciever.userID) WHERE messages.messageSender = $myID AND messages.messageReciever=$userID OR messages.messageSender = $userID AND messages.messageReciever=$myID ";
-    $result = mysqli_query($this->dbconnection, $query);
-    $resultCheck = mysqli_num_rows($result);
-
-
-    if($resultCheck > 0){
-        return 1;
-    } else {
-        return 0;
-    }
-  
-
-}
-*/
 
 public function firstConversation($myID,$userID){
     $tablename = "conversations";
@@ -283,6 +260,37 @@ public function getData($tablename,$column,$condition,$name){
        
         $row = mysqli_fetch_array($result);
         return $row[$name];
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+// get image data from database
+public function getImage($tablename,$column,$condition,$name){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    $name = mysqli_real_escape_string($this->dbconnection, $name);
+
+    $query = "SELECT $name FROM $tablename WHERE $column = '$condition'";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+
+
+    if($resultCheck > 0){
+       
+        $row = mysqli_fetch_array($result);
+
+  
+        $file = 'data:image/image/png;base64,'.base64_encode($row[0]);
+        $row[0] = $file;
+            
+
+        //$data[] = $row;
+        return $file;
 
     } else {return "failed to fetch";}
 
@@ -1610,6 +1618,25 @@ public function getUserMessages($ID,$groupBy=null){
   
 }
 
+
+function getUserNewMessagesNotifs($myID){
+
+    $myID = mysqli_real_escape_string($this->dbconnection,$myID);
+    $tablename = "conversations";
+
+    $query = "SELECT * FROM $tablename WHERE (recieverID = $myID AND conversationStatus = 'New Message')";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+        
+    
+    if($resultCheck > 0){
+        return "true";
+    } else {
+        return "false";
+    }
+
+}
 
 // getting Messages from messages table
 public function getUserConversation($myID,$ID){

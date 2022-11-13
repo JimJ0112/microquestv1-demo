@@ -200,7 +200,9 @@
 
 .ServicePopUp{
 
-	background-color: white;
+	background-image: url("../img/coc-background.jpg");
+	background-size: cover;
+	background-position: center;
 	padding:35px;
 	margin: auto;
 	width:70%;
@@ -210,6 +212,7 @@
 	animation: fadein 1s;
 	
 }
+
 
 .formBack{
 	width: 100%;
@@ -357,8 +360,9 @@ a{
 
 
 #home_computerRelated_Table td, #pasabayTable td, #otherTable td{
-	font-size: 20px;
+	font-size: 25px;
 	padding-top: 20px;
+	font-weight: bold;
 
 }
 
