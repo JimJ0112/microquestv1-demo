@@ -110,7 +110,7 @@ function getUserInfo(userID,userType){
               dataArray = JSON.parse(dataArray);
               console.log(dataArray); 
               setData(dataArray);
-              console.log(setMessagesData(dataArray[0]['userID'],dataArray[0]['userName']));
+             
 
           }
 
@@ -153,7 +153,7 @@ function setData(dataArray){
   userAge= document.getElementsByClassName("userAge")[0];
   userDob= document.getElementsByClassName("userDob")[0];
   userSpecialization= document.getElementsByClassName("userSpecialization")[0];
-  userLocation= document.getElementsByClassName("userLocation")[0];
+  //userLocation= document.getElementsByClassName("userLocation")[0];
 
 
   userEmail.innerText = dataArray[0]["userEmail"];
@@ -161,16 +161,17 @@ function setData(dataArray){
   userAge.innerText = dataArray[0]["userName"];
   userDob.innerText = dataArray[0]["birthDate"];
   userSpecialization.innerText = dataArray[0]["specialization"];
-  userLocation.innerText = dataArray[0]["municipality"];
+  //userLocation.innerText = dataArray[0]["municipality"];
+
+  setMessagesData(dataArray[0]['userID'],dataArray[0]['userName']);
+
 
 }
 
+
 function setMessagesData(id,userName){
-  recieverID = document.getElementById('recieverID');
-  recieverUserName = document.getElementById('recieverUserName');
+  document.getElementById('recieverID').value = id;
+  document.getElementById('recieverUserName').value = userName;
 
-  recieverUserName.value = userName;
-  recieverID.value = id;
-
-  return recieverID;
+  console.log(id);
 }

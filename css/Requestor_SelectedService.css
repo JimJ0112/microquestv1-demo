@@ -195,7 +195,10 @@ a{
 	height:fit-content;
 	display: grid;
 	align-content: center;
-	background-color: white;
+	background-image: url("../img/coc-background.jpg");
+	background-size: cover;
+	background-position: center;
+	background-color: aliceblue;
 	padding: 20px;
 	border-radius:10px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -259,8 +262,7 @@ a{
 
 .responderCard{
 	width: 200px;
-	height: 250px;
-
+	height: 300px;
 	margin: 10px;
 	padding: 0px;
 	box-shadow: 1px 8px 10px #353535;
@@ -291,7 +293,7 @@ a{
 .responderCard p{
 	margin: 0;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: small;
+	font-size: 100%;
 }
 
 .responderID{
@@ -338,7 +340,6 @@ a{
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
 	padding: 10px;
-	font-size: xx-small;
 }
 
 .responderCard td{
@@ -346,18 +347,18 @@ a{
 text-align: center;
 margin: 10px;
 padding:5px;
-
-	
+background-color:rgb(91, 47, 20) ;
+font-size: 80%;
 }
 
 .responderCardTable{
 	
-	width: 200%;
+	width: 100%;
 	display: grid;
 	align-content: center;
 	position: absolute;
 	bottom: 0;
-	left: 30px;
+	left: 20%px;
 	
 	
 }
@@ -368,9 +369,11 @@ padding:5px;
 	height: 100px;
 	margin-top: 10px;
 	text-align: left;
-	padding: 10px;
+	padding: 5px;
+	padding-top: 15px;
 	margin: auto;
-	font-size: larger;
+	font-size: 100%;
+	text-align: center;
 }
 
 #AvailServiceFormContainer{

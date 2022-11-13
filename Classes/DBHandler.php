@@ -2643,16 +2643,17 @@ public function setPayment($name,$conditionvalue,$paymentFile){
 }
 
 // update columns 
-public function updateConversation($userID,$myID,$messageBody,$date){
+public function updateConversation($senderID,$recieverID,$messageBody,$date){
     $tablename = "conversations";
     $column = "latestMessage";
     $messageBody = mysqli_real_escape_string($this->dbconnection, $messageBody);
-    $userID = mysqli_real_escape_string($this->dbconnection, $userID);
-    $myID = mysqli_real_escape_string($this->dbconnection, $myID);
+    $senderID = mysqli_real_escape_string($this->dbconnection, $senderID);
+    $recieverID = mysqli_real_escape_string($this->dbconnection, $recieverID);
     $date = mysqli_real_escape_string($this->dbconnection, $date);
 
-    $query = "UPDATE $tablename SET latestMessage = '$messageBody', latestMessageDate = '$date', conversationStatus = 'New Message' WHERE (senderID = $myID AND recieverID = $userID OR senderID= $userID AND recieverID = $myID); ";
+    //$query = "UPDATE $tablename SET latestMessage = '$messageBody', latestMessageDate = '$date', conversationStatus = 'New Message' WHERE (senderID = $senderID AND recieverID =  $recieverID OR senderID=  $recieverID AND recieverID = $senderID); ";
 
+    $query = "UPDATE $tablename SET latestMessage = '$messageBody', latestMessageDate = '$date', conversationStatus = 'New Message', senderID = $senderID, recieverID = $recieverID WHERE (senderID = $senderID AND recieverID =  $recieverID OR senderID=  $recieverID AND recieverID = $senderID); ";
     $result = mysqli_query($this->dbconnection, $query);
 
 

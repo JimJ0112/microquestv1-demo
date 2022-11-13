@@ -108,7 +108,7 @@ function setUsersData(array){
 
             inboxUserName[i].innerText = dataArray[i]['senderUserName'];
             
-            inboxCard[i].setAttribute("onclick","seenMessage()");
+           // inboxCard[i].setAttribute("onclick","seenMessage()");
 
 
             lastMessageP[i].innerText = dataArray[i]['latestMessage'];
@@ -212,11 +212,13 @@ function selectConversation(id,username){
 function initMessages() { 
     // This is the function the browser first runs when it's loaded.
     getMessages();
+    noMessageSelected();
     //setConversation();
     
     // Then runs the refresh function for the first time.
     var int = self.setInterval(function () {
     getMessages();
+    noMessageSelected();
     //setConversation();
     }, 2000); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.
 }
@@ -280,4 +282,17 @@ function selectConversation(id,username,userPic){
     sessionStorage.setItem("selectedUserName",username);
     recieverID.value = id;
 
+}
+
+
+function noMessageSelected(){
+    var messagesContentEmpty = document.getElementById('messagesContentEmpty');
+    var messagesContentEmptyDisplay =document.getElementById('messagesContentEmpty').style.display;
+
+    if(messagesContentEmptyDisplay === "block"){
+        sessionStorage.setItem("selectedConversation",null);
+        sessionStorage.setItem("selectedUserName",null);
+    }else{
+
+    }
 }

@@ -34,25 +34,28 @@ function init() {
     // This is the function the browser first runs when it's loaded.
    
     setConversation();
+    //noMessageSelected();
     
     // Then runs the refresh function for the first time.
     var int = self.setInterval(function () {
    
     setConversation();
+    //noMessageSelected();
     }, 2000); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.
 }
 
 
 function sendMessage(){
-    headerID = document.getElementById('conversationUserID').innerText;
-    recieverID = headerID;
+   // headerID = document.getElementById('conversationUserID').innerText;
+   // recieverID = headerID;
+    recieverID = sessionStorage.getItem('selectedConversation');
     sender = sessionStorage.getItem('myID');
     messageBody = document.getElementById('messageBody').value;
     senderUserName = sessionStorage.getItem('myUserName');
     recieverUserName = sessionStorage.getItem('selectedUserName');
 
-    var query = "recieverID="+ userID + "&senderID=" + sender+"&messageBody=" + messageBody + "&senderUserName="+senderUserName+"&recieverUserName="+recieverUserName ;     
-    console.log(query);
+    var query = "recieverID="+ recieverID + "&senderID=" + sender+"&messageBody=" + messageBody + "&senderUserName="+senderUserName+"&recieverUserName="+recieverUserName ;     
+   // console.log(query);
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.open("POST", "Backend/insertMessage.php", true);
@@ -69,15 +72,16 @@ function sendMessage(){
             //var number = dataArray.length
             //createSenderElements(number);
             //setUsersData(dataArray);
+            //console.log(this.responseText);
 
             } else {
-                console.log(dataArray);
+               // console.log(dataArray);
             }
 
             setConversation(sender);
      
         }else{
-            console.log(err);
+            //console.log(err);
         }      
     };
     
@@ -92,7 +96,7 @@ function setConversation(){
     myID = sessionStorage.getItem('myID');
     //userID = id;
     var query = "userID="+ userID+"&myID="+myID;     
-    console.log(query);
+   // console.log(query);
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.open("POST", "Backend/Get_userConversation.php", true);
@@ -108,20 +112,20 @@ function setConversation(){
             if(dataArray != "failed to fetch"){
             
             dataArray = JSON.parse(dataArray);
-            console.log(dataArray);
+          //  console.log(dataArray);
             var number = dataArray.length;
             createConversationElements(number);
             setMessagesData(dataArray);
            
 
             } else {
-                console.log(dataArray);
+              //  console.log(dataArray);
             }
 
 
      
         }else{
-            console.log(err);
+          //  console.log(err);
         }      
     };
     
@@ -210,8 +214,8 @@ function setMessagesData(array){
             div[i].setAttribute('style','float:right; background-color:skyblue; border-radius: 20px 20px 0px 20px; ');
             
 
-            //document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageReciever'];
-            //document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['recieverUserName'];
+            document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageReciever'];
+            document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['recieverUserName'];
        
         } else if(dataArray[i]['messageReciever'] === myID){
             
@@ -219,8 +223,8 @@ function setMessagesData(array){
             
 
             seenMessage();
-            //document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageSender'];
-            //document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['senderUserName'];
+            document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageSender'];
+            document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['senderUserName'];
        
         }
 
@@ -265,7 +269,7 @@ function scrollToBottom(){
     var elem = document.getElementsByClassName('messageCard')[number-1];
     var div = document.getElementById("messagesConversation");
     div.scrollTo(0,div.scrollHeight);
-    console.log(elem);
+   // console.log(elem);
 }
 
 // for closing the forms
@@ -350,7 +354,7 @@ function seenMessage(){
 
      
         }else{
-            console.log(err);
+            //console.log(err);
         }      
     };
     
@@ -395,3 +399,17 @@ function openMessageSendPhotoBack(){
     messageSendPhotoBack = document.getElementById('messageSendPhotoBack');
     messageSendPhotoBack.style.display = "grid";
 }
+
+/*
+function noMessageSelected(){
+    var messagesContentEmpty = document.getElementById('messagesContentEmpty');
+    messagesContentEmptyDisplay =messagesContentEmpty.style.display;
+
+    if(messagesContentEmptyDisplay === "none"){
+        sessionStorage.setItem("selectedConversation",null);
+        sessionStorage.setItem("selectedUserName",null);
+    }else{
+
+    }
+}
+*/

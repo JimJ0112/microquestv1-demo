@@ -31,21 +31,20 @@ if($senderID != $recieverID){
         if(isset($_FILES['messageFile'])){
             $messageFile = $_FILES['messageFile']['tmp_name'];
             $messageFiletype = $_FILES['messageFile']['type'];
-            $result = $DBHandler->sendMessage($senderID,$recieverID,$messageBody,$messageDate,$messageTime,$firstChat,$senderUserName,$recieverUserName,$messageFileType,$messageFile);
+            echo $result = $DBHandler->sendMessage($senderID,$recieverID,$messageBody,$messageDate,$messageTime,$firstChat,$senderUserName,$recieverUserName,$messageFileType,$messageFile);
          }else{
      
-             $result = $DBHandler->sendMessage($senderID,$recieverID,$messageBody,$messageDate,$messageTime,$firstChat,$senderUserName,$recieverUserName);
+            echo $result = $DBHandler->sendMessage($senderID,$recieverID,$messageBody,$messageDate,$messageTime,$firstChat,$senderUserName,$recieverUserName);
      
         }
 
-        $DBHandler-> updateConversation($recieverID,$senderID,$messageBody,$messageDate);
+        echo $DBHandler-> updateConversation($senderID,$recieverID,$messageBody,$messageDate);
 
         
        
-        $updateSender = $DBHandler-> updateSenderReciever($recieverID,$senderID);
-        
-         echo $updateSender;
-         header("location:../Messages.php");
+        //$updateSender = $DBHandler-> updateSenderReciever($recieverID,$senderID);
+        //echo $updateSender;
+        // header("location:../Messages.php");
 
 
     } else{
@@ -68,7 +67,7 @@ if($senderID != $recieverID){
             }
  
             echo $result;
-            header("location:../MessagesV2.php");
+            //header("location:../Messages.php");
 
     }
     
@@ -80,14 +79,6 @@ if($senderID != $recieverID){
 }
 
 
-
-/*
-echo $senderID= "11";
-echo $recieverID= "11";
-echo $messageBody= "body";
-echo $messageDate = date("Y-m-d H:i:s",time());
-echo $messageTime = date("H:i:s",time());
-*/
 
 
 

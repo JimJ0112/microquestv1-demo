@@ -63,7 +63,13 @@ session_start();
 
 
 
+<?php
+if(isset($_SESSION["userName"])){
 
+	$myUserName = $_SESSION["userName"];
+	echo"<script> sessionStorage.setItem('myUserName','$myUserName')</script>";
+}
+?>
 <!-- main -->
 
 <div id="MessagesMainBack">
@@ -160,7 +166,7 @@ session_start();
 
 		</div>
 
-		<div id="messagesContentEmpty">
+		<div id="messagesContentEmpty" style="display:block;">
 				<center>
 					<h1> No selected conversation yet </h1>
 				</center> 
@@ -209,6 +215,7 @@ session_start();
 				</div>
 
 
+<script> noMessageSelected(); </script>
 <script src="js/messages.js">  </script>
 
 
