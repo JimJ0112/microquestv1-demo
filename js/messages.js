@@ -489,11 +489,22 @@ function showMessageImageFile(event){
     var imageContainer = document.getElementById("imageFileOutput");
     var messageImageFileOutputContainer = document.getElementById("messageImageFileOutputContainer");
     var messageImageFile = document.getElementById("messageImageFile");
+    var extension = event.target.files[0].type;
+    console.log(extension);
+    messageFileErrorMsg = document.getElementById('messageFileErrorMsg');
 
-    imageContainer.src =  URL.createObjectURL(event.target.files[0]);
-    
-    messageImageFileOutputContainer.style.display ="block";
-    messageImageFile.style.display = "none";
+
+
+    if( extension === "image/png" || extension === "image/jpg" || extension === "image/jpeg"){
+        messageFileErrorMsg.innerText = "";
+        imageContainer.src =  URL.createObjectURL(event.target.files[0]);
+        messageImageFileOutputContainer.style.display ="block";
+        messageImageFile.style.display = "none";
+    } else {
+        messageFileErrorMsg.innerText = "File type not supported!";
+        messageImageFile.value = "";
+    }
+
 
 }
 

@@ -103,7 +103,7 @@
 						<span class="ServiceTitle"> Service Title </span>
 					</div>
 					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
+					<img class="ServiceBanner" src="../img/magnifying-glass"/>
 				
 				</div>
 

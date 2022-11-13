@@ -202,8 +202,10 @@ if(isset($_SESSION["userName"])){
 									<img id="imageFileOutput"/>
 								</div>
 								<br/>
-								<input type="file" name="messageImageFile" id="messageImageFile" oninput="showMessageImageFile(event)" required/>
+								<input type="file" name="messageImageFile" id="messageImageFile" oninput="showMessageImageFile(event)" accept="image/png, image/gif, image/jpeg" required/>
+								
 								<br/>
+								<span id="messageFileErrorMsg"> </span>
 								<br/>
             	    			<input type="button" id="send" value="SEND" onclick="sendForm()"> 
 							</center>
