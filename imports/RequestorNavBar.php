@@ -133,13 +133,18 @@
 
 	</div>
 
+
+	
+		
+	
+
 	<?php
 		$userID = $_SESSION["userID"];
 		echo "<script > getUserImage($userID); getNewMessages($userID) </script>";
 
 	?>
-	
 
+	
 
 </body>
 </html>

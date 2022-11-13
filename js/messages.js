@@ -54,6 +54,13 @@ function sendMessage(){
     senderUserName = sessionStorage.getItem('myUserName');
     recieverUserName = sessionStorage.getItem('selectedUserName');
 
+    //check if message is empty
+    var str = messageBody;
+    if(!str.replace(/\s/g, '').length){
+        messageBody = "empty message";
+        return 0;
+    }
+
     var query = "recieverID="+ recieverID + "&senderID=" + sender+"&messageBody=" + messageBody + "&senderUserName="+senderUserName+"&recieverUserName="+recieverUserName ;     
    // console.log(query);
     var xmlhttp = new XMLHttpRequest();
@@ -186,84 +193,8 @@ function createConversationElements(Number){
     
 } // end of function
 
-// set messages data 
 
-/*
-function setMessagesData(array){
-
-    var dataArray = array;
-    var number = dataArray.length;
-    var myID = sessionStorage.getItem('myID');
-    var conversationUserName = document.getElementById('conversationUserName');
-    conversationUserName.innerText = sessionStorage.getItem('selectedUserName');
-    
-
-    var div = document.getElementsByClassName("messageCard");
-    var date = document.getElementsByClassName('messageDate');
-    //var sender= document.getElementsByClassName('messageSender');
-    var message= document.getElementsByClassName('message');
-
-    
-    for(var i = 0; i<number;i++){
-        
-        date[i].innerText = dataArray[i]['messageDate'];
-        //sender[i].innerText = dataArray[i]['messageSender'];
-        message[i].innerText = dataArray[i]['messageBody'];
-        //message[i].setAttribute("onclick","selectConversation('" + dataArray[i]['messageBody'] + "')");
-
-        if(dataArray[i]['messageSender'] === myID ){
-            
-            div[i].setAttribute('style','float:right; background-color:skyblue; border-radius: 20px 20px 0px 20px; ');
-            
-
-            document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageReciever'];
-            document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['recieverUserName'];
-       
-        } else if(dataArray[i]['messageReciever'] === myID){
-            
-            div[i].setAttribute('style','float:left; background-color:lightgray; border-radius: 20px 20px 20px 0px; text-align:center;');
-            
-
-            //seenMessage();
-            document.getElementById("sendPhotoRecieverID").value = dataArray[i]['messageSender'];
-            document.getElementById("sendPhotoRecieverUserName").value = dataArray[i]['senderUserName'];
-       
-        }
-
-        base64String = dataArray[i]['messageFile'];
-
-        var stringLength = base64String.length - 'data:image/png;base64,'.length;
-
-        if(stringLength> 1000){
-            var image = new Image();
-            image.src= dataArray[i]['messageFile'];
-            image.setAttribute("class","conversationMessageImage");
-            div[i].appendChild(image); 
-         
-            //console.log(stringLength);
-
-        }
-
-
-        
-    }
-
-    var lastmessagecount = sessionStorage.getItem('bottomMessage');
-    if(number > lastmessagecount){
-
-     scrollToBottom();
-     sessionStorage.setItem('bottomMessage',number);
-     
-
-    }
-    
-
-  
-
-}
-
-*/
-
+// set messages data
 function setMessagesData(array){
 
     var dataArray = array;
@@ -325,8 +256,8 @@ function setMessagesData(array){
 
     var lastnumber = number - 1;
 
-    console.log(lastnumber);
-    console.log(dataArray);
+    //console.log(lastnumber);
+    //console.log(dataArray);
 
     // check if the last message to append was mine and set seen status 
     /*
@@ -400,12 +331,26 @@ function closeForms(){
 function checkText(){
     send = document.getElementById('send');
     messageBody = document.getElementById('messageBody');
+    var str = messageBody.value
 
+    if (!str.replace(/\s/g, '').length) {
+        console.log('string only contains whitespace (ie. spaces, tabs or line breaks)');
+        send.disabled = true;
+        messageBody.value = ""; 
+
+    } else{
+        console.log('string contains texts');
+        send.disabled = false;
+
+    }
+
+    /*
     if(messageBody.value === "" ){
         send.disabled = true;
     } else{
         send.disabled = false;
     }
+    */
 
 
   
@@ -502,7 +447,7 @@ function showMessageImageFile(event){
         messageImageFile.style.display = "none";
     } else {
         messageFileErrorMsg.innerText = "File type not supported!";
-        messageImageFile.value = "";
+        messageImageFile.value = ""; 
     }
 
 

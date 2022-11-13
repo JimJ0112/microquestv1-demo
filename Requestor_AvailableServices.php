@@ -99,17 +99,7 @@
 
 				<div class="AvailableService-Card">
 
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="../img/magnifying-glass"/>
-				
-				</div>
-
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
+					<!--<div class="ServiceTitleBackground">
 						<span class="ServiceTitle"> Service Title </span>
 					</div>
 					
@@ -136,6 +126,16 @@
 					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
 				
 				</div>
+
+				<div class="AvailableService-Card">
+
+					<div class="ServiceTitleBackground">
+						<span class="ServiceTitle"> Service Title </span>
+					</div>
+					
+					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
+				
+				</div>-->
 
 			</div>
 
@@ -148,7 +148,7 @@
 
 
 
-<!--<script src="js/Requestor_AvailableServices.js"> </script>-->
+<script src="js/Requestor_AvailableServices.js"> </script>
 
 
 </body>

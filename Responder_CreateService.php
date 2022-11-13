@@ -285,7 +285,7 @@ session_start();
         <li class="serviceNavItem" onclick="setCategory('Home Service')"> 
             <table>
                 <tr>
-                    <td> <image src="img/work-icon.png" class="controlImage"> </td>
+                    <td> <image src="img/493_n.png" class="controlImage"> </td>
                     <td> <span class="categoryTitle"> Home Services </span> </td>
                 </tr>
             </table>
@@ -295,7 +295,7 @@ session_start();
         <li class="serviceNavItem" onclick="setCategory('Pasabuy')"> 
             <table>
                 <tr>
-                    <td> <image src="img/work-icon.png" class="controlImage"> </td>
+                    <td> <image src="img/n.png" class="controlImage"> </td>
                     <td> <span class="categoryTitle"> Pasabuy </span> </td>
                 </tr>
             </table>
@@ -305,7 +305,7 @@ session_start();
         <li class="serviceNavItem" onclick="setCategory('Computer related work')">
             <table>
                 <tr>
-                    <td> <image src="img/work-icon.png" class="controlImage"> </td>
+                    <td> <image src="img/23_n.png" class="controlImage"> </td>
                     <td> <span class="categoryTitle"> Computer Related </span>  </td>
                 </tr>
             </table>
@@ -319,7 +319,7 @@ session_start();
                 </tr>
             </table>
         </li>-->
-        <li class="serviceNavItem" onclick="getServices()"> 
+        <li class="serviceNavItem" onclick="getServices()" id="otherServiceNavItem"> 
             <table>
                 <tr>
                     <td> <image src="img/work-icon.png" class="controlImage"> </td>
@@ -343,7 +343,7 @@ session_start();
 </div>
     
 
-
+<script> getServices() </script>
 
 </body>
 </html>

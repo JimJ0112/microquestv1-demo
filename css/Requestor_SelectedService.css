@@ -114,6 +114,7 @@
 	position: relative;
 	box-shadow: 1px 8px 10px #1f1f1f;
 	border: none;
+	border-radius: 40px;
 
 
 
@@ -168,6 +169,9 @@
 
 a{
 	text-decoration: none;
+	color: blue;
+	text-decoration: underline;
+
 
 }
 
@@ -392,6 +396,9 @@ border-radius: 20px
 	height: 600px;
 	background-color: white;
 	font-family: Arial, Helvetica, sans-serif;
+	border: 3px rgb(186, 86, 24) solid;
+	border-radius: 20px;
+	background-image: url("../img/coc-background.jpg")
 	
 }
 
@@ -400,7 +407,7 @@ border-radius: 20px
 	
 	padding: 10px;
 	width: 80%;
-	background-color: white;
+	background-color: #ffffff00;
 	
 }
 
@@ -457,4 +464,33 @@ border-radius: 20px
 	font-family: Arial, Helvetica, sans-serif;
 	color: black;
 	
+}
+
+.transactionTable{
+	width: 100%;
+	background-color: none;
+	border-spacing: none ;
+
+
+}
+.transactionTable td{
+	width: 50%;
+	height: 20px;
+	font-size: 20px;
+	border-right: #353535 solid 2px;
+	border-bottom: #353535 solid 2px;
+}
+
+#Category, #Position, #ResponderId, #servicePrice, #dueDate, #responderTimeSlots {
+	border: 1px solid black;
+	background: rgba(255, 255, 255, 0.692);
+	font-size: 20px;
+
+
+}
+
+#additionalNotes{
+	margin-left: 5px;
+	margin-top:20px;
+	height: 80%;
 }

@@ -81,7 +81,7 @@
             <input type="hidden" name="formServiceID" id="formServiceID"/>
             <input type="hidden" name="requestorID" id="formRequestorID" value="<?php echo $_SESSION["userID"] ?> "/>
       
-            <Table>
+            <Table class="transactionTable">
                 <tr>
                     <td>
                         <label> Category </label>
@@ -118,11 +118,11 @@
 
                 <tr>
                     <td>
-                        <label> Price  </label> 
+                        <label> Price(Php) </label> 
                     </td>
 
                     <td>
-                        Php <input type="text" name="servicePrice" id="servicePrice" readonly> 
+                         <input type="text" name="servicePrice" id="servicePrice" readonly> 
                     </td>
 
                 </tr>
@@ -175,7 +175,7 @@
 
                     <td>
 
-                        <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()" cols="40" rows="5"></textarea> <br/><br/>
+                        <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()" cols="30" rows="5"></textarea> <br/><br/>
                     </td>
 
                 </tr>

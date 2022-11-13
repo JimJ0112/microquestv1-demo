@@ -75,7 +75,7 @@ function getNewMessages(id){
 
     var query = "userID=" + id;
 
-    console.log("newMessageQuery: " + query);
+    //console.log("newMessageQuery: " + query);
     
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 

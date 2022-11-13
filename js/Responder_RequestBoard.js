@@ -202,10 +202,10 @@ function setData(array){
 
     for(var i = 0; i<number;i++){
         
-        dueDate[i].innerHTML= dataArray[i]['dueDate'];
+        dueDate[i].innerHTML= "due date: &nbsp" + dataArray[i]['dueDate'];
         isNegotiable[i].innerHTML = dataArray[i]['isNegotiable'];
         requestCategory[i].innerHTML = dataArray[i]['requestCategory'];
-        requestDescription[i].innerHTML = dataArray[i]['requestDescription'];
+        requestDescription[i].innerHTML = "</br>" + dataArray[i]['requestDescription'];
         requestExpectedPrice[i].innerHTML = dataArray[i]['requestExpectedPrice'];
       
         requestTitle[i].innerHTML = dataArray[i]['requestTitle'];
@@ -221,10 +221,17 @@ function setData(array){
         image.setAttribute('class','userPhotoPic');
         request_card__image[i].appendChild(image);
 
+        card[i].setAttribute("onclick","redirect('Responder_RequestInfo.php?requestID=" + dataArray[i]['requestID'] + "')");
 
     }
 
 
+}
+
+
+function redirect(url){
+    var url = url;
+    location.href = url;
 }
 
 

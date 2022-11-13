@@ -220,8 +220,8 @@ function setData(array){
     var dataArray = array;
     var number = dataArray.length;
     
-    
-    myRequestCard = document.getElementsByClassName('requestCard');
+    wrapper = document.getElementsByClassName('wrapper');
+    myRequestCard = document.getElementsByClassName('request-card');
     
     requestTitle = document.getElementsByClassName('requestTitle');
     requestCategory = document.getElementsByClassName('requestCategory');
@@ -240,6 +240,9 @@ function setData(array){
             isNegotiable[i].innerText= dataArray[i]['isNegotiable'];
             dueDateValue[i].innerText= dataArray[i]['dueDate'];
             dueDate[i].innerText='due date';
+            //myRequestCard[i].setAttribute('onclick',"viewForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"','"+dataArray[i]['requestStatus']+"')");
+            myRequestCard[i].setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
+            //.setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
 
 /*
             datePosted[i].innerHTML = "<b> Date Posted: </b>"+dataArray[i]['datePosted'];
@@ -362,6 +365,9 @@ function viewForm(requestID,title,dueDate,price,isNegotiable,Description,request
     
     //openForms();
     showViewRequest();
+    console.log(requestID,title,dueDate,price,isNegotiable,Description,requestStatus);
+
+    document.getElementById("ViewRequests-Container").style.display = "grid";
 
 }
 

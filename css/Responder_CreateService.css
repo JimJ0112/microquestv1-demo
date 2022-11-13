@@ -407,3 +407,20 @@ input[type="submit"]{
 ul{
 	padding-left: 0px ;
 }
+
+
+#createNewCategory{
+	font-size: xx-large;
+	color: rgb(216, 8, 8);
+	opacity: 50%;
+}
+
+#createNewCategory:hover{
+	font-size: xx-large;
+	color: rgb(216, 8, 8);
+	opacity: 80%;
+}
+
+#otherServiceNavItem{
+	border-radius: 10px;
+}

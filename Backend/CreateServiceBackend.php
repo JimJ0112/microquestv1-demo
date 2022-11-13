@@ -63,7 +63,7 @@ if(isset($_POST["formType"])){
         $imageFile = $DBHandler->getServicesBannerImage($serviceCategory,$servicePosition);
 
         if($imageFile === "Null" || $imageFile === null){
-            $imageFile = file_get_contents("../Images/RequestBanners/others.jpg");
+            $imageFile = file_get_contents("../img/magnifying-glass.png");
             $bannerImage = $imageFile;
         } else{
              $bannerImage = $imageFile; 

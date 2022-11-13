@@ -51,7 +51,7 @@ function createServiceElements(Number){
     div = document.getElementById("OtherServicesContainer");
    
     
-    for(var i = 0;i<DataNumber;i++){
+    for(var i = 0;i<DataNumber + 1;i++){
    // create elements for rows
    var card = document.createElement('div');
    var BannerContainer = document.createElement('div');
@@ -89,18 +89,20 @@ function setData(array){
 
     var dataArray = array;
     var number = dataArray.length;
+    var number = number + 1;
 
     
     var selectedCategory = sessionStorage.getItem("selectedCategory");
     var BannerContainer = document.getElementsByClassName('BannerContainer');
     var serviceTitle = document.getElementsByClassName('serviceTitle');
     var serviceCard = document.getElementsByClassName("serviceCard");
-
+    var j = 1;
     for(var i = 0; i<number;i++){
         
-        serviceTitle[i].innerHTML = "<center> <b>"+ dataArray[i]['serviceCategory'] +"</b> </center>";
+        
+        serviceTitle[j].innerHTML = "<center> <b>"+ dataArray[i]['serviceCategory'] +"</b> </center>";
 
-        serviceCard[i].setAttribute("onclick","setCategory('" + dataArray[i]['serviceCategory'] + "')");
+        serviceCard[j].setAttribute("onclick","setCategory('" + dataArray[i]['serviceCategory'] + "')");
 
 
         var image = new Image();
@@ -108,9 +110,19 @@ function setData(array){
         image.src = "img/work-icon.png";
         image.setAttribute('class','bannerImage');
         image.setAttribute('onerror',"this.src='img/work-icon.png'");
-        BannerContainer[i].appendChild(image);
+        BannerContainer[j].appendChild(image);
 
+        serviceCard[j].title = dataArray[i]['serviceCategory'];
+
+        serviceTitle[0].innerHTML = "<b> + </b>";
+        serviceCard[0].setAttribute("id","createNewCategory");
+        serviceCard[0].title = "Offer Other Service";
+        serviceCard[0].setAttribute("onclick","setCategory('Other')");
+
+        j++;
     }
+
+    
 
 }
 
@@ -177,6 +189,7 @@ function productCategory(array){
 function getServices(){
 
     var xmlhttp = new XMLHttpRequest();
+    selectOthers();
 
     xmlhttp.open("POST", "Backend/Get_otherServices.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -240,12 +253,14 @@ function setCategory(string){
     var otherServices = document.getElementById("otherCategoriesFormBack");
     var serviceCategoryRegular = document.getElementById("serviceCategoryRegular");
     getPositions(data);
+    deSelectOthers();
 
     var tb = document.getElementById("otherServicePosition");
     var tr = document.getElementById("OtherServicePositionText");
     var asterisk = document.getElementById("asteriskRequiredFieldHidden");
+    
 
-
+    
 
     regularServices.style.display = "none";
     pasabuy.style.display = "none";
@@ -255,15 +270,19 @@ function setCategory(string){
         pasabuy.style.display="grid";
         regularServices.style.display = "none";
         otherServices.style.display = "none";
+        document.getElementById('OtherServicesContainer').innerHTML = "";
     } else if(data === "Other"){
         pasabuy.style.display="none";
         regularServices.style.display = "none";
         otherServices.style.display = "grid";
+        selectOthers();
     } else{
         pasabuy.style.display="none";
         regularServices.style.display = "grid";
         otherServices.style.display = "none";
         serviceCategoryRegular.value = data;
+        document.getElementById('OtherServicesContainer').innerHTML = "";
+
     } 
 
 
@@ -436,3 +455,17 @@ function otherPosition(){
     }
 }
 
+
+
+function selectOthers(){
+    otherServiceNavItem = document.getElementById("otherServiceNavItem");
+    //otherServiceNavItemBg = document.getElementById("otherServiceNavItem").style.backgroundColor;
+    otherServiceNavItem.style.backgroundColor = "rgba(63, 42, 13, 0.254)";
+
+}
+
+function deSelectOthers(){
+    otherServiceNavItem = document.getElementById("otherServiceNavItem");
+    otherServiceNavItem.style.backgroundColor = "transparent";
+
+}

@@ -1,4 +1,4 @@
-
+console.log("Responder_RequestBoard Loaded");
 // create elements to be appended 
 function createRequestElements(Number){
  
@@ -118,6 +118,7 @@ function setData(array){
     var viewRequest = document.getElementsByClassName('viewRequest');
     var userPhotoDiv = document.getElementsByClassName('userPhotoDiv');
     var requestBannerDiv = document.getElementsByClassName('requestBannerDiv');
+    var wrapper = document.getElementsByClassName('wrapper');
 
 
 
@@ -136,7 +137,7 @@ function setData(array){
         requestorLocation[i].innerHTML = "<b>"+dataArray[i]['requestorMunicipality'] +"</b>";
         requestorUserName[i].href = "Public_Profile.php?userID=" +  dataArray[i]['requestorID'] + "&userType=Requestor";
 
-        viewRequest[i].href = "RequestInfo.php?requestID=" + dataArray[i]['requestID'];
+        //viewRequest[i].href = "RequestInfo.php?requestID=" + dataArray[i]['requestID'];
         var image = new Image();
         image.src = dataArray[i]['userPhoto'];
         image.setAttribute('class','userPhotoPic');
@@ -163,12 +164,17 @@ function setData(array){
         
 
         */
+        //wrapper[i].setAttribute("onclick","redirect('RequestInfo.php?requestID=" + dataArray[i]['requestID'] + "')");
 
     }
 
 
 }
 
+function redirect(url){
+    var url = url;
+    location.href = url;
+}
 
 // for getting products for pasabuy
 function getRequests(){
