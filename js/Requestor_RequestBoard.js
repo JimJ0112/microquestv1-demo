@@ -12,7 +12,10 @@ function showUpdateRequest(){
 function hideUpdateRequest(){
     var UpdateRequests_Container = document.getElementById("UpdateForm");
     UpdateRequests_Container.style.display = "none";
+    showViewRequest();
+
 }
+
 
 function showViewRequest(){
     var popUpBack = document.getElementById("popUpBack");
@@ -125,7 +128,10 @@ function setData(array){
             //.setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
 
             //updateForm(requestID,title,dueDate,price,isNegotiable,Description)
-            myRequestCard[i].setAttribute("onclick","updateForm("+dataArray[i]['requestID']+',"'+dataArray[i]['requestTitle']+'","'+dataArray[i]['dueDate']+'","'+dataArray[i]['requestExpectedPrice']+'","'+dataArray[i]['isNegotiable']+'","'+dataArray[i]['requestDescription']+'")')
+            //myRequestCard[i].setAttribute("onclick","updateForm("+dataArray[i]['requestID']+',"'+dataArray[i]['requestTitle']+'","'+dataArray[i]['dueDate']+'","'+dataArray[i]['requestExpectedPrice']+'","'+dataArray[i]['isNegotiable']+'","'+dataArray[i]['requestDescription']+'")')
+            //myRequestCard[i].setAttribute("onclick","updateForm("+dataArray[i]['requestID']+")");
+        
+             myRequestCard[i].setAttribute("onclick","viewRequest("+dataArray[i]['requestID']+")");
         }
     
     }
@@ -178,43 +184,58 @@ function getMyRequests(userID){
 
 
 // set update form
-function updateForm(requestID,title,dueDate,price,isNegotiable,Description){
+
+
+function viewRequest(requestID){
     var requestID = requestID;
-    var title = title;
-    var dueDate = dueDate;
-    var price = price;
-    var isNegotiable = isNegotiable;
-    var Description = Description;
+    var query = "requestID=" + requestID;
+    var xmlhttp = new XMLHttpRequest();
 
-    document.getElementById('UpdateFormRequestID').value = requestID;
-    document.getElementById("updateTitle").value = title;
-    document.getElementById("updateDueDate").value = dueDate;
-    document.getElementById("updatePrice").value = price;
-    document.getElementById("updateNegotiable").value = isNegotiable;
-    document.getElementById("updateDescription").value = Description;
+    console.log(query);
 
-    //openForms();
-    showUpdateRequest();
+    xmlhttp.open("POST", "Backend/Get_requestInfo.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var dataArray = this.response;
+
+            if(dataArray === "failed to fetch"){
+
+                console.log(dataArray);
+                alert("This Request has already been cancelled or completed");
+
+            } else {
+                
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+                setViewData(dataArray);
+ 
+            }
+
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send(query);
 
 }
 
 
+function setViewData(dataArray){
+    var dataArray = dataArray;
 
-function viewForm(requestID,title,dueDate,price,isNegotiable,Description,requestStatus){
-    var requestID = requestID;
-    var title = title;
-    var dueDate = dueDate;
-    var price = price;
-    var isNegotiable = isNegotiable;
-    var Description = Description;
-    var requestStatus = requestStatus;
 
-    document.getElementById('UpdateFormRequestID').innerText = requestID;
-    document.getElementById("viewTitle").innerText = title;
-    document.getElementById("viewDueDate").innerText = dueDate;
-    document.getElementById("viewPrice").innerText= price;
-    document.getElementById("viewNegotiable").innerText = isNegotiable;
-    document.getElementById("viewDescription").innerText = Description;
+ 
+    document.getElementById('UpdateFormRequestID').innerText = dataArray[0]['requestID'];
+    document.getElementById("viewTitle").innerText = dataArray[0]['requestTitle'];
+    document.getElementById("viewDueDate").innerText = dataArray[0]['dueDate'];
+    document.getElementById("viewPrice").innerText= dataArray[0]['requestExpectedPrice'];
+    document.getElementById("viewNegotiable").innerText = dataArray[0]['isNegotiable'];
+    document.getElementById("viewDescription").innerText = dataArray[0]['requestDescription'];
+    document.getElementById("viewControlsEditButton").setAttribute("onclick","updateForm(" + dataArray[0]['requestID'] +")");
 
 
     //openForms();
@@ -224,6 +245,62 @@ function viewForm(requestID,title,dueDate,price,isNegotiable,Description,request
    
 
 }
+
+
+
+
+// get data from backend based on id
+function updateForm(requestID){
+    var requestID = requestID;
+    var query = "requestID=" + requestID;
+    var xmlhttp = new XMLHttpRequest();
+
+    console.log(query);
+
+    xmlhttp.open("POST", "Backend/Get_requestInfo.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var dataArray = this.response;
+
+            if(dataArray === "failed to fetch"){
+
+                console.log(dataArray);
+
+            } else {
+                
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+                setUpdateData(dataArray);
+ 
+            }
+
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send(query);
+
+}
+
+
+function setUpdateData(dataArray){
+    var dataArray = dataArray;
+
+    document.getElementById('UpdateFormRequestID').value = dataArray[0]['requestID'];
+    document.getElementById("updateTitle").value = dataArray[0]['requestTitle'];
+    document.getElementById("updateDueDate").value = dataArray[0]['dueDate'];
+    document.getElementById("updatePrice").value = dataArray[0]['requestExpectedPrice'];
+    document.getElementById("updateNegotiable").value = dataArray[0]['isNegotiable'];
+    document.getElementById("updateDescription").value = dataArray[0]['requestDescription'];
+    
+    showUpdateRequest();
+    hideViewRequest();
+}
+
 
 function closeForms(){
     popUpBack = document.getElementById('popUpBack');

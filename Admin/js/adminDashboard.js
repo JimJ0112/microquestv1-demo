@@ -334,7 +334,7 @@ function getAllReports(){
 
 
 
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
 
             
@@ -344,7 +344,7 @@ function getAllReports(){
             hideNavMenu();
             
 
-            var dataArray = this.response;
+                var dataArray = this.response;
            
 
                 dataArray = JSON.parse(dataArray);
@@ -353,6 +353,8 @@ function getAllReports(){
                 var number = dataArray.length;
                 createReportElements(number);
                 setReportData(dataArray);
+                CreateReportHeaders();
+        
 
 
         
@@ -380,7 +382,7 @@ function createReportElements(Number){
  
     DataNumber = Number;
     table = document.getElementById("DashBoardContent_TableBody");
-    table.innerHtml = "";
+   
    
     
     for(var i = 0;i<DataNumber;i++){
@@ -388,6 +390,7 @@ function createReportElements(Number){
    // create elements for rows
     var tr = document.createElement('tr');
 
+    Actions = document.createElement('td');
     reportCategory = document.createElement('td');
     reportDate = document.createElement('td');
     reportDescription = document.createElement('td');
@@ -403,6 +406,7 @@ function createReportElements(Number){
 
 
    // set attributes
+  Actions.setAttribute("classs","ActionsTD");
   reportCategory.setAttribute("class","reportCategory");
   reportDate.setAttribute("class","reportDate");
   reportDescription.setAttribute("class","reportDescription");
@@ -413,9 +417,28 @@ function createReportElements(Number){
   reportedRequestID.setAttribute("class","reportedRequestID");
   reportedServiceID.setAttribute("class","reportedServiceID");
   reporterAccountID.setAttribute("class","reporterAccountID");
+ 
+  
 
+  var button = document.createElement('button');
+  button.setAttribute("class","reportSeeMore");
+  button.innerText = "View Summary";
+
+
+  var button1 = document.createElement('button');
+  button1.setAttribute("class","sendNotification");
+  button1.innerText = "Send Notification";
+
+  var button2 = document.createElement('button');
+  button2.setAttribute("class","Suspend");
+  button2.innerText = "Suspend";
 
    // append elements to the row
+   Actions.appendChild(button);
+   Actions.appendChild(button1);
+   Actions.appendChild(button2);
+
+   tr.appendChild(Actions);
    tr.appendChild(reportID);
    tr.appendChild(reportedAccountID);
    tr.appendChild(reporterAccountID);
@@ -429,6 +452,7 @@ function createReportElements(Number){
 
  
   
+
 
    
 
@@ -451,16 +475,22 @@ function setReportData(array){
 
    // set attributes
 
-   reportCategory = document.getElementsByClassName("reportCategory");
-   reportDate= document.getElementsByClassName("reportDate");
-   reportDescription= document.getElementsByClassName("reportDescription");
-   reportEvidenceContainer= document.getElementsByClassName("reportEvidenceContainer");
-   reportID= document.getElementsByClassName("reportID");
-   reportStatus= document.getElementsByClassName("reportStatus");
-   reportedAccountID= document.getElementsByClassName("reportedAccountID");
-   reportedRequestID= document.getElementsByClassName("reportedRequestID");
-   reportedServiceID= document.getElementsByClassName("reportedServiceID");
-   reporterAccountID= document.getElementsByClassName("reporterAccountID");
+   var ActionsTD= document.getElementsByClassName("ActionsTD");
+   var Suspend= document.getElementsByClassName("Suspend");
+   var sendNotification= document.getElementsByClassName("sendNotification") 
+   var reportSeeMore = document.getElementsByClassName("reportSeeMore");
+   
+   var reportCategory = document.getElementsByClassName("reportCategory");
+   var reportDate= document.getElementsByClassName("reportDate");
+   var reportDescription= document.getElementsByClassName("reportDescription");
+   var reportEvidenceContainer= document.getElementsByClassName("reportEvidenceContainer");
+   var reportID= document.getElementsByClassName("reportID");
+   var reportStatus= document.getElementsByClassName("reportStatus");
+   var reportedAccountID= document.getElementsByClassName("reportedAccountID");
+   var reportedRequestID= document.getElementsByClassName("reportedRequestID");
+   var reportedServiceID= document.getElementsByClassName("reportedServiceID");
+   var reporterAccountID= document.getElementsByClassName("reporterAccountID");
+   
 
 
     for(var i = 0; i<number;i++){
@@ -479,13 +509,94 @@ function setReportData(array){
         reportDescription[i].innerText = dataArray[i]["reportDescription"];
         reportID[i].innerText = dataArray[i]["reportID"];
         reportStatus[i].innerText = dataArray[i]["reportStatus"];
+
         reportedAccountID[i].innerText = dataArray[i]["reportedAccountID"];
+        reportedAccountID[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID="+ dataArray[i]['reportedAccountID']+"')");
+
         reportedRequestID[i].innerText = dataArray[i]["reportedRequestID"];
+
         reportedServiceID[i].innerText = dataArray[i]["reportedServiceID"];
+
         reporterAccountID[i].innerText = dataArray[i]["reporterAccountID"];
+        
+        // generate action buttons
+        /*
+        var button = document.createElement('button');
+        button.setAttribute("class","reportSeeMore");
+        button.setAttribute("onclick","reportSeeMore(" + dataArray[i]['reportID'] + ")");
+        button.innerText = "View Summary";
+        */
+
+        reportSeeMore[i].setAttribute("onclick","reportSeeMore(" + dataArray[i]['reportID'] + ")");
+
+        //console.log(ActionsTD[i]);
+       // ActionsTD[i].appendChild(button);
         
 
 
     }
 
+    /*
+    var button = document.createElement('button');
+    button.setAttribute("class","reportSeeMore");
+    button.setAttribute("onclick","reportSeeMore(11)");
+    button.innerText = "View Summary";
+  
+    document.getElementsByClassName("ActionsTD")[0].appendChild(button);
+    */
+
+}
+
+
+function redirect(url){
+    var url  = url;
+    location.href = url;
+};
+function CreateReportHeaders(){
+    var DashBoardContent_TableHead = document.getElementById("DashBoardContent_TableHead");
+    DashBoardContent_TableHead.innerHTML = "";
+
+    var tr = document.createElement('tr');
+
+    ActionsContainerHead = document.createElement('td');
+    reportID = document.createElement('td');
+    reportedAccountID= document.createElement('td');
+    reporterAccountID= document.createElement('td');
+    reportedRequestID= document.createElement('td');
+    reportedServiceID= document.createElement('td');
+    reportCategory= document.createElement('td');
+    reportDate= document.createElement('td');
+    reportDescription= document.createElement('td');
+    reportEvidenceContainer= document.createElement('td');
+    reportStatus= document.createElement('td');
+
+    ActionsContainerHead.innerText = "Actions";
+    reportID.innerText = "Report ID";
+    reportedAccountID.innerText = "Reported Account";
+    reporterAccountID.innerText = "Reporter Account";
+    reportedRequestID.innerText = "Reported Request";
+    reportedServiceID.innerText = "Reported Service";
+    reportCategory.innerText = "Category";
+    reportDate.innerText = "Date";
+    reportDescription.innerText = "Description";
+    reportEvidenceContainer.innerText = "Evidence";
+    reportStatus.innerText = "Status";
+
+    tr.appendChild(ActionsContainerHead);
+    tr.appendChild(reportID);
+    tr.appendChild(reportedAccountID);
+    tr.appendChild(reporterAccountID);
+    tr.appendChild(reportedRequestID);
+    tr.appendChild(reportedServiceID);
+    tr.appendChild(reportCategory);
+    tr.appendChild(reportDate);
+    tr.appendChild(reportDescription);
+    tr.appendChild(reportEvidenceContainer);
+    tr.appendChild(reportStatus);
+
+
+    DashBoardContent_TableHead.appendChild(tr);
+
+
+    
 }

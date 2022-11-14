@@ -380,11 +380,78 @@ view my request
 	
 
 
-		<div id="ViewRequest-Form">
-			<div id="closeImage" class="closeForm" onclick="closeForms()"> ✕ </div>
+
+					<div id="ViewRequest-Form">
+					<div id="closeImage" class="closeForm" onclick="closeForms()"> ✕ </div>
+					<center>
+						<h1> View Request</h1>
+					</center>
+
+					<table>
+
+						<tr>
+							<td>
+								<span>Title</span>
+							</td>
+							<td class="tdright">
+								<span id="viewTitle">Title</span>
+							</td>
+						</tr> 
+
+						<tr>
+							<td>
+								<span>RequestDescription</span>
+							</td>
+							<td class="tdright">
+								<span id="viewDescription">RequestDescription</span>
+							</td>
+						</tr> 
 
 
-		</div>
+						<tr>
+							<td>
+								<span>Due Date</span>
+							</td>
+
+							<td class="tdright">
+								<span id="viewDueDate">Due Date</span>
+							</td>
+						</tr> 
+
+						<tr>
+							<td>
+								<span>Price</span>
+							</td>
+
+							<td class="tdright">
+								<span id="viewPrice">Price</span>
+							</td>
+						</tr> 
+
+						<tr>
+							<td>
+								<span>Negotiable</span>
+							</td>
+
+							<td class="tdright">
+								<span id="viewNegotiable">Negotiable</span>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+
+							</td>
+							<td id="UpdateControls">
+								<input type="reset" value="Edit" class="ViewControls-Button" id="viewControlsEditButton">
+							
+							</td>
+						</tr>
+
+					</table>
+
+
+				</div>
 	</div>
 
 </div>

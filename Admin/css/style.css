@@ -147,3 +147,8 @@ a{
 	height: 2px;
 	width: 2px;
 }
+
+td{
+	border-right: 1px solid rgba(128, 128, 128, 0.134);
+	border-bottom: 1px solid rgba(128, 128, 128, 0.134);
+}

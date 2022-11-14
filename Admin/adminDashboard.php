@@ -130,7 +130,8 @@ session_start();
     <div id="DashBoardContent">
                     <table id="DashBoardContent_Table">
                         <img src="../img/logo.png" id="loadingImage"/>
-                        <thead> </thead>
+                        <thead id="DashBoardContent_TableHead"> 
+                        </thead>
                         <tbody id="DashBoardContent_TableBody"> </tbody>
                     </table>
 

@@ -374,7 +374,7 @@ function setResponderData(array){
         name[i].innerHTML  = "<b> Username: </b>"+dataArray[i]['userName'];
         municipality[i].innerHTML  = "<b> Municipality: </b>"+dataArray[i]['municipality'];
         rate[i].innerHTML  = "<b> Rate: </b> Php "+dataArray[i]['rate'];
-        viewProfile[i].href= "Public_Profile.php?userID=" +  dataArray[i]['responderID'] + "&userType=Responder";
+        viewProfile[i].href= "ViewUserProfile.php?userID=" +  dataArray[i]['responderID'] + "&userType=Responder";
         selectButton[i].setAttribute('onclick','selectResponder('+ dataArray[i]['serviceID']+','+ dataArray[i]['responderID']+','+dataArray[i]['rate']+')');
         
 

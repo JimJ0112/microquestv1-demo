@@ -233,24 +233,44 @@ td{
 	align-content: center;
 	display: none;
 	
+	
 }
 
 #reportPopUp{
 	margin: auto;
-	background-color: white;
+	background-color:wheat;
 	width: 500px;
 	height: 700px;
 	overflow-y: scroll;
 	margin-top: 20px;
 	padding: 10px;
+	border: rgba(160, 104, 51, 0.849) solid 5px;
+	border-radius: 20px;
 
 }
 
 #ReportedAccountProfile{
-	width: 50px;
-	height: 50px;
-	border: 1px solid black;
-	object-fit: cover  ;
+	float: left;
+    left: 38%;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 2px solid white;
+    object-fit: cover;
+    border-radius: 50%;
+	top: 12%;
+	padding: 3;
+}
+
+#reportHeader span{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    width: fit-content;
+    height: 20%;
+    float: left;
+    margin-left: 40%;
+    overflow: hidden;
 }
 
 #reportProofOutputBackground{
@@ -297,6 +317,7 @@ td{
 
 #otherReportType{
 	display: none;
+
 }
 
 .isReported{
@@ -308,4 +329,25 @@ td{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	width: 50px;
+}
+
+#reportHeader{
+	height: 30%;
+	width: 100%;
+	background-image: url("../img/coc-background.jpg");
+	background-size: cover;
+	border-radius: 10px;
+}
+
+#reportType, #reportProof{
+	font-size: x-large;
+	width: 80%;
+}
+
+#reportProof{
+	font-size: large;
+}
+
+.formButton{
+	font-size: large;
 }

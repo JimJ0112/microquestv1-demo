@@ -126,6 +126,7 @@
 	<form action="backend/RegisterReport.php" method="post" enctype="multipart/form-data">
 		
 		<center>
+		<div id="reportHeader">	
 			<br/>
 			<p> Reported Account:</p> 
 			
@@ -138,11 +139,13 @@
 
 			
 
-			<img id="ReportedAccountProfile"> <br/>
+			<img id="ReportedAccountProfile">
 			<span id="ReportedAccountName"> Dummy Acc </span> <br/>
 			<span id="ReportedAccountEmail"> Dummy Email </span> <br/>
 			<span id="ReportedAccountType"> Responder </span> 
-			<br/> <br/>
+			<br/> 
+		</div>
+		<div id="reportContent">
 			<hr/>
 			<input type="hidden" name="transactionReportID" id="TransactionReportIDInput"/>
 			<input type="hidden" name="transactionType" id="TransactionTypeInput"/>
@@ -156,7 +159,7 @@
 				<option value="Harassment or bullying"> Harassment or bullying </option>
 				<option value="Doing inappropriate things during transaction"> Doing inappropriate things during transaction </option>
 				<option value="Something Else"> Something Else </option>
-			</select> <br/><br/>
+			</select> <br/>
 			<input type="text" id="otherReportType" name="otherReportType" placeholder="Other Report type"/>
 			<br/><br/>
 
@@ -173,9 +176,10 @@
 			<br/><br/>
 		
 
-			<input type="submit" value="Submit Report"/> 
-			<input type="button" value="Cancel" onclick="hideReportForm()"/>
+			<input class="formButton" type="submit" value="Submit Report"/> 
+			<input class="formButton" type="button" value="Cancel" onclick="hideReportForm()"/>
 		</center>
+		</div>
 	</form>
 
 	</div>
