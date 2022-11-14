@@ -1,16 +1,10 @@
 <?php 
 session_start();
+
     if(!isset($_SESSION["userEmail"])){
         header("location:Login.php?msg=Please Login First");
     }
 
-    if(isset($_SESSION["municipality"])){
-        $municipality = $_SESSION["municipality"];
-
-        echo"<script> sessionStorage.setItem('municipality','$municipality')</script>";
-    }
-
-	
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +30,7 @@ session_start();
 	<?php
 		if(isset($_SESSION['userID'])){
 			$userID = $_SESSION['userID'];
-			echo "getMyRequests($userID)";
+			echo "'getMyRequests($userID)'";
 		}
 	?>
 >
@@ -48,6 +42,14 @@ session_start();
 	require_once("imports/RequestorNavBar.php");
 ?>
 
+
+<?php 
+	    if(isset($_SESSION["municipality"])){
+			$municipality = $_SESSION["municipality"];
+	
+			echo"<script> sessionStorage.setItem('municipality','$municipality')</script>";
+		}
+?>
 <!--Main-->
 	<div id="RequestBoardContainer">
 
@@ -137,7 +139,10 @@ session_start();
 		</div>
 	</div>
 
-<!--Update requests-->
+
+<!--
+
+Update requests
 
 <div id="UpdateRequests-Container">
 	
@@ -216,7 +221,7 @@ session_start();
 
 </div>
 
-<!--view my request-->
+view my request
 
 <div id="ViewRequests-Container">
 	
@@ -289,6 +294,97 @@ session_start();
 		</table>
 
 
+	</div>
+
+</div>
+	-->
+
+
+
+<div id="popUpBack"> 
+	<div id="formsContainer"> 
+		
+		<form id="UpdateForm" action="Backend/UpdateRequest.php" method="post">
+			<div id="closeImage" class="closeForm" onclick="closeForms()"> ✕ </div>
+		<center>
+			<h1> Update Request</h1>
+		</center>
+		<input type="hidden" name="requestID" id="UpdateFormRequestID"/>
+
+		<table>
+
+			<tr>
+				<td>
+					<span>Title</span>
+				</td>
+				<td class="tdright">
+					<input type="Text" name="updateTitle" id="updateTitle" class="UpdateRequests-Input"/>
+				</td>
+			</tr> 
+
+			<tr>
+				<td>
+					<span>Description</span>
+				</td>
+				<td class="tdright">
+					<textarea rows="" cols="" name="updateDescription" id="updateDescription" class="UpdateRequests-Input">
+					</textarea>
+				</td>
+			</tr> 
+
+			<tr>
+				<td>
+					<span>Due Date</span>
+				</td>
+
+				<td class="tdright">
+					<input type="datetime-local" name="updateDueDate" id="updateDueDate" class="UpdateRequests-Input"/>
+				</td>
+			</tr> 
+
+			<tr>
+				<td>
+					<span>Price</span>
+				</td>
+
+				<td class="tdright">
+					 <input type="Number" name="updatePrice" id="updatePrice" class="UpdateRequests-Input" placeholder="Php"/>
+				</td>
+			</tr> 
+
+			<tr>
+				<td>
+					<span>Negotiable</span>
+				</td>
+
+				<td class="tdright">
+					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="UpdateRequests-Input" value="Negotiable"/> Yes
+					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="UpdateRequests-Input" value="Not Negotiable"/> No
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+
+				</td>
+				<td id="UpdateControls">
+				 	<input type="submit" value="Update" class="UpdateControls-Button">
+					<input type="reset" value="Cancel" class="UpdateControls-Button" onclick="hideUpdateRequest()">
+				</td>
+			</tr>
+
+		</table>
+
+
+		</form>
+	
+
+
+		<div id="ViewRequest-Form">
+			<div id="closeImage" class="closeForm" onclick="closeForms()"> ✕ </div>
+
+
+		</div>
 	</div>
 
 </div>

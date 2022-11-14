@@ -2,105 +2,30 @@
 /*show and hide forms */
 
 function showUpdateRequest(){
-    var UpdateRequests_Container = document.getElementById("UpdateRequests-Container");
+    var popUpBack = document.getElementById("popUpBack");
+    var UpdateRequests_Container = document.getElementById("UpdateForm");
     UpdateRequests_Container.style.display = "block";
+    popUpBack.style.display="grid";
+
 }
 
 function hideUpdateRequest(){
-    var UpdateRequests_Container = document.getElementById("UpdateRequests-Container");
+    var UpdateRequests_Container = document.getElementById("UpdateForm");
     UpdateRequests_Container.style.display = "none";
 }
 
 function showViewRequest(){
-    var ViewRequests_Container = document.getElementById("ViewRequests-Container");
+    var popUpBack = document.getElementById("popUpBack");
+    var ViewRequests_Container = document.getElementById("ViewRequest-Form");
     ViewRequests_Container.style.display = "block";
+    popUpBack.style.display="grid";
 }
 
 function hideViewRequest(){
-    var ViewRequests_Container = document.getElementById("ViewRequests-Container");
+    var ViewRequests_Container = document.getElementById("ViewRequest-Form");
     ViewRequests_Container.style.display = "none";
 }
 
-
-/* Fetching data and appending data elements 
-// create elements for data
-function createElements(number){
-    var number = number;
-
-    var div = document.getElementById('RequestsContainer-Content');
-
-
-
-    
-    for(var i=0; i<number; i++){
-
-        var requestCard = document.createElement('div');
-        var RequestInfoList = document.createElement('ul');
-        var datePosted = document.createElement('li');
-        var dueDate= document.createElement('li');
-        var isNegotiable= document.createElement('li');
-        var requestCategory= document.createElement('li');
-        var requestDescription= document.createElement('li');
-        var requestExpectedPrice= document.createElement('li');
-        var requestID= document.createElement('li');
-        var requestStatus= document.createElement('li');
-        var requestTitle= document.createElement('li');
-      
-        
-        var requestcardfooter = document.createElement('footer');
-        var ReviewButton = document.createElement('button');
-        var UpdateButton = document.createElement('button');
-        var br = document.createElement('br');
-
-        requestCard.setAttribute('class','requestCard');
-        RequestInfoList.setAttribute('class','RequestInfoList');
-
-
-
-         datePosted.setAttribute('class','datePosted');
-         dueDate.setAttribute('class','dueDate');
-         isNegotiable.setAttribute('class','isNegotiable');
-         requestCategory.setAttribute('class','requestCategory');
-         requestDescription.setAttribute('class','requestDescription');
-         requestExpectedPrice.setAttribute('class','requestExpectedPrice');
-         requestID.setAttribute('class','requestID');
-         requestStatus.setAttribute('class','requestStatus');
-         requestTitle.setAttribute('class','requestTitle');
-         requestcardfooter.setAttribute('class','requestcard-footer')
-        
-        
-         ReviewButton.setAttribute('class','ReviewButton');
-         UpdateButton.setAttribute('class','UpdateButton');
-
-         ReviewButton.innerText="View";
-         UpdateButton.innerText="Update";
-
-         requestcardfooter.appendChild(ReviewButton);
-         requestcardfooter.appendChild(UpdateButton);
-
-         RequestInfoList.appendChild(requestID);
-         RequestInfoList.appendChild(requestTitle);
-         RequestInfoList.appendChild(requestDescription);
-         RequestInfoList.appendChild(requestCategory);
-         RequestInfoList.appendChild(requestExpectedPrice);
-         RequestInfoList.appendChild(isNegotiable);
-         RequestInfoList.appendChild(datePosted);
-         RequestInfoList.appendChild(dueDate);
-        
-         RequestInfoList.appendChild(requestStatus);
-         
-
-         requestCard.appendChild(RequestInfoList);
-         requestCard.appendChild(requestcardfooter);
-
-
-         div.appendChild(requestCard);
-
-
-    }
-
-}
-*/
 
 function createElements(number){
     var number = number;
@@ -168,52 +93,7 @@ function createElements(number){
     }
 
 }
-// set positions data 
-/*
-function setData(array){
 
-var dataArray = array;
-var number = dataArray.length;
-
-
-myRequestCard = document.getElementsByClassName('requestCard');
-
-
-datePosted= document.getElementsByClassName('datePosted');
-dueDate= document.getElementsByClassName('dueDate');
-isNegotiable= document.getElementsByClassName('isNegotiable');
-requestCategory= document.getElementsByClassName('requestCategory');
-requestDescription= document.getElementsByClassName('requestDescription');
-requestExpectedPrice= document.getElementsByClassName('requestExpectedPrice');
-requestID= document.getElementsByClassName('requestID');
-requestStatus= document.getElementsByClassName('requestStatus');
-requestTitle= document.getElementsByClassName('requestTitle');
-
-
-ReviewButton= document.getElementsByClassName('ReviewButton');
-UpdateButton= document.getElementsByClassName('UpdateButton');
-
-
-    for(var i = 0; i< number; i++){
-
-
-        datePosted[i].innerHTML = "<b> Date Posted: </b>"+dataArray[i]['datePosted'];
-        dueDate[i].innerHTML = "<b> Due Date: </b>"+dataArray[i]['dueDate'];
-        isNegotiable[i].innerHTML = "<b> Negotiable: </b>"+dataArray[i]['isNegotiable'];
-        requestCategory[i].innerHTML ="<b> Category: </b>"+ dataArray[i]['requestCategory'];
-        requestDescription[i].innerHTML = "<b> Description: </b>"+ dataArray[i]['requestDescription'];
-        requestExpectedPrice[i].innerHTML = "<b> Expected Price: </b> Php "+ dataArray[i]['requestExpectedPrice'];
-        requestID[i].innerHTML = "<b> Request ID: </b>"+dataArray[i]['requestID'];
-        requestStatus[i].innerHTML = dataArray[i]['requestStatus'];
-        requestTitle[i].innerHTML = "<b>Title: </b> "+dataArray[i]['requestTitle'];
-
-        UpdateButton[i].setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
-        ReviewButton[i].setAttribute('onclick',"viewForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"','"+dataArray[i]['requestStatus']+"')");
-
-    }
-
-}
-*/
 
 function setData(array){
 
@@ -240,24 +120,12 @@ function setData(array){
             isNegotiable[i].innerText= dataArray[i]['isNegotiable'];
             dueDateValue[i].innerText= dataArray[i]['dueDate'];
             dueDate[i].innerText='due date';
-            //myRequestCard[i].setAttribute('onclick',"viewForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"','"+dataArray[i]['requestStatus']+"')");
-            myRequestCard[i].setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
+            //myRequestCard[i].setAttribute('onclick','viewForm('+dataArray[i]['requestID']+',"'+dataArray[i]['requestTitle']+'","'+ dataArray[i]['dueDate'] + '","' + dataArray[i]['requestExpectedPrice']+'","'+ dataArray[i]['isNegotiable']+'","'+dataArray[i]['requestDescription']+'","'+dataArray[i]['requestStatus']+'")');
+            //myRequestCard[i].setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
             //.setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
 
-/*
-            datePosted[i].innerHTML = "<b> Date Posted: </b>"+dataArray[i]['datePosted'];
-            dueDate[i].innerHTML = "<b> Due Date: </b>"+dataArray[i]['dueDate'];
-            isNegotiable[i].innerHTML = "<b> Negotiable: </b>"+dataArray[i]['isNegotiable'];
-            requestCategory[i].innerHTML ="<b> Category: </b>"+ dataArray[i]['requestCategory'];
-            requestDescription[i].innerHTML = "<b> Description: </b>"+ dataArray[i]['requestDescription'];
-            requestExpectedPrice[i].innerHTML = "<b> Expected Price: </b> Php "+ dataArray[i]['requestExpectedPrice'];
-            requestID[i].innerHTML = "<b> Request ID: </b>"+dataArray[i]['requestID'];
-            requestStatus[i].innerHTML = dataArray[i]['requestStatus'];
-            requestTitle[i].innerHTML = "<b>Title: </b> "+dataArray[i]['requestTitle'];
-    
-            UpdateButton[i].setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
-            ReviewButton[i].setAttribute('onclick',"viewForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"','"+dataArray[i]['requestStatus']+"')");
-    */
+            //updateForm(requestID,title,dueDate,price,isNegotiable,Description)
+            myRequestCard[i].setAttribute("onclick","updateForm("+dataArray[i]['requestID']+',"'+dataArray[i]['requestTitle']+'","'+dataArray[i]['dueDate']+'","'+dataArray[i]['requestExpectedPrice']+'","'+dataArray[i]['isNegotiable']+'","'+dataArray[i]['requestDescription']+'")')
         }
     
     }
@@ -331,6 +199,7 @@ function updateForm(requestID,title,dueDate,price,isNegotiable,Description){
 }
 
 
+
 function viewForm(requestID,title,dueDate,price,isNegotiable,Description,requestStatus){
     var requestID = requestID;
     var title = title;
@@ -348,27 +217,17 @@ function viewForm(requestID,title,dueDate,price,isNegotiable,Description,request
     document.getElementById("viewDescription").innerText = Description;
 
 
-    document.getElementById("delistButton").setAttribute("onclick","delistRequest('" +requestID+"')") 
-    
-    if(requestStatus === "Active"){
-        document.getElementById("delistButton").setAttribute("onclick","delistRequest('" +requestID+"')") 
-        document.getElementById("delistButton").innerText = "Delist";
-
-    } else if(requestStatus === "" || requestStatus === " "){
-        document.getElementById("delistButton").setAttribute("onclick","activeRequest('" +requestID+"')") 
-        document.getElementById("delistButton").innerText = "Activate";
-
-    } else if(requestStatus === "Delisted" ){
-        document.getElementById("delistButton").setAttribute("onclick","activeRequest('" +requestID+"')") 
-        document.getElementById("delistButton").innerText = "Activate";
-    }
-    
     //openForms();
     showViewRequest();
-    console.log(requestID,title,dueDate,price,isNegotiable,Description,requestStatus);
+    //console.log(requestID,title,dueDate,price,isNegotiable,Description,requestStatus);
 
-    document.getElementById("ViewRequests-Container").style.display = "grid";
+   
 
+}
+
+function closeForms(){
+    popUpBack = document.getElementById('popUpBack');
+    popUpBack.style.display="none";
 }
 
 

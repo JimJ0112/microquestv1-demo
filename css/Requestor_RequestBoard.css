@@ -405,42 +405,6 @@
 }
 
 
-#UpdateRequests-Container{
-	margin: auto;
-	position: fixed;
-	background-color: none;
-	width: 100%;
-	height: 100%;
-	z-index: 20;
-	display: grid;
-	align-content: center;
-	background-color: rgba(0, 0, 0, 0.5);
-	display: none;
-	top: 0;
-
-	
-}
-
-#UpdateForm{
-	margin: auto;
-	
-	background-color: white;
-
-	width: 400px;
-	height: 500px;
-	z-index: 10;
-	
-	border: 5px solid rgb(63, 50, 48);
-
-	padding:10px;
-	display: block;
-	font-family: retroking;
-	font-weight: light;
-	color: rgb(94, 74, 71);
-	margin-top: 50px;
-	
-}
-
 #UpdateForm table{
 	margin: auto;
 	text-align: justify;
@@ -494,41 +458,6 @@
 }
 
 
-#ViewRequests-Container{
-	margin: auto;
-	position: fixed;
-	
-	width: 100%;
-	height: 100%;
-	z-index: 21;
-	display: grid;
-	align-content: center;
-	background-color: rgba(0, 0, 0, 0.711);
-	top: 0;
-	display: none;
-
-
-	
-}
-
-#ViewRequest-Form{
-	margin: auto;
-	
-	background-color: white;
-
-	width: 400px;
-	height: 500px;
-	z-index: 10;
-	
-	border: 5px solid rgb(63, 50, 48);
-
-	padding:10px;
-	display: block;
-	font-family: retroking;
-	font-weight: light;
-	color: rgb(94, 74, 71);
-	margin-top: 50px;
-}
 
 #ViewRequest-Form table{
 	margin: auto;
@@ -710,3 +639,88 @@
 	  height: 0;
   }
   
+
+
+#popUpBack{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.574);
+	top:0;
+	z-index: 20;
+	display: none;
+}
+
+#formsContainer{
+	margin: auto;
+	position: relative;
+	width: 80%;
+	height: 100%;
+}
+
+
+
+
+#UpdateForm{
+	margin: auto;
+	
+	background-color: white;
+
+	width: 500px;
+	height: 600px;
+	z-index: 10;
+	border: 5px solid rgb(63, 50, 48);
+
+	padding:10px;
+	display: block;
+	font-family: retroking;
+	font-weight: light;
+	color: rgb(94, 74, 71);
+
+	position: absolute;
+	left: 50%;
+	top: 10%;
+    transform: translate(-50%, 0);
+	display: none;
+}
+
+
+#ViewRequest-Form{
+	margin: auto;
+	
+	background-color: white;
+
+	width: 500px;
+	height: 600px;
+	z-index: 10;
+	
+	border: 5px solid rgb(63, 50, 48);
+
+	padding:10px;
+	display: block;
+	font-family: retroking;
+	font-weight: light;
+	color: rgb(94, 74, 71);
+	position: absolute;
+	left: 50%;
+	top: 10%;
+    transform: translate(-50%, 0);
+	
+}
+
+.closeForm{
+	position: absolute;
+	right:10px;
+	top:10px;
+	cursor: pointer;
+	font-size: large;
+	font-weight: bold;
+	border-radius: 80px;
+	padding: 10px;
+	
+}
+
+.closeForm:hover{
+
+	background-color: rgba(79, 78, 78, 0.122);
+}
