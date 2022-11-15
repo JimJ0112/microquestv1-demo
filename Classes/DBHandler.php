@@ -457,6 +457,61 @@ function checkIfUserReported($userID){
 
 }
 
+
+// get Categories
+public function getReviewsWithRatings($userID){
+    $userID = mysqli_real_escape_string($this->dbconnection, $userID);
+
+    
+   
+    /*
+
+        $query = "SELECT feedbacks.revieweeID as feedbacksReviewee,feedbacks.reviewerID as feedbacksReviewer, feedbacks.transactionID as feedbacksTransactionID, feedbacks.serviceID, feedbacks.requestID, feedbacks.feedback,rating.reviewerID as ratingReviewerID, rating.revieweeID as ratingRevieweeID, rating.transactionID as ratingTransactionID, rating.rating1star, rating.rating2star,rating.rating3star,rating.rating4star,rating.rating5star 
+        FROM feedbacks 
+        INNER JOIN rating
+        ON feedbacks.transactionID = rating.transactionID
+        WHERE feedbacks.revieweeID = $userID";
+    */
+
+
+    $query= "SELECT feedbacks.revieweeID as feedbacksReviewee,feedbacks.feedbackID,feedbacks.reviewerID as feedbacksReviewer, feedbacks.transactionID as feedbacksTransactionID, feedbacks.serviceID, feedbacks.requestID, feedbacks.feedback,rating.reviewerID as ratingReviewerID, rating.revieweeID as ratingRevieweeID, rating.transactionID as ratingTransactionID, rating.rating1star, rating.rating2star,rating.rating3star,rating.rating4star,rating.rating5star,
+    userprofile.userID as userprofileReviewerID, userprofile.userID as userprofileRevieweeID, userprofile.userName as ReviewerUserName, userprofile.userName as RevieweeUserName
+    
+            FROM feedbacks 
+            INNER JOIN rating
+              ON (feedbacks.transactionID = rating.transactionID)
+            INNER JOIN userprofile
+                ON feedbacks.reviewerID = userprofile.userID
+            WHERE feedbacks.revieweeID = $userID ORDER BY feedbacks.feedbackID DESC";
+            
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
 // get Categories
 public function getCategories($tablename,$column,$condition,$groupby = null){
     $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
@@ -3182,42 +3237,43 @@ public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingV
     $ratingValue = mysqli_real_escape_string($this->dbconnection,$ratingValue);
     $requestID = null;
 
-    $rating1star = null;
-    $rating2star = null;
-    $rating3star = null;
-    $rating4star = null;
-    $rating5star = null;
-    $totalRating = null;
+    $rating1star = 0;
+    $rating2star = 0;
+    $rating3star = 0;
+    $rating4star = 0;
+    $rating5star = 0;
+    $totalRating = 0;
 
-    if($ratingValue === 1){
+    if($ratingValue === "1"){
         $rating1star = 1;
         $rating2star = 0;
         $rating3star = 0;
         $rating4star = 0;
         $rating5star = 0;
         $totalRating = 0;
-    } else if($ratingValue === 2){
+    } else if($ratingValue === "2"){
         $rating1star = 0;
         $rating2star = 1;
         $rating3star = 0;
         $rating4star = 0;
         $rating5star = 0;
         $totalRating = 0;
-    } else if($ratingValue === 3){
+    } else if($ratingValue === "3"){
         $rating1star = 0;
         $rating2star = 0;
         $rating3star = 1;
         $rating4star = 0;
         $rating5star = 0;
         $totalRating = 0;
-    } else if($ratingValue === 4){
+    } else if($ratingValue === "4"){
         $rating1star = 0;
         $rating2star = 0;
         $rating3star = 0;
         $rating4star = 1;
         $rating5star = 0;
         $totalRating = 0;
-    } else if($ratingValue === 5){
+    } else if($ratingValue === "5"){
+
         $rating1star = 0;
         $rating2star = 0;
         $rating3star = 0;
@@ -3229,9 +3285,10 @@ public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingV
 
     $tablename = "rating";
 
-    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,$requestID,$rating1star,$rating2star,$rating3star,$rating4star,$rating5star,$totalRating)";
+    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,null,$rating1star,$rating2star,$rating3star,$rating4star,$rating5star,$totalRating)";
 
-    $result = mysqli_query($this->dbconnection, $query) or die;
+    $result = mysqli_query($this->dbconnection, $query);
+    echo mysqli_error($this->dbconnection);
  
     return $result;
 }// end of function

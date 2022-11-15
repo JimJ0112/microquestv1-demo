@@ -21,6 +21,7 @@ echo $DBHandler-> registerServiceFeedback($myID,$revieweeID,$serviceID,$transact
 
 // update transaction status 
 
+/*
     // set transaction status
     $tablename = "transactions";
     $column = "transactionStatus";
@@ -30,7 +31,7 @@ echo $DBHandler-> registerServiceFeedback($myID,$revieweeID,$serviceID,$transact
     
 
     echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
-
+*/
 
 // set rating
 $myID=$_POST["myID"];
@@ -42,7 +43,7 @@ echo $result = $DBHandler->registerServiceRatings($myID,$revieweeID,$transaction
 
 
 
-//header("location: ../Requestor_Transactions.php?q=1");
+header("location: ../Requestor_Transactions.php?q=1");
 
 
 

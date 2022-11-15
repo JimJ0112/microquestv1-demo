@@ -6,6 +6,13 @@ $DBHandler = new DBHandler();
 
 
 
- $userID = 11;
+ $userID = $_POST["userID"];
+
  $result = $DBHandler->getReviewsWithRatings($userID);
- echo json_encode($result);
+
+ if($result === "failed to fetch"){
+
+    echo $result;
+ }else{
+    echo json_encode($result);
+ }

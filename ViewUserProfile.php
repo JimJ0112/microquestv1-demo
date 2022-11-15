@@ -171,6 +171,7 @@ session_start();
 		</div> 
 
         <div id="reviewContainer">
+            <!--
 			<div id="reviewContainer-Content">
 				<div class="reviewCard">
 					<ul class="reviewInfoList">
@@ -182,6 +183,7 @@ session_start();
 					</ul>		
 				</div>
 			</div> 
+            -->
         </div>
 
         <div id="moreContainer">

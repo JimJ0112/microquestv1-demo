@@ -217,7 +217,7 @@ function getUserReviews(userID){
       }      
   };
   
-  xmlhttp.open("POST", "Backend/Get_userFeedBacks.php", true);
+  xmlhttp.open("POST", "Backend/Get_ratingsandFeedbacks.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send(query);
   
@@ -278,11 +278,35 @@ function setReviewDatas(dataArray){
 
 
   for(var i = 0; i<number; i++){
-    reviewerName[i].innerText = "Username: "+dataArray[i]['reviewerUserName'];
+    reviewerName[i].innerText = "Username: "+dataArray[i]['ReviewerUserName'];
     jobTitle[i].innerText = "Service: " + dataArray[i]['serviceID'];
-    reviewRating[i].innerText = "Ratings: 5*";
+    
+
+    if(dataArray[i]['rating1star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 1⭐";
+    }else if(dataArray[i]['rating2star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 2⭐";
+    }else if(dataArray[i]['rating3star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 3⭐";
+    }else if(dataArray[i]['rating4star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 4⭐";
+    }else if(dataArray[i]['rating5star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 5⭐";
+    }
+
     reviewDescription[i].innerText = "Feedback: "+dataArray[i]['feedback'];
+
   }
 
 
 }
+
+
+function setMessagesData(id,userName){
+  document.getElementById('recieverID').value = id;
+  document.getElementById('recieverUserName').value = userName;
+
+  console.log(id);
+}
+
+

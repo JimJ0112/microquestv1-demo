@@ -178,16 +178,17 @@
 			
 
 			<div class="rate">
-				<input type="radio" name="rate" value="1" id="star1" class="star"/>
-					<label for="star1" title="text"> </label>
-				<input type="radio" name="rate" value="2" id="star2" class="star"/>
-					<label for="star2" title="text"> </label>
-				<input type="radio" name="rate" value="3" id="star3" class="star"/>
-					<label for="star3" title="text"> </label>
-				<input type="radio" name="rate" value="4" id="star4" class="star"/>
-					<label for="star4" title="text"> </label>
-				<input type="radio" name="rate" value="5" id="star5" class="star"/>
+
+					<input type="radio" name="rate" value="5" id="star5" class="star"/>
 					<label for="star5" title="text"> </label>
+					<input type="radio" name="rate" value="4" id="star4" class="star"/>
+					<label for="star4" title="text"> </label>
+					<input type="radio" name="rate" value="3" id="star3" class="star"/>
+					<label for="star3" title="text"> </label>
+					<input type="radio" name="rate" value="2" id="star2" class="star"/>
+					<label for="star2" title="text"> </label>
+					<input type="radio" name="rate" value="1" id="star1" class="star"/>
+					<label for="star1" title="text"> </label>
 			</div>
 
 			<br/><br/> <br/><br/>

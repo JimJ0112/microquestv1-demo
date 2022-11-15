@@ -94,7 +94,8 @@ body{
 
 #ContainerBackground{
     width: 80%;
-    height: 1000px;
+    min-height: 1000px;
+    height: fit-content;
     background-color: white;
 
 
