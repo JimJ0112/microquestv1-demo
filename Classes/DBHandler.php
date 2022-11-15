@@ -3173,6 +3173,70 @@ public function registerServiceFeedback($myID,$revieweeID,$serviceID,$transactio
 }// end of function
 
 
+public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingValue){
+
+
+    $myID= mysqli_real_escape_string($this->dbconnection, $myID);
+    $revieweeID= mysqli_real_escape_string($this->dbconnection, $revieweeID);
+    $transactionID= mysqli_real_escape_string($this->dbconnection,$transactionID);
+    $ratingValue = mysqli_real_escape_string($this->dbconnection,$ratingValue);
+    $requestID = null;
+
+    $rating1star = null;
+    $rating2star = null;
+    $rating3star = null;
+    $rating4star = null;
+    $rating5star = null;
+    $totalRating = null;
+
+    if($ratingValue === 1){
+        $rating1star = 1;
+        $rating2star = 0;
+        $rating3star = 0;
+        $rating4star = 0;
+        $rating5star = 0;
+        $totalRating = 0;
+    } else if($ratingValue === 2){
+        $rating1star = 0;
+        $rating2star = 1;
+        $rating3star = 0;
+        $rating4star = 0;
+        $rating5star = 0;
+        $totalRating = 0;
+    } else if($ratingValue === 3){
+        $rating1star = 0;
+        $rating2star = 0;
+        $rating3star = 1;
+        $rating4star = 0;
+        $rating5star = 0;
+        $totalRating = 0;
+    } else if($ratingValue === 4){
+        $rating1star = 0;
+        $rating2star = 0;
+        $rating3star = 0;
+        $rating4star = 1;
+        $rating5star = 0;
+        $totalRating = 0;
+    } else if($ratingValue === 5){
+        $rating1star = 0;
+        $rating2star = 0;
+        $rating3star = 0;
+        $rating4star = 0;
+        $rating5star = 1;
+        $totalRating = 0;
+    }
+
+
+    $tablename = "rating";
+
+    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,$requestID,$rating1star,$rating2star,$rating3star,$rating4star,$rating5star,$totalRating)";
+
+    $result = mysqli_query($this->dbconnection, $query) or die;
+ 
+    return $result;
+}// end of function
+
+
 // reported services
 
 public function registerReportService($reportedAccountID,$reporterAccountID,$reportCategory,$reportDescription,$reportEvidence,$reportedServiceID,$reportedRequestID,$reportDate){

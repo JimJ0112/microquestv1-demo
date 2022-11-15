@@ -18,29 +18,31 @@ $feedback = $_POST["feedback"];
  //registerServiceFeedback($myID,$revieweeID,$serviceID,$transactionID,$feedback,$today)
 echo $DBHandler-> registerServiceFeedback($myID,$revieweeID,$serviceID,$transactionID,$feedback,$today);
 
-// update transaction status 
 
-$userType = $_POST["userType"];
+// update transaction status 
 
     // set transaction status
     $tablename = "transactions";
-
     $column = "transactionStatus";
     $condition = "transactionID";
-    
-    if($userType === "Responder"){
-        $name = "responder feedback";
-    } else {
-        $name = "requestor feedback";
-    }
-    
-
+    $name = "completed";
     $conditionvalue = $transactionID;
     
-    
+
     echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
 
-header("location: ../Requestor_Transactions.php?q=1");
+
+// set rating
+$myID=$_POST["myID"];
+$ratingValue = $_POST['rate'];
+$revieweeID=$_POST["serviceRevieweeID"]; 
+
+echo $result = $DBHandler->registerServiceRatings($myID,$revieweeID,$transactionID,$ratingValue);
+
+
+
+
+//header("location: ../Requestor_Transactions.php?q=1");
 
 
 
