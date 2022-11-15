@@ -104,19 +104,91 @@ function getNewMessages(id){
 
 
 
+
 function init(){ 
     // This is the function the browser first runs when it's loaded.
    
     var myID = sessionStorage.getItem("myID");
-    getNewMessages(myID)
+
+    getNewMessages(myID);
+    getNotifications(myID);
     //noMessageSelected();
     
     // Then runs the refresh function for the first time.
     var int = self.setInterval(function () {
    
-    getNewMessages(myID)
+    getNewMessages(myID);
+    getNotifications(myID);
     //console.log("myID:" + myID);
     //noMessageSelected();
     }, 2000); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.
 }
 init();
+
+
+
+function getNotifications(id){
+    var id = id;
+    var xmlhttp = new XMLHttpRequest();
+
+    var query = "userID=" + id;
+
+    //console.log("newMessageQuery: " + query);
+    
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+            
+            //var redDotOnNotification = document.getElementById("redDotOnNotification");
+            var dataArray = this.response;
+            dataArray = JSON.parse(dataArray);
+            console.log(dataArray);
+
+
+        }else{
+ 
+            console.log("loading...")
+        }      
+    };
+
+    xmlhttp.open("POST", "Backend/Get_notifications.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+
+}
+
+function createNotifElements(number){
+    var number = number;
+    var navNotifs = document.getElementById("navNotifs");
+
+    for(var i = 0; i < number; i++){
+
+        div = document.createElement("div");
+        logoContainer = document.createElement("div");
+        ul = document.createElement("ul");
+        notificationDate = document.createElement("li");
+        notificationDescription = document.createElement("li");
+        notificationStatus = document.createElement("li");
+        hr = document.createElement("hr");
+
+
+        div.setAttribute("class","notifContent");
+        logoContainer.setAttribute("class","logoContainer");
+        ul.setAttribute("class","notifUL");
+        notificationDate.setAttribute("class","notificationDate");
+        notificationDescription.setAttribute("class","notificationDescription");
+        notificationStatus.setAttribute("class","notificationStatus");
+       
+        ul.appendChild(notificationDate);
+        ul.appendChild(notificationDescription);
+        ul.appendChild(notificationStatus);
+
+        div.appendChild(logoContainer);
+        div.appendChild(ul);
+
+        navNotifs.appendChild(div);
+        navNotifs.appendChild(hr);
+
+
+
+    }
+}

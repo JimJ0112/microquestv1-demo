@@ -431,7 +431,7 @@ function createReportElements(Number){
 
   var button2 = document.createElement('button');
   button2.setAttribute("class","Suspend");
-  button2.innerText = "Suspend";
+  button2.innerText = "Restrict";
 
    // append elements to the row
    Actions.appendChild(button);
@@ -519,31 +519,18 @@ function setReportData(array){
 
         reporterAccountID[i].innerText = dataArray[i]["reporterAccountID"];
         
-        // generate action buttons
-        /*
-        var button = document.createElement('button');
-        button.setAttribute("class","reportSeeMore");
-        button.setAttribute("onclick","reportSeeMore(" + dataArray[i]['reportID'] + ")");
-        button.innerText = "View Summary";
-        */
 
         reportSeeMore[i].setAttribute("onclick","reportSeeMore(" + dataArray[i]['reportID'] + ")");
+        reportedAccountID[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID="+dataArray[i]["reportedAccountID"]+"&reportID="+ dataArray[i]["reportID"] +"&userType=Responder')");
+        reporterAccountID[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID="+dataArray[i]["reporterAccountID"]+"&reportID="+ dataArray[i]["reportID"] +"userType=Responder')");
 
-        //console.log(ActionsTD[i]);
-       // ActionsTD[i].appendChild(button);
+        sendNotification[i].setAttribute("onclick","notifUserForm(" + dataArray[i]['reportedAccountID'] + ")");
+        Suspend[i].setAttribute("onclick","restrictUserForm(" +dataArray[i]['reportID']+ ")" );
+
         
 
 
     }
-
-    /*
-    var button = document.createElement('button');
-    button.setAttribute("class","reportSeeMore");
-    button.setAttribute("onclick","reportSeeMore(11)");
-    button.innerText = "View Summary";
-  
-    document.getElementsByClassName("ActionsTD")[0].appendChild(button);
-    */
 
 }
 
@@ -551,7 +538,10 @@ function setReportData(array){
 function redirect(url){
     var url  = url;
     location.href = url;
+
 };
+
+
 function CreateReportHeaders(){
     var DashBoardContent_TableHead = document.getElementById("DashBoardContent_TableHead");
     DashBoardContent_TableHead.innerHTML = "";
@@ -599,4 +589,53 @@ function CreateReportHeaders(){
 
 
     
+}
+
+
+/* report actions  */
+/* admin Controls forms */
+function closeForms(){
+    restrictFormBack = document.getElementById("restrictFormBack");
+    BanFormBack= document.getElementById("BanFormBack");
+    sendNotificationFormBack= document.getElementById("sendNotificationFormBack");
+  
+    sendNotificationFormBack.style.display = "none";
+    BanFormBack.style.display = "none";
+    restrictFormBack.style.display = "none";
+    
+  }
+  
+  function banUserForm(reportID){
+  
+    var reportID= reportID;
+    var reportedUserIDBan = document.getElementById("reportedUserIDBan");
+    BanFormBack= document.getElementById("BanFormBack");
+    BanFormBack.style.display = "grid";
+    reportedUserIDBan.value=reportID;
+
+
+
+  }
+  
+  
+function restrictUserForm(reportID){
+  
+    var reportID = reportID;
+ 
+    var reportIDRestrict = document.getElementById("reportIDRestrict");
+    restrictFormBack = document.getElementById("restrictFormBack");
+    restrictFormBack.style.display = "grid";
+    reportIDRestrict.value = reportID;
+
+
+}
+  
+function notifUserForm(reportID){
+  
+    var reportID = reportID;
+    sendNotificationFormBack= document.getElementById("sendNotificationFormBack");
+    reportIDNotif = document.getElementById("reportIDNotif");
+    sendNotificationFormBack.style.display = "grid";
+    reportIDNotif.value = reportID;
+
 }

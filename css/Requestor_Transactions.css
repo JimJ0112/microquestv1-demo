@@ -233,17 +233,52 @@ td{
 }
 #paymentPopUp{
 	margin: auto;
-	background-color: white;
-	width: 50%;
-	height: 500px;
+    background-color: white;
+    width: 35%;
+    height: 70%;
+    background-image: url("../img/coc-background.jpg");
+    border: 5px saddlebrown solid;
+    border-radius: 20px;
 }
 
+#paymentPopUp input{
+	width: 30%;
+	height: 30px;
+	border-radius: 5px;
+	font-size: 100%;
 
+}
+
+#paymentPopUp input:hover{
+	width: 30%;
+	height: 30px;
+	border-radius: 5px;
+	background-color: rgb(233, 154, 57);
+	cursor: pointer;
+}
+
+#paymentPopUp label {
+	background-color: white;
+	padding: 0.5rem;
+	font-family: sans-serif;
+	border-radius: 0.3rem;
+	cursor: pointer;
+	margin-top: 1rem;
+	border: 1px solid black;
+	border-radius: 5px;
+
+  }
+
+  #paymentPopUp label:hover {
+	background-color: rgb(233, 154, 57);
+	cursor: pointer;
+	margin-top: 1rem;
+  }
 
 
 #paymentFileOutput{
-	width: 200px;
-	height: 250px;
+	width: 250px;
+	height: 300px;
 	border: 1px solid black;
 }
 
@@ -357,23 +392,46 @@ td{
 
 #giveFeedBackPopUp{
 	margin: auto;
-	background-color: white;
+	background-image: url("../img/coc-background.jpg");
 	width: 30%;
 	height: 500px;
 	display: none;
 	margin-top: 100px;
+	border: solid saddlebrown 3px;
+	border-radius: 20px;
 }
 
 #feedbackInput{
 	resize: none;
 	margin: auto;
+	border-radius: 10px;
 }
 
 #ButtonsDivFeedback{
 	margin: auto;
 	width:fit-content;
 	height: fit-content;
+
 }
+
+#ButtonsDivFeedback input{
+	margin: auto;
+	width:fit-content;
+	height: 30px;
+	border-radius: 5px;
+
+}
+
+#ButtonsDivFeedback input:hover{
+	margin: auto;
+	width:fit-content;
+	height: 30px;
+	border-radius: 5px;
+	background-color: rgb(233, 154, 57);
+	cursor: pointer;
+}
+
+
 
 .rate {
 	margin: auto;
@@ -421,6 +479,26 @@ td{
 	background-size: cover;
 	border-radius: 10px;
 }
+
+
+
+#reportContent label {
+	background-color: white;
+	padding: 0.5rem;
+	font-family: sans-serif;
+	border-radius: 0.3rem;
+	cursor: pointer;
+	margin-top: 1rem;
+	border: 1px solid black;
+	border-radius: 5px;
+
+  }
+
+  #reportContent label:hover {
+	background-color: rgb(233, 154, 57);
+	cursor: pointer;
+	margin-top: 1rem;
+  }
 
 #reportType, #reportProof{
 	font-size: x-large;

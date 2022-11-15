@@ -221,3 +221,36 @@
     cursor: pointer;
     filter: brightness(30%);
 }
+
+.navNotifs{
+	position: relative;
+	
+}
+
+.notifContent{
+	width: 100%;
+	position: relative;
+	border: 1px solid rgba(85, 83, 83, 0.423);
+	
+
+}
+
+.logoContainer{
+
+}
+
+.notifUL{
+
+}
+
+.notificationDatet{
+
+}
+
+.notificationDescription{
+
+}
+
+.notificationStatus{
+
+}

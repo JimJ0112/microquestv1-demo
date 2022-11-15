@@ -142,7 +142,7 @@
 		<br/>
 
 		<img id="paymentFileOutput"/> <br/> <br/>
-		<input type="file" name="paymentFile" onchange="showPaymentProofFile(event)"> <br/>  <br/> <br/>
+		<input id="paymentProof" type="file" name="paymentFile" onchange="showPaymentProofFile(event)" hidden/><label for="paymentProof"> upload proof of payment ↑</label> <br/>  <br/> <br/>
 		
 
 		<input type="submit" value="Confirm"/> 
@@ -255,7 +255,7 @@
 				<img id="reportProofOutput"> 
 			</div>
 			<br/>
-			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)"/><br/><br/>
+			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)" hidden/><label for="reportProof">upload file ↑</label><br/><br/>
 
 			<span> Description: </span> <br/>
 			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8"></textarea>  

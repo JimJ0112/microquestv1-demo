@@ -2732,6 +2732,40 @@ public function updateMyService($serviceID,$category,$position,$rate){
     return $result;
 }
 
+
+public function BanUser($reportID,$reportActionDate){
+    $tablename = "reportsinfo";
+    $reportID = mysqli_real_escape_string($this->dbconnection, $reportID);
+    $reportActionDate = mysqli_real_escape_string($this->dbconnection, $reportActionDate);
+    $status = "Banned";
+ 
+
+    //$query = "UPDATE $tablename SET serviceCategory = '$category', servicePosition = '$position', rate = $rate WHERE serviceID = $serviceID;";
+    $query = "UPDATE reportsinfo SET reportActionDate = '$reportActionDate', reportStatus = '$status' WHERE reportID = $reportID " ;
+
+    $result = mysqli_query($this->dbconnection, $query) or die(mysqli_error($this->dbconnection));
+        
+    return $result;
+}
+
+
+public function RestrictUser($reportID,$reportActionDate,$restrictDuration){
+    $tablename = "reportsinfo";
+    $reportID = mysqli_real_escape_string($this->dbconnection, $reportID);
+    $reportActionDate = mysqli_real_escape_string($this->dbconnection, $reportActionDate);
+    $restrictDuration = mysqli_real_escape_string($this->dbconnection, $restrictDuration);
+    $status = "Restricted";
+ 
+
+    //$query = "UPDATE $tablename SET serviceCategory = '$category', servicePosition = '$position', rate = $rate WHERE serviceID = $serviceID;";
+    $query = "UPDATE reportsinfo SET reportActionDate = '$reportActionDate', reportStatus = '$status', restrictDuration = $restrictDuration WHERE reportID = $reportID " ;
+
+    $result = mysqli_query($this->dbconnection, $query) or die(mysqli_error($this->dbconnection));
+        
+    return $result;
+}
+
+
 /*---------------------------------DELETE FUNCTIONS----------------------------------------------------- */
 
 // update columns 
@@ -3080,15 +3114,13 @@ public function registerReportService($reportedAccountID,$reporterAccountID,$rep
     $reportedRequestID= $reportedRequestID;
     $reportDate= mysqli_real_escape_string($this->dbconnection,$reportDate);
     $reportStatus = "pending";
-    $reportActionDate = "";
-    $restrictDuration = "";
 
  
 
     
 
     //$query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','',$reportedServiceID,$reportedRequestID,'$reportDate','$reportStatus')";
-    $query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','$reportEvidence',$reportedServiceID,null,'$reportDate','$reportStatus','$reportActionDate','$restrictDuration')";
+    $query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','$reportEvidence',$reportedServiceID,null,'$reportDate','$reportStatus')";
     
         if(mysqli_query($this->dbconnection,$query)){
             return 1;
@@ -3122,15 +3154,13 @@ public function registerReportRequest($reportedAccountID,$reporterAccountID,$rep
     $reportedRequestID= $reportedRequestID;
     $reportDate= mysqli_real_escape_string($this->dbconnection,$reportDate);
     $reportStatus = "pending";
-    $reportActionDate = "";
-    $restrictDuration = "";
 
  
 
     
 
     //$query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','',$reportedServiceID,$reportedRequestID,'$reportDate','$reportStatus')";
-    $query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','$reportEvidence',null,$reportedRequestID,'$reportDate','$reportStatus','$reportActionDate','$restrictDuration')";
+    $query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','$reportEvidence',null,$reportedRequestID,'$reportDate','$reportStatus')";
     
         if(mysqli_query($this->dbconnection,$query)){
             return 1;
@@ -3145,6 +3175,37 @@ public function registerReportRequest($reportedAccountID,$reporterAccountID,$rep
 }
 
 
+// send notifications
 
+public function sendNotifs($reportedUserID,$notifType,$notifMessage,$notificationDate){
+
+
+    
+    $tablename = "notificationsinfo";
+
+    //reportID	reportedAccountID	reporterAccountID	reportCategory	reportDescription	reportEvidence	reportedServiceID	reportedRequestID	reportDate	
+  
+    
+    $reportedUserID= mysqli_real_escape_string($this->dbconnection,$reportedUserID);
+    $notifType= mysqli_real_escape_string($this->dbconnection,$notifType);
+    $notifMessage= mysqli_real_escape_string($this->dbconnection,$notifMessage);
+    $notificationDate= mysqli_real_escape_string($this->dbconnection,$notificationDate);
+    $notificationStatus = "Sent";
+
+
+    //$query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','',$reportedServiceID,$reportedRequestID,'$reportDate','$reportStatus')";
+    $query = "INSERT INTO $tablename VALUES (0,$reportedUserID,'$notifType','$notificationDate','$notifMessage','$notificationStatus')";
+    
+        if(mysqli_query($this->dbconnection,$query)){
+            return 1;
+        } else {
+            return mysqli_error($this->dbconnection);
+        }
+    
+   
+    //return mysqli_query($this->dbconnection, $query);
+
+
+}
 }// end of class
 
