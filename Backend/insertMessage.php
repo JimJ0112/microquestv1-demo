@@ -44,7 +44,7 @@ if($senderID != $recieverID){
        
         //$updateSender = $DBHandler-> updateSenderReciever($recieverID,$senderID);
         //echo $updateSender;
-        // header("location:../Messages.php");
+        header("location:../Messages.php");
 
 
     } else{
@@ -67,7 +67,7 @@ if($senderID != $recieverID){
             }
  
             echo $result;
-            //header("location:../Messages.php");
+            header("location:../Messages.php");
 
     }
     

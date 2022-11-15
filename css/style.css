@@ -191,3 +191,15 @@ input::-webkit-inner-spin-button {
 	color: rgb(83, 63, 63);
 
 }
+
+
+ul{
+	text-decoration: none;
+	list-style-type: none;
+}
+
+
+.reviewCard{
+	background-color: bisque;
+	border-radius: 10px;
+}

@@ -175,3 +175,114 @@ function setMessagesData(id,userName){
 
   console.log(id);
 }
+
+
+/* get user reviews */
+
+function getUserReviews(userID){
+  var userID = userID;
+  var query = "userID=" + userID;
+  var xmlhttp = new XMLHttpRequest();
+
+
+  xmlhttp.onload = function() {
+      if (this.readyState === 4 || this.status === 200){ 
+         
+
+
+          var dataArray = this.response;
+
+          if(dataArray === "failed to fetch"){
+              console.log(dataArray); 
+           
+
+          } else {
+              
+              dataArray = JSON.parse(dataArray);
+              console.log(dataArray);
+
+              var number = dataArray.length;
+
+              createReviewsElements(number);
+              setReviewDatas(dataArray);
+
+             
+
+          }
+
+      }else{
+
+         console.log("Loading...");
+
+      }      
+  };
+  
+  xmlhttp.open("POST", "Backend/Get_userFeedBacks.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send(query);
+  
+}// end of function
+
+
+function createReviewsElements(number){
+  var number = number;
+  var reviewContainer = document.getElementById('reviewContainer');
+
+  for(var i = 0; i< number; i++){
+
+    reviewContainer_Content = document.createElement("div");
+    reviewCard = document.createElement("div");
+    reviewInfoList = document.createElement("ul");
+    reviewerName= document.createElement("li");
+    jobTitle= document.createElement("li");
+    reviewRating= document.createElement("li");
+    reviewDescription= document.createElement("li");
+
+
+    reviewContainer_Content.setAttribute("class","reviewContainer-Content");
+    reviewCard.setAttribute("class","reviewCard");
+    reviewInfoList.setAttribute("class","reviewInfoList");
+    reviewerName.setAttribute("class","reviewerName");
+    jobTitle.setAttribute("class","jobTitle");
+    reviewRating.setAttribute("class","reviewRating");
+    reviewDescription.setAttribute("class","reviewDescription");
+
+    reviewInfoList.appendChild(reviewerName)
+    reviewInfoList.appendChild(jobTitle)
+    reviewInfoList.appendChild(reviewRating)
+    reviewInfoList.appendChild(reviewDescription)
+
+    reviewCard.appendChild(reviewInfoList);
+    reviewContainer_Content.appendChild(reviewCard);
+
+    reviewContainer.appendChild(reviewContainer_Content)
+
+
+
+
+    
+
+  }
+
+}
+
+
+function setReviewDatas(dataArray){
+  var dataArray = dataArray;
+  var number = dataArray.length;
+
+  reviewerName = document.getElementsByClassName("reviewerName");
+  jobTitle= document.getElementsByClassName("jobTitle");
+  reviewRating= document.getElementsByClassName("reviewRating");
+  reviewDescription= document.getElementsByClassName("reviewDescription");
+
+
+  for(var i = 0; i<number; i++){
+    reviewerName[i].innerText = "Username: "+dataArray[i]['reviewerUserName'];
+    jobTitle[i].innerText = "Service: " + dataArray[i]['serviceID'];
+    reviewRating[i].innerText = "Ratings: 5*";
+    reviewDescription[i].innerText = "Feedback: "+dataArray[i]['feedback'];
+  }
+
+
+}

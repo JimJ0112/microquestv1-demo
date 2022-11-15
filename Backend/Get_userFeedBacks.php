@@ -5,7 +5,7 @@ $DBHandler = new DBHandler();
 
 
 $userID = $_POST['userID'];
-//$userID = 14;
+//$userID = 11;
 $categories = $DBHandler->getUserReviews($userID);
 
 if($categories === "failed to fetch"){

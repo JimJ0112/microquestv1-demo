@@ -344,6 +344,119 @@ public function getRow($tablename,$column,$condition,$orderby = null){
 }
 
 
+// check if user is reported
+public function checkUserReported($tablename,$column,$condition,$column1,$condition1){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    $column1 = mysqli_real_escape_string($this->dbconnection, $column1);
+    $condition1 = mysqli_real_escape_string($this->dbconnection, $condition1);
+    
+   
+
+        $query = "SELECT * FROM $tablename WHERE $column = $condition AND $column1 = '$condition1'";
+    
+
+    $result = mysqli_query($this->dbconnection, $query) or die;
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+        return true;
+        
+
+    } else {
+        return false;
+    }
+
+        
+  
+}
+
+
+// check if user is reported
+public function checkUserRestricted($tablename,$column,$condition,$column1,$condition1){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    $column1 = mysqli_real_escape_string($this->dbconnection, $column1);
+    $condition1 = mysqli_real_escape_string($this->dbconnection, $condition1);
+    
+   
+
+        $query = "SELECT * FROM $tablename WHERE $column = $condition AND $column1 = '$condition1'";
+    
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+function checkIfUserReported($userID){
+    $userID = $userID;
+
+
+        // check if user is reported
+        $tablename = "reportsinfo";
+        $column = "reportedAccountID";
+        $condition = $userID;
+        $column1 = "reportStatus";
+        $condition1 = "Banned";
+
+        $isBanned = $DBHandler->checkUserReported($tablename,$column,$condition,$column1,$condition1);
+               
+    
+        $tablename = "reportsinfo";
+        $column = "reportedAccountID";
+        $condition = $userID;
+        $column1 = "reportStatus";
+        $condition1 = "Restricted";
+
+    
+        $results =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
+
+        if($results !== "failed to fetch"){
+            $results = json_encode($results);
+            $results = json_decode($results,true);
+
+            $restrictDuration =  $results[0]['restrictDuration'];
+            $isRestricted = true;
+
+        } else {
+             $isRestricted = false;
+        }
+
+
+}
+
 // get Categories
 public function getCategories($tablename,$column,$condition,$groupby = null){
     $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);

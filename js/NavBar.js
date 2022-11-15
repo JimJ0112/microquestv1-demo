@@ -139,9 +139,19 @@ function getNotifications(id){
         if (this.readyState === 4 || this.status === 200){ 
             
             //var redDotOnNotification = document.getElementById("redDotOnNotification");
+            document.getElementById("navNotifs").innerHTML = "";
             var dataArray = this.response;
-            dataArray = JSON.parse(dataArray);
-            console.log(dataArray);
+
+            if(dataArray != "failed to fetch"){
+                dataArray = JSON.parse(dataArray);
+                //console.log(dataArray);
+                var number = dataArray.length;
+                createNotifElements(number);
+                setNotifData(dataArray);
+            } else {
+                //console.log(dataArray);
+            }
+
 
 
         }else{
@@ -162,7 +172,13 @@ function createNotifElements(number){
 
     for(var i = 0; i < number; i++){
 
-        div = document.createElement("div");
+        div = document.createElement("table");
+        tr = document.createElement("tr");
+        td = document.createElement("td");
+        td1 = document.createElement("td");
+
+
+
         logoContainer = document.createElement("div");
         ul = document.createElement("ul");
         notificationDate = document.createElement("li");
@@ -177,13 +193,17 @@ function createNotifElements(number){
         notificationDate.setAttribute("class","notificationDate");
         notificationDescription.setAttribute("class","notificationDescription");
         notificationStatus.setAttribute("class","notificationStatus");
+
+        td.appendChild(logoContainer);
        
         ul.appendChild(notificationDate);
         ul.appendChild(notificationDescription);
         ul.appendChild(notificationStatus);
 
-        div.appendChild(logoContainer);
-        div.appendChild(ul);
+        td1.appendChild(ul);
+
+        div.appendChild(td);
+        div.appendChild(td1);
 
         navNotifs.appendChild(div);
         navNotifs.appendChild(hr);
@@ -191,4 +211,84 @@ function createNotifElements(number){
 
 
     }
+}
+
+
+function setNotifData(dataArray){
+    var number = dataArray.length;
+    var navNotifs = document.getElementById("navNotifs");
+    notifContent = document.getElementsByClassName("notifContent");
+    logoContainer= document.getElementsByClassName("logoContainer");
+  
+    notificationDate= document.getElementsByClassName("notificationDate");
+    notificationDescription= document.getElementsByClassName("notificationDescription");
+    notificationStatus = document.getElementsByClassName("notificationStatus");
+
+    var redDotOnBellNotification = document.getElementById("redDotOnBellNotification");
+
+
+    for(var i = 0; i < number; i++){
+        notificationDate[i].innerText = dataArray[i]['notificationDate'];
+        notificationDescription[i].innerText = dataArray[i]['notificationDescription'];
+
+        if(dataArray[i]['notificationStatus'] === "Sent"){
+            notificationStatus[i].innerText = "mark as read";
+            redDotOnBellNotification.style.display = "inline";
+            notifContent[i].style.backgroundColor = "rgba(116, 114, 114, 0.25)";
+            notificationStatus[i].setAttribute("onclick","markAsRead(" + dataArray[i]['notificationID'] + ")");
+        }else{
+            notificationStatus[i].innerText="";
+            redDotOnBellNotification.style.display = "none";
+            notifContent[i].style.backgroundColor = "white";
+
+        }
+        
+        
+        if(dataArray[i]['notificationType'] === "Warning"){
+            var image = new Image();
+            image.src = "img/warning.png";
+            image.setAttribute("class","notificationTypeSymbolImage");
+            logoContainer[i].appendChild(image);
+        } else if(dataArray[i]['notificationType'] === "Message"){
+            var image = new Image();
+            image.src = "img/message.png";
+            image.setAttribute("class","notificationTypeSymbolImage");
+            logoContainer[i].appendChild(image);
+        } else{
+            var image = new Image();
+            image.src = "img/notification.png";
+            image.setAttribute("class","notificationTypeSymbolImage");
+            logoContainer[i].appendChild(image);
+        }
+
+
+    }
+}
+
+
+function markAsRead(id){
+    var id = id;
+    var xmlhttp = new XMLHttpRequest();
+
+    var query = "notifID=" + id;
+
+    //console.log("newMessageQuery: " + query);
+    
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+            
+            var dataArray = this.response;
+ 
+
+
+        }else{
+ 
+            console.log("loading...")
+        }      
+    };
+
+    xmlhttp.open("POST", "Backend/ReadNotification.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+
 }

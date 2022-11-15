@@ -77,8 +77,8 @@
 		</a>
 
 		<li class="Nav-item" id="Nav-notif"> 
+			<span id="redDotOnBellNotification"> • </span>
 			<img src="img/bellIcon.png" class="bellIcon" onclick="showNotifs()" id="bellIcon"/>
-			
 		</li>
 		
 		<span onclick='openNavMenu()'>

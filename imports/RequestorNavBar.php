@@ -73,11 +73,13 @@
 
 
 			<li class="Nav-item" id="Nav-notif"> 
+				<span id="redDotOnBellNotification"> • </span>
 					<img src="img/bellIcon.png" class="bellIcon" onclick="showNotifs()" id="bellIcon"/>
 			</li>
 	
 
 		<span onclick='openNavMenu()'>
+		
 			<li class="Nav-item" title="Me" id="userInfoNav">
 		
 			<table id="NavItemTable">

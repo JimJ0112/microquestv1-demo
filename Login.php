@@ -95,7 +95,7 @@ session_start();
 
 				<div id="FormControls">	
 
-					<label> EMAIL &nbsp or &nbsp USERNAME</label><br/>
+					<label> EMAIL &nbsp</label><br/>
 					<input type="text" class="Form-Input" name="email"> <br/> <br/> <br/>
 					<label> PASSWORD</label><br/>
 					<input type="password" class="Form-Input" name="password"> <br/>

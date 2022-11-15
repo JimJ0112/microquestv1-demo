@@ -119,21 +119,21 @@ session_start();
             <input type="hidden" name="requestCategory" id="requestCategory">
             <input type="hidden" name="datePosted" value="<?php $today ?>">
 
-            <label> Title of your request </label> <br/>
+            <label> Title: </label> <br/>
             <input type="text" name="requestTitle" required> <br/>
-            <label> How much do you offer for your request </label> <br/>
+            <label> Price: </label> <br/>
             <input type="number" name="requestExpectedPrice" required><br/>
 
-            <label> Is your expected price negotiable? </label> <br/>
+            <label> Negotiable: </label> <br/>
             <select name="isNegotiable" required> 
                 <option> Negotiable </option> 
                 <option> Not-negotiable </option> 
             </select>  <br/>
 
-            <label> Until when is your request available? </label> <br/>
+            <label> Due Date: </label> <br/>
             <input type="date" name="dueDate" min="<?php echo $today; ?>" max="" value="<?php echo $today;?>" required> <br/>
 
-            <label> More details about your request </label> <br/>
+            <label> More Detials: </label> <br/>
             <textarea name="requestDescription" rows="10" cols="50" required> </textarea> <br/>
 
 
@@ -157,24 +157,24 @@ session_start();
             <label> Sample picture of your requested product </label> <br/>
             <input type="file" name="productImage"required> <br/>
 
-            <label> Product name </label> <br/>
+            <label> Product name: </label> <br/>
             <input type="text" name="productName"required><br/>
-            <label> Product Brand </label> <br/>
+            <label> Product Brand: </label> <br/>
             <input type="text" name="productBrand"required><br/>
 
-            <label> How much do you offer for your request </label> <br/>
+            <label> Price: </label> <br/>
             <input type="number" name="requestExpectedPrice" required><br/>
 
-            <label> Is your expected price negotiable </label> <br/>
+            <label> Negotiable: </label> <br/>
             <select name="isNegotiable" required>
                 <option> Negotiable </option> 
                 <option> Not-negotiable </option> 
             </select>  <br/>
 
-            <label> Until when is your request available? </label> <br/>
+            <label> Due Date </label> <br/>
             <input type="date" name="dueDate" min="<?php echo $today; ?>" max="" value="<?php echo $today;?>" required> <br/>
 
-            <label> Additional Notes </label> <br/>
+            <label> More Details: </label> <br/>
             <textarea name="requestDescription" rows="10" cols="50" required></textarea> <br/>
 
             <input type="submit" value="Post"> <br/>
@@ -196,24 +196,24 @@ session_start();
                 date_default_timezone_set("Asia/Manila");
                 echo date("Y-m-d H:i:s",time());?>">
 
-            <label> What category does your request fit in? </label> <br/>
+            <label> Category </label> <br/>
             <input type="text" name="requestCategory" required> <br/>
             <label> Title of your request </label> <br/>
             <input type="text" name="requestTitle" required> <br/>
             <label> How much do you offer for this request </label> <br/>
             <input type="number" name="requestExpectedPrice" required> <br/>
 
-            <label> Is your offer negotiable?  </label> <br/>
+            <label> Negotiable  </label> <br/>
             <select name="isNegotiable" required>
                 <option value="Negotiable"> Negotiable </option> 
                 <option value="Not-negotiable"> Not-negotiable </option> 
             </select>   <br/>
 
-            <label> Until when is your request available? </label> <br/>
+            <label> Due Date:  </label> <br/>
 
             <input type="date" name="dueDate" min="<?php echo $today; ?>" max="" value="<?php echo $today;?>" required> <br/>
 
-            <label> More details about your request </label> <br/>
+            <label> More Details </label> <br/>
             <textarea name="requestDescription" rows="10" cols="50" required></textarea> <br/>
 
 

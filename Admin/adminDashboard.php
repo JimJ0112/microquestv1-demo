@@ -30,121 +30,49 @@ session_start();
 </head>
 <body>
     <!-- Nav -->
-<!--
 
-        <div id="NavBar">
-            <ul id="NavBar_Contents">
-                <li class="navItem" id="HamburgerContainer"> 
-                    <div id="HamburgerButton" onclick="showNavMenu()">
-                        <div class="HamburgerButton_Div"> </div>
-                        <div class="HamburgerButton_Div"> </div>
-                        <div class="HamburgerButton_Div"> </div>
-                    </div>
-                </li>
-
-                <li class="navItem"> <img src="img/logo.png" id="Nav-Logo" title="Home"> </li>
-
-               <li class="navItem" id="adminName" onclick="showProfileDropDown()">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="img/profile-icon-9.png" id="adminPhoto">
-                            </td>
-                            <td>
-
-				                <?php
-				                    if(isset( $_SESSION["microquest_AdminUsername"])){
-
-						            $username = $_SESSION["microquest_AdminUsername"];
-						            $usertype = $_SESSION["microquest_AdminType"];
-			
-
-						            echo "<b> $username </b> <br/>";
-						            echo " <span style='font-weight: lighter; font-size:small;'> $usertype </span>";
-					                }
-				                ?>
-                            </td>
-                        </tr>
-                    </table>
-			    </li>
-                
-                
-
-            </ul>
-        </div>
-
-        <ul id="profileDropdown" style="display: none;";> 
-            <li> Settings </li>
-            <a href="backend/Logout.php"> <li> Log out </li> </a>
-            
-
-        </ul>
-
-        
-  
-
-
-    <div id="NavMenu">
-        <table>
-            <tr>
-                <td>
-                    <div id="HamburgerButton" onclick="hideNavMenu()">
-                        <div class="HamburgerButton_Div"> </div>
-                        <div class="HamburgerButton_Div"> </div>
-                        <div class="HamburgerButton_Div"> </div>
-                    </div>
-                </td>
-
-                <td id="NavMenuLogoContainer">
-                    <center>
-                        <img src="img/logo.png" id="NavMenuLogo" title="Home"> 
-                    </center>
-                
-                </td>
-            </tr>
-        </table>
-
-
-            <ul id="NavMenu_Contents">
-
-                <li onclick="getRequestors()"> Approve Requestors</li>
-                <li onclick="getResponders()"> Approve Responders</li>
-                <li onclick="getAllReports()"> Show Reports </li>
-
-                <?php
-
-/*
-                   $adminType= $_SESSION["microquest_AdminType"];
-
-                   if($adminType === "Super Admin"){
-                        echo "<li> Create Admin Account </li>";
-                   } else {
-
-                   }
-*/
-                
-                ?>
-
-            </ul>
-    </div>
-                -->
 
     <?php
-                
+           
+        /*
 	    if(isset($_SESSION["userType"])){
 		    $userType = $_SESSION["userType"];
 
 			require_once("imports/adminNav.php");
 
 	    }
-    
+        */
+        require_once("imports/adminNav.php");
+
     ?>
     <div id="DashBoardContent">
+
+    <!--
+        <div id="usersContainer">
+            <div id="Users">
+            <table id="usersTable">
+                <tr>
+                    <td id="usersTotal"><span id="totalUsers">toal</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <span id="totalRequestors">requestors</span>
+                        <span id="totalResponders">responders</span>
+                    </td>
+                </tr>
+            </table>
+        </div>        
+    -->      
                     <table id="DashBoardContent_Table">
+
                         <img src="../img/logo.png" id="loadingImage"/>
+
+
                         <thead id="DashBoardContent_TableHead"> 
                         </thead>
+
                         <tbody id="DashBoardContent_TableBody"> </tbody>
+
                     </table>
 
     </div>

@@ -14,14 +14,44 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     $dbPassword = $DBHandler ->getData("userprofile","userEmail",$email,"userPassword");
     $dbPasswordUserName = $DBHandler ->getData("userprofile","userName",$email,"userPassword");
 
-    //$dbPasswordString = password_hash($dbPassword, PASSWORD_DEFAULT);
-    //echo password_verify("qwerty",$dbPassword);
+  
 
 
-    //$verify = $DBHandler->verifyuser($email,$password);
     $exists = $DBHandler->exists("userprofile","userEmail",$email);
     $existsUserName = $DBHandler->exists("userprofile","userName",$email);
-    //$verifyPass = password_verify($hashString,$dbPasswordString);
+   
+
+
+    // check if user is banned
+    $userID = $DBHandler ->getData("userprofile","userEmail",$email,"UserID");
+
+    $tablename = "reportsinfo";
+    $column = "reportedAccountID";
+    $condition =  $userID;
+    $column1 = "reportStatus";
+    $condition1 = "Banned";
+    echo $isBanned = $DBHandler->checkUserReported($tablename,$column,$condition,$column1,$condition1);
+                      
+    
+
+    // check if restricted
+
+
+    $condition1 = "Restricted";
+
+
+    $results =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
+
+    if($results !== "failed to fetch"){
+        $results = json_encode($results);
+        $results = json_decode($results,true);
+
+        $restrictDuration =  $results[0]['restrictDuration'];
+        echo $isRestricted = true;
+
+    } else {
+       echo $isRestricted = false;
+    }
 
     
     //echo $verifyPass;
@@ -43,18 +73,21 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         echo "pass incorrect \n";
     }
 
+
+
     if($verifyAccount === true && $verifyPass === true){
         $verify = true;
         echo "verified";
-    } else{
+    }else{
         $verify = false;
         echo "not verified";
     }
 
 
+
     
 
-    if($verify){
+    if($verify && $isBanned === false && $isRestricted === false){
         $test = $DBHandler ->getData("userprofile","userEmail",$email,"UserID");
 
         if($test != "failed to fetch"){
@@ -80,6 +113,17 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             $_SESSION["municipality"] = $municipality;
             $_SESSION["baranggay"] = $baranggay;
             $_SESSION['specialization'] = $specialization;
+
+
+            if($usertype ==="Responder"){
+
+                header("location: ../Responder_RequestBoard.php");
+
+            } else if($usertype ==="Requestor"){
+                header("location: ../Requestor_AvailableServices.php");
+
+            }
+
         } else{
             $userID = $DBHandler ->getData("userprofile","userName",$email,"UserID");
             $useremail = $DBHandler ->getData("userprofile","userName",$email,"userEmail");
@@ -102,27 +146,36 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             $_SESSION["municipality"] = $municipality;
             $_SESSION["baranggay"] = $baranggay;
             $_SESSION['specialization'] = $specialization;
+
+            if($usertype ==="Responder"){
+
+                header("location: ../Responder_RequestBoard.php");
+
+            } else if($usertype ==="Requestor"){
+                header("location: ../Requestor_AvailableServices.php");
+
+            }
+
         }
 
 
 
-        //$_SESSION["approvalstatus"] = $approvalstatus;
-        //header("location: ../User_Profile.php");
+    } else if($isBanned === true && $isRestricted === false){
+        header("location: ../Login.php?msg=Your Account has been banned");
 
-        if($usertype ==="Responder"){
+    } else if($isBanned === false && $isRestricted === true){
+        header("location: ../Login.php?msg=Your Account has been Restricted for $restrictDuration days");
 
-            
-            header("location: ../Responder_RequestBoard.php");
-        } else if($usertype ==="Requestor"){
-            header("location: ../Requestor_AvailableServices.php");
-        }
+    }else if($isBanned === true && $isRestricted === true){
+        header("location: ../Login.php?msg=Your Account has been banned");
 
-    } else {
-        header("location: ../Login.php?msg= Login Failed!");
+    }else{
+        header("location: ../Login.php?msg= Username or password incorrect!");
     }// end of inner if
 
 } else {
-    header("location: ../Login.php?msg= Login Failed!");
+    header("location: ../Login.php?msg= Not isset!");
+
 }
 
 

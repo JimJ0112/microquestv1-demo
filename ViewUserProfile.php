@@ -45,7 +45,8 @@ session_start();
         $userID = $_GET["userID"];
         $userType = $_GET["userType"];
 
-        echo"<script> getUserInfo($userID,'$userType');</script> ";
+               
+              echo"<script> getUserInfo($userID,'$userType');</script> ";
     }
 ?>
 
@@ -190,6 +191,11 @@ session_start();
 
 </div>  
 
+
+<?php
+    echo"<script> getUserReviews($userID) </script>";
+
+?>
 <script src="js/ViewUserProfile.js"> </script>
 
 </body>
