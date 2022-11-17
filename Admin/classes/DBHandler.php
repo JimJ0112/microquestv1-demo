@@ -16,21 +16,22 @@ function __construct(){
     
     /* Localhost connection */
     
-    //*
+    /*
     $this->dbservername = "localhost:3307";
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "microquestdbv2";
-    //*/
+    */
 
-    /* remote database connection */
+
     
-    /* 
-    $this->dbservername = "remotemysql.com";
-    $this->dbusername = "Ze2pK93XLv";
-    $this->dbpassword = "ytsYYcZNGw";
-    $this->dbname = "Ze2pK93XLv";
-   //*/
+    
+    /* remote database connection 2 */
+    $this->dbservername = "containers-us-west-126.railway.app:5950";
+    $this->dbusername = "root";
+    $this->dbpassword = "1u9IP95GW0pSguFi9Eam";
+    $this->dbname = "railway";
+
     
 
     $this-> dbconnection = mysqli_connect($this->dbservername,$this->dbusername,$this->dbpassword,$this->dbname);
