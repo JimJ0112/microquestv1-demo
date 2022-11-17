@@ -32,7 +32,9 @@ http://www.tooplate.com/view/2100-artist
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
 <!-- Navbar -->
-<?php //require_once("imports/GuestNavBar.php");?>
+
+<!-- hehehe kinabit ko lang to, pwede tanggalinn if may usto palitann -->
+<?php require_once("imports/GuestNavBar.php");?>
 
 <!-- PRE LOADER -->
 <div class="preloader">
