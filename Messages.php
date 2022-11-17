@@ -185,7 +185,7 @@ if(isset($_SESSION["userName"])){
 
 			<div id="messageSendPhotoBack"> 
 				<div id="messageSendPhoto">
-						<form action="backend/insertPhotoMessage.php" method="post" enctype="multipart/form-data" target="votar" id="messageSendPhotoForm">
+						<form action="Backend/insertPhotoMessage.php" method="post" enctype="multipart/form-data" target="votar" id="messageSendPhotoForm">
 							<div id="closeImage" onclick="closeMessageSendPhotoBack()"> ✕ </div>
             				<input type="hidden" name="senderID"  value="<?php echo $_SESSION["userID"]?>">
             				<input type="hidden" name="recieverID" id="sendPhotoRecieverID">
