@@ -1735,21 +1735,35 @@ public function getUserMessages($ID,$groupBy=null){
    if(isset($groupBy)){
 
 
+    /*
         $query = "select $tablename.*,sender.userID, sender.userPhoto as senderUserPhoto, sender.userName as senderUserName,reciever.userID, reciever.userPhoto as recieverUserPhoto, reciever.userName as recieverUserName 
         FROM $tablename
         INNER JOIN userprofile as sender ON(sender.userID = conversations.senderID) 
         INNER JOIN userprofile as reciever ON(reciever.userID = conversations.recieverID) 
         WHERE (senderID = $ID OR recieverID = $ID ) ORDER BY latestMessageDate DESC;";
+    */
+        $query = "select $tablename.*,sender.userID, sender.userPhoto as senderUserPhoto, sender.userName as senderUserName,reciever.userID, reciever.userPhoto as recieverUserPhoto, reciever.userName as recieverUserName 
+        FROM $tablename
+        INNER JOIN userprofile as sender ON(sender.userID = conversations.senderID) 
+        INNER JOIN userprofile as reciever ON(reciever.userID = conversations.recieverID) 
+        WHERE (senderID = $ID OR recieverID = $ID )";
 
    } else {
 
 
+    /*
         $query = "select $tablename.*,sender.userID, sender.userPhoto as senderUserPhoto, sender.userName as senderUserName,reciever.userID, reciever.userPhoto as recieverUserPhoto, reciever.userName as recieverUserName 
         FROM $tablename
         INNER JOIN userprofile as sender ON(sender.userID = conversations.senderID) 
         INNER JOIN userprofile as reciever ON(reciever.userID = conversations.recieverID) 
         WHERE (senderID = $ID OR recieverID = $ID ) ORDER BY latestMessageDate DESC;";
-        
+    */
+
+    $query = "select $tablename.*,sender.userID, sender.userPhoto as senderUserPhoto, sender.userName as senderUserName,reciever.userID, reciever.userPhoto as recieverUserPhoto, reciever.userName as recieverUserName 
+    FROM $tablename
+    INNER JOIN userprofile as sender ON(sender.userID = conversations.senderID) 
+    INNER JOIN userprofile as reciever ON(reciever.userID = conversations.recieverID) 
+    WHERE (senderID = $ID OR recieverID = $ID )";
    }
 
     $result = mysqli_query($this->dbconnection, $query);
