@@ -1,0 +1,50 @@
+#NavBar{
+
+	color: white;
+	padding-top:0;
+	list-style: none;
+	display: inline;
+	width: 90%;
+
+	text-align: center;
+	position: absolute;
+	left: 50px;
+	overflow: hidden;
+	z-index: 100;
+	overflow: hidden;
+
+}
+
+#NavContainer{
+	position: absolute;
+
+	width: 100%;
+	display: grid;
+	overflow: hidden;
+	top:0;
+	background-color: rgb(22, 8, 2);
+	z-index: 18;
+
+}
+
+#Nav-Logo{
+	width: 100px;
+	height: 50px;
+	margin: 0;
+	margin-left: 0;
+	float: left;
+	margin: 10px;
+	margin-top: 0;
+	cursor: pointer;
+	z-index: 5;
+}
+
+#userInfoNav{
+        float: right;
+        margin: auto;
+        padding: 10px;
+        cursor: pointer;
+        color: yellow;
+        background-color: rgb(47, 30, 13);
+        margin-top: 10px;
+}
