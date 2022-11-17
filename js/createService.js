@@ -191,7 +191,7 @@ function getServices(){
     var xmlhttp = new XMLHttpRequest();
     selectOthers();
 
-    xmlhttp.open("POST", "Backend/Get_otherServices.php", true);
+    xmlhttp.open("POST", "Backend/Get_otherservices.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
