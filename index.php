@@ -4,7 +4,7 @@
 
 <meta charset="UTF-8">
 
-<title>Artist - Minimal HTML Portfolio</title>
+<title>About - microQuest</title>
 
 <!--
 
@@ -34,7 +34,7 @@ http://www.tooplate.com/view/2100-artist
 <!-- Navbar -->
 
 <!-- hehehe kinabit ko lang to, pwede tanggalinn if may usto palitann -->
-<?php require_once("imports/GuestNavBar.php");?>
+<?php //require_once("imports/GuestNavBar.php");?>
 
 <!-- PRE LOADER -->
 <div class="preloader">
@@ -68,7 +68,7 @@ http://www.tooplate.com/view/2100-artist
           <div class="row">
 
                <div class="col-md-4 col-sm-8">
-                    <img src="images/about-image.jpg" class="wow fadeInUp img-responsive" data-wow-delay="0.2s" alt="about image">
+                    <img src="img/home  .jpg" class="wow fadeInUp img-responsive" data-wow-delay="0.2s" alt="about image">
                     <div class="wow fadeInUp" data-wow-delay="0.4s">
                          <h4>Interested to Work?</h4>
                          <p>Sed varius augue nec pharetra scelerisque. Maecenas sapien ex, rutrum sit amet dapibus eu, tincidunt vitae nulla.</p>
@@ -101,7 +101,7 @@ http://www.tooplate.com/view/2100-artist
                <div class="col-md-12 col-sm-12">
                     <!-- SECTION TITLE -->
                     <div class="wow fadeInUp section-title" data-wow-delay="0.2s">
-                         <h2>Work Collection</h2>
+                         <h2>Job Offers</h2>
                          <p>Morbi sit amet erat ullamcorper, varius erat at, vehicula massa. Phasellus vel vestibulum purus. Sed id sollicitudin ex, id eleifend purus. Nulla id fermentum nisl, vel tincidunt orci. Curabitur tristique ante non malesuada dignissim. Pellentesque id odio vitae enim efficitur ornare a non metus.</p>
                     </div>
                </div>
@@ -109,21 +109,21 @@ http://www.tooplate.com/view/2100-artist
                <div class="wow fadeInUp col-md-3 col-sm-6" data-wow-delay="0.4s">
                     <!-- WORK THUMB -->
                     <div class="work-thumb">
-                         <a href="images/work-1.jpg" class="image-popup">
-                              <img src="images/work-1.jpg" class="img-responsive" alt="Fine Arts">
+                         <a href="img/com.png" class="image-popup">
+                              <img src="img/com.png" class="img-responsive" alt="Fine Arts">
                          </a>
                     </div>
-                    <h4>Fine Arts</h4>
+                    <h4>Computer Related</h4>
                </div>
 
                <div class="wow fadeInUp col-md-3 col-sm-6" data-wow-delay="0.6s">
                     <!-- WORK THUMB -->
                     <div class="work-thumb">
-                         <a href="images/work-2.jpg" class="image-popup">
-                              <img src="images/work-2.jpg" class="img-responsive" alt="Logo Design">
+                         <a href="img/home.jpg" class="image-popup">
+                              <img src="img/home.jpg" class="img-responsive" alt="Logo Design">
                          </a>
                     </div>
-                    <h4>Logo Design</h4>
+                    <h4>Home Service</h4>
                </div>
 
                <div class="wow fadeInUp col-md-3 col-sm-6" data-wow-delay="0.8s">
@@ -196,27 +196,29 @@ http://www.tooplate.com/view/2100-artist
         <div class="row">
 
                <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.2s">
-                    <h4>Artist Digital Studio</h4>
-                    <p>Curabitur quis volutpat elit. Proin sed sagittis arcu, non tristique libero. Quisque lobortis nibh eu nisi sodales gravida.</p>
+                    <h4>MicroQuest</h4>
+                    <p>Web application that can be used as a job and service finder that will help users with their specific needs.</p>
                </div>
 
                <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.4s">
                     <div class="support-cus">
-                         <h4>Reach Out</h4>
-                         <p>456 Old Street, New City, ASIA</p>
+                         <h4>Address</h4>
+                         <p>Hindi mahanap hanap street</p>
                     </div>
                     <div class="support-cus">
                          <h4>Contact Info</h4>
-                         <p><a href="#">hello@company.com</a></p>
-                         <p>Tel: 010-020-0890</p>
+                         <p><a href="#">microquestteam@gmail.com</a></p>
+                         <p>Tel: 09123456789</p>
                     </div>
                </div>
 
                <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="0.6s">
-                    <h4>Newsletter</h4>
-                    <form class="newsletter" action="#" method="get">
-                         <input name="email" type="email" class="form-control" id="email" placeholder="Your Email Address">
-                         <button name="submit" value="sign-up" class='form-control'>Sign Up</button>
+                    <h4>Sign Up Now! </h4>
+                    <form class="newsletter" action="ChooseAccountType.php" method="get" target="ChooseAccountType.php">
+                         
+                         <a href="ChooseAccountType.php">
+                              <button name="submit" value="sign-up" class='form-control'>Sign Up</button>
+                         </a>
                     </form>
                </div>
 
@@ -225,9 +227,9 @@ http://www.tooplate.com/view/2100-artist
                </div>
 
                <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.8s">
-                    <p class="copyright-text">Copyright © 2018 Company Name 
+                    <p class="copyright-text">Copyright © 2022 MicroQuest 
                     
-                    . Design: <a rel="nofollow" href="https://www.tooplate.com" title="HTML Templates">Tooplate</a></p>
+                     <a rel="nofollow" href="https://www.tooplate.com"></a></p>
                </div>
 
                <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1s">
@@ -235,7 +237,6 @@ http://www.tooplate.com/view/2100-artist
                          <li><a href="#" class="fa fa-facebook"></a></li>
                          <li><a href="#" class="fa fa-twitter"></a></li>
                          <li><a href="#" class="fa fa-instagram"></a></li>
-                         <li><a href="#" class="fa fa-behance"></a></li>
                          <li><a href="#" class="fa fa-github"></a></li>
                     </ul>
                </div>

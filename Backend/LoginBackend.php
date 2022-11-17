@@ -3,7 +3,8 @@ session_start();
 include '../Classes/DBHandler.php';
 $DBHandler = new DBHandler();
 
-
+date_default_timezone_set("Asia/Manila");
+$today =  date("Y-m-d"); 
 
 if(isset($_POST["email"]) && isset($_POST["password"])){
 

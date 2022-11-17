@@ -16,12 +16,12 @@ function __construct(){
     
     /* Localhost connection */
     
-    /*
+ 
     $this->dbservername = "localhost:3307";
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "microquestdbv2";
-    */
+   
 
     /* remote database connection */
     
@@ -33,11 +33,12 @@ function __construct(){
    */
 
   /* remote database connection 2 */
+  /*
     $this->dbservername = "containers-us-west-126.railway.app:5950";
     $this->dbusername = "root";
     $this->dbpassword = "1u9IP95GW0pSguFi9Eam";
     $this->dbname = "railway";
-    
+  */
 
     $this-> dbconnection = mysqli_connect($this->dbservername,$this->dbusername,$this->dbpassword,$this->dbname);
  
@@ -1028,8 +1029,8 @@ public function getOtherServices(){
 // 09/06/2022 1:28am nilagyan ko muna ng servicesinfo.serviceStatus = 'Active', not sure if that's a good idea tho
    
 
-    //$query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active' GROUP BY serviceCategory";
-    $query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active'";
+    $query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active' GROUP BY serviceCategory";
+    //$query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active'";
 
 
     $result = mysqli_query($this->dbconnection, $query);
@@ -1763,7 +1764,7 @@ public function getUserMessages($ID,$groupBy=null){
     FROM $tablename
     INNER JOIN userprofile as sender ON(sender.userID = conversations.senderID) 
     INNER JOIN userprofile as reciever ON(reciever.userID = conversations.recieverID) 
-    WHERE (senderID = $ID OR recieverID = $ID )";
+    WHERE (senderID = $ID OR recieverID = $ID ) ORDER BY latestMessageDate DESC";
    }
 
     $result = mysqli_query($this->dbconnection, $query);

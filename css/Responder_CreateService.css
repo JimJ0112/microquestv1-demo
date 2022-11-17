@@ -424,3 +424,9 @@ ul{
 #otherServiceNavItem{
 	border-radius: 10px;
 }
+
+
+.enterNone{
+	font-size: small;
+	font-family: Arial, Helvetica, sans-serif;
+}

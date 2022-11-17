@@ -86,14 +86,20 @@ session_start();
 
                 <tr class="home_computerRelated_Tr">
                     <td class="home_computerRelated_Td column1_td">Training/Certificate:&nbsp</td>
-                    <td> <input type="text" name="certification">  </td> <br/>
+                    <td> 
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span>
+                        <span class="enterNone"> Enter "none" if not applicable </span> 
+                        <input type="text" name="certification" Required>  
+                    </td> 
+                    <br/>
                 </tr>
 
                 <tr class="home_computerRelated_Tr column1_td">
                     <td class="home_computerRelated_Td">Training/Certificate File:&nbsp </td>
                     <td><input type="file" name="certificateFile"></td><br/>
                 </tr>
-        
+
+                
             </table>
             <br/> <br/> <br/> <br/>
         <input type="submit"/>
@@ -181,7 +187,7 @@ session_start();
                 <tr>
                     <td class="column1_td"> Service: </td>
                     <td> 
-                        <input type="text" name="servicePosition"/>
+                        <input type="text" name="servicePosition" Required/>
                         <span class="asteriskRequiredField" title="This Field is Required"> * </span>
                     </td>
                 </tr>
@@ -189,26 +195,31 @@ session_start();
                 <tr>
                     <td class="column1_td"> Rate </td>
                     <td> 
-                        <input type="number" name="rate"> 
+                        <input type="number" name="rate" Required> 
                         <span class="asteriskRequiredField" title="This Field is Required"> * </span>
                     </td> 
                 </tr>
 
                 <tr>
                     <td class="column1_td">Training/Certificate</td>
-                    <td> <input type="text" name="certification"> </td> 
+                    
+                    <td> 
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span>
+                        <span class="enterNone"> Enter "none" if not applicable </span> 
+                        <input type="text" name="certification" Required> 
+                    </td> 
                 </tr>
 
                 <tr>
                     <td class="column1_td">Training/Certificate File </td>
                     <td> <input type="file" name="certificateFile"> </td>
                 </tr>
-                <!--
+                
                 <tr>
                     <td>Banner Image </td>
                     <td> <input type="file" name="bannerImage" accept="image/*"> </td>
                 </tr>
-                -->
+                
             </table>
 
             <input type="submit"/>

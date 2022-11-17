@@ -16,7 +16,13 @@ if(isset($_POST["formType"])){
     $servicePosition=$_POST["servicePosition"];
     $rate = $_POST["rate"];
     $certification=$_POST["certification"];
-    $certificateFile=file_get_contents($_FILES["certificateFile"]["tmp_name"]);
+
+    if(is_uploaded_file($_FILES["certificateFile"]["tmp_name"])){
+        $certificateFile=file_get_contents($_FILES["certificateFile"]["tmp_name"]);
+    }else{
+        $certificateFile = "none";
+    }
+    
 
     
     /*
@@ -98,7 +104,11 @@ if(isset($_POST["formType"])){
 
 
     } else if($formType === "otherCategories"){
-        $bannerImage = file_get_contents($_FILES['bannerImage']["tmp_name"]);
+        if(is_uploaded_file($_FILES['bannerImage']["tmp_name"])){
+            $bannerImage = file_get_contents($_FILES['bannerImage']["tmp_name"]);
+        } else {
+            $bannerImage = "none";
+        }
         echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$bannerImage);
         echo $DBHandler-> registerCategory($serviceCategory,$servicePosition);
         
