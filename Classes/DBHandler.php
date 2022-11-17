@@ -925,7 +925,9 @@ public function getServices($tablename,$column,$condition,$orderby = null){
     
    
     if(isset($orderby)){
-        $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'  GROUP BY $orderby";
+       // $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'  GROUP BY $orderby";
+       $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'";
+    
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
     }
@@ -975,7 +977,9 @@ public function getServicesForSpecialization($tablename,$column,$condition,$orde
     
    
     if(isset($orderby)){
-        $query = "SELECT * FROM $tablename WHERE $column = '$condition' GROUP BY $orderby";
+       // $query = "SELECT * FROM $tablename WHERE $column = '$condition' GROUP BY $orderby";
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
+
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
     }
@@ -1024,8 +1028,8 @@ public function getOtherServices(){
 // 09/06/2022 1:28am nilagyan ko muna ng servicesinfo.serviceStatus = 'Active', not sure if that's a good idea tho
    
 
-    $query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active' GROUP BY serviceCategory";
-    //$query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active'";
+    //$query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active' GROUP BY serviceCategory";
+    $query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active'";
 
 
     $result = mysqli_query($this->dbconnection, $query);
