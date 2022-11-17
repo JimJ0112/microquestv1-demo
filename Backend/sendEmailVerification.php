@@ -33,13 +33,13 @@ $mail->Port = 465;                          // TCP port to connect to
 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
 /* set email  */
-$recipient = $_POST['userEmail'];
-//$recipient = "jimmanrique12@gmail.com";
+//$recipient = $_POST['userEmail'];
+$recipient = "jimmanrique12@gmail.com";
 
 $subject = "microQuest verification code";
 
-$code = $_POST['code'];
-//$code = "11111";
+//$code = $_POST['code'];
+$code = "11111";
 
 
 
