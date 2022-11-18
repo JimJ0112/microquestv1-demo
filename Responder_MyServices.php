@@ -146,85 +146,85 @@
 	<table id="myServiceViewTable">
 		
 		<tr>
-			<td>
+			<td class="serviceFirstRow">
 				<b>
 					ID
 				</b>
 			</td>
 
-			<td id="serviceIDViewContainer">
+			<td class="serviceSecondRow" id="serviceIDViewContainer">
 				serviceID
 			</td>
 		</tr>
 
 		<tr>
-			<td>
+			<td class="serviceFirstRow">
 				<b>
 					Category
 				</b>
 			</td>
 
-			<td id="serviceCategoryViewContainer">
+			<td class="serviceSecondRow" id="serviceCategoryViewContainer">
 				serviceCategory
 			</td>
 		</tr>
 
 		<tr>
-			<td>
+			<td class="serviceFirstRow">
 				<b>
 					Service
 				</b>
 			</td>
 
-			<td id="servicePositionViewContainer">
+			<td class="serviceSecondRow" id="servicePositionViewContainer">
 				servicePosition
 			</td>
 		</tr>
 		
 		<tr>
-			<td>
+			<td class="serviceFirstRow">
 				<b>
 					Rate
 				</b>
 			</td>
 
-			<td id="rateViewContainer">
+			<td class="serviceSecondRow" id="rateViewContainer">
 				rate
 			</td>
 		</tr>
 
 		<tr>
-			<td>
+			<td class="serviceFirstRow">
 				<b>
 					Certification
 				</b>
 			</td>
 
-			<td id="certificationViewContainer">
+			<td class="serviceSecondRow" id="certificationViewContainer">
 				certification
 			</td>
 		</tr>
 
 		<tr>
-			<td>
+			<td class="serviceFirstRow">
 				<b>
 					Certificate File
 				</b>
 			</td>
 
-			<td id="certificateFileViewContainer">
+			<td class="serviceSecondRow" id="certificateFileViewContainer">
 				certificateFile
 			</td>
 		</tr>
 
 		<tr>
-			<td>
+			<td class="serviceFirstRow">
 				<b>
 					Status
 				</b>
 			</td>
 
-			<td id="serviceStatusViewContainer">
+			<td class="serviceSecondRow" id="serviceStatusViewContainer">
 				serviceStatus
 			</td>
 		</tr>
@@ -236,62 +236,62 @@
 			<table id="myServiceViewForm"> 
 				
 				<tr>
-					<td>
+					<td class="serviceFirstRow">
 						<b>
 							ID
 						</b>
-					</td>
+					</td >
 
-					<td id="ServiceFormID">
+					<td class="serviceSecondRow" id="ServiceFormID">
 						
 					</td>
 					<input type = "hidden" name="serviceID" id="serviceIDHidden"/>
 				</tr>
 
 				<tr>
-					<td>
+					<td class="serviceFirstRow">
 						<b>
 							Category
 						</b>
 					</td>
 
-					<td>
+					<td class="serviceSecondRow">
 						<input type="text" name="category" id="ServiceFormCategory" required/>
 					</td>
 				</tr>
 
 				<tr>
-					<td>
+					<td class="serviceFirstRow">
 						<b>
 							Service
 						</b>
 					</td>
 
-					<td>
+					<td class="serviceSecondRow">
 						<input type="text" name="position" id="ServiceFormPosition" required/>
 					</td>
 				</tr>
 				
 				<tr>
-					<td>
+					<td class="serviceFirstRow">
 						<b>
 							Rate
 						</b>
 					</td>
 
-					<td >
+					<td  class="serviceSecondRow">
 						<input type="text" name="rate" id="ServiceFormRate" required/>
 					</td>
 				</tr>
 
 				<tr>
-					<td>
+					<td class="serviceFirstRow">
 						<b>
 							Status
 						</b>
 					</td>
 
-					<td>
+					<td class="statusTD">
 						<input type="button" name="" id="ServiceFormStatus" required/>
 					</td>
 				</tr>

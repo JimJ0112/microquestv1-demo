@@ -83,22 +83,22 @@
       
             <Table class="transactionTable">
                 <tr>
-                    <td>
+                    <td class="transactionFirstRow">
                         <label> Category </label>
                     </td>
 
-                    <td>
+                    <td class="transactionSecondRow">
                         <input type="text" name="category" id="Category" readonly>
                     </td>
                 </tr>
         
 
                 <tr>
-                    <td>
+                    <td class="transactionFirstRow">
                         <label> Service </label> 
                     </td>
 
-                    <td>
+                    <td class="transactionSecondRow">
                         <input type="text" name="position" id="Position" readonly> <br/>
                     </td>
 
@@ -106,33 +106,33 @@
 
 
                 <tr>
-                    <td>
+                    <td class="transactionFirstRow">
                         <label> Responder ID </label> 
                     </td>
 
-                    <td>
+                    <td class="transactionSecondRow">
                         <input type="text" name="responderID" id="responderID" readonly> 
                     </td>
 
                 </tr>
 
                 <tr>
-                    <td>
+                    <td class="transactionFirstRow">
                         <label> Price(Php) </label> 
                     </td>
 
-                    <td>
+                    <td class="transactionSecondRow">
                          <input type="text" name="servicePrice" id="servicePrice" readonly> 
                     </td>
 
                 </tr>
 
                 <tr>
-                    <td>
+                    <td class="transactionFirstRow">
                         <label> Select Date </label>
                     </td>
 
-                    <td>
+                    <td class="transactionSecondRow">
                         <?php
                             date_default_timezone_set("Asia/Manila");
                             $today = date("Y-m-d");
@@ -145,11 +145,11 @@
                 </tr>
 
                 <tr>
-                    <td>
+                    <td class="transactionFirstRow">
                         <label> Time Slot </label> <br/>
                     </td>
 
-                    <td>
+                    <td class="transactionSecondRow">
 
                         <select id="responderTimeSlots" name="responderTimeSlots" onchange="availableTimeSlots()" required>
                             <option default hidden> Choose time</option>
@@ -169,18 +169,21 @@
                 </tr>
 
                 <tr>
-                    <td>
+                    <td class="transactionFirstRow">
                         <label> Additional Notes </label>
                     </td>
 
-                    <td>
+                    <td class="transactionSecondRow">
 
-                        <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()" cols="30" rows="5"></textarea> <br/><br/>
+                        <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()" cols="30" rows="5"></textarea> 
                     </td>
 
                 </tr>
                 
+                
                 </table>
+
+                <br/><br/>
 
                     <a href="#" onclick="showContract()">Terms and Conditions </a> <br/> <br/>
                     <input type="hidden" name="contract" id="contractInput"/>
@@ -189,7 +192,7 @@
                     <br/> <br/>
                 
  
-                <input type="submit" value="Confirm">
+                <input type="submit" value="Confirm" class="confirmButton">
 
             </form>
 

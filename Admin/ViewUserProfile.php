@@ -1,9 +1,8 @@
 <?php 
 session_start();
-    if(!isset($_SESSION["userEmail"])){
-        header("location:Login.php?msg=Please Login First");
+    if(!isset($_SESSION["microquest_AdminUsername"])){
+        header("Location:Login.php");
     }
-
      
 ?>
 <!DOCTYPE html>
@@ -28,7 +27,7 @@ session_start();
 <?php
 	
 
-	if(isset($_SESSION["userType"])){
+	if(isset($_SESSION["microquest_AdminUsername"])){
 		$userType = $_SESSION["userType"];
 
 			require_once("imports/adminNav.php");

@@ -1,0 +1,101 @@
+/*Local Font Styles */
+
+
+@font-face {
+	font-family: "OPTICopperplate-Heavy";
+	src: url("../fonts/OPTICopperplate-Heavy.otf");
+
+}
+
+@font-face {
+	font-family: "Retroking";
+	src: url("../fonts/Retroking.ttf");
+
+}
+
+@font-face {
+	font-family: "Palatino Linotype";
+	src: url("../fonts/Palatino Linotype.ttf");
+
+}
+
+
+@font-face {
+	font-family: "brush script mt kursiv";
+	src: url("../fonts/brush script mt kursiv.ttf");
+
+}
+
+/*General Format */
+
+#reportSummary{
+	border: 1px solid black;
+	min-width: 60%;
+	min-height: 1500px;
+
+	width: fit-content;
+	height: fit-content;
+
+	position: relative;
+	
+	margin: auto;
+	margin-top: 200px;
+	margin-bottom: 200px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 30px;
+
+	box-shadow: 2px 2px 10px black;
+	
+}
+
+#microquestLogo{
+	width: 200px;
+	height: 100px;
+	float: right;
+	margin: 40px;
+}
+
+#ReporterInfo{
+	width: fit-content;
+	padding: 10px;
+	margin-right: 100px;
+	margin-left: 100px;
+
+}
+
+#ReportedInfo{
+	width: fit-content;
+	padding: 10px;
+	float: right;
+	margin-top: 0;
+	margin-left: 200px;
+}
+
+#UsersInfo td {
+	border: none;
+}
+
+#reportInfoHeader{
+	margin-left: 50px;
+}
+
+#RequestsInfoInner{
+	width: fit-content;
+	padding: 10px;
+}
+
+#RequestDescription{
+	width: 800px;
+	text-align: justify;
+	margin-left: 100px;
+}
+
+span{
+	margin-left: 20px;
+}
+
+b{
+	font-weight: bolder;
+	font-size: large;
+	margin-left: 10px;
+}

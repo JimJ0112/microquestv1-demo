@@ -6,115 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/NavBar.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    
+    <link rel="stylesheet" href="css/adminNav.css">
+   
 
     <link rel="manifest" href="../manifest.json">
     
     <meta content='yes' name='apple-mobile-web-app-capable'/>
     <meta content='yes' name='mobile-web-app-capable'/>
-    <script src="js/adminDashboard.js"> </script>
+  
     
     <title>Document</title>
 </head>
 <body>
         <!-- Nav -->
+    <div id="NavContainer">
+	    <img src="img/logo.png" id="Nav-Logo" title="Home"> 
 
+	        <ul id="navUL">
+                <a href="approveRequestors.php">
+			        <li class="Nav-item" title="Get requestors" onclick="getRequestors()">
+                        <?php
+					        $pagename = basename($_SERVER['PHP_SELF']);
+					        if($pagename === "approveRequestors.php"){
+						        echo '<u>  Approve requestors  </u>';
+					        } else{
+						        echo "Approve requestors";
+					        }
+				        ?>
 
-        <div id="NavBar">
-            <ul id="NavBar_Contents">
-                <li class="navItem" id="HamburgerContainer"> 
-                    <div id="HamburgerButton" onclick="showNavMenu()">
-                        <div class="HamburgerButton_Div"> </div>
-                        <div class="HamburgerButton_Div"> </div>
-                        <div class="HamburgerButton_Div"> </div>
-                    </div>
-                </li>
+			        </li>
+                </a>
+	
+                <a href="approveResponders.php">
+			        <li class="Nav-item" title="Get responders" onclick="getResponders()">
+     
+                        <?php
+					        $pagename = basename($_SERVER['PHP_SELF']);
+					        if($pagename === "approveResponders.php"){
+						        echo '<u>  Approve responders  </u>';
+					        } else{
+						        echo "Approve responders";
+					        }
+				        ?>
 
-                <li class="navItem"> <img src="img/logo.png" id="Nav-Logo" title="Home"> </li>
+			        </li> 
+                </a>
 
-               <li class="navItem" id="adminName" onclick="showProfileDropDown()">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="img/profile-icon-9.png" id="adminPhoto">
-                            </td>
-                            <td>
+                <a href="pendingReports.php">
+			        <li class="Nav-item" title="Get reports" onclick="getAllReports()"> 
+   
+                        <?php
+					        $pagename = basename($_SERVER['PHP_SELF']);
+					        if($pagename === "pendingReports.php"){
+						        echo '<u>  Pending Reports  </u>';
+					        } else{
+						        echo "Pending Reports";
+					        }
+				        ?>
 
-				                <?php
-				                    if(isset( $_SESSION["microquest_AdminUsername"])){
+			        </li>
+                </a>
+	
+			    <li class="Nav-item" title="Me">
+                    <?php
+                        if(isset($_SESSION["microquest_AdminUsername"]) && isset($_SESSION["microquest_AdminType"])){
+                            $userName = $_SESSION["microquest_AdminUsername"];
+                            $adminType= $_SESSION["microquest_AdminType"];
 
-						            $username = $_SESSION["microquest_AdminUsername"];
-						            $usertype = $_SESSION["microquest_AdminType"];
-			
+                            echo "<a> <b>  $userName | $adminType  </b> </a> ";
+                        }
+                    ?>
 
-						            echo "<b> $username </b> <br/>";
-						            echo " <span style='font-weight: lighter; font-size:small;'> $usertype </span>";
-					                }
-				                ?>
-                            </td>
-                        </tr>
-                    </table>
 			    </li>
-                
-                
 
-            </ul>
-        </div>
+			    <li class="Nav-item" id="LogOutButton"> 
+                    <a href="backend/Logout.php"> Logout </a>
+			    </li>
+	        </ul>
 
-        <ul id="profileDropdown" style="display: none;";> 
-            <li> Settings </li>
-            <a href="backend/Logout.php"> <li> Log out </li> </a>
-            
-
-        </ul>
-
-        
-  
-
-
-    <div id="NavMenu">
-        <table>
-            <tr>
-                <td>
-                    <div id="HamburgerButton" onclick="hideNavMenu()">
-                        <div class="HamburgerButton_Div"> </div>
-                        <div class="HamburgerButton_Div"> </div>
-                        <div class="HamburgerButton_Div"> </div>
-                    </div>
-                </td>
-
-                <td id="NavMenuLogoContainer">
-                    <center>
-                        <img src="img/logo.png" id="NavMenuLogo" title="Home"> 
-                    </center>
-                
-                </td>
-            </tr>
-        </table>
-
-
-            <ul id="NavMenu_Contents">
-
-                <li onclick="getRequestors()"> Approve Requestors</li>
-                <li onclick="getResponders()"> Approve Responders</li>
-                <li onclick="getAllReports()"> Show Reports </li>
-
-                <?php
-
-                   $adminType= $_SESSION["microquest_AdminType"];
-
-                   if($adminType === "Super Admin"){
-                        echo "<li> Create Admin Account </li>";
-                   } else {
-
-                   }
-
-                
-                ?>
-
-            </ul>
     </div>
+
+
 </body>
 </html>

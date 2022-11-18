@@ -16,19 +16,21 @@ function __construct(){
     
     /* Localhost connection */
     
-    /*
+    
     $this->dbservername = "localhost:3307";
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "microquestdbv2";
-    */
+    
 
     
     /* remote database connection 2 */
+    /*
     $this->dbservername = "containers-us-west-126.railway.app:5950";
     $this->dbusername = "root";
     $this->dbpassword = "1u9IP95GW0pSguFi9Eam";
     $this->dbname = "railway";
+    */
    
     
 
@@ -358,6 +360,98 @@ public function getReports(){
   
 }
 
+
+public function getReport($tablename,$column,$condition){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    
+   
+  
+ 
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
+  
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
+                $row['reportEvidence'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+// get service
+public function getService($tablename,$column,$condition){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    
+   
+  
+ 
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
+  
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                $row['certificateFile'] = $file;
+
+
+                          
+                $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                $row['bannerImage'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
 
 // get Rows 
 public function getCategories($tablename,$column,$condition,$groupby = null){

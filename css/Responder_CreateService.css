@@ -360,29 +360,33 @@ a{
 
 
 #home_computerRelated_Table td, #pasabayTable td, #otherTable td{
-	font-size: 25px;
+
 	padding-top: 20px;
-	font-weight: bold;
+	
 
 }
 
 .home_computerRelated_Td{
-	text-align: right;
-	
+	font-size: large;
+    font-weight: bold;
+    color: white;
 }
 
-#servicePositionDropDown{
-	border: 0px;
-	border-bottom: 1px solid black;
-	;
-	
+.column1_td{
+	font-size: large;
+    font-weight: bold;
+    color: white;
 }
+
 
 input[type="text"], input[type="number"], select {
 	width:70%;
 	height: 50px;
 	font-size: 30px;
 	background: linear-gradient(white , wheat );
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px #4c4a4afa;
+	border: none;
 }
 
 input[type="file"]{
@@ -391,13 +395,12 @@ input[type="file"]{
 }
 
 input[type="submit"]{
-	width: auto;
-	height: auto;
 	font-size: 25px;
-	float: right;
-	overflow: hidden;
-	border-radius: 25px;
-	border:1px solid black;
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 5px;
+    float: right;
+    margin-right: 50%;
 }
 
 #otherButton{

@@ -314,7 +314,7 @@ view my request
 		<table>
 
 			<tr>
-				<td>
+				<td class="tdleft">
 					<span>Title</span>
 				</td>
 				<td class="tdright">
@@ -323,7 +323,7 @@ view my request
 			</tr> 
 
 			<tr>
-				<td>
+				<td class="tdleft">
 					<span>Description</span>
 				</td>
 				<td class="tdright">
@@ -333,7 +333,7 @@ view my request
 			</tr> 
 
 			<tr>
-				<td>
+				<td class="tdleft">
 					<span>Due Date</span>
 				</td>
 
@@ -343,7 +343,7 @@ view my request
 			</tr> 
 
 			<tr>
-				<td>
+				<td class="tdleft">
 					<span>Price</span>
 				</td>
 
@@ -353,7 +353,7 @@ view my request
 			</tr> 
 
 			<tr>
-				<td>
+				<td class="tdleft">
 					<span>Negotiable</span>
 				</td>
 
@@ -390,7 +390,7 @@ view my request
 					<table>
 
 						<tr>
-							<td>
+							<td class="tdleft">
 								<span>Title</span>
 							</td>
 							<td class="tdright">
@@ -399,17 +399,17 @@ view my request
 						</tr> 
 
 						<tr>
-							<td>
-								<span>RequestDescription</span>
+							<td class="tdleft">
+								<span>Description</span>
 							</td>
 							<td class="tdright">
-								<span id="viewDescription">RequestDescription</span>
+								<span id="viewDescription">Description</span>
 							</td>
 						</tr> 
 
 
 						<tr>
-							<td>
+							<td class="tdleft">
 								<span>Due Date</span>
 							</td>
 
@@ -419,7 +419,7 @@ view my request
 						</tr> 
 
 						<tr>
-							<td>
+							<td class="tdleft">
 								<span>Price</span>
 							</td>
 
@@ -429,7 +429,7 @@ view my request
 						</tr> 
 
 						<tr>
-							<td>
+							<td class="tdleft">
 								<span>Negotiable</span>
 							</td>
 

@@ -6,8 +6,7 @@ $DBHandler = new DBHandler();
 
 
 
-date_default_timezone_set("Asia/Manila");
-$today =  date("Y-m-d"); 
+
 
 $tablename = "reportsinfo";
 $column = "reportedAccountID";
@@ -22,31 +21,26 @@ if($results !== "failed to fetch"){
     $results = json_encode($results);
     $results = json_decode($results,true);
 
+   $restrictDuration =  $results[0]['restrictDuration'];
+
     
-    $restrictDuration =  $results[0]['restrictDuration'];
-   // echo $isRestricted = true;
+   date_default_timezone_set("Asia/Manila");
+   $today =  date("Y-m-d"); 
+
+
    $restrictDate =  $results[0]['reportActionDate'];
-   //$restrictDate  = DateTime::createFromFormat('Y-m-d',$restrictDate);
-   //$restrictDate = $restrictDate->format('d-m-Y');
-   //echo $restrictDate;
+   //$restrictDate =  "2022-11-15";
+
+   //$today = "2023-11-15";
 
 
-  // $restrictDate = new DateTime($restrictDate);
-  // $today = new DateTime($today);
- 
-   // echo $restrictDate;
-   // echo $today;
+   $restrictionStartDate = new DateTime($restrictDate);
+   $thisDate = new DateTime($today);
 
-   $restrictDate =  "15-11-2023";
-   echo $restrictDate = date('d-m-Y',strtotime($restrictDate));
-   echo $today = date('d-m-Y', strtotime($today));
-    $diff=  $today - $restrictDate ;
-    echo $diff;
-   //echo round($diff / (60 * 60 * 24));
+   $abs_diff = $thisDate->diff($restrictionStartDate)->format("%a"); //3
+   $restrictDuration;
+   echo $daysRemain =   $restrictDuration - $abs_diff;
 
-
-  // $sub = date_sub($restrictDate, date_interval_create_from_date_string("$restrictDuration days"));
-   //echo $sub;
     
     
 } else {

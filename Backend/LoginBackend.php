@@ -3,8 +3,7 @@ session_start();
 include '../Classes/DBHandler.php';
 $DBHandler = new DBHandler();
 
-date_default_timezone_set("Asia/Manila");
-$today =  date("Y-m-d"); 
+
 
 if(isset($_POST["email"]) && isset($_POST["password"])){
 
@@ -48,10 +47,45 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         $results = json_decode($results,true);
 
         $restrictDuration =  $results[0]['restrictDuration'];
-        echo $isRestricted = true;
+        $restrictDate =  $results[0]['reportActionDate'];
+
+        date_default_timezone_set("Asia/Manila");
+        $today =  date("Y-m-d"); 
+       //$today = "2022-11-23";
+
+        $restrictionStartDate = new DateTime($restrictDate);
+        $thisDate = new DateTime($today);
+
+        $abs_diff = $thisDate->diff($restrictionStartDate)->format("%a"); //3
+        $restrictDuration;
+        echo $daysRemain =   $restrictDuration - $abs_diff;
+
+    
+
+        if($daysRemain >0){
+
+       
+            $isRestricted = true;
+        } else {
+            $isRestricted = false;
+
+            $reportID = $results[0]['reportID'];
+            $column = "reportStatus";
+            $name = "Unrestricted";
+            $condition = "reportID";
+            $conditionvalue =  $results[0]['reportID'];
+
+            echo $DBHandler->updateColumn($tablename,$column,$name,$condition,$conditionvalue);
+
+        }
+
+        
+
+
+
 
     } else {
-       echo $isRestricted = false;
+       $isRestricted = false;
     }
 
     
@@ -162,10 +196,10 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
 
     } else if($isBanned === true && $isRestricted === false){
-        header("location: ../Login.php?msg=Your Account has been banned");
+       header("location: ../Login.php?msg=Your Account has been banned");
 
     } else if($isBanned === false && $isRestricted === true){
-        header("location: ../Login.php?msg=Your Account has been Restricted for $restrictDuration days");
+        header("location: ../Login.php?msg=Your Account has been Restricted for $daysRemain days");
 
     }else if($isBanned === true && $isRestricted === true){
         header("location: ../Login.php?msg=Your Account has been banned");

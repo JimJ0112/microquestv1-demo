@@ -14,7 +14,7 @@ function getResponders(){
             document.getElementById("DashBoardContent_TableBody").innerHTML = "";
             document.getElementById("loadingImage").style.display = "none";
            
-            hideNavMenu();
+            //hideNavMenu();
             
 
            
@@ -60,7 +60,7 @@ function getRequestors(){
             document.getElementById("loadingImage").style.display = "none";
 
 
-            hideNavMenu();
+            //hideNavMenu();
             var dataArray = this.response;
 
                 dataArray = JSON.parse(dataArray);
@@ -341,7 +341,7 @@ function getAllReports(){
             document.getElementById("DashBoardContent_TableBody").innerHTML = "";
             document.getElementById("loadingImage").style.display = "none";
            
-            hideNavMenu();
+           // hideNavMenu();
             
 
                 var dataArray = this.response;
