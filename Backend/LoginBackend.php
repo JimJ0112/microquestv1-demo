@@ -67,7 +67,8 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         if($restrictDuration > 0){
 
        
-            $isRestricted = true;
+            //$isRestricted = true;
+            $isRestricted = false;
         } else {
             $isRestricted = false;
 
