@@ -33,36 +33,13 @@ session_start();
 
 
     <?php
-           
-        /*
-	    if(isset($_SESSION["userType"])){
-		    $userType = $_SESSION["userType"];
-
-			require_once("imports/adminNav.php");
-
-	    }
-        */
         require_once("imports/adminNav.php");
-
     ?>
+    
+    
     <div id="DashBoardContent">
 
-    <!--
-        <div id="usersContainer">
-            <div id="Users">
-            <table id="usersTable">
-                <tr>
-                    <td id="usersTotal"><span id="totalUsers">toal</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <span id="totalRequestors">requestors</span>
-                        <span id="totalResponders">responders</span>
-                    </td>
-                </tr>
-            </table>
-        </div>        
-    -->      
+
                     <table id="DashBoardContent_Table">
 
                         <img src="../img/logo.png" id="loadingImage"/>

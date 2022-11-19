@@ -35,7 +35,7 @@
 body{
 	padding: 0;
 	margin: 0;
-	zoom:80%;
+	zoom:75%;
 	display: grid;
 	background-color: rgb(17, 9, 4);
 	background-image: url("../img/coc-background.jpg");

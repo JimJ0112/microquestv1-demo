@@ -14,7 +14,8 @@ session_start();
 
     date_default_timezone_set("Asia/Manila");
     //echo date("Y-m-d H:i:s",time());
-    $today = date("Y-m-d H:i:s",time());
+    //$today = date("Y-m-d H:i:s",time());
+    $today = date("Y-m-d",time());
 
 ?>
 <!DOCTYPE html>
@@ -48,13 +49,12 @@ session_start();
 
 <!-- Main -->
     
-        <br/>
-            <center> <h1 id="RequestOrdersTitle"> Create a Request</h1> </center>
-        <br/> <br/>
+       
  
 <div id="Requestor_CreateRequestMainBack">
+<center><h1 id="RequestOrdersTitle"> Create a Request</h1> </center>
     <div id="Requestor_CreateRequestMain">
-
+            
         <center>
 
 
@@ -92,11 +92,7 @@ session_start();
                     </table>
             </div>
 
-            <div class="CreateRequestControlsDropDown" id="AvailableServicesCategoryContainer" onchange="setCategory()"> 
-						<select id="DropDownRequestCategory"> 
-							<option selected disabled> Category</option>
-						</select> 
-			</div>
+            
       
 
         </center>
@@ -104,9 +100,14 @@ session_start();
     <!-- Forms for creating request -->
 
     <!-- regular requests --> 
-    <center> <h1 id="DisplayCategory"> Category </h1> </center>
 
     <div id="FormsContainer">
+
+            <div class="CreateRequestControlsDropDown" id="AvailableServicesCategoryContainer" onchange="setCategory()"> 
+						<select id="DropDownRequestCategory"> 
+							<option selected disabled value="other"> Category</option>
+						</select> 
+			</div>
 
 
         <form method="post" action="Backend/CreateRequestBackend.php" id="regularRequestForm" class="requestForm">
@@ -120,21 +121,27 @@ session_start();
             <input type="hidden" name="datePosted" value="<?php $today ?>">
 
             <label> Title: </label> <br/>
+            <span class="asteriskRequiredField"> * </span>
+
             <input type="text" name="requestTitle" required> <br/>
             <label> Price: </label> <br/>
+             <span class="asteriskRequiredField"> * </span>
             <input type="number" name="requestExpectedPrice" required><br/>
 
             <label> Negotiable: </label> <br/>
+            <span class="asteriskRequiredField"> * </span>
             <select name="isNegotiable" required> 
-                <option> Negotiable </option> 
-                <option> Not-negotiable </option> 
+                <option value="Negotiable"> Negotiable </option> 
+                <option value="NotNegotiable"> Not-negotiable </option> 
             </select>  <br/>
 
             <label> Due Date: </label> <br/>
+            <span class="asteriskRequiredField"> * </span>
             <input type="date" name="dueDate" min="<?php echo $today; ?>" max="" value="<?php echo $today;?>" required> <br/>
 
             <label> More Detials: </label> <br/>
-            <textarea name="requestDescription" rows="10" cols="50" required> </textarea> <br/>
+            <span class="asteriskRequiredField"> * </span>
+            <textarea name="requestDescription" rows="10" cols="50" required></textarea> <br/>
 
 
             <input type="submit" value="Post">
@@ -197,13 +204,19 @@ session_start();
                 echo date("Y-m-d H:i:s",time());?>">
 
             <label> Category </label> <br/>
+            <span class="asteriskRequiredField"> * </span>
             <input type="text" name="requestCategory" required> <br/>
+            
             <label> Title of your request </label> <br/>
+            <span class="asteriskRequiredField"> * </span>
             <input type="text" name="requestTitle" required> <br/>
+            
             <label> How much do you offer for this request </label> <br/>
+            <span class="asteriskRequiredField"> * </span>
             <input type="number" name="requestExpectedPrice" required> <br/>
 
             <label> Negotiable  </label> <br/>
+            <span class="asteriskRequiredField"> * </span>
             <select name="isNegotiable" required>
                 <option value="Negotiable"> Negotiable </option> 
                 <option value="Not-negotiable"> Not-negotiable </option> 
@@ -211,8 +224,10 @@ session_start();
 
             <label> Due Date:  </label> <br/>
 
+            <span class="asteriskRequiredField"> * </span>
             <input type="date" name="dueDate" min="<?php echo $today; ?>" max="" value="<?php echo $today;?>" required> <br/>
 
+            <span class="asteriskRequiredField"> * </span>
             <label> More Details </label> <br/>
             <textarea name="requestDescription" rows="10" cols="50" required></textarea> <br/>
 

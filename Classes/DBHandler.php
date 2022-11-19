@@ -481,6 +481,7 @@ public function getReviewsWithRatings($userID){
     */
 
 
+    /*
     $query= "SELECT feedbacks.revieweeID as feedbacksReviewee,feedbacks.feedbackID,feedbacks.reviewerID as feedbacksReviewer, feedbacks.transactionID as feedbacksTransactionID, feedbacks.serviceID, feedbacks.requestID, feedbacks.feedback,rating.reviewerID as ratingReviewerID, rating.revieweeID as ratingRevieweeID, rating.transactionID as ratingTransactionID, rating.rating1star, rating.rating2star,rating.rating3star,rating.rating4star,rating.rating5star,
     userprofile.userID as userprofileReviewerID, userprofile.userID as userprofileRevieweeID, userprofile.userName as ReviewerUserName, userprofile.userName as RevieweeUserName
     
@@ -490,6 +491,20 @@ public function getReviewsWithRatings($userID){
             INNER JOIN userprofile
                 ON feedbacks.reviewerID = userprofile.userID
             WHERE feedbacks.revieweeID = $userID ORDER BY feedbacks.feedbackID DESC";
+    */
+
+    $query= "SELECT feedbacks.revieweeID as feedbacksReviewee,feedbacks.feedbackID,feedbacks.reviewerID as feedbacksReviewer, feedbacks.transactionID as feedbacksTransactionID, feedbacks.serviceID, feedbacks.requestID, feedbacks.feedback,rating.ratingID,rating.reviewerID as ratingReviewerID, rating.revieweeID as ratingRevieweeID, rating.transactionID as ratingTransactionID, rating.rating1star, rating.rating2star,rating.rating3star,rating.rating4star,rating.rating5star,
+    userprofile.userID as userprofileReviewerID, userprofile.userID as userprofileRevieweeID, userprofile.userName as ReviewerUserName, userprofile.userName as RevieweeUserName, servicesinfo.serviceID, servicesinfo.serviceCategory, servicesinfo.servicePosition
+    
+            FROM feedbacks 
+            INNER JOIN rating
+              ON (feedbacks.transactionID = rating.transactionID)
+            INNER JOIN userprofile
+                ON feedbacks.reviewerID = userprofile.userID
+            INNER JOIN servicesinfo
+                ON feedbacks.serviceID = servicesinfo.serviceID
+            WHERE feedbacks.revieweeID = $userID GROUP BY rating.ratingID DESC";
+            
             
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);
@@ -926,8 +941,8 @@ public function getServices($tablename,$column,$condition,$orderby = null){
     
    
     if(isset($orderby)){
-       // $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'  GROUP BY $orderby";
-       $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'";
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'  GROUP BY $orderby";
+       //$query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'";
     
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";

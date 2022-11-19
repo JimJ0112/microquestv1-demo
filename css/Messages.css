@@ -94,6 +94,12 @@ body{
 	overflow-y: scroll;
 }
 
+#conversationsList a{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 
 .messageUserPhoto{
 	width: 50px;
@@ -106,7 +112,7 @@ body{
 }
 
 .inboxCard{
-	width: 100%;
+	width: 200px;
 	font-family: Arial, Helvetica, sans-serif;
 	cursor: pointer;
 
@@ -117,20 +123,32 @@ body{
 	font-weight: bolder;
 }
 
+.lastMessagediv{
+	width: 200px;
+	text-align: left;
+	margin-left: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+}
+
 .lastMessageP{
 	font-weight: lighter;
 	font-size: smaller;
 	color: gray;
 	text-align: center;
-
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 100px;
 }
 
 .messageProfilePic{
 	display: grid;
+	width: 100px;
+
+	margin-right: 0;
+	
 }
 
 #Chats{

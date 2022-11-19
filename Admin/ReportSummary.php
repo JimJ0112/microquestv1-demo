@@ -24,6 +24,15 @@ session_start();
     <meta content='yes' name='apple-mobile-web-app-capable'/>
     <meta content='yes' name='mobile-web-app-capable'/>
     <!--<script src="js/adminDashboard.js"> </script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    
+    <script type="text/javascript" src="html2canvas.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+
     <script src="js/ReportSummary.js"> </script>
 
 
@@ -35,12 +44,17 @@ session_start();
         require_once("imports/adminNav.php");
     ?>
 
+   
     <!-- main content -->
+    <div id="reportControls" onclick="h2canvaspdf()" title="Save this document"> 
+      
+         <center> ⎙ Save </center>
 
+    </div>
     <div id="reportSummary"> 
 
-    <img src="../img/logo.png" id="microquestLogo"/> 
-    <br/> <br/> <br/> <br/> <br/><br/><br/><br/><br/>
+    <img src="../img/logo1.jpg" id="microquestLogo"/> 
+    <br/> <br/> <br/> <br/> <br/><br/><br/><br/><br/><br/><br/>
     <center>
         <h1> Report Summary <h1>
     </center>

@@ -41,7 +41,12 @@ if($exists){
         $birthDate = $_POST['birthDate'];
         $idType= $_POST['idType'];
 
-        $idFile  = file_get_contents($_FILES['idFile']["tmp_name"]);
+        if(isset($_FILES['idFile']["tmp_name"])){
+            $idFile  = file_get_contents($_FILES['idFile']["tmp_name"]);
+        } else {
+            $idFile = "none";
+        }
+        
         $idNumber = $_POST['idNumber'];
         $idExpiration= $_POST['idExpiration'];
         $idFileType = $_FILES['idFile']["type"];

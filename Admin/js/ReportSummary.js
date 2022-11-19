@@ -261,3 +261,28 @@ function setServicesInfoData(dataArray){
     expectedPrice.innerText = "Php"+dataArray[0]['rate'];
 
 }
+
+
+function h2canvaspdf(){
+    var width = 200;
+    var height = 290;
+    var doc = new jsPDF('p', 'in', [5,7]);
+    var reportSummary = document.getElementById('reportSummary');
+
+
+    html2canvas(reportSummary, {
+        quality:3,
+        onrendered: function(canvas) {         
+            var imgData = canvas.toDataURL(
+                'image/png');              
+            var doc = new jsPDF('p', 'mm');
+            doc.addImage(imgData, 'PNG',4,4,width,height);
+           // doc.save('sample-file.pdf');
+           
+           doc.output('save', 'ReportSummary.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
+           doc.output('datauristring');        //returns the data uri string
+           doc.output('dataurlnewwindow');     //opens the data uri in new window
+        }
+    });
+
+}

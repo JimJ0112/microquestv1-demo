@@ -30,7 +30,21 @@
 	<link rel="stylesheet" type="text/css" href="css/Requestor_SelectedService.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
+    
+    <!-- Load Jspdf -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    
+    <script type="text/javascript" src="html2canvas.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+
+
     <script src="js/Requestor_SelectedService.js"> </script>
+
+
 </head>
 <body id="Requestor_AvailableServicesBackground" onload="<?php
     
@@ -59,12 +73,63 @@
 
 <div id="contractBackGround"> 
 
-    <div id="contractDivContainer">
-        <div id="closeButton" onclick="hideContract()"> X </div>
-        <div id="contractDiv"> 
-
+     
+        <div id="closeButton" onclick="hideContract()"> ✕ </div>
+        <div id="printButton" onclick="h2canvaspdf()" title="Save this document">
+         <center> ⎙ Save </center>
         </div>
-    </div>
+        <div id="contractDiv" > 
+            <img src="img/logo1.jpg" id="microquestLogo" /> 
+
+
+            <div id="contractHeaderInfo" >
+                <b> Date </b> <br/> &nbsp <span id="date"> 19/11/2022 </span> <br/><br/>
+                <b> Service ID</b> <br/> &nbsp <span id="serviceIDHeaderInfo"> SVC0-1 </span> <br/><br/>
+                <b> Category </b> <br/> &nbsp <span id="categoryHeaderInfo"> Home Services </span> <br/><br/>
+                <b> Title </b> <br/>  &nbsp <span id="titleHeaderInfo"> House Cleaning </span> <br/><br/>
+                <b> Due Date </b> <br/> &nbsp <span id="dueDateHeaderInfo"> 19/11/2022 </span> <br/><br/>
+            </div>
+
+            <center>
+                <table id="usersInfo">
+                    <tr>
+                        <td id="ResponderInfoContract" > 
+                            <b> Responder </b> <br/> 
+                            &nbsp<span id="responderIDHeader"> 11 </span> <br/>
+                            &nbsp<span id="responderUserNameHeader"> Jimj0112 </span> <br/>
+                            &nbsp<span id="responderNameHeader"> Jim Manrique</span> <br/>
+                            &nbsp<span id="responderEmailHeader"> JimManrique12@gmail.com</span> <br/>
+                            
+
+
+                            
+
+                        </td>
+
+                        <td id="RequestorInfoContract" > 
+                            <b> Requestor </b> <br/> 
+                            &nbsp<span id="requestorIDHeader"> 46 </span> <br/>
+                            &nbsp<span id="requestorUserNameHeader"> Jimj0112 </span> <br/>
+                            &nbsp<span id="requestorNameHeader"> Jim Manrique</span> <br/>
+                            &nbsp<span id="requestorEmailHeader"> JimManrique12@gmail.com</span> <br/>
+
+                        </td>
+                    </tr>
+            
+                </table>
+                <br/>
+                <br/>
+                <hr/>
+            </center>
+
+     
+            <div id="contractContent" > 
+
+
+            </div>
+         
+        </div>
+   
 
 </div>
 
@@ -291,12 +356,17 @@
         </div>
       
 
-    
+        <canvas id="canvas" width="480" height="500"></canvas> 
 
 
 
 
+        <script type="text/javascript" src="html2canvas.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 
+
+
+    <script src="js/Requestor_SelectedService.js"> </script>
 
 
 

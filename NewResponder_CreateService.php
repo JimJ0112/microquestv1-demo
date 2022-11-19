@@ -166,44 +166,54 @@ session_start();
 <!-- For other categories -->
 
 <div id="otherCategoriesFormBack" class="formBack" style="display:grid;">
-    <form action="Backend/CreateServiceBackend.php" method="post" enctype="multipart/form-data" id="otherCategoriesForm" class="ServicePopUp"> 
+    <form action="Backend/CreateServiceBackend.php" method="post" enctype="multipart/form-data" id="otherCategoriesForm" class="ServicePopUp2"> 
 
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
         <input type="hidden" name="formType" value="otherCategories">
 
         <center> <h1> <?php echo $specialization; ?> </h1> </center>
         <div id="closeButton" onclick="closeForms()" style="display:none;"> X </div>
-            <table>
+            <table id="otherTable">
                 <tr style="display:none;">
                     <td> Category </td>
                     <!--<td> <input type="text" name="serviceCategory" id="serviceCategory"> </td>-->
-                    <input type="hidden" name="serviceCategory" id="serviceCategory" value="<?php echo $specialization; ?>">
+                    <span class="asteriskRequiredField"> * </span>
+                    <input type="hidden" name="serviceCategory" id="serviceCategory" value="<?php echo $specialization; ?>" required>
                 </tr>
 
                 <tr>
-                    <td> Service Position </td>
+                    <td  class="column1_td"> Service </td>
                     <td> 
-                        <input type="text" name="servicePosition"/>
+                        <span class="asteriskRequiredField"> * </span>
+                        <input type="text" name="servicePosition" required/>
                     </td>
                 </tr>
 
                 <tr>
-                    <td> Rate </td>
-                    <td> <input type="number" name="rate"> </td> 
+                    <td class="column1_td"> Rate </td>
+                    
+                    <td> 
+                        <span class="asteriskRequiredField"> * </span>
+                        <input type="number" name="rate" required> 
+                    </td> 
                 </tr>
 
                 <tr>
-                    <td>Training/Certificate</td>
-                    <td> <input type="text" name="certification"> </td> 
+                    <td class="column1_td">Training/Certificate</td>
+                    <td>
+                        <span class="asteriskRequiredField"> * </span>
+                        <span class="enterNone"> Enter "none" if not applicable </span> 
+                         <input type="text" name="certification" required> 
+                    </td> 
                 </tr>
 
                 <tr>
-                    <td>Training/Certificate File </td>
+                    <td class="column1_td">Training/Certificate File </td>
                     <td> <input type="file" name="certificateFile"> </td>
                 </tr>
 
                 <tr>
-                    <td>Banner Image </td>
+                    <td class="column1_td">Banner Image </td>
                     <td> <input type="file" name="bannerImage" accept="image/*"> </td>
                 </tr>
         

@@ -639,3 +639,10 @@ function notifUserForm(reportID){
     reportIDNotif.value = reportID;
 
 }
+
+
+function reportSeeMore(reportID){
+    var reportID = reportID;
+    location.href="ReportSummary.php?reportID="+reportID;
+
+}

@@ -636,17 +636,30 @@ for(var i = 0; i<8; i++){
 
 function generateContract(){
 
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
 
-    formServiceID = document.getElementById('formServiceID').value;
-    formRequestorID= document.getElementById('formRequestorID').value;
-    Category= document.getElementById('Category').value;
-    Position= document.getElementById('Position').value;
-    responderID= document.getElementById('responderID').value;
-    servicePrice= document.getElementById('servicePrice').value;
-    dueDate= document.getElementById('dueDate').value;
-    responderTimeSlots= document.getElementById('responderTimeSlots').value;
-    additionalNotes= document.getElementById('additionalNotes').value;
-    contractInput = document.getElementById('contractInput');
+    today = mm + '-' + dd + '-' + yyyy;
+
+
+    var formServiceID = document.getElementById('formServiceID').value;
+    var formRequestorID= document.getElementById('formRequestorID').value;
+    var Category= document.getElementById('Category').value;
+    var Position= document.getElementById('Position').value;
+    var responderID= document.getElementById('responderID').value;
+    var servicePrice= document.getElementById('servicePrice').value;
+    var dueDate= document.getElementById('dueDate').value;
+    var responderTimeSlots= document.getElementById('responderTimeSlots').value;
+    var additionalNotes= document.getElementById('additionalNotes').value;
+    var contractInput = document.getElementById('contractInput');
+
+
+
+
+
+
 
     responderInfoArray = sessionStorage.getItem('responderInfoArray'); 
     responderInfoArray = JSON.parse(responderInfoArray);
@@ -657,23 +670,46 @@ function generateContract(){
     
     console.log(responderInfoArray);
 
+    
     //var contract = "I,"+ myInfoArray[0]['lastName'] + ","+ myInfoArray[0]['firstName']+" "
-    var contract = "This Freelance Contract, is entered into by and between: \n" + myInfoArray[0]['lastName']+" "+ myInfoArray[0]['firstName']+
-    " from "+myInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ myInfoArray[0]['municipality']+ ", Bataan and "+ responderInfoArray[0]['lastName']+" "+ responderInfoArray[0]['firstName']+
-    " from "+responderInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ responderInfoArray[0]['municipality']+ ", Bataan \n" + "WHEREAS, "+myInfoArray[0]['firstName']+" has a need for "+ Category + ", "+ Position + "."
-    + "\n NOW THEREFORE, the parties hereby agree as follows: \n Service Price: Php "+servicePrice+" \n Deadline: "+ dueDate + " \n Time: "+ responderTimeSlots+ " \n Additional Notes: " + additionalNotes; 
+    var contract = "<b> This Freelance Contract, is entered into by and between: </b> <br/> <br/> " + myInfoArray[0]['lastName']+" "+ myInfoArray[0]['firstName']+
+    " <br/> <b> from </b> <br/> &nbsp"+myInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ myInfoArray[0]['municipality']+ ", Bataan <br/> <b> And </b> <br/> "+ responderInfoArray[0]['lastName']+" "+ responderInfoArray[0]['firstName']+
+    " <br/> <b> from </b> <br/> &nbsp"+responderInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ responderInfoArray[0]['municipality']+ ", Bataan <br/>" + " <br/>  <br/> <b> WHEREAS, </b> "+myInfoArray[0]['firstName']+" has a need for "+ Category + ", "+ Position + "."
+    + "<br/> <br/> NOW THEREFORE, the parties hereby agree as follows: <br/> <br/> <b> Service Price: </b> Php "+servicePrice+" <br/> <br/> <b> Deadline: </b>"+ dueDate + " <br/> <br/> <b> Time:</b> "+ responderTimeSlots+ " <br/> <br/> <b> Additional Notes: </b> <br/> <br/>" + additionalNotes; 
+
+    
 
     contractInput.value = contract;
 
     console.log(contract);
-    document.getElementById('contractDiv').innerText = contract;
+    document.getElementById('contractContent').innerHTML = contract;
+
+
+        // information elements
+
+        document.getElementById('date').innerText = today
+        document.getElementById('serviceIDHeaderInfo').innerText = "SVC0-"+formServiceID
+        document.getElementById('categoryHeaderInfo').innerText = Category
+        document.getElementById('titleHeaderInfo').innerText = Position
+        document.getElementById('dueDateHeaderInfo').innerText = dueDate
+    
+        document.getElementById('responderIDHeader').innerText = responderID
+        document.getElementById('responderUserNameHeader').innerText = responderInfoArray[0]['userName'];
+        document.getElementById('responderNameHeader').innerText = responderInfoArray[0]['lastName']+" "+ responderInfoArray[0]['firstName']
+        document.getElementById('responderEmailHeader').innerText = responderInfoArray[0]['userEmail'];
+    
+        document.getElementById('requestorIDHeader').innerText = formRequestorID
+        document.getElementById('requestorUserNameHeader').innerText = myInfoArray[0]['userName'];
+        document.getElementById('requestorNameHeader').innerText =  myInfoArray[0]['lastName']+" "+ myInfoArray[0]['firstName']
+        document.getElementById('requestorEmailHeader').innerText = myInfoArray[0]['userEmail'];
 
 
 }
 
+
 function showContract(){
     contractBackGround = document.getElementById('contractBackGround');
-    contractBackGround.style.display = "grid";
+    contractBackGround.style.display = "block";
     contractDiv = document.getElementById('contractDiv');
     contractDiv.style.display = "block";
 }
@@ -853,5 +889,210 @@ function selectResponders(position){
  
      }
 
+
+}
+
+
+function dlPdf(){
+    var pdf = new jsPDF();
+    var leftMargin = 15, topMargin = 15, width = 900;
+    //var contractDiv = document.getElementById('contractDiv');
+    contractDiv = $('#contractDiv');
+    pdf.fromHTML(contractDiv, leftMargin, topMargin, {
+        'width': width
+    });
+    pdf.save('contract.pdf'); 
+}
+
+
+function saveAspdf(){
+    /*
+    var pdf = new jsPDF({
+        unit: "in",
+        width:900,
+        format: [4, 2]
+      });
+    */
+
+      var pdf = new jsPDF('p', 'in', [8.5, 11]);
+
+    //var contractDiv = document.getElementById('contractDiv');
+    contractDiv = $('#contractDiv');
+    pdf.addHTML(contractDiv,function() {
+        pdf.save('web.pdf');
+    });
+}
+
+
+
+/*
+function demoFromHTML(){
+
+    var pdf = new jsPDF();
+
+
+    source = $('#contractDiv');
+
+
+    // Create a canvas with double-resolution.
+    html2canvas(source, {
+        scale: 2
+    });
+    // Create a canvas with 144 dpi (1.5x resolution).
+    html2canvas(source, {
+        dpi: 144
+    });
+
+
+    margins = {
+        top: 0,
+        bottom: 0,
+        left: 0,
+        width: 10
+    };
+
+    pdf.addHTML(
+        source, // HTML string or DOM elem ref.
+        margins.left, // x coord
+        margins.top, { // y coord
+            'width': window.width // max width of content on PDF
+        },
+
+        function (dispose) {
+
+            pdf.save('Test.pdf');
+        }, margins
+    );
+
+   // pdf.save('web.pdf');
+}
+
+*/
+
+/*
+function demoFromHTML(){
+
+ 
+    source = $('#contractDiv');
+    // Create a canvas with 144 dpi (1.5x resolution).
+    html2canvas(source, {
+        scale: 4,
+        onrendered: function(){
+
+            var pdf = new jsPDF('p','pt','a4');
+
+
+
+            margins = {
+                top: 0,
+                bottom: 0,
+                left: 0,
+                width: 10
+            };
+        
+            pdf.HTML(
+                source, // HTML string or DOM elem ref.
+                margins.left, // x coord
+                margins.top, { // y coord
+                    'width': window.width // max width of content on PDF
+                },
+        
+                function (dispose) {
+        
+                    pdf.save('Test.pdf');
+                }, margins
+            );
+        
+        }
+    });
+
+
+   
+}
+
+
+
+function saveDoc(){
+    var pdf = new jsPDF('p', 'pt', 'a4');
+    window.html2canvas = html2canvas
+    const doc = document.getElementById('contractDiv');
+
+    if (doc) {
+ 
+
+        pdf.html(document.getElementById('contractDiv'), {
+            callback: function (pdf) {
+                pdf.save('DOC.pdf');
+            }
+        })
+   }
+ }
+
+
+function genPDFNew(){
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + '-' + dd + '-' + yyyy;
+
+
+    var formServiceID = document.getElementById('formServiceID').value;
+    var formRequestorID= document.getElementById('formRequestorID').value;
+    var Category= document.getElementById('Category').value;
+    var Position= document.getElementById('Position').value;
+    var responderID= document.getElementById('responderID').value;
+    var servicePrice= document.getElementById('servicePrice').value;
+    var dueDate= document.getElementById('dueDate').value;
+    var responderTimeSlots= document.getElementById('responderTimeSlots').value;
+    var additionalNotes= document.getElementById('additionalNotes').value;
+    var contractInput = document.getElementById('contractInput');
+
+    responderInfoArray = sessionStorage.getItem('responderInfoArray'); 
+    responderInfoArray = JSON.parse(responderInfoArray);
+    console.log(responderInfoArray);
+
+    myInfoArray = sessionStorage.getItem('myInfoArray'); 
+    myInfoArray = JSON.parse(myInfoArray);
+    console.log(responderInfoArray);
+
+    var contract = "<b> This Freelance Contract, is entered into by and between: </b> <br/> <br/> " + myInfoArray[0]['lastName']+" "+ myInfoArray[0]['firstName']+
+    " <br/> <b> from </b> <br/> &nbsp"+myInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ myInfoArray[0]['municipality']+ ", Bataan <br/> <b> And </b> <br/> "+ responderInfoArray[0]['lastName']+" "+ responderInfoArray[0]['firstName']+
+    " <br/> <b> from </b> <br/> &nbsp"+responderInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ responderInfoArray[0]['municipality']+ ", Bataan <br/>" + " <br/>  <br/> <b> WHEREAS, </b> "+myInfoArray[0]['firstName']+" has a need for "+ Category + ", "+ Position + "."
+    + "<br/> <br/> NOW THEREFORE, the parties hereby agree as follows: <br/> <br/> <b> Service Price: </b> Php "+servicePrice+" <br/> <br/> <b> Deadline: </b>"+ dueDate + " <br/> <br/> <b> Time:</b> "+ responderTimeSlots+ " <br/> <br/> <b> Additional Notes: </b> <br/> <br/>" + additionalNotes; 
+
+    
+
+    var pdf = new jsPDF('p', 'in', [8.5, 11]);
+
+    pdf.text(100,100,"MICROQUEST");
+
+
+}
+*/
+
+function h2canvaspdf(){
+    var width = 200;
+    var height = 270;
+    var doc = new jsPDF('p', 'in', [5,9]);
+    var contractDiv = document.getElementById('contractDiv');
+
+
+    html2canvas(contractDiv, {
+        quality:3,
+        onrendered: function(canvas) {         
+            var imgData = canvas.toDataURL(
+                'image/png');              
+            var doc = new jsPDF('p', 'mm');
+            doc.addImage(imgData, 'PNG',4,4,width,height);
+            //doc.save('sample-file.pdf');
+
+            doc.output('save', 'ServiceOrder.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
+            doc.output('datauristring');        //returns the data uri string
+            doc.output('dataurlnewwindow');     //opens the data uri in new window
+        }
+    });
 
 }

@@ -86,6 +86,7 @@ if(isset($_SESSION["userName"])){
 						<td> 
 								<h3 id="Chats"> Chat list </h3>
 
+								<!--
 								<div class="chatlistButton"> 
 									<svg viewBox="0 0 36 36" fill="currentColor" height="28" width="28">
 										<path d="M17.305 16.57a1.998 1.998 0 00-.347.467l-1.546 2.87a.5.5 0 00.678.677l2.87-1.545c.171-.093.328-.21.466-.347l8.631-8.631a1.5 1.5 0 10-2.121-2.122l-8.631 8.632z"></path>
@@ -93,6 +94,7 @@ if(isset($_SESSION["userName"])){
 										<path d="M18 10.5a1 1 0 001-1V9a1 1 0 00-1-1h-6a4 4 0 00-4 4v12a4 4 0 004 4h12a4 4 0 004-4v-6a1 1 0 00-1-1h-.5a1 1 0 00-1 1v6a1.5 1.5 0 01-1.5 1.5H12a1.5 1.5 0 01-1.5-1.5V12a1.5 1.5 0 011.5-1.5h6z"></path>
 									</svg>
 								</div>
+								-->
 
 						</td>
 
@@ -101,7 +103,9 @@ if(isset($_SESSION["userName"])){
 					<tr>
 
 						<td> 
+							<!--
 							<input type="search" name="search" id="conversationSearch" placeholder="Search Conversation..."/> 
+							-->
 						</td>
 
 

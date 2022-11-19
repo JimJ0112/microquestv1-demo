@@ -42,11 +42,13 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
     $results =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
 
+    
+    
     if($results !== "failed to fetch"){
         $results = json_encode($results);
         $results = json_decode($results,true);
 
-        $restrictDuration =  $results[0]['restrictDuration'];
+        $restrictDuration = $results[0]['restrictDuration'];
         $restrictDate =  $results[0]['reportActionDate'];
 
         date_default_timezone_set("Asia/Manila");
@@ -62,7 +64,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
     
 
-        if($daysRemain >0){
+        if($restrictDuration > 0){
 
        
             $isRestricted = true;
@@ -196,20 +198,20 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
 
     } else if($isBanned === true && $isRestricted === false){
-       header("location: ../Login.php?msg=Your Account has been banned");
+      // header("location: ../Login.php?msg=Your Account has been banned");
 
     } else if($isBanned === false && $isRestricted === true){
-        header("location: ../Login.php?msg=Your Account has been Restricted for $daysRemain days");
+      //  header("location: ../Login.php?msg=Your Account has been Restricted for $daysRemain days");
 
     }else if($isBanned === true && $isRestricted === true){
-        header("location: ../Login.php?msg=Your Account has been banned");
+      //  header("location: ../Login.php?msg=Your Account has been banned");
 
     }else{
         header("location: ../Login.php?msg= Username or password incorrect!");
     }// end of inner if
 
 } else {
-    header("location: ../Login.php?msg= Not isset!");
+   // header("location: ../Login.php?msg= Not isset!");
 
 }
 

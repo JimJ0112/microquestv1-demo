@@ -124,7 +124,16 @@
 
 	<div id="navMenu" style="display:none;">
 		<ul>
-		<a href=""><li class="NavMenu-item" title="Log Out">View Profile  </li></a>
+		<?php
+				if(isset($_SESSION['userID'])){
+					$userID = $_SESSION['userID'];
+					$profileLink="ViewUserProfile.php?userID=$userID&userType=Requestor";
+				}else{
+					$profileLink="#";
+				}
+				
+			?>
+		<a href="<?php echo $profileLink;?>"><li class="NavMenu-item" title="Log Out">View Profile  </li></a>
 		<a href=""><li class="NavMenu-item" title="Log Out">Edit Profile  </li></a>
 		<a href="Backend/Logout.php"><li class="NavMenu-item" title="Log Out">Log out</li></a>
 

@@ -279,7 +279,7 @@ function setReviewDatas(dataArray){
 
   for(var i = 0; i<number; i++){
     reviewerName[i].innerText = "Username: "+dataArray[i]['ReviewerUserName'];
-    jobTitle[i].innerText = "Service: " + dataArray[i]['serviceID'];
+    jobTitle[i].innerText = "Service: " + dataArray[i]['servicePosition'];
     
 
     if(dataArray[i]['rating1star'] === "1"){

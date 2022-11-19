@@ -213,6 +213,21 @@
 	
 }
 
+.ServicePopUp2{
+
+	background-color: rgba(97, 96, 96, 0.39);
+	background-size: cover;
+	background-position: center;
+	padding:35px;
+	margin: auto;
+	width:70%;
+	height: fit-content;
+	border: 10px solid rgb(136 75 38);
+	border-radius: 50px;
+	animation: fadein 1s;
+	
+}
+
 
 .formBack{
 	width: 100%;
@@ -279,6 +294,9 @@
 	width: 99%;
 	height: 100%;
 	padding: 10px;
+
+
+	
 	
 }
 
@@ -339,6 +357,9 @@
 	z-index: 10;
 	color: black;
 	font-weight: lighter;
+	min-width: 100px;
+	max-width: 300px;
+	width: fit-content;
 
 }
 
@@ -353,7 +374,7 @@ a{
 }
 
 #home_computerRelated_Table, #pasabayTable, #otherTable{
-	width: 60%;
+	width: 50%;
 	margin: auto;
 	overflow-y: scroll;
 }
@@ -401,6 +422,9 @@ input[type="submit"]{
     padding: 5px;
     float: right;
     margin-right: 50%;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    cursor: pointer;
 }
 
 #otherButton{
@@ -433,3 +457,4 @@ ul{
 	font-size: small;
 	font-family: Arial, Helvetica, sans-serif;
 }
+
