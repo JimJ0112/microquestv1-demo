@@ -198,20 +198,20 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
 
     } else if($isBanned === true && $isRestricted === false){
-      // header("location: ../Login.php?msg=Your Account has been banned");
+       header("location: ../Login.php?msg=Your Account has been banned");
 
     } else if($isBanned === false && $isRestricted === true){
-      //  header("location: ../Login.php?msg=Your Account has been Restricted for $daysRemain days");
+        header("location: ../Login.php?msg=Your Account has been Restricted for $daysRemain days");
 
     }else if($isBanned === true && $isRestricted === true){
-      //  header("location: ../Login.php?msg=Your Account has been banned");
+        header("location: ../Login.php?msg=Your Account has been banned");
 
     }else{
         header("location: ../Login.php?msg= Username or password incorrect!");
-    }// end of inner if
+    } end of inner if
 
 } else {
-   // header("location: ../Login.php?msg= Not isset!");
+    header("location: ../Login.php?msg= Not isset!");
 
 }
 
