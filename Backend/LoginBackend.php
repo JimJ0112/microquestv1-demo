@@ -209,7 +209,8 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
     }else{
         header("location: ../Login.php?msg= Username or password incorrect!");
-    } end of inner if
+    } 
+    //end of inner if
 
 } else {
     header("location: ../Login.php?msg= Not isset!");
