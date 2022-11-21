@@ -16,12 +16,12 @@ function __construct(){
     
     /* Localhost connection */
     
-    /*
+    
     $this->dbservername = "localhost:3307";
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "microquestdbv2";
-    */
+    
 
     /* remote database connection */
     
@@ -34,11 +34,12 @@ function __construct(){
 
   /* remote database connection 2 */
   
+  /* 
     $this->dbservername = "containers-us-west-126.railway.app:5950";
     $this->dbusername = "root";
     $this->dbpassword = "1u9IP95GW0pSguFi9Eam";
     $this->dbname = "railway";
-  
+  */
 
     $this-> dbconnection = mysqli_connect($this->dbservername,$this->dbusername,$this->dbpassword,$this->dbname);
  
@@ -264,9 +265,19 @@ public function getData($tablename,$column,$condition,$name){
 
 
     if($resultCheck > 0){
-       
+    
+        
         $row = mysqli_fetch_array($result);
         return $row[$name];
+        
+              
+       /*
+       $row = mysqli_fetch_field($result);
+       echo mysqli_error($this->dbconnection);
+       return $row;
+       */
+
+
 
     } else {return "failed to fetch";}
 
@@ -493,6 +504,7 @@ public function getReviewsWithRatings($userID){
             WHERE feedbacks.revieweeID = $userID ORDER BY feedbacks.feedbackID DESC";
     */
 
+    /*
     $query= "SELECT feedbacks.revieweeID as feedbacksReviewee,feedbacks.feedbackID,feedbacks.reviewerID as feedbacksReviewer, feedbacks.transactionID as feedbacksTransactionID, feedbacks.serviceID, feedbacks.requestID, feedbacks.feedback,rating.ratingID,rating.reviewerID as ratingReviewerID, rating.revieweeID as ratingRevieweeID, rating.transactionID as ratingTransactionID, rating.rating1star, rating.rating2star,rating.rating3star,rating.rating4star,rating.rating5star,
     userprofile.userID as userprofileReviewerID, userprofile.userID as userprofileRevieweeID, userprofile.userName as ReviewerUserName, userprofile.userName as RevieweeUserName, servicesinfo.serviceID, servicesinfo.serviceCategory, servicesinfo.servicePosition
     
@@ -504,7 +516,20 @@ public function getReviewsWithRatings($userID){
             INNER JOIN servicesinfo
                 ON feedbacks.serviceID = servicesinfo.serviceID
             WHERE feedbacks.revieweeID = $userID GROUP BY rating.ratingID DESC";
-            
+        
+    */
+
+    $query= "SELECT feedbacks.revieweeID as feedbacksReviewee,feedbacks.feedbackID,feedbacks.reviewerID as feedbacksReviewer, feedbacks.transactionID as feedbacksTransactionID, feedbacks.serviceID, feedbacks.requestID, feedbacks.feedback,rating.ratingID,rating.reviewerID as ratingReviewerID, rating.revieweeID as ratingRevieweeID, rating.transactionID as ratingTransactionID, rating.rating1star, rating.rating2star,rating.rating3star,rating.rating4star,rating.rating5star,
+    userprofile.userID as userprofileReviewerID, userprofile.userID as userprofileRevieweeID, userprofile.userName as ReviewerUserName, userprofile.userName as RevieweeUserName, servicesinfo.serviceID, servicesinfo.serviceCategory, servicesinfo.servicePosition
+    
+            FROM feedbacks 
+            INNER JOIN rating
+              ON (feedbacks.transactionID = rating.transactionID)
+            INNER JOIN userprofile
+                ON feedbacks.reviewerID = userprofile.userID
+            INNER JOIN servicesinfo
+                ON feedbacks.serviceID = servicesinfo.serviceID
+            WHERE feedbacks.revieweeID = $userID GROUP BY feedbacks.transactionID DESC";
             
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);
@@ -941,9 +966,11 @@ public function getServices($tablename,$column,$condition,$orderby = null){
     
    
     if(isset($orderby)){
-        $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'  GROUP BY $orderby";
+       // $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'  GROUP BY $orderby";
        //$query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'";
     
+       $query = "SELECT DISTINCT servicePosition, bannerImage FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'";
+
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
     }
@@ -960,10 +987,12 @@ public function getServices($tablename,$column,$condition,$orderby = null){
             while($row = mysqli_fetch_assoc($result)){
                 
 
+                /*
                 
                 $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
                 $row['certificateFile'] = $file;
                 
+                */
 
                 $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
                 $row['bannerImage'] = $file;
@@ -1048,6 +1077,7 @@ public function getOtherServices(){
     //$query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active'";
     //$query = "SELECT * FROM $tablename WHERE ($column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active') GROUP BY servicesinfo.serviceCategory";
 
+   // $query = "SELECT DISTINCT serviceCategory, bannerImage FROM $tablename WHERE serviceCategory != 'Home Service' AND serviceCategory  !='Computer related work' AND serviceCategory !='Pasabuy' AND serviceStatus = 'Active'";
 
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);
@@ -1062,8 +1092,10 @@ public function getOtherServices(){
                 
 
                 
+                
                 $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
                 $row['certificateFile'] = $file;
+                
                 
                 $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
                 $row['bannerImage'] = $file;
@@ -1151,6 +1183,7 @@ public function getResponders($position,$municipality,$serviceCategory){
    
     $query = "SELECT servicesinfo.responderID, userprofile.userName,userprofile.municipality,userprofile.userPhoto, servicesinfo.rate, servicesinfo.serviceCategory, servicesinfo.serviceID FROM userprofile INNER JOIN servicesinfo ON servicesinfo.responderID = userprofile.userID WHERE servicesinfo.servicePosition = '$position' AND userprofile.municipality = '$municipality' AND userprofile.userType = 'Responder' AND servicesinfo.serviceCategory = '$serviceCategory' AND servicesinfo.serviceStatus = 'Active' GROUP BY userprofile.userID";
    
+   // $query = "SELECT servicesinfo.responderID, userprofile.userName,userprofile.municipality,userprofile.userPhoto, servicesinfo.rate, servicesinfo.serviceCategory, servicesinfo.serviceID FROM userprofile INNER JOIN servicesinfo ON servicesinfo.responderID = userprofile.userID WHERE servicesinfo.servicePosition = '$position' AND userprofile.municipality = '$municipality' AND userprofile.userType = 'Responder' AND servicesinfo.serviceCategory = '$serviceCategory' AND servicesinfo.serviceStatus = 'Active'";
 
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);
@@ -1199,6 +1232,7 @@ public function getAvailableResponders($position,$municipality,$category){
 // 29/05/2022 9:51pm nilagyan ko muna ng group by tong query na to para hindi dumoble, need to check out later - jim 
 // 09/06/2022 1:28am nilagyan ko muna ng servicesinfo.serviceStatus = 'Active', not sure if that's a good idea tho
 $query = "SELECT servicesinfo.responderID, userprofile.userName,userprofile.userPhoto,userprofile.municipality, servicesinfo.rate, servicesinfo.serviceID FROM userprofile INNER JOIN servicesinfo ON servicesinfo.responderID = userprofile.userID WHERE servicesinfo.servicePosition = '$position' AND userprofile.municipality != '$municipality' AND userprofile.userType = 'Responder' AND servicesinfo.serviceCategory = '$category' AND servicesinfo.serviceStatus = 'Active' GROUP BY userprofile.userID";
+//$query = "SELECT  servicesinfo.responderID, userprofile.userName,userprofile.userPhoto,userprofile.municipality, servicesinfo.rate, servicesinfo.serviceID FROM userprofile INNER JOIN servicesinfo ON servicesinfo.responderID = userprofile.userID WHERE servicesinfo.servicePosition = '$position' AND userprofile.municipality != '$municipality' AND userprofile.userType = 'Responder' AND servicesinfo.serviceCategory = '$category' AND servicesinfo.serviceStatus = 'Active'";
    
 
     $result = mysqli_query($this->dbconnection, $query);
@@ -1250,6 +1284,7 @@ public function getAllAvailableResponders($position,$category){
 // 09/06/2022 1:28am nilagyan ko muna ng servicesinfo.serviceStatus = 'Active', not sure if that's a good idea tho
 $query = "SELECT servicesinfo.responderID, userprofile.userName,userprofile.userPhoto,userprofile.municipality, servicesinfo.rate, servicesinfo.serviceID FROM userprofile INNER JOIN servicesinfo ON servicesinfo.responderID = userprofile.userID WHERE servicesinfo.servicePosition = '$position' AND userprofile.userType = 'Responder' AND servicesinfo.serviceCategory = '$category' AND servicesinfo.serviceStatus = 'Active' GROUP BY userprofile.userID";
    
+//$query = "SELECT DISTINCT CASE WHEN servicesinfo.responderID, userprofile.userName,userprofile.userPhoto,userprofile.municipality, servicesinfo.rate, servicesinfo.serviceID FROM userprofile INNER JOIN servicesinfo ON servicesinfo.responderID = userprofile.userID WHERE servicesinfo.servicePosition = '$position' AND userprofile.userType = 'Responder' AND servicesinfo.serviceCategory = '$category' AND servicesinfo.serviceStatus = 'Active'";
 
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);
@@ -3272,13 +3307,14 @@ public function registerServiceFeedback($myID,$revieweeID,$serviceID,$transactio
 }// end of function
 
 
-public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingValue){
+public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingValue,$feedbackID){
 
 
     $myID= mysqli_real_escape_string($this->dbconnection, $myID);
     $revieweeID= mysqli_real_escape_string($this->dbconnection, $revieweeID);
     $transactionID= mysqli_real_escape_string($this->dbconnection,$transactionID);
     $ratingValue = mysqli_real_escape_string($this->dbconnection,$ratingValue);
+    $feedbackID = mysqli_real_escape_string($this->dbconnection,$feedbackID);
     $requestID = null;
 
     $rating1star = 0;
@@ -3329,7 +3365,7 @@ public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingV
 
     $tablename = "rating";
 
-    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,null,$rating1star,$rating2star,$rating3star,$rating4star,$rating5star,$totalRating)";
+    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,null,$rating1star,$rating2star,$rating3star,$rating4star,$rating5star,$totalRating,$feedbackID)";
 
     $result = mysqli_query($this->dbconnection, $query);
     echo mysqli_error($this->dbconnection);

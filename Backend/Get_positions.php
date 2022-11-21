@@ -8,6 +8,7 @@ $DBHandler = new DBHandler();
 $tablename = "servicesinfo";
 $column = "serviceCategory";
 $condition = $_POST['condition'];
+//$condition = "Cleaning";
 $categories = $DBHandler->getServices($tablename,$column,$condition,'servicePosition');
 
 

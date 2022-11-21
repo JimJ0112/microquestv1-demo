@@ -711,13 +711,16 @@ function SetFinishedData(dataArray){
         controlsTd[i].appendChild(button);
         */
 
+        generateFeedbackButton(dataArray[i]['transactionID'],i,dataArray[i]['responderID'],dataArray[i]['serviceID']);
+
+        /*
         var button1 = document.createElement('button');
         button1.setAttribute('class','AcceptButton');
         button1.innerText = "Give Feedback";
        // button1.setAttribute('onclick',"cancelServiceOrder(" +dataArray[i]['transactionID'] + ",'cancelled')" );
         button1.setAttribute('onclick',"setFeedbackForm(" + dataArray[i]['transactionID'] +","+dataArray[i]['responderID']+","+dataArray[i]['serviceID']+")" );
         controlsTd[i].appendChild(button1);
-
+        */
                
        myID = sessionStorage.getItem("userID");
        reportedID = dataArray[i]["responderID"];
@@ -1258,4 +1261,53 @@ function showPaymentProofFile(event){
 
 
 
+function generateFeedbackButton(transactionID,number,responderID,serviceID){
+    var transactionID = transactionID;
+    var number = number;
+    var query = "transactionID=" + transactionID;
+    console.log(query);
 
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "Backend/CheckFeedBackExists.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var dataArray = this.response;
+            console.log(dataArray);
+            console.log(query);
+
+            controlsTd= document.getElementsByClassName('controlsTd');
+
+            if(dataArray === "true"){
+
+                var button1 = document.createElement('button');
+                button1.setAttribute('class','AcceptButton');
+                button1.innerText = "Feedback Given";
+                button1.disabled = true;
+                button1.style.backgroundColor = "gray";
+                button1.setAttribute('onclick',"setFeedbackForm(" + transactionID +","+responderID+","+serviceID+")" );
+                controlsTd[number].appendChild(button1);
+ 
+            }else{
+
+                var button1 = document.createElement('button');
+                button1.setAttribute('class','AcceptButton');
+                button1.innerText = "Give Feedback";
+                button1.setAttribute('onclick',"setFeedbackForm(" + transactionID +","+responderID+","+serviceID+")" );
+                controlsTd[number].appendChild(button1);
+
+            }
+            
+
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send(query);
+
+    
+}// end of function

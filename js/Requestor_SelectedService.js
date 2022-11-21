@@ -426,6 +426,8 @@ function getAvailableResponders(position){
                 
             } else{
 
+                console.log(dataArray);
+
                 dataArray = JSON.parse(dataArray);
                 console.log(dataArray);
  
