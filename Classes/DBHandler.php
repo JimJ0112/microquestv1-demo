@@ -1044,8 +1044,9 @@ public function getOtherServices(){
 // 09/06/2022 1:28am nilagyan ko muna ng servicesinfo.serviceStatus = 'Active', not sure if that's a good idea tho
    
     // 
-    //$query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active' GROUP BY serviceCategory";
-    $query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active'";
+    $query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active' GROUP BY serviceCategory";
+    //$query = "SELECT * FROM $tablename WHERE $column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active'";
+    //$query = "SELECT * FROM $tablename WHERE ($column != 'Home Service' AND $column !='Computer related work' AND $column !='Pasabuy' AND serviceStatus = 'Active') GROUP BY servicesinfo.serviceCategory";
 
 
     $result = mysqli_query($this->dbconnection, $query);
@@ -1780,6 +1781,8 @@ public function getUserMessages($ID,$groupBy=null){
     INNER JOIN userprofile as sender ON(sender.userID = conversations.senderID) 
     INNER JOIN userprofile as reciever ON(reciever.userID = conversations.recieverID) 
     WHERE (senderID = $ID OR recieverID = $ID ) ORDER BY latestMessageDate DESC";
+
+    
    }
 
     $result = mysqli_query($this->dbconnection, $query);
@@ -1857,8 +1860,9 @@ public function getUserConversation($myID,$ID){
 
    
 
-       
-        $query = "SELECT * FROM $tablename WHERE $column = $ID AND $column1 = $myID OR $column = $myID AND $column1 = $ID";
+       // $query = "SELECT * FROM $tablename WHERE $column = $ID AND $column1 = $myID OR $column = $myID AND $column1 = $ID";
+        
+        $query = "SELECT * FROM $tablename WHERE $column = $ID AND $column1 = $myID OR $column = $myID AND $column1 = $ID ORDER BY messageDate ASC";
    
 
     $result = mysqli_query($this->dbconnection, $query);

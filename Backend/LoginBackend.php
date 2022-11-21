@@ -20,6 +20,11 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     $exists = $DBHandler->exists("userprofile","userEmail",$email);
     $existsUserName = $DBHandler->exists("userprofile","userName",$email);
    
+    if(!$exists){
+        header("location: ../Login.php?msg=User does not exist");
+    }else{
+        
+    }
 
 
     // check if user is banned
@@ -64,11 +69,11 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
     
 
-        if($restrictDuration > 0){
+        if($daysRemain > 0){
 
        
-            //$isRestricted = true;
-            $isRestricted = false;
+            $isRestricted = true;
+            //$isRestricted = false;
         } else {
             $isRestricted = false;
 
