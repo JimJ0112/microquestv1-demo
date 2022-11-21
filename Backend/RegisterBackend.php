@@ -16,8 +16,15 @@ if($exists){
 
         $userType = $_POST['userType'];
 
+        if(is_uploaded_file($_FILES['userPhoto']["tmp_name"])){
 
-        $userPhoto = file_get_contents($_FILES['userPhoto']["tmp_name"]);
+            $userPhoto = file_get_contents($_FILES['userPhoto']["tmp_name"]);
+
+        }else{
+            $userPhoto = "none";
+
+        }
+
     
        
        
@@ -41,7 +48,7 @@ if($exists){
         $birthDate = $_POST['birthDate'];
         $idType= $_POST['idType'];
 
-        if(isset($_FILES['idFile']["tmp_name"])){
+        if(is_uploaded_file($_FILES['idFile']["tmp_name"])){
             $idFile  = file_get_contents($_FILES['idFile']["tmp_name"]);
         } else {
             $idFile = "none";
@@ -100,9 +107,6 @@ if($exists){
                 $_SESSION["userStatus"] =$userStatus;
                 $userID = $DBHandler-> getData("userprofile","userEmail",$userEmail,"userID");
                 $_SESSION["userID"]=$userID;
-
-
-
 
 
                 header("location:../Requestor_AvailableServices.php");

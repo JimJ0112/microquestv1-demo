@@ -7,13 +7,19 @@ $DBHandler = new DBHandler();
 
 date_default_timezone_set("Asia/Manila");
 echo $reportDate =  date("Y-m-d H:i:s",time());          
-$reportProof = file_get_contents($_FILES["reportProof"]["tmp_name"]);
+
 echo $reportType = $_POST["reportType"];
 echo $transactionReportID = $_POST["transactionReportID"];
 echo $transactionType = $_POST["transactionType"];
 echo $ReportedAccountID = $_POST["ReportedAccountID"];
 echo $ReporterAccountID = $_POST["ReporterAccountID"];
 echo $reportDescription = $_POST["reportDescription"];
+
+if(is_uploaded_file($_FILES["reportProof"]["tmp_name"])){
+    $reportProof = file_get_contents($_FILES["reportProof"]["tmp_name"]);
+}else{
+    $reportProof = "";
+}
 
 if($transactionType === "service"){
     echo $serviceID = $transactionReportID;

@@ -254,8 +254,8 @@
 						<div class="inputItem"> 
 							<img id="userProfilePicOutput"> <br/>
 							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							Profile Picture <br/>
-							<input type="file" name="userPhoto" id="ProfilePicture" oninput=" checkInputs_ResponderInfo()" onchange="showProfilePicOutput(event)" > 
+								Profile Picture <br/>
+							<input type="file" name="userPhoto" id="ProfilePicture" oninput="checkInputs_ResponderInfo()" onchange="showProfilePicOutput(event)" > 
 	
 
 						</div><br/>
