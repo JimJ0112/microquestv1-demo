@@ -1,0 +1,124 @@
+/*Local Font Styles */
+
+
+@font-face {
+	font-family: "OPTICopperplate-Heavy";
+	src: url("../fonts/OPTICopperplate-Heavy.otf");
+
+}
+
+@font-face {
+	font-family: "Retroking";
+	src: url("../fonts/Retroking.ttf");
+
+}
+
+@font-face {
+	font-family: "Palatino Linotype";
+	src: url("../fonts/Palatino Linotype.ttf");
+
+}
+
+
+@font-face {
+	font-family: "brush script mt kursiv";
+	src: url("../fonts/brush script mt kursiv.ttf");
+
+}
+
+body{
+	zoom: 80%;
+}
+
+#serviceInfoDivBg{
+	background-color: white;
+	width: 80%;
+	min-height: 800px;
+	height: fit-content;
+	margin: auto;
+	margin-top: 150px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#serviceInfoDiv{
+
+	margin-top: 0;
+	position: relative;
+	width: 800px;
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.167);
+}
+
+#serviceFeedbacksDiv{
+	background-color: rgba(69, 36, 9, 0.795);
+	width: 500;
+	min-height: 500px;
+	margin-top: 0;
+	border-radius: 10px 10px 0px 0px;
+	padding: 10px;
+
+}
+
+#userInfoDiv{
+
+	padding: auto;
+	position: relative;
+	width: 500px;
+
+}
+
+#userProfileImg{
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	border-radius: 100%;
+	object-fit: cover;
+	background-color: white;
+}
+#userInfo{
+	margin-top: 0;
+	position: absolute;
+	top:100px;
+	left: 50%;
+    transform: translate(-50%, 0); 
+}
+
+#serviceInfo{
+	margin-top: 0;
+
+}
+
+#serviceRatingsDiv{
+	text-align: left;
+}
+
+.reviewContainer-Content{
+	width: 80%;
+	margin: auto;
+	margin-top:10px;
+	text-align: left;
+}
+
+.reviewerImage{
+	width: 80px;
+	height: 80px;
+	border: 1px solid black;
+	border-radius: 100%;
+	object-fit: cover;
+	background-color: white;
+	margin: auto;
+	margin-top: 40px;
+}
+
+.userProfileTD{
+	display: grid;
+	align-content: center;
+}
+.reviewCard{
+	width: 100%;
+}
+
+.reviewDescription{
+	width: 300px;
+}

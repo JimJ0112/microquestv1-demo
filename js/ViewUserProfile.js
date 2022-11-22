@@ -31,6 +31,17 @@ function post() {
 
 function about() {
 
+var postContainer = document.getElementById("postContainer");
+var aboutContainer = document.getElementById("aboutContainer");
+var reviewContainer = document.getElementById("reviewContainer");
+var moreContainer  = document.getElementById("moreContainer");
+
+
+var userPost = document.getElementsByClassName("userPost")[0];
+var userAbout = document.getElementsByClassName("userAbout")[0];
+var userReviews = document.getElementsByClassName("userReviews")[0];
+var userMore = document.getElementsByClassName("userMore")[0];
+
 
     userPost.style.borderBottom = "none";
 
@@ -93,7 +104,8 @@ function getUserInfo(userID,userType){
   var userType = userType;
   var query = "userID=" + userID +"&userType=" + userType;
   var xmlhttp = new XMLHttpRequest();
-
+  
+  
 
   xmlhttp.onload = function() {
       if (this.readyState === 4 || this.status === 200){ 
@@ -110,6 +122,10 @@ function getUserInfo(userID,userType){
               dataArray = JSON.parse(dataArray);
               console.log(dataArray); 
               setData(dataArray);
+
+              var number = dataArray.length;
+              createServiceElements(number);
+              setServiceData(dataArray);
              
 
           }
@@ -309,4 +325,163 @@ function setMessagesData(id,userName){
   console.log(id);
 }
 
+// services
 
+// create elements to be appended 
+function createServiceElements(Number){
+ 
+  DataNumber = Number;
+  div = document.getElementById("postContainer-Content");
+  div.innerHtml="";
+  
+  
+  
+ 
+  
+  for(var i = 1;i<DataNumber;i++){
+  
+ // create elements for rows
+  var card = document.createElement('div');
+  var ServiceTitleBackground = document.createElement('div');
+  var serviceTitle = document.createElement('span');
+  var BannerContainer = document.createElement('div');
+  var br = document.createElement('br');
+  var servicePosition = document.createElement('p');
+  var serviceStatus= document.createElement('p');
+  var rate= document.createElement('p');
+  var ratings= document.createElement('p');
+  var infoDiv = document.createElement('div');
+ 
+
+ // set attributes
+  card.setAttribute('class','AvailableService_Card');
+  ServiceTitleBackground.setAttribute('class','ServiceTitleBackground');
+  serviceTitle.setAttribute('class','serviceTitle');
+  BannerContainer.setAttribute('class','BannerContainer');
+  servicePosition.setAttribute('class','servicePosition');
+  serviceStatus.setAttribute('class','serviceStatus');
+  rate.setAttribute('class','rate');
+  ratings.setAttribute('class','ratings');
+  infoDiv.setAttribute('class','infoDiv');
+
+
+ // append elements to the row
+  ServiceTitleBackground.appendChild(serviceTitle);
+  card.appendChild(ServiceTitleBackground);
+  card.appendChild(BannerContainer);
+
+  infoDiv.appendChild(servicePosition);
+  infoDiv.appendChild(rate);
+  infoDiv.appendChild(ratings);
+  infoDiv.appendChild(serviceStatus);
+  card.appendChild(infoDiv);
+
+ 
+
+
+  div.append(card);
+
+  } 
+  
+  
+} // end of function
+
+
+function setServiceData(array){
+  
+  var dataArray = array;
+  var number = dataArray.length;
+  var BannerContainer = document.getElementsByClassName('BannerContainer');
+  var serviceTitle = document.getElementsByClassName('serviceTitle');
+  var serviceCard = document.getElementsByClassName("AvailableService_Card");
+
+  var servicePosition = document.getElementsByClassName('servicePosition');
+  var serviceStatus = document.getElementsByClassName('serviceStatus');
+  var rate = document.getElementsByClassName('rate');
+  var ratings = document.getElementsByClassName('ratings');
+
+  var j = 0
+  for(var i = 1; i<number;i++){
+      
+      serviceTitle[j].innerHTML = " <b>"+ dataArray[i]['serviceCategory'] +"</b>";
+      //serviceCard[i].setAttribute("onclick","selectCategory('" + dataArray[i]['serviceCategory'] + "')");
+
+      serviceCard[j].setAttribute("onclick","redirect('Requestor_ServiceInfo.php?serviceID=" + dataArray[i]['serviceID'] +"')");
+      servicePosition[j].innerHTML = " <b> Service: </b> "+ dataArray[i]['servicePosition'];
+      serviceStatus[j].innerHTML = " <b>Status: </b> "+ dataArray[i]['serviceStatus'];
+      rate[j].innerHTML = " <b> Rate: Php</b>"+ dataArray[i]['rate'];
+    
+      
+
+      var image = new Image();
+      image.src = dataArray[i]['bannerImage'];
+
+      image.setAttribute('class','ServiceBanner');
+      image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
+      BannerContainer[j].appendChild(image);
+
+
+      //"showServiceView(serviceID,serviceCategory,servicePosition,rate,certification,certificateFile,serviceStatus)
+      //serviceCard[i].setAttribute("onclick","showServiceView("+dataArray[i]["serviceID"]+",'"+dataArray[i]["serviceCategory"]+"','"+dataArray[i]["servicePosition"]+"',"+dataArray[i]["rate"]+",'"+dataArray[i]["certification"]+"','"+dataArray[i]["certificationFile"]+"','"+dataArray[i]["serviceStatus"]+"')");
+      getAvailableResponderRatings(dataArray[i]["serviceID"],j);
+ 
+      j++;
+    }
+
+}
+
+// responder ratings
+function getAvailableResponderRatings(serviceID,number){
+  var serviceID = serviceID;
+  var number = number;
+  var ratings = document.getElementsByClassName("ratings");
+  
+  
+  var xmlhttp = new XMLHttpRequest();
+  
+  query = "serviceID=" + serviceID;
+
+
+
+  xmlhttp.onload = function() {
+      if (this.readyState === 4 || this.status === 200){ 
+         
+
+         
+          // refresh the div to avoid duplication in appending
+
+          var dataArray = this.response;
+          //console.log("ratings:"+dataArray);
+
+          if(dataArray === "Unable to load other available responders"){
+
+              //suggestedResponders.innerText = "No other available responders";
+              
+          } else{
+              dataArray = JSON.parse(dataArray);
+              console.log(dataArray);
+
+              ratings[number].innerText = "Ratings: " + dataArray[0]['total ratings'] + "⭐";
+
+          }
+
+   
+      }else{
+          console.log('error');
+         
+      }      
+  };
+
+  xmlhttp.open("POST", "Backend/AverageStars.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send(query);
+  
+}// end of function
+
+
+function redirect(url){
+  var url = url;
+
+  location.href=url;
+
+}

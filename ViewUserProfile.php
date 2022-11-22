@@ -40,7 +40,7 @@ session_start();
 		}
 	}
 
-    if(isset($_GET["userID"])&& isset($_GET["userType"])){
+    if(isset($_GET["userID"])&&isset($_GET["userType"])){
 
         $userID = $_GET["userID"];
         $userType = $_GET["userType"];
@@ -123,6 +123,7 @@ session_start();
        
         <div id="postContainer">
 			<div id="postContainer-Content">
+                <!--
 				<div class="postCard">
 					<ul class="postInfoList">
 						<li class="postCategory"> Category </li>
@@ -135,6 +136,7 @@ session_start();
 						<button class="ReviewButton" onclick="showViewRequest()"> View </button>
 					</footer>			
 				</div>
+                -->
 			</div> 
         </div>
 

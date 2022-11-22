@@ -47,8 +47,9 @@ if($insertFeedback){
     $myID=$_POST["myID"];
     $ratingValue = $_POST['rate'];
     $revieweeID=$_POST["serviceRevieweeID"]; 
+    $serviceID=$_POST["serviceID"];
 
-    echo $result = $DBHandler->registerServiceRatings($myID,$revieweeID,$transactionID,$ratingValue,$feedbackID);
+    echo $result = $DBHandler->registerServiceRatings($myID,$revieweeID,$transactionID,$ratingValue,$feedbackID,$serviceID);
 
 } else{
     echo "error";

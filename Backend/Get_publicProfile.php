@@ -8,6 +8,8 @@ $DBHandler = new DBHandler();
 $tablename = "userprofile";
 $column = "userID";
 $condition = $_POST['userID'];
+//$condition = 11;
+
 $userProfile = $DBHandler->getUserRow($tablename,$column,$condition);
 
 if($userProfile != "failed to fetch"){
@@ -17,6 +19,7 @@ if($userProfile != "failed to fetch"){
 
 
 $userType = $_POST['userType'];
+//$userType = "Responder";
 
 if($userType === "Responder"){
 
@@ -24,11 +27,13 @@ if($userType === "Responder"){
     $tablename = "servicesinfo";
     $column = "responderID"; 
     $condition = $_POST['userID'];
-    $userServices = $DBHandler->getServices($tablename,$column,$condition);
+    //$condition = 11;
+
+    $userServices = $DBHandler->getServices($tablename,$column,$condition,'servicePosition');
     
     if($userProfile != "failed to fetch" && $userServices != "failed to fetch"){
 
-        $userServices =  json_encode($userServices);
+         $userServices =  json_encode($userServices);
         
         echo json_encode(
             array_merge(
@@ -36,6 +41,7 @@ if($userType === "Responder"){
                 json_decode($userServices,true)
             )
         );
+        
         
     } else{
         echo $userProfile;

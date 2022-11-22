@@ -281,6 +281,7 @@ function createSuggestedRespondersElements(Number){
     var name = document.createElement('p');
     var municipality = document.createElement('p');
     var rate = document.createElement('p');
+    var ratings = document.createElement('p');
     var selectButton = document.createElement('p');
     var viewProfile = document.createElement('a');
     var br = document.createElement('br');
@@ -306,6 +307,7 @@ function createSuggestedRespondersElements(Number){
     rate.setAttribute('class','responderRate');
     selectButton.setAttribute('class','selectButton');
     suggestedResponderProfilePic.setAttribute('class','suggestedResponderPic');
+    ratings.setAttribute('class','ratings');
     
     
     td.appendChild(viewProfile);
@@ -320,6 +322,7 @@ function createSuggestedRespondersElements(Number){
     responderInfoDiv.appendChild(municipality);
 
     responderInfoDiv.appendChild(rate);
+    responderInfoDiv.appendChild(ratings);
 
 
     //append elements to the row
@@ -365,6 +368,7 @@ function setResponderData(array){
     var viewProfile = document.getElementsByClassName('viewProfile');
 
     var suggestedResponderPic = document.getElementsByClassName('suggestedResponderPic');
+    var ratings = document.getElementsByClassName("ratings");
 
     for(var i = 0; i<number;i++){
 
@@ -383,6 +387,8 @@ function setResponderData(array){
         image.src = dataArray[i]['userPhoto'];
         image.setAttribute('class','suggestedUserPhoto');
         suggestedResponderPic[i].appendChild(image);
+
+        getAvailableResponderRatings(dataArray[i]['serviceID'],i);
     }
 
 }
@@ -418,7 +424,7 @@ function getAvailableResponders(position){
             document.getElementById("RespondersBack").style.display="grid";
 
             var dataArray = this.response;
-            console.log(dataArray);
+           // console.log(dataArray);
 
             if(dataArray === "Unable to load other available responders"){
 
@@ -426,7 +432,7 @@ function getAvailableResponders(position){
                 
             } else{
 
-                console.log(dataArray);
+                //console.log(dataArray);
 
                 dataArray = JSON.parse(dataArray);
                 console.log(dataArray);
@@ -453,6 +459,55 @@ function getAvailableResponders(position){
     
 }// end of function
 
+
+
+// responder ratings
+function getAvailableResponderRatings(serviceID,number){
+    var serviceID = serviceID;
+    var number = number;
+    var ratings = document.getElementsByClassName("ratings");
+    
+    
+    var xmlhttp = new XMLHttpRequest();
+    
+    query = "serviceID=" + serviceID;
+ 
+
+
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+           
+            // refresh the div to avoid duplication in appending
+
+            var dataArray = this.response;
+            //console.log("ratings:"+dataArray);
+
+            if(dataArray === "Unable to load other available responders"){
+
+                //suggestedResponders.innerText = "No other available responders";
+                
+            } else{
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+
+                ratings[number].innerText = "Ratings: " + dataArray[0]['total ratings'] + "⭐";
+
+            }
+
+     
+        }else{
+            console.log('error');
+           
+        }      
+    };
+
+    xmlhttp.open("POST", "Backend/AverageStars.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+    
+}// end of function
 
 
 
@@ -809,7 +864,7 @@ function getServices(category){
            
 
             var dataArray = this.response;
-            console.log(dataArray);
+            //console.log(dataArray);
             document.getElementById("AvailServiceContent").innerHTML="";
 
             if(dataArray === "failed to fetch"){

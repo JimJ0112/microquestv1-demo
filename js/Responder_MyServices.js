@@ -124,9 +124,62 @@ function setData(array){
 
         //"showServiceView(serviceID,serviceCategory,servicePosition,rate,certification,certificateFile,serviceStatus)
         serviceCard[i].setAttribute("onclick","showServiceView("+dataArray[i]["serviceID"]+",'"+dataArray[i]["serviceCategory"]+"','"+dataArray[i]["servicePosition"]+"',"+dataArray[i]["rate"]+",'"+dataArray[i]["certification"]+"','"+dataArray[i]["certificationFile"]+"','"+dataArray[i]["serviceStatus"]+"')");
+        getAvailableResponderRatings(dataArray[i]["serviceID"],i);
+    
     }
 
 }
+
+
+
+
+// responder ratings
+function getAvailableResponderRatings(serviceID,number){
+    var serviceID = serviceID;
+    var number = number;
+    var ratings = document.getElementsByClassName("ratings");
+    
+    
+    var xmlhttp = new XMLHttpRequest();
+    
+    query = "serviceID=" + serviceID;
+  
+  
+  
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+  
+           
+            // refresh the div to avoid duplication in appending
+  
+            var dataArray = this.response;
+            //console.log("ratings:"+dataArray);
+  
+            if(dataArray === "Unable to load other available responders"){
+  
+                //suggestedResponders.innerText = "No other available responders";
+                
+            } else{
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+  
+                ratings[number].innerText = "Ratings: " + dataArray[0]['total ratings'] + "⭐";
+  
+            }
+  
+     
+        }else{
+            console.log('error');
+           
+        }      
+    };
+  
+    xmlhttp.open("POST", "Backend/AverageStars.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+    
+  }// end of function
 
 
 // for getting products for pasabuy

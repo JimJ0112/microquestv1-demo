@@ -65,6 +65,33 @@ function __destruct(){
 }
 // methods
 
+//to run sql queries
+public function runGET($query){
+
+    $query = $query;
+
+	
+    $result = mysqli_query($this->dbconnection, $query);
+    $row = mysqli_fetch_assoc($result);
+   
+    return $row;
+
+}
+
+
+public function runInsert($query){
+
+    $query = $query;
+
+	
+    $result = mysqli_query($this->dbconnection, $query);
+
+   
+    return $result;
+
+}
+
+
 // for registration
 public function registerUser($userType,	$userName, $userEmail,$userPassword,$userPhoto,$firstName,$lastName,$userGender,$education,$birthDate,$houseNo,$street,$baranggay,$municipality,$idType,$idFile,$idNumber,$idExpiration,$otherIDType,$otherIDFile,$otherIDNumber,$otheridExpiration,$idFileType,$specialization = null){
 
@@ -276,6 +303,38 @@ public function getData($tablename,$column,$condition,$name){
        echo mysqli_error($this->dbconnection);
        return $row;
        */
+
+
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+
+// get data, 1 column only
+public function getCount($tablename,$column,$condition,$name){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    $name = mysqli_real_escape_string($this->dbconnection, $name);
+
+    $query = "SELECT COUNT ($name) FROM $tablename WHERE $column = '$condition'";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+
+
+    if($resultCheck > 0){
+    
+        
+        $row = mysqli_fetch_array($result);
+        return $row[$name];
+        
+              
+ 
 
 
 
@@ -558,6 +617,59 @@ public function getReviewsWithRatings($userID){
         
   
 }
+
+// get Categories
+public function getServiceReviewsWithRatings($serviceID){
+    $userID = mysqli_real_escape_string($this->dbconnection, $serviceID);
+
+
+
+    $query= "SELECT feedbacks.revieweeID as feedbacksReviewee,feedbacks.feedbackID,feedbacks.reviewerID as feedbacksReviewer, feedbacks.transactionID as feedbacksTransactionID, feedbacks.serviceID, feedbacks.requestID, feedbacks.feedback,rating.ratingID,rating.reviewerID as ratingReviewerID, rating.revieweeID as ratingRevieweeID, rating.transactionID as ratingTransactionID, rating.rating1star, rating.rating2star,rating.rating3star,rating.rating4star,rating.rating5star,
+    userprofile.userID as userprofileReviewerID, userprofile.userPhoto as userprofileReviewerPhoto, userprofile.userID as userprofileRevieweeID, userprofile.userName as ReviewerUserName, userprofile.userName as RevieweeUserName, servicesinfo.serviceID, servicesinfo.serviceCategory, servicesinfo.servicePosition
+    
+            FROM feedbacks 
+            INNER JOIN rating
+              ON (feedbacks.transactionID = rating.transactionID)
+            INNER JOIN userprofile
+                ON feedbacks.reviewerID = userprofile.userID
+            INNER JOIN servicesinfo
+                ON feedbacks.serviceID = servicesinfo.serviceID
+            WHERE feedbacks.serviceID = $serviceID GROUP BY feedbacks.transactionID DESC";
+            
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['userprofileReviewerPhoto']);
+                $row['userprofileReviewerPhoto'] = $file;
+                
+
+                $data[] = $row;
+
+
+    
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
 
 // get Categories
 public function getCategories($tablename,$column,$condition,$groupby = null){
@@ -966,10 +1078,10 @@ public function getServices($tablename,$column,$condition,$orderby = null){
     
    
     if(isset($orderby)){
-       // $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'  GROUP BY $orderby";
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'  GROUP BY $orderby";
        //$query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'";
     
-       $query = "SELECT DISTINCT servicePosition, bannerImage FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'";
+       //$query = "SELECT DISTINCT servicePosition, bannerImage,certificateFile FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'";
 
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
@@ -987,12 +1099,12 @@ public function getServices($tablename,$column,$condition,$orderby = null){
             while($row = mysqli_fetch_assoc($result)){
                 
 
-                /*
+                
                 
                 $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
                 $row['certificateFile'] = $file;
                 
-                */
+                
 
                 $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
                 $row['bannerImage'] = $file;
@@ -1001,6 +1113,58 @@ public function getServices($tablename,$column,$condition,$orderby = null){
                 
              
             }
+            echo mysqli_error($this->dbconnection);
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+// get Services row 
+public function getServiceInfo($tablename,$column,$condition){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+
+   
+
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceStatus = 'Active'";
+
+
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                $row['certificateFile'] = $file;
+                
+                
+
+                $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                $row['bannerImage'] = $file;
+
+                $data[] = $row;
+                
+             
+            }
+            echo mysqli_error($this->dbconnection);
             return $data;
         
         
@@ -3307,7 +3471,7 @@ public function registerServiceFeedback($myID,$revieweeID,$serviceID,$transactio
 }// end of function
 
 
-public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingValue,$feedbackID){
+public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingValue,$feedbackID,$serviceID){
 
 
     $myID= mysqli_real_escape_string($this->dbconnection, $myID);
@@ -3316,6 +3480,7 @@ public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingV
     $ratingValue = mysqli_real_escape_string($this->dbconnection,$ratingValue);
     $feedbackID = mysqli_real_escape_string($this->dbconnection,$feedbackID);
     $requestID = null;
+    $serviceID = mysqli_real_escape_string($this->dbconnection,$serviceID);
 
     $rating1star = 0;
     $rating2star = 0;
@@ -3365,7 +3530,7 @@ public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingV
 
     $tablename = "rating";
 
-    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,null,$rating1star,$rating2star,$rating3star,$rating4star,$rating5star,$totalRating,$feedbackID)";
+    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,null,$rating1star,$rating2star,$rating3star,$rating4star,$rating5star,$totalRating,$feedbackID,$serviceID)";
 
     $result = mysqli_query($this->dbconnection, $query);
     echo mysqli_error($this->dbconnection);
