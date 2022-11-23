@@ -62,7 +62,7 @@ session_start();
 
             <td id="userInfoDiv"> 
                 <div id="userInfo">
-                    <img id="userProfileImg">  <br/>
+                    <img id="userProfileImg">  <br/><br/><br/>
                     <b id="responderUserName"> Username </b> <br/>
                     <b id="responderUserEmail"> User Email </b> <br/>
                     <b id="responderUserType"> User Type </b> <br/>

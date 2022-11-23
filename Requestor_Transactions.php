@@ -142,7 +142,7 @@
 		<br/>
 
 		<img id="paymentFileOutput"/> <br/> <br/>
-		<input id="paymentProof" type="file" name="paymentFile" onchange="showPaymentProofFile(event)" hidden/><label for="paymentProof"> upload proof of payment ↑</label> <br/>  <br/> <br/>
+		<input id="paymentProof" type="file" name="paymentFile" onchange="showPaymentProofFile(event)" hidden required/><label for="paymentProof"> upload proof of payment ↑</label> <br/>  <br/> <br/>
 		
 
 		<input type="submit" value="Confirm"/> 
@@ -173,13 +173,13 @@
 			<br/>
 
 			<label> Your Feedback:  </label> <br/>
-			<textarea name="feedback" id="feedbackInput" cols="40" rows="10" placeholder="Your Feedback..."></textarea>
+			<textarea name="feedback" id="feedbackInput" cols="40" rows="10" placeholder="Your Feedback..." required></textarea>
 			<br/><br/><br/>
 			
 
 			<div class="rate">
 
-					<input type="radio" name="rate" value="5" id="star5" class="star"/>
+					<input type="radio" name="rate" value="5" id="star5" class="star" required/>
 					<label for="star5" title="text"> </label>
 					<input type="radio" name="rate" value="4" id="star4" class="star"/>
 					<label for="star4" title="text"> </label>
@@ -240,7 +240,7 @@
 			<h3> Please Select a problem </h3>
 			
 		
-			<select id="reportType" name="reportType" onchange="otherProblems()">
+			<select id="reportType" name="reportType" onchange="otherProblems()" required>
 				<option value="Pretending to be someone"> Pretending to be someone </option>
 				<option value="Posting inappropriate things"> Posting inappropriate things </option>
 				<option value="Harassment or bullying"> Harassment or bullying </option>
@@ -256,10 +256,10 @@
 				<img id="reportProofOutput"> 
 			</div>
 			<br/>
-			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)" hidden/><label for="reportProof">upload file ↑</label><br/><br/>
+			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)" hidden required/><label for="reportProof">upload file ↑</label><br/><br/>
 
 			<span> Description: </span> <br/>
-			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8"></textarea>  
+			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8" required></textarea>  
 			<br/><br/>
 		
 

@@ -1186,8 +1186,8 @@ public function getServicesForSpecialization($tablename,$column,$condition,$orde
     
    
     if(isset($orderby)){
-       // $query = "SELECT * FROM $tablename WHERE $column = '$condition' GROUP BY $orderby";
-        $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition' GROUP BY $orderby";
+       // $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
 
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";

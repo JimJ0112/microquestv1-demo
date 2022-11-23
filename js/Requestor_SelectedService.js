@@ -278,7 +278,7 @@ function createSuggestedRespondersElements(Number){
 
     var ID = document.createElement('p');
     var suggestedResponderProfilePic = document.createElement('div');
-    var name = document.createElement('p');
+    var name = document.createElement('a');
     var municipality = document.createElement('p');
     var rate = document.createElement('p');
     var ratings = document.createElement('p');
@@ -375,11 +375,19 @@ function setResponderData(array){
 
         
         ID[i].innerHTML = dataArray[i]['responderID'];
-        name[i].innerHTML  = "<b> Username: </b>"+dataArray[i]['userName'];
+        name[i].innerHTML  = dataArray[i]['userName'];
+        name[i].href= "ViewUserProfile.php?userID=" +  dataArray[i]['responderID'] + "&userType=Responder";
+        name[i].target = "_blank";
+
         municipality[i].innerHTML  = "<b> Municipality: </b>"+dataArray[i]['municipality'];
         rate[i].innerHTML  = "<b> Rate: </b> Php "+dataArray[i]['rate'];
-        viewProfile[i].href= "ViewUserProfile.php?userID=" +  dataArray[i]['responderID'] + "&userType=Responder";
-        selectButton[i].setAttribute('onclick','selectResponder('+ dataArray[i]['serviceID']+','+ dataArray[i]['responderID']+','+dataArray[i]['rate']+')');
+       // viewProfile[i].href= "ViewUserProfile.php?userID=" +  dataArray[i]['responderID'] + "&userType=Responder";
+       viewProfile[i].href= "Requestor_ServiceInfo.php?serviceID=" + dataArray[i]['serviceID'];
+       viewProfile[i].innerText ="View Service";
+       viewProfile[i].target = "_blank";
+
+       
+       selectButton[i].setAttribute('onclick','selectResponder('+ dataArray[i]['serviceID']+','+ dataArray[i]['responderID']+','+dataArray[i]['rate']+')');
         
 
 

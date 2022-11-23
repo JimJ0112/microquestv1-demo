@@ -536,3 +536,8 @@ td{
 	top: 12%;
 	padding: 3;
 }
+
+.additionalNotes{
+	width: 100px;
+	overflow: hidden;
+}

@@ -122,3 +122,12 @@ body{
 .reviewDescription{
 	width: 300px;
 }
+
+#serviceCategory{
+	font-size: xx-large;
+
+}
+
+#serviceTitle{
+	font-size: x-large;
+}
