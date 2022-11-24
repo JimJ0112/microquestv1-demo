@@ -115,7 +115,7 @@ session_start();
         <input type="hidden" name="serviceCategory" id="serviceCategory" value="Pasabuy">
         <div id="closeButton" onclick="closeForms()"> ✕ </div>
         
-        <h3> Add Item </h3>
+  
 
         <table id="pasabayTable">
 

@@ -560,6 +560,7 @@
 	  white-space: nowrap;
   	overflow: hidden;
   	text-overflow: ellipsis;
+	  color: white;
   }
   
   
@@ -590,10 +591,13 @@
 	white-space: nowrap;
   	overflow: hidden;
   	text-overflow: ellipsis;
+	font-weight: bold;
+	font-style: italic;
   }
   
   .request-card__unit-stats {
-	background: #EC9B3B;
+	background: #926f45d0;
+	
   }
   .request-card__unit-stats  .one-third {
 	   border-right: 1px solid #BD7C2F;
@@ -680,7 +684,7 @@
 	z-index: 10;
 	
 	border: 5px solid rgb(63, 50, 48);
-
+	color: rgb(63, 50, 48);
 	padding:10px;
 	display: block;
 	font-family: retroking;
@@ -706,10 +710,11 @@
 	z-index: 10;
 	
 	border: 5px solid rgb(63, 50, 48);
-
+	
 	padding:10px;
 	display: block;
 	font-family: retroking;
+	color: rgb(63, 50, 48);
 	font-weight: light;
 	position: absolute;
 	left: 50%;
@@ -732,6 +737,7 @@
 	font-weight: bold;
 	border-radius: 80px;
 	padding: 10px;
+	
 	
 }
 

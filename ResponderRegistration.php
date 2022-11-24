@@ -214,7 +214,7 @@
 							<img id="userIDPicOutput"> <br/>
 							ID: <br/>
 							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							<input type="file" name="idFile" id="IDFile" oninput=" checkInputs_ResponderInfo()" onchange="showIDPicOutput(event)"> 
+							<input type="file" name="idFile" id="IDFile" oninput=" checkInputs_ResponderInfo()" onchange="showIDPicOutput(event)" accept="image/png, image/jpg, image/jpeg" > 
 						</div><br/>
 
 						<div class="inputItem"> 
@@ -246,7 +246,7 @@
 							<img id="userProfilePicOutput"> <br/>
 							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
 							Profile Picture <br/>
-							<input type="file" name="userPhoto" id="ProfilePicture" oninput=" checkInputs_ResponderInfo()" onchange="showProfilePicOutput(event)"> 
+							<input type="file" name="userPhoto" id="ProfilePicture" oninput=" checkInputs_ResponderInfo()" onchange="showProfilePicOutput(event)" accept="image/png, image/jpg, image/jpeg"> 
 	
 
 						</div><br/>

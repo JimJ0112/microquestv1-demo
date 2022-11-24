@@ -168,6 +168,8 @@
 	width: fit-content;
 	margin: auto;
 	color: white;
+	font-family: 'Courier New', Courier, monospace;
+	
 }
 
 .Form-Input{
@@ -176,10 +178,13 @@
 	width: 250px;
 	background-color:rgb(52,42,41);
 	color: white;
+	font-family: 'Courier New', Courier, monospace;
+	border-radius: 9px;
+	
 }
 
 #FormControls-Buttons{
-
+	
 	height: fit-content;
 	text-align: right;
 }
@@ -188,7 +193,7 @@
 	background-color: transparent;
 	border: none;
 	font-weight: bold;
-	font-family:'Times New Roman', Times, serif;
+	font-family: 'Times New Roman', Times, serif;
 	font-size: large;
 	cursor: pointer;
 	
@@ -197,19 +202,37 @@
 #LoginButton{
 	color: rgb(228, 176, 81);
 }
+#LoginButton:hover{
+	color: rgb(252, 224, 173);
+}
 
 #CancelButton{
 	color: white;
+	
 }
+
+#CancelButton:hover{
+	color: rgb(252, 224, 173);
+	
+}
+
+
 #RegisterButton{
 	color: rgb(228, 176, 81);
 	cursor: pointer;
+	
+}
+#RegisterButton:hover{
+	color: rgb(252, 224, 173);
+	
+	cursor: pointer;
+	
 }
 
 #Welcome{
 	font-weight: light;
 	font-family:retroking;
-	margin-bottom: 0;
+	margin-bottom: 30PX;
 }
 #Back{
 	margin-top: 0;

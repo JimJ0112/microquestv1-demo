@@ -22,6 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Registration.css">
 
+	<script src="js/Requestor_Registration.js"> </script>
 
 </head>
 <body onload="init()">
@@ -230,7 +231,7 @@
 							<img id="userIDPicOutput"> <br/>
 							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
 							ID: <br/>
-							<input type="file" name="idFile" id="IDFile" oninput=" checkInputs_ResponderInfo()" onchange="showIDPicOutput(event)"> 
+							<input type="file" name="idFile" id="IDFile" oninput=" checkInputs_ResponderInfo()" onchange="showIDPicOutput(event)" accept="image/png, image/jpg, image/jpeg"> 
 						</div><br/>
 
 						<div class="inputItem"> 
@@ -255,7 +256,7 @@
 							<img id="userProfilePicOutput"> <br/>
 							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
 								Profile Picture <br/>
-							<input type="file" name="userPhoto" id="ProfilePicture" oninput="checkInputs_ResponderInfo()" onchange="showProfilePicOutput(event)" > 
+							<input type="file" name="userPhoto" id="ProfilePicture" oninput="checkInputs_ResponderInfo()" onchange="showProfilePicOutput(event)" accept="image/png, image/jpg, image/jpeg"> 
 	
 
 						</div><br/>

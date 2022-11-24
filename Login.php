@@ -88,27 +88,27 @@ session_start();
 	<form id="LoginForm" form action="Backend/LoginBackend.php" method="post">
 		
 		<center>
-		<h1 id="Welcome"> Welcome </h1>
-		<h2 id="Back"> Back</h2> 
+		<h1 id="Welcome"> Welcome Back</h1>
+		
 		</center>
 
 
 				<div id="FormControls">	
 
-					<label> EMAIL &nbsp</label><br/>
-					<input type="text" class="Form-Input" name="email"> <br/> <br/> <br/>
-					<label> PASSWORD</label><br/>
-					<input type="password" class="Form-Input" name="password"> <br/>
+					<label> Email &nbsp</label><br/> 
+					<input type="text" class="Form-Input" name="email" placeholder = "Enter your email..."> <br/> <br/> <br/>
+					<label> Password</label><br/>
+					<input type="password" class="Form-Input" name="password" placeholder = "Enter your password..."> <br/>
 
 					<br/> 
 					<div id="FormControls-Buttons">
-						<input type="submit" value="Log In" class="LoginForm-button" id="LoginButton"/>
-						<input type="reset" value="Cancel" class="LoginForm-button" id="CancelButton"/>
+						<input type="submit" value="Login" class="LoginForm-button" id="LoginButton"/>
+						<input type="reset" value="Reset" class="LoginForm-button" id="CancelButton"/>
 					</div>
 				</div>
 		<center>
-			<h4> DOESN'T HAVE AN ACCOUNT? </h4>
-			<a href="ChooseAccountType.php"> <h5 id="RegisterButton"> <u> REGISTER HERE </u> </h5></a>
+			<h4 style= "margin-top: 50px;"> Doesn't have an accout?  <a href="ChooseAccountType.php" > <u id="RegisterButton"> Register</u> </a></h4>
+			
 		</center>
 		
 

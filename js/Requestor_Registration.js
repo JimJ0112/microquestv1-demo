@@ -561,19 +561,99 @@ function setData(array){
 
 
 
-    
-  function showProfilePicOutput(event){
+
+/*    
+function showProfilePicOutput(event){
     var imageOutputContainer = document.getElementById("userProfilePicOutput");
     imageOutputContainer.src =  URL.createObjectURL(event.target.files[0]);
 
   }
 
-  function showIDPicOutput(event){
+function showIDPicOutput(event){
     var userIDPicOutput = document.getElementById("userIDPicOutput");
     userIDPicOutput.src =  URL.createObjectURL(event.target.files[0]);
   }
 
+*/
 
+function showProfilePicOutput(event){
+    var imageOutputContainer = document.getElementById("userProfilePicOutput");
+    var ProfilePicture = document.getElementById("ProfilePicture");
+
+   
+    var fileSize = event.target.files[0].size;
+    var fileType = event.target.files[0].type;
+    var isSmallEnough;
+    var isImage;
+    console.log(fileSize);
+    console.log(fileType);
+
+        if(fileSize < 9000000){
+            isSmallEnough = true;
+        }else{
+            isSmallEnough = false;
+            window.alert('File too large');
+            ProfilePicture.value = "";
+        }
+
+        if(fileType === 'image/jpg' ||fileType === 'image/png'||fileType === 'image/jpeg' ){
+            isImage = true;
+        }else{
+            isImage = false;
+            window.alert('Filetype not compatible');
+            ProfilePicture.value = "";
+        }
+
+
+
+        if(isSmallEnough === true && isImage === true){
+            imageOutputContainer.src =  URL.createObjectURL(event.target.files[0]);
+        }else{
+            window.alert('File could not be uploaded');
+            ProfilePicture.value = "";
+        }
+
+  }
+
+  function showIDPicOutput(event){
+    var imageOutputContainer = document.getElementById("userIDPicOutput");
+    var IDFile = document.getElementById("IDFile");
+
+   
+    var fileSize = event.target.files[0].size;
+    var fileType = event.target.files[0].type;
+    var isSmallEnough;
+    var isImage;
+    console.log(fileSize);
+    console.log(fileType);
+
+
+        if(fileSize <= 9000000){
+            isSmallEnough = true;
+        }else{
+            isSmallEnough = false;
+            window.alert('File too large');
+            IDFile.value = "";
+        }
+
+        if(fileType === 'image/jpg' ||fileType === 'image/png'||fileType === 'image/jpeg' ){
+            isImage = true;
+        }else{
+            isImage = false;
+            window.alert('Filetype not compatible');
+            IDFile.value = "";
+        }
+
+
+
+        if(isSmallEnough === true && isImage === true){
+            imageOutputContainer.src =  URL.createObjectURL(event.target.files[0]);
+        }else{
+            window.alert('File could not be uploaded');
+            IDFile.value = "";
+        }
+
+  }
 
 
   function checkUserName(){
