@@ -24,7 +24,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>
-		Available Services
+		Services - Pasabuy
 	</title>
 
 	
@@ -33,12 +33,13 @@
     <meta content='yes' name='apple-mobile-web-app-capable'/>
     <meta content='yes' name='mobile-web-app-capable'/>
 	
-	<link rel="stylesheet" type="text/css" href="css/Requestor_AvailableServices.css">
+	<link rel="stylesheet" type="text/css" href="css/Requestor_PasabuyProducts.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
+	<script src="js/Requestor_PasabuyProducts.js"> </script>
 
 </head>
-<body id="Requestor_AvailableServicesBackground" onload="getServices()">
+<body id="Requestor_AvailableServicesBackground" onload="getProducts()">
 
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
 
@@ -52,7 +53,7 @@
 <!--Main-->
 	<div id="AvailableServicesContainer">
 
-		<center> <h1 id="AvailableServicesTitle"> Available Services </h1> </center>
+		<center> <h1 id="AvailableServicesTitle"> Pasabuy Products </h1> </center>
 
 		<div id="ServicesContainer">
 			
@@ -74,22 +75,23 @@
 	   					</table>
 					</li>
 
-					<li class="AvailableServicesContainer-ControlItem" style="border-bottom:4px solid black">
+					<li class="AvailableServicesContainer-ControlItem">
 						<table>
 							<tr>
 								<td>
 									<img src="img/g838.png" class="RequestsContainer-ControlItemIcon">
 								</td>
 								<td>
+									<a href="Requestor_AvailableServices.php">
 									<span class="PageIndicator"> Available Services </span>
+									</a>
 								</td>
 					 		</tr>
 						</table>
 					</li>
 
-					<!--
 
-					<li class="AvailableServicesContainer-ControlItem" id="pasabuyButton"> 
+					<li class="AvailableServicesContainer-ControlItem" id="pasabuyButton" style="border-bottom:4px solid black"> 
 						
 						<table>
 							<tr>
@@ -104,8 +106,26 @@
 	   					</table>
 				
 					</li>
-					
-					-->
+
+
+
+					<a href="Requestor_MyCart.php"> 
+					  <li class="AvailableServicesContainer-ControlItem" id="myCart"> 
+						
+						<table>
+							<tr>
+								<td>
+									<img src="img/shopping-cart.png" class="AvailableServicesContainer-ControlItemIcon" id="cartIcon"> 
+								</td>
+
+								<td>
+									<a href="Requestor_MyCart.php"> <span>  </span> </a>
+								</td>
+							</tr>
+	   					</table>
+				
+					  </li>
+					</a>
 
 
 
@@ -115,47 +135,11 @@
 
 
 
-			<div id="AvailableServicesContainer-Content">
+			<div id="AvailableServicesContainer_Content">
 
-				<div class="AvailableService-Card">
+			
 
-					<!--<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>
 
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>
-
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>
-
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>-->
 
 			</div>
 
@@ -168,7 +152,7 @@
 
 
 
-<script src="js/Requestor_AvailableServices.js"> </script>
+<script src="js/Requestor_PasabuyProducts.js"> </script>
 
 
 </body>

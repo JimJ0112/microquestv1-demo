@@ -224,6 +224,7 @@
 								<option value="Driver's License"> Driver's License</option>    
                     			<option value="Philhealth"> Philhealth</option>    
                     			<option value="Voter's ID"> Voter's ID</option> 
+								<option value="National ID"> National ID</option> 
 							</select>
 						</div> <br/>
 

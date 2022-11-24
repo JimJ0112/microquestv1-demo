@@ -74,11 +74,50 @@
 	   					</table>
 					</li>
 
+					<li class="AvailableServicesContainer-ControlItem" style="border-bottom:3px solid black"> 
+						
+					
+				
+						<table>
+							<tr>
+								<td>
+									<img src="img/work-icon.png" class="AvailableServicesContainer-ControlItemIcon" id="pasabuyIcon"> 
+								</td>
+
+								<td>
+									<a href="Responder_MyServices.php"> <span> &nbsp My Services </span> </a>
+								</td>
+							</tr>
+	   					</table>
+				
+						
+				
+					</li>
+					
+
+					<li class="AvailableServicesContainer-ControlItem" id="pasabuyButton"> 
+						
+						<table>
+							<tr>
+								<td>
+									<img src="img/pasabuy-icon.png" class="AvailableServicesContainer-ControlItemIcon" id="pasabuyIcon"> 
+								</td>
+
+								<td>
+									<a href="Responder_PasabuyProducts.php"> <span> &nbsp Pasabuy Products </span> </a>
+								</td>
+							</tr>
+	   					</table>
+				
+					</li>
+
 					<li class="AvailableServicesContainer-ControlItem" id="AvailableServicesCategoryContainer"> 
 						
 							<a href="Responder_CreateService.php" id="OfferaServiceButton" >Offer a Service </a>
 					
 					</li>
+
+					
 
 				</ul>
 

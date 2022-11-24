@@ -162,7 +162,7 @@ function requestClickedItem(number,userID){
 
 
 /* --------------------------------------------------------------------------------------- */
-
+/*
 function createRequestElements(number){
 
     var table = document.getElementById("TransactionsContainerBody");
@@ -233,7 +233,7 @@ function createRequestElements(number){
 }
 
 
-/*Set Data */
+//Set Data 
 
 function SetData(dataArray){
     var dataArray = dataArray;
@@ -284,6 +284,9 @@ function SetData(dataArray){
         //controlsTd[i].innerText = dataArray[i]['dueDate'];
 
     }
+
+    checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
+
 
 }
 
@@ -464,10 +467,8 @@ function SetPaidData(dataArray){
 
         controlsTd[i].appendChild(button);
 
-        var button1 = document.createElement('button');
-        button1.setAttribute('class','CancelButton');
-        button1.innerText = "Report";
-        controlsTd[i].appendChild(button1);
+
+        checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
 
 
 
@@ -476,13 +477,15 @@ function SetPaidData(dataArray){
 }
 
 
-/* Update Services Status  */
+// Update Services Status  
 
 function acceptServiceOrder(transactionID,update){
     var transactionID = transactionID;
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+    alert("Order Accepted");
+
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -505,9 +508,9 @@ function acceptServiceOrder(transactionID,update){
     };
     
     xmlhttp.send(query);
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
-    
+    alert("Order Accepted");
+
+
 }// end of function
 
 
@@ -516,6 +519,8 @@ function cancelServiceOrder(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+
+    alert("Order Canceled");
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -538,8 +543,9 @@ function cancelServiceOrder(transactionID,update){
     };
     
     xmlhttp.send(query);
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+    alert("Order Canceled");
+
+
     
 }// end of function
 
@@ -550,6 +556,8 @@ function deliverServiceOrder(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+    alert("Order Delivered");
+
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -572,8 +580,7 @@ function deliverServiceOrder(transactionID,update){
     };
     
     xmlhttp.send(query);
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+
     
 }// end of function
 
@@ -583,6 +590,8 @@ function confirmPaymentServiceOrder(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+    alert("Payment Confirmed");
+
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -605,13 +614,140 @@ function confirmPaymentServiceOrder(transactionID,update){
     };
     
     xmlhttp.send(query);
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+
     
 }// end of function
-
+*/
 
 /*------------------------------------------------------------------------------------------------ */
+
+
+function createRequestElements(number){
+
+    var table = document.getElementById("TransactionsContainerBody");
+    var DataNumber = number;
+
+    for(var i = 0;i<DataNumber;i++){
+
+        tr = document.createElement('tr');
+        controlsTd = document.createElement('td');
+        RequestorName = document.createElement('td');
+        additionalNotes = document.createElement('td');
+        contractAgreement = document.createElement('td');
+        dueDate = document.createElement('td');
+        price = document.createElement('td');
+      //  rate = document.createElement('td');
+        requestorID = document.createElement('td');
+        serviceCategory = document.createElement('td');
+        serviceID = document.createElement('td');
+        servicePosition = document.createElement('td');
+        
+        transactionID = document.createElement('td');
+        transactionStartDate = document.createElement('td');
+        transactionStatus = document.createElement('td');
+       // userID = document.createElement('td');
+
+
+        // set element attributes
+        RequestorName.setAttribute('class','RequestorName');
+        additionalNotes.setAttribute('class','additionalNotes');
+        contractAgreement.setAttribute('class','contractAgreement');
+        dueDate.setAttribute('class','dueDate');
+        price.setAttribute('class','price');
+       // rate.setAttribute('class','rate');
+        requestorID.setAttribute('class','requestorID');
+        serviceCategory.setAttribute('class','serviceCategory');
+        serviceID.setAttribute('class','serviceID');
+        servicePosition.setAttribute('class','servicePosition');
+       
+        transactionID.setAttribute('class','transactionID');
+        transactionStartDate.setAttribute('class','transactionStartDate');
+        transactionStatus.setAttribute('class','transactionStatus');
+        //userID.setAttribute('class','userID');
+        controlsTd.setAttribute('class','controlsTd');
+
+        tr.appendChild(controlsTd)
+        tr.appendChild(transactionID)
+        tr.appendChild(transactionStartDate)
+        tr.appendChild(requestorID)
+        tr.appendChild(RequestorName)
+        tr.appendChild(serviceID)
+        tr.appendChild(serviceCategory)
+        tr.appendChild(servicePosition)
+        tr.appendChild(price)
+       // tr.appendChild(rate)
+        tr.appendChild(dueDate)
+        tr.appendChild(additionalNotes)
+        tr.appendChild(contractAgreement)
+        tr.appendChild(transactionStatus)
+       
+
+        table.appendChild(tr);
+
+
+
+    }
+
+
+}
+
+
+//Set Data 
+
+function SetData(dataArray){
+    var dataArray = dataArray;
+    var number = dataArray.length;
+
+
+
+    RequestorName= document.getElementsByClassName('RequestorName');
+    additionalNotes= document.getElementsByClassName('additionalNotes');
+    contractAgreement= document.getElementsByClassName('contractAgreement');
+    dueDate= document.getElementsByClassName('dueDate');
+    price= document.getElementsByClassName('price');
+   // rate= document.getElementsByClassName('rate');
+    requestorID= document.getElementsByClassName('requestorID');
+    serviceCategory= document.getElementsByClassName('serviceCategory');
+    serviceID= document.getElementsByClassName('serviceID');
+    servicePosition= document.getElementsByClassName('servicePosition');
+    timeSlot= document.getElementsByClassName('timeSlot');
+    transactionID= document.getElementsByClassName('transactionID');
+    transactionStartDate= document.getElementsByClassName('transactionStartDate');
+    transactionStatus= document.getElementsByClassName('transactionStatus');
+    controlsTd= document.getElementsByClassName('controlsTd');
+    for(var i = 0;i<number;i++){
+
+        RequestorName[i].innerText = dataArray[i]['RequestorName'];
+        additionalNotes[i].innerText = dataArray[i]['additionalNotes'];
+        //contractAgreement[i].innerText = dataArray[i]['contractAgreement'];
+        contractAgreement[i].innerText = "See more..";
+        dueDate[i].innerText = dataArray[i]['dueDate'];
+        price[i].innerText = dataArray[i]['price'];
+       // rate[i].innerText = dataArray[i][' rate'];
+        requestorID[i].innerText = dataArray[i]['requestorID'];
+        serviceCategory[i].innerText = dataArray[i]['serviceCategory'];
+        serviceID[i].innerText = dataArray[i]['serviceID'];
+        servicePosition[i].innerText = dataArray[i]['servicePosition'];
+        timeSlot[i].innerText = dataArray[i]['timeSlot'];
+        transactionID[i].innerText = dataArray[i]['transactionID'];
+        transactionStartDate[i].innerText = dataArray[i]['transactionStartDate'];
+        transactionStatus[i].innerText = dataArray[i]['transactionStatus'];
+
+        if(dataArray[i]['transactionStatus'] === "cancelled"){
+            transactionStatus[i].style.color = "red";
+        }else if(dataArray[i]['transactionStatus'] === "completed"){
+            transactionStatus[i].style.color = "green";
+        }else if(dataArray[i]['transactionStatus'] === "delivered"){
+            transactionStatus[i].style.color = "blue";
+        }
+        //controlsTd[i].innerText = dataArray[i]['dueDate'];
+
+    }
+
+    checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
+
+
+}
 
 
 // get pending request applications
@@ -632,6 +768,7 @@ function getRequestApplications(userID){
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray); 
+                div.innerText = " No Transaction ";
 
 
             } else {
@@ -677,6 +814,7 @@ function  getAcceptedRequests(userID){
             if(dataArray === "failed to fetch"){
 
                 console.log(dataArray); 
+                div.innerText = " No Transaction ";
 
             } else {
                 
@@ -720,6 +858,8 @@ function  getDeliveredRequests(userID){
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray);
+                div.innerText = " No Transaction ";
+
 
             } else {
                 
@@ -763,6 +903,7 @@ function getPaidRequests(userID){
 
             if(dataArray === "failed to fetch"){
 
+                div.innerText = " No Transaction ";
 
             } else {
                 
@@ -806,6 +947,7 @@ function getFinishedRequests(userID){
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray);
+                div.innerText = " No Transaction ";
 
             } else {
                 
@@ -850,6 +992,8 @@ function getCancelledRequests(userID){
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray); 
+                div.innerText = " No Transaction ";
+
             } else {
                 
                 dataArray = JSON.parse(dataArray);
@@ -912,17 +1056,7 @@ function SetAppliedRequestsData(dataArray){
         transactionID[i].innerText = dataArray[i]['transactionID'];
         transactionStartDate[i].innerText = dataArray[i]['transactionStartDate'];
         transactionStatus[i].innerText = dataArray[i]['transactionStatus'];
-        //controlsTd[i].innerText = dataArray[i]['dueDate'];
 
-        /*
-        transactionStatus[i].style.color = "blue";
-        var button = document.createElement('button');
-        button.setAttribute('class','AcceptButton');
-        button.innerText = "Accept";
-
-        button.setAttribute('onclick',"acceptServiceOrder(" +dataArray[i]['transactionID'] + ",'accepted')" );
-        controlsTd[i].appendChild(button);
-        */
 
     
         var button1 = document.createElement('button');
@@ -1065,24 +1199,6 @@ function SetRequestsData(dataArray){
             transactionStatus[i].style.color = "blue";
         }
         
-        /*
-        transactionStatus[i].style.color = "blue";
-        var button = document.createElement('button');
-        button.setAttribute('class','DeliverButton');
-        button.innerText = "Deliver";
-
-        button.setAttribute('onclick',"acceptServiceOrder(" +dataArray[i]['transactionID'] + ",'accepted')" );
-        controlsTd[i].appendChild(button);
-        
-
-    
-        var button1 = document.createElement('button');
-        button1.setAttribute('class','CancelButton');
-        button1.innerText = "Cancel";
-        button1.setAttribute('onclick',"cancelServiceOrder(" +dataArray[i]['transactionID'] + ",'cancelled')" );
-        
-        controlsTd[i].appendChild(button1);
-        */
 
         myID = sessionStorage.getItem("userID");
         reportedID = dataArray[i]["requestorID"];
@@ -1187,6 +1303,8 @@ function confirmPaymentRequest(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+    //alert("Payment confirmed");
+
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -1197,6 +1315,8 @@ function confirmPaymentRequest(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+          
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getPaidRequests(transactionsUserId);
@@ -1209,6 +1329,8 @@ function confirmPaymentRequest(transactionID,update){
     };
     
     xmlhttp.send(query);
+    alert("Payment confirmed");
+
     //var myID = sessionStorage.getItem('myID');
     //getRequestApplications(myID);
     
@@ -1222,6 +1344,7 @@ function cancelRequestApplication(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+    //alert("Request Application Canceled");
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -1232,6 +1355,8 @@ function cancelRequestApplication(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+           
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getCancelledRequests(transactionsUserId);
@@ -1244,6 +1369,8 @@ function cancelRequestApplication(transactionID,update){
     };
     
     xmlhttp.send(query);
+    alert("Request Application Canceled");
+
     //var myID = sessionStorage.getItem('myID');
     //getRequestApplications(myID);
     
@@ -1255,6 +1382,8 @@ function deliverRequestApplication(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+   // alert("Request Application Delivered");
+
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -1265,6 +1394,8 @@ function deliverRequestApplication(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            alert("Request Delivered");
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getDeliveredRequests(transactionsUserId);
@@ -1277,6 +1408,8 @@ function deliverRequestApplication(transactionID,update){
     };
     
     xmlhttp.send(query);
+    alert("Request Application Delivered");
+
     //var myID = sessionStorage.getItem('myID');
     //getRequestApplications(myID);
     

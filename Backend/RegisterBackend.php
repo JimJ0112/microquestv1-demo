@@ -75,9 +75,9 @@ if($exists){
         }
 
         if($_FILES['userPhoto']["size"] > 1500000){
-            header("location: ../LoginForm.php?msg=profile image file size too big!");
+            header("location: ../Login.php?msg=profile image file size too big!");
         } else if($_FILES['idFile']["size"] > 1500000 ){
-            header("location: ../LoginForm.php?msg=id image file size too big!");
+            header("location: ../Login.php?msg=id image file size too big!");
         } else{
 
             $hashedUserPassword = password_hash($userPassword, PASSWORD_DEFAULT);

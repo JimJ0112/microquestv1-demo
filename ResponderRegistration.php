@@ -172,7 +172,7 @@
 						</div> <br/>
 
 						<div class="inputItem"> 
-							Baranggay: <br/>
+							Barangay: <br/>
 							<input type="text" name="baranggay" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()"> 
 						</div> <br/> <br/><br/>
 						
@@ -207,6 +207,7 @@
 								<option value="Driver's License"> Driver's License</option>    
                     			<option value="Philhealth"> Philhealth</option>    
                     			<option value="Voter's ID"> Voter's ID</option> 
+								<option value="National ID"> National ID</option> 
 							</select>
 						</div> <br/>
 

@@ -48,7 +48,15 @@ session_start();
 			$municipality = $_SESSION["municipality"];
 	
 			echo"<script> sessionStorage.setItem('municipality','$municipality')</script>";
+
+
 		}
+
+
+		date_default_timezone_set("Asia/Manila");
+		$today = date("Y-m-d");
+
+		echo "<script> sessionStorage.setItem('today','$today')</script>";
 ?>
 <!--Main-->
 	<div id="RequestBoardContainer">
@@ -58,6 +66,20 @@ session_start();
 			<div id="RequestsContainer-Controls">
 
 				<ul id="RequestsContainer-ControlItems">
+
+					<li class="RequestsContainer-ControlItem"> 
+						<table>
+							<tr>
+								<td>
+									<img src="img/requests.png"class="RequestsContainer-ControlItemIcon"> 
+								</td>
+
+								<td>
+									<span class="PageIndicator"> My Requests</span> 
+								</td>
+							</tr>
+	   					</table>
+					</li>
 
 					<li class="RequestsContainer-ControlItem">
 						<table>
@@ -73,19 +95,7 @@ session_start();
 
 					</li>
 
-					<li class="RequestsContainer-ControlItem"> 
-						<table>
-							<tr>
-								<td>
-									<img src="img/requests.png"class="RequestsContainer-ControlItemIcon"> 
-								</td>
 
-								<td>
-									<span class="PageIndicator"> My Requests</span> 
-								</td>
-							</tr>
-	   					</table>
-					</li>
 
 					<li class="RequestsContainer-ControlItem" id="RequestsCategoryContainer"> 
 						
@@ -140,164 +150,7 @@ session_start();
 	</div>
 
 
-<!--
 
-Update requests
-
-<div id="UpdateRequests-Container">
-	
-	<form id="UpdateForm" action="Backend/UpdateRequest.php" method="post">
-		<center>
-			<h1> Update Request</h1>
-		</center>
-		<input type="hidden" name="requestID" id="UpdateFormRequestID"/>
-
-		<table>
-
-			<tr>
-				<td>
-					<span>Title</span>
-				</td>
-				<td class="tdright">
-					<input type="Text" name="updateTitle" id="updateTitle" class="UpdateRequests-Input"/>
-				</td>
-			</tr> 
-
-			<tr>
-				<td>
-					<span>Description</span>
-				</td>
-				<td class="tdright">
-					<textarea rows="" cols="" name="updateDescription" id="updateDescription" class="UpdateRequests-Input">
-					</textarea>
-				</td>
-			</tr> 
-
-			<tr>
-				<td>
-					<span>Due Date</span>
-				</td>
-
-				<td class="tdright">
-					<input type="datetime-local" name="updateDueDate" id="updateDueDate" class="UpdateRequests-Input"/>
-				</td>
-			</tr> 
-
-			<tr>
-				<td>
-					<span>Price</span>
-				</td>
-
-				<td class="tdright">
-					 <input type="Number" name="updatePrice" id="updatePrice" class="UpdateRequests-Input" placeholder="Php"/>
-				</td>
-			</tr> 
-
-			<tr>
-				<td>
-					<span>Negotiable</span>
-				</td>
-
-				<td class="tdright">
-					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="UpdateRequests-Input" value="Negotiable"/> Yes
-					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="UpdateRequests-Input" value="Not Negotiable"/> No
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-
-				</td>
-				<td id="UpdateControls">
-				 	<input type="submit" value="Update" class="UpdateControls-Button">
-					<input type="reset" value="Cancel" class="UpdateControls-Button" onclick="hideUpdateRequest()">
-				</td>
-			</tr>
-
-		</table>
-
-
-	</form>
-
-</div>
-
-view my request
-
-<div id="ViewRequests-Container">
-	
-	<div id="ViewRequest-Form">
-		<center>
-			<h1> View Request</h1>
-		</center>
-
-		<table>
-
-			<tr>
-				<td>
-					<span>Title</span>
-				</td>
-				<td class="tdright">
-					<span id="viewTitle">Title</span>
-				</td>
-			</tr> 
-
-			<tr>
-				<td>
-					<span>RequestDescription</span>
-				</td>
-				<td class="tdright">
-					<span id="viewDescription">RequestDescription</span>
-				</td>
-			</tr> 
-
-
-			<tr>
-				<td>
-					<span>Due Date</span>
-				</td>
-
-				<td class="tdright">
-					<span id="viewDueDate">Due Date</span>
-				</td>
-			</tr> 
-
-			<tr>
-				<td>
-					<span>Price</span>
-				</td>
-
-				<td class="tdright">
-					<span id="viewPrice">Price</span>
-				</td>
-			</tr> 
-
-			<tr>
-				<td>
-					<span>Negotiable</span>
-				</td>
-
-				<td class="tdright">
-					<span id="viewNegotiable">Negotiable</span>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-
-				</td>
-				<td id="UpdateControls">
-					<input type="reset" value="Exit" class="ViewControls-Button" onclick="hideViewRequest()">
-					<input type="button" value="Delist" class="ViewControls-Button" id="delistButton" onclick="">
-				</td>
-			</tr>
-
-		</table>
-
-
-	</div>
-
-</div>
-	-->
 
 
 
@@ -309,7 +162,7 @@ view my request
 		<center>
 			<h1> Update Request</h1>
 		</center>
-		<input type="hidden" name="requestID" id="UpdateFormRequestID"/>
+		<input type="hidden" name="requestID" id="UpdateFormRequestID" Required/>
 
 		<table>
 
@@ -318,7 +171,7 @@ view my request
 					<span>Title</span>
 				</td>
 				<td class="tdright">
-					<input type="Text" name="updateTitle" id="updateTitle" class="UpdateRequests-Input"/>
+					<input type="Text" name="updateTitle" id="updateTitle" class="UpdateRequests-Input" Required/>
 				</td>
 			</tr> 
 
@@ -327,7 +180,7 @@ view my request
 					<span>Description</span>
 				</td>
 				<td class="tdright">
-					<textarea rows="" cols="" name="updateDescription" id="updateDescription" class="UpdateRequests-Input">
+					<textarea rows="" cols="" name="updateDescription" id="updateDescription" class="UpdateRequests-Input" Required>
 					</textarea>
 				</td>
 			</tr> 
@@ -338,7 +191,7 @@ view my request
 				</td>
 
 				<td class="tdright">
-					<input type="datetime-local" name="updateDueDate" id="updateDueDate" class="UpdateRequests-Input"/>
+					<input type="date" name="updateDueDate" id="updateDueDate" class="UpdateRequests-Input" Required/>
 				</td>
 			</tr> 
 
@@ -348,7 +201,7 @@ view my request
 				</td>
 
 				<td class="tdright">
-					 <input type="Number" name="updatePrice" id="updatePrice" class="UpdateRequests-Input" placeholder="Php"/>
+					 <input type="Number" name="updatePrice" id="updatePrice" class="UpdateRequests-Input" placeholder="Php" Required/>
 				</td>
 			</tr> 
 
@@ -358,7 +211,7 @@ view my request
 				</td>
 
 				<td class="tdright">
-					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="UpdateRequests-Input" value="Negotiable"/> Yes
+					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="UpdateRequests-Input" value="Negotiable" Required/> Yes
 					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="UpdateRequests-Input" value="Not Negotiable"/> No
 				</td>
 			</tr>

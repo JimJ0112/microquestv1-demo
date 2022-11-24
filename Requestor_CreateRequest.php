@@ -105,7 +105,7 @@ session_start();
 
             <div class="CreateRequestControlsDropDown" id="AvailableServicesCategoryContainer" onchange="setCategory()"> 
 						<select id="DropDownRequestCategory"> 
-							<option selected disabled value="other"> Category</option>
+							<option selected disabled> Category</option>
 						</select> 
 			</div>
 
@@ -118,7 +118,7 @@ session_start();
             <input type="hidden" name="requestorID" value="<?php echo $_SESSION['userID']?>">
             <input type="hidden" name="requestorMunicipality" value="<?php echo $_SESSION['municipality']?>">
             <input type="hidden" name="requestCategory" id="requestCategory">
-            <input type="hidden" name="datePosted" value="<?php $today ?>">
+            <input type="hidden" name="datePosted" value="<?php $today?>">
         <Table id="formsTable">
             <tr>
                 <td class="tdright">
@@ -218,7 +218,7 @@ session_start();
         </form>
 
 <!-- other category of requests --> 
-<!--
+
         <form method="post" action="Backend/CreateRequestBackend.php" id="otherCategoriesRequestForm" class="requestForm">
 
             <input type="hidden" name="formType"> 
@@ -230,39 +230,70 @@ session_start();
                 date_default_timezone_set("Asia/Manila");
                 echo date("Y-m-d H:i:s",time());?>">
 
-            <label> Category </label> 
-            <span class="asteriskRequiredField"> * </span>
-            <input type="text" name="requestCategory" required> 
-            
-            <label> Title of your request </label> 
-            <span class="asteriskRequiredField"> * </span>
-            <input type="text" name="requestTitle" required> 
-            
-            <label> How much do you offer for this request </label> 
-            <span class="asteriskRequiredField"> * </span>
-            <input type="number" name="requestExpectedPrice" required> 
+            <Table id="formsTable">
 
-            <label> Negotiable  </label> 
-            <span class="asteriskRequiredField"> * </span>
-            <select name="isNegotiable" required>
-                <option value="Negotiable"> Negotiable </option> 
-                <option value="Not-negotiable"> Not-negotiable </option> 
-            </select>   
+            <tr>
+                <td class="tdright">
+                    <label> Category</label> 
+                </td>
+                <td>
+                <input type="text" name="requestCategory" required>   <span class="asteriskRequiredField"> * </span>
+                </td> 
+            </tr>
+            <tr>
+                <td class="tdright">
+                    <label> Title:</label> 
+                </td>
+                <td>
+                    <input type="text" name="requestTitle" required>  <span class="asteriskRequiredField"> * </span>
+                </td> 
+            </tr>
 
-            <label> Due Date:  </label> 
+            <tr>
+                <td class="tdright">
+                    <label> Price: </label> 
+                </td> 
+                <td>   
+                    <input type="number" name="requestExpectedPrice" required><span class="asteriskRequiredField"> * </span>
+                </td> 
+            </tr>
 
-            <span class="asteriskRequiredField"> * </span>
-            <input type="date" name="dueDate" min="<?php echo $today; ?>" max="" value="<?php echo $today;?>" required> 
-
-            <span class="asteriskRequiredField"> * </span>
-            <label> More Details </label> 
-            <textarea name="requestDescription" rows="10" cols="50" required></textarea> 
-
+            <tr>
+                <td class="tdright">    
+                    <label> Negotiable: </label> 
+                </td> 
+                <td>   
+                    <select name="isNegotiable" required> 
+                        <option value="Negotiable"> Negotiable </option> 
+                        <option value="NotNegotiable"> Not-negotiable </option> 
+                    </select><span class="asteriskRequiredField"> * </span>
+                </td> 
+            </tr>
+                
+            <tr>
+                <td class="tdright"> 
+                    <label> Due Date: </label> 
+                </td> 
+                <td>
+                    <input type="date" name="dueDate" min="<?php echo $today; ?>" max="" value="<?php echo $today;?>" required>
+                    <span class="asteriskRequiredField"> * </span>
+                </td> 
+            </tr>
+    
+            <tr>
+                <td class="tdright">
+                    <label> More Details: </label> 
+                </td> 
+                <td>
+                    <textarea name="requestDescription" rows="10" cols="50" required></textarea> 
+                    <span class="asteriskRequiredField"> * </span>
+                </td> 
+            </tr>
+        </Table>
 
             <input type="submit" value="Post">
-
         </form>
--->
+
     </div>
 
 

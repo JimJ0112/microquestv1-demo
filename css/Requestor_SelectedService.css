@@ -43,7 +43,7 @@
 	background-color: white;
 	margin: auto;
 	
-	width: 80%;
+	width: 75%;
 	min-height: 900px;
 	height: fit-content;
 	margin-top: 0;
@@ -58,11 +58,12 @@
 	position: absolute;
 	z-index: 3;
 	width: 100%;
-	height: 200%;
+	height: 100%;
 	display: grid;
 	align-content: center;
-	top:2;
 	padding: 0;
+	margin-top: 10%;
+
 }
 
 #Requestor_SelectedServiceMainControls{
@@ -76,8 +77,6 @@
 #Requestor_SelectedServiceMainControls table{
 	height: 100%;
 	margin-right:10px;
-	float: right;
-
 }
 
 #AvailServiceFormContainer{
@@ -172,9 +171,12 @@
 
 }
 
-a{
+label{
+	color: wheat;
+}
+#AvailServiceForm a {
 	text-decoration: none;
-	color: blue;
+	color: rgb(80, 162, 240);
 	text-decoration: underline;
 
 
@@ -186,13 +188,13 @@ a{
 #SuggestedResponders{
 	
 	min-width: 700px;
-	min-height: 500px;
-	width: 80%;
-
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	border: 1px solid rgba(134, 133, 133, 0.48);
-	margin: auto;
+    min-height: 500px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 5px inset rgba(134, 133, 133, 0.48);
+    margin: auto;
+    margin-top: 20px;
 
 }
 
@@ -247,13 +249,21 @@ a{
 
 }
 #WhatService{
+	color: black;
 	margin: 50px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+.tableContainer{
+	width:100%;
+	height: fit-content;
+}
 
-#Responders table{
-	width: fit-content;
+#Responders .tableHead{
+	width: 50%;
+	margin-left: 10%
+
+
 }
 
 #RespondersBack{
@@ -281,10 +291,27 @@ a{
 	
 }
 
+.allServices{
+	float: left;
+	color: black;
+	margin-left: 20px;
+	text-decoration: none;
+}
+
+
+.search{
+	float:right;
+}
+
+.PageIndicator{
+	color:black;
+}
+
 .responderName{ 
 	margin: 0px; 
 	font-size: larger;
-	
+	color: blue;
+	font-weight: bold;
 }
 .responderMunicipality{
 	margin: 10px; 
@@ -394,7 +421,7 @@ border-radius: 20px
 }
 
 #AvailServiceForm{
-	margin: auto;
+	/*margin: auto;
 	border: 1px solid black;
 	padding: 10px;
 	width: 40%;
@@ -408,6 +435,22 @@ border-radius: 20px
     padding: 10px;
     font-weight: light;
     border-radius: 20px;
+	*/
+	width: 30%;
+    height: 700px;
+    background-image: url(../img/b.jpg);
+    background-size: cover;
+    margin: auto;
+    z-index: 10;
+    border: 5px solid rgb(63, 50, 48);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+h3{
+	color: wheat;
+	font-size: x-large;
+	font-weight: bold;
 }
 
 #AvailServiceForm form{

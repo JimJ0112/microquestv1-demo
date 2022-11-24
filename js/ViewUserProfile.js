@@ -161,6 +161,8 @@ function setData(dataArray){
   image.setAttribute("class","userProfileUserPhoto");
   userImageContainer.appendChild(image);
 
+  var SpecializationTD = document.getElementById('SpecializationTD');
+
 
   // class
 
@@ -170,14 +172,23 @@ function setData(dataArray){
   userDob= document.getElementsByClassName("userDob")[0];
   userSpecialization= document.getElementsByClassName("userSpecialization")[0];
   //userLocation= document.getElementsByClassName("userLocation")[0];
+  userLocation = document.getElementsByClassName('userLocation')[0];
 
 
   userEmail.innerText = dataArray[0]["userEmail"];
   userFullName.innerText = dataArray[0]["firstName"] + " " +dataArray[0]["lastName"]  ;
   userAge.innerText = dataArray[0]["userName"];
   userDob.innerText = dataArray[0]["birthDate"];
-  userSpecialization.innerText = dataArray[0]["specialization"];
+
+  if(dataArray[0]["specialization"] === "" || dataArray[0]["specialization"] === " "||dataArray[0]["specialization"] === null){
+    userSpecialization.style.display = "none";
+    SpecializationTD.style.display = "none";
+  }else{
+    userSpecialization.innerText = dataArray[0]["specialization"];
+  }
+
   //userLocation.innerText = dataArray[0]["municipality"];
+  userLocation.innerText = dataArray[0]['baranggay'] +" , "+dataArray[0]['municipality'];
 
   setMessagesData(dataArray[0]['userID'],dataArray[0]['userName']);
 

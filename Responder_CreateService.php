@@ -58,7 +58,7 @@ session_start();
 
                     <td>
                     <span class="asteriskRequiredField" title="This Field is Required" id="asteriskRequiredFieldHidden"  style="display:none"> * </span>
-                        <input name="otherServicePosition"  id="otherServicePosition" type="text" placeholder="Please enter" style="display:none"  Required/>
+                        <input name="otherServicePosition"  id="otherServicePosition" type="text" placeholder="Please enter" style="display:none"/>
                         
                     </td>
                 </tr>

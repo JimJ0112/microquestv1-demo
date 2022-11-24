@@ -15,14 +15,15 @@ class DBHandler {
 function __construct(){
     
     /* Localhost connection */
-    
     /*
+    
     $this->dbservername = "localhost:3307";
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "microquestdbv2";
-    */
+    
 
+    */
 
     /* remote database connection */
     
@@ -35,12 +36,12 @@ function __construct(){
 
   /* remote database connection 2 */
   
-  
+    
     $this->dbservername = "containers-us-west-126.railway.app:5950";
     $this->dbusername = "root";
     $this->dbpassword = "1u9IP95GW0pSguFi9Eam";
     $this->dbname = "railway";
-  
+    
 
     $this-> dbconnection = mysqli_connect($this->dbservername,$this->dbusername,$this->dbpassword,$this->dbname);
  
@@ -854,6 +855,54 @@ public function getProducts($tablename,$column,$condition,$orderby = null){
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
     }
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
+                $row['productImage'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+// get Products row 
+public function getMyProducts($tablename,$responderID){
+
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    //$column = mysqli_real_escape_string($this->dbconnection, $column);
+   // $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    $responderID = mysqli_real_escape_string($this->dbconnection,$responderID);
+    
+   
+
+       // $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND responderID = $responderID";
+     $query = "SELECT * FROM $tablename WHERE  responderID = $responderID";
+    
+
 
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);

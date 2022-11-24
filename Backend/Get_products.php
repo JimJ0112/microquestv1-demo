@@ -13,7 +13,7 @@ $categories = $DBHandler->getProducts($tablename,$column,$condition,'productCate
     echo json_encode($categories);
 
     if($categories === ""){
-    echo json_last_error_msg();
+        echo json_last_error_msg();
     }
 
 

@@ -32,40 +32,58 @@ body{
 
 #serviceInfoDivBg{
 	background-color: white;
-	width: 80%;
-	min-height: 800px;
-	height: fit-content;
-	margin: auto;
-	margin-top: 150px;
+	width: 50%;
+	/* min-height: 800px; */
+	/* height: fit-content; */
+	/* margin: auto; */
+	margin-top: 10%;
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
-
+	padding: 0px;
+	height: fit-content;
+	border: outset sandybrown 5px;
+	border-radius: 20px;
 }
 
 #serviceInfoDiv{
 
-	margin-top: 0;
-	position: relative;
-	width: 800px;
-	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.167);
+/* margin-top: 0; */
+
+/* position: relative; */
+
+width: 40%;
+
+box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.167);
+
+/* height: 80%; */
+
+overflow-y: scroll;
 }
 
 #serviceFeedbacksDiv{
-	background-color: rgba(69, 36, 9, 0.795);
+	background-color: rgb(17 9 4);
 	width: 500;
 	min-height: 500px;
 	margin-top: 0;
-	border-radius: 10px 10px 0px 0px;
+	border-radius: 0px 0px 10px 10px;
 	padding: 10px;
-
 }
 
 #userInfoDiv{
 
-	padding: auto;
-	position: relative;
-	width: 500px;
+padding: auto;
 
+/* position: relative; */
+
+width: 25%;
+
+/* height: fit-content; */
+
+background-color: #f5deb3b3;
+
+border-radius: 0 10px 10px 0;
+
+/* margin: 5px; */
 }
 
 #userProfileImg{
@@ -77,25 +95,42 @@ body{
 	background-color: white;
 }
 #userInfo{
-	margin-top: 0;
-	position: absolute;
-	top:100px;
-	left: 50%;
-    transform: translate(-50%, 0); 
+	/* margin-top: 0; */
+	/* position: absolute; */
+	/* top:100px; */
+	/* left: 50%; */
+	/* transform: translate(-50%, 0); */
+	/* margin: auto; */
+	text-align: center;
+	align-content: center;
+	/* margin-left: 15%; */
 }
 
 #serviceInfo{
-	margin-top: 0;
-
+	padding: 20px;
+	margin-top: 5px;
+	height: 200%;
+	border-radius: 10px 10px 0 0;
+	background-size: cover;
 }
 
 #serviceRatingsDiv{
-	text-align: left;
+	text-align: center;
+}
+
+#totalRatings{
+	/* width: 5ch; */
+	max-width: 6ch;
+	/* white-space: nowrap; */
+	overflow: hidden;
+	/* text-overflow: ellipsis; */
+	/* text-align: center; */
+	margin-left: 30%;
 }
 
 .reviewContainer-Content{
-	width: 80%;
-	margin: auto;
+	/* width: 100%; */
+	/* margin: auto; */
 	margin-top:10px;
 	text-align: left;
 }
@@ -114,6 +149,7 @@ body{
 .userProfileTD{
 	display: grid;
 	align-content: center;
+	padding-right: 20px;
 }
 .reviewCard{
 	width: 100%;
@@ -125,9 +161,10 @@ body{
 
 #serviceCategory{
 	font-size: xx-large;
-
+	margin: auto;
 }
 
 #serviceTitle{
 	font-size: x-large;
+	margin: auto;
 }

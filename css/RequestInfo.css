@@ -125,6 +125,8 @@
     width: 20%;
     margin: auto;
     padding: 10px;
+    border-radius: 20px;
+    border: inset brown;
 }
 
 /* My Services */

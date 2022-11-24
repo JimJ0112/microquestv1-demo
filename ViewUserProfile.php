@@ -145,28 +145,28 @@ session_start();
                 <table class="userInfoTable">
                     <tr class="userInfoTR">
                         <td>Email</td>
-                        <td class="userEmail"> alden@richard.com </td>
+                        <td class="userEmail">  </td>
                     </tr>
                    
                     <tr class="userInfoTR">
 					    <td>Full Name</td>
-                         <td class="userFullName"> Alden Richard </td>
+                         <td class="userFullName"></td>
                     </tr>
                     <tr class="userInfoTR">
 					    <td>Age</td>
-                        <td class="userAge"> 32 </td>
+                        <td class="userAge">  </td>
                     </tr>
                     <tr class="userInfoTR">
 					    <td>Birthday</td>
-                        <td class="userDob"> May 17, 1990 </td>
+                        <td class="userDob">  </td>
                     </tr>
                     <tr class="userInfoTR">
-					    <td>Spcialization</td>
+					    <td id="SpecializationTD">Spcialization</td>
                         <td class="userSpecialization">  </td>
                     </tr>
                     <tr class="userInfoTR">
 					    <td>Location</td>
-                        <td class="userSpecialization"> Abucay </td>
+                        <td class="userLocation">  </td>
                     </tr>
                 </table>
             </div>

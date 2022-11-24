@@ -275,7 +275,18 @@
     <div id="Requestor_SelectedServiceMain">
       
             <div id="Requestor_SelectedServiceMainControls">
-                <Table> 
+                <table class="allServices">
+					<tr>
+						<td>
+							<img src="img/g838.png" class="RequestsContainer-ControlItemIcon">
+						</td>
+						<td>
+                            <a href="Requestor_AvailableServices.php">
+							<span class="PageIndicator"> Available Services </span></a>
+						</td>
+					</tr>
+				</table>
+                <Table class="search"> 
                     <tr>
                         <td>
                             <img> Search
@@ -324,8 +335,8 @@
                 <div id="closeButtonBack">
                     <div id="closeButton" onclick="closeResponders()"> ✕ </div>
                 </div>
-
-                <table>
+            <div class="tableContainer">
+                <table class="tableHead">
                     <tr>
                         <td>My Location: </td> <br/>
                         <td><span id="myLocation"> </span> </td>
@@ -345,7 +356,7 @@
 
                 </table>
 
-            
+</div>
                 <div id="SuggestedResponders">
                 </div> 
 

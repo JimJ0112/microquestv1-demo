@@ -180,6 +180,7 @@ function getOrders(userID){
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray); 
+                div.innerText = " No Transaction ";
 
 
             } else {
@@ -225,6 +226,7 @@ function  getAcceptedOrders(userID){
             if(dataArray === "failed to fetch"){
 
                 console.log(dataArray); 
+                div.innerText = " No Transaction ";
 
             } else {
                 
@@ -268,6 +270,8 @@ function  getDeliveredService(userID){
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray);
+                div.innerText = " No Transaction ";
+
 
             } else {
                 
@@ -311,6 +315,7 @@ function getPaidOrders(userID){
 
             if(dataArray === "failed to fetch"){
 
+                div.innerText = " No Transaction ";
 
             } else {
                 
@@ -354,6 +359,8 @@ function getFinishedService(userID){
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray);
+                div.innerText = " No Transaction ";
+
 
             } else {
                 
@@ -398,6 +405,8 @@ function getCancelledOrders(userID){
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray); 
+                div.innerText = " No Transaction ";
+
             } else {
                 
                 dataArray = JSON.parse(dataArray);
@@ -767,6 +776,8 @@ function acceptServiceOrder(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+    alert("Order Accepted");
+
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -777,6 +788,8 @@ function acceptServiceOrder(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getOrders(transactionsUserId);
@@ -789,6 +802,7 @@ function acceptServiceOrder(transactionID,update){
     };
     
     xmlhttp.send(query);
+    alert("Order Accepted");
     //var myID = sessionStorage.getItem('myID');
     //getRequestApplications(myID);
     
@@ -800,6 +814,8 @@ function cancelServiceOrder(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+    alert("Order Canceled");
+    
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -810,6 +826,8 @@ function cancelServiceOrder(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getCancelledOrders(transactionsUserId);
@@ -822,6 +840,8 @@ function cancelServiceOrder(transactionID,update){
     };
     
     xmlhttp.send(query);
+    alert("Order Canceled");
+
     //var myID = sessionStorage.getItem('myID');
     //getRequestApplications(myID);
     
@@ -834,6 +854,8 @@ function deliverServiceOrder(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+    alert("Order Delivered");
+
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -844,6 +866,8 @@ function deliverServiceOrder(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            //alert("Order Delivered");
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getAcceptedOrders(transactionsUserId);
@@ -856,6 +880,7 @@ function deliverServiceOrder(transactionID,update){
     };
     
     xmlhttp.send(query);
+    alert("Order Delivered");
     //var myID = sessionStorage.getItem('myID');
     //getRequestApplications(myID);
     
@@ -867,6 +892,8 @@ function confirmPaymentServiceOrder(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+    alert("Payment Confirmed");
+
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -877,6 +904,8 @@ function confirmPaymentServiceOrder(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+          
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getPaidOrders(transactionsUserId);
@@ -888,7 +917,9 @@ function confirmPaymentServiceOrder(transactionID,update){
         }      
     };
     
+    alert("Payment Confirmed");
     xmlhttp.send(query);
+    
     //var myID = sessionStorage.getItem('myID');
     //getRequestApplications(myID);
     
@@ -902,6 +933,8 @@ function confirmPaymentRequest(transactionID,update){
     var update = update;
     var query = "transactionID=" + transactionID+"&update="+update;
     console.log(query);
+    alert("Payment Confirmed");
+
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -912,6 +945,9 @@ function confirmPaymentRequest(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            //alert("Payment Confirmed");
+
+            
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getPaidRequests(transactionsUserId);

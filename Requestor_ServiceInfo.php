@@ -73,7 +73,7 @@ session_start();
                 <br/>
 
                 <div id="serviceRatingsDiv"> 
-                        <h1 id="totalRatings"> </h1>
+                <h1 id="totalRatings"></h1>
                         <b> ⭐ 5 Stars </b> <progress id="ratings5StarsProgress"> </progress> &nbsp<span id="ratings5Stars"> </span> <br/>
                         <b> ⭐ 4 Stars </b> <progress id="ratings4StarsProgress"> </progress> &nbsp<span id="ratings4Stars"> </span><br/>
                         <b> ⭐ 3 Stars </b> <progress id="ratings3StarsProgress"> </progress> &nbsp<span id="ratings3Stars"> </span><br/>

@@ -3,16 +3,13 @@ function getServices(){
 
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/Get_otherServices.php", true);
+    xmlhttp.open("POST", "Backend/Get_allServices.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
            
-        
-  
 
-            
             var dataArray = this.response;
 
             if(dataArray === "failed to fetch"){
@@ -49,11 +46,15 @@ function setOptions(array){
     var serviceDropDown = document.getElementById("DropDownRequestCategory");
     for(var i = 0; i<number;i++){
         
-        
-        var option = new Option;
-        option.innerText = dataArray[i]["serviceCategory"];
-        option.value = dataArray[i]["serviceCategory"];
-        serviceDropDown.add(option);
+        if(dataArray[i]["serviceCategory"] === "Pasabuy"){
+
+        } else{
+            var option = new Option;
+            option.innerText = dataArray[i]["serviceCategory"];
+            option.value = dataArray[i]["serviceCategory"];
+            serviceDropDown.add(option);
+        }
+
 
     }
 
@@ -76,7 +77,7 @@ function setCategory(){
     serviceDropDownValue = serviceDropDown.value;
 
     if(serviceDropDownValue === "Other"){
-        DisplayCategory.innerText = serviceDropDownValue;
+        
         regularRequestForm.style.display = 'none';
         otherCategoriesRequestForm.style.display = 'grid';
         pasabuyRequestForm.style.display = 'none';
@@ -88,11 +89,12 @@ function setCategory(){
         pasabuyRequestForm.style.display = 'grid';
 
     } else{
+        requestCategory.value = serviceDropDownValue;
         regularRequestForm.style.display = 'grid';
         otherCategoriesRequestForm.style.display = 'none';
         pasabuyRequestForm.style.display = 'none';
-        DisplayCategory.innerText = serviceDropDownValue;
-        requestCategory.value = serviceDropDownValue;
+        
+        
     }
     
 }

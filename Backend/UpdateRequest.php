@@ -25,16 +25,37 @@ echo $name = $_POST['updatePrice'];
 
 echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
 
-$column = "isNegotiable";
-echo $name = $_POST['updateNegotiable'];
+if(isset($_POST['updateNegotiable'])){
 
-echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
+    $column = "isNegotiable";
+    echo $name = $_POST['updateNegotiable'];
+    
+    echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
+    
+}else{
+    
+    $column = "isNegotiable";
+    echo $name = "Negotiable";
+    
+    echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
+    
+}
 
 
 $column = "requestDescription";
 echo $name = $_POST['updateDescription'];
 
 echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
+
+
+if(isset($_POST['updateTitle'])){
+    $column = "requestTitle";
+    $name = $_POST['updateTitle'];
+    echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
+
+}else{
+
+}
 
 
 // $query = "UPDATE $tablename SET $column = '$name' WHERE $condition = '$conditionvalue' ";

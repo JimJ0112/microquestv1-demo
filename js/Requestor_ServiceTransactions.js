@@ -134,11 +134,12 @@ function getOrders(userID){
            
 
             var div = document.getElementById('TransactionsContainerBody');
-            div.innerHTML = "";
+            document.getElementById('TransactionsContainerBody').innerHTML = "";
             var dataArray = this.response;
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray); 
+                div.innerHTML = "<center>  <p> No Transactions  </p> </center>";
 
 
             } else {
@@ -178,12 +179,13 @@ function  getAcceptedOrders(userID){
            
 
             var div = document.getElementById('TransactionsContainerBody');
-            div.innerHTML = "";
+            document.getElementById('TransactionsContainerBody').innerHTML = "";
             var dataArray = this.response;
 
             if(dataArray === "failed to fetch"){
 
                 console.log(dataArray); 
+                div.innerHTML = "<center>  <p> No Transactions  </p> </center>";
 
             } else {
                 
@@ -222,11 +224,13 @@ function  getDeliveredService(userID){
            
 
             var div = document.getElementById('TransactionsContainerBody');
-            div.innerHTML = "";
+            document.getElementById('TransactionsContainerBody').innerHTML = "";
             var dataArray = this.response;
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray);
+                div.innerHTML = "<center>  <p> No Transactions  </p> </center>";
+
 
             } else {
                 
@@ -265,10 +269,11 @@ function getPaidOrders(userID){
            
 
             var div = document.getElementById('TransactionsContainerBody');
-            div.innerHTML = "";
+            document.getElementById('TransactionsContainerBody').innerHTML = "";
             var dataArray = this.response;
 
             if(dataArray === "failed to fetch"){
+                div.innerHTML = "<center>  <p> No Transactions  </p> </center>";
 
 
             } else {
@@ -308,11 +313,13 @@ function getFinishedService(userID){
            
 
             var div = document.getElementById('TransactionsContainerBody');
-            div.innerHTML = "";
+            document.getElementById('TransactionsContainerBody').innerHTML = "";
             var dataArray = this.response;
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray);
+                div.innerHTML = "<center>  <p> No Transactions  </p> </center>";
+                
 
             } else {
                 
@@ -352,11 +359,13 @@ function getCancelledOrders(userID){
            
 
             var div = document.getElementById('TransactionsContainerBody');
-            div.innerHTML = "";
+            document.getElementById('TransactionsContainerBody').innerHTML = "";
             var dataArray = this.response;
 
             if(dataArray === "failed to fetch"){
                 console.log(dataArray); 
+                div.innerHTML = "<center>  <p> No Transactions  </p> </center>";
+
             } else {
                 
                 dataArray = JSON.parse(dataArray);
@@ -431,6 +440,7 @@ function createElements(number){
         controlsTd.setAttribute('class','controlsTd');
         isReported.setAttribute('type','hidden');
         isReported.setAttribute('class','isReported');
+        additionalNotes.width = "200";
 
         tr.appendChild(controlsTd)
         tr.appendChild(transactionID)
@@ -903,6 +913,8 @@ function acceptServiceOrder(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            alert("Order Accepted");
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getOrders(transactionsUserId);
@@ -936,6 +948,8 @@ function cancelServiceOrder(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            alert("Order Cancelled");
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getCancelledOrders(transactionsUserId);
@@ -970,6 +984,8 @@ function deliverServiceOrder(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            alert("Order Delivered");
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getAcceptedOrders(transactionsUserId);
@@ -1003,6 +1019,8 @@ function confirmPaymentServiceOrder(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            alert("Payment Confirmed");
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getPaidOrders(transactionsUserId);
@@ -1042,6 +1060,8 @@ function confirmPaymentRequest(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            alert("Payment Confirmed");
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getPaidRequests(transactionsUserId);
@@ -1129,6 +1149,8 @@ function cancelRequestApplication(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            alert("Request Application Canceled");
+
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getCancelledRequests(transactionsUserId);
@@ -1162,6 +1184,9 @@ function deliverRequestApplication(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
+            alert("Request Application Delivered");
+
+            
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
             getDeliveredRequests(transactionsUserId);

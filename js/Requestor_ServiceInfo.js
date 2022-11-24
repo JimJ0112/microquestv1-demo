@@ -174,7 +174,11 @@ function setRatingsData(dataArray){
      ratings2Star.innerText  = dataArray[0]['2 stars'];
      ratings1Star.innerText  = dataArray[0]['1 stars'];
 
+     var totalRatingstofixed = parseFloat(dataArray[0]['totalratings']).toFixed(2);
+
      totalRatings.innerText=  " ⭐"+ dataArray[0]['total ratings'];
+    // totalRatings.innerText=  " ⭐"+ totalRatingstofixed;
+
      totalNumberOfRatings.innerText= dataArray[0]['all Ratings'];
 
 }

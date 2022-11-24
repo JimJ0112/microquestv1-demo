@@ -102,6 +102,10 @@ function setData(array){
 
     var dataArray = array;
     var number = dataArray.length;
+    var today = sessionStorage.getItem('today');
+    today = new Date(today);
+
+    
     
     wrapper = document.getElementsByClassName('wrapper');
     myRequestCard = document.getElementsByClassName('request-card');
@@ -123,15 +127,28 @@ function setData(array){
             isNegotiable[i].innerText= dataArray[i]['isNegotiable'];
             dueDateValue[i].innerText= dataArray[i]['dueDate'];
             dueDate[i].innerText='due date';
-            //myRequestCard[i].setAttribute('onclick','viewForm('+dataArray[i]['requestID']+',"'+dataArray[i]['requestTitle']+'","'+ dataArray[i]['dueDate'] + '","' + dataArray[i]['requestExpectedPrice']+'","'+ dataArray[i]['isNegotiable']+'","'+dataArray[i]['requestDescription']+'","'+dataArray[i]['requestStatus']+'")');
-            //myRequestCard[i].setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
-            //.setAttribute('onclick',"updateForm("+dataArray[i]['requestID']+",'"+dataArray[i]['requestTitle']+"','"+ dataArray[i]['dueDate'] + "','" + dataArray[i]['requestExpectedPrice']+"','"+ dataArray[i]['isNegotiable']+"','"+dataArray[i]['requestDescription']+"')");
+            myRequestCard[i].setAttribute("onclick","viewRequest("+dataArray[i]['requestID']+")");
 
-            //updateForm(requestID,title,dueDate,price,isNegotiable,Description)
-            //myRequestCard[i].setAttribute("onclick","updateForm("+dataArray[i]['requestID']+',"'+dataArray[i]['requestTitle']+'","'+dataArray[i]['dueDate']+'","'+dataArray[i]['requestExpectedPrice']+'","'+dataArray[i]['isNegotiable']+'","'+dataArray[i]['requestDescription']+'")')
-            //myRequestCard[i].setAttribute("onclick","updateForm("+dataArray[i]['requestID']+")");
-        
-             myRequestCard[i].setAttribute("onclick","viewRequest("+dataArray[i]['requestID']+")");
+            if(dataArray[i]['requestStatus'] === "Delisted"){
+                requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small; color:darkred;'> " + dataArray[i]['requestStatus'] + "</span>";
+
+            }else if(dataArray[i]['requestStatus'] === "Completed"){
+                requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small;  color:Yellow;'> " + dataArray[i]['requestStatus'] + "</span>";
+
+            }else{
+                requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small'> " + dataArray[i]['requestStatus'] + "</span>";
+            }
+            var arrayDueDate = new Date(dataArray[i]['dueDate']);
+
+            if(arrayDueDate < today){
+                // is in the past
+                dueDateValue[i].style.color="#8B0000";
+            }else{
+                // present-future
+                //dueDateValue[i].style.color="#808000";
+
+            }
+
         }
     
     }
@@ -158,7 +175,7 @@ function getMyRequests(userID){
             if(dataArray === "failed to fetch"){
                 var content = document.getElementById("requestInfoContent");
                 var h2 = document.createElement('h2');
-                h2.innerText = "Request does not exist, entered link might be broken";
+                h2.innerText = "No Requests Created yet";
                 div.innerHTML = "";
                 div.style.textAlign = "center";
                 div.appendChild(h2);
