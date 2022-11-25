@@ -560,3 +560,55 @@
 	margin: 0;
 	margin-right: 0;
 }
+
+
+#addToCartFormBg{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.207);
+	display: none;
+	top:0;
+	z-index: 20;
+}
+
+#addToCartFormDiv{
+	width: 30%;
+	height: 50%;
+	margin:auto;
+	background-color: white;
+	text-align: center;
+
+
+}
+
+#addToCartForm{
+	margin: auto;
+	text-align: center;
+	width: fit-content;
+
+}
+
+.addminusButton{
+	background-color: #765949;
+	padding: 10px;
+	width: 50px;
+	height: 50px;
+	font-weight: bold;
+	color: white;
+	cursor: pointer;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#quantity{
+	height: 40px;
+	text-align: center;
+}
+
+#cartFormProductImage{
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+	margin: auto;
+}

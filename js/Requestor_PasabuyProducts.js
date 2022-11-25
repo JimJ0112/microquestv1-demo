@@ -86,6 +86,8 @@ function setData(array){
 
     var card = document.getElementsByClassName("productCard");
     var ProductImageDiv=document.getElementsByClassName("ProductImageDiv");
+
+    var addToCartButton = document.getElementsByClassName("addToCartButton");
     //var ProductImage=document.getElementsByClassName("ProductImage");
 
     var ProductInfo=document.getElementsByClassName("ProductInfo");
@@ -115,8 +117,11 @@ function setData(array){
         productPrice[i].innerText = "Price: Php"+ dataArray[i]['productPrice']
         deliveryRate[i].innerText = "Delivery price: "+ dataArray[i]['deliveryRate']
         itemStatus[i].innerText = "Status: "+ dataArray[i]['itemStatus']
+
+        //setCartForm(productID,serviceID,responderID,ProductImage,ProductName)
     
         // /EditButton[i].setAttribute();
+        addToCartButton[i].setAttribute("onclick","setCartForm("+dataArray[i]['productID']+","+dataArray[i]['servicesInfoID']+","+dataArray[i]['responderID']+",'" + dataArray[i]['productImage'] +"','" +dataArray[i]['productName']+"')");
     
     }
 
@@ -283,3 +288,78 @@ function closeEditMyService(){
 
 
 
+function addQuantity(){
+    var quantity = document.getElementById("quantity");
+
+        if(quantity.value <=0){
+            quantity.value = 1;
+        } else if(quantity.value >= 99){
+            quantity.value = quantity.value;
+        } else {
+            quantity.value = parseInt(quantity.value) + 1;
+            
+        }
+        
+}
+
+
+function subQuantity(){
+    var quantity = document.getElementById("quantity");
+
+        if(quantity.value >= 99){
+            quantity.value = 99;
+
+        } else if(quantity.value <= 1){
+
+            quantity.value = 1
+
+        } else {
+            quantity.value = parseInt(quantity.value) - 1;
+            
+        }
+        
+}
+
+
+function quantityLimit(){
+    var quantity = document.getElementById("quantity");
+
+    if(quantity.value >= 99){
+        quantity.value = 99;
+
+    } else if(quantity.value <= 1){
+
+        quantity.value = 1
+
+    }
+}
+
+function closeCartForm(){
+    document.getElementById("addToCartFormBg").style.display = "none";
+    document.getElementById("quantity").value = "1";
+
+}
+
+
+function setCartForm(productID,serviceID,responderID,ProductImage,ProductName){
+    var productID = productID;
+    var serviceID = serviceID;
+    var responderID = responderID;
+    var ProductImage = ProductImage;
+    var ProductName = ProductName;
+
+    var productIDEl = document.getElementById("productID");
+    var serviceIDEl = document.getElementById("serviceID");
+    var responderIDEl = document.getElementById("responderID");
+    var cartFormProductImage = document.getElementById("cartFormProductImage");
+    var cartFormProductName = document.getElementById("cartFormProductName");
+
+    productIDEl.value = productID;
+    serviceIDEl.value = serviceID;
+    responderIDEl.value = responderID;
+    cartFormProductImage.src = ProductImage;
+    cartFormProductName.innerText = ProductName;
+
+    document.getElementById("addToCartFormBg").style.display = "grid";
+
+}

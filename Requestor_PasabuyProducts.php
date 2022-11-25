@@ -149,6 +149,35 @@
 		
 	</div>
 
+	<!-- productID	serviceID	responderID	requestorID	dateAssigned	quantity-->
+
+	<div id="addToCartFormBg"> 
+		<div id="addToCartFormDiv">
+			<div id="closeButton" onclick="closeCartForm()" style="color:gray; filter: invert(0%);"> ✕ </div>
+			<br/><br/>
+			<form action="" method="post" id="addToCartForm"> 
+            	
+
+				<input type="hidden" name="productID" id="productID"/>
+				<input type="hidden" name="serviceID" id="serviceID"/>
+				<input type="hidden" name="responderID" id="responderID"/>
+				<input type="hidden" name="requestorID" id="requestorID" value="<?php echo $userID;?>"/>
+				<input type="hidden" name="dateAssigned" id="dateAssigned" value=""/>
+
+				<img id="cartFormProductImage"> <br/>
+				<p id="cartFormProductName"> Name </p>
+
+				<h3> Enter Quantity </h3> <br/>
+				<span class="addminusButton" onclick="addQuantity()">&nbsp + &nbsp</span> 
+				<input type="number" name="quantity" min="1" max="99" id="quantity" onchange="quantityLimit()" value="1"/> 
+				<span class="addminusButton" onclick="subQuantity()">&nbsp - &nbsp</span> 
+				<br/><br/>
+				<input type="submit" value="Add to cart"/>
+
+			</form>
+		</div>
+	</div>
+
 
 
 
