@@ -49,6 +49,11 @@
 
 ?>
 
+<?php
+    date_default_timezone_set("Asia/Manila");
+    $today= date("Y-m-d");
+
+?>
 
 <!--Main-->
 	<div id="AvailableServicesContainer">
@@ -155,14 +160,14 @@
 		<div id="addToCartFormDiv">
 			<div id="closeButton" onclick="closeCartForm()" style="color:gray; filter: invert(0%);"> ✕ </div>
 			<br/><br/>
-			<form action="" method="post" id="addToCartForm"> 
+			<form action="Backend/addToCart.php" method="post" id="addToCartForm"> 
             	
 
 				<input type="hidden" name="productID" id="productID"/>
 				<input type="hidden" name="serviceID" id="serviceID"/>
 				<input type="hidden" name="responderID" id="responderID"/>
 				<input type="hidden" name="requestorID" id="requestorID" value="<?php echo $userID;?>"/>
-				<input type="hidden" name="dateAssigned" id="dateAssigned" value=""/>
+				<input type="hidden" name="dateAssigned" id="dateAssigned" value="<?php echo $today; ?>"/>
 
 				<img id="cartFormProductImage"> <br/>
 				<p id="cartFormProductName"> Name </p>

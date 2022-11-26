@@ -16,6 +16,10 @@
 		echo "<script > sessionStorage.setItem('myID',$userID); </script>";
 	}
 
+	if(isset($_GET['msg'])){
+		$msg = $_GET['msg'];
+		echo"<script> alert('$msg')</script> ";
+	}
 
 ?>
 <!DOCTYPE html>
@@ -33,13 +37,13 @@
     <meta content='yes' name='apple-mobile-web-app-capable'/>
     <meta content='yes' name='mobile-web-app-capable'/>
 	
-	<link rel="stylesheet" type="text/css" href="css/Requestor_PasabuyProducts.css">
+	<link rel="stylesheet" type="text/css" href="css/Requestor_MyCart.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
-	<script src="js/Requestor_PasabuyProducts.js"> </script>
+	<script src="js/Requestor_MyCart.js"> </script>
 
 </head>
-<body id="Requestor_AvailableServicesBackground" onload="getProducts()">
+<body id="Requestor_AvailableServicesBackground">
 
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
 
@@ -49,24 +53,32 @@
 
 ?>
 
+<?php
+	if(isset($_SESSION['userID'])){
+		$userID = $_SESSION['userID'];
 
+		echo"<script> getMyCartItems($userID); </script>";
+	}
+
+?>
 <!--Main-->
 	<div id="AvailableServicesContainer">
 
 		<center> 
-			
+			<br/>
 						<table>
 							<tr>
 								<td>
-									<img src="img/shopping-cart.png" class="AvailableServicesContainer-ControlItemIcon" id="cartIcon"> 
+									<img src="img/shopping-cart.png" id="titleCartIcon"> 
 								</td>
 
 								<td>
-									<h1 id="AvailableServicesTitle"> My Cart </h1>
+									<p id="AvailableServicesTitle"> My Cart </p>
 								</td>
 							</tr>
 	   					</table>
 	
+			<br/>
 			
 		</center>
 
@@ -151,8 +163,72 @@
 
 
 			<div id="AvailableServicesContainer_Content">
+				<form action="Backend/CheckOutCartItems.php" method="post">
+				<input type="hidden" name="requestorID" id="requestorID" value="<?php echo $userID;?>"/>
 
-			
+					<table id="myCartItemsTable"> 
+
+						<thead id="myCartItemsTableHead">
+							<tr>
+								<td> &nbsp &nbsp &nbsp</td>
+								<td> Product </td>
+								<td> &nbsp &nbsp &nbsp</td>
+								<td> Item Price </td>
+								<td> Quantity </td>
+								<td> Total Price </td>
+								<td> Action </td>
+
+
+							</tr>
+						 
+						</thead>
+
+						<tbody id="myCartItemsTableBody"> </tbody>
+
+
+					</table> 
+
+					<div id="cartFormControls">
+					
+					
+
+							
+									<table id="cartFormControlsTableLeft">
+										<tr>
+											<td>
+												<span> Delete All </span>
+											</td>
+
+											<td>
+												<img src="img/delete.png" id="deleteAllButton">
+											</td>
+										</tr>
+									<table>
+
+
+									<table id="cartFormControlsTableRight"> 
+										<tr>
+											<td>
+												<span> Total: ₱ </span> <span id="allTotal"> 0 </span> 
+											</td>
+
+											<td>
+												&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+												<input type="submit" value="Check Out" id="CheckOutButton"/>
+											</td>
+										</tr>
+
+									</table>
+
+
+
+
+							
+				
+						
+					</div>
+
+				</form>
 
 
 
@@ -167,7 +243,7 @@
 
 
 
-<script src="js/Requestor_PasabuyProducts.js"> </script>
+<script src="js/Requestor_MyCart.js"> </script>
 
 
 </body>

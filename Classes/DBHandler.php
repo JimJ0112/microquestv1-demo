@@ -622,7 +622,7 @@ public function getReviewsWithRatings($userID){
 
 // get Categories
 public function getServiceReviewsWithRatings($serviceID){
-    $userID = mysqli_real_escape_string($this->dbconnection, $serviceID);
+    $userID = mysqli_real_escape_string($this->dbconnection,$serviceID);
 
 
 
@@ -671,6 +671,74 @@ public function getServiceReviewsWithRatings($serviceID){
   
 }
 
+
+// get Categories
+public function getMyCart($requestorID){
+  
+    $requestorID = mysqli_real_escape_string($this->dbconnection, $requestorID);
+
+    
+   
+   
+        $query = "SELECT cart.cartID,
+        cart.productID,
+        cart.serviceID,
+        cart.responderID,
+        cart.requestorID,
+        cart.dateAssigned,
+        cart.quantity,
+        cart.productStatus,
+        products.productID,	
+        products.servicesInfoID,
+        products.productCategory,
+        products.productName,	
+        products.productBrand,	
+        products.productDescription,	
+        products.productPrice,	
+        products.productImage,	
+        products.responderID	,
+        products.itemStatus,	
+        products.deliveryRate
+        
+        FROM `cart` 
+        INNER JOIN products 
+        ON cart.productID = products.productID
+         
+         WHERE cart.requestorID = $requestorID
+         AND productStatus = 'Available';";
+    
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
+                $row['productImage'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
 
 
 // get Categories
@@ -3213,6 +3281,59 @@ public function deleteColumn($tablename,$column,$name,$condition,$conditionvalue
 }
 
 /*--------------------------------INSERT FUNCTIONS------------------------------------------------------ */
+
+//insert to card / add to cart
+public function addToCart($productID,$serviceID,$responderID,$requestorID,$dateAssigned,$quantity){
+
+    $tablename = "cart";
+    $cartID = 0;
+    $productStatus = 'Available';
+    $productID  = mysqli_real_escape_string($this->dbconnection, $productID );
+    $serviceID = mysqli_real_escape_string($this->dbconnection,  $serviceID);
+    $responderID = mysqli_real_escape_string($this->dbconnection, $responderID);
+    $requestorID = mysqli_real_escape_string($this->dbconnection, $requestorID);
+    $dateAssigned = mysqli_real_escape_string($this->dbconnection, $dateAssigned);
+    $quantity = mysqli_real_escape_string($this->dbconnection, $quantity);
+
+
+
+    //	cartID	productID	serviceID	responderID	requestorID	dateAssigned	quantity	productStatus	
+
+        $query = "INSERT INTO $tablename() VALUES ($cartID,$productID,$serviceID,$responderID,$requestorID,'$dateAssigned',$quantity,'$productStatus')";
+   
+    return mysqli_query($this->dbconnection, $query);
+
+}
+
+public function registerPasabuyTransaction($productID,$serviceID,$requestorID,$responderID,$price,$quantity,$orderDate,$orderStatus,$paymentFile,$transactionStartDate,$transactionEndDate,$totalPrice){
+
+    $tablename = "pasabuyTransactions";
+    $pasabuyTransactionID = 0;
+   
+    
+    $productID  = mysqli_real_escape_string($this->dbconnection, $productID );
+    $serviceID = mysqli_real_escape_string($this->dbconnection,  $serviceID);
+    $responderID = mysqli_real_escape_string($this->dbconnection, $responderID);
+    $requestorID = mysqli_real_escape_string($this->dbconnection, $requestorID);
+    $price = mysqli_real_escape_string($this->dbconnection, $price);
+    $quantity = mysqli_real_escape_string($this->dbconnection, $quantity);
+    $orderDate = mysqli_real_escape_string($this->dbconnection, $orderDate);
+    $orderStatus = mysqli_real_escape_string($this->dbconnection, $orderStatus);
+    $paymentFile = mysqli_real_escape_string($this->dbconnection, $paymentFile);
+    $transactionStartDate = mysqli_real_escape_string($this->dbconnection, $transactionStartDate);
+    $transactionEndDate = mysqli_real_escape_string($this->dbconnection, $transactionEndDate);
+    $totalPrice = mysqli_real_escape_string($this->dbconnection, $totalPrice);
+
+
+
+    //	cartID	productID	serviceID	responderID	requestorID	dateAssigned	quantity	productStatus	
+
+        $query = "INSERT INTO $tablename() VALUES ($pasabuyTransactionID,$productID,$serviceID,$requestorID,$responderID,$price,$quantity,'$orderDate','$orderStatus','$paymentFile','$transactionStartDate','$transactionEndDate',$totalPrice)";
+   
+        echo mysqli_error($this->dbconnection);
+    return mysqli_query($this->dbconnection, $query);
+
+}
 
 
 
