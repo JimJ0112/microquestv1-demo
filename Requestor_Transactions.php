@@ -44,8 +44,9 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Requestor_Transactions.css">
 
-	<script src="js/Requestor_ServiceTransactions.js"> </script>
-	<script src="js/Requestor_RequestTransactions.js"> </script>
+	<!--<script src="js/Requestor_ServiceTransactions.js"> </script>
+	<script src="js/Requestor_RequestTransactions.js"> </script>-->
+	<script src="js/Requestor_PasabuyTransactions.js"> </script>
 	<script src="js/report.js"> </script>
 
 
@@ -84,6 +85,8 @@
 				<select id="TransactionTypeDropDown" onchange="setTransactionType()">
 					<option value= "Services">Services</option>
 					<option value= "Requests">Requests</option>
+					<option value= "Pasabuy">Pasabuy</option>
+
 				</select> 
 			
 			</td>

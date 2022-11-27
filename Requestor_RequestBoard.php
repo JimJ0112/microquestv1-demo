@@ -67,25 +67,25 @@ session_start();
 
 				<ul id="RequestsContainer-ControlItems">
 
-					<li class="RequestsContainer-ControlItem"> 
+					<li class="col- RequestsContainer-ControlItem"> 
 						<table>
 							<tr>
 								<td>
-									<img src="img/requests.png"class="RequestsContainer-ControlItemIcon"> 
+									<img src="img/requests.png"class="col- RequestsContainer-ControlItemIcon"> 
 								</td>
 
 								<td>
-									<span class="PageIndicator"> My Requests</span> 
+									<span class="col- PageIndicator"> My Requests</span> 
 								</td>
 							</tr>
 	   					</table>
 					</li>
 
-					<li class="RequestsContainer-ControlItem">
+					<li class="col- RequestsContainer-ControlItem">
 						<table>
 							<tr>
 								<td>
-									<img src="img/g838.png" class="RequestsContainer-ControlItemIcon">
+									<img src="img/g838.png" class="col- RequestsContainer-ControlItemIcon">
 								</td>
 								<td>
 									<a href="Requestor_AvailableServices.php"> <span> Available Services </span> </a>
@@ -97,7 +97,7 @@ session_start();
 
 
 
-					<li class="RequestsContainer-ControlItem" id="RequestsCategoryContainer"> 
+					<li class="col- RequestsContainer-ControlItem" id="RequestsCategoryContainer"> 
 						
 							<a href="Requestor_CreateRequest.php" id="CreateRequestButton" value="Create Request">
 								Create Request
@@ -110,30 +110,30 @@ session_start();
 			</div>
 
 			<div id="RequestsContainer-Content">
-			<div class="wrapper">
-    				<div class="request-card">
-    		  			<div class="request-card__image request-card__image">
-						    <div class="requestTitle">Traditional Art</div>
-							<div class="requestCategory">Art<sup></sup></div>
+			<div class="col- wrapper">
+    				<div class="col- request-card">
+    		  			<div class="col- request-card__image request-card__image">
+						    <div class="col- requestTitle">Traditional Art</div>
+							<div class="col- requestCategory">Art<sup></sup></div>
 						</div>
 			
 						
 
-      					<div class="requestDescription">
+      					<div class="col- requestDescription">
     		   		 		drawing mo ko ng makisig na mythical creature
     		  			</div>
 			
 			
-      						<div class="request-card__unit-stats request-card__unit-stats clearfix">
-    		    				<div class="one-third">
-									<div class="requestExpectedPrice">150</div>
-    		    		  			<div class="isNegotiable">Negotiable</div>
+      						<div class="col- request-card__unit-stats request-card__unit-stats clearfix">
+    		    				<div class="col- one-third">
+									<div class="col- requestExpectedPrice">150</div>
+    		    		  			<div class="col- isNegotiable">Negotiable</div>
     		    		  			
     		    				</div>
 			
-    		    				<div class="one-third no-border">
-    		    		  			<div class="dueDateValue">Tomorrow</div>
-    		    		  			<div class="dueDate">dueDate</div>
+    		    				<div class="col- one-third no-border">
+    		    		  			<div class="col- dueDateValue">Tomorrow</div>
+    		    		  			<div class="col- dueDate">dueDate</div>
     		    				</div>
     		  				</div>
 
@@ -158,7 +158,7 @@ session_start();
 	<div id="formsContainer"> 
 		
 		<form id="UpdateForm" action="Backend/UpdateRequest.php" method="post">
-			<div id="closeImage" class="closeForm" onclick="closeForms()"> ✕ </div>
+			<div id="closeImage" class="col- closeForm" onclick="closeForms()"> ✕ </div>
 		<center>
 			<h1> Update Request</h1>
 		</center>
@@ -167,52 +167,52 @@ session_start();
 		<table>
 
 			<tr>
-				<td class="tdleft">
+				<td class="col- tdleft">
 					<span>Title</span>
 				</td>
-				<td class="tdright">
-					<input type="Text" name="updateTitle" id="updateTitle" class="UpdateRequests-Input" Required/>
+				<td class="col- tdright">
+					<input type="Text" name="updateTitle" id="updateTitle" class="col- UpdateRequests-Input" Required/>
 				</td>
 			</tr> 
 
 			<tr>
-				<td class="tdleft">
+				<td class="col- tdleft">
 					<span>Description</span>
 				</td>
-				<td class="tdright">
-					<textarea rows="" cols="" name="updateDescription" id="updateDescription" class="UpdateRequests-Input" Required>
+				<td class="col- tdright">
+					<textarea rows="" cols="" name="updateDescription" id="updateDescription" class="col- UpdateRequests-Input" Required>
 					</textarea>
 				</td>
 			</tr> 
 
 			<tr>
-				<td class="tdleft">
+				<td class="col- tdleft">
 					<span>Due Date</span>
 				</td>
 
-				<td class="tdright">
-					<input type="date" name="updateDueDate" id="updateDueDate" class="UpdateRequests-Input" Required/>
+				<td class="col- tdright">
+					<input type="date" name="updateDueDate" id="updateDueDate" class="col- UpdateRequests-Input" Required/>
 				</td>
 			</tr> 
 
 			<tr>
-				<td class="tdleft">
+				<td class="col- tdleft">
 					<span>Price</span>
 				</td>
 
-				<td class="tdright">
-					 <input type="Number" name="updatePrice" id="updatePrice" class="UpdateRequests-Input" placeholder="Php" Required/>
+				<td class="col- tdright">
+					 <input type="Number" name="updatePrice" id="updatePrice" class="col- UpdateRequests-Input" placeholder="Php" Required/>
 				</td>
 			</tr> 
 
 			<tr>
-				<td class="tdleft">
+				<td class="col- tdleft">
 					<span>Negotiable</span>
 				</td>
 
-				<td class="tdright">
-					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="UpdateRequests-Input" value="Negotiable" Required/> Yes
-					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="UpdateRequests-Input" value="Not Negotiable"/> No
+				<td class="col- tdright">
+					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="col- UpdateRequests-Input" value="Negotiable" Required/> Yes
+					<input type="radio" name="updateNegotiable" id="updateNegotiable" class="col- UpdateRequests-Input" value="Not Negotiable"/> No
 				</td>
 			</tr>
 
@@ -221,8 +221,8 @@ session_start();
 
 				</td>
 				<td id="UpdateControls">
-				 	<input type="submit" value="Update" class="UpdateControls-Button">
-					<input type="reset" value="Cancel" class="UpdateControls-Button" onclick="hideUpdateRequest()">
+				 	<input type="submit" value="Update" class="col- UpdateControls-Button">
+					<input type="reset" value="Cancel" class="col- UpdateControls-Button" onclick="hideUpdateRequest()">
 				</td>
 			</tr>
 
@@ -235,7 +235,7 @@ session_start();
 
 
 					<div id="ViewRequest-Form">
-					<div id="closeImage" class="closeForm" onclick="closeForms()"> ✕ </div>
+					<div id="closeImage" class="col- closeForm" onclick="closeForms()"> ✕ </div>
 					<center>
 						<h1> View Request</h1>
 					</center>
@@ -243,50 +243,50 @@ session_start();
 					<table>
 
 						<tr>
-							<td class="tdleft">
+							<td class="col- tdleft">
 								<span>Title</span>
 							</td>
-							<td class="tdright">
+							<td class="col- tdright">
 								<span id="viewTitle">Title</span>
 							</td>
 						</tr> 
 
 						<tr>
-							<td class="tdleft">
+							<td class="col- tdleft">
 								<span>Description</span>
 							</td>
-							<td class="tdright">
+							<td class="col- tdright">
 								<span id="viewDescription">Description</span>
 							</td>
 						</tr> 
 
 
 						<tr>
-							<td class="tdleft">
+							<td class="col- tdleft">
 								<span>Due Date</span>
 							</td>
 
-							<td class="tdright">
+							<td class="col- tdright">
 								<span id="viewDueDate">Due Date</span>
 							</td>
 						</tr> 
 
 						<tr>
-							<td class="tdleft">
+							<td class="col- tdleft">
 								<span>Price</span>
 							</td>
 
-							<td class="tdright">
+							<td class="col- tdright">
 								<span id="viewPrice">Price</span>
 							</td>
 						</tr> 
 
 						<tr>
-							<td class="tdleft">
+							<td class="col- tdleft">
 								<span>Negotiable</span>
 							</td>
 
-							<td class="tdright">
+							<td class="col- tdright">
 								<span id="viewNegotiable">Negotiable</span>
 							</td>
 						</tr>
@@ -296,7 +296,7 @@ session_start();
 
 							</td>
 							<td id="UpdateControls">
-								<input type="reset" value="Edit" class="ViewControls-Button" id="viewControlsEditButton">
+								<input type="reset" value="Edit" class="col- ViewControls-Button" id="viewControlsEditButton">
 							
 							</td>
 						</tr>

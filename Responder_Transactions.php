@@ -44,7 +44,7 @@
 
 	<!--<script src="js/Responder_Transactions.js"> </script>-->
 	<script src="js/Responder_RequestTransactions.js"> </script>
-	<script src="js/Responder_ServiceTransactions.js"> </script>
+	<script src="js/Responder_Se rviceTransactions.js"> </script>
 	
 	<script src="js/report.js"> </script>
 
@@ -78,6 +78,8 @@
 				<select id="TransactionTypeDropDown" onchange="setTransactionType()">
 					<option value= "Services">Services</option>
 					<option value= "Requests">Requests</option>
+					<option value= "Pasabuy">Pasabuy</option>
+
 				</select> 
 			
 			</td>

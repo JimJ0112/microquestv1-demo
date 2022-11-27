@@ -379,8 +379,8 @@ function setResponderData(array){
         name[i].href= "ViewUserProfile.php?userID=" +  dataArray[i]['responderID'] + "&userType=Responder";
         name[i].target = "_blank";
 
-        municipality[i].innerHTML  = "<b> Municipality: </b>"+dataArray[i]['municipality'];
-        rate[i].innerHTML  = "<b> Rate: </b> Php "+dataArray[i]['rate'];
+        municipality[i].innerHTML  = " Municipality: "+dataArray[i]['municipality'];
+        rate[i].innerHTML  = " Rate:  Php "+dataArray[i]['rate'];
        // viewProfile[i].href= "ViewUserProfile.php?userID=" +  dataArray[i]['responderID'] + "&userType=Responder";
        viewProfile[i].href= "Requestor_ServiceInfo.php?serviceID=" + dataArray[i]['serviceID'];
        viewProfile[i].innerText ="View Service";
@@ -737,10 +737,10 @@ function generateContract(){
 
     
     //var contract = "I,"+ myInfoArray[0]['lastName'] + ","+ myInfoArray[0]['firstName']+" "
-    var contract = "<b> This Freelance Contract, is entered into by and between: </b> <br/> <br/> " + myInfoArray[0]['lastName']+" "+ myInfoArray[0]['firstName']+
-    " <br/> <b> from </b> <br/> &nbsp"+myInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ myInfoArray[0]['municipality']+ ", Bataan <br/> <b> And </b> <br/> "+ responderInfoArray[0]['lastName']+" "+ responderInfoArray[0]['firstName']+
-    " <br/> <b> from </b> <br/> &nbsp"+responderInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ responderInfoArray[0]['municipality']+ ", Bataan <br/>" + " <br/>  <br/> <b> WHEREAS, </b> "+myInfoArray[0]['firstName']+" has a need for "+ Category + ", "+ Position + "."
-    + "<br/> <br/> NOW THEREFORE, the parties hereby agree as follows: <br/> <br/> <b> Service Price: </b> Php "+servicePrice+" <br/> <br/> <b> Deadline: </b>"+ dueDate + " <br/> <br/> <b> Time:</b> "+ responderTimeSlots+ " <br/> <br/> <b> Additional Notes: </b> <br/> <br/>" + additionalNotes; 
+    var contract = " This Freelance Contract, is entered into by and between:  <br/> <br/> " + myInfoArray[0]['lastName']+" "+ myInfoArray[0]['firstName']+
+    " <br/>  from  <br/> &nbsp"+myInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ myInfoArray[0]['municipality']+ ", Bataan <br/>  And  <br/> "+ responderInfoArray[0]['lastName']+" "+ responderInfoArray[0]['firstName']+
+    " <br/>  from  <br/> &nbsp"+responderInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ responderInfoArray[0]['municipality']+ ", Bataan <br/>" + " <br/>  <br/>  WHEREAS,  "+myInfoArray[0]['firstName']+" has a need for "+ Category + ", "+ Position + "."
+    + "<br/> <br/> NOW THEREFORE, the parties hereby agree as follows: <br/> <br/>  Service Price:  Php "+servicePrice+" <br/> <br/>  Deadline: "+ dueDate + " <br/> <br/>  Time: "+ responderTimeSlots+ " <br/> <br/>  Additional Notes:  <br/> <br/>" + additionalNotes; 
 
     
 
@@ -1123,10 +1123,10 @@ function genPDFNew(){
     myInfoArray = JSON.parse(myInfoArray);
     console.log(responderInfoArray);
 
-    var contract = "<b> This Freelance Contract, is entered into by and between: </b> <br/> <br/> " + myInfoArray[0]['lastName']+" "+ myInfoArray[0]['firstName']+
-    " <br/> <b> from </b> <br/> &nbsp"+myInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ myInfoArray[0]['municipality']+ ", Bataan <br/> <b> And </b> <br/> "+ responderInfoArray[0]['lastName']+" "+ responderInfoArray[0]['firstName']+
-    " <br/> <b> from </b> <br/> &nbsp"+responderInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ responderInfoArray[0]['municipality']+ ", Bataan <br/>" + " <br/>  <br/> <b> WHEREAS, </b> "+myInfoArray[0]['firstName']+" has a need for "+ Category + ", "+ Position + "."
-    + "<br/> <br/> NOW THEREFORE, the parties hereby agree as follows: <br/> <br/> <b> Service Price: </b> Php "+servicePrice+" <br/> <br/> <b> Deadline: </b>"+ dueDate + " <br/> <br/> <b> Time:</b> "+ responderTimeSlots+ " <br/> <br/> <b> Additional Notes: </b> <br/> <br/>" + additionalNotes; 
+    var contract = " This Freelance Contract, is entered into by and between:  <br/> <br/> " + myInfoArray[0]['lastName']+" "+ myInfoArray[0]['firstName']+
+    " <br/>  from  <br/> &nbsp"+myInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ myInfoArray[0]['municipality']+ ", Bataan <br/>  And  <br/> "+ responderInfoArray[0]['lastName']+" "+ responderInfoArray[0]['firstName']+
+    " <br/>  from  <br/> &nbsp"+responderInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ responderInfoArray[0]['municipality']+ ", Bataan <br/>" + " <br/>  <br/>  WHEREAS,  "+myInfoArray[0]['firstName']+" has a need for "+ Category + ", "+ Position + "."
+    + "<br/> <br/> NOW THEREFORE, the parties hereby agree as follows: <br/> <br/>  Service Price:  Php "+servicePrice+" <br/> <br/>  Deadline: "+ dueDate + " <br/> <br/>  Time: "+ responderTimeSlots+ " <br/> <br/>  Additional Notes:  <br/> <br/>" + additionalNotes; 
 
     
 

@@ -90,14 +90,14 @@
 	height: 700px;
 	/*height: auto;*/
 	overflow-x: scroll;
-	border: 1px solid rgba(139, 136, 136, 0.353);
-
+	/* border: 1px solid rgba(139, 136, 136, 0.353); */
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr ;
-	grid-column-gap:10px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	/* grid-column-gap:10px; */
 	grid-row-gap: 10px;
-	padding: 10px;
-	margin: auto;
+	/* padding: 10px; */
+	/* margin: auto; */
+	margin-left: 7%;
 }
 
 .serviceCard{
@@ -159,16 +159,23 @@
 }
 .serviceTitle{
 	
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	background-color: rgba(13, 35, 82, 0.944);
-	padding: 10px;
-	margin: auto;
-	z-index: 10;
-	color: white;
-	font-weight: lighter;
-	border: 2px solid white;
-
+text-align: center;
+	
+font-family: Arial, Helvetica, sans-serif;
+	
+/* background-color: rgba(13, 35, 82, 0.944); */
+	
+padding: 10px;
+	
+margin: auto;
+	
+z-index: 10;
+	
+color: white;
+	
+font-weight: lighter;
+	
+border: 2px solid white;
 }
 
 label{
@@ -187,15 +194,21 @@ label{
 
 #SuggestedResponders{
 	
-	min-width: 700px;
-    min-height: 500px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    border: 5px inset rgba(134, 133, 133, 0.48);
-    margin: auto;
-    margin-top: 20px;
-
+min-width: 700px;
+	
+min-height: 500px;
+	
+width: 100%;
+	
+display: grid;
+	
+grid-template-columns: 1fr 1fr 1fr 1fr;
+	
+/* border: 5px inset rgba(134, 133, 133, 0.48); */
+	
+margin: auto;
+	
+margin-top: 20px;
 }
 
 
@@ -206,14 +219,13 @@ label{
 	height:fit-content;
 	display: grid;
 	align-content: center;
-	background-image: url("../img/coc-background.jpg");
+	background-image: url("../img/b.jpg");
 	background-size: cover;
 	background-position: center;
 	background-color: aliceblue;
 	padding: 20px;
 	border-radius:10px;
 	font-family: Arial, Helvetica, sans-serif;
-	
 }
 
 /*
@@ -261,9 +273,8 @@ label{
 
 #Responders .tableHead{
 	width: 50%;
-	margin-left: 10%
-
-
+	margin-left: 10%;
+	color: white;
 }
 
 #RespondersBack{
@@ -280,7 +291,6 @@ label{
 
 
 .responderCard{
-	width: 200px;
 	height: 300px;
 	margin: 10px;
 	padding: 0px;
@@ -288,7 +298,9 @@ label{
 	border: none;
 	position: relative;
 	border-radius: 20px;
-	
+	color: white;
+	width: 225px;
+	background-color: #25242475;
 }
 
 .allServices{
@@ -307,11 +319,12 @@ label{
 	color:black;
 }
 
-.responderName{ 
-	margin: 0px; 
-	font-size: larger;
-	color: blue;
+.responderName{
+	/* margin: 20; */
+	font-size: x-large;
+	color: #f8f8f8;
 	font-weight: bold;
+	/* padding-bottom: 10px; */
 }
 .responderMunicipality{
 	margin: 10px; 
@@ -337,13 +350,12 @@ label{
 }
 
 .suggestedResponderPic{
-	background-color: rgb(186, 86, 24);
+	background-color: rgb(77 66 59);
 	display: grid;
 	padding: 5px;
 	border-radius: 20px 20px 0 30px;
 	margin: 0;
 	padding-bottom: 30px;
-
 }
 .suggestedUserPhoto{
 	width: 90px;
@@ -373,40 +385,78 @@ label{
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+
+.responderCardTable td:hover{
+	background-color: #794625;
+	color: black;
+}
+
 .responderCard td{
 	
 text-align: center;
-margin: 10px;
-padding:5px;
-background-color:rgb(91, 47, 20) ;
+	
+/* margin: 10px; */
+	
+/* padding:5px; */
+	
+/* background-color:rgb(91, 47, 20); */
+	
 font-size: 80%;
-border-radius: 20px
+	
+/* border-radius: 20px; */
+	
+/* border-left: 1px solid; */
+	
+width: 50%;
+
+
 }
 
 .responderCardTable{
 	
-	width: 100%;
-	display: grid;
-	align-content: center;
-	position: absolute;
-	bottom: 0;
-	left: 20px;
-	border-spacing: 5px;
+height: 45px;
 	
+width: 100%;
 	
+/* display: grid; */
+	
+/* align-content: center; */
+	
+position: absolute;
+	
+bottom: 0;
+	
+/* left: 20px; */
+	
+border-spacing: 0;
+	
+border-bottom-right-radius: inherit;
+	
+border-bottom-left-radius: inherit;
+	
+background-color: #4d423b;
 }
+
 
 .responderInfoDiv{
 
-	width: 80%;
-	height: 100px;
-	margin-top: 10px;
-	text-align: left;
-	padding: 5px;
-	padding-top: 15px;
-	margin: auto;
-	font-size: 100%;
-	text-align: center;
+width: 80%;
+
+height: 100px;
+
+margin-top: 10px;
+
+text-align: left;
+
+padding: 5px;
+
+padding-top: 15px;
+
+margin: auto;
+
+/* font-size: 100%; */
+
+/* text-align: center; */
 }
 
 #AvailServiceFormContainer{
@@ -635,3 +685,4 @@ h3{
 .ratings{
 	
 }
+

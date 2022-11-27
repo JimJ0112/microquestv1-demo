@@ -2323,6 +2323,66 @@ public function getMyTransactions($ID,$column,$transactionType){
 }// end of function
 
 
+
+//get transactions
+
+public function getMyPasabuyTransactions($ID,$column,$status){
+
+    $ID = mysqli_real_escape_string($this->dbconnection, $ID);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $status = mysqli_real_escape_string($this->dbconnection, $status);
+    
+
+    $tablename = "pasabuytransactions";
+
+   
+
+       //$query = "SELECT pasabuytransactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.*, products.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = pasabuytransactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = pasabuytransactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = pasabuytransactions.serviceID) INNER JOIN products product ON (product.servicesInfoID = pasabuytransactions.serviceID) WHERE pasabuytransactions.$column = $ID AND transactionStatus = 'pending';";
+
+       $query = "SELECT pasabuytransactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, product.*, services.* FROM pasabuytransactions INNER JOIN userprofile requestor ON (requestor.userID = pasabuytransactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = pasabuytransactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = pasabuytransactions.serviceID) INNER JOIN products product ON (product.servicesInfoID = pasabuytransactions.serviceID) WHERE pasabuytransactions.$column = $ID AND pasabuytransactions.orderStatus = '$status';";
+        $result = mysqli_query($this->dbconnection, $query);
+        $resultCheck = mysqli_num_rows($result);
+        $data = array();
+        $file;
+        
+    
+        if($resultCheck > 0){
+           
+    
+                while($row = mysqli_fetch_assoc($result)){
+                    
+    
+    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                    $row['certificateFile'] = $file;
+    
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                    $row['bannerImage'] = $file;
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
+                    $row['productImage'] = $file;
+                    $data[] = $row;
+                    
+                 
+                }
+                
+                return $data;
+            
+            
+            
+    
+        } else {return "failed to fetch";}
+
+   
+   
+
+ 
+  
+}// end of function
+
 //get transactions
 
 public function requestTransactionExists($requestID,$responderID,$requestorID){

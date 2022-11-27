@@ -83,18 +83,18 @@
 
 
             <div id="contractHeaderInfo" >
-                <b> Date </b> <br/> &nbsp <span id="date"> 19/11/2022 </span> <br/><br/>
-                <b> Service ID</b> <br/> &nbsp <span id="serviceIDHeaderInfo"> SVC0-1 </span> <br/><br/>
-                <b> Category </b> <br/> &nbsp <span id="categoryHeaderInfo"> Home Services </span> <br/><br/>
-                <b> Title </b> <br/>  &nbsp <span id="titleHeaderInfo"> House Cleaning </span> <br/><br/>
-                <b> Due Date </b> <br/> &nbsp <span id="dueDateHeaderInfo"> 19/11/2022 </span> <br/><br/>
+                 Date  <br/> &nbsp <span id="date"> 19/11/2022 </span> <br/><br/>
+                 Service ID <br/> &nbsp <span id="serviceIDHeaderInfo"> SVC0-1 </span> <br/><br/>
+                 Category  <br/> &nbsp <span id="categoryHeaderInfo"> Home Services </span> <br/><br/>
+                 Title  <br/>  &nbsp <span id="titleHeaderInfo"> House Cleaning </span> <br/><br/>
+                 Due Date  <br/> &nbsp <span id="dueDateHeaderInfo"> 19/11/2022 </span> <br/><br/>
             </div>
 
             <center>
                 <table id="usersInfo">
                     <tr>
                         <td id="ResponderInfoContract" > 
-                            <b> Responder </b> <br/> 
+                             Responder  <br/> 
                             &nbsp<span id="responderIDHeader"> 11 </span> <br/>
                             &nbsp<span id="responderUserNameHeader"> Jimj0112 </span> <br/>
                             &nbsp<span id="responderNameHeader"> Jim Manrique</span> <br/>
@@ -107,7 +107,7 @@
                         </td>
 
                         <td id="RequestorInfoContract" > 
-                            <b> Requestor </b> <br/> 
+                             Requestor  <br/> 
                             &nbsp<span id="requestorIDHeader"> 46 </span> <br/>
                             &nbsp<span id="requestorUserNameHeader"> Jimj0112 </span> <br/>
                             &nbsp<span id="requestorNameHeader"> Jim Manrique</span> <br/>
