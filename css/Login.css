@@ -53,17 +53,12 @@
 
 #Logo{
 	position: absolute;
-
 	z-index: 2;
 	margin-top: 40px;
 	margin-left: 40px;
 	text-shadow: 2px 2px 5px #000000;
 	text-align: center;
 	line-height: 40px;
-
-
-
-
 }
 
 #Micro{
@@ -72,8 +67,6 @@
 	text-align: center;
 	color: white;
 	margin: 10px;
-
-	
 }
 
 #Quest{
@@ -121,16 +114,14 @@
 #LoginForm{
 	position: absolute;
 	z-index: 6;
-	background-color:rgb(52,42,41);
+	background-color: rgb(52 42 41 / 81%);
 	right: 20%;
-
 	margin-top: clamp(7%,10%,15%);
 	width: 350px;
 	height: 450px;
 	color:white;
-	
 	vertical-align: bottom;
-	animation: fadein 1.5s;	
+	animation: fadein 1.5s;
 }
 
 
@@ -287,4 +278,30 @@
 	to {opacity: 1}
   }
 
+  @media (max-width: 575px){
+	#LoginForm {
+	    position: unset;
+	    z-index: 6;
+	    background-color: rgb(52 42 41 / 81%);
+	    right: 20%;
+	    margin-top: clamp(7%,10%,15%);
+	    width: 100%;
+	    height: 450px;
+	    color: white;
+	    vertical-align: bottom;
+	    animation: fadein 1.5s;
+		}
+	  
+	#Micro{
+		font-size:50px;
+		
+	}
+	#Quest{
+		font-size:30px;
+	}
+	  #Logo{
+		  margin-top:20px;
+	  }
+
+}
 

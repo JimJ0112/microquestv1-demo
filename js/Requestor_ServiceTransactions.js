@@ -71,11 +71,73 @@ function setTransactionType(){
         getOrders(userID);
         TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
 
+    }else if(TransactionTypeDropDown.value === "Pasabuy"){
+        TransactionsNavItem1.setAttribute("onclick","pasabuyNavItem(0," +userID +")" );
+        TransactionsNavItem2.setAttribute("onclick","pasabuyNavItem(1," +userID +")" );
+        TransactionsNavItem3.setAttribute("onclick","pasabuyNavItem(2," +userID +")" );
+        TransactionsNavItem4.setAttribute("onclick","pasabuyNavItem(3," +userID +")" );
+        TransactionsNavItem5.setAttribute("onclick","pasabuyNavItem(4," +userID +")" );
+        TransactionsNavItem6.setAttribute("onclick","pasabuyNavItem(5," +userID +")" );
+
+        
+        TransactionsNavItem1.innerText = "Orders";
+        TransactionsNavItem2.innerText = "On Going Orders";
+        TransactionsNavItem3.innerText = " Delivered ";
+        TransactionsNavItem4.innerText = " Paid";
+        TransactionsNavItem5.innerText = " Finished";
+        TransactionsNavItem6.innerText = " Cancelled";
+        ServiceIDHeader.innerText = "Service ID";
+        ServicePositionHeader.innerText = "Service";
+        ServiceTimeSlotHeader.style.display = "block";
+
+        getPasabuyOrders(userID);
+        TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
+
     }
 }
 
 
+// for pasabuy
 
+function pasabuyNavItem (number,userID){
+    var number = number;
+    var userID = userID;
+    sessionStorage.setItem('transactionsUserId',userID);
+
+
+    var TransactionsNavItem1 = document.getElementById("TransactionsNavItem1");
+    var TransactionsNavItem2 = document.getElementById("TransactionsNavItem2");
+    var TransactionsNavItem3 = document.getElementById("TransactionsNavItem3");
+    var TransactionsNavItem4 = document.getElementById("TransactionsNavItem4");
+    var TransactionsNavItem5 = document.getElementById("TransactionsNavItem5");
+    var TransactionsNavItem6 = document.getElementById("TransactionsNavItem6");
+    var TransactionsNavItems = document.getElementsByClassName("TransactionsNavItems");
+
+    TransactionsNavItem1.style.border = "none";
+    TransactionsNavItem2.style.border = "none";
+    TransactionsNavItem3.style.border = "none";
+    TransactionsNavItem4.style.border = "none";
+    TransactionsNavItem5.style.border = "none";
+    TransactionsNavItem6.style.border = "none";
+
+    TransactionsNavItems[number].style.borderBottom = "4px solid rgb(48, 30, 8)";
+    if(number === 0){
+        //getOrders(userID);
+        getPasabuyOrders(userID)
+    }else if(number === 1){
+        //getAcceptedOrders(userID);
+    }else if(number === 2){
+       // getDeliveredService(userID);
+    }else if(number === 3){
+       // getPaidOrders(userID);
+    }else if(number === 4){
+       // getFinishedService(userID);
+    }else if(number === 5){
+       // getCancelledOrders(userID);
+    }
+
+
+}
 // for services
 
 function clickedNavItem (number,userID){

@@ -51,7 +51,7 @@
 	text-align: center;
 
 	table-layout: auto; 
-	width: 100%;
+	width: 80%;
 	overflow: scroll;
 	
 }
@@ -60,6 +60,7 @@
 	color: gray;
 	padding: 10px;
 	font-size: small;
+	height: 100px;
 }
 
 #TransactionsContainerBody td{
@@ -67,9 +68,6 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	padding: 5px;
-	border-right: 0.5px solid rgba(143, 141, 141, 0.29);
-	border-bottom: 0.5px solid rgba(143, 141, 141, 0.29);
-
 	font-size: small;
 
 }
@@ -79,7 +77,9 @@
 	border: 1px solid black;
 	width: 100%;
 	overflow: scroll;
-	table-layout: fixed; 
+	table-layout: auto; 
+	background-color: rgba(210, 202, 202, 0.184);
+
 
 }
 
@@ -557,4 +557,75 @@ td{
 }
 .controlsTd{
 	width: 300px;
+}
+
+
+.pasabuyTransactionRow{
+	height: 200px;
+	width: 100%;
+	margin: auto;
+	border-bottom: 1px solid black;
+	text-align: center;
+
+}
+
+.responderImagePic{
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+.productImageTransactions{
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+}
+
+.ActionsTR{
+
+	width: 100%;
+	border-top: 5px solid black;
+
+	
+
+
+}
+.ActionsTd{
+	
+	
+
+
+}
+.parentTable{
+	margin: auto;
+	width: 80%;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.215);
+	margin-bottom: 50px;
+	background-color: white;
+
+}
+
+.tablehead{
+	margin: auto;
+	width: 80%;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.215);
+	margin-bottom: 50px;
+	background-color: white;
+}
+
+.cancelButton{
+	background-color: rgb(150, 4, 4);
+	color: white;
+	border: none;
+	padding:10px;
+	border-radius: 10px;
+}
+
+.SavePaymentButton{
+	background-color: rgb(6, 29, 114);
+	color: white;
+	border: none;
+	padding:10px;
+	border-radius: 10px;
 }

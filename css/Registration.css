@@ -628,25 +628,19 @@ input::-webkit-inner-spin-button {
 }
 
 #RegistrationBackground{
-	
 	width: 60%;
 	height: 90%;
-
-	
 	border-radius: 25% 0 0 25%;
 	position: absolute;
-	
 	background-color: rgb(27, 21, 21);
-
 	margin-top: 35px;
 	margin-left: 30px;
 	object-fit:cover;
-
 	z-index: 0;
 }
 
 #RegistrationContainer{
-	background-color: white;
+	background-color: #ffffff;
 	border: 7px solid rgb(63, 50, 48);
 	width: 800px;
 	height: 500px;
@@ -654,8 +648,6 @@ input::-webkit-inner-spin-button {
 	position: absolute;
 	margin-left: 29%;
 	margin-top: 7%;
-
-
 }
 
 .RegisterTypeText{
@@ -801,36 +793,9 @@ input::-webkit-inner-spin-button {
 }
 
 
-#GeneralInfoForm1{
+#GeneralInfoForm1{width: 50%;height: 100%;/* position: absolute; */text-align: left;/* margin: auto; */display: grid;align-content: center;padding: 0;}
 
-	width: 50%;
-	height: 100%;
-
-	position: absolute;
-	text-align: left;
-	margin: auto;
-	display: grid;
-	align-content: center;
-	padding: 0;
-	
-
-}
-
-#GeneralInfoForm2{
-
-	width: 50%;
-	height: 100%;
-
-	position: absolute;
-	text-align: left;
-	margin: auto;
-	display: grid;
-	align-content: center;
-	padding: 0;
-	right: 0;
-	
-
-}
+#GeneralInfoForm2{width: 50%;height: 100%;/* position: absolute; */text-align: left;/* margin: auto; */display: grid;align-content: center;padding: 0;right: 0;}
 
 
 #ResponderInfoForm{
@@ -877,46 +842,38 @@ input::-webkit-inner-spin-button {
 #RegistrationBackButton{
 	margin-right: 80px;
 	border: 0;
-
 	background-color: rgb(63, 50, 48);
 	color: white;
 	position: absolute;
 	right: 250px;
 	bottom: 40px;
-
 	margin:5px;
 	height: 35px;
 	width: 90px;
-	
 	font-size: large;
 	font-weight: bolder;
 	cursor: pointer;
 	font-family: Arial, Helvetica, sans-serif;
 	font: Arial;
-
 	display: none;
 }
 
 #RegistrationNextButton{
 	margin-right: 80px;
 	border: 0;
-
 	background-color: rgb(63, 50, 48);
 	color: white;
-	position: absolute;
-	right: 100px;
-	bottom: 40px;
-
+	/* position: absolute; */
+	/* right: 100px; */
+	/* bottom: 40px; */
 	margin:5px;
 	height: 35px;
 	width: 90px;
-	
 	font-size: large;
 	font-weight: bolder;
 	cursor: pointer;
 	font-family: Arial, Helvetica, sans-serif;
 	font: Arial;
-
 }
 
 
@@ -1964,4 +1921,72 @@ input::-webkit-inner-spin-button {
 
 .checker{
 	font-size: small;
+}
+
+
+@media (max-width: 575px){
+	#RegistrationLogo{
+		top:30px;
+		left: 240px;
+		
+	}
+	#RegistrationContainer{
+		width:80%;
+		margin:145px 0px 40px 50px;
+		position: absolute;
+		height:65%;
+		overflow:hidden;
+		overflow-y: scroll;
+
+	}
+	#RegistrationBackground{
+		width: 100%;
+	}
+	.RegisterTypeText{
+		display: none;
+	}
+	#SignUpText{
+		display: none;
+	}
+	#GeneralInfoForm1 {
+	    width: 50%;
+	    height: 100%;
+	    /* position: absolute; */
+	    text-align: left;
+	    /* margin: auto; */
+	    display: grid;
+	    align-content: center;
+	    padding: 10px 0 20px 0;
+	}
+	#GeneralInfoForm2 {
+	    width: 50%;
+	    height: 100%;
+	    /* position: absolute; */
+	    text-align: left;
+	    /* margin: auto; */
+	    display: grid;
+	    align-content: center;
+	    padding: 0 0 10px 0px;
+	}
+	#RegistrationNextButton{
+		margin-left:70%;
+	}
+	
+	#RegistrationBackButton{
+		bottom: -245px;
+		right: 150px
+	}
+	#GeneralInfoForm{
+		margin-left:10px;
+	}
+	.asteriskRequiredField{
+		display:none;
+	}
+
+
+	
+
+
+	
+
 }

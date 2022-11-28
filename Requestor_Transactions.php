@@ -44,8 +44,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Requestor_Transactions.css">
 
-	<!--<script src="js/Requestor_ServiceTransactions.js"> </script>
-	<script src="js/Requestor_RequestTransactions.js"> </script>-->
+	<script src="js/Requestor_ServiceTransactions.js"> </script>
+	<script src="js/Requestor_RequestTransactions.js"> </script>
 	<script src="js/Requestor_PasabuyTransactions.js"> </script>
 	<script src="js/report.js"> </script>
 
@@ -102,7 +102,8 @@
 	</table>
 
 	<table id="TransactionsContainer">
-		<thead>
+		<thead id="TransactionsContainerThead">
+			<!--
 			<tr id="TransactionsContainerThead">
 				<td>  - </td>
 				<td>Transaction ID </td>
@@ -113,14 +114,27 @@
 				<td>Category</td>
 				<td id="ServicePositionHeader">Position</td>
 				<td>Price</td>
-				<!--<td>Rate</td> -->
 				<td id="ServiceTimeSlotHeader">TimeSlot</td>
 				<td>Due Date</td>
 				<td>Additional Notes</td>
 				<td>Contract</td>
 				<td> Status</td>
 			</tr>
-					
+			
+			
+			<tr id="TransactionsContainerTheadPasabuy">
+				
+				<td>Transaction ID </td>
+				<td>Product</td>
+				<td> </td>
+				<td> Service Info </td>
+				<td> Responder</td>
+				<td> Total Price</td>
+				<td> Status </td>
+		 
+			</tr>
+					-->
+			
 		</thead>
 		<tbody id="TransactionsContainerBody"> </tbody>
 
