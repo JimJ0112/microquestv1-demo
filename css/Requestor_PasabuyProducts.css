@@ -612,3 +612,37 @@
 	object-fit: contain;
 	margin: auto;
 }
+
+
+#pasabuyOrderBack{
+	position:fixed;
+	background-color: rgba(0, 0, 0, 0.299);
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+	display:none;
+	z-index: 20;
+}
+
+#pasabuyOrderForm{
+	background-color: white;
+	margin: auto;
+	align-content: center;
+	text-align: center;
+	width: 500px;
+	height: 600px;
+	
+}
+
+#checkOutFormProductImage{
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+	margin: auto;
+}
+
+#quantity1{
+	height: 40px;
+	text-align: center;
+}

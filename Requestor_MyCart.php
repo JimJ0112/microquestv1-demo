@@ -60,6 +60,11 @@
 		echo"<script> getMyCartItems($userID); </script>";
 	}
 
+
+	date_default_timezone_set("Asia/Manila");
+    $today = date("Y-m-d");
+
+
 ?>
 <!--Main-->
 	<div id="AvailableServicesContainer">
@@ -205,6 +210,8 @@
 										</tr>
 									<table>
 
+									
+
 
 									<table id="cartFormControlsTableRight"> 
 										<tr>
@@ -214,7 +221,7 @@
 
 											<td>
 												&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-												<input type="submit" value="Check Out" id="CheckOutButton"/>
+												<input type="button" value="Check Out" id="CheckOutButton" onclick="showForms()"/>
 											</td>
 										</tr>
 
@@ -226,6 +233,28 @@
 							
 				
 						
+					</div>
+
+
+					<div id="deliverDateBack">
+						<div id="deliverDateForm">
+						<div id="closeButton" onclick="closeForms()"> ✕ </div>
+
+							<h3> Confirm Check Out </h3>
+							<label> Expected Delivery Date: </label>
+							<input type="date" name="dueDate" min="<?php echo $today; ?>" value="<?php echo $today; ?>"> 
+							<br/>
+							<span> Total:  ₱ </span> <span id="totalPriceDisplay"> </span> 
+							<br/>
+							<br/>
+							<br/>
+							<br/>
+							<input type="submit" value="Check Out" id="CheckOutButton"/>
+
+							
+
+						</div> 
+
 					</div>
 
 				</form>

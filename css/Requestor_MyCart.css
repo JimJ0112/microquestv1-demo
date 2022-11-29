@@ -702,3 +702,25 @@
 	border-radius: 10px;
 	cursor: pointer;
 }
+
+
+
+#deliverDateBack{
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.455);
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 20;
+	top: 0;
+	left: 0;
+}
+
+#deliverDateForm{
+	background-color: white;
+	margin: auto;
+	width: 500px;
+	height: 200px;
+	padding: 40px;
+
+}

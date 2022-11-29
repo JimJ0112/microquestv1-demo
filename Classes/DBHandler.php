@@ -2341,9 +2341,10 @@ public function getMyPasabuyTransactions($ID,$column,$status){
 
        //$query = "SELECT pasabuytransactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, product.*, services.* FROM pasabuytransactions INNER JOIN userprofile requestor ON (requestor.userID = pasabuytransactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = pasabuytransactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = pasabuytransactions.serviceID) INNER JOIN products product ON (product.servicesInfoID = pasabuytransactions.serviceID) WHERE pasabuytransactions.$column = $ID AND pasabuytransactions.orderStatus = '$status';";
 
+       /*
        $query = "SELECT pasabuytransactions.*, requestor.userID, responder.userID, responder.userPhoto, requestor.userName as 
 
-       RequestorName, responder.userName as ResponderName,responder.userEmail as ResponderEmail, product.*, services.* FROM pasabuytransactions
+       RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderEmail, requestor.userEmail as RequestorEmail,requestor.userPhoto as requestorPhoto, product.*, services.* FROM pasabuytransactions
        
        INNER JOIN userprofile requestor ON (requestor.userID = pasabuytransactions.requestorID) 
        
@@ -2355,10 +2356,39 @@ public function getMyPasabuyTransactions($ID,$column,$status){
        
        WHERE pasabuytransactions.$column = $ID AND pasabuytransactions.orderStatus = '$status'";
 
+       */
+
+       $query="SELECT 
+       pasabuytransactions.*, 
+       requestor.userID, 
+       responder.userID, 
+       responder.userPhoto as responderPhoto, 
+       requestor.userName as RequestorName, 	
+       responder.userName as ResponderName,
+       responder.userEmail as ResponderEmail,
+       requestor.userEmail as RequestorEmail, 
+       requestor.userPhoto as requestorPhoto, 
+       product.*, 
+       services.* 
+       
+       FROM pasabuytransactions	
+              
+       INNER JOIN userprofile requestor ON (requestor.userID = pasabuytransactions.requestorID) 
+              
+       INNER JOIN userprofile responder ON (responder.userID = pasabuytransactions.responderID) 
+              
+       INNER JOIN servicesinfo services ON (services.serviceID = pasabuytransactions.serviceID) 
+              
+       INNER JOIN products product ON (product.productID = pasabuytransactions.productID)
+       
+       WHERE pasabuytransactions.$column = $ID AND pasabuytransactions.orderStatus = '$status'";
+
+
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
         $data = array();
         $file;
+      // print_r(array_keys(mysqli_fetch_assoc($result)));
         
     
         if($resultCheck > 0){
@@ -2366,13 +2396,14 @@ public function getMyPasabuyTransactions($ID,$column,$status){
     
                 while($row = mysqli_fetch_assoc($result)){
                     
-    
-    
+                    mb_convert_encoding($row, 'UTF-8', 'UTF-8');
+                    
                     $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
                     $row['certificateFile'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                    $row['userPhoto'] = $file;
+                  
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['responderPhoto']);
+                    $row['responderPhoto'] = $file;
     
                     $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
                     $row['bannerImage'] = $file;
@@ -2382,17 +2413,25 @@ public function getMyPasabuyTransactions($ID,$column,$status){
 
                     $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
                     $row['productImage'] = $file;
+                    
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['requestorPhoto']);
+                    $row['requestorPhoto'] = $file;
+
+
                     $data[] = $row;
                     
+                   
                  
                 }
                 
                 return $data;
             
             
-            
+         
     
         } else {return "failed to fetch";}
+    
 
    
    
@@ -3383,7 +3422,7 @@ public function addToCart($productID,$serviceID,$responderID,$requestorID,$dateA
 
 }
 
-public function registerPasabuyTransaction($productID,$serviceID,$requestorID,$responderID,$price,$quantity,$orderDate,$orderStatus,$paymentFile,$transactionStartDate,$transactionEndDate,$totalPrice){
+public function registerPasabuyTransaction($productID,$serviceID,$requestorID,$responderID,$price,$quantity,$orderDate,$orderStatus,$paymentFile,$transactionStartDate,$transactionEndDate,$totalPrice,$dueDate){
 
     $tablename = "pasabuyTransactions";
     $pasabuyTransactionID = 0;
@@ -3401,12 +3440,13 @@ public function registerPasabuyTransaction($productID,$serviceID,$requestorID,$r
     $transactionStartDate = mysqli_real_escape_string($this->dbconnection, $transactionStartDate);
     $transactionEndDate = mysqli_real_escape_string($this->dbconnection, $transactionEndDate);
     $totalPrice = mysqli_real_escape_string($this->dbconnection, $totalPrice);
+    $dueDate = mysqli_real_escape_string($this->dbconnection, $dueDate);
 
 
 
     //	cartID	productID	serviceID	responderID	requestorID	dateAssigned	quantity	productStatus	
 
-        $query = "INSERT INTO $tablename() VALUES ($pasabuyTransactionID,$productID,$serviceID,$requestorID,$responderID,$price,$quantity,'$orderDate','$orderStatus','$paymentFile','$transactionStartDate','$transactionEndDate',$totalPrice)";
+        $query = "INSERT INTO $tablename() VALUES ($pasabuyTransactionID,$productID,$serviceID,$requestorID,$responderID,$price,$quantity,'$orderDate','$orderStatus','$paymentFile','$transactionStartDate','$transactionEndDate',$totalPrice,'$dueDate')";
    
         echo mysqli_error($this->dbconnection);
     return mysqli_query($this->dbconnection, $query);

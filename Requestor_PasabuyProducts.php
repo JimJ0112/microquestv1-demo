@@ -158,7 +158,7 @@
 
 	<div id="addToCartFormBg"> 
 		<div id="addToCartFormDiv">
-			<div id="closeButton" onclick="closeCartForm()" style="color:gray; filter: invert(0%);"> ✕ </div>
+			<div id="closeButton" onclick="closeForm('addToCartFormBg')" style="color:gray; filter: invert(0%);"> ✕ </div>
 			<br/><br/>
 			<form action="Backend/addToCart.php" method="post" id="addToCartForm"> 
             	
@@ -184,6 +184,55 @@
 	</div>
 
 
+
+
+	<div id="pasabuyOrderBack">
+
+		<div id="pasabuyOrderForm">
+
+			<form action="Backend/BuyItem.php" method="post"> 
+				<div id="closeButton" onclick="closeForm('pasabuyOrderBack')"> ✕ </div>
+				<br/><br/><br/>
+
+					<input type="hidden" name="productID" id="orderProductID"/>
+					<input type="hidden" name="serviceID" id="orderServiceID"/>
+					<input type="hidden" name="responderID" id="orderResponderID"/>
+					<input type="hidden" name="price" id="orderPrice"/>
+					<input type="hidden" name="requestorID" id="requestorID" value="<?php echo $userID;?>"/>
+					<input type="hidden" name="dateAssigned" id="dateAssigned" value="<?php echo $today; ?>"/>
+
+
+					<h3> Confirm Check Out </h3><br/>
+
+			
+					<img id="checkOutFormProductImage"> <br/>
+					<p id="checkOutFormProductName"> Name </p>
+
+						<h3> Enter Quantity </h3> <br/>
+
+						<span class="addminusButton" onclick="addQuantity1()">&nbsp + &nbsp</span> 
+						<input type="number" name="quantity" min="1" max="99" id="quantity1" onchange="quantityLimit()" value="1"/> 
+						<span class="addminusButton" onclick="subQuantity1()">&nbsp - &nbsp</span> 
+
+					<br/><br/> <br/> <br/>
+
+					<label> Expected Delivery Date: </label>
+
+					<input type="date" name="dueDate" min="<?php echo $today; ?>" value="<?php echo $today; ?>"> 
+					<br/><br/><br/>
+					<span> Total:  ₱ </span> <span id="totalPriceDisplay"> </span> 
+					<br/><br/><br/> 
+
+
+
+
+				<input type="submit" value="Check Out" id="CheckOutButton"/>
+
+			</form>
+
+		</div> 
+
+</div>
 
 
 <script src="js/Requestor_PasabuyProducts.js"> </script>

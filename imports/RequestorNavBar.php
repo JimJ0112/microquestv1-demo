@@ -7,7 +7,12 @@
 		Responder Requestboard
 	</title>
 	<script src="js/NavBar.js"> </script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    
 	<link rel="stylesheet" type="text/css" href="css/NavBar.css">
+	<link rel="stylesheet" href="css/responsive.css">
+
 </head>
 <body onload="init()">
 
@@ -15,6 +20,33 @@
 
 <!-- NavBar-->
 <div id="NavContainer">
+	<!--
+			<div class="mobile_menu">
+               <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <div class="logo_mobile"></div>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                           <a class="nav-link" href="#AboutUsSection">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#ServicesSection">Services</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="Login.php">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link " href="ChooseAccountType.php">Sign Up</a>
+                        </li>
+               
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+	-->
 	<img src="img/logo.png" id="Nav-Logo" title="Home"> 
 	<ul id="NavBar">
 		
@@ -113,9 +145,6 @@
 			</li>
 		</span>
 
-			<!--
-				<a href="Backend/Logout.php"><li class="Nav-item" id="LogOutButton" title="Log Out">Log out</li></a>
-			-->	
 	</ul>
 </div>
 
@@ -156,6 +185,32 @@
 	?>
 
 	
+
+<div class="mobile_menu">
+               <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <div class="logo_mobile"></div>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                           <a class="nav-link" href="#AboutUsSection">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#ServicesSection">Services</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="Login.php">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link " href="ChooseAccountType.php">Sign Up</a>
+                        </li>
+               
+                     </ul>
+                  </div>
+               </nav>
+</div>
 
 </body>
 </html>

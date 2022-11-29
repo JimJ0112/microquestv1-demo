@@ -44,7 +44,9 @@
 
 	<!--<script src="js/Responder_Transactions.js"> </script>-->
 	<script src="js/Responder_RequestTransactions.js"> </script>
-	<script src="js/Responder_Se rviceTransactions.js"> </script>
+	<script src="js/Responder_ServiceTransactions.js"> </script>
+	<script src="js/Responder_PasabuyTransactions.js"> </script>
+
 	
 	<script src="js/report.js"> </script>
 
@@ -95,9 +97,11 @@
 	</table>
 
 	<table id="TransactionsContainer">
-		<thead>
-			<tr id="TransactionsContainerThead">
-			<td>  - </td>
+		<thead id="TransactionsContainerThead">
+			
+			<tr>
+				<!--
+				<td>  - </td>
 				<td>Transaction ID </td>
 				<td>Start Date</td>
 				<td>Responder ID</td>
@@ -106,12 +110,13 @@
 				<td>Category</td>
 				<td id="ServicePositionHeader">Position</td>
 				<td>Price</td>
-				<!--<td>Rate</td> -->
+	
 				<td id="ServiceTimeSlotHeader">TimeSlot</td>
 				<td>Due Date</td>
 				<td>Additional Notes</td>
 				<td>Contract</td>
 				<td> Status</td>
+				-->
 			</tr>
 					
 		</thead>

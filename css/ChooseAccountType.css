@@ -118,13 +118,11 @@ body{
 	width: 60vw;
 	height: 600px;
 	background-color: white;
-
 	align-self: center;
 	align-items: center;
 	margin-left: 18%;
 	margin-top: 2%;
 	padding:0;
-	
 	overflow: hidden;
 }
 
@@ -147,7 +145,6 @@ body{
 .ChooseAccountType-Option{
 	height: fit-content;
 	width: 350px;
-	
 	display: inline-block;
 	cursor: pointer;
 	font-family: Arial, Helvetica, sans-serif;
@@ -165,11 +162,7 @@ body{
 }
 
 
-#Responder{
-
-	margin: 10px;
-	margin-top: 0;
-}
+#Responder{margin: 10px;margin-top: 0;}
 
 #Requestor{
 	margin: 10px;
@@ -390,4 +383,38 @@ body{
 	font-size:medium;
 	margin:10px;
 }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+}
+
+@media only screen and (min-width: 599px) and (max-width: 767px){
+
+}
+
+@media only screen and (min-width: 280px) and (max-width: 599px){
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+
+}
+@media (min-width: 768px) and (max-width: 991px){
+	#ChooseAccountType-Container{
+		height: 500px;
+		width:100%;
+		margin: auto;
+		margin-top: 10%;
+	}
+	.Option-Image{
+		width: 150px;
+		height: 150px;
+	}
+}
+@media (min-width: 576px) and (max-width: 767px){
+
+}
+@media (max-width: 575px){
+
 }

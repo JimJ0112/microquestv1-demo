@@ -69,17 +69,11 @@ function setData(array){
         checkBox.setAttribute("type","checkbox");
         checkBox.setAttribute("name","cartItem[]");
         checkBox.value = dataArray[i]['cartID'];
+        checkBox.setAttribute("onchange","getCheckedTotal()");
+        checkBox.setAttribute("class","cartItemCheckBox");
 
 
-        /*
-        var inputNumber = document.createElement("INPUT");
-        inputNumber.setAttribute("type","number");
-        inputNumber.setAttribute("name","quantityNumber");
-        inputNumber.setAttribute("class","quantityNumber");
-        
 
-        inputNumber.value = dataArray[i]['quantity'];
-        */
 
         var image = new Image();
         image.src = dataArray[i]['productImage'];
@@ -202,3 +196,43 @@ function updateQuantity(cartID){
      
  }// end of function
  */
+
+
+ function showForms(){
+    document.getElementById('deliverDateBack').style.display = "grid";
+ }
+
+ function closeForms(){
+    document.getElementById('deliverDateBack').style.display = "none";
+
+ }
+
+ function getCheckedTotal(){
+    var cartItemCheckBox = document.getElementsByClassName('cartItemCheckBox');
+    var totalPrice = document.getElementsByClassName('totalPrice');
+    var number = cartItemCheckBox.length;
+    var allTotal = document.getElementById('allTotal');
+    var totalPriceDisplay = document.getElementById('totalPriceDisplay');
+    var total = 0;
+
+
+    for(var i = 0; i<number; i++){
+        if(cartItemCheckBox[i].checked){
+
+            var strPrice = totalPrice[i].innerText;
+            strPrice = strPrice.substr(1);
+
+           // var price = parseInt(totalPrice[i].innerText);
+           var price = parseInt(strPrice);
+           total = total + price;
+
+           // allTotal.innerText = parseInt(allTotal.innerText) + price;
+
+        }
+
+    }
+    allTotal.innerText = parseInt(total);
+    totalPriceDisplay.innerText = parseInt(total);
+    //alert(total);
+
+ }

@@ -13,9 +13,6 @@ function setTransactionType(){
     var TransactionsNavItem4 = document.getElementById("TransactionsNavItem4");
     var TransactionsNavItem5 = document.getElementById("TransactionsNavItem5");
     var TransactionsNavItem6 = document.getElementById("TransactionsNavItem6");
-  //  var ServiceIDHeader = document.getElementById("ServiceIDHeader");
-  //  var ServicePositionHeader = document.getElementById("ServicePositionHeader");
-   // var ServiceTimeSlotHeader = document.getElementById("ServiceTimeSlotHeader");
     var TransactionsContainerBody = document.getElementById("TransactionsContainerBody");
    
 
@@ -44,9 +41,7 @@ function setTransactionType(){
          TransactionsNavItem4.innerText = " Paid";
          TransactionsNavItem5.innerText = " Finished";
          TransactionsNavItem6.innerText = " Cancelled";
-        // ServiceIDHeader.innerText = "Request ID";
-        // ServicePositionHeader.innerText = "Request Title";
-        // ServiceTimeSlotHeader.style.display = "none";
+
 
 
     } else if(TransactionTypeDropDown.value === "Services"){
@@ -64,9 +59,7 @@ function setTransactionType(){
         TransactionsNavItem4.innerText = " Paid";
         TransactionsNavItem5.innerText = " Finished";
         TransactionsNavItem6.innerText = " Cancelled";
-      //  ServiceIDHeader.innerText = "Service ID";
-       // ServicePositionHeader.innerText = "Service";
-       // ServiceTimeSlotHeader.style.display = "block";
+ 
 
         getOrders(userID);
         TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
@@ -87,15 +80,11 @@ function setTransactionType(){
         TransactionsNavItem5.innerText = " Finished";
         TransactionsNavItem6.innerText = " Cancelled";
 
-      //  ServiceIDHeader.innerText = "Service ID";
-      //  ServicePositionHeader.innerText = "Service";
-      //  ServiceTimeSlotHeader.style.display = "block";
+
 
         getPasabuyOrders(userID);
         TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
-        //var TransactionsContainerThead = document.getElementById('TransactionsContainerThead').innerHTML = "";
-        //var TransactionsContainerTheadPasabuy = document.getElementById('TransactionsContainerTheadPasabuy').style.display = "inline";
-        
+
     }
 }
 
@@ -126,25 +115,25 @@ function pasabuyNavItem (number,userID){
 
     TransactionsNavItems[number].style.borderBottom = "4px solid rgb(48, 30, 8)";
     if(number === 0){
-        //getOrders(userID);
+      
         getPasabuyOrders(userID)
     }else if(number === 1){
-        //getAcceptedOrders(userID);
+       
         getPasabuyAcceptedOrders(userID)
     }else if(number === 2){
-       // getDeliveredService(userID);
+     
        getPasabuyDeliveredOrders(userID)
        
     }else if(number === 3){
-       // getPaidOrders(userID);
+       
        getPasabuyPaidOrders(userID)
 
     }else if(number === 4){
-       // getFinishedService(userID);
+     
        getPasabuyFinishedOrders(userID)
 
     }else if(number === 5){
-       // getCancelledOrders(userID);
+      
        getPasabuyCancelledOrders(userID)
 
     }
@@ -160,7 +149,7 @@ function pasabuyNavItem (number,userID){
 
 function getPasabuyOrders(userID){
     var userID = userID;
-    var query = "userID=" + userID +"&status=pending&column=requestorID";
+    var query = "userID=" + userID +"&status=pending&column=responderID";
     var xmlhttp = new XMLHttpRequest();
 
 
@@ -209,7 +198,7 @@ function getPasabuyOrders(userID){
 
 function getPasabuyAcceptedOrders(userID){
     var userID = userID;
-    var query = "userID=" + userID +"&status=Accepted&column=requestorID";
+    var query = "userID=" + userID +"&status=Accepted&column=responderID";
     var xmlhttp = new XMLHttpRequest();
 
 
@@ -253,7 +242,7 @@ function getPasabuyAcceptedOrders(userID){
 
 function getPasabuyDeliveredOrders(userID){
     var userID = userID;
-    var query = "userID=" + userID +"&status=Delivered&column=requestorID";
+    var query = "userID=" + userID +"&status=Delivered&column=responderID";
     var xmlhttp = new XMLHttpRequest();
 
 
@@ -298,7 +287,7 @@ function getPasabuyDeliveredOrders(userID){
 
 function getPasabuyPaidOrders(userID){
     var userID = userID;
-    var query = "userID=" + userID +"&status=Paid&column=requestorID";
+    var query = "userID=" + userID +"&status=Paid&column=responderID";
     var xmlhttp = new XMLHttpRequest();
 
 
@@ -342,7 +331,7 @@ function getPasabuyPaidOrders(userID){
 
 function getPasabuyFinishedOrders(userID){
     var userID = userID;
-    var query = "userID=" + userID +"&status=Finished&column=requestorID";
+    var query = "userID=" + userID +"&status=Finished&column=responderID";
     var xmlhttp = new XMLHttpRequest();
 
 
@@ -386,7 +375,7 @@ function getPasabuyFinishedOrders(userID){
 
 function getPasabuyCancelledOrders(userID){
     var userID = userID;
-    var query = "userID=" + userID +"&status=Cancelled&column=requestorID";
+    var query = "userID=" + userID +"&status=Cancelled&column=responderID";
     var xmlhttp = new XMLHttpRequest();
 
 
@@ -451,7 +440,7 @@ function createPasabuyTransactionElements(number){
      Product.innerText= "Product";
      td.innerText= "";
      ServiceInfo.innerText = "Service";
-     Responder.innerText = "Responder";
+     Responder.innerText = "Requestor";
      TotalPrice.innerText = "Total Price";
      Status.innerText = "Status";
      Action.innerText = "Actions";
@@ -555,7 +544,7 @@ function setPasabuyOrderItem(array){
 
 
         var userImage = new Image();
-        userImage.src = dataArray[i]['responderPhoto'];
+        userImage.src = dataArray[i]['requestorPhoto'];
         userImage.setAttribute('class','responderImagePic');
 
         var cancelButton = document.createElement('button');
@@ -563,6 +552,11 @@ function setPasabuyOrderItem(array){
         cancelButton.setAttribute('onclick','cancelPasabuyTransaction(' + dataArray[i]['pasabuyTransactionID']+")")
         cancelButton.innerText = "Cancel";
 
+        var AcceptButton = document.createElement('button');
+        AcceptButton.setAttribute('class','AcceptButton');
+        AcceptButton.innerText = "Accept";
+        AcceptButton.setAttribute('onclick',"acceptPasabuyOrder(" +dataArray[i]['pasabuyTransactionID'] + ")" );
+    
 
 
         transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
@@ -571,13 +565,18 @@ function setPasabuyOrderItem(array){
         serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
         responderImageTD[i].appendChild(userImage);
         //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
+        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
+
 
         var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
         totalPrice[i].innerHTML = "Php " + total;
 
         transactionStatus[i].innerText = dataArray[i]['orderStatus'];
+
+        ActionsTd[i].appendChild(AcceptButton);
         ActionsTd[i].appendChild(cancelButton);
+        
+
 
     }
 
@@ -606,7 +605,7 @@ function setPasabuyAcceptedItem(array){
 
 
         var userImage = new Image();
-        userImage.src = dataArray[i]['responderPhoto'];
+        userImage.src = dataArray[i]['requestorPhoto'];
         userImage.setAttribute('class','responderImagePic');
 
         var cancelButton = document.createElement('button');
@@ -615,6 +614,12 @@ function setPasabuyAcceptedItem(array){
         cancelButton.innerText = "Cancel";
 
 
+        var deliverButton = document.createElement('button');
+        deliverButton.setAttribute('class','DeliverButton');
+        deliverButton.innerText = "Deliver";
+        deliverButton.setAttribute('onclick',"deliverPasabuyOrder(" +dataArray[i]['pasabuyTransactionID'] + ")" );
+        
+
 
         transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
         productImageTD[i].appendChild(image);
@@ -622,7 +627,7 @@ function setPasabuyAcceptedItem(array){
         serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
         responderImageTD[i].appendChild(userImage);
         //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
+        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
 
         var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
         totalPrice[i].innerHTML = "Php " + total;
@@ -637,6 +642,7 @@ function setPasabuyAcceptedItem(array){
         transactionType = "service";
  
         // check if report to the service exists and generate button for reporting
+        ActionsTd[i].appendChild(deliverButton);
         checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
 
     }
@@ -666,13 +672,10 @@ function setPasabuyDeliveredItem(array){
 
 
         var userImage = new Image();
-        userImage.src = dataArray[i]['responderPhoto'];
+        userImage.src = dataArray[i]['requestorPhoto'];
         userImage.setAttribute('class','responderImagePic');
 
-        var SavePaymentButton = document.createElement('button');
-        SavePaymentButton .setAttribute('class','SavePaymentButton');
-        SavePaymentButton .setAttribute('onclick','setPaymentForm(' + dataArray[i]['pasabuyTransactionID']+")")
-        SavePaymentButton .innerText = "Save Payment";
+        
 
 
 
@@ -682,13 +685,13 @@ function setPasabuyDeliveredItem(array){
         serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
         responderImageTD[i].appendChild(userImage);
         //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
+        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
 
         var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
         totalPrice[i].innerHTML = "Php " + total;
 
         transactionStatus[i].innerText = dataArray[i]['orderStatus'];
-        ActionsTd[i].appendChild(SavePaymentButton);
+        //ActionsTd[i].appendChild(SavePaymentButton);
 
         myID = sessionStorage.getItem("userID");
         reportedID = dataArray[i]["responderID"];
@@ -698,6 +701,7 @@ function setPasabuyDeliveredItem(array){
 
    
         // check if report to the service exists and generate button for reporting
+
         checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
 
     }
@@ -728,13 +732,13 @@ function setPasabuyPaidItem(array){
 
 
         var userImage = new Image();
-        userImage.src = dataArray[i]['responderPhoto'];
+        userImage.src = dataArray[i]['requestorPhoto'];
         userImage.setAttribute('class','responderImagePic');
 
         var SavePaymentButton = document.createElement('button');
         SavePaymentButton .setAttribute('class','SavePaymentButton');
-        SavePaymentButton .setAttribute('onclick','savePayment(' + dataArray[i]['pasabuyTransactionID']+")")
-        SavePaymentButton .innerText = "Save Payment";
+        SavePaymentButton .setAttribute('onclick','confirmPasabuyPayment(' + dataArray[i]['pasabuyTransactionID']+")")
+        SavePaymentButton .innerText = "Confirm Payment";
 
 
 
@@ -744,13 +748,15 @@ function setPasabuyPaidItem(array){
         serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
         responderImageTD[i].appendChild(userImage);
         //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
+        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
 
         var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
         totalPrice[i].innerHTML = "Php " + total;
 
         transactionStatus[i].innerText = dataArray[i]['orderStatus'];
-        //ActionsTd[i].appendChild(cancelButton);
+        ActionsTd[i].appendChild(SavePaymentButton);
+
+
 
         myID = sessionStorage.getItem("userID");
         reportedID = dataArray[i]["responderID"];
@@ -760,8 +766,7 @@ function setPasabuyPaidItem(array){
  
         // check if report to the service exists and generate button for reporting
         checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
-        generateFeedbackButton(dataArray[i]['pasabuyTransactionID'],i,dataArray[i]['responderID'],dataArray[i]['serviceID']);
-
+       
     }
 
 }
@@ -783,14 +788,14 @@ function setPasabuyFinishedItem(array){
 
     for(var i=0;i<number;i++){
 
-        //tr[i]
+        
         var image = new Image();
         image.src = dataArray[i]['productImage'];
         image.setAttribute('class','productImageTransactions');
 
 
         var userImage = new Image();
-        userImage.src = dataArray[i]['responderPhoto'];
+        userImage.src = dataArray[i]['requestorPhoto'];
         userImage.setAttribute('class','responderImagePic');
 
         var SavePaymentButton = document.createElement('button');
@@ -805,14 +810,14 @@ function setPasabuyFinishedItem(array){
         productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
         serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
         responderImageTD[i].appendChild(userImage);
-        //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
+     
+        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
 
         var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
         totalPrice[i].innerHTML = "Php " + total;
 
         transactionStatus[i].innerText = dataArray[i]['orderStatus'];
-        //ActionsTd[i].appendChild(cancelButton);
+       
 
         myID = sessionStorage.getItem("userID");
         reportedID = dataArray[i]["responderID"];
@@ -822,8 +827,7 @@ function setPasabuyFinishedItem(array){
  
         // check if report to the service exists and generate button for reporting
         checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
-        generateFeedbackButton(dataArray[i]['pasabuyTransactionID'],i,dataArray[i]['responderID'],dataArray[i]['serviceID']);
-
+      
     }
 
 }
@@ -851,7 +855,7 @@ function setPasabuyCancelledItem(array){
 
 
         var userImage = new Image();
-        userImage.src = dataArray[i]['responderPhoto'];
+        userImage.src = dataArray[i]['requestorPhoto'];
         userImage.setAttribute('class','responderImagePic');
 
         var SavePaymentButton = document.createElement('button');
@@ -867,7 +871,7 @@ function setPasabuyCancelledItem(array){
         serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
         responderImageTD[i].appendChild(userImage);
         //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
+        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
 
         var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
         totalPrice[i].innerHTML = "Php " + total;
@@ -959,61 +963,12 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
 
 
 
-function generateFeedbackButton(transactionID,number,responderID,serviceID){
-    var transactionID = transactionID;
-    var number = number;
-    var query = "transactionID=" + transactionID;
-    console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open("POST", "Backend/CheckFeedBackExists.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-
-            var dataArray = this.response;
-            console.log(dataArray);
-            console.log(query);
-
-            controlsTd= document.getElementsByClassName('ActionsTd');
-
-            if(dataArray === "true"){
-
-                var button1 = document.createElement('button');
-                button1.setAttribute('class','AcceptButton');
-                button1.innerText = "Feedback Given";
-                button1.disabled = true;
-                button1.style.backgroundColor = "gray";
-                button1.setAttribute('onclick',"setFeedbackForm(" + transactionID +","+responderID+","+serviceID+")" );
-                controlsTd[number].appendChild(button1);
- 
-            }else{
-
-                var button1 = document.createElement('button');
-                button1.setAttribute('class','AcceptButton');
-                button1.innerText = "Give Feedback";
-                button1.setAttribute('onclick',"setFeedbackForm(" + transactionID +","+responderID+","+serviceID+")" );
-                controlsTd[number].appendChild(button1);
-
-            }
-            
-
-        }else{
-            console.log(err);
-        }      
-    };
-    
-    xmlhttp.send(query);
-
-    
-}// end of function
 
 //---------------------------------------button functions/actions-------------------------------------------
 function cancelPasabuyTransaction(transactionID){
     var transactionID = transactionID;
-    var query = "transactionID=" + transactionID+"&update=Cancelled&userType=Requestor";
+    var query = "transactionID=" + transactionID+"&update=Cancelled&userType=Responder";
     console.log(query);
 
     var xmlhttp = new XMLHttpRequest();
@@ -1047,3 +1002,114 @@ function cancelPasabuyTransaction(transactionID){
 }// end of function
 
 
+//acceptPasabuyOrder
+
+function acceptPasabuyOrder(transactionID){
+    var transactionID = transactionID;
+    var query = "transactionID=" + transactionID+"&update=Accepted&userType=Responder";
+    console.log(query);
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+            var dataArray = this.response;
+            console.log(dataArray);
+        
+
+
+           var transactionsUserId = sessionStorage.getItem("transactionsUserId");
+           // getCancelledRequests(transactionsUserId);
+           pasabuyNavItem (1,transactionsUserId);
+ 
+            
+
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send(query);
+    alert("Order Accepted");
+    //var myID = sessionStorage.getItem('myID');
+    //getRequestApplications(myID);
+    
+}// end of function
+
+
+
+//deliverPasabuyOrder
+function deliverPasabuyOrder(transactionID){
+    var transactionID = transactionID;
+    var query = "transactionID=" + transactionID+"&update=Delivered&userType=Responder";
+    console.log(query);
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+            var dataArray = this.response;
+            console.log(dataArray);
+        
+
+
+           var transactionsUserId = sessionStorage.getItem("transactionsUserId");
+        
+           pasabuyNavItem (2,transactionsUserId);
+ 
+            
+
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send(query);
+    alert("Order Delivered");
+    //var myID = sessionStorage.getItem('myID');
+    //getRequestApplications(myID);
+    
+}// end of function
+
+//confirmPasabuyPayment
+
+function confirmPasabuyPayment(transactionID){
+    var transactionID = transactionID;
+    var query = "transactionID=" + transactionID+"&update=Finished&userType=Responder";
+    console.log(query);
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+            var dataArray = this.response;
+            console.log(dataArray);
+        
+
+
+           var transactionsUserId = sessionStorage.getItem("transactionsUserId");
+        
+           pasabuyNavItem (4,transactionsUserId);
+ 
+            
+
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send(query);
+    alert("Payment Confirmed");
+    //var myID = sessionStorage.getItem('myID');
+    //getRequestApplications(myID);
+    
+}// end of function

@@ -4,10 +4,10 @@ require("../Classes/DBHandler.php");
 $DBHandler = new DBHandler();
 
 
-
 $column =  $_POST['column'];
 $ID = $_POST['userID'];
 $status = $_POST['status'];
+
 
 //$condition = 14;
 
@@ -16,9 +16,9 @@ $status = $_POST['status'];
 //$transactions = $DBHandler->getMyTransactions($ID,$column,$transactionType);
 
 /*
-$column = "requestorID";
+$column = "responderID";
 $status = "pending";
-$ID=46;
+$ID=11;
 */
 
 $transactions = $DBHandler->getMyPasabuyTransactions($ID,$column,$status);
@@ -28,8 +28,16 @@ if($transactions === "failed to fetch"){
    
 } else{
 
-    echo json_encode($transactions);
+    //var_dump($transactions);
+    
+    //echo json_encode($transactions);
+   // echo json_last_error_msg();
    
+   echo json_encode($transactions);
+
+    
+   
+    
 
 }
 

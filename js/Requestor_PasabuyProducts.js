@@ -98,7 +98,7 @@ function setData(array){
     var itemStatus=document.getElementsByClassName("itemStatus");
 
     var ProductCardButtons=document.getElementsByClassName("ProductCardButtons");
-    var EditButton=document.getElementsByClassName("EditButton");
+    var BuyButton = document.getElementsByClassName("BuyButton");
 
 
 
@@ -123,6 +123,9 @@ function setData(array){
         // /EditButton[i].setAttribute();
         addToCartButton[i].setAttribute("onclick","setCartForm("+dataArray[i]['productID']+","+dataArray[i]['servicesInfoID']+","+dataArray[i]['responderID']+",'" + dataArray[i]['productImage'] +"','" +dataArray[i]['productName']+"')");
     
+
+        BuyButton[i].setAttribute("onclick","setCheckOutForm("+dataArray[i]['productID']+","+dataArray[i]['servicesInfoID']+","+dataArray[i]['responderID']+",'" + dataArray[i]['productImage'] +"','" +dataArray[i]['productName']+"'," + dataArray[i]['productPrice']+")");
+        //setCheckOutForm(productID,serviceID,responderID,ProductImage,ProductName)
     }
 
 }
@@ -334,11 +337,15 @@ function quantityLimit(){
     }
 }
 
-function closeCartForm(){
-    document.getElementById("addToCartFormBg").style.display = "none";
+function closeForm(id){
+    var id = id;
+    document.getElementById(id).style.display = "none";
     document.getElementById("quantity").value = "1";
+    document.getElementById("quantity1").value = "1";
 
 }
+
+
 
 
 function setCartForm(productID,serviceID,responderID,ProductImage,ProductName){
@@ -362,4 +369,79 @@ function setCartForm(productID,serviceID,responderID,ProductImage,ProductName){
 
     document.getElementById("addToCartFormBg").style.display = "grid";
 
+}
+
+
+function setCheckOutForm(productID,serviceID,responderID,ProductImage,ProductName,Price){
+    var productID = productID;
+    var serviceID = serviceID;
+    var responderID = responderID;
+    var ProductImage = ProductImage;
+    var ProductName = ProductName;
+    var Price = Price;
+
+    var productIDEl = document.getElementById("orderProductID");
+    var serviceIDEl = document.getElementById("orderServiceID");
+    var responderIDEl = document.getElementById("orderResponderID");
+    var cartFormProductImage = document.getElementById("checkOutFormProductImage");
+    var cartFormProductName = document.getElementById("checkOutFormProductName");
+    var orderPrice = document.getElementById('orderPrice');
+    var totalPriceDisplay = document.getElementById('totalPriceDisplay');
+    var quantity1 = document.getElementById('quantity1');
+
+
+    productIDEl.value = productID;
+    serviceIDEl.value = serviceID;
+    responderIDEl.value = responderID;
+    orderPrice.value = Price;
+
+    cartFormProductImage.src = ProductImage;
+    cartFormProductName.innerText = ProductName;
+
+    totalPriceDisplay.innerText = parseInt(Price)*parseInt(quantity1);
+   
+
+    document.getElementById("pasabuyOrderBack").style.display = "grid";
+
+}
+
+function addQuantity1(){
+    var quantity = document.getElementById("quantity1");
+
+        if(quantity.value <=0){
+            quantity.value = 1;
+        } else if(quantity.value >= 99){
+            quantity.value = quantity.value;
+        } else {
+            quantity.value = parseInt(quantity.value) + 1;
+            setTotal();
+        }
+        
+}
+
+
+function subQuantity1(){
+    var quantity = document.getElementById("quantity1");
+
+        if(quantity.value >= 99){
+            quantity.value = 99;
+
+        } else if(quantity.value <= 1){
+
+            quantity.value = 1
+
+        } else {
+            quantity.value = parseInt(quantity.value) - 1;
+            setTotal();
+        }
+        
+}
+
+function setTotal(){
+    
+    var quantity1 = document.getElementById('quantity1');
+    var orderPrice = document.getElementById('orderPrice');
+    
+
+    totalPriceDisplay.innerText = parseInt(orderPrice)*parseInt(quantity1);
 }

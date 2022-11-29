@@ -47,10 +47,21 @@ if(isset($_POST['cartItem'])){
             $paymentFile = "none";
             $transactionStartDate = $today;
             $transactionEndDate = "none";
+        
             $totalPrice = (int)$price * (int)$quantity;
             $totalPrice;
+            
+            if(isset($_POST['dueDate'])){
+                $dueDate = $_POST['dueDate'];
+            } else {
+                $dueDate = "no due date";
 
-           echo  $DBHandler->registerPasabuyTransaction($productID,$serviceID,$requestorID,$responderID,$price,$quantity,$orderDate,$orderStatus,$paymentFile,$transactionStartDate,$transactionEndDate,$totalPrice);
+            }
+
+
+            echo $dueDate;
+
+            echo  $DBHandler->registerPasabuyTransaction($productID,$serviceID,$requestorID,$responderID,$price,$quantity,$orderDate,$orderStatus,$paymentFile,$transactionStartDate,$transactionEndDate,$totalPrice,$dueDate);
 
 
 
