@@ -173,6 +173,89 @@
 
 
 
+<div id="pasabuyPaymentPopUpBack"> 
+	<div id="pasabuyPaymentPopUp"> 
+	
+	<form action="Backend/RegisterPasabuyPayment.php" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="transactionID" id="pasabuyTransactionIDInput"/>
+
+		<?php
+		 $userType = $_SESSION["userType"];
+		?>
+		<input type="hidden" name="userType" value="<?php echo $userType; ?>"/>
+		<input type="hidden" name="update" value="Paid"/>
+		<center> <h4>  Please Enter your proof of payment  </h4> 
+		<br/>
+
+		<img id="pasabuyPaymentFileOutput"/> <br/> <br/>
+		<input id="pasabuyPaymentProof" type="file" name="pasabuyPaymentFile" onchange="showPasabuyPaymentProofFile(event)"  required hidden/>
+		<label for="pasabuyPaymentProof"> upload proof of payment ↑</label> 
+		
+		<br/>  <br/> <br/>
+		
+
+		<input type="submit" value="Confirm"/> 
+		<input type="button" value="Cancel" onclick="closePasabuyPaymentForm()"/>
+		</center>
+	</form>
+
+	</div>
+
+</div>
+
+
+<div id="pasabuyGiveFeedBackPopUpBack"> 
+	<div id="pasabuyGiveFeedBackPopUp"> 
+	
+		<form action="Backend/pasabuyFeedBackBackend.php" method="post" enctype="multipart/form-data">
+		
+			<center>
+				<br/>
+				<?php $myUserID = $_SESSION["userID"];?>
+				<input type="hidden" name="myID" value="<?php echo $myUserID;?>"/>
+				<input type="hidden" name="serviceTransactionID" id="pasabuyTransactionFeedbackID"/>
+				<input type="hidden" name="serviceRevieweeID" id="pasabuyServiceRevieweeFeedbackID"/>
+				<input type="hidden" name="serviceID" id="pasabuyServiceFeedbackID"/>
+				<input type="hidden" name="userType" id="Responder"/>
+				<h3> Please Enter your feedbacks </h3>
+				<br/>
+
+				<label> Your Feedback:  </label> <br/>
+				<textarea name="feedback" id="feedbackInput" cols="40" rows="10" placeholder="Your Feedback..." required></textarea>
+				<br/><br/><br/>
+			
+
+				<div class="rate">
+
+
+					<input type="radio" name="rate" value="5" id="pasabuyStar5" class="star" required/>
+					<label for="pasabuyStar5" title="text"> </label>
+					<input type="radio" name="rate" value="4" id="pasabuyStar4" class="star"/>
+					<label for="pasabuyStar4" title="text"> </label>
+					<input type="radio" name="rate" value="3" id="pasabuyStar3" class="star"/>
+					<label for="pasabuyStar3" title="text"> </label>
+					<input type="radio" name="rate" value="2" id="pasabuyStar2" class="star"/>
+					<label for="pasabuyStar2" title="text"> </label>
+					<input type="radio" name="rate" value="1" id="pasabuyStar1" class="star"/>
+					<label for="pasabuyStar1" title="text"> </label>
+				</div>
+
+				<br/><br/> <br/><br/>
+
+				<div id="ButtonsDivFeedback">
+					<input type="submit" value="Confirm" /> 
+					<input type="button" value="Cancel" onclick="closePasabuyFeedbackForm()"/>
+				</div>
+			
+			</center>
+		</form>
+
+	</div>
+
+</div>
+
+
+
 <div id="giveFeedBackPopUpBack"> 
 	<div id="giveFeedBackPopUp"> 
 	
@@ -240,6 +323,9 @@
 			
 			<input type="hidden" id="ReportedAccountID" name="ReportedAccountID"/>
 			<input type="hidden" id="ReporterAccountID" name="ReporterAccountID" value="<?php echo $userID;?>"/>
+			
+
+
 
 			
 

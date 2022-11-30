@@ -5,16 +5,22 @@ function showReportForm(id,transactionID,type,userType){
     reportPopUpBack = document.getElementById("reportPopUpBack");
     reportPopUpBack.style.display = "block";
 
+    var reportTransactionType = reportTransactionType;
+    var reportTransactionID = reportTransactionID;
     
     ReportedAccountType = document.getElementById("ReportedAccountType");
     TransactionReportIDInput = document.getElementById("TransactionReportIDInput");
     TransactionTypeInput = document.getElementById("TransactionTypeInput");
+
+;
     
 
     console.log(TransactionReportIDInput);
     ReportedAccountID.value = id;
     TransactionReportIDInput.value = transactionID;
     TransactionTypeInput.value = type;
+
+  
 
     getProfile(id,userType);
 

@@ -3315,6 +3315,25 @@ public function setPayment($name,$conditionvalue,$paymentFile){
   
 }
 
+
+public function setPasabuyPayment($name,$conditionvalue,$paymentFile){
+    $tablename = "pasabuytransactions";
+    $column = "orderStatus";
+    $condition = "pasabuyTransactionID";
+    $name = mysqli_real_escape_string($this->dbconnection, $name);
+    $conditionvalue = mysqli_real_escape_string($this->dbconnection, $conditionvalue);
+    $paymentFile = mysqli_real_escape_string($this->dbconnection,$paymentFile); 
+    $column2 = "paymentFile";
+
+    $query = "UPDATE $tablename SET $column = '$name', $column2 = '$paymentFile' WHERE $condition = '$conditionvalue' ";
+
+    $result = mysqli_query($this->dbconnection, $query);
+
+
+        
+  
+}
+
 // update columns 
 public function updateConversation($senderID,$recieverID,$messageBody,$date){
     $tablename = "conversations";
@@ -3724,12 +3743,14 @@ public function registerRequestFeedback($myID,$revieweeID,$requestID,$transactio
     $transactionID= mysqli_real_escape_string($this->dbconnection,$transactionID);
     $feedback = mysqli_real_escape_string($this->dbconnection, $feedback);
     $today= mysqli_real_escape_string($this->dbconnection, $today);
+    $transactionType = "Request";
+
 	//	feedbackID	reviewerID	revieweeID	transactionID	serviceID	requestID	pasabuyRequestID	feedback	feedbackDate	
 
 
     $tablename = "feedbacks";
 
-    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,null,$requestID,null,'$feedback','$today')";
+    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,null,$requestID,null,'$feedback','$today','$transactionType',null)";
 
     $result = mysqli_query($this->dbconnection, $query);
  
@@ -3747,12 +3768,41 @@ public function registerServiceFeedback($myID,$revieweeID,$serviceID,$transactio
     $transactionID= mysqli_real_escape_string($this->dbconnection,$transactionID);
     $feedback = mysqli_real_escape_string($this->dbconnection, $feedback);
     $today= mysqli_real_escape_string($this->dbconnection, $today);
+    $transactionType = "Service";
+    
 	//	feedbackID	reviewerID	revieweeID	transactionID	serviceID	requestID	pasabuyRequestID	feedback	feedbackDate	
 
 
     $tablename = "feedbacks";
 
-    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,$serviceID,null,null,'$feedback','$today')";
+    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,$serviceID,null,null,'$feedback','$today','$transactionType',null)";
+
+    $result = mysqli_query($this->dbconnection, $query);
+ 
+  return $result;
+
+}// end of function
+
+
+// register SERVICE FEEDBACKS
+public function registerPasabuyFeedback($myID,$revieweeID,$serviceID, $pasabuyTransactionID,$feedback,$today){
+
+
+    $myID= mysqli_real_escape_string($this->dbconnection, $myID);
+    $revieweeID= mysqli_real_escape_string($this->dbconnection, $revieweeID);
+    $serviceID= mysqli_real_escape_string($this->dbconnection, $serviceID);
+    //$transactionID= mysqli_real_escape_string($this->dbconnection,$transactionID);
+    $feedback = mysqli_real_escape_string($this->dbconnection, $feedback);
+    $today= mysqli_real_escape_string($this->dbconnection, $today);
+    $transactionType = "Pasabuy";
+    $pasabuyTransactionID = mysqli_real_escape_string($this->dbconnection, $pasabuyTransactionID);
+
+	//	feedbackID	reviewerID	revieweeID	transactionID	serviceID	requestID	pasabuyRequestID	feedback	feedbackDate	
+
+
+    $tablename = "feedbacks";
+
+    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,null,$serviceID,null,null,'$feedback','$today','$transactionType',$pasabuyTransactionID)";
 
     $result = mysqli_query($this->dbconnection, $query);
  
@@ -3770,6 +3820,8 @@ public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingV
     $feedbackID = mysqli_real_escape_string($this->dbconnection,$feedbackID);
     $requestID = null;
     $serviceID = mysqli_real_escape_string($this->dbconnection,$serviceID);
+    $transactionType = "Service";
+    $pasabuyTransactionID = null;
 
     $rating1star = 0;
     $rating2star = 0;
@@ -3819,12 +3871,83 @@ public function registerServiceRatings($myID,$revieweeID,$transactionID,$ratingV
 
     $tablename = "rating";
 
-    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,null,$rating1star,$rating2star,$rating3star,$rating4star,$rating5star,$totalRating,$feedbackID,$serviceID)";
+    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,$transactionID,null,$rating1star,$rating2star,$rating3star,$rating4star,$rating5star,$totalRating,$feedbackID,$serviceID,'$transactionType',null)";
 
     $result = mysqli_query($this->dbconnection, $query);
     echo mysqli_error($this->dbconnection);
  
     return $result;
+}// end of function
+
+
+public function registerPasabuyRatings($myID,$revieweeID,$pasabuyTransactionID,$ratingValue,$feedbackID,$serviceID){
+
+
+    $myID= mysqli_real_escape_string($this->dbconnection, $myID);
+    $revieweeID= mysqli_real_escape_string($this->dbconnection, $revieweeID);
+    //$transactionID= mysqli_real_escape_string($this->dbconnection,$transactionID);
+    $ratingValue = mysqli_real_escape_string($this->dbconnection,$ratingValue);
+    $feedbackID = mysqli_real_escape_string($this->dbconnection,$feedbackID);
+    $requestID = null;
+    $serviceID = mysqli_real_escape_string($this->dbconnection,$serviceID);
+    $transactionType = "Pasabuy";
+    $pasabuyTransactionID = mysqli_real_escape_string($this->dbconnection,$pasabuyTransactionID );
+
+    $rating1star = 0;
+    $rating2star = 0;
+    $rating3star = 0;
+    $rating4star = 0;
+    $rating5star = 0;
+    $totalRating = 0;
+
+    if($ratingValue === "1"){
+        $rating1star = 1;
+        $rating2star = 0;
+        $rating3star = 0;
+        $rating4star = 0;
+        $rating5star = 0;
+        $totalRating = 0;
+    } else if($ratingValue === "2"){
+        $rating1star = 0;
+        $rating2star = 1;
+        $rating3star = 0;
+        $rating4star = 0;
+        $rating5star = 0;
+        $totalRating = 0;
+    } else if($ratingValue === "3"){
+        $rating1star = 0;
+        $rating2star = 0;
+        $rating3star = 1;
+        $rating4star = 0;
+        $rating5star = 0;
+        $totalRating = 0;
+    } else if($ratingValue === "4"){
+        $rating1star = 0;
+        $rating2star = 0;
+        $rating3star = 0;
+        $rating4star = 1;
+        $rating5star = 0;
+        $totalRating = 0;
+    } else if($ratingValue === "5"){
+
+        $rating1star = 0;
+        $rating2star = 0;
+        $rating3star = 0;
+        $rating4star = 0;
+        $rating5star = 1;
+        $totalRating = 0;
+    }
+
+
+    $tablename = "rating";
+
+    $query = "INSERT INTO $tablename VALUES(0,$myID,$revieweeID,null,null,$rating1star,$rating2star,$rating3star,$rating4star,$rating5star,$totalRating,$feedbackID,$serviceID,'$transactionType',$pasabuyTransactionID )";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    echo mysqli_error($this->dbconnection);
+ 
+    return $result;
+    
 }// end of function
 
 

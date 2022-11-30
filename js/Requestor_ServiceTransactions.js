@@ -460,6 +460,50 @@ function createElements(number){
     var table = document.getElementById("TransactionsContainerBody");
     var DataNumber = number;
 
+    var TransactionsContainerThead = document.getElementById('TransactionsContainerThead');
+    TransactionsContainerThead.innerHTML = "";
+
+    var thead = document.createElement('tr');
+    var TransactionID  = document.createElement('td')
+   
+    var ServiceInfo  = document.createElement('td')
+    var Responder = document.createElement('td')
+    var TotalPrice = document.createElement('td')
+    var Status = document.createElement('td')
+    var Action = document.createElement('td')
+
+
+
+     TransactionID.innerText = "Transaction ID ";
+
+     ServiceInfo.innerText = "Service";
+     Responder.innerText = "Responder";
+     TotalPrice.innerText = "Total Price";
+     Status.innerText = "Status";
+     Action.innerText = "Actions";
+
+    thead.appendChild(TransactionID)
+   
+
+   
+
+    thead.appendChild(ServiceInfo)
+
+    thead.appendChild(Responder)
+
+    thead.appendChild(TotalPrice)
+
+    thead.appendChild(Status)
+    thead.appendChild(Action);
+
+    TransactionsContainerThead.appendChild(thead);
+
+
+
+
+
+
+
     for(var i = 0;i<DataNumber;i++){
 
         tr = document.createElement('tr');
@@ -1281,6 +1325,8 @@ function showPaymentProofFile(event){
 
 
 // check if report already exists 
+
+
  function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum,dataArray){
     var myID = myID;
     var reportedID =reportedID;
@@ -1347,6 +1393,74 @@ function showPaymentProofFile(event){
 }
 
 
+/*
+function  checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum,dataArray,transactionID){
+    var myID = myID;
+    var reportedID =reportedID;
+    var serviceID =serviceID;
+    var requestID =requestID;
+    var transactionType =transactionType;
+    var dataArray = dataArray;
+    var rowNum = rowNum;
+    var transactionID = transactionID;
+
+    var controlsTd= document.getElementsByClassName('ActionsTd');
+
+
+    
+
+        var query = "reporterID="+myID+"&reportedID="+reportedID+"&serviceID="+serviceID+"&requestID="+requestID+"&transactionType="+transactionType+"&transactionID=" + transactionID;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", "Backend/CheckReport.php");
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded",true);
+
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+           
+                var result= this.response;
+
+                console.log(result);
+
+                 if(result  === "true"){
+
+                    var button1 = document.createElement('button');
+                    button1.setAttribute('class','CancelButton');
+                    button1.innerText = "Reported";
+                    button1.disabled = true;
+                    button1.style.backgroundColor = "gray";
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["serviceID"]+",'service','responder','Service',"+ transactionID +")");
+                    controlsTd[rowNum].appendChild(button1);
+                    
+        
+                } else{
+        
+                    var button1 = document.createElement('button');
+                    button1.setAttribute('class','CancelButton');
+                    button1.innerText = "Report";
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["serviceID"]+",'service','responder','Service',"+ transactionID +")");
+                    controlsTd[rowNum].appendChild(button1);
+                   
+                }
+
+                    
+
+            
+            }else{
+                console.log(err);
+            
+            }      
+        
+       
+        };
+     
+    
+
+        xmlhttp.send(query);
+    
+  
+
+}
+*/
 
 function generateFeedbackButton(transactionID,number,responderID,serviceID){
     var transactionID = transactionID;

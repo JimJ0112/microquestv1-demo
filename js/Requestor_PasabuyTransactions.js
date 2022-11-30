@@ -568,9 +568,9 @@ function setPasabuyOrderItem(array){
         transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
         productImageTD[i].appendChild(image);
         productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
+        serviceInfo[i].innerHTML = " <b> Delivery Date: </b>"+ dataArray[i]['dueDate'] +"<br/>" +" <b> Delivery Price: </b> Php " + dataArray[i]['deliveryRate'] + ""
         responderImageTD[i].appendChild(userImage);
-        //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
+      
         responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
 
         var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
@@ -619,7 +619,8 @@ function setPasabuyAcceptedItem(array){
         transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
         productImageTD[i].appendChild(image);
         productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
+        serviceInfo[i].innerHTML = " <b> Delivery Date: </b>"+ dataArray[i]['dueDate'] +"<br/>" +" <b> Delivery Price: </b> Php " + dataArray[i]['deliveryRate'] + ""
+
         responderImageTD[i].appendChild(userImage);
         //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
         responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
@@ -637,7 +638,8 @@ function setPasabuyAcceptedItem(array){
         transactionType = "service";
  
         // check if report to the service exists and generate button for reporting
-        checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
+        checkPasabuyReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
+
 
     }
 
@@ -671,7 +673,7 @@ function setPasabuyDeliveredItem(array){
 
         var SavePaymentButton = document.createElement('button');
         SavePaymentButton .setAttribute('class','SavePaymentButton');
-        SavePaymentButton .setAttribute('onclick','setPaymentForm(' + dataArray[i]['pasabuyTransactionID']+")")
+        SavePaymentButton .setAttribute('onclick','setPasabuyPaymentForm(' + dataArray[i]['pasabuyTransactionID']+")")
         SavePaymentButton .innerText = "Save Payment";
 
 
@@ -679,7 +681,8 @@ function setPasabuyDeliveredItem(array){
         transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
         productImageTD[i].appendChild(image);
         productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
+        serviceInfo[i].innerHTML = " <b> Delivery Date: </b>"+ dataArray[i]['dueDate'] +"<br/>" +" <b> Delivery Price: </b> Php " + dataArray[i]['deliveryRate'] + ""
+
         responderImageTD[i].appendChild(userImage);
         //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
         responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
@@ -698,7 +701,8 @@ function setPasabuyDeliveredItem(array){
 
    
         // check if report to the service exists and generate button for reporting
-        checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
+        checkPasabuyReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
+
 
     }
 
@@ -733,7 +737,7 @@ function setPasabuyPaidItem(array){
 
         var SavePaymentButton = document.createElement('button');
         SavePaymentButton .setAttribute('class','SavePaymentButton');
-        SavePaymentButton .setAttribute('onclick','savePayment(' + dataArray[i]['pasabuyTransactionID']+")")
+        SavePaymentButton .setAttribute('onclick','setPasabuyPaymentForm(' + dataArray[i]['pasabuyTransactionID']+")")
         SavePaymentButton .innerText = "Save Payment";
 
 
@@ -741,7 +745,8 @@ function setPasabuyPaidItem(array){
         transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
         productImageTD[i].appendChild(image);
         productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
+        serviceInfo[i].innerHTML = " <b> Delivery Date: </b>"+ dataArray[i]['dueDate'] +"<br/>" +" <b> Delivery Price: </b> Php " + dataArray[i]['deliveryRate'] + ""
+
         responderImageTD[i].appendChild(userImage);
         //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
         responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
@@ -759,8 +764,9 @@ function setPasabuyPaidItem(array){
         transactionType = "service";
  
         // check if report to the service exists and generate button for reporting
-        checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
-        generateFeedbackButton(dataArray[i]['pasabuyTransactionID'],i,dataArray[i]['responderID'],dataArray[i]['serviceID']);
+        checkPasabuyReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
+
+        generatePasabuyFeedbackButton(dataArray[i]['pasabuyTransactionID'],i,dataArray[i]['responderID'],dataArray[i]['serviceID']);
 
     }
 
@@ -795,7 +801,7 @@ function setPasabuyFinishedItem(array){
 
         var SavePaymentButton = document.createElement('button');
         SavePaymentButton .setAttribute('class','SavePaymentButton');
-        SavePaymentButton .setAttribute('onclick','savePayment(' + dataArray[i]['pasabuyTransactionID']+")")
+        SavePaymentButton .setAttribute('onclick','setPasabuyPaymentForm(' + dataArray[i]['pasabuyTransactionID']+")")
         SavePaymentButton .innerText = "Save Payment";
 
 
@@ -803,7 +809,8 @@ function setPasabuyFinishedItem(array){
         transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
         productImageTD[i].appendChild(image);
         productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
+        serviceInfo[i].innerHTML = " <b> Delivery Date: </b>"+ dataArray[i]['dueDate'] +"<br/>" +" <b> Delivery Price: </b> Php " + dataArray[i]['deliveryRate'] + ""
+
         responderImageTD[i].appendChild(userImage);
         //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
         responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
@@ -821,8 +828,9 @@ function setPasabuyFinishedItem(array){
         transactionType = "service";
  
         // check if report to the service exists and generate button for reporting
-        checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
-        generateFeedbackButton(dataArray[i]['pasabuyTransactionID'],i,dataArray[i]['responderID'],dataArray[i]['serviceID']);
+        checkPasabuyReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
+
+        generatePasabuyFeedbackButton(dataArray[i]['pasabuyTransactionID'],i,dataArray[i]['responderID'],dataArray[i]['serviceID']);
 
     }
 
@@ -856,7 +864,7 @@ function setPasabuyCancelledItem(array){
 
         var SavePaymentButton = document.createElement('button');
         SavePaymentButton .setAttribute('class','SavePaymentButton');
-        SavePaymentButton .setAttribute('onclick','savePayment(' + dataArray[i]['pasabuyTransactionID']+")")
+        SavePaymentButton .setAttribute('onclick','setPasabuyPaymentForm(' + dataArray[i]['pasabuyTransactionID']+")")
         SavePaymentButton .innerText = "Save Payment";
 
 
@@ -864,7 +872,8 @@ function setPasabuyCancelledItem(array){
         transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
         productImageTD[i].appendChild(image);
         productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
+        serviceInfo[i].innerHTML = " <b> Delivery Date: </b>"+ dataArray[i]['dueDate'] +"<br/>" +" <b> Delivery Price: </b> Php " + dataArray[i]['deliveryRate'] + ""
+
         responderImageTD[i].appendChild(userImage);
         //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
         responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
@@ -883,7 +892,7 @@ function setPasabuyCancelledItem(array){
        transactionType = "service";
 
        // check if report to the service exists and generate button for reporting
-       checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
+       checkPasabuyReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
 
     }
 
@@ -892,20 +901,22 @@ function setPasabuyCancelledItem(array){
 
 //-----------------------check and generation of feedback and report buttons---------------------------------
 // check if report already exists 
-function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum,dataArray){
+function  checkPasabuyReports(myID,reportedID,serviceID,requestID,transactionType,rowNum,dataArray,pasabuyTransactionID){
     var myID = myID;
     var reportedID =reportedID;
     var serviceID =serviceID;
     var requestID =requestID;
     var transactionType =transactionType;
     var dataArray = dataArray;
+    var rowNum = rowNum;
+    var pasabuyTransactionID = pasabuyTransactionID;
 
     var controlsTd= document.getElementsByClassName('ActionsTd');
 
 
     
 
-        var query = "reporterID="+myID+"&reportedID="+reportedID+"&serviceID="+serviceID+"&requestID="+requestID+"&transactionType="+transactionType;
+        var query = "reporterID="+myID+"&reportedID="+reportedID+"&serviceID="+serviceID+"&requestID="+requestID+"&transactionType="+transactionType+"&pasabuyTransactionID=" + pasabuyTransactionID;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open("POST", "Backend/CheckReport.php");
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded",true);
@@ -924,7 +935,7 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
                     button1.innerText = "Reported";
                     button1.disabled = true;
                     button1.style.backgroundColor = "gray";
-                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["serviceID"]+",'service','responder')");
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["serviceID"]+",'service','responder','Pasabuy',"+ pasabuyTransactionID +")");
                     controlsTd[rowNum].appendChild(button1);
                     
         
@@ -933,7 +944,7 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
                     var button1 = document.createElement('button');
                     button1.setAttribute('class','CancelButton');
                     button1.innerText = "Report";
-                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["serviceID"]+",'service','responder')");
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["serviceID"]+",'service','responder','Pasabuy',"+ pasabuyTransactionID +")");
                     controlsTd[rowNum].appendChild(button1);
                    
                 }
@@ -959,7 +970,7 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
 
 
 
-function generateFeedbackButton(transactionID,number,responderID,serviceID){
+function generatePasabuyFeedbackButton(transactionID,number,responderID,serviceID){
     var transactionID = transactionID;
     var number = number;
     var query = "transactionID=" + transactionID;
@@ -967,7 +978,7 @@ function generateFeedbackButton(transactionID,number,responderID,serviceID){
 
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/CheckFeedBackExists.php", true);
+    xmlhttp.open("POST", "Backend/CheckPasabuyFeedBackExists.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
@@ -986,7 +997,7 @@ function generateFeedbackButton(transactionID,number,responderID,serviceID){
                 button1.innerText = "Feedback Given";
                 button1.disabled = true;
                 button1.style.backgroundColor = "gray";
-                button1.setAttribute('onclick',"setFeedbackForm(" + transactionID +","+responderID+","+serviceID+")" );
+                button1.setAttribute('onclick',"setPasabuyFeedbackForm(" + transactionID +","+responderID+","+serviceID+")" );
                 controlsTd[number].appendChild(button1);
  
             }else{
@@ -994,7 +1005,7 @@ function generateFeedbackButton(transactionID,number,responderID,serviceID){
                 var button1 = document.createElement('button');
                 button1.setAttribute('class','AcceptButton');
                 button1.innerText = "Give Feedback";
-                button1.setAttribute('onclick',"setFeedbackForm(" + transactionID +","+responderID+","+serviceID+")" );
+                button1.setAttribute('onclick',"setPasabuyFeedbackForm(" + transactionID +","+responderID+","+serviceID+")" );
                 controlsTd[number].appendChild(button1);
 
             }
@@ -1047,3 +1058,55 @@ function cancelPasabuyTransaction(transactionID){
 }// end of function
 
 
+//-----------------------------------set forms--------------------------------------------------------
+function setPasabuyPaymentForm(transactionID){
+    transactionID = transactionID;
+    document.getElementById("pasabuyTransactionIDInput").value = transactionID;
+    document.getElementById("pasabuyPaymentPopUpBack").style.display = "grid";
+    document.getElementById("paymentPopUpBack").style.display = "none";
+
+
+}
+
+function showPasabuyPaymentProofFile(event){
+    var imageContainer = document.getElementById("pasabuyPaymentFileOutput");
+    imageContainer.src =  URL.createObjectURL(event.target.files[0]);
+
+}
+
+
+function closePasabuyPaymentForm(){
+
+    document.getElementById("pasabuyPaymentPopUpBack").style.display = "none";
+
+}
+
+
+function setPasabuyFeedbackForm(transactionID,responderID,serviceID){
+    var transactionID1 = transactionID;
+    var serviceRevieweeID1 = responderID;
+    var serviceID1 = serviceID;
+ 
+ 
+
+
+    document.getElementById("pasabuyGiveFeedBackPopUpBack").style.display = "grid";
+    document.getElementById("pasabuyGiveFeedBackPopUp").style.display = "grid";
+ 
+     
+    document.getElementById("pasabuyTransactionFeedbackID").value = transactionID1 
+    document.getElementById("pasabuyServiceRevieweeFeedbackID").value = serviceRevieweeID1
+    document.getElementById("pasabuyServiceFeedbackID").value = serviceID1
+ 
+  
+ 
+ 
+ }
+
+ function closePasabuyFeedbackForm(){
+
+    document.getElementById("pasabuyGiveFeedBackPopUpBack").style.display = "none";
+    document.getElementById("pasabuyGiveFeedBackPopUp").style.display = "none";
+
+
+}

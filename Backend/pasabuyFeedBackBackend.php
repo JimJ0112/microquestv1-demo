@@ -10,13 +10,13 @@ $today = date("Y-m-d");
 $myID=$_POST["myID"];
 $revieweeID=$_POST["serviceRevieweeID"]; 
 $serviceID=$_POST["serviceID"];
-$transactionID=$_POST["serviceTransactionID"];
+$pasabuyTransactionID=$_POST["serviceTransactionID"];
 $feedback = $_POST["feedback"];
 
 
 
  //registerServiceFeedback($myID,$revieweeID,$serviceID,$transactionID,$feedback,$today)
- echo $insertFeedback =  $DBHandler-> registerServiceFeedback($myID,$revieweeID,$serviceID,$transactionID,$feedback,$today);
+ echo $insertFeedback =  $DBHandler-> registerPasabuyFeedback($myID,$revieweeID,$serviceID,$pasabuyTransactionID,$feedback,$today);
    // $insertFeedback = 1;
 
 // update transaction status 
@@ -40,7 +40,7 @@ $feedback = $_POST["feedback"];
 if($insertFeedback){
 
 
-    $feedbackID = $DBHandler->getData("feedbacks","transactionID",$transactionID,"feedbackID");
+    $feedbackID = $DBHandler->getData("feedbacks","pasabuyTransactionID",$pasabuyTransactionID,"feedbackID");
     echo $feedbackID;
 
 
@@ -49,14 +49,14 @@ if($insertFeedback){
     $revieweeID=$_POST["serviceRevieweeID"]; 
     $serviceID=$_POST["serviceID"];
 
-    echo $result = $DBHandler->registerServiceRatings($myID,$revieweeID,$transactionID,$ratingValue,$feedbackID,$serviceID);
+    echo $result = $DBHandler->registerPasabuyRatings($myID,$revieweeID,$pasabuyTransactionID,$ratingValue,$feedbackID,$serviceID);
 
 } else{
     echo "error";
 } 
 
 
-header("location: ../Requestor_Transactions.php?q=1");
+//header("location: ../Requestor_Transactions.php?q=1");
 
 
 
