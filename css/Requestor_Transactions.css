@@ -761,5 +761,14 @@ background-color: white;
 	cursor: pointer;
 }
 
+.responderProfileTransaction{
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 100%;
+}
 
+.transactionInfo{
+	text-align: left;
+}
 
