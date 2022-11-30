@@ -30,6 +30,10 @@ function setTransactionType(){
 
 
     if(TransactionTypeDropDown.value === "Requests"){
+
+        TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
+
+        requestClickedItem(1,userID);
          TransactionsNavItem1.setAttribute("onclick","requestClickedItem(0," +userID +")" );
          TransactionsNavItem2.setAttribute("onclick","requestClickedItem(1," +userID +")" );
          TransactionsNavItem3.setAttribute("onclick","requestClickedItem(2," +userID +")" );
@@ -47,6 +51,11 @@ function setTransactionType(){
          ServiceIDHeader.innerText = "Request ID";
          ServicePositionHeader.innerText = "Request Title";
          ServiceTimeSlotHeader.style.display = "none";
+
+         requestClickedItem(1,userID);
+
+
+
 
 
     } else if(TransactionTypeDropDown.value === "Services"){

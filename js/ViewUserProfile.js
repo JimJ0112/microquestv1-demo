@@ -472,7 +472,7 @@ function getAvailableResponderRatings(serviceID,number){
               dataArray = JSON.parse(dataArray);
               console.log(dataArray);
 
-              ratings[number].innerText = "Ratings: " + dataArray[0]['total ratings'] + "⭐";
+              ratings[number].innerText = "Ratings: " + dataArray[0]['total ratings'].toFixed(2) + "⭐";
 
           }
 

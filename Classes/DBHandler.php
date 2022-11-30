@@ -80,6 +80,18 @@ public function runGET($query){
 
 }
 
+public function runGETAll($query){
+
+    $query = $query;
+
+	
+    $result = mysqli_query($this->dbconnection, $query);
+    
+   
+    return $result;
+
+}
+
 
 public function runInsert($query){
 
@@ -2690,7 +2702,7 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
 
     if($transactionType === "Request"){
         // added AND transactionStatus = 'pending'
-        $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'accepted';";
+        $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'accepted';";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
@@ -2702,6 +2714,11 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
     
                 while($row = mysqli_fetch_assoc($result)){
                     
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                    $row['RequestorPhoto'] = $file;
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                    $row['ResponderPhoto'] = $file;
     
                     $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
                     $row['paymentFile'] = $file;
@@ -2721,7 +2738,7 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
     } else if($transactionType === "Service"){
        // $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM transactions INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.responderID = 11;";
        // added AND transactionStatus = 'pending'
-       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'accepted';";
+       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'accepted';";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
@@ -2745,6 +2762,12 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
                     $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
                     $row['paymentFile'] = $file;
 
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                    $row['RequestorPhoto'] = $file;
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                    $row['ResponderPhoto'] = $file;
+                    
                     $data[] = $row;
                     
                  

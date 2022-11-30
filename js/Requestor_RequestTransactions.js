@@ -33,6 +33,11 @@ function setTransactionType(){
     TransactionsNavItem6.style.border = "none";
 
     if(TransactionTypeDropDown.value === "Requests"){
+
+        TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
+
+        requestClickedItem(1,userID);
+
          TransactionsNavItem1.setAttribute("onclick","requestClickedItem(0," +userID +")" );
          TransactionsNavItem2.setAttribute("onclick","requestClickedItem(1," +userID +")" );
          TransactionsNavItem3.setAttribute("onclick","requestClickedItem(2," +userID +")" );
@@ -51,8 +56,8 @@ function setTransactionType(){
          ServicePositionHeader.innerText = "Request Title";
          ServiceTimeSlotHeader.style.display = "none";
 
-        TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
-        getRequestApplications(userID);
+         requestClickedItem(1,userID);
+        
 
 
     } else if(TransactionTypeDropDown.value === "Services"){
@@ -200,77 +205,102 @@ function createRequestElements(number){
     var table = document.getElementById("TransactionsContainerBody");
     var DataNumber = number;
 
+    var TransactionsContainerThead = document.getElementById('TransactionsContainerThead');
+    TransactionsContainerThead.innerHTML = "";
+
+    var thead = document.createElement('tr');
+    var TransactionID  = document.createElement('td')
+   
+    var ServiceInfo  = document.createElement('td')
+    var AdditionalNotesInfo  = document.createElement('td')
+
+    var Contract  = document.createElement('td')
+    var Responder = document.createElement('td')
+    var TotalPrice = document.createElement('td')
+    var Status = document.createElement('td')
+    var Action = document.createElement('td')
+
+
+
+     TransactionID.innerText = "Transaction ID ";
+
+     ServiceInfo.innerText = "Request";
+     AdditionalNotesInfo.innerText = "Description";
+     Contract.innerText = "Contract";
+     Responder.innerText = "Responder";
+     TotalPrice.innerText = "Total Price";
+     Status.innerText = "Status";
+     Action.innerText = "Actions";
+
+    thead.appendChild(TransactionID)
+
+    thead.appendChild(ServiceInfo)
+    thead.appendChild(AdditionalNotesInfo);
+
+    thead.appendChild(Contract);
+
+    thead.appendChild(Responder)
+
+    thead.appendChild(TotalPrice)
+
+    thead.appendChild(Status)
+    thead.appendChild(Action);
+
+    TransactionsContainerThead.appendChild(thead);
+
+
+
+
+
+
+
     for(var i = 0;i<DataNumber;i++){
 
+  
+
+
         tr = document.createElement('tr');
-        controlsTd = document.createElement('td');
-        RequestorName = document.createElement('td');
-        additionalNotes = document.createElement('td');
-        contractAgreement = document.createElement('td');
-        dueDate = document.createElement('td');
-        price = document.createElement('td');
-      //  rate = document.createElement('td');
-        requestorID = document.createElement('td');
-        serviceCategory = document.createElement('td');
-        serviceID = document.createElement('td');
-        servicePosition = document.createElement('td');
+        
        
         transactionID = document.createElement('td');
-        transactionStartDate = document.createElement('td');
+        requestInfo = document.createElement('td');
+        contractAgreement = document.createElement('td');
+        additionalNotes = document.createElement('td');
+        requestorInfo = document.createElement('td');
+        transactionInfo = document.createElement('td');
         transactionStatus = document.createElement('td');
-       // userID = document.createElement('td');
-        //isReported = document.createElement('input');
-        isReported = document.createElement('span');
-
-
-        // set element attributes
-        RequestorName.setAttribute('class','RequestorName');
-        additionalNotes.setAttribute('class','additionalNotes');
-        contractAgreement.setAttribute('class','contractAgreement');
-        dueDate.setAttribute('class','dueDate');
-        price.setAttribute('class','price');
-       // rate.setAttribute('class','rate');
-        requestorID.setAttribute('class','requestorID');
-        serviceCategory.setAttribute('class','serviceCategory');
-        serviceID.setAttribute('class','serviceID');
-        servicePosition.setAttribute('class','servicePosition');
-       
+        controlsTd = document.createElement('td');
+      
+   
         transactionID.setAttribute('class','transactionID');
-        transactionStartDate.setAttribute('class','transactionStartDate');
+        requestInfo.setAttribute('class','requestInfo');
+        contractAgreement.setAttribute('class','contractAgreement');
+        additionalNotes.setAttribute('class','additionalNotes');
+        requestorInfo.setAttribute('class','requestorInfo');
+        transactionInfo.setAttribute('class','transactionInfo');
         transactionStatus.setAttribute('class','transactionStatus');
-        //userID.setAttribute('class','userID');
         controlsTd.setAttribute('class','controlsTd');
-        isReported.setAttribute('type','hidden');
-        isReported.setAttribute('class','isReported');
-        additionalNotes.width = "200";
+        
 
+        tr.appendChild(transactionID);
+        tr.appendChild(requestInfo);
+        tr.appendChild(additionalNotes);
+        tr.appendChild(contractAgreement);
+        tr.appendChild(requestorInfo);
+        tr.appendChild(transactionInfo);
+        tr.appendChild(transactionStatus);
+        tr.appendChild(controlsTd);
 
-        tr.appendChild(controlsTd)
-        tr.appendChild(transactionID)
-        tr.appendChild(transactionStartDate)
-        tr.appendChild(requestorID)
-        tr.appendChild(RequestorName)
-        tr.appendChild(serviceID)
-        tr.appendChild(serviceCategory)
-        tr.appendChild(servicePosition)
-        tr.appendChild(price)
-       // tr.appendChild(rate)
-    
-        tr.appendChild(dueDate)
-        tr.appendChild(additionalNotes)
-        tr.appendChild(contractAgreement)
-        tr.appendChild(transactionStatus)
        
-
         table.appendChild(tr);
-        table.appendChild(isReported);
-
-
+    
+    
 
     }
 
 
 }
+
 
 
 /*Set Data */
@@ -281,38 +311,33 @@ function SetRequestsData(dataArray){
 
 
 
-    RequestorName= document.getElementsByClassName('RequestorName');
-    additionalNotes= document.getElementsByClassName('additionalNotes');
-    contractAgreement= document.getElementsByClassName('contractAgreement');
-    dueDate= document.getElementsByClassName('dueDate');
-    price= document.getElementsByClassName('price');
-   // rate= document.getElementsByClassName('rate');
-    requestorID= document.getElementsByClassName('requestorID');
-    serviceCategory= document.getElementsByClassName('serviceCategory');
-    serviceID= document.getElementsByClassName('serviceID');
-    servicePosition= document.getElementsByClassName('servicePosition');
-    
-    transactionID= document.getElementsByClassName('transactionID');
-    transactionStartDate= document.getElementsByClassName('transactionStartDate');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    controlsTd= document.getElementsByClassName('controlsTd');
+    transactionID=document.getElementsByClassName('transactionID');
+    requestInfo=document.getElementsByClassName('requestInfo');
+    contractAgreement=document.getElementsByClassName('contractAgreement');
+    additionalNotes=document.getElementsByClassName('additionalNotes');
+    requestorInfo=document.getElementsByClassName('requestorInfo');
+    transactionInfo=document.getElementsByClassName('transactionInfo');
+    transactionStatus=document.getElementsByClassName('transactionStatus');
+    controlsTd=document.getElementsByClassName('controlsTd');
+
     for(var i = 0;i<number;i++){
 
-        RequestorName[i].innerText = dataArray[i]['ResponderName'];
-        additionalNotes[i].innerText = dataArray[i]['requestDescription'];
-        //contractAgreement[i].innerText = dataArray[i]['contractAgreement'];
-        contractAgreement[i].innerText = "See more..";
-        dueDate[i].innerText = dataArray[i]['dueDate'];
-        price[i].innerText = dataArray[i]['price'];
-       // rate[i].innerText = dataArray[i][' rate'];
-        requestorID[i].innerText = dataArray[i]['responderID'];
-        serviceCategory[i].innerText = dataArray[i]['serviceCategory'];
-        serviceID[i].innerText = dataArray[i]['serviceID'];
-        servicePosition[i].innerText = dataArray[i]['servicePosition'];
-       
-        transactionID[i].innerText = dataArray[i]['transactionID'];
-        transactionStartDate[i].innerText = dataArray[i]['transactionStartDate'];
-        transactionStatus[i].innerText = dataArray[i]['transactionStatus'];
+        var image = new Image();
+        image.src = dataArray[i]['ResponderPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        transactionID[i].innerHTML = dataArray[i]['transactionID'];
+        requestInfo[i].innerHTML = "<b>" + dataArray[i]['requestCategory'] + "</b> :" + dataArray[i]['requestTitle'] +"<br/> Price: Php "+ dataArray[i]['price'] +"<br/>" + dataArray[i]['isNegotiable'];
+        contractAgreement[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        additionalNotes[i].innerHTML = dataArray[i]['requestDescription'];
+        
+        requestorInfo[i].appendChild(image);
+      
+        requestorInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" +requestorInfo[i].innerHTML + "<br/><br/> " + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
+        
+        transactionInfo[i].innerHTML = "Price: Php "+ dataArray[i]['price'] + "<br/> Date Availed: " + dataArray[i]['transactionStartDate'] + "<br/> Due Date: " + dataArray[i]['dueDate'] + "<br/> Time Slot: " + dataArray[i]['timeSlot'];
+        transactionStatus[i].innerHTML = dataArray[i]['transactionStatus'];
+        
 
         if(dataArray[i]['transactionStatus'] === "cancelled"){
             transactionStatus[i].style.color = "red";
@@ -615,39 +640,32 @@ function SetAppliedRequestsData(dataArray){
 
 
 
-    RequestorName= document.getElementsByClassName('RequestorName');
-    additionalNotes= document.getElementsByClassName('additionalNotes');
-    contractAgreement= document.getElementsByClassName('contractAgreement');
-    dueDate= document.getElementsByClassName('dueDate');
-    price= document.getElementsByClassName('price');
-  
-    requestorID= document.getElementsByClassName('requestorID');
-    serviceCategory= document.getElementsByClassName('serviceCategory');
-    serviceID= document.getElementsByClassName('serviceID');
-    servicePosition= document.getElementsByClassName('servicePosition');
-   
-    transactionID= document.getElementsByClassName('transactionID');
-    transactionStartDate= document.getElementsByClassName('transactionStartDate');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    controlsTd= document.getElementsByClassName('controlsTd');
+    transactionID=document.getElementsByClassName('transactionID');
+    requestInfo=document.getElementsByClassName('requestInfo');
+    contractAgreement=document.getElementsByClassName('contractAgreement');
+    additionalNotes=document.getElementsByClassName('additionalNotes');
+    requestorInfo=document.getElementsByClassName('requestorInfo');
+    transactionInfo=document.getElementsByClassName('transactionInfo');
+    transactionStatus=document.getElementsByClassName('transactionStatus');
+    controlsTd=document.getElementsByClassName('controlsTd');
+
     for(var i = 0;i<number;i++){
 
-        RequestorName[i].innerText = dataArray[i]['ResponderName'];
-        additionalNotes[i].innerText = dataArray[i]['requestDescription'];
-        //contractAgreement[i].innerText = dataArray[i]['contractAgreement'];
-        contractAgreement[i].innerText = "See more..";
-        dueDate[i].innerText = dataArray[i]['dueDate'];
-        price[i].innerText = dataArray[i]['price'];
-       // rate[i].innerText = dataArray[i][' rate'];
-        requestorID[i].innerText = dataArray[i]['responderID'];
-        serviceCategory[i].innerText = dataArray[i]['requestCategory'];
-        serviceID[i].innerText = dataArray[i]['requestID'];
-        servicePosition[i].innerText = dataArray[i]['requestTitle'];
-       
-        transactionID[i].innerText = dataArray[i]['transactionID'];
-        transactionStartDate[i].innerText = dataArray[i]['transactionStartDate'];
-        transactionStatus[i].innerText = dataArray[i]['transactionStatus'];
-        //controlsTd[i].innerText = dataArray[i]['dueDate'];
+        var image = new Image();
+        image.src = dataArray[i]['ResponderPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        transactionID[i].innerHTML = dataArray[i]['transactionID'];
+        requestInfo[i].innerHTML = "<b>" + dataArray[i]['requestCategory'] + "</b> :" + dataArray[i]['requestTitle'] +"<br/> Price: Php "+ dataArray[i]['price'] +"<br/>" + dataArray[i]['isNegotiable'];
+        contractAgreement[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        additionalNotes[i].innerHTML = dataArray[i]['requestDescription'];
+        
+        requestorInfo[i].appendChild(image);
+      
+        requestorInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" +requestorInfo[i].innerHTML + "<br/><br/> " + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
+        
+        transactionInfo[i].innerHTML = "Price: Php "+ dataArray[i]['price'] + "<br/> Date Availed: " + dataArray[i]['transactionStartDate'] + "<br/> Due Date: " + dataArray[i]['dueDate'] + "<br/> Time Slot: " + dataArray[i]['timeSlot'];
+        transactionStatus[i].innerHTML = dataArray[i]['transactionStatus'];
 
         
         transactionStatus[i].style.color = "blue";
@@ -680,39 +698,32 @@ function SetFinishedRequestsData(dataArray){
 
 
 
-    RequestorName= document.getElementsByClassName('RequestorName');
-    additionalNotes= document.getElementsByClassName('additionalNotes');
-    contractAgreement= document.getElementsByClassName('contractAgreement');
-    dueDate= document.getElementsByClassName('dueDate');
-    price= document.getElementsByClassName('price');
-  
-    requestorID= document.getElementsByClassName('requestorID');
-    serviceCategory= document.getElementsByClassName('serviceCategory');
-    serviceID= document.getElementsByClassName('serviceID');
-    servicePosition= document.getElementsByClassName('servicePosition');
-    
-    transactionID= document.getElementsByClassName('transactionID');
-    transactionStartDate= document.getElementsByClassName('transactionStartDate');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    controlsTd= document.getElementsByClassName('controlsTd');
+    transactionID=document.getElementsByClassName('transactionID');
+    requestInfo=document.getElementsByClassName('requestInfo');
+    contractAgreement=document.getElementsByClassName('contractAgreement');
+    additionalNotes=document.getElementsByClassName('additionalNotes');
+    requestorInfo=document.getElementsByClassName('requestorInfo');
+    transactionInfo=document.getElementsByClassName('transactionInfo');
+    transactionStatus=document.getElementsByClassName('transactionStatus');
+    controlsTd=document.getElementsByClassName('controlsTd');
+
     for(var i = 0;i<number;i++){
 
-        RequestorName[i].innerText = dataArray[i]['ResponderName'];
-        additionalNotes[i].innerText = dataArray[i]['requestDescription'];
-        //contractAgreement[i].innerText = dataArray[i]['contractAgreement'];
-        contractAgreement[i].innerText = "See more..";
-        dueDate[i].innerText = dataArray[i]['dueDate'];
-        price[i].innerText = dataArray[i]['price'];
-       // rate[i].innerText = dataArray[i][' rate'];
-        requestorID[i].innerText = dataArray[i]['responderID'];
-        serviceCategory[i].innerText = dataArray[i]['requestCategory'];
-        serviceID[i].innerText = dataArray[i]['requestID'];
-        servicePosition[i].innerText = dataArray[i]['requestTitle'];
-       
-        transactionID[i].innerText = dataArray[i]['transactionID'];
-        transactionStartDate[i].innerText = dataArray[i]['transactionStartDate'];
-        transactionStatus[i].innerText = dataArray[i]['transactionStatus'];
-        //controlsTd[i].innerText = dataArray[i]['dueDate'];
+       var image = new Image();
+        image.src = dataArray[i]['ResponderPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        transactionID[i].innerHTML = dataArray[i]['transactionID'];
+        requestInfo[i].innerHTML = "<b>" + dataArray[i]['requestCategory'] + "</b> :" + dataArray[i]['requestTitle'] +"<br/> Price: Php "+ dataArray[i]['price'] +"<br/>" + dataArray[i]['isNegotiable'];
+        contractAgreement[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        additionalNotes[i].innerHTML = dataArray[i]['requestDescription'];
+        
+        requestorInfo[i].appendChild(image);
+      
+        requestorInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" +requestorInfo[i].innerHTML + "<br/><br/> " + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
+        
+        transactionInfo[i].innerHTML = "Price: Php "+ dataArray[i]['price'] + "<br/> Date Availed: " + dataArray[i]['transactionStartDate'] + "<br/> Due Date: " + dataArray[i]['dueDate'] + "<br/> Time Slot: " + dataArray[i]['timeSlot'];
+        transactionStatus[i].innerHTML = dataArray[i]['transactionStatus'];
 
 
         
@@ -749,39 +760,34 @@ function SetAcceptedRequestsData(dataArray){
 
 
 
-    RequestorName= document.getElementsByClassName('RequestorName');
-    additionalNotes= document.getElementsByClassName('additionalNotes');
-    contractAgreement= document.getElementsByClassName('contractAgreement');
-    dueDate= document.getElementsByClassName('dueDate');
-    price= document.getElementsByClassName('price');
-  
-    requestorID= document.getElementsByClassName('requestorID');
-    serviceCategory= document.getElementsByClassName('serviceCategory');
-    serviceID= document.getElementsByClassName('serviceID');
-    servicePosition= document.getElementsByClassName('servicePosition');
-  
-    transactionID= document.getElementsByClassName('transactionID');
-    transactionStartDate= document.getElementsByClassName('transactionStartDate');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    controlsTd= document.getElementsByClassName('controlsTd');
+
+    transactionID=document.getElementsByClassName('transactionID');
+    requestInfo=document.getElementsByClassName('requestInfo');
+    contractAgreement=document.getElementsByClassName('contractAgreement');
+    additionalNotes=document.getElementsByClassName('additionalNotes');
+    requestorInfo=document.getElementsByClassName('requestorInfo');
+    transactionInfo=document.getElementsByClassName('transactionInfo');
+    transactionStatus=document.getElementsByClassName('transactionStatus');
+    controlsTd=document.getElementsByClassName('controlsTd');
+
+
     for(var i = 0;i<number;i++){
 
-        RequestorName[i].innerText = dataArray[i]['ResponderName'];
-        additionalNotes[i].innerText = dataArray[i]['requestDescription'];
-        //contractAgreement[i].innerText = dataArray[i]['contractAgreement'];
-        contractAgreement[i].innerText = "See more..";
-        dueDate[i].innerText = dataArray[i]['dueDate'];
-        price[i].innerText = dataArray[i]['price'];
-       // rate[i].innerText = dataArray[i][' rate'];
-        requestorID[i].innerText = dataArray[i]['responderID'];
-        serviceCategory[i].innerText = dataArray[i]['requestCategory'];
-        serviceID[i].innerText = dataArray[i]['requestID'];
-        servicePosition[i].innerText = dataArray[i]['requestTitle'];
-       
-        transactionID[i].innerText = dataArray[i]['transactionID'];
-        transactionStartDate[i].innerText = dataArray[i]['transactionStartDate'];
-        transactionStatus[i].innerText = dataArray[i]['transactionStatus'];
-        //controlsTd[i].innerText = dataArray[i]['dueDate'];
+        var image = new Image();
+        image.src = dataArray[i]['ResponderPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        transactionID[i].innerHTML = dataArray[i]['transactionID'];
+        requestInfo[i].innerHTML = "<b>" + dataArray[i]['requestCategory'] + "</b> :" + dataArray[i]['requestTitle'] +"<br/> Price: Php "+ dataArray[i]['price'] +"<br/>" + dataArray[i]['isNegotiable'];
+        contractAgreement[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        additionalNotes[i].innerHTML = dataArray[i]['requestDescription'];
+        
+        requestorInfo[i].appendChild(image);
+      
+        requestorInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" +requestorInfo[i].innerHTML + "<br/><br/> " + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
+        
+        transactionInfo[i].innerHTML = "Price: Php "+ dataArray[i]['price'] + "<br/> Date Availed: " + dataArray[i]['transactionStartDate'] + "<br/> Due Date: " + dataArray[i]['dueDate'] + "<br/> Time Slot: " + dataArray[i]['timeSlot'];
+        transactionStatus[i].innerHTML = dataArray[i]['transactionStatus'];
 
 
         
@@ -817,39 +823,33 @@ function SetDeliveredRequestsData(dataArray){
 
 
 
-    RequestorName= document.getElementsByClassName('RequestorName');
-    additionalNotes= document.getElementsByClassName('additionalNotes');
-    contractAgreement= document.getElementsByClassName('contractAgreement');
-    dueDate= document.getElementsByClassName('dueDate');
-    price= document.getElementsByClassName('price');
-  
-    requestorID= document.getElementsByClassName('requestorID');
-    serviceCategory= document.getElementsByClassName('serviceCategory');
-    serviceID= document.getElementsByClassName('serviceID');
-    servicePosition= document.getElementsByClassName('servicePosition');
-   
-    transactionID= document.getElementsByClassName('transactionID');
-    transactionStartDate= document.getElementsByClassName('transactionStartDate');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    controlsTd= document.getElementsByClassName('controlsTd');
+    transactionID=document.getElementsByClassName('transactionID');
+    requestInfo=document.getElementsByClassName('requestInfo');
+    contractAgreement=document.getElementsByClassName('contractAgreement');
+    additionalNotes=document.getElementsByClassName('additionalNotes');
+    requestorInfo=document.getElementsByClassName('requestorInfo');
+    transactionInfo=document.getElementsByClassName('transactionInfo');
+    transactionStatus=document.getElementsByClassName('transactionStatus');
+    controlsTd=document.getElementsByClassName('controlsTd');
+
+
     for(var i = 0;i<number;i++){
 
-        RequestorName[i].innerText = dataArray[i]['ResponderName'];
-        additionalNotes[i].innerText = dataArray[i]['requestDescription'];
-        //contractAgreement[i].innerText = dataArray[i]['contractAgreement'];
-        contractAgreement[i].innerText = "See more..";
-        dueDate[i].innerText = dataArray[i]['dueDate'];
-        price[i].innerText = dataArray[i]['price'];
-       // rate[i].innerText = dataArray[i][' rate'];
-        requestorID[i].innerText = dataArray[i]['responderID'];
-        serviceCategory[i].innerText = dataArray[i]['requestCategory'];
-        serviceID[i].innerText = dataArray[i]['requestID'];
-        servicePosition[i].innerText = dataArray[i]['requestTitle'];
-       
-        transactionID[i].innerText = dataArray[i]['transactionID'];
-        transactionStartDate[i].innerText = dataArray[i]['transactionStartDate'];
-        transactionStatus[i].innerText = dataArray[i]['transactionStatus'];
-        //controlsTd[i].innerText = dataArray[i]['dueDate'];
+       var image = new Image();
+        image.src = dataArray[i]['ResponderPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        transactionID[i].innerHTML = dataArray[i]['transactionID'];
+        requestInfo[i].innerHTML = "<b>" + dataArray[i]['requestCategory'] + "</b> :" + dataArray[i]['requestTitle'] +"<br/> Price: Php "+ dataArray[i]['price'] +"<br/>" + dataArray[i]['isNegotiable'];
+        contractAgreement[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        additionalNotes[i].innerHTML = dataArray[i]['requestDescription'];
+        
+        requestorInfo[i].appendChild(image);
+      
+        requestorInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" +requestorInfo[i].innerHTML + "<br/><br/> " + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
+        
+        transactionInfo[i].innerHTML = "Price: Php "+ dataArray[i]['price'] + "<br/> Date Availed: " + dataArray[i]['transactionStartDate'] + "<br/> Due Date: " + dataArray[i]['dueDate'] + "<br/> Time Slot: " + dataArray[i]['timeSlot'];
+        transactionStatus[i].innerHTML = dataArray[i]['transactionStatus'];
         
         transactionStatus[i].style.color = "blue";
         var button = document.createElement('button');
@@ -885,39 +885,34 @@ function SetRequestsData(dataArray){
 
 
 
-    RequestorName= document.getElementsByClassName('RequestorName');
-    additionalNotes= document.getElementsByClassName('additionalNotes');
-    contractAgreement= document.getElementsByClassName('contractAgreement');
-    dueDate= document.getElementsByClassName('dueDate');
-    price= document.getElementsByClassName('price');
-  
-    requestorID= document.getElementsByClassName('requestorID');
-    serviceCategory= document.getElementsByClassName('serviceCategory');
-    serviceID= document.getElementsByClassName('serviceID');
-    servicePosition= document.getElementsByClassName('servicePosition');
-   
-    transactionID= document.getElementsByClassName('transactionID');
-    transactionStartDate= document.getElementsByClassName('transactionStartDate');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    controlsTd= document.getElementsByClassName('controlsTd');
+ 
+    transactionID=document.getElementsByClassName('transactionID');
+    requestInfo=document.getElementsByClassName('requestInfo');
+    contractAgreement=document.getElementsByClassName('contractAgreement');
+    additionalNotes=document.getElementsByClassName('additionalNotes');
+    requestorInfo=document.getElementsByClassName('requestorInfo');
+    transactionInfo=document.getElementsByClassName('transactionInfo');
+    transactionStatus=document.getElementsByClassName('transactionStatus');
+    controlsTd=document.getElementsByClassName('controlsTd');
+
+
     for(var i = 0;i<number;i++){
 
-        RequestorName[i].innerText = dataArray[i]['ResponderName'];
-        additionalNotes[i].innerText = dataArray[i]['requestDescription'];
-        //contractAgreement[i].innerText = dataArray[i]['contractAgreement'];
-        contractAgreement[i].innerText = "See more..";
-        dueDate[i].innerText = dataArray[i]['dueDate'];
-        price[i].innerText = dataArray[i]['price'];
-       // rate[i].innerText = dataArray[i][' rate'];
-        requestorID[i].innerText = dataArray[i]['responderID'];
-        serviceCategory[i].innerText = dataArray[i]['requestCategory'];
-        serviceID[i].innerText = dataArray[i]['requestID'];
-        servicePosition[i].innerText = dataArray[i]['requestTitle'];
-       
-        transactionID[i].innerText = dataArray[i]['transactionID'];
-        transactionStartDate[i].innerText = dataArray[i]['transactionStartDate'];
-        transactionStatus[i].innerText = dataArray[i]['transactionStatus'];
-        //controlsTd[i].innerText = dataArray[i]['dueDate'];
+        var image = new Image();
+        image.src = dataArray[i]['ResponderPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        transactionID[i].innerHTML = dataArray[i]['transactionID'];
+        requestInfo[i].innerHTML = "<b>" + dataArray[i]['requestCategory'] + "</b> :" + dataArray[i]['requestTitle'] +"<br/> Price: Php "+ dataArray[i]['price'] +"<br/>" + dataArray[i]['isNegotiable'];
+        contractAgreement[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        additionalNotes[i].innerHTML = dataArray[i]['requestDescription'];
+        
+        requestorInfo[i].appendChild(image);
+      
+        requestorInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" +requestorInfo[i].innerHTML + "<br/><br/> " + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
+        
+        transactionInfo[i].innerHTML = "Price: Php "+ dataArray[i]['price'] + "<br/> Date Availed: " + dataArray[i]['transactionStartDate'] + "<br/> Due Date: " + dataArray[i]['dueDate'] + "<br/> Time Slot: " + dataArray[i]['timeSlot'];
+        transactionStatus[i].innerHTML = dataArray[i]['transactionStatus'];
 
 
         if(dataArray[i]['transactionStatus'] === "cancelled"){
@@ -954,38 +949,33 @@ function SetPaidRequestsData(dataArray){
 
 
 
-    RequestorName= document.getElementsByClassName('RequestorName');
-    additionalNotes= document.getElementsByClassName('additionalNotes');
-    contractAgreement= document.getElementsByClassName('contractAgreement');
-    dueDate= document.getElementsByClassName('dueDate');
-    price= document.getElementsByClassName('price');
-  
-    requestorID= document.getElementsByClassName('requestorID');
-    serviceCategory= document.getElementsByClassName('serviceCategory');
-    serviceID= document.getElementsByClassName('serviceID');
-    servicePosition= document.getElementsByClassName('servicePosition');
-   
-    transactionID= document.getElementsByClassName('transactionID');
-    transactionStartDate= document.getElementsByClassName('transactionStartDate');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    controlsTd= document.getElementsByClassName('controlsTd');
+ 
+    transactionID=document.getElementsByClassName('transactionID');
+    requestInfo=document.getElementsByClassName('requestInfo');
+    contractAgreement=document.getElementsByClassName('contractAgreement');
+    additionalNotes=document.getElementsByClassName('additionalNotes');
+    requestorInfo=document.getElementsByClassName('requestorInfo');
+    transactionInfo=document.getElementsByClassName('transactionInfo');
+    transactionStatus=document.getElementsByClassName('transactionStatus');
+    controlsTd=document.getElementsByClassName('controlsTd');
+
     for(var i = 0;i<number;i++){
 
-        RequestorName[i].innerText = dataArray[i]['ResponderName'];
-        additionalNotes[i].innerText = dataArray[i]['requestDescription'];
-        //contractAgreement[i].innerText = dataArray[i]['contractAgreement'];
-        contractAgreement[i].innerText = "See more..";
-        dueDate[i].innerText = dataArray[i]['dueDate'];
-        price[i].innerText = dataArray[i]['price'];
-       // rate[i].innerText = dataArray[i][' rate'];
-        requestorID[i].innerText = dataArray[i]['responderID'];
-        serviceCategory[i].innerText = dataArray[i]['requestCategory'];
-        serviceID[i].innerText = dataArray[i]['requestID'];
-        servicePosition[i].innerText = dataArray[i]['requestTitle'];
-       
-        transactionID[i].innerText = dataArray[i]['transactionID'];
-        transactionStartDate[i].innerText = dataArray[i]['transactionStartDate'];
-        transactionStatus[i].innerText = dataArray[i]['transactionStatus'];
+      var image = new Image();
+        image.src = dataArray[i]['ResponderPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        transactionID[i].innerHTML = dataArray[i]['transactionID'];
+        requestInfo[i].innerHTML = "<b>" + dataArray[i]['requestCategory'] + "</b> :" + dataArray[i]['requestTitle'] +"<br/> Price: Php "+ dataArray[i]['price'] +"<br/>" + dataArray[i]['isNegotiable'];
+        contractAgreement[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        additionalNotes[i].innerHTML = dataArray[i]['requestDescription'];
+        
+        requestorInfo[i].appendChild(image);
+      
+        requestorInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" +requestorInfo[i].innerHTML + "<br/><br/> " + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
+        
+        transactionInfo[i].innerHTML = "Price: Php "+ dataArray[i]['price'] + "<br/> Date Availed: " + dataArray[i]['transactionStartDate'] + "<br/> Due Date: " + dataArray[i]['dueDate'] + "<br/> Time Slot: " + dataArray[i]['timeSlot'];
+        transactionStatus[i].innerHTML = dataArray[i]['transactionStatus'];
        
         myID = sessionStorage.getItem("userID");
         reportedID = dataArray[i]["responderID"];

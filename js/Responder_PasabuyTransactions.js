@@ -27,6 +27,11 @@ function setTransactionType(){
 
 
     if(TransactionTypeDropDown.value === "Requests"){
+
+        TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
+
+
+        requestClickedItem(1,userID);
          TransactionsNavItem1.setAttribute("onclick","requestClickedItem(0," +userID +")" );
          TransactionsNavItem2.setAttribute("onclick","requestClickedItem(1," +userID +")" );
          TransactionsNavItem3.setAttribute("onclick","requestClickedItem(2," +userID +")" );
@@ -41,6 +46,9 @@ function setTransactionType(){
          TransactionsNavItem4.innerText = " Paid";
          TransactionsNavItem5.innerText = " Finished";
          TransactionsNavItem6.innerText = " Cancelled";
+
+         requestClickedItem(1,userID);
+
 
 
 

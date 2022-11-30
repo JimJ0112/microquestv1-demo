@@ -76,6 +76,7 @@
 				?>
 			</li> 
 		</a>
+
 		<a href="Requestor_AvailableServices.php"> 
 			<li class="Nav-item" title="Available Services"> 
 				<?php
@@ -84,6 +85,19 @@
 						echo '<u> Services </u>';
 					} else{
 						echo "Services";
+					}
+				?>
+			</li> 
+		</a>
+
+		<a href="LeaderBoard.php"> 
+			<li class="Nav-item" title="Available Services"> 
+				<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+					if($pagename === "LeaderBoard.php"){
+						echo '<u> LeaderBoard </u>';
+					} else{
+						echo "LeaderBoard";
 					}
 				?>
 			</li> 

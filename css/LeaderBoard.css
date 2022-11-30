@@ -1,0 +1,102 @@
+/*Local Font Styles */
+
+
+@font-face {
+	font-family: "OPTICopperplate-Heavy";
+	src: url("../fonts/OPTICopperplate-Heavy.otf");
+
+}
+
+@font-face {
+	font-family: "Retroking";
+	src: url("../fonts/Retroking.ttf");
+
+}
+
+@font-face {
+	font-family: "Palatino Linotype";
+	src: url("../fonts/Palatino Linotype.ttf");
+
+}
+
+
+@font-face {
+	font-family: "brush script mt kursiv";
+	src: url("../fonts/brush script mt kursiv.ttf");
+
+}
+
+
+
+
+
+/*Responder_RequestBoard*/
+body{
+
+	zoom:80%;
+
+
+}
+
+
+
+
+
+/*new*/
+
+
+
+
+
+
+#LeaderBoardContainerBack{
+	width: 70%;
+	margin: auto;
+	margin-top: 200px;
+	height: fit-content;
+	min-height: 900px;
+	display: block;
+	text-align: center;
+	background-color: white;
+}
+
+#LeaderBoardTable{
+	width: 80%;
+	margin: auto;
+	padding: none;
+
+	height: fit-content;
+	min-height: 600px;
+
+	
+	text-align: center;
+	background-color: white;
+	border: 2px solid rgba(128, 128, 128, 0.36);
+	table-layout: fixed;
+	text-align: center;
+}
+
+#LeaderBoardContent{
+	width: 100%;
+	margin: auto;
+
+}
+
+#LeaderBoardHead{
+	margin: 0;
+	border: 1px solid black;
+}
+
+.leaderboardTR{
+	width: 100%;
+	margin: auto;
+	height: 10px;
+}
+
+.leaderBoardUserPhoto{
+	width: 100px;
+	height: 100px;
+	border: 1px solid black;
+	border-radius: 100%;
+	object-fit: contain;
+}

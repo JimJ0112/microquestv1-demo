@@ -62,6 +62,21 @@
 				?>
 			</li> 
 		</a>
+
+		<a href="LeaderBoard.php"> 
+			<li class="Nav-item" title="Available Services"> 
+				<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+					if($pagename === "LeaderBoard.php"){
+						echo '<u> LeaderBoard </u>';
+					} else{
+						echo "LeaderBoard";
+					}
+				?>
+			</li> 
+		</a>
+
+		
 		<a href="Messages.php">
 			<li class="Nav-item" title="My Messages">
 				<?php
