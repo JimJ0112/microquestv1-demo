@@ -29,7 +29,7 @@ function __construct(){
     
     
     $this->dbservername = "localhost";
-    $this->dbusername = "root";
+    $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
     $this->dbname = "u774227372_microquestdbv2";
    
@@ -2271,7 +2271,10 @@ public function getMyTransactions($ID,$column,$transactionType){
 
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
-  
+                      
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
+
     
                     $data[] = $row;
                     
@@ -2314,6 +2317,10 @@ public function getMyTransactions($ID,$column,$transactionType){
 
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
+
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     
@@ -2614,6 +2621,10 @@ public function getCancelledTransactions($ID,$column,$transactionType){
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
     
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
+
                     $data[] = $row;
                     
                  
@@ -2658,6 +2669,10 @@ public function getCancelledTransactions($ID,$column,$transactionType){
 
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
+
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     
@@ -2722,6 +2737,10 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
     
                     $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
                     $row['paymentFile'] = $file;
+
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
     
                     $data[] = $row;
                     
@@ -2767,6 +2786,10 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
 
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
+
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
                     
                     $data[] = $row;
                     
@@ -2830,6 +2853,10 @@ public function getDeliveredTransactions($ID,$column,$transactionType){
 
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
+
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
     
                     $data[] = $row;
                     
@@ -2875,6 +2902,10 @@ public function getDeliveredTransactions($ID,$column,$transactionType){
 
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
+
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     
@@ -2940,6 +2971,10 @@ public function getPaidTransactions($ID,$column,$transactionType){
 
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
+
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
     
                     $data[] = $row;
                     
@@ -2986,6 +3021,10 @@ public function getPaidTransactions($ID,$column,$transactionType){
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
     
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
+
                     $data[] = $row;
                     
                  
@@ -3112,6 +3151,63 @@ public function getCompletedTransactions($ID,$column,$transactionType){
 
 */
 
+public function getContract($ID){
+
+    $ID = mysqli_real_escape_string($this->dbconnection, $ID);
+
+
+    $tablename = "transactions";
+
+
+       $query = "SELECT * FROM $tablename WHERE transactionID = $ID";
+
+        $result = mysqli_query($this->dbconnection, $query);
+        $resultCheck = mysqli_num_rows($result);
+        $data = array();
+        $file;
+        
+    
+        if($resultCheck > 0){
+           
+    
+                while($row = mysqli_fetch_assoc($result)){
+                    
+    
+
+                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    $row['paymentFile'] = $file;
+
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
+
+
+                  // $file = "".base64_decode($row['contractAgreement']);
+                  // $row['contractAgreement'] = $file;
+
+                    $data[] = $row;
+                    
+                 
+                }
+                
+                return $data;
+            
+            
+            
+    
+        } else {return "failed to fetch";}
+
+    
+
+ 
+    
+
+
+
+        
+  
+}// end of function
+
 
 // get completed / finished transactions
 
@@ -3148,6 +3244,10 @@ public function getCompletedTransactions($ID,$column,$transactionType){
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
     
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
+
                     $data[] = $row;
                     
                  
@@ -3192,6 +3292,10 @@ public function getCompletedTransactions($ID,$column,$transactionType){
 
                     $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
                     $row['ResponderPhoto'] = $file;
+
+                                        
+                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     

@@ -110,7 +110,7 @@ function getServices(){
           
             document.getElementById("LeaderBoardCategories").innerHTML = "";
             setOptions(dataArray);
-            getSelectValue();
+            getSelectValue(); 
      
             }
         }else{

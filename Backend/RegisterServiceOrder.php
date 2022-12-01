@@ -27,6 +27,12 @@ $responderTimeSlots = $_POST['responderTimeSlots'];
 
 $contract = $_POST['contract'];
 
+$contract = str_replace(' ','+',$contract);
+
+list(, $contract)= explode(',', $contract);
+
+$contract = base64_decode($contract);
+
 //echo $contract;
 
 $result = $DBHandler->registerServiceTransaction($formServiceID,$responderID,$requestorID,$servicePrice,$dueDate,$responderTimeSlots,$additionalNotes,$transactionStartDate,$contract);

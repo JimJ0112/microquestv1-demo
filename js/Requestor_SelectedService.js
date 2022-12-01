@@ -777,6 +777,7 @@ function showContract(){
     contractBackGround.style.display = "block";
     contractDiv = document.getElementById('contractDiv');
     contractDiv.style.display = "block";
+    h2canvaspdfToInput();
 }
 
 function hideContract(){
@@ -1143,6 +1144,8 @@ function h2canvaspdf(){
     var height = 270;
     var doc = new jsPDF('p', 'in', [5,9]);
     var contractDiv = document.getElementById('contractDiv');
+    var contractInput = document.getElementById('contractInput');
+    contractInput.value = "";
 
 
     html2canvas(contractDiv, {
@@ -1157,7 +1160,44 @@ function h2canvaspdf(){
             doc.output('save', 'ServiceOrder.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
             doc.output('datauristring');        //returns the data uri string
             doc.output('dataurlnewwindow');     //opens the data uri in new window
+            contractInput.value = doc.output('datauri');
+
         }
     });
 
+}
+
+
+function h2canvaspdfToInput(){
+    var width = 200;
+    var height = 270;
+    var doc = new jsPDF('p', 'in', [5,9]);
+    var contractDiv = document.getElementById('contractDiv');
+    var contractInput = document.getElementById('contractInput');
+    contractInput.value = "";
+
+
+    html2canvas(contractDiv, {
+        quality:3,
+        onrendered: function(canvas) {         
+            var imgData = canvas.toDataURL(
+                'image/png');              
+            var doc = new jsPDF('p', 'mm');
+            doc.addImage(imgData, 'PNG',4,4,width,height);
+            //doc.save('sample-file.pdf');
+
+           // doc.output('save', 'ServiceOrder.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
+           // doc.output('datauristring');        //returns the data uri string
+           // doc.output('dataurlnewwindow');     //opens the data uri in new window
+            contractInput.value = doc.output('datauristring');
+            console.log(contractInput.value);
+
+        }
+    });
+
+}
+
+
+function submitform(){
+    document.getElementById('availServiceSubmitForm').submit();
 }

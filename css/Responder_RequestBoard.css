@@ -197,16 +197,27 @@ body{
 
 #RequestsContainer-Content{
 
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;	
-	overflow: hidden;
-	grid-column-gap: 50px;
-	grid-row-gap: 50px;
-	overflow-y: scroll;
-	padding-left: 60px;
-    height: 100%;
-    padding-bottom: 100px;
-	width: 100%;
+display: grid;
+
+grid-template-columns: 1fr 1fr 1fr 1fr;
+
+overflow: hidden;
+
+/* grid-column-gap: 50px; */
+
+grid-row-gap: 50px;
+
+overflow-y: scroll;
+
+padding-left: 50px;
+
+height: 100%;
+
+padding-bottom: 100px;
+
+width: 100%;
+
+margin: auto;
 }
 
 #RequestsContainer-Content::-webkit-scrollbar-thumb{
@@ -574,8 +585,7 @@ body{
 
 .wrapper {
   padding-top: 40px;
-  padding-bottom: 40px;
-  
+  /* padding-bottom: 40px; */
 }
 .wrapper:focus {
     outline: 0;

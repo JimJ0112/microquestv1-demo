@@ -656,11 +656,15 @@ function SetOrdersData(dataArray){
         transactionID[i].innerHTML = dataArray[i]['transactionID'];
         serviceInfo[i].innerHTML = "<b>" + dataArray[i]['serviceCategory'] + "</b> :" + dataArray[i]['servicePosition'] +"<br/> Price: Php "+ dataArray[i]['price'];
         contractAgreement[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+       
+        //contractAgreement[i].innerHTML = "<a href='" +dataArray[i]['contractAgreement'] +"' type='application/pdf'> contract </a>";
+       
+        
         additionalNotes[i].innerHTML = dataArray[i]['additionalNotes'];
         
-        requestorInfo[i].appendChild(image);
-       // requestorInfo[i].innerHTML = requestorInfo[i].innerHTML + "<br/><br/> <a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
-       requestorInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" +requestorInfo[i].innerHTML + "<br/><br/> " + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
+       requestorInfo[i].appendChild(image);
+       requestorInfo[i].innerHTML = requestorInfo[i].innerHTML + "<br/><br/> <a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
+       //requestorInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" +dataArray[i]['responderID']+"&userType=Responder'>" +requestorInfo[i].innerHTML + "<br/><br/> " + dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderUserEmail'] +"</a>";
        
        transactionInfo[i].innerHTML = "Price: Php "+ dataArray[i]['price'] + "<br/> Date Availed: " + dataArray[i]['transactionStartDate'] + "<br/> Due Date: " + dataArray[i]['dueDate'] + "<br/> Time Slot: " + dataArray[i]['timeSlot'];
         transactionStatus[i].innerHTML = dataArray[i]['transactionStatus'];
@@ -684,6 +688,8 @@ function SetOrdersData(dataArray){
         checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
         */
     }
+
+   // document.write(dataArray[number-1]['contractAgreement']);
 
 }
 

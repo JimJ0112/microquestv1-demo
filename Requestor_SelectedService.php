@@ -78,6 +78,12 @@
         <div id="printButton" onclick="h2canvaspdf()" title="Save this document">
          <center> ⎙ Save </center>
         </div>
+
+        
+        <div id="ConfirmButton" onclick="submitform()" title="Submit">
+         <center> Confirm </center>
+        </div>
+
         <div id="contractDiv" > 
             <img src="img/logo1.jpg" id="microquestLogo" /> 
 
@@ -139,7 +145,7 @@
         
             <div id="closeButton" onclick="closeForms()"> ✕ </div>
 
-            <form action="Backend/RegisterServiceOrder.php" method="post">
+            <form action="Backend/RegisterServiceOrder.php" method="post" id="availServiceSubmitForm">
 
             <h3> Confirm Transaction </h3> <br/><br/><br/>
 
@@ -252,12 +258,12 @@
 
                     <a href="#" onclick="showContract()">Terms and Conditions </a> <br/> <br/>
                     <input type="hidden" name="contract" id="contractInput"/>
-                    <input type="checkBox" required/>
+                    <input type="checkBox" onchange ="h2canvaspdfToInput()" required/>
                     <label> I agree to the terms and conditions </label>
                     <br/> <br/>
                 
  
-                <input type="submit" value="Confirm" class="confirmButton">
+                <input type="button" value="View Contract" class="confirmButton" onclick="showContract()">
 
             </form>
 
