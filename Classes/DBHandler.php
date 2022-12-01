@@ -16,23 +16,23 @@ function __construct(){
     
     /* Localhost connection */
     
-    
+    /*
     $this->dbservername = "localhost:3307";
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "microquestdbv2";
-    
+    */
 
     
 
     /* remote database connection */
     
-    /* 
-    $this->dbservername = "remotemysql.com";
-    $this->dbusername = "Ze2pK93XLv";
-    $this->dbpassword = "ytsYYcZNGw";
-    $this->dbname = "Ze2pK93XLv";
-   */
+    
+    $this->dbservername = "localhost";
+    $this->dbusername = "root";
+    $this->dbpassword = "#Microquest12";
+    $this->dbname = "u774227372_microquestdbv2";
+   
 
   /* remote database connection 2 */
   

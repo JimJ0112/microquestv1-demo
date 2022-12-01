@@ -170,8 +170,7 @@
 	background-color:rgb(52,42,41);
 	color: white;
 	font-family: 'Courier New', Courier, monospace;
-	border-radius: 9px;
-	
+	/* border-radius: 9px; */
 }
 
 #FormControls-Buttons{
