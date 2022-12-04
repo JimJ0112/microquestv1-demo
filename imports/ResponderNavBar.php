@@ -24,6 +24,7 @@
 		
 
 	
+	<!--
 		<a href="Responder_Transactions.php">
 			<li class="Nav-item" title="My Transactions">
 				<?php
@@ -36,6 +37,38 @@
 				?>
 			</li>
 		</a>
+
+	-->
+
+	<li class="Nav-item" title="My Transactions">
+				<div class="dropdown">
+    				<button class="dropbtn">
+
+					<?php
+						$pagename = basename($_SERVER['PHP_SELF']);
+						if($pagename === "Responder_Transactions.php"){
+							echo '<u> Transactions </u>';
+						} else if($pagename === "Responder_ServiceTransactions.php"){
+							echo '<u> Service Transactions </u>';
+						} else if($pagename === "Responder_RequestTransactions.php"){
+							echo '<u> Request Transactions </u>';
+						} else if($pagename === "Responder_PasabuyTransactions.php"){
+							echo '<u> Pasabuy Transactions </u>';
+						} else{
+							echo "Transactions";
+						}
+					?>
+
+      				<i class="fa fa-caret-down"> ▼ </i>
+    				</button>
+    				<div class="dropdown-content">
+      					<a href="Responder_ServiceTransactions.php">Service </a>
+      					<a href="Responder_RequestTransactions.php">Request </a>
+      					<a href="Responder_PasabuyTransactions.php">Pasabuy </a>
+    				</div>
+  				</div>
+				
+	</li>
 
 		<a href="Responder_RequestBoard.php">
 			 <li class="Nav-item" title="RequestBoard"> 

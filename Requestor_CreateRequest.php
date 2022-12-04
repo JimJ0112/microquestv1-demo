@@ -44,7 +44,7 @@ session_start();
     <?php
                 require_once("imports/RequestorNavBar.php");
     ?>
-<img src="img/b.jpg" id="BodyBackgroundImg"/>
+
 
 
 <!-- Main -->
@@ -52,12 +52,31 @@ session_start();
        
  
 <div id="Requestor_CreateRequestMainBack">
+<div class="grid-container" id="TransactionsNav">
+
+<a href="Requestor_CreateRequest.php">
+    <div id="TransactionTypeTd" class="grid-item">
+        <div id="TransactionTypeDropDown">
+            +Create
+        </div>
+    </div>
+</a>
+  
+
+<div id="TransactionsNavItem1" class="TransactionsNavItems grid-item"> <a href="Requestor_RequestBoard.php?fil=0"> <img class="navIcon" src="img/select-all.png"> <span class="sideNav-text">  All Requests </span></a> </div>  
+<div id="TransactionsNavItem2" class="TransactionsNavItems grid-item"> <a href="Requestor_RequestBoard.php?fil=1">  <img class="navIcon" src="img/wall-clock.png"> <span class="sideNav-text">  On Going </span> </a> </div>  
+  <div id="TransactionsNavItem3" class="TransactionsNavItems grid-item"> <a href="Requestor_RequestBoard.php?fil=2">  <img class="navIcon" src="img/power.png"> <span class="sideNav-text"> Active  </span> </a> </div> 
+  <div id="TransactionsNavItem4" class="TransactionsNavItems grid-item"> <a href="Requestor_RequestBoard.php?fil=3">  <img class="navIcon" src="img/sleep-mode.png"> <span class="sideNav-text"> Inactive  </span> </a> </div> 
+  <div id="TransactionsNavItem5" class="TransactionsNavItems grid-item"> <a href="Requestor_RequestBoard.php?fil=4">  <img class="navIcon" src="img/check.png"> <span class="sideNav-text"> Completed  </span> </a> </div>   
+  
+
+</div>
 <center><h1 id="RequestOrdersTitle"> Create a Request</h1> </center>
     <div id="Requestor_CreateRequestMain">
             
+        
+        
         <center>
-
-
        
             <div id="CreateRequestControlsContainer">
 
@@ -121,8 +140,11 @@ session_start();
             <input type="hidden" name="datePosted" value="<?php $today?>">
         <Table id="formsTable">
             <tr>
+                <td class="infoTD">
+                <p title="Specific title for the request.(e.g: 'Lawn Mowing', 'Logo Making', 'Computer Repair')">&#9432;</p>
+                </td>
                 <td class="tdright">
-                    <label> Title:</label> 
+                    <label> Title of Request:</label> 
                 </td>
                 <td>
                     <input type="text" name="requestTitle" required>  <span class="asteriskRequiredField"> * </span>
@@ -130,8 +152,11 @@ session_start();
             </tr>
 
             <tr>
+                <td class="infoTD">
+                <p title="Amount the responder will recieve after completing the request.">&#9432;</p>
+                </td>
                 <td class="tdright">
-                    <label> Price: </label> 
+                    <label> Request Fee: </label> 
                 </td> 
                 <td>   
                     <input type="number" name="requestExpectedPrice" required><span class="asteriskRequiredField"> * </span>
@@ -139,8 +164,11 @@ session_start();
             </tr>
 
             <tr>
+                <td class="infoTD">
+                <p title="Fee can set to lower or higher amount depends on the agreed price.">&#9432;</p>
+                </td>
                 <td class="tdright">    
-                    <label> Negotiable: </label> 
+                    <label> Negotiable Fee: </label> 
                 </td> 
                 <td>   
                     <select name="isNegotiable" required> 
@@ -151,8 +179,11 @@ session_start();
             </tr>
                 
             <tr>
+                <td class="infoTD">
+                <p title= "Responders can only apply on request until this date.">&#9432;</p>
+                </td>
                 <td class="tdright"> 
-                    <label> Due Date: </label> 
+                    <label> Available Until: </label> 
                 </td> 
                 <td>
                     <input type="date" name="dueDate" min="<?php echo $today; ?>" max="" value="<?php echo $today;?>" required>
@@ -161,6 +192,9 @@ session_start();
             </tr>
     
             <tr>
+                <td class="infoTD">
+                <p title="Please give atleast simple description of your request.">&#9432;</p>
+                </td>
                 <td class="tdright">
                     <label> More Details: </label> 
                 </td> 
@@ -304,6 +338,7 @@ session_start();
     </div>
 </div>
     
+
 
 
 

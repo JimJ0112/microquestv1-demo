@@ -40,7 +40,7 @@
 </head>
 <body id="Requestor_AvailableServicesBackground" onload="getServices()">
 
-<img src="img/b.jpg" id="BodyBackgroundImg"/>
+
 
 <!-- NavBar-->
 <?php
@@ -59,7 +59,7 @@
 			<div id="AvailableServicesContainer-Controls">
 
 				<ul id="AvailableServicesContainer-ControlItems">
-
+	<!--
 					<li class="AvailableServicesContainer-ControlItem"> 
 						<table>
 							<tr>
@@ -73,7 +73,7 @@
 							</tr>
 	   					</table>
 					</li>
-
+-->
 					<li class="AvailableServicesContainer-ControlItem" style="border-bottom:4px solid black">
 						<table>
 							<tr>
@@ -104,6 +104,10 @@
 	   					</table>
 				
 					</li>
+
+					
+					
+					
 					
 					
 

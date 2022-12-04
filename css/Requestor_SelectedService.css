@@ -686,3 +686,22 @@ h3{
 	
 }
 
+#ConfirmContractButton{
+	width: 70px;
+	height: 50px;
+	text-align: center;
+	background-color: green;
+	color: white;
+	margin: auto;
+	cursor: pointer;
+	display: none;
+}
+
+#viewContractButton{
+	width: fit-content;
+	padding: 10px;
+}
+
+#viewContractButton:disabled{
+	opacity: 30%;
+}

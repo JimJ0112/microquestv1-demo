@@ -60,7 +60,7 @@
 
 				<ul id="AvailableServicesContainer-ControlItems">
 
-
+<!--
 					<li class="AvailableServicesContainer-ControlItem"> 
 						<table>
 							<tr>
@@ -74,7 +74,7 @@
 							</tr>
 	   					</table>
 					</li>
-
+-->
 					<li class="AvailableServicesContainer-ControlItem"> 
 						
 					

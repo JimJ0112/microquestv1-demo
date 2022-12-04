@@ -21,8 +21,9 @@ function __construct(){
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "microquestdbv2";
-    */
+    
 
+    */
     
 
     /* remote database connection */
@@ -33,7 +34,7 @@ function __construct(){
     $this->dbpassword = "#Microquest12";
     $this->dbname = "u774227372_microquestdbv2";
    
-
+    
   /* remote database connection 2 */
   
     /*
@@ -52,6 +53,7 @@ function __construct(){
         $errorlog = "MySQL Error: " . mysqli_connect_errno();
         exit($errorlog);
     }
+
 }
 
 
@@ -1942,6 +1944,57 @@ public function getMyRequests($tablename,$column,$condition,$orderby = null){
         
   
 }
+
+
+
+
+
+public function getMyRequestsCondition($tablename,$column,$condition,$condition1){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    $condition1 = mysqli_real_escape_string($this->dbconnection, $condition1);
+    
+   
+    if(isset($orderby)){
+        $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' ORDER BY $orderby";
+    }else{
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND requestStatus = '$condition1'";
+    }
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+    
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                //$file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+                //$row['userPhoto'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
 
 // getting nearest requests
 function nearestRequests($tablename,$column,$condition,$orderby = null){

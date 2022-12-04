@@ -778,6 +778,18 @@ function showContract(){
     contractDiv = document.getElementById('contractDiv');
     contractDiv.style.display = "block";
     h2canvaspdfToInput();
+
+}
+
+function showSubmitContract(){
+    ConfirmContractButton = document.getElementById('ConfirmContractButton');
+    contractBackGround = document.getElementById('contractBackGround');
+    contractBackGround.style.display = "block";
+    contractDiv = document.getElementById('contractDiv');
+    contractDiv.style.display = "block";
+    h2canvaspdfToInput();
+    ConfirmContractButton.style.display = "grid";
+    
 }
 
 function hideContract(){
@@ -1200,4 +1212,20 @@ function h2canvaspdfToInput(){
 
 function submitform(){
     document.getElementById('availServiceSubmitForm').submit();
+}
+
+
+function allowSubmit(){
+
+    agreementcheckbox = document.getElementById('agreementcheckbox');
+    viewContractButton= document.getElementById('viewContractButton');
+
+    if(agreementcheckbox.checked){
+        viewContractButton.disabled=false;
+    } else{
+        viewContractButton.disabled=true;
+
+    }
+
+
 }

@@ -80,9 +80,9 @@
         </div>
 
         
-        <div id="ConfirmButton" onclick="submitform()" title="Submit">
-         <center> Confirm </center>
-        </div>
+        <button id="ConfirmContractButton" onclick="submitform()" title="Submit">
+          Confirm
+        </button>
 
         <div id="contractDiv" > 
             <img src="img/logo1.jpg" id="microquestLogo" /> 
@@ -258,12 +258,12 @@
 
                     <a href="#" onclick="showContract()">Terms and Conditions </a> <br/> <br/>
                     <input type="hidden" name="contract" id="contractInput"/>
-                    <input type="checkBox" onchange ="h2canvaspdfToInput()" required/>
+                    <input type="checkBox" onchange ="allowSubmit()" id="agreementcheckbox" required/>
                     <label> I agree to the terms and conditions </label>
                     <br/> <br/>
                 
  
-                <input type="button" value="View Contract" class="confirmButton" onclick="showContract()">
+                <input type="button" value="View Contract" class="confirmButton" id="viewContractButton" onclick="showSubmitContract()" disabled>
 
             </form>
 
@@ -378,10 +378,8 @@
 
 
 
-        <script type="text/javascript" src="html2canvas.js"></script> 
+    <script type="text/javascript" src="html2canvas.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-
-
 
     <script src="js/Requestor_SelectedService.js"> </script>
 

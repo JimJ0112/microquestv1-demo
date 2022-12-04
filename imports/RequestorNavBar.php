@@ -52,18 +52,52 @@
 		
 
 	
-		<a href="Requestor_Transactions.php">
+		
+
+		<!--
 			<li class="Nav-item" title="My Transactions">
 				<?php
 					$pagename = basename($_SERVER['PHP_SELF']);
 					if($pagename === "Requestor_Transactions.php"){
-						echo '<u> Transactions </u>';
+						//echo '<u> Transactions </u>';
 					} else{
-						echo "Transactions";
+						//echo "Transactions";
 					}
 				?>
 			</li>
-		</a>
+		-->
+			<li class="Nav-item" title="My Transactions">
+				<div class="dropdown">
+    				<button class="dropbtn">
+
+					<?php
+						$pagename = basename($_SERVER['PHP_SELF']);
+						if($pagename === "Requestor_Transactions.php"){
+							echo '<u> Transactions </u>';
+						} else if($pagename === "Requestor_ServiceTransactions.php"){
+							echo '<u> Service Transactions </u>';
+						} else if($pagename === "Requestor_RequestTransactions.php"){
+							echo '<u> Request Transactions </u>';
+						} else if($pagename === "Requestor_PasabuyTransactions.php"){
+							echo '<u> Pasabuy Transactions </u>';
+						} else{
+							echo "Transactions";
+						}
+					?>
+
+      					<i class="fa fa-caret-down"> ▼ </i>
+    				</button>
+    				<div class="dropdown-content">
+      					<a href="Requestor_ServiceTransactions.php">Service </a>
+      					<a href="Requestor_RequestTransactions.php">Request </a>
+      					<a href="Requestor_PasabuyTransactions.php">Pasabuy </a>
+    				</div>
+  				</div>
+				
+			</li>
+
+		
+
 		<a href="Requestor_RequestBoard.php"> 
 			<li class="Nav-item" title="RequestBoard">
 				<?php
@@ -75,6 +109,7 @@
 					}
 				?>
 			</li> 
+			
 		</a>
 
 		<a href="Requestor_AvailableServices.php"> 
@@ -155,6 +190,7 @@
 					</td>
 				</tr>
 			</table>
+			
 
 			</li>
 		</span>

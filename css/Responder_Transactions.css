@@ -32,23 +32,22 @@
 #TransactionsBackContainerBack{
 	
 	width: 100%;
-	height: 200%;
-	position: relative;
-	top:110px;
-	
-	background-color: rgb(243, 240, 240);
-
+    height: 100%;
+    position: relative;
+    top: 110px;
+    background-color: rgb(243, 240, 240);
 }
 
 #TransactionsContainer{
 	width: 80%;
-	height: fit-content;
-	margin: auto;
+	height: 780px;
+	margin: 40px 0 0 20%;
 	background-color: white;
-	margin-top: 0;
-	margin-bottom: 0;
+	/* margin-top: 0; */
+	/* margin-bottom: 0; */
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
+	overflow-y: scroll;
 }
 
 #TransactionsContainerThead{
@@ -57,22 +56,14 @@
 	font-size: small;
 }
 
-#TransactionsContainerBody td{
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	padding: 5px;
-	/*
-	border-right: 0.5px solid rgba(143, 141, 141, 0.29);
-	border-bottom: 0.5px solid rgba(143, 141, 141, 0.29);
-	*/
-	font-size: small;
-
-}
-
-#TransactionsContainerBody{
-	height: fit-content;
-	border: 1px solid black;
+#TransactionsContainerBody {
+    height: fit-content;
+    width: 100%;
+    overflow: scroll;
+    background-color: rgba(210, 202, 202, 0.184);
+    display: grid;
+    grid-row-gap: 10px;
+    /* border-collapse: collapse; */
 }
 
 .contractAgreement{
@@ -80,19 +71,61 @@
 	overflow: hidden;
 }
 
-#TransactionsNav{
-	width: 100%;
-	height: fit-content;
-	margin: auto;
-	background-color: rgb(225, 223, 223);
-	margin-top: 10px;
-	margin-bottom: 0;
-	overflow: hidden;
-	padding: 5px;
+#TransactionsNav {
+    width: 250px;
+    height: 650px;
+    margin: auto;
+    background-color: rgb(225, 223, 223);
+    margin: 40px 0px 0px 20px;
+    /* overflow: hidden; */
+    /* padding: 5px; */
+    /* display: grid; */
+    position: absolute;
+}
+
+.grid-container {
 	display: grid;
-	
+	background-color: #2196F3;
+	padding: 10px;
+	grid-template-rows: 20px 10px 10px 10px 10px 10px 10px;
+	row-gap: 40px;
 
 }
+
+.grid-item {
+	background-color: rgba(255, 255, 255, 0.8);
+	
+	padding: 10px;
+	font-size: medium;
+	text-align: center;
+	cursor: pointer;
+	display:flex;
+	height: 30px;
+
+	font-family: Arial, Helvetica, sans-serif;
+	
+	
+}
+
+.navIcon{
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	vertical-align:middle;
+	object-fit:contain;
+	
+}
+
+.sideNav-text{
+	vertical-align:bottom;	
+	
+}
+
+.grid-item:hover{
+	color: orangered;
+	
+}
+
 
 #TransactionsNav td{
 	display: inline;
@@ -130,10 +163,11 @@
 }
 
 #TransactionTypeTd{
-	margin-right: 100px;
-	width: 500px;
-	border-bottom: none;
-	display: none;
+	/* margin-right: 100px; */
+	/* width: 500px; */
+	/* border-bottom: none; */
+	/* display: none; */
+	text-align: center;
 }
 
 #TransactionTypeDropDown{
@@ -427,4 +461,249 @@ td{
 	border-radius: 10px;
 	cursor: pointer;
 
+}
+
+.item1 {
+	 grid-area: header; 
+	
+}
+.item2 {
+
+grid-area: menu;
+
+cursor: pointer;
+
+max-width: 300px;
+
+/* height: 170px; */
+}
+.item3 {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-area: main;
+	cursor: pointer;
+}
+.item4 {
+	grid-area: right;
+	text-align: right;
+	padding: 10px;
+}
+.item5 { 
+	grid-area: footer; 
+}
+
+.grid-container2 {
+
+display: grid;
+
+grid-template-areas:
+
+
+'header header header header header header'
+
+
+'menu main main main right right'
+
+
+'menu footer footer footer footer footer';
+
+gap: 1.5px;
+
+background-color: #ff450052;
+
+padding: 5px;
+
+border-radius: 5px;
+}
+
+.grid-container2 > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  /* text-align: center; */
+  /* padding: 20px 0 0 0; */
+  font-size: 30px;
+}
+.transactionsContentContainer {
+    width: 70%;
+    margin: 40px 20% 50px 20%;
+}
+
+.grid-header {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	background-color: #2196F3;
+	padding: 10px;
+	grid-area: header;
+	}
+  .header-item {
+	/* background-color: rgba(255, 255, 255, 0.8); */
+	/* border: 1px solid rgba(0, 0, 0, 0.8); */
+	/* padding: 20px; */
+	font-size: 30px;
+	text-align: center;
+	}
+	.grid-footer {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		background-color: #2196F3;
+		padding: 20px 0 0 10;
+		grid-area: footer;
+		}
+	  .footer-item {
+		/* background-color: rgba(255, 255, 255, 0.8); */
+		/* border: 1px solid rgba(0, 0, 0, 0.8); */
+		/* padding: 20px; */
+		font-size: 30px;
+		/* text-align: center; */
+		}
+div#requestTitle {
+    font-weight: bold;
+}
+div#requestID {
+    font-size: medium;
+    float: left;
+    text-align: left;
+    padding-left: 20px;
+}
+img#responderImage {
+    border-radius: 50%;
+}
+div#requestPrice {
+    color: red;
+    /* padding: 5% 0 0 0; */
+}
+div#requestDescription {
+    font-size: large;
+}
+.button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 3px;
+	}
+
+div#requestDate {
+    color: gray;
+    font-size: medium;
+}
+#requestDate p {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+#requestStatus{
+	color: gray;
+}
+#imgContainer{
+	border-radius: 50%;
+}
+#Cancel{
+	background-color: #f32121;
+}
+div#actionButton {
+    float: right;
+    text-align: right;
+    padding: 0 10 0 0;
+}
+div#responderEmail {
+    width: 200px;
+    font-size: medium;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: auto;
+}
+
+p.Description {
+    width: 500px;
+    margin: auto;
+    text-align: left;
+    margin-top: 10px;
+    height: -webkit-fill-available;
+}
+
+button.red{
+	background-color: #f32121;
+}
+.Description {
+    margin: auto;
+}
+
+
+#PhotoViewerBackground{
+	position: fixed;
+	background-color: rgba(28, 27, 27, 0.9);
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left: 0;
+	display: none;
+	align-content: center;
+	z-index: 20;
+
+}
+
+#PhotoViewer{
+	margin: auto;
+	margin-top: 0;
+	width: 90%;
+	height: 100%;
+	background-color: none;
+	display: grid;
+}
+
+#photoViewerImage{
+	width: 600px;
+	height: 700px;
+	object-fit: contain;
+	margin: auto;
+	background-color: white;
+}
+
+.responderProfileTransaction{
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+#TextViewerBackground{
+	position: fixed;
+	background-color: rgba(28, 27, 27, 0.9);
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left: 0;
+	display: none;
+	align-content: center;
+	z-index: 20;
+
+}
+
+#TextViewer{
+	margin: auto;
+	margin-top: 0;
+	width: 90%;
+	height: 100%;
+	background-color: none;
+	display: grid;
+}
+
+#textContainer{
+	width: 600px;
+	height: 700px;
+	object-fit: contain;
+	margin: auto;
+	background-color: white;
+	text-align: center;
+	border: 1px solid black;
+	margin-top: 100px;
 }

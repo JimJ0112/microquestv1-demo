@@ -208,6 +208,7 @@ function updateQuantity(cartID){
  }
 
  function getCheckedTotal(){
+    
     var cartItemCheckBox = document.getElementsByClassName('cartItemCheckBox');
     var totalPrice = document.getElementsByClassName('totalPrice');
     var number = cartItemCheckBox.length;

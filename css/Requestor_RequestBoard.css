@@ -40,34 +40,32 @@
 }
 
 #RequestBoardContainer{
-	position: absolute;
-
-	width: 99%;
+	/* position: absolute; */
+	width: 100%;
 	height: 100%;
-
-	margin: auto;
-	margin-top: 100px;
-	margin-left: 5px;
-	
+	margin-top: 6%;
+	/* margin-left: 5px; */
+	background-color: rgb(243, 240, 240);
 }
 
 #RequestBoardTitle{
-	font-family: Retroking;
-	color: white;
-	font-weight: lighter;
+	font-family: arial;
+	color: #070707;
+	font-weight: bold;
+	padding: 0px;
+	margin-bottom: 20px;
 }
 
 #RequestsContainer{
-	margin-top: 0;
-	margin: auto;
-	background-color: white;
-	width: 80%;
-	height: 100%;
-	overflow-y: scroll;
-	border: 5px solid rgb(136, 75, 38);
-	min-height: 1000px;
-	max-height: 100%;
-	padding: 0;
+	/* margin: auto; */
+	/* background-color: white; */
+	/* width: 100%; */
+	/* height: 100%; */
+	/* overflow-y: scroll; */
+	/* border: 5px solid rgb(226 218 212); */
+	/* min-height: 1000px; */
+	/* max-height: 100%; */
+	/* padding: 0; */
 }
 
 #RequestsContainer::-webkit-scrollbar{
@@ -78,26 +76,32 @@
 
 #RequestsContainer-Controls{
 
-	width: 100%;
-	height: 70px;
-	background-color: rgba(119, 65, 32, 0.644);
-	display: inline-block;
-	overflow: hidden;
+width: 100%;
 
+height: 70px;
 
-	
+background-color: rgba(119, 65, 32, 0.644);
+
+display: inline-block;
+
+overflow: hidden;
+
+display: none;
 }
 
 #RequestsContainer-ControlItems{
 
-	list-style-type: none;
-	width: auto;
-	color: white;
-	font-family: Arial, Helvetica, sans-serif;
+list-style-type: none;
 
-	vertical-align: text-top;
-	
-	
+width: auto;
+
+color: white;
+
+font-family: Arial, Helvetica, sans-serif;
+
+vertical-align: text-top;
+
+display: none;
 }
 
 #RequestsContainer-ControlItems a{
@@ -192,30 +196,7 @@
 	filter: invert(0.3);
 }
 
-#RequestsContainer-Content{
-
-display: grid;
-
-grid-template-columns: 1fr 1fr 1fr 1fr;
-
-padding: 10px;
-
-align-content: center;
-
-overflow: hidden;
-
-grid-column-gap: 50px;
-
-grid-row-gap: 50px;
-
-overflow-y: scroll;
-
-width: 100%;
-
-padding-left: 20px;
-
-margin: auto;
-}
+#RequestsContainer-Content{display: grid;grid-template-columns: 1fr 1fr 1fr 1fr;padding: 20px 0 20px 0;/* align-content: center; *//* overflow: hidden; *//* grid-column-gap: 50px; */grid-row-gap: 50px;overflow-y: scroll;width: 80%;height: 800px;padding: 20px 20 0 2px;margin: 0 0 0 20%;background-color: #ffffff9e;/* z-index: 99; */}
 
 .requestCard{
 	border: 5px solid rgb(63, 50, 48);
@@ -514,6 +495,7 @@ margin: auto;
 	/* padding-top: 40px; */
 	/* padding-bottom: 40px; */
 	/* cursor: pointer; */
+	MARGIN: auto;
 	}
   .wrapper:focus {
 	  outline: 0;
@@ -530,7 +512,7 @@ margin: auto;
 	border-radius: 14px;
 	position: relative;
 	text-align: center;
-	box-shadow: 0px 0px 10px 0px black;
+	box-shadow: 0px 0px 2px 0px black;
 	z-index: 5;
 	cursor: pointer;
 	}
@@ -553,10 +535,11 @@ margin: auto;
 	margin-bottom: 35px;
 	border-top-left-radius: 14px;
 	border-top-right-radius: 14px;
-  }
+	border-bottom: 1px solid #8c88888f;
+	}
   
   .request-card__image {
-	background-color: #a7846f;
+	background-color: #f8f1ed;
 	/* background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg'); */
 	}
   .request-card__image  .requestTitle{
@@ -788,4 +771,61 @@ margin: auto;
 .requestDescription:hover{
 	white-space: unset;
 	height: fit-content;
+}
+
+#TransactionsNav {
+    width: 250px;
+    height: 400px;
+    /* margin: auto; */
+    background-color: rgb(225, 223, 223);
+    margin: 80px 0px 0px 20px;
+    overflow: hidden;
+    display: grid;
+    position: absolute;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    font-size: x-large;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    height: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.grid-container {
+    display: grid;
+    background-color: #2196F3;
+    padding: 10px;
+    grid-template-rows: 20px 10px 10px 10px 10px;
+    row-gap: 30px;
+}
+
+.navIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+.sideNav-text {
+    vertical-align: bottom;
+    /* margin: auto; */
+}
+
+#TransactionTypeDropDown{
+	/* background-color: rgb(225, 131, 7); */
+	border: none;
+	font-weight: bold;
+	font-size: larger;
+	/* width: 200px; */
+	text-align: center;
+	/* height: 100%; */
+	cursor: pointer;
+	width: 100%;
+	color: #ff9600;
 }

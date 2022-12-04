@@ -155,50 +155,6 @@ function setData(array){
 
 
 
-function getMyRequests(userID){
-    var userID = userID;
-    var query = "userID=" + userID;
-    var xmlhttp = new XMLHttpRequest();
-
-    console.log(query);
-
-    xmlhttp.open("POST", "Backend/Get_myRequests.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-
-            var div = document.getElementById('RequestsContainer-Content');
-            div.innerHTML = "";
-            var dataArray = this.response;
-
-            if(dataArray === "failed to fetch"){
-                var content = document.getElementById("requestInfoContent");
-                var h2 = document.createElement('h2');
-                h2.innerText = "No Requests Created yet";
-                div.innerHTML = "";
-                div.style.textAlign = "center";
-                div.appendChild(h2);
-
-
-            } else {
-                
-                dataArray = JSON.parse(dataArray);
-                console.log(dataArray);
-                number = dataArray.length;
-                createElements(number)
-                setData(dataArray);    
-            }
-
-        }else{
-            console.log(err);
-        }      
-    };
-    
-    xmlhttp.send(query);
-    
-}// end of function
-
 
 // set update form
 
@@ -377,6 +333,342 @@ function activeRequest(requestID){
         }else{
             console.log(err);
         }      
+    };
+    
+    xmlhttp.send(query);
+    
+}// end of function
+
+
+
+
+// for services
+
+function clickedNavItem (number,userID){
+    var number = number;
+    var userID = userID;
+    sessionStorage.setItem('transactionsUserId',userID);
+
+
+    var TransactionsNavItem1 = document.getElementById("TransactionsNavItem1");
+    var TransactionsNavItem2 = document.getElementById("TransactionsNavItem2");
+    var TransactionsNavItem3 = document.getElementById("TransactionsNavItem3");
+    var TransactionsNavItem4 = document.getElementById("TransactionsNavItem4");
+    var TransactionsNavItem5 = document.getElementById("TransactionsNavItem5");
+  
+
+ 
+    var TransactionsNavItems = document.getElementsByClassName("TransactionsNavItems");
+
+    TransactionsNavItem1.style = "background-Color:white; color:black; ";
+    TransactionsNavItem2.style = "background-Color:white; color:black; ";
+    TransactionsNavItem3.style = "background-Color:white; color:black; ";
+    TransactionsNavItem4.style = "background-Color:white; color:black; ";
+    TransactionsNavItem5.style = "background-Color:white; color:black; ";
+ 
+
+
+
+    TransactionsNavItems[number].style = "background-Color:orangered; color:white; ";
+
+    if(number === 0){
+
+       //all
+       getMyRequests(userID);
+    }else if(number === 1){
+  
+       //on going
+       getOnGoingRequests(userID);
+
+    }else if(number === 2){
+   
+      //active
+      getActiveRequests(userID);
+
+    }else if(number === 3){
+
+    //inactive
+        getInactiveRequests(userID);
+    }else if(number === 4){
+ 
+       //completed
+       getCompletedRequests(userID);
+    }
+
+
+}
+
+
+/* Get functions */
+
+function getMyRequests(userID){
+    var userID = userID;
+    var query = "userID=" + userID;
+    var xmlhttp = new XMLHttpRequest();
+
+    console.log(query);
+
+    xmlhttp.open("POST", "Backend/Get_myRequests.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var div = document.getElementById('RequestsContainer-Content');
+            div.innerHTML = "";
+            var dataArray = this.response;
+
+            if(dataArray === "failed to fetch"){
+                var content = document.getElementById("requestInfoContent");
+                var h2 = document.createElement('h2');
+                h2.innerText = "No Requests Created yet";
+                div.innerHTML = "";
+                div.style.textAlign = "center";
+                div.appendChild(h2);
+
+
+            } else {
+                
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+                number = dataArray.length;
+                createElements(number)
+                setData(dataArray);    
+            }
+
+        }else{
+            console.log(err);
+        }      
+    };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('requestInfoContent').innerText = "Loading...";
+
+        }
+  
+    };
+    
+    xmlhttp.send(query);
+    
+}// end of function
+
+
+function getActiveRequests(userID){
+    var userID = userID;
+    var query = "userID=" + userID + "&condition=Active";
+    var xmlhttp = new XMLHttpRequest();
+
+    console.log(query);
+
+    xmlhttp.open("POST", "Backend/Get_myRequestsCondition.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var div = document.getElementById('RequestsContainer-Content');
+            div.innerHTML = "";
+            var dataArray = this.response;
+
+            if(dataArray === "failed to fetch"){
+                var content = document.getElementById("requestInfoContent");
+                var h2 = document.createElement('h2');
+                h2.innerText = "No Active Requests";
+                div.innerHTML = "";
+                div.style.textAlign = "center";
+                div.appendChild(h2);
+
+
+            } else {
+                
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+                number = dataArray.length;
+                createElements(number)
+                setData(dataArray);    
+            }
+
+        }else{
+            console.log(err);
+        }      
+    };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('requestInfoContent').innerText = "Loading...";
+
+        }
+  
+    };
+    
+    xmlhttp.send(query);
+    
+}// end of function
+
+
+
+function getInactiveRequests(userID){
+    var userID = userID;
+    var query = "userID=" + userID + "&condition=Delisted";
+    var xmlhttp = new XMLHttpRequest();
+
+    console.log(query);
+
+    xmlhttp.open("POST", "Backend/Get_myRequestsCondition.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var div = document.getElementById('RequestsContainer-Content');
+            div.innerHTML = "";
+            var dataArray = this.response;
+
+            if(dataArray === "failed to fetch"){
+                var content = document.getElementById("requestInfoContent");
+                var h2 = document.createElement('h2');
+                h2.innerText = "No Inactive Requests";
+                div.innerHTML = "";
+                div.style.textAlign = "center";
+                div.appendChild(h2);
+
+
+            } else {
+                
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+                number = dataArray.length;
+                createElements(number)
+                setData(dataArray);    
+            }
+
+        }else{
+            console.log(err);
+        }      
+    };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('requestInfoContent').innerText = "Loading...";
+
+        }
+  
+    };
+    
+    xmlhttp.send(query);
+    
+}// end of function
+
+
+function getCompletedRequests(userID){
+    var userID = userID;
+    var query = "userID=" + userID + "&condition=Completed";
+    var xmlhttp = new XMLHttpRequest();
+
+    console.log(query);
+
+    xmlhttp.open("POST", "Backend/Get_myRequestsCondition.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var div = document.getElementById('RequestsContainer-Content');
+            div.innerHTML = "";
+            var dataArray = this.response;
+
+            if(dataArray === "failed to fetch"){
+                var content = document.getElementById("requestInfoContent");
+                var h2 = document.createElement('h2');
+                h2.innerText = "No Completed Requests";
+                div.innerHTML = "";
+                div.style.textAlign = "center";
+                div.appendChild(h2);
+
+
+            } else {
+                
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+                number = dataArray.length;
+                createElements(number)
+                setData(dataArray);    
+            }
+
+        }else{
+            console.log(err);
+        }      
+    };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('requestInfoContent').innerText = "Loading...";
+
+        }
+  
+    };
+    
+    xmlhttp.send(query);
+    
+}// end of function
+
+function getOnGoingRequests(userID){
+    var userID = userID;
+    var query = "userID=" + userID + "&condition=On Going";
+    var xmlhttp = new XMLHttpRequest();
+
+    console.log(query);
+
+    xmlhttp.open("POST", "Backend/Get_myRequestsCondition.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var div = document.getElementById('RequestsContainer-Content');
+            div.innerHTML = "";
+            var dataArray = this.response;
+
+            if(dataArray === "failed to fetch"){
+                var content = document.getElementById("requestInfoContent");
+                var h2 = document.createElement('h2');
+                h2.innerText = "No On Going Requests";
+                div.innerHTML = "";
+                div.style.textAlign = "center";
+                div.appendChild(h2);
+
+
+            } else {
+                
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+                number = dataArray.length;
+                createElements(number)
+                setData(dataArray);    
+            }
+
+        }else{
+            console.log(err);
+        }      
+    };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('requestInfoContent').innerText = "Loading...";
+
+        }
+  
     };
     
     xmlhttp.send(query);

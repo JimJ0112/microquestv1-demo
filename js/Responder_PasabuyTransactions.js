@@ -2,101 +2,6 @@
 var checkReportResult;
 
 
-function setTransactionType(){
-    TransactionTypeDropDown = document.getElementById('TransactionTypeDropDown');
-
-    var userID = sessionStorage.getItem("userID");
-
-    var TransactionsNavItem1 = document.getElementById("TransactionsNavItem1");
-    var TransactionsNavItem2 = document.getElementById("TransactionsNavItem2");
-    var TransactionsNavItem3 = document.getElementById("TransactionsNavItem3");
-    var TransactionsNavItem4 = document.getElementById("TransactionsNavItem4");
-    var TransactionsNavItem5 = document.getElementById("TransactionsNavItem5");
-    var TransactionsNavItem6 = document.getElementById("TransactionsNavItem6");
-    var TransactionsContainerBody = document.getElementById("TransactionsContainerBody");
-   
-
-    // set the container
-    TransactionsContainerBody.innerHTML = "";
-    TransactionsNavItem1.style.border = "none";
-    TransactionsNavItem2.style.border = "none";
-    TransactionsNavItem3.style.border = "none";
-    TransactionsNavItem4.style.border = "none";
-    TransactionsNavItem5.style.border = "none";
-    TransactionsNavItem6.style.border = "none";
-
-
-    if(TransactionTypeDropDown.value === "Requests"){
-
-        TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
-
-
-        requestClickedItem(1,userID);
-         TransactionsNavItem1.setAttribute("onclick","requestClickedItem(0," +userID +")" );
-         TransactionsNavItem2.setAttribute("onclick","requestClickedItem(1," +userID +")" );
-         TransactionsNavItem3.setAttribute("onclick","requestClickedItem(2," +userID +")" );
-         TransactionsNavItem4.setAttribute("onclick","requestClickedItem(3," +userID +")" );
-         TransactionsNavItem5.setAttribute("onclick","requestClickedItem(4," +userID +")" );
-         TransactionsNavItem6.setAttribute("onclick","requestClickedItem(5," +userID +")" );
-
-
-         TransactionsNavItem1.innerText = "Request Applications";
-         TransactionsNavItem2.innerText = "Accepted Requests Applications";
-         TransactionsNavItem3.innerText = " Delivered ";
-         TransactionsNavItem4.innerText = " Paid";
-         TransactionsNavItem5.innerText = " Finished";
-         TransactionsNavItem6.innerText = " Cancelled";
-
-         requestClickedItem(1,userID);
-
-
-
-
-    } else if(TransactionTypeDropDown.value === "Services"){
-        TransactionsNavItem1.setAttribute("onclick","clickedNavItem(0," +userID +")" );
-        TransactionsNavItem2.setAttribute("onclick","clickedNavItem(1," +userID +")" );
-        TransactionsNavItem3.setAttribute("onclick","clickedNavItem(2," +userID +")" );
-        TransactionsNavItem4.setAttribute("onclick","clickedNavItem(3," +userID +")" );
-        TransactionsNavItem5.setAttribute("onclick","clickedNavItem(4," +userID +")" );
-        TransactionsNavItem6.setAttribute("onclick","clickedNavItem(5," +userID +")" );
-
-        
-        TransactionsNavItem1.innerText = "Orders";
-        TransactionsNavItem2.innerText = "On Going Orders";
-        TransactionsNavItem3.innerText = " Delivered ";
-        TransactionsNavItem4.innerText = " Paid";
-        TransactionsNavItem5.innerText = " Finished";
-        TransactionsNavItem6.innerText = " Cancelled";
- 
-
-        getOrders(userID);
-        TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
-
-    }else if(TransactionTypeDropDown.value === "Pasabuy"){
-        TransactionsNavItem1.setAttribute("onclick","pasabuyNavItem(0," +userID +")" );
-        TransactionsNavItem2.setAttribute("onclick","pasabuyNavItem(1," +userID +")" );
-        TransactionsNavItem3.setAttribute("onclick","pasabuyNavItem(2," +userID +")" );
-        TransactionsNavItem4.setAttribute("onclick","pasabuyNavItem(3," +userID +")" );
-        TransactionsNavItem5.setAttribute("onclick","pasabuyNavItem(4," +userID +")" );
-        TransactionsNavItem6.setAttribute("onclick","pasabuyNavItem(5," +userID +")" );
-
-        
-        TransactionsNavItem1.innerText = "Orders";
-        TransactionsNavItem2.innerText = "On Going Orders";
-        TransactionsNavItem3.innerText = " Delivered ";
-        TransactionsNavItem4.innerText = " Paid";
-        TransactionsNavItem5.innerText = " Finished";
-        TransactionsNavItem6.innerText = " Cancelled";
-
-
-
-        getPasabuyOrders(userID);
-        TransactionsNavItem1.style.borderBottom = "4px solid rgb(48, 30, 8)";
-
-    }
-}
-
-
 
 // for services
 
@@ -114,14 +19,14 @@ function pasabuyNavItem (number,userID){
     var TransactionsNavItem6 = document.getElementById("TransactionsNavItem6");
     var TransactionsNavItems = document.getElementsByClassName("TransactionsNavItems");
 
-    TransactionsNavItem1.style.border = "none";
-    TransactionsNavItem2.style.border = "none";
-    TransactionsNavItem3.style.border = "none";
-    TransactionsNavItem4.style.border = "none";
-    TransactionsNavItem5.style.border = "none";
-    TransactionsNavItem6.style.border = "none";
+    TransactionsNavItem1.style = "background-Color:white; color:black; ";
+    TransactionsNavItem2.style = "background-Color:white; color:black; ";
+    TransactionsNavItem3.style = "background-Color:white; color:black; ";
+    TransactionsNavItem4.style = "background-Color:white; color:black; ";
+    TransactionsNavItem5.style = "background-Color:white; color:black; ";
+    TransactionsNavItem6.style = "background-Color:white; color:black; ";
 
-    TransactionsNavItems[number].style.borderBottom = "4px solid rgb(48, 30, 8)";
+    TransactionsNavItems[number].style = "background-Color:orangered; color:white; ";
     if(number === 0){
       
         getPasabuyOrders(userID)
@@ -193,6 +98,16 @@ function getPasabuyOrders(userID){
 
         }      
     };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('TransactionsContainerBody').innerText = "Loading...";
+
+        }
+  
+    };
     
     xmlhttp.open("POST", "Backend/Get_myPasabuyTransactions.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -239,6 +154,16 @@ function getPasabuyAcceptedOrders(userID){
 
         }      
     };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('TransactionsContainerBody').innerText = "Loading...";
+
+        }
+  
+    };
     
     xmlhttp.open("POST", "Backend/Get_myPasabuyTransactions.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -284,6 +209,17 @@ function getPasabuyDeliveredOrders(userID){
         }      
     };
     
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('TransactionsContainerBody').innerText = "Loading...";
+
+        }
+  
+    };
+
     xmlhttp.open("POST", "Backend/Get_myPasabuyTransactions.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
@@ -327,6 +263,16 @@ function getPasabuyPaidOrders(userID){
            document.getElementById('TransactionsContainerBody').innerText = "Loading...";
 
         }      
+    };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('TransactionsContainerBody').innerText = "Loading...";
+
+        }
+  
     };
     
     xmlhttp.open("POST", "Backend/Get_myPasabuyTransactions.php", true);
@@ -372,6 +318,16 @@ function getPasabuyFinishedOrders(userID){
 
         }      
     };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('TransactionsContainerBody').innerText = "Loading...";
+
+        }
+  
+    };
     
     xmlhttp.open("POST", "Backend/Get_myPasabuyTransactions.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -416,6 +372,16 @@ function getPasabuyCancelledOrders(userID){
 
         }      
     };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('TransactionsContainerBody').innerText = "Loading...";
+
+        }
+  
+    };
     
     xmlhttp.open("POST", "Backend/Get_myPasabuyTransactions.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -427,99 +393,149 @@ function getPasabuyCancelledOrders(userID){
 
 function createPasabuyTransactionElements(number){
     var number = number;
-    var TransactionsContainerBody = document.getElementById('TransactionsContainerBody');
-    var TransactionsContainerThead = document.getElementById('TransactionsContainerThead');
+    var Body = document.getElementById('TransactionsContainerBody');
 
-
-    TransactionsContainerThead.innerHTML = "";
-    var thead = document.createElement('tr');
-    var TransactionID  = document.createElement('td')
-    var  Product = document.createElement('td')
-    var td = document.createElement('td');
-    var ServiceInfo  = document.createElement('td')
-    var Responder = document.createElement('td')
-    var TotalPrice = document.createElement('td')
-    var Status = document.createElement('td')
-    var Action = document.createElement('td')
-
-
-
-     TransactionID.innerText = "Transaction ID ";
-     Product.innerText= "Product";
-     td.innerText= "";
-     ServiceInfo.innerText = "Service";
-     Responder.innerText = "Requestor";
-     TotalPrice.innerText = "Total Price";
-     Status.innerText = "Status";
-     Action.innerText = "Actions";
-
-    thead.appendChild(TransactionID)
-    thead.appendChild(Product)
-
-    thead.appendChild(td)
-
-    thead.appendChild(ServiceInfo)
-
-    thead.appendChild(Responder)
-
-    thead.appendChild(TotalPrice)
-
-    thead.appendChild(Status)
-    thead.appendChild(Action);
-
-    TransactionsContainerThead.appendChild(thead);
 
     for(var i = 0; i<number; i++){
     
-        tr = document.createElement('tr');
-        transactionID = document.createElement('td');
-        productImageTD = document.createElement('td');
-        productInfo = document.createElement('td');
-        serviceInfo = document.createElement('td');
-        responderImageTD = document.createElement('td');
-        totalPrice = document.createElement('td');
-        transactionStatus = document.createElement('td');
+ 
+        div = document.createElement('div');
+       
+        // parent
+        grid_header = document.createElement('div');
 
-        ActionsTR = document.createElement('tr');
-        ActionsTd = document.createElement('td');
+        //children
+        transactionID = document.createElement('div');
+        requestInfo = document.createElement('div');
+        requestStatus = document.createElement('div');
 
-      
+
+        // parent
+        item2 = document.createElement('div');
+
+        //children
+        responderImageDiv = document.createElement('div');
+        responderNameDiv = document.createElement('div');
+        responderEmailDiv = document.createElement('div');
+
+        //parent
+        item3 = document.createElement('div');
+        //children
+        productImageDiv = document.createElement('div');
+        Description = document.createElement('div');
+
+
+
+        //parent
+        item4 = document.createElement('div');
+
+        //children
+        Price = document.createElement('div');
+        Contract = document.createElement('div');
+
+
+        //parent
+        grid_footer = document.createElement('div');
+
+        //inner parent
+        transactionDates = document.createElement('div');
+        //children
+        datePosted = document.createElement('p');
+        dateAccomplished = document.createElement('p');
+
+
+        //inner parent
+        sendMessageDiv = document.createElement('div');
+
+        //inner parent
+        actionsDiv = document.createElement('div');
+
+
+
+        // set attributes 
+
+        div.setAttribute('class','transaction-item');
+        grid_header.setAttribute('class','grid-header');
+        transactionID.setAttribute('class','requestID');
+
+        requestInfo.setAttribute('class','requestTitle');
+        requestStatus.setAttribute('class','requestStatus');
+
+        item2.setAttribute('class','item2');
+        responderImageDiv.setAttribute('class','responderImageDiv');
+        responderNameDiv.setAttribute('class','responderNameDiv');
+        responderEmailDiv.setAttribute('class','responderEmailDiv');
+
+        item3.setAttribute('class','item3');
+        productImageDiv.setAttribute('class','productImageDiv');
+        Description.setAttribute('class','Description');
+
+        item4.setAttribute('class','item4');
+        Price.setAttribute('class','servicePrice');
+        Contract.setAttribute('class','serviceContract');
         
-
-        tr.setAttribute('class','pasabuyTransactionRow');
-        transactionID.setAttribute('class','transactionID');
-        productImageTD.setAttribute('class','productImageTD');
-        productInfo.setAttribute('class','productInfo');
-        serviceInfo.setAttribute('class','serviceInfo');
-        responderImageTD.setAttribute('class','responderImageTD')
-        totalPrice.setAttribute('class','totalPrice');
-        transactionStatus.setAttribute('class','transactionStatus');
-
-    
-        ActionsTd.setAttribute('class','ActionsTd');
+        grid_footer.setAttribute('class','grid-footer');
+        transactionDates.setAttribute('class','transactionDates');
+        datePosted.setAttribute('class','datePosted');
+        dateAccomplished.setAttribute('class','dateAccomplished');
+        sendMessageDiv.setAttribute('class','sendMessageDiv');
+        actionsDiv.setAttribute('class','actionsDiv');
 
 
-        tr.appendChild(transactionID);
-        tr.appendChild(productImageTD);
-        tr.appendChild(productInfo);
-        tr.appendChild(serviceInfo);
-        tr.appendChild(responderImageTD);
-        tr.appendChild(totalPrice);
-        tr.appendChild(transactionStatus);
+ 
+        // append
 
-
-        tr.appendChild(ActionsTd);
-        //tr.appendChild(ActionsTd);
+        // parent
+        grid_header.appendChild(transactionID);
+        grid_header.appendChild(requestInfo);
+        grid_header.appendChild(requestStatus);
 
 
 
-        TransactionsContainerBody.appendChild(tr);
-        //TransactionsContainerBody.appendChild(ActionsTR)
+        // parent
+  
+        item2.appendChild(responderImageDiv);
+        item2.appendChild(responderNameDiv);
+        item2.appendChild(responderEmailDiv);
+
+
+        //parent
+        item3.appendChild(productImageDiv);
+        item3.appendChild(Description);
  
 
+
+        //parent
+        item4.appendChild(Price);
+        item4.appendChild(Contract);
+
+
+
+
+        //inner parent
+        transactionDates.appendChild(datePosted);
+        transactionDates.appendChild(dateAccomplished);
+        
+
+        //parent
+        grid_footer.appendChild(transactionDates);
+        grid_footer.appendChild(sendMessageDiv);
+        grid_footer.appendChild(actionsDiv);
+
+        
+ 
+        div.appendChild(grid_header);
+        div.appendChild(item2);
+        div.appendChild(item3);
+        div.appendChild(item4);
+        div.appendChild(grid_footer);
+       
+        
+        Body.appendChild(div);
+       
+
+
     }
-
-
 
 
 
@@ -533,57 +549,143 @@ function setPasabuyOrderItem(array){
     var dataArray = array;
     var number = dataArray.length;
 
-    tr = document.getElementsByClassName('pasabuyTransactionRow');
-    transactionID= document.getElementsByClassName('transactionID');
-    productImageTD= document.getElementsByClassName('productImageTD');
-    productInfo= document.getElementsByClassName('productInfo');
-    serviceInfo= document.getElementsByClassName('serviceInfo');
-    responderImageTD = document.getElementsByClassName('responderImageTD');
-    totalPrice= document.getElementsByClassName('totalPrice');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    ActionsTd= document.getElementsByClassName('ActionsTd');
+    transaction_item = document.getElementsByClassName('transaction-item');
+    transactionID= document.getElementsByClassName('requestID');
+    requestTitle = document.getElementsByClassName('requestTitle');
+    requestStatus= document.getElementsByClassName('requestStatus');
+ 
+    responderImageDiv= document.getElementsByClassName('responderImageDiv');
+    responderNameDiv= document.getElementsByClassName('responderNameDiv');
+    responderEmailDiv= document.getElementsByClassName('responderEmailDiv');
+ 
+    productImageDiv = document.getElementsByClassName('productImageDiv');
+    Description= document.getElementsByClassName('Description');
+
+    Price= document.getElementsByClassName('servicePrice');
+    Contract= document.getElementsByClassName('serviceContract');
+  
+    transactionDates = document.getElementsByClassName('transactionDates');
+    datePosted= document.getElementsByClassName('datePosted');
+
+    dateAccomplished= document.getElementsByClassName('dateAccomplished');
+
+    sendMessageDiv= document.getElementsByClassName('sendMessageDiv');
+
+    sendMessageDiv = document.getElementsByClassName('sendMessageDiv');
+    actionsDiv= document.getElementsByClassName('actionsDiv');
+
+    item2 = document.getElementsByClassName('item2');
+    item3 = document.getElementsByClassName('item3');
+    item4 = document.getElementsByClassName('item4');
 
     for(var i=0;i<number;i++){
 
-        //tr[i]
         var image = new Image();
-        image.src = dataArray[i]['productImage'];
-        image.setAttribute('class','productImageTransactions');
+        image.src = dataArray[i]['requestorPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        // set data
+        transactionID[i].innerText = dataArray[i]['pasabuyTransactionID'];
+        requestTitle[i].innerHTML = "<b>" + dataArray[i]['productBrand'] + "</b> :" + dataArray[i]['productName'];
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
 
 
-        var userImage = new Image();
-        userImage.src = dataArray[i]['requestorPhoto'];
-        userImage.setAttribute('class','responderImagePic');
+        //set data
+        responderImageDiv[i].appendChild(image);
+        responderNameDiv[i].innerHTML = dataArray[i]['RequestorName'];
+        responderEmailDiv[i].innerHTML = dataArray[i]['RequestorEmail'];
+
+
+    
+        item2[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID=" +dataArray[i]['requestorID'] + "&userType=Requestor')");
+       
+        // set data
+        var itemImage = new Image();
+        itemImage.src = dataArray[i]['productImage'];
+        itemImage.setAttribute('class','productImageTransactions');
+
+        productImageDiv[i].appendChild(itemImage);
+
+        Description[i].innerHTML =  dataArray[i]['productBrand'] + " : " + dataArray[i]['productName'] + "<br/>" + dataArray[i]['productDescription'];
+        
+
+        var total = (parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
+       
+
+
+        // set data
+        Price[i].innerHTML = "<span style='font-size:small; text-align:left;'> x "+ dataArray[i]['quantity']+ " <br/> Price: Php " +dataArray[i]['price'] +" <br/> " +"Delivery Fee: Php" + dataArray[i]['deliveryRate'] +" </span>  <span style='font-size:medium;'> <br/>  Total Price: Php " + total + "</span>" ;
+        Contract[i].innerHTML = "";
+     
+        
+        // datePosted[i].innerHTML = dataArray[i]['transactionStartDate'] +" <br/>TimeSlot: " + dataArray[i]['timeSlot'];
+        datePosted[i].innerText = "Date Availed: " + dataArray[i]['orderDate'];
+        dateAccomplished[i].innerText = "Due date: "+dataArray[i]['dueDate'];
+
+
+        
+          //add style class
+          transaction_item[i].className += " grid-container2";
+          transactionID[i].className += " header-item";
+          requestTitle[i].className += " header-item";
+          requestStatus[i].className += " header-item";
+  
+          //add style class
+          transactionDates[i].className += " footer-item";
+          sendMessageDiv[i].className += " footer-item";
+          actionsDiv[i].className += " footer-item";
+
+          //add style id
+          transactionID[i].setAttribute("id","requestID");
+          requestTitle[i].setAttribute("id","requestTitle");
+          requestStatus[i].setAttribute("id","requestStatus");
+
+          responderImageDiv[i].setAttribute("id","imgContainer")
+          responderNameDiv[i].setAttribute("id","responderName");
+          responderEmailDiv[i].setAttribute("id","responderEmail");
+
+          item3[i].setAttribute("id","requestDescription")
+          item4[i].setAttribute("id","requestPrice")
+
+          transactionDates[i].setAttribute("id","requestDate");
+          sendMessageDiv[i].setAttribute("id","sendMessageButton");
+          actionsDiv[i].setAttribute("id","actionButton");
+        
+
+        if(dataArray[i]['transactionStatus'] === "cancelled"){
+            requestStatus[i].style.color = "red";
+
+        }else if(dataArray[i]['transactionStatus'] === "completed"){
+            requestStatus[i].style.color = "green";
+
+        }else if(dataArray[i]['transactionStatus'] === "delivered"){
+            requestStatus[i].style.color = "blue";
+            
+        }
+
+        
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
+
+
 
         var cancelButton = document.createElement('button');
-        cancelButton.setAttribute('class','cancelButton');
+        cancelButton.setAttribute('class','Button red');
         cancelButton.setAttribute('onclick','cancelPasabuyTransaction(' + dataArray[i]['pasabuyTransactionID']+")")
         cancelButton.innerText = "Cancel";
 
         var AcceptButton = document.createElement('button');
-        AcceptButton.setAttribute('class','AcceptButton');
+        AcceptButton.setAttribute('class','Button');
         AcceptButton.innerText = "Accept";
         AcceptButton.setAttribute('onclick',"acceptPasabuyOrder(" +dataArray[i]['pasabuyTransactionID'] + ")" );
     
 
 
-        transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
-        productImageTD[i].appendChild(image);
-        productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
-        responderImageTD[i].appendChild(userImage);
-        //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
-
-
-        var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
-        totalPrice[i].innerHTML = "Php " + total;
-
-        transactionStatus[i].innerText = dataArray[i]['orderStatus'];
-
-        ActionsTd[i].appendChild(AcceptButton);
-        ActionsTd[i].appendChild(cancelButton);
+        actionsDiv[i].appendChild(AcceptButton);
+        actionsDiv[i].appendChild(cancelButton);
         
+
+
+
 
 
     }
@@ -594,63 +696,145 @@ function setPasabuyAcceptedItem(array){
     var dataArray = array;
     var number = dataArray.length;
 
-    tr = document.getElementsByClassName('pasabuyTransactionRow');
-    transactionID= document.getElementsByClassName('transactionID');
-    productImageTD= document.getElementsByClassName('productImageTD');
-    productInfo= document.getElementsByClassName('productInfo');
-    serviceInfo= document.getElementsByClassName('serviceInfo');
-    responderImageTD = document.getElementsByClassName('responderImageTD');
-    totalPrice= document.getElementsByClassName('totalPrice');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    ActionsTd= document.getElementsByClassName('ActionsTd');
+    transaction_item = document.getElementsByClassName('transaction-item');
+    transactionID= document.getElementsByClassName('requestID');
+    requestTitle = document.getElementsByClassName('requestTitle');
+    requestStatus= document.getElementsByClassName('requestStatus');
+ 
+    responderImageDiv= document.getElementsByClassName('responderImageDiv');
+    responderNameDiv= document.getElementsByClassName('responderNameDiv');
+    responderEmailDiv= document.getElementsByClassName('responderEmailDiv');
+ 
+    Description= document.getElementsByClassName('Description');
+
+    Price= document.getElementsByClassName('servicePrice');
+    Contract= document.getElementsByClassName('serviceContract');
+  
+    productImageDiv = document.getElementsByClassName('productImageDiv');
+    transactionDates = document.getElementsByClassName('transactionDates');
+    datePosted= document.getElementsByClassName('datePosted');
+
+    dateAccomplished= document.getElementsByClassName('dateAccomplished');
+
+    sendMessageDiv= document.getElementsByClassName('sendMessageDiv');
+
+    sendMessageDiv = document.getElementsByClassName('sendMessageDiv');
+    actionsDiv= document.getElementsByClassName('actionsDiv');
+
+    item2 = document.getElementsByClassName('item2');
+    item3 = document.getElementsByClassName('item3');
+    item4 = document.getElementsByClassName('item4');
 
     for(var i=0;i<number;i++){
 
-        //tr[i]
         var image = new Image();
-        image.src = dataArray[i]['productImage'];
-        image.setAttribute('class','productImageTransactions');
+        image.src = dataArray[i]['requestorPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        // set data
+        transactionID[i].innerText = dataArray[i]['pasabuyTransactionID'];
+        requestTitle[i].innerHTML = "<b>" + dataArray[i]['productBrand'] + "</b> :" + dataArray[i]['productName'];
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
 
 
-        var userImage = new Image();
-        userImage.src = dataArray[i]['requestorPhoto'];
-        userImage.setAttribute('class','responderImagePic');
+        //set data
+        responderImageDiv[i].appendChild(image);
+        responderNameDiv[i].innerHTML = dataArray[i]['RequestorName'];
+        responderEmailDiv[i].innerHTML = dataArray[i]['RequestorEmail'];
+
+
+    
+        item2[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID=" +dataArray[i]['requestorID'] + "&userType=Requestor')");
+       
+        // set data
+        var itemImage = new Image();
+        itemImage.src = dataArray[i]['productImage'];
+        itemImage.setAttribute('class','productImageTransactions');
+
+        productImageDiv[i].appendChild(itemImage);
+
+        Description[i].innerHTML =  dataArray[i]['productBrand'] + " : " + dataArray[i]['productName'] + "<br/>" + dataArray[i]['productDescription'];
+        
+
+        var total = (parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
+       
+
+
+        // set data
+        Price[i].innerHTML = "<span style='font-size:small; text-align:left;'> x "+ dataArray[i]['quantity']+ " <br/> Price: Php " +dataArray[i]['price'] +" <br/> " +"Delivery Fee: Php" + dataArray[i]['deliveryRate'] +" </span>  <span style='font-size:medium;'> <br/>  Total Price: Php " + total + "</span>" ;
+        Contract[i].innerHTML = "";
+     
+        
+        // datePosted[i].innerHTML = dataArray[i]['transactionStartDate'] +" <br/>TimeSlot: " + dataArray[i]['timeSlot'];
+        datePosted[i].innerText = "Date Availed: " + dataArray[i]['orderDate'];
+        dateAccomplished[i].innerText = "Due date: "+dataArray[i]['dueDate'];
+
+
+        
+          //add style class
+          transaction_item[i].className += " grid-container2";
+          transactionID[i].className += " header-item";
+          requestTitle[i].className += " header-item";
+          requestStatus[i].className += " header-item";
+  
+          //add style class
+          transactionDates[i].className += " footer-item";
+          sendMessageDiv[i].className += " footer-item";
+          actionsDiv[i].className += " footer-item";
+
+          //add style id
+          transactionID[i].setAttribute("id","requestID");
+          requestTitle[i].setAttribute("id","requestTitle");
+          requestStatus[i].setAttribute("id","requestStatus");
+
+          responderImageDiv[i].setAttribute("id","imgContainer")
+          responderNameDiv[i].setAttribute("id","responderName");
+          responderEmailDiv[i].setAttribute("id","responderEmail");
+
+          item3[i].setAttribute("id","requestDescription")
+          item4[i].setAttribute("id","requestPrice")
+
+          transactionDates[i].setAttribute("id","requestDate");
+          sendMessageDiv[i].setAttribute("id","sendMessageButton");
+          actionsDiv[i].setAttribute("id","actionButton");
+        
+
+        if(dataArray[i]['transactionStatus'] === "cancelled"){
+            requestStatus[i].style.color = "red";
+
+        }else if(dataArray[i]['transactionStatus'] === "completed"){
+            requestStatus[i].style.color = "green";
+
+        }else if(dataArray[i]['transactionStatus'] === "delivered"){
+            requestStatus[i].style.color = "blue";
+            
+        }
+
+        
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
+
+
 
         var cancelButton = document.createElement('button');
-        cancelButton.setAttribute('class','cancelButton');
+        cancelButton.setAttribute('class','Button red');
         cancelButton.setAttribute('onclick','cancelPasabuyTransaction(' + dataArray[i]['pasabuyTransactionID']+")")
         cancelButton.innerText = "Cancel";
 
 
         var deliverButton = document.createElement('button');
-        deliverButton.setAttribute('class','DeliverButton');
+        deliverButton.setAttribute('class','Button');
         deliverButton.innerText = "Deliver";
         deliverButton.setAttribute('onclick',"deliverPasabuyOrder(" +dataArray[i]['pasabuyTransactionID'] + ")" );
         
-
-
-        transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
-        productImageTD[i].appendChild(image);
-        productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
-        responderImageTD[i].appendChild(userImage);
-        //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
-
-        var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
-        totalPrice[i].innerHTML = "Php " + total;
-
-        transactionStatus[i].innerText = dataArray[i]['orderStatus'];
-        //ActionsTd[i].appendChild(cancelButton);
+        // check if report to the service exists and generate button for reporting
+        actionsDiv[i].appendChild(deliverButton);
 
         myID = sessionStorage.getItem("userID");
         reportedID = dataArray[i]["responderID"];
         serviceIDParam = dataArray[i]["serviceID"];
         requestID = null;
         transactionType = "service";
- 
-        // check if report to the service exists and generate button for reporting
-        ActionsTd[i].appendChild(deliverButton);
+
         checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
 
     }
@@ -661,45 +845,126 @@ function setPasabuyDeliveredItem(array){
     var dataArray = array;
     var number = dataArray.length;
 
-    tr = document.getElementsByClassName('pasabuyTransactionRow');
-    transactionID= document.getElementsByClassName('transactionID');
-    productImageTD= document.getElementsByClassName('productImageTD');
-    productInfo= document.getElementsByClassName('productInfo');
-    serviceInfo= document.getElementsByClassName('serviceInfo');
-    responderImageTD = document.getElementsByClassName('responderImageTD');
-    totalPrice= document.getElementsByClassName('totalPrice');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    ActionsTd= document.getElementsByClassName('ActionsTd');
+        
+    transaction_item = document.getElementsByClassName('transaction-item');
+    transactionID= document.getElementsByClassName('requestID');
+    requestTitle = document.getElementsByClassName('requestTitle');
+    requestStatus= document.getElementsByClassName('requestStatus');
+ 
+    responderImageDiv= document.getElementsByClassName('responderImageDiv');
+    responderNameDiv= document.getElementsByClassName('responderNameDiv');
+    responderEmailDiv= document.getElementsByClassName('responderEmailDiv');
+ 
+    Description= document.getElementsByClassName('Description');
+
+    Price= document.getElementsByClassName('servicePrice');
+    Contract= document.getElementsByClassName('serviceContract');
+  
+    productImageDiv = document.getElementsByClassName('productImageDiv');
+
+    transactionDates = document.getElementsByClassName('transactionDates');
+    datePosted= document.getElementsByClassName('datePosted');
+
+    dateAccomplished= document.getElementsByClassName('dateAccomplished');
+
+    sendMessageDiv= document.getElementsByClassName('sendMessageDiv');
+
+    sendMessageDiv = document.getElementsByClassName('sendMessageDiv');
+    actionsDiv= document.getElementsByClassName('actionsDiv');
+
+    item2 = document.getElementsByClassName('item2');
+    item3 = document.getElementsByClassName('item3');
+    item4 = document.getElementsByClassName('item4');
+
 
     for(var i=0;i<number;i++){
 
-        //tr[i]
         var image = new Image();
-        image.src = dataArray[i]['productImage'];
-        image.setAttribute('class','productImageTransactions');
+        image.src = dataArray[i]['requestorPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        // set data
+        transactionID[i].innerText = dataArray[i]['pasabuyTransactionID'];
+        requestTitle[i].innerHTML = "<b>" + dataArray[i]['productBrand'] + "</b> :" + dataArray[i]['productName'];
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
 
 
-        var userImage = new Image();
-        userImage.src = dataArray[i]['requestorPhoto'];
-        userImage.setAttribute('class','responderImagePic');
+        //set data
+        responderImageDiv[i].appendChild(image);
+        responderNameDiv[i].innerHTML = dataArray[i]['RequestorName'];
+        responderEmailDiv[i].innerHTML = dataArray[i]['RequestorEmail'];
 
+
+    
+        item2[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID=" +dataArray[i]['requestorID'] + "&userType=Requestor')");
+       
+        // set data
+        var itemImage = new Image();
+        itemImage.src = dataArray[i]['productImage'];
+        itemImage.setAttribute('class','productImageTransactions');
+
+        productImageDiv[i].appendChild(itemImage);
+
+        Description[i].innerHTML =  dataArray[i]['productBrand'] + " : " + dataArray[i]['productName'] + "<br/>" + dataArray[i]['productDescription'];
         
 
+        var total = (parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
+       
 
 
-        transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
-        productImageTD[i].appendChild(image);
-        productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
-        responderImageTD[i].appendChild(userImage);
-        //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
+        // set data
+        Price[i].innerHTML = "<span style='font-size:small; text-align:left;'> x "+ dataArray[i]['quantity']+ " <br/> Price: Php " +dataArray[i]['price'] +" <br/> " +"Delivery Fee: Php" + dataArray[i]['deliveryRate'] +" </span>  <span style='font-size:medium;'> <br/>  Total Price: Php " + total + "</span>" ;
+        Contract[i].innerHTML = "";
+     
+        
+        // datePosted[i].innerHTML = dataArray[i]['transactionStartDate'] +" <br/>TimeSlot: " + dataArray[i]['timeSlot'];
+        datePosted[i].innerText = "Date Availed: " + dataArray[i]['orderDate'];
+        dateAccomplished[i].innerText = "Due date: "+dataArray[i]['dueDate'];
 
-        var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
-        totalPrice[i].innerHTML = "Php " + total;
 
-        transactionStatus[i].innerText = dataArray[i]['orderStatus'];
-        //ActionsTd[i].appendChild(SavePaymentButton);
+        
+          //add style class
+          transaction_item[i].className += " grid-container2";
+          transactionID[i].className += " header-item";
+          requestTitle[i].className += " header-item";
+          requestStatus[i].className += " header-item";
+  
+          //add style class
+          transactionDates[i].className += " footer-item";
+          sendMessageDiv[i].className += " footer-item";
+          actionsDiv[i].className += " footer-item";
+
+          //add style id
+          transactionID[i].setAttribute("id","requestID");
+          requestTitle[i].setAttribute("id","requestTitle");
+          requestStatus[i].setAttribute("id","requestStatus");
+
+          responderImageDiv[i].setAttribute("id","imgContainer")
+          responderNameDiv[i].setAttribute("id","responderName");
+          responderEmailDiv[i].setAttribute("id","responderEmail");
+
+          item3[i].setAttribute("id","requestDescription")
+          item4[i].setAttribute("id","requestPrice")
+
+          transactionDates[i].setAttribute("id","requestDate");
+          sendMessageDiv[i].setAttribute("id","sendMessageButton");
+          actionsDiv[i].setAttribute("id","actionButton");
+        
+
+        if(dataArray[i]['transactionStatus'] === "cancelled"){
+            requestStatus[i].style.color = "red";
+
+        }else if(dataArray[i]['transactionStatus'] === "completed"){
+            requestStatus[i].style.color = "green";
+
+        }else if(dataArray[i]['transactionStatus'] === "delivered"){
+            requestStatus[i].style.color = "blue";
+            
+        }
+
+        
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
+
 
         myID = sessionStorage.getItem("userID");
         reportedID = dataArray[i]["responderID"];
@@ -721,49 +986,133 @@ function setPasabuyPaidItem(array){
     var dataArray = array;
     var number = dataArray.length;
 
-    tr = document.getElementsByClassName('pasabuyTransactionRow');
-    transactionID= document.getElementsByClassName('transactionID');
-    productImageTD= document.getElementsByClassName('productImageTD');
-    productInfo= document.getElementsByClassName('productInfo');
-    serviceInfo= document.getElementsByClassName('serviceInfo');
-    responderImageTD = document.getElementsByClassName('responderImageTD');
-    totalPrice= document.getElementsByClassName('totalPrice');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    ActionsTd= document.getElementsByClassName('ActionsTd');
+    
+
+    transaction_item = document.getElementsByClassName('transaction-item');
+    transactionID= document.getElementsByClassName('requestID');
+    requestTitle = document.getElementsByClassName('requestTitle');
+    requestStatus= document.getElementsByClassName('requestStatus');
+ 
+    responderImageDiv= document.getElementsByClassName('responderImageDiv');
+    responderNameDiv= document.getElementsByClassName('responderNameDiv');
+    responderEmailDiv= document.getElementsByClassName('responderEmailDiv');
+ 
+    Description= document.getElementsByClassName('Description');
+
+    Price= document.getElementsByClassName('servicePrice');
+    Contract= document.getElementsByClassName('serviceContract');
+  
+    transactionDates = document.getElementsByClassName('transactionDates');
+    datePosted= document.getElementsByClassName('datePosted');
+
+    dateAccomplished= document.getElementsByClassName('dateAccomplished');
+
+    productImageDiv = document.getElementsByClassName('productImageDiv');
+
+    sendMessageDiv= document.getElementsByClassName('sendMessageDiv');
+
+    sendMessageDiv = document.getElementsByClassName('sendMessageDiv');
+    actionsDiv= document.getElementsByClassName('actionsDiv');
+
+    item2 = document.getElementsByClassName('item2');
+    item3 = document.getElementsByClassName('item3');
+    item4 = document.getElementsByClassName('item4');
+
 
     for(var i=0;i<number;i++){
 
-        //tr[i]
+
         var image = new Image();
-        image.src = dataArray[i]['productImage'];
-        image.setAttribute('class','productImageTransactions');
+        image.src = dataArray[i]['requestorPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        // set data
+        transactionID[i].innerText = dataArray[i]['pasabuyTransactionID'];
+        requestTitle[i].innerHTML = "<b>" + dataArray[i]['productBrand'] + "</b> :" + dataArray[i]['productName'];
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
 
 
-        var userImage = new Image();
-        userImage.src = dataArray[i]['requestorPhoto'];
-        userImage.setAttribute('class','responderImagePic');
-
-        var SavePaymentButton = document.createElement('button');
-        SavePaymentButton .setAttribute('class','SavePaymentButton');
-        SavePaymentButton .setAttribute('onclick','confirmPasabuyPayment(' + dataArray[i]['pasabuyTransactionID']+")")
-        SavePaymentButton .innerText = "Confirm Payment";
+        //set data
+        responderImageDiv[i].appendChild(image);
+        responderNameDiv[i].innerHTML = dataArray[i]['RequestorName'];
+        responderEmailDiv[i].innerHTML = dataArray[i]['RequestorEmail'];
 
 
+    
+        item2[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID=" +dataArray[i]['requestorID'] + "&userType=Requestor')");
+       
+        // set data
+        var itemImage = new Image();
+        itemImage.src = dataArray[i]['productImage'];
+        itemImage.setAttribute('class','productImageTransactions');
 
-        transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
-        productImageTD[i].appendChild(image);
-        productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
-        responderImageTD[i].appendChild(userImage);
-        //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
+        productImageDiv[i].appendChild(itemImage);
 
-        var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
-        totalPrice[i].innerHTML = "Php " + total;
+        Description[i].innerHTML =  dataArray[i]['productBrand'] + " : " + dataArray[i]['productName'] + "<br/>" + dataArray[i]['productDescription'];
+        
 
-        transactionStatus[i].innerText = dataArray[i]['orderStatus'];
-        ActionsTd[i].appendChild(SavePaymentButton);
+        var total = (parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
+       
 
+
+        // set data
+        Price[i].innerHTML = "<span style='font-size:small; text-align:left;'> x "+ dataArray[i]['quantity']+ " <br/> Price: Php " +dataArray[i]['price'] +" <br/> " +"Delivery Fee: Php" + dataArray[i]['deliveryRate'] +" </span>  <span style='font-size:medium;'> <br/>  Total Price: Php " + total + "</span>" ;
+        Contract[i].innerHTML = "";
+     
+        
+        // datePosted[i].innerHTML = dataArray[i]['transactionStartDate'] +" <br/>TimeSlot: " + dataArray[i]['timeSlot'];
+        datePosted[i].innerText = "Date Availed: " + dataArray[i]['orderDate'];
+        dateAccomplished[i].innerText = "Due date: "+dataArray[i]['dueDate'];
+
+
+        
+          //add style class
+          transaction_item[i].className += " grid-container2";
+          transactionID[i].className += " header-item";
+          requestTitle[i].className += " header-item";
+          requestStatus[i].className += " header-item";
+  
+          //add style class
+          transactionDates[i].className += " footer-item";
+          sendMessageDiv[i].className += " footer-item";
+          actionsDiv[i].className += " footer-item";
+
+          //add style id
+          transactionID[i].setAttribute("id","requestID");
+          requestTitle[i].setAttribute("id","requestTitle");
+          requestStatus[i].setAttribute("id","requestStatus");
+
+          responderImageDiv[i].setAttribute("id","imgContainer")
+          responderNameDiv[i].setAttribute("id","responderName");
+          responderEmailDiv[i].setAttribute("id","responderEmail");
+
+          item3[i].setAttribute("id","requestDescription")
+          item4[i].setAttribute("id","requestPrice")
+
+          transactionDates[i].setAttribute("id","requestDate");
+          sendMessageDiv[i].setAttribute("id","sendMessageButton");
+          actionsDiv[i].setAttribute("id","actionButton");
+        
+
+        if(dataArray[i]['transactionStatus'] === "cancelled"){
+            requestStatus[i].style.color = "red";
+
+        }else if(dataArray[i]['transactionStatus'] === "completed"){
+            requestStatus[i].style.color = "green";
+
+        }else if(dataArray[i]['transactionStatus'] === "delivered"){
+            requestStatus[i].style.color = "blue";
+            
+        }
+
+        
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
+
+        var button = document.createElement('button');
+        button.setAttribute('class','Button');
+        button.innerText = "View Payment File";
+        button.setAttribute('onclick',"showPhoto('" +dataArray[i]['paymentFile'] + "')");
+        actionsDiv[i].appendChild(button);
 
 
         myID = sessionStorage.getItem("userID");
@@ -784,48 +1133,132 @@ function setPasabuyFinishedItem(array){
     var dataArray = array;
     var number = dataArray.length;
 
-    tr = document.getElementsByClassName('pasabuyTransactionRow');
-    transactionID= document.getElementsByClassName('transactionID');
-    productImageTD= document.getElementsByClassName('productImageTD');
-    productInfo= document.getElementsByClassName('productInfo');
-    serviceInfo= document.getElementsByClassName('serviceInfo');
-    responderImageTD = document.getElementsByClassName('responderImageTD');
-    totalPrice= document.getElementsByClassName('totalPrice');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    ActionsTd= document.getElementsByClassName('ActionsTd');
+
+    transaction_item = document.getElementsByClassName('transaction-item');
+    transactionID= document.getElementsByClassName('requestID');
+    requestTitle = document.getElementsByClassName('requestTitle');
+    requestStatus= document.getElementsByClassName('requestStatus');
+ 
+    responderImageDiv= document.getElementsByClassName('responderImageDiv');
+    responderNameDiv= document.getElementsByClassName('responderNameDiv');
+    responderEmailDiv= document.getElementsByClassName('responderEmailDiv');
+ 
+    Description= document.getElementsByClassName('Description');
+
+    Price= document.getElementsByClassName('servicePrice');
+    Contract= document.getElementsByClassName('serviceContract');
+  
+    transactionDates = document.getElementsByClassName('transactionDates');
+    datePosted= document.getElementsByClassName('datePosted');
+    productImageDiv = document.getElementsByClassName('productImageDiv');
+
+    dateAccomplished= document.getElementsByClassName('dateAccomplished');
+
+    sendMessageDiv= document.getElementsByClassName('sendMessageDiv');
+
+    sendMessageDiv = document.getElementsByClassName('sendMessageDiv');
+    actionsDiv= document.getElementsByClassName('actionsDiv');
+
+    item2 = document.getElementsByClassName('item2');
+    item3 = document.getElementsByClassName('item3');
+    item4 = document.getElementsByClassName('item4');
+
 
     for(var i=0;i<number;i++){
 
-        
+
         var image = new Image();
-        image.src = dataArray[i]['productImage'];
-        image.setAttribute('class','productImageTransactions');
+        image.src = dataArray[i]['requestorPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        // set data
+        transactionID[i].innerText = dataArray[i]['pasabuyTransactionID'];
+        requestTitle[i].innerHTML = "<b>" + dataArray[i]['productBrand'] + "</b> :" + dataArray[i]['productName'];
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
 
 
-        var userImage = new Image();
-        userImage.src = dataArray[i]['requestorPhoto'];
-        userImage.setAttribute('class','responderImagePic');
-
-        var SavePaymentButton = document.createElement('button');
-        SavePaymentButton .setAttribute('class','SavePaymentButton');
-        SavePaymentButton .setAttribute('onclick','savePayment(' + dataArray[i]['pasabuyTransactionID']+")")
-        SavePaymentButton .innerText = "Save Payment";
+        //set data
+        responderImageDiv[i].appendChild(image);
+        responderNameDiv[i].innerHTML = dataArray[i]['RequestorName'];
+        responderEmailDiv[i].innerHTML = dataArray[i]['RequestorEmail'];
 
 
-
-        transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
-        productImageTD[i].appendChild(image);
-        productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
-        responderImageTD[i].appendChild(userImage);
-     
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
-
-        var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
-        totalPrice[i].innerHTML = "Php " + total;
-
-        transactionStatus[i].innerText = dataArray[i]['orderStatus'];
+    
+        item2[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID=" +dataArray[i]['requestorID'] + "&userType=Requestor')");
        
+        // set data
+        var itemImage = new Image();
+        itemImage.src = dataArray[i]['productImage'];
+        itemImage.setAttribute('class','productImageTransactions');
+
+        productImageDiv[i].appendChild(itemImage);
+
+        Description[i].innerHTML =  dataArray[i]['productBrand'] + " : " + dataArray[i]['productName'] + "<br/>" + dataArray[i]['productDescription'];
+        
+
+        var total = (parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
+       
+
+
+        // set data
+        Price[i].innerHTML = "<span style='font-size:small; text-align:left;'> x "+ dataArray[i]['quantity']+ " <br/> Price: Php " +dataArray[i]['price'] +" <br/> " +"Delivery Fee: Php" + dataArray[i]['deliveryRate'] +" </span>  <span style='font-size:medium;'> <br/>  Total Price: Php " + total + "</span>" ;
+        Contract[i].innerHTML = "";
+     
+        
+        // datePosted[i].innerHTML = dataArray[i]['transactionStartDate'] +" <br/>TimeSlot: " + dataArray[i]['timeSlot'];
+        datePosted[i].innerText = "Date Availed: " + dataArray[i]['orderDate'];
+        dateAccomplished[i].innerText = "Due date: "+dataArray[i]['dueDate'];
+
+
+        
+          //add style class
+          transaction_item[i].className += " grid-container2";
+          transactionID[i].className += " header-item";
+          requestTitle[i].className += " header-item";
+          requestStatus[i].className += " header-item";
+  
+          //add style class
+          transactionDates[i].className += " footer-item";
+          sendMessageDiv[i].className += " footer-item";
+          actionsDiv[i].className += " footer-item";
+
+          //add style id
+          transactionID[i].setAttribute("id","requestID");
+          requestTitle[i].setAttribute("id","requestTitle");
+          requestStatus[i].setAttribute("id","requestStatus");
+
+          responderImageDiv[i].setAttribute("id","imgContainer")
+          responderNameDiv[i].setAttribute("id","responderName");
+          responderEmailDiv[i].setAttribute("id","responderEmail");
+
+          item3[i].setAttribute("id","requestDescription")
+          item4[i].setAttribute("id","requestPrice")
+
+          transactionDates[i].setAttribute("id","requestDate");
+          sendMessageDiv[i].setAttribute("id","sendMessageButton");
+          actionsDiv[i].setAttribute("id","actionButton");
+        
+
+        if(dataArray[i]['transactionStatus'] === "cancelled"){
+            requestStatus[i].style.color = "red";
+
+        }else if(dataArray[i]['transactionStatus'] === "completed"){
+            requestStatus[i].style.color = "green";
+
+        }else if(dataArray[i]['transactionStatus'] === "delivered"){
+            requestStatus[i].style.color = "blue";
+            
+        }
+
+        
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
+
+        var button = document.createElement('button');
+        button.setAttribute('class','Button');
+        button.innerText = "View Payment File";
+        button.setAttribute('onclick',"showPhoto('" +dataArray[i]['paymentFile'] + "')");
+        actionsDiv[i].appendChild(button);
+
 
         myID = sessionStorage.getItem("userID");
         reportedID = dataArray[i]["responderID"];
@@ -835,7 +1268,7 @@ function setPasabuyFinishedItem(array){
  
         // check if report to the service exists and generate button for reporting
         checkReports(myID,reportedID,serviceIDParam,requestID,transactionType,i,dataArray);
-      
+       
     }
 
 }
@@ -844,49 +1277,124 @@ function setPasabuyCancelledItem(array){
     var dataArray = array;
     var number = dataArray.length;
 
-    tr = document.getElementsByClassName('pasabuyTransactionRow');
-    transactionID= document.getElementsByClassName('transactionID');
-    productImageTD= document.getElementsByClassName('productImageTD');
-    productInfo= document.getElementsByClassName('productInfo');
-    serviceInfo= document.getElementsByClassName('serviceInfo');
-    responderImageTD = document.getElementsByClassName('responderImageTD');
-    totalPrice= document.getElementsByClassName('totalPrice');
-    transactionStatus= document.getElementsByClassName('transactionStatus');
-    ActionsTd= document.getElementsByClassName('ActionsTd');
+    
+    transaction_item = document.getElementsByClassName('transaction-item');
+    transactionID= document.getElementsByClassName('requestID');
+    requestTitle = document.getElementsByClassName('requestTitle');
+    requestStatus= document.getElementsByClassName('requestStatus');
+ 
+    responderImageDiv= document.getElementsByClassName('responderImageDiv');
+    responderNameDiv= document.getElementsByClassName('responderNameDiv');
+    responderEmailDiv= document.getElementsByClassName('responderEmailDiv');
+ 
+    Description= document.getElementsByClassName('Description');
+
+    Price= document.getElementsByClassName('servicePrice');
+    Contract= document.getElementsByClassName('serviceContract');
+  
+    productImageDiv = document.getElementsByClassName('productImageDiv');
+
+    transactionDates = document.getElementsByClassName('transactionDates');
+    datePosted= document.getElementsByClassName('datePosted');
+
+    dateAccomplished= document.getElementsByClassName('dateAccomplished');
+
+    sendMessageDiv= document.getElementsByClassName('sendMessageDiv');
+
+    sendMessageDiv = document.getElementsByClassName('sendMessageDiv');
+    actionsDiv= document.getElementsByClassName('actionsDiv');
+
+    item2 = document.getElementsByClassName('item2');
+    item3 = document.getElementsByClassName('item3');
+    item4 = document.getElementsByClassName('item4');
 
     for(var i=0;i<number;i++){
 
-        //tr[i]
         var image = new Image();
-        image.src = dataArray[i]['productImage'];
-        image.setAttribute('class','productImageTransactions');
+        image.src = dataArray[i]['requestorPhoto'];
+        image.setAttribute('class','responderProfileTransaction');
+
+        // set data
+        transactionID[i].innerText = dataArray[i]['pasabuyTransactionID'];
+        requestTitle[i].innerHTML = "<b>" + dataArray[i]['productBrand'] + "</b> :" + dataArray[i]['productName'];
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
 
 
-        var userImage = new Image();
-        userImage.src = dataArray[i]['requestorPhoto'];
-        userImage.setAttribute('class','responderImagePic');
-
-        var SavePaymentButton = document.createElement('button');
-        SavePaymentButton .setAttribute('class','SavePaymentButton');
-        SavePaymentButton .setAttribute('onclick','savePayment(' + dataArray[i]['pasabuyTransactionID']+")")
-        SavePaymentButton .innerText = "Save Payment";
+        //set data
+        responderImageDiv[i].appendChild(image);
+        responderNameDiv[i].innerHTML = dataArray[i]['RequestorName'];
+        responderEmailDiv[i].innerHTML = dataArray[i]['RequestorEmail'];
 
 
+    
+        item2[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID=" +dataArray[i]['requestorID'] + "&userType=Requestor')");
+       
+        // set data
+        var itemImage = new Image();
+        itemImage.src = dataArray[i]['productImage'];
+        itemImage.setAttribute('class','productImageTransactions');
 
-        transactionID[i].innerHTML = dataArray[i]['pasabuyTransactionID'];
-        productImageTD[i].appendChild(image);
-        productInfo[i].innerHTML = dataArray[i]['productBrand']+": "+dataArray[i]['productName']+" <br/> -"+ dataArray[i]['productDescription']+"<br/> Price: Php " + dataArray[i]['price'] +"<br/> Qty: " + dataArray[i]['quantity'];
-        serviceInfo[i].innerHTML = "Delivery Price: Php " + dataArray[i]['deliveryRate'] + ""
-        responderImageTD[i].appendChild(userImage);
-        //responderInfo[i].innerHTML = dataArray[i]['ResponderName'] + "<br/>" + dataArray[i]['ResponderEmail'];
-        responderImageTD[i].innerHTML = responderImageTD[i].innerHTML +"<br/> <br/>"+ dataArray[i]['RequestorName'] + "<br/>" + dataArray[i]['RequestorEmail'];
+        productImageDiv[i].appendChild(itemImage);
 
-        var total =(parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
-        totalPrice[i].innerHTML = "Php " + total;
+        Description[i].innerHTML =  dataArray[i]['productBrand'] + " : " + dataArray[i]['productName'] + "<br/>" + dataArray[i]['productDescription'];
+        
 
-        transactionStatus[i].innerText = dataArray[i]['orderStatus'];
-        //ActionsTd[i].appendChild(cancelButton);
+        var total = (parseFloat(dataArray[i]['price']) * parseFloat(dataArray[i]['quantity'])) + parseFloat(dataArray[i]['deliveryRate'])
+       
 
+
+        // set data
+        Price[i].innerHTML = "<span style='font-size:small; text-align:left;'> x "+ dataArray[i]['quantity']+ " <br/> Price: Php " +dataArray[i]['price'] +" <br/> " +"Delivery Fee: Php" + dataArray[i]['deliveryRate'] +" </span>  <span style='font-size:medium;'> <br/>  Total Price: Php " + total + "</span>" ;
+        Contract[i].innerHTML = "";
+     
+        
+        // datePosted[i].innerHTML = dataArray[i]['transactionStartDate'] +" <br/>TimeSlot: " + dataArray[i]['timeSlot'];
+        datePosted[i].innerText = "Date Availed: " + dataArray[i]['orderDate'];
+        dateAccomplished[i].innerText = "Due date: "+dataArray[i]['dueDate'];
+
+
+        
+          //add style class
+          transaction_item[i].className += " grid-container2";
+          transactionID[i].className += " header-item";
+          requestTitle[i].className += " header-item";
+          requestStatus[i].className += " header-item";
+  
+          //add style class
+          transactionDates[i].className += " footer-item";
+          sendMessageDiv[i].className += " footer-item";
+          actionsDiv[i].className += " footer-item";
+
+          //add style id
+          transactionID[i].setAttribute("id","requestID");
+          requestTitle[i].setAttribute("id","requestTitle");
+          requestStatus[i].setAttribute("id","requestStatus");
+
+          responderImageDiv[i].setAttribute("id","imgContainer")
+          responderNameDiv[i].setAttribute("id","responderName");
+          responderEmailDiv[i].setAttribute("id","responderEmail");
+
+          item3[i].setAttribute("id","requestDescription")
+          item4[i].setAttribute("id","requestPrice")
+
+          transactionDates[i].setAttribute("id","requestDate");
+          sendMessageDiv[i].setAttribute("id","sendMessageButton");
+          actionsDiv[i].setAttribute("id","actionButton");
+        
+
+        if(dataArray[i]['transactionStatus'] === "cancelled"){
+            requestStatus[i].style.color = "red";
+
+        }else if(dataArray[i]['transactionStatus'] === "completed"){
+            requestStatus[i].style.color = "green";
+
+        }else if(dataArray[i]['transactionStatus'] === "delivered"){
+            requestStatus[i].style.color = "blue";
+            
+        }
+
+        
+        requestStatus[i].innerText = dataArray[i]['orderStatus'];
                
        myID = sessionStorage.getItem("userID");
        reportedID = dataArray[i]["responderID"];
@@ -912,7 +1420,7 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
     var transactionType =transactionType;
     var dataArray = dataArray;
 
-    var controlsTd= document.getElementsByClassName('ActionsTd');
+    var controlsTd= document.getElementsByClassName('actionsDiv');
 
 
     
@@ -932,7 +1440,7 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
                  if(result  === "true"){
 
                     var button1 = document.createElement('button');
-                    button1.setAttribute('class','CancelButton');
+                    button1.setAttribute('class','Button red');
                     button1.innerText = "Reported";
                     button1.disabled = true;
                     button1.style.backgroundColor = "gray";
@@ -943,7 +1451,7 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
                 } else{
         
                     var button1 = document.createElement('button');
-                    button1.setAttribute('class','CancelButton');
+                    button1.setAttribute('class','Button red');
                     button1.innerText = "Report";
                     button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["serviceID"]+",'service','responder')");
                     controlsTd[rowNum].appendChild(button1);
@@ -1121,3 +1629,42 @@ function confirmPasabuyPayment(transactionID){
     //getRequestApplications(myID);
     
 }// end of function
+
+
+
+
+function closePhotoViewer(){
+    var PhotoViewerBackground = document.getElementById('PhotoViewerBackground');
+    PhotoViewerBackground.style.display = "none";
+
+}
+
+function showPhoto(dataurl){
+    var dataurl = dataurl;
+    var photoViewerImage = document.getElementById("photoViewerImage");
+    var PhotoViewerBackground = document.getElementById('PhotoViewerBackground');
+
+    photoViewerImage.src = dataurl;
+    PhotoViewerBackground.style.display = "grid";
+}
+
+
+function closeTextViewer(){
+    var TextViewerBackground = document.getElementById('TextViewerBackground');
+    TextViewerBackground.style.display = "none";
+
+}
+
+function setTextViewer(text){
+    var text = text;
+    var textContainer = document.getElementById("textContainer");
+    var TextViewerBackground = document.getElementById('TextViewerBackground');
+
+    textContainer.innerText= text;
+    TextViewerBackground.style.display = "grid";
+}
+
+function redirect(url){
+    var url = url;
+    window.location.replace(url);
+}

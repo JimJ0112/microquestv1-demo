@@ -38,6 +38,6 @@ $contract = base64_decode($contract);
 $result = $DBHandler->registerServiceTransaction($formServiceID,$responderID,$requestorID,$servicePrice,$dueDate,$responderTimeSlots,$additionalNotes,$transactionStartDate,$contract);
 echo $result;
 
-header("location:../Requestor_Transactions.php");
+header("location:../Requestor_ServiceTransactions.php");
 
 

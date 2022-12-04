@@ -25,17 +25,13 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Requestor_RequestBoard.css">
 
-</head>
-<body id="Requestor_RequestBoardBackground" onload=
-	<?php
-		if(isset($_SESSION['userID'])){
-			$userID = $_SESSION['userID'];
-			echo "'getMyRequests($userID)'";
-		}
-	?>
->
+	<script src="js/Requestor_RequestBoard.js"> </script>
 
-<img src="img/b.jpg" id="BodyBackgroundImg"/>
+
+</head>
+<body id="Requestor_RequestBoardBackground">
+
+
 
 <!-- NavBar-->
 <?php
@@ -59,94 +55,41 @@ session_start();
 		echo "<script> sessionStorage.setItem('today','$today')</script>";
 ?>
 <!--Main-->
+
 	<div id="RequestBoardContainer">
+		<div class="grid-container" id="TransactionsNav">
+
+			<a href="Requestor_CreateRequest.php">
+				<div id="TransactionTypeTd" class="grid-item">
+					<div id="TransactionTypeDropDown">
+						+Create
+					</div>
+				</div>
+			</a>
+  			
+			
+			<div id="TransactionsNavItem1" class="TransactionsNavItems grid-item" onclick="clickedNavItem(0,<?php echo $userID; ?>)"> <img class="navIcon" src="img/select-all.png"> <span class="sideNav-text">  All Requests </span> </div>  
+			<div id="TransactionsNavItem2" class="TransactionsNavItems grid-item" onclick="clickedNavItem(1,<?php echo $userID; ?>)"> <img class="navIcon" src="img/wall-clock.png"> <span class="sideNav-text">  On Going </span> </div>  
+  			<div id="TransactionsNavItem3" class="TransactionsNavItems grid-item" onclick="clickedNavItem(2,<?php echo $userID; ?>)"> <img class="navIcon" src="img/power.png"> <span class="sideNav-text"> Active  </span> </div> 
+  			<div id="TransactionsNavItem4" class="TransactionsNavItems grid-item" onclick="clickedNavItem(3,<?php echo $userID; ?>)"> <img class="navIcon" src="img/sleep-mode.png"> <span class="sideNav-text"> Inactive  </span> </div> 
+  			<div id="TransactionsNavItem5" class="TransactionsNavItems grid-item" onclick="clickedNavItem(4,<?php echo $userID; ?>)"> <img class="navIcon" src="img/check.png"> <span class="sideNav-text"> Completed  </span> </div>   
+  			
+
+		</div>
 
 		<center> <h1 id="RequestBoardTitle"> Requestor's Request Board </h1> </center>
 		<div id="RequestsContainer">
-			<div id="RequestsContainer-Controls">
 
-				<ul id="RequestsContainer-ControlItems">
-
-					<li class="col- RequestsContainer-ControlItem"> 
-						<table>
-							<tr>
-								<td>
-									<img src="img/requests.png"class="col- RequestsContainer-ControlItemIcon"> 
-								</td>
-
-								<td>
-									<span class="col- PageIndicator"> My Requests</span> 
-								</td>
-							</tr>
-	   					</table>
-					</li>
-
-					<li class="col- RequestsContainer-ControlItem">
-						<table>
-							<tr>
-								<td>
-									<img src="img/g838.png" class="col- RequestsContainer-ControlItemIcon">
-								</td>
-								<td>
-									<a href="Requestor_AvailableServices.php"> <span> Available Services </span> </a>
-								</td>
-					 		</tr>
-						</table>
-
-					</li>
-
-
-
-					<li class="col- RequestsContainer-ControlItem" id="RequestsCategoryContainer"> 
-						
-							<a href="Requestor_CreateRequest.php" id="CreateRequestButton" value="Create Request">
-								Create Request
-							</a>
-						
-					</li>
-
-				</ul>
-
-			</div>
 
 			<div id="RequestsContainer-Content">
-			<div class="col- wrapper">
-    				<div class="col- request-card">
-    		  			<div class="col- request-card__image request-card__image">
-						    <div class="col- requestTitle">Traditional Art</div>
-							<div class="col- requestCategory">Art<sup></sup></div>
-						</div>
-			
-						
 
-      					<div class="col- requestDescription">
-    		   		 		drawing mo ko ng makisig na mythical creature
-    		  			</div>
-			
-			
-      						<div class="col- request-card__unit-stats request-card__unit-stats clearfix">
-    		    				<div class="col- one-third">
-									<div class="col- requestExpectedPrice">150</div>
-    		    		  			<div class="col- isNegotiable">Negotiable</div>
-    		    		  			
-    		    				</div>
-			
-    		    				<div class="col- one-third no-border">
-    		    		  			<div class="col- dueDateValue">Tomorrow</div>
-    		    		  			<div class="col- dueDate">dueDate</div>
-    		    				</div>
-    		  				</div>
-
-   					</div> <!-- end request-card -->
-
-  				</div>
 
 					
 
 				
 			
 
-		</div>
+			</div>
 	</div>
 
 
@@ -309,6 +252,21 @@ session_start();
 
 </div>
 
+<?php
+    if(isset($_SESSION['userID'])){
+        $userID = $_SESSION['userID'];
+        echo "<script> clickedNavItem (0, $userID) </script> ";
+    }
+
+
+	if(isset($_GET['fil']) && isset($_SESSION['userID'])){
+		$nav = $_GET['fil'];
+		$userID = $_SESSION['userID'];
+
+        echo "<script> clickedNavItem ($nav, $userID) </script> ";
+
+	}
+?>
 
 <script src="js/Requestor_RequestBoard.js"> </script>
 </body>

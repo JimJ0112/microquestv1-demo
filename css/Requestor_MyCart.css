@@ -83,10 +83,9 @@
 	margin-top: 0;
 	margin: auto;
 	background-color: white;
-	width: 80%;
+	width: 100%;
 	height: 100%;
-
-	border: 5px solid rgb(136, 75, 38);
+	/* border: 5px solid rgb(136, 75, 38); */
 	min-height: 1000px;
 	max-height: 100%;
 	padding: 0;
@@ -96,15 +95,17 @@
 
 #AvailableServicesContainer-Controls{
 
-	width: 100%;
-	height: 70px;
-	background-color: rgba(119, 65, 32, 0.644);
-	display: inline-block;
-	overflow: hidden;
-	z-index: 5;
+width: 100%;
 
+height: 70px;
 
-	
+background-color: rgb(183 183 183 / 53%);
+
+display: inline-block;
+
+overflow: hidden;
+
+z-index: 5;
 }
 
 #AvailableServicesContainer-ControlItems{
@@ -121,13 +122,11 @@
 
 #AvailableServicesContainer-ControlItems a{
 
+color: #010101;
 
-	color: white;
-	font-family: Arial, Helvetica, sans-serif;
+font-family: Arial, Helvetica, sans-serif;
 
-	
-	text-decoration: none;
-	
+text-decoration: none;
 }
 
 .AvailableServicesContainer-ControlItem{

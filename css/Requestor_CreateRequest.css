@@ -32,22 +32,18 @@
 
 
 #Responder_CreateServiceBackground{
-		/*background-image: url("../img/3490.png");*/
-
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: repeat;
-	background-origin: border-box;
-
+		/* background-image: url("../img/3490.png"); */
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+		background-repeat: repeat;
+		background-origin: border-box;
 }
 
 #RequestOrdersTitle{
 	color: white;
-	font-family: Retroking;
-
-	font-weight: lighter;
-
+	/* font-family: Retroking; */
+	font-weight: bolder;
 }
 
 #CreateRequestControlsContainer{
@@ -59,8 +55,8 @@
 	overflow: hidden;
 	z-index: 5;
 	padding:5px;
-
 	margin:0;
+	display: none;
 }
 
 #SearchForm{
@@ -98,26 +94,27 @@
 }
 
 #Requestor_CreateRequestMain{
-	margin-top: 0;
-	margin: auto;
-	background-image: url(../img/b.jpg);
-    background-size: inherit;
-    background-position: left;
-	width: 80%;
-	min-height: 900px;
+	margin: 0px 0px 0px 20%;
+	/* margin: auto; */
+	/* background-image: url(../img/b.jpg); */
+	background-size: inherit;
+	background-position: left;
+	width: 70%;
+	/* min-height: 900px; */
 	height: fit-content;
-	border: 5px solid rgb(136, 75, 38);
-	padding: 0;
+	border: 1px solid rgb(0 0 0 / 55%);
+	padding: 20px;
 	overflow: hidden;
-
+	background-color: #e3e3e336;
+	height: 100%;
+	min-height: 700px;
 }
 
 #Requestor_CreateRequestMainBack{
 	position: absolute;
 	top:0;
 	margin: auto;
-	padding-top: 8%;
-	
+	padding-top: 6%;
 	width: 100%;
 	height: fit-content;
 }
@@ -212,18 +209,19 @@
 
 #DropDownRequestCategory{
 	background-color: transparent;
-    border: none;
-    font-family: 'Retroking';
-    font-size: 50px;
-    /* color: rgb(255 255 255); */
-    cursor: pointer;
-    border: 3px solid rgb(248 110 4 / 66%);
-    width: 300px;
-    /*font-weight: bolder;*/
-    border-radius: 10px;
-    /* padding: 5px; */
-    width: fit-content;
+	border: none;
+	/* font-family: 'Retroking'; */
+	font-size: 50px;
+	/* color: rgb(255 255 255); */
+	cursor: pointer;
+	border: 3px solid rgb(230 218 209 / 66%);
+	/* width: 300px; */
+	font-weight: bolder;
+	border-radius: 5px;
+	/* padding: 5px; */
+	width: fit-content;
 	background-color: white;
+	text-align: center;
 }
 
 
@@ -232,7 +230,6 @@
 
 .CreateRequestControlsDropDown{
 	height: 100%;
-
 	width: fit-content;
 	margin: auto;
 	padding:10px;
@@ -243,11 +240,9 @@
 .requestForm{
 	font-family: Arial, Helvetica, sans-serif;
 	margin: auto;
-	width: 50%;
+	width: 65%;
 	display: none;
 	padding:10px;
-
-	
 }
 
 
@@ -262,13 +257,11 @@
 */
 
 .requestForm input, .requestForm select{
-	border: 3px solid rgb(63, 50, 48);
+	border: 1px solid rgb(63, 50, 48);
 	height: 50px;
 	width:400px;
-	border-radius: 15px;
+	border-radius: 5px;
 	font-size:25px;
-
- 
 }
 
 /*
@@ -300,19 +293,22 @@
 */
 
 #formsTable{
+	/* width: 100%; */
 	border-spacing: 20px;
 }
 
 .tdright{
+	color: black;
 	border-bottom: solid 0.5px white;
 }
 
 .requestForm textarea{
 	
-	resize: none;
-	border: 3px solid rgb(63, 50, 48);
-	border-radius: 15px;
-
+resize: none;
+	
+border: 1px solid rgb(63, 50, 48);
+	
+border-radius: 5px;
 }
 
 .requestForm input[type="file"]{
@@ -326,7 +322,7 @@
 	width: 200px;
 	height: fit-content;
 	margin: auto;
-	background-color: rgb(63, 50, 48);
+	background-color: rgb(255 69 0);
 	color: white;
 	padding: 20px;
 	border: none;
@@ -339,15 +335,15 @@
 
 .requestForm input[type="submit"]:hover{
 
-	background-color: rgb(144, 110, 30);
-	color: white;
+background-color: rgb(255 142 0);
 
+color: white;
 }
 
 #regularRequestForm{
-	display: none;
+	/* display: none; */
 	margin: auto;
-	margin-top: 10px;
+	/* margin-top: 10px; */
 }
 #pasabuyRequestForm{
 	display: none;
@@ -370,9 +366,14 @@
 
 
 .requestForm label{
-	color: white;
+	color: black;
 	font-size: x-large;
 	font-weight: bold;
+}
+
+.infoTD{
+	color: #0f0f0f;
+	cursor: default;
 }
 
 /*
@@ -382,3 +383,59 @@
 	margin-left: 600px;
 }
 */
+
+#TransactionsNav {
+    width: 250px;
+    height: 400px;
+    /* margin: auto; */
+    background-color: rgb(225, 223, 223);
+    margin: 80px 0px 0px 20px;
+    overflow: hidden;
+    display: grid;
+    position: absolute;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    font-size: x-large;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    height: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.grid-container {
+    display: grid;
+    background-color: #2196F3;
+    padding: 10px;
+    grid-template-rows: 20px 10px 10px 10px 10px;
+    row-gap: 30px;
+}
+
+.navIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+.sideNav-text {
+    vertical-align: bottom;
+    /* margin: auto; */
+}
+#TransactionTypeDropDown {
+    /* background-color: rgb(225, 131, 7); */
+    border: none;
+    font-weight: bold;
+    font-size: larger;
+    /* width: 200px; */
+    text-align: center;
+    /* height: 100%; */
+    cursor: pointer;
+    width: 100%;
+    color: #ff9600;
+}
