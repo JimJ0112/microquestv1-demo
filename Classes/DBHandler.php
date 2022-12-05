@@ -16,7 +16,6 @@ function __construct(){
     
     /* Localhost connection */
     
-    
     /*
     $this->dbservername = "localhost:3307";
     $this->dbusername = "root";

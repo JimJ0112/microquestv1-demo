@@ -51,11 +51,11 @@
 
 <!--Main-->
 	<div id="AvailableServicesContainer">
-
-		<center> <h1 id="AvailableServicesTitle"> Available Services </h1> </center>
+	<center> <h1 id="AvailableServicesTitle"> Choose Service Category </h1> </center>
+		
 
 		<div id="ServicesContainer">
-			
+
 			<div id="AvailableServicesContainer-Controls">
 
 				<ul id="AvailableServicesContainer-ControlItems">
@@ -74,8 +74,8 @@
 	   					</table>
 					</li>
 -->
-					<li class="AvailableServicesContainer-ControlItem" style="border-bottom:4px solid black">
-						<table>
+					<li class="AvailableServicesContainer-ControlItem" >
+						<table style="background-color: #a6999975;padding: 4px;">
 							<tr>
 								<td>
 									<img src="img/g838.png" class="RequestsContainer-ControlItemIcon">
@@ -120,7 +120,7 @@
 
 
 			<div id="AvailableServicesContainer-Content">
-
+				
 				<div class="AvailableService-Card">
 
 					<!--<div class="ServiceTitleBackground">

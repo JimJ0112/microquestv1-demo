@@ -84,6 +84,7 @@ function setData(array){
         var deleteButton = document.createElement("img");
         deleteButton.src = "img/delete.png";
         deleteButton.setAttribute("class","cartItemDeleteButton");
+        deleteButton.setAttribute("onclick","deleteItemPopUp(" + dataArray[i]['cartID'] + ",'Deleted')");
 
         checkBoxTD[i].appendChild(checkBox);
         product[i].appendChild(image);
@@ -133,69 +134,30 @@ function getMyCartItems(requestorID){
             }
 
 
-
-        
-
      
         }else{
             console.log(err);
         }      
     };
     
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('myCartItemsTableBody').innerText = "Loading...";
+
+        }
+  
+    };
     xmlhttp.send(query);
     
 }// end of function
 
 
 
-// for getting products for pasabuy
-/*
-function updateQuantity(cartID){
-    var requestorID = requestorID
-     
-     var xmlhttp = new XMLHttpRequest();
-     var query = "cartID="+requestorID;
+
  
-     xmlhttp.open("POST", "Backend/Get_myCartItems.php", true);
-     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-     xmlhttp.onload = function() {
-         if (this.readyState === 4 || this.status === 200){ 
-            
-             var table = document.getElementById("myCartItemsTableBody");
-             document.getElementById("myCartItemsTableBody").innerHTML="";
- 
-             var dataArray = this.response;
- 
-             if(dataArray === "failed to fetch"){
- 
-                 console.log(dataArray);
-                 table.innerHTML="<h1> No Items <h1> ";
- 
-             } else{
- 
-                 dataArray = JSON.parse(dataArray);
-                 var number = dataArray.length;
-                 createElements(number);
-                 setData(dataArray);
-                 console.log(dataArray);
-  
-     
-             }
- 
- 
- 
-         
- 
-      
-         }else{
-             console.log(err);
-         }      
-     };
-     
-     xmlhttp.send(query);
-     
- }// end of function
- */
 
 
  function showForms(){
@@ -235,5 +197,95 @@ function updateQuantity(cartID){
     allTotal.innerText = parseInt(total);
     totalPriceDisplay.innerText = parseInt(total);
     //alert(total);
+
+ }
+
+//delete cart items 
+
+
+function deleteItemPopUp(cartItemID,status){
+    var cartItemID = cartItemID;
+    var status = status;
+
+    if (confirm('Are you sure you want to delete this item from you cart?')) {
+        // Save it!
+        
+        updateCartItemStatus(cartItemID,status);
+        var userID = sessionStorage.getItem('myID');
+        getMyCartItems(userID);
+
+
+
+    } else {
+        // Do nothing!
+        console.log('Item not deleted');
+    }
+
+
+}
+
+
+ // for updating item status in cart
+function updateCartItemStatus(cartItemID,status){
+    var cartItemID = cartItemID;
+    var status = status;
+     
+     var xmlhttp = new XMLHttpRequest();
+     var query = "cartItemID="+cartItemID+"&status="+status;
+ 
+     xmlhttp.open("POST", "Backend/UpdateCartItem.php", true);
+     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+     xmlhttp.onload = function() {
+         if (this.readyState === 4 || this.status === 200){ 
+            
+   
+             var dataArray = this.response;
+             console.log(dataArray);
+ 
+ 
+ 
+ 
+      
+         }else{
+             console.log(err);
+         }      
+     };
+     
+ 
+     xmlhttp.onreadystatechange = function() {
+         if (this.readyState === 4 || this.status === 200){ 
+ 
+         } else {
+
+            document.getElementById('myCartItemsTableBody').innerText = "Loading...";
+ 
+         }
+   
+     };
+     xmlhttp.send(query);
+     alert('Item ' + status + " !");
+     
+ }// end of function
+
+
+
+
+ function setDeleteCart(){
+    cartForm = document.getElementById('cartForm');
+    cartForm.action = "Backend/DeleteCartItems.php";
+
+    if (confirm('Are you sure you want to delete these items from you cart?')) {
+        // Save it!
+        
+        cartForm.submit();  
+        var userID = sessionStorage.getItem('myID');
+        getMyCartItems(userID);
+
+
+
+    } else {
+        // Do nothing!
+        console.log('Item not deleted');
+    }
 
  }

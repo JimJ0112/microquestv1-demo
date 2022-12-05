@@ -67,14 +67,20 @@
 #Requestor_SelectedServiceMainControls{
 	background-color: rgb(164 164 164 / 45%);
 	margin-top: 0;
-	margin: 0;
+	/* margin: 0; */
 	width: 100%;
 	height: 70px;
+	/* border-spacing: 2; */
 }
 
 #Requestor_SelectedServiceMainControls table{
 	height: 100%;
 	margin-right:10px;
+	/* width: 100%; */
+	text-align: center;
+	overflow-x: scroll;
+	border-spacing: 10;
+	font-family: arial;
 }
 
 #AvailServiceFormContainer{
@@ -177,7 +183,7 @@ border: 2px solid white;
 }
 
 label{
-	color: wheat;
+	color: white;
 }
 #AvailServiceForm a {
 	text-decoration: none;
@@ -212,19 +218,21 @@ color: white;
 
 
 #Responders{
-	border: 5px solid rgb(63, 50, 48);
+	border: 1px solid rgb(63, 50, 48);
 	margin: auto;
 	width: 50%;
 	height:fit-content;
-	display: grid;
+	/* display: grid; */
 	align-content: center;
 	background-image: url("../img/b.jpg");
-	background-size: cover;
+	background-size: auto;
+	background-blend-mode: overlay;
 	background-position: center;
-	background-color: aliceblue;
-	padding: 20px;
+	background-color: #b6b6b6;
+	/* padding: 20px; */
 	border-radius:10px;
 	font-family: Arial, Helvetica, sans-serif;
+	float: right;
 }
 
 /*
@@ -291,20 +299,21 @@ color: white;
 
 
 .responderCard{
-	height: 300px;
+	height: fit-content;
 	margin: 10px;
 	padding: 0px;
-	box-shadow: 1px 8px 10px rgb(255 69 0);
+	/* box-shadow: 1px 8px 10px rgb(255 69 0); */
 	border: none;
 	position: relative;
-	border-radius: 20px;
-	color: white;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	color: black;
 	width: 225px;
-	background-color: #25242475;
+	background-color: #f9f9f9;
 }
 
 .allServices{
-	float: left;
+	/* float: left; */
 	color: black;
 	margin-left: 20px;
 	text-decoration: none;
@@ -322,7 +331,7 @@ color: white;
 .responderName{
 	/* margin: 20; */
 	font-size: x-large;
-	color: #f8f8f8;
+	color: #010101;
 	font-weight: bold;
 	/* padding-bottom: 10px; */
 }
@@ -350,12 +359,12 @@ color: white;
 }
 
 .suggestedResponderPic{
-	background-color: rgb(255 69 0);
+	background-color: orangered;
 	display: grid;
 	padding: 5px;
-	border-radius: 20px 20px 0 30px;
+	border-radius: 20px 20px 0 0px;
 	margin: 0;
-	padding-bottom: 30px;
+	/* padding-bottom: 30px; */
 }
 .suggestedUserPhoto{
 	width: 90px;
@@ -387,8 +396,8 @@ color: white;
 
 
 .responderCardTable td:hover{
-	background-color: #794625;
-	color: black;
+	/* background-color: #794625; */
+	/* color: black; */
 }
 
 .responderCard td{
@@ -403,13 +412,11 @@ text-align: center;
 	
 font-size: 80%;
 	
-/* border-radius: 20px; */
+border-bottom-right-radius: inherit;
 	
 /* border-left: 1px solid; */
 	
 width: 50%;
-
-
 }
 
 .responderCardTable{
@@ -424,17 +431,17 @@ width: 100%;
 	
 position: absolute;
 	
-bottom: 0;
+/* bottom: 0; */
 	
 /* left: 20px; */
 	
 border-spacing: 0;
 	
-border-bottom-right-radius: inherit;
+border-bottom-right-radius: 20px;
 	
-border-bottom-left-radius: inherit;
+border-bottom-left-radius: 20px;
 	
-background-color: rgb(255 69 0);
+background-color: orangered;
 }
 
 
@@ -444,13 +451,11 @@ width: 80%;
 
 height: 100px;
 
-margin-top: 10px;
+/* margin-top: 10px; */
 
-text-align: left;
+/* padding: 5px; */
 
-padding: 5px;
-
-padding-top: 15px;
+/* padding-top: 15px; */
 
 margin: auto;
 
@@ -486,30 +491,33 @@ margin: auto;
     font-weight: light;
     border-radius: 20px;
 	*/
-	width: 30%;
-    height: 700px;
-    background-image: url(../img/b.jpg);
-    background-size: cover;
-    margin: auto;
-    z-index: 10;
-    border: 5px solid rgb(63, 50, 48);
-    padding: 10px;
-    border-radius: 20px;
+	width: 50%;
+	height: 670px;
+	background-image: url(../img/b.jpg);
+	/* background-size: cover; */
+	/* background-size: auto; */
+	background-blend-mode: overlay;
+	background-position: center;
+	margin: auto;
+	/* z-index: 10; */
+	border: 1px solid rgb(63, 50, 48);
+	/* padding: 10px; */
+	border-radius: 20px;
+	background-color: #c1c1c196;
 }
 
 h3{
-	color: wheat;
+	color: white;
 	font-size: x-large;
 	font-weight: bold;
+	text-align: center;
 }
 
 #AvailServiceForm form{
 	margin: auto;
-	
-	padding: 10px;
+	/* padding: 10px; */
 	width: 80%;
-	background-color: #ffffff00;
-	
+	/* background-color: #ffffff00; */
 }
 
 #servicePrice{
@@ -603,11 +611,13 @@ h3{
 
 .transactionFirstRow{
 
-	width: 20%;
-	height: 20px;
-	font-size: medium;
-	color: white;
+width: 20%;
 
+height: 20px;
+
+font-size: medium;
+
+color: white;
 }
 
 .transactionSecondRow{
@@ -640,10 +650,10 @@ h3{
 
 .confirmButton{
 	width: 90px;
-    height: 40px;
-    background-color: #d6d1cf;
-    color: black;
-    border-radius: 5px;
+	height: 40px;
+	background-color: orangered;
+	color: white;
+	border-radius: 5px;
 	cursor: pointer;
 }
 .confirmButton:hover{
@@ -703,5 +713,14 @@ h3{
 }
 
 #viewContractButton:disabled{
-	opacity: 30%;
+	/* opacity: 30%; */
+}
+td.categories {
+    width: fit-content;
+    min-width: 50px;
+    /* width: 100px; */
+    border-radius: 30px;
+    /* border: solid; */
+    background-color: #b1b1b173;
+    padding: 10px;
 }

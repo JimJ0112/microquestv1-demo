@@ -69,44 +69,14 @@
 <!--Main-->
 	<div id="AvailableServicesContainer">
 
-		<center> 
-			<br/>
-						<table>
-							<tr>
-								<td>
-									<img src="img/shopping-cart.png" id="titleCartIcon"> 
-								</td>
 
-								<td>
-									<p id="AvailableServicesTitle"> My Cart </p>
-								</td>
-							</tr>
-	   					</table>
-	
-			<br/>
-			
-		</center>
 
 		<div id="ServicesContainer">
 			
 			<div id="AvailableServicesContainer-Controls">
 
 				<ul id="AvailableServicesContainer-ControlItems">
-<!--
-					<li class="AvailableServicesContainer-ControlItem"> 
-						<table>
-							<tr>
-								<td>
-									<img src="img/requests.png"class="AvailableServicesContainer-ControlItemIcon"> 
-								</td>
 
-								<td>
-									<a href="Requestor_RequestBoard.php"> <span> My Requests</span> </a>
-								</td>
-							</tr>
-	   					</table>
-					</li>
--->
 					<li class="AvailableServicesContainer-ControlItem">
 						<table>
 							<tr>
@@ -168,8 +138,8 @@
 
 
 			<div id="AvailableServicesContainer_Content">
-				<form action="Backend/CheckOutCartItems.php" method="post">
-				<input type="hidden" name="requestorID" id="requestorID" value="<?php echo $userID;?>"/>
+				<form action="Backend/CheckOutCartItems.php" method="post" id="cartForm">
+					<input type="hidden" name="requestorID" id="requestorID" value="<?php echo $userID;?>"/>
 
 					<table id="myCartItemsTable"> 
 
@@ -198,7 +168,7 @@
 					
 
 							
-									<table id="cartFormControlsTableLeft">
+									<table id="cartFormControlsTableLeft" onclick="setDeleteCart()">
 										<tr>
 											<td>
 												<span> Delete All </span>

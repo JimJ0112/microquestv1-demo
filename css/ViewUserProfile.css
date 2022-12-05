@@ -68,7 +68,7 @@ body{
     margin-left: 0;
     border-bottom: 1px solid rgb(167, 165, 165);
     padding-top: 100px;
-    background-image: linear-gradient(rgba(65, 34, 11, 0.725), rgb(248, 248, 245));
+    background-image: linear-gradient(rgb(255 69 0), rgb(248, 248, 245));
    
 }
 
@@ -111,7 +111,7 @@ body{
 #postContainer{
     display: none;
     height:fit-content;
-    background-color: rgba(82, 45, 16, 0.649);
+    background-color: rgb(255 69 0);
     width: 90%;
 
     border-radius: 10px;
@@ -124,7 +124,7 @@ body{
 #aboutContainer{
     display: none;
     height:fit-content;
-    background-color: rgba(144, 101, 68, 0.649);
+    background-color: rgb(255 69 0);
     border-radius: 10px;
     padding: 10px;
     width: 80%;
@@ -143,7 +143,7 @@ body{
 #reviewContainer{
     display: none;
     height:fit-content;
-    background-color: rgba(82, 45, 16, 0.649);
+    background-color: rgba(255 69 0);
 
   
     border-radius: 10px;
@@ -158,7 +158,7 @@ body{
 #moreContainer{
     display: none;
     height:fit-content;
-    background-color: rgba(82, 45, 16, 0.649);
+    background-color: rgb(255 69 0);
     border-radius: 10px;
     padding: 10px;
     width: 80%;
@@ -229,6 +229,7 @@ body{
     grid-column-gap: 10px;
     grid-row-gap: 20px;
     width: 100%;
+    background-color: orangered;
 
 }
 
@@ -275,7 +276,7 @@ body{
 	
 	z-index: 9;
 	font-size: larger;
-	background-color: rgba(0, 0, 0, 0.663);
+	background-color: rgb(255 69 0);
 	border:1px solid white;
 	color: white;
 	padding: 10px;

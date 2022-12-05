@@ -90,6 +90,8 @@
 
 #AvailableServicesContainer-Controls{
 
+display: b;
+
 width: 100%;
 
 height: 70px;
@@ -100,19 +102,22 @@ display: inline-block;
 
 overflow: hidden;
 
-z-index: 5;
+display: none;
 }
 
 #AvailableServicesContainer-ControlItems{
 
-	list-style-type: none;
-	width: auto;
-	color: white;
-	font-family: Arial, Helvetica, sans-serif;
+list-style-type: none;
 
-	vertical-align: text-top;
-	text-decoration: none;
-	
+width: auto;
+
+color: white;
+
+font-family: Arial, Helvetica, sans-serif;
+
+vertical-align: text-top;
+
+text-decoration: none;
 }
 
 #AvailableServicesContainer-ControlItems a{
@@ -502,10 +507,13 @@ text-decoration: none;
 }
 
 .ProductCardButtons{
-	position: absolute;
+	position: inherit;
 	bottom: 15px;
-	left: 50%;
-	transform: translate(-50%, 0);
+	/* left: 50%; */
+	/* transform: translate(-50%, 0); */
+	/* margin-bottom: 20px; */
+	/* width: 100%; */
+	/* margin: auto; */
 }
 
 .EditButton{
@@ -542,10 +550,12 @@ text-decoration: none;
 }
 
 #myCart{
-	float: right;
+	/* float: right; */
 	margin: 0;
 	margin-right: 20px;
-	
+	position: absolute;
+	right: 20px;
+	top: 15px;
 }
 
 #cartIcon{
@@ -640,4 +650,32 @@ text-decoration: none;
 #quantity1{
 	height: 40px;
 	text-align: center;
+}
+.BuyButton {
+    background-color: orangered;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: small;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button.addToCartButton {
+    /* background-color: rgb(13 13 90); */
+    border: none;
+    color: orangered;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: small;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    height: fit-content;
 }

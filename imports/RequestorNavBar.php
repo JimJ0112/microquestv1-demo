@@ -125,6 +125,19 @@
 			</li> 
 		</a>
 
+		<a href="Requestor_PasabuyProducts.php"> 
+			<li class="Nav-item" title="Available Services"> 
+				<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+					if($pagename === "Requestor_PasabuyProducts.php" || $pagename === "Requestor_PasabuyProducts.php"){
+						echo '<u> Pasabuy </u>';
+					} else{
+						echo "Pasabuy";
+					}
+				?>
+			</li> 
+		</a>
+
 		<a href="LeaderBoard.php"> 
 			<li class="Nav-item" title="Available Services"> 
 				<?php
@@ -152,6 +165,7 @@
 			</li>
 		</a>
 
+		
 
 			<li class="Nav-item" id="Nav-notif"> 
 				<span id="redDotOnBellNotification"> • </span>

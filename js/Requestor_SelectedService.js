@@ -1229,3 +1229,9 @@ function allowSubmit(){
 
 
 }
+
+function toggleNav(){
+    var name = document.getElementById('');
+    name.style.width = "100%";
+    name.style.overflowX = "scroll";
+}

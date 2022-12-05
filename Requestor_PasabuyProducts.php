@@ -59,6 +59,23 @@
 	<div id="AvailableServicesContainer">
 
 		<center> <h1 id="AvailableServicesTitle"> Pasabuy Products </h1> </center>
+		<div><a href="Requestor_MyCart.php"> 
+					  <div class="AvailableServicesContainer-ControlItem" id="myCart"> 
+						
+						<table>
+							<tr>
+								<td>
+									<img src="img/shopping-cart.png" class="AvailableServicesContainer-ControlItemIcon" id="cartIcon"> 
+								</td>
+
+								<td>
+									<a href="Requestor_MyCart.php"> <span>  </span> </a>
+								</td>
+							</tr>
+	   					</table>
+				
+					</div>
+					</a></div>
 
 		<div id="ServicesContainer">
 			
@@ -177,7 +194,7 @@
 				<input type="number" name="quantity" min="1" max="99" id="quantity" onchange="quantityLimit()" value="1"/> 
 				<span class="addminusButton" onclick="subQuantity()">&nbsp - &nbsp</span> 
 				<br/><br/>
-				<input type="submit" value="Add to cart"/>
+				<input class="BuyButton" type="submit" value="Add to cart"/>
 
 			</form>
 		</div>

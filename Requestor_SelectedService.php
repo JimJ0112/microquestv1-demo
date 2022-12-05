@@ -283,34 +283,26 @@
             <div id="Requestor_SelectedServiceMainControls">
                 <table class="allServices">
 					<tr>
-						<td>
-							<img src="img/g838.png" class="RequestsContainer-ControlItemIcon">
+						<td class="categories">
+							Cleaning
 						</td>
-						<td>
-                            <a href="Requestor_AvailableServices.php">
-							<span class="PageIndicator"> Available Services </span></a>
+						<td class="categories">
+                            Computer Realated
+						</td>
+                        <td class="categories">
+                            Documents
+						</td>
+                        <td class="categories">
+                            Home Service
+						</td>
+                        <td class="categories">
+                            Art
+						</td>
+                        <td class="categories">
+                           Music
 						</td>
 					</tr>
 				</table>
-                <Table class="search"> 
-                    <tr>
-                        <td>
-                            <img> Search
-                        </td>
-
-                        <td>
-                            <input type="Search" name="q" class="SearchBar">
-                        </td>
-
-                    </tr>
-
-                </table>
-                
-               
-
-        
-           
-         
 
             </div>
         
