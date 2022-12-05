@@ -87,6 +87,7 @@ body{
 	font-size: xx-large;
 	font-family: arial;
 	font-weight: bold;
+	background: #adadad73;
 }
 
 .leaderboardTR{
@@ -109,7 +110,7 @@ body{
 
 .grid-container {
   display: grid;
-  background-color: #2196F3;
+  background-color: #acacac78;
   padding: 10px;
   width: 20%;
   position: absolute;

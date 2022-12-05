@@ -119,5 +119,9 @@ session_start();
 
 	</script>
 	-->
+	<script> 
+		getServices();
+
+	</script>
 </body>
 </html>

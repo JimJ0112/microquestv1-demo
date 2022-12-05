@@ -42,16 +42,14 @@
 #Requestor_SelectedServiceMain{
 	background-color: white;
 	margin: auto;
-	
-	width: 75%;
+	width: 100%;
 	min-height: 900px;
 	height: fit-content;
 	margin-top: 0;
-	border: 5px solid rgb(102, 40, 8);
+	border: 1px solid rgb(0 0 0);
 	padding: 0;
 	display:grid;
 	align-content: center;
-
 }
 
 #Requestor_SelectedServiceMainBack{
@@ -67,7 +65,7 @@
 }
 
 #Requestor_SelectedServiceMainControls{
-	background-color: rgb(255 69 0);
+	background-color: rgb(164 164 164 / 45%);
 	margin-top: 0;
 	margin: 0;
 	width: 100%;
@@ -265,6 +263,7 @@ color: white;
 	color: black;
 	margin: 50px;
 	font-family: Arial, Helvetica, sans-serif;
+	display: none;
 }
 
 .tableContainer{
@@ -522,12 +521,12 @@ h3{
 }
 
 #selectedCategory{
-	font-family: Retroking;
-	font-weight: lighter;
-	font-size: xx-large;
-	color: white;
+	font-family: arial;
+	font-weight: bolder;
+	font-size: xxx-large;
+	color: black;
 	width: 20%;
-	background-color: rgb(255 69 0);
+	/* background-color: rgb(255 69 0); */
 	border-radius: 20px;
 }
 
