@@ -108,9 +108,12 @@ function getServices(){
 
             var number = dataArray.length;
           
-            document.getElementById("LeaderBoardCategories").innerHTML = "";
-            setOptions(dataArray);
-            getSelectValue(); 
+            //document.getElementById("LeaderBoardCategories").innerHTML = "";
+            //setOptions(dataArray);
+            //getSelectValue(); 
+            createCategoryElements(number);
+            setCategoryDatas(dataArray);
+
      
             }
         }else{
@@ -180,4 +183,85 @@ function setData(dataArray){
         responderInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" + dataArray[i]['userID'] +"&userType=Responder'>"+ responderInfo[i].innerHTML + "<br/> <br/> " + dataArray[i]['userName'] + "<br/>" + dataArray[i]['userEmail'] + "</a>";
         rating[i].innerHTML = "⭐ "+dataArray[i]['totalRatings'].toFixed(2);
     }
+}
+
+
+function createCategoryElements(number){
+    var number = number;
+    var cetegoriesContainer = document.getElementById('cetegoriesContainer');
+
+    for(var i=0; i<number; i++){
+
+        var div = document.createElement('div');
+        div.setAttribute('class','grid-item');
+
+        cetegoriesContainer.appendChild(div);
+
+    }
+
+}
+
+
+// set options to dropdown  
+function setCategoryDatas(array){
+
+    var dataArray = array;
+    var number = dataArray.length;
+
+    //var serviceDropDown = document.getElementById("LeaderBoardCategories");
+    var grid_item = document.getElementsByClassName('grid-item');
+
+
+    for(var i = 0; i<number;i++){
+        
+        if(dataArray[i]["serviceCategory"] === "Pasabuy"){
+
+            grid_item[i].style.display = "none";
+
+        } else{
+
+            /*
+            var option = new Option;
+            option.innerText = dataArray[i]["serviceCategory"];
+            option.value = dataArray[i]["serviceCategory"];
+            serviceDropDown.add(option);
+            */
+            grid_item[i].innerText = dataArray[i]["serviceCategory"];
+           // grid_item[i].setAttribute("onclick","getLeaderBoard('" + dataArray[i]['serviceCategory'] + "')");
+
+            grid_item[i].setAttribute("onclick","chooseNav('" + dataArray[i]['serviceCategory'] + "'," + i +")" );
+        }
+
+
+    }
+    chooseNav(dataArray[0]["serviceCategory"],0)
+
+
+
+    
+}
+
+
+
+function chooseNav(category,number){
+    var category = category;
+    var number = number;
+    var grid_item = document.getElementsByClassName('grid-item');
+    var length = grid_item.length;
+
+    for(var i=0;i<length;i++){
+
+        grid_item[i].style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+        grid_item[i].style.color = "black";
+
+    }
+
+    grid_item[number].style.backgroundColor = "orangered";
+    grid_item[number].style.color = "white";
+    
+
+    getLeaderBoard(category);
+
+
+
 }

@@ -115,13 +115,22 @@ body{
   position: absolute;
   margin: 193px 0 0 20px;
 }
+
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
   text-align: center;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+.grid-item:hover{
+	color: orangered;
+
+}
+
 td.rankTR {
     font-size: xx-large;
     border-bottom: 1px solid black;

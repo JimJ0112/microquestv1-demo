@@ -21,9 +21,8 @@ function __construct(){
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "microquestdbv2";
-    
-
     */
+
     
 
     /* remote database connection */
@@ -53,7 +52,7 @@ function __construct(){
         $errorlog = "MySQL Error: " . mysqli_connect_errno();
         exit($errorlog);
     }
-
+    
 }
 
 

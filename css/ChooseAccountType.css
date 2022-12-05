@@ -54,8 +54,7 @@ body{
 #ChooseAccountTypeBackground{
 	width: 100vw;
 	height: 100vh;
-	background-color:rgb(68, 55, 53);
-
+	background-color: rgb(255 255 255);
 }
 
 #ChooseAccountTypeBackground1{
@@ -63,11 +62,10 @@ body{
 	height: 100vh;
 	z-index: 3;
 	position: fixed;
-	background-color:rgb(68, 55, 53);
+	background-color: orangered;
 	border-radius: 0 0 0 100%;
 	margin-left: 30%;
 	margin-top: 0;
-	
 }
 
 
@@ -76,16 +74,11 @@ body{
 	height: 60vh;
 	z-index:4;
 	position: fixed;
-	background-color:rgb(43, 34, 33);
+	background-color: rgb(255 255 255);
 	border-radius: 0 100% 0 0;
-
 	margin-top: 45vh;
-
 	background-image: url("../img/businessidea.png");
 	background-size: contain;
-
-	
-	
 }
 
 #ChooseAccountTypeBackground3{
@@ -103,6 +96,7 @@ body{
 #ChooseAccountTypeBackground4{
 	width: 75vw;
 	height: 60vh;
+	background-color: white;
 	background-image: url("../img/businessidea.png");
 	background-size: contain;
 	z-index: 2;
@@ -136,10 +130,10 @@ body{
 }
 
 #SelectAccountType{
-	font-family: brush script mt kursiv;
-	font-size:50px;
+	font-family: arial;
+	font-size: xx-large;
+	font-weight: bold;
 	margin: 20px;
-
 }
 
 .ChooseAccountType-Option{
@@ -180,14 +174,13 @@ body{
 
 
 #ChooseAccountType-Footer{
-	background-color:rgba(43, 34, 33, 0.342);
+	background-color: rgb(173 170 169 / 34%);
 	position: absolute;
 	width: 100%;
 	margin: 0;
 	z-index: 0;
 	height: 80px;
 	bottom: 0;
-
 }
 
 .ChooseAccountType-Button{
@@ -214,10 +207,11 @@ body{
 
 #Next{
 
-	margin-right: 80px;
-	background-color: rgb(80, 45, 23);
-	color: white;
+margin-right: 80px;
 
+background-color: rgb(255 69 0);
+
+color: white;
 }
 
 #Next:disabled{

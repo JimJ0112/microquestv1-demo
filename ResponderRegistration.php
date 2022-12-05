@@ -22,7 +22,7 @@
 <body onload="getServices()">
 
 	<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
-		<img src="img/b1.jpg" id="RegistrationBackground">
+		<img src="img/businessidea.png" id="RegistrationBackground">
 
 		<h3 class="RegisterTypeText"> Responder </h3>
 

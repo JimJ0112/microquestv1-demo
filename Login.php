@@ -80,11 +80,38 @@ session_start();
 	</td>
 
 		<td id="LoginTable-right">
+		<form id="LoginForm" form action="Backend/LoginBackend.php" method="post">
+		
+		<center>
+		<h1 id="Welcome"> Welcome Back</h1>
+		
+		</center>
 
+
+				<div id="FormControls">	
+
+					<label> Email &nbsp</label><br/> 
+					<input type="text" class="Form-Input" name="email" placeholder = "Enter your email..."> <br/> <br/> <br/>
+					<label> Password</label><br/>
+					<input type="password" class="Form-Input" name="password" placeholder = "Enter your password..."> <br/>
+
+					<br/> 
+					<div id="FormControls-Buttons">
+						<input type="submit" value="Login" class="LoginForm-button" id="LoginButton"/>
+						<input type="reset" value="Reset" class="LoginForm-button" id="CancelButton"/>
+					</div>
+				</div>
+		<center>
+			<h4 style= "margin-top: 50px;"> Doesn't have an accout?  <a href="ChooseAccountType.php" > <u id="RegisterButton"> Register</u> </a></h4>
+			
+		</center>
+		
+
+	</form>
 		</td>
 	</tr>
 </table>
-
+<!--
 	<form id="LoginForm" form action="Backend/LoginBackend.php" method="post">
 		
 		<center>
@@ -113,7 +140,7 @@ session_start();
 		
 
 	</form>
-
+-->
 
 
 	<!-- <img src="img/logo.png" id="Logo"/> -->

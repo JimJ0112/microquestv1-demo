@@ -23,7 +23,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: wheat;
+    background-color: #fefefe80;
 }
 
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
@@ -551,16 +551,17 @@ input:checked + .slider:before {
     /* min-height: 900px; */
     border-radius: 25% 0 0 25%;
     position: absolute;
-    background-color: rgb(27, 21, 21);
+    background-color: orangered;
     margin-top: 35px;
     margin-left: 30px;
-    object-fit: cover;
+    /* object-fit: cover; */
     z-index: 0;
+    /* background-image: url("../img/businessidea.png"); */
 }
 
 #RegistrationContainer {
     background-color: #ffffff;
-    border: 7px solid rgb(63, 50, 48);
+    border: 1px solid rgb(63, 50, 48);
     width: 800px;
     height: 500px;
     z-index: 1;
@@ -580,16 +581,17 @@ input:checked + .slider:before {
 }
 
 .Registration-TextBox {
-    border: 3px solid rgb(63, 50, 48);
+    border: 1px solid rgb(63, 50, 48);
     /* border-radius: 10px; */
-    height: 30px;
-    width: 250px;
+    height: 40px;
+    width: 60%;
     margin: auto;
 }
 
 .inputItem {
-    text-align: left;
-    margin-left: 10%;
+    text-align: center;
+    /* margin-left: 10%; */
+    width: 100%;
 }
 
 #RegistrationNextButton:disabled {
@@ -647,9 +649,9 @@ input:checked + .slider:before {
 }
 
 #AccountInfoForm1 {
-    width: 300px;
-    height: fit-content;
-    /*margin-left: 30%;*/
+    width: 80%;
+    /* height: fit-content; */
+    /* margin-left: 30%; */
     margin: auto;
     margin-top: 50px;
 }
@@ -693,9 +695,9 @@ input:checked + .slider:before {
 #GeneralInfoForm1 {
     width: 50%;
     height: 100%;
-    /* position: absolute; */
+    position: absolute;
     text-align: left;
-    /* margin: auto; */
+    margin: auto;
     display: grid;
     align-content: center;
     padding: 0;
@@ -704,13 +706,14 @@ input:checked + .slider:before {
 #GeneralInfoForm2 {
     width: 50%;
     height: 100%;
-    /* position: absolute; */
+    position: absolute;
     text-align: left;
-    /* margin: auto; */
+    margin: auto;
     display: grid;
     align-content: center;
     padding: 0;
     right: 0;
+    /* top: 0; */
 }
 
 #ResponderInfoForm {
@@ -807,13 +810,14 @@ input:checked + .slider:before {
     height: 100px;
     top: 100px;
     left: 100px;
+    box-shadow: -1px 0px 8px 1px black;
 }
 
 #SignUpText {
     /* font-family: Retroking; */
     margin: 0;
     position: absolute;
-    top: 180px;
+    top: 200px;
     left: 150px;
     font-size: 50px;
     color: white;
@@ -1802,4 +1806,8 @@ input:checked + .slider:before {
 }
 @media (max-width: 575px){
 
+}
+
+span.asteriskRequiredField {
+    float: none;
 }

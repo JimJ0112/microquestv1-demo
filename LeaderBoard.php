@@ -68,7 +68,8 @@ session_start();
 
 <div id="LeaderBoardContainerBack"> 
 
-	<div class="grid-container">
+	<div class="grid-container" id="cetegoriesContainer">
+		<!--
 	  	<div class="grid-item">1</div>
 	  	<div class="grid-item">2</div>
 	  	<div class="grid-item">3</div>  
@@ -78,14 +79,18 @@ session_start();
 	  	<div class="grid-item">7</div>
 	  	<div class="grid-item">8</div>
 	  	<div class="grid-item">9</div>  
+		-->
 	</div>
+
 <center>
 <br/>
 <h1> LeaderBoard </h1>
 <br/> 
 </center>
+<!--
 	<select id="LeaderBoardCategories" onchange = "getSelectValue()">
 	</select>
+-->
 	<br/>
 	<br/>
 
@@ -107,10 +112,12 @@ session_start();
 
 </div>
 
-	<script> 	
+	<!--<script> 	
+		
 		getServices();
 		getSelectValue();
 
 	</script>
+	-->
 </body>
 </html>
