@@ -66,6 +66,6 @@ $dataArray = [];
 
 
 
-header("location:../Requestor_Transactions.php?msg=Transaction Success!&type=pasabuy&nav=1");
+header("location:../Requestor_PasabuyTransactions.php?msg=Transaction Success!&type=pasabuy&nav=1");
 
 

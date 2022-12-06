@@ -8,39 +8,38 @@ date_default_timezone_set("Asia/Manila");
 $today = date("Y-m-d");
 
 $myID=$_POST["myID"];
-$revieweeID=$_POST["revieweeID"]; 
+$revieweeID=$_POST["serviceRevieweeID"]; 
 $requestID=$_POST["requestID"];
-$transactionID=$_POST["transactionID"];
+$transactionID=$_POST["serviceTransactionID"];
 $feedback = $_POST["feedback"];
 
 
 
- 
-echo $DBHandler-> registerRequestFeedback($myID,$revieweeID,$requestID,$transactionID,$feedback,$today);
+ //registerServiceFeedback($myID,$revieweeID,$serviceID,$transactionID,$feedback,$today)
+ echo $insertFeedback =  $DBHandler-> registerRequestFeedback($myID,$revieweeID,$requestID,$transactionID,$feedback,$today);
+   // $insertFeedback = 1;
 
-// update transaction status 
 
-$userType = $_POST["userType"];
+if($insertFeedback){
 
-    // set transaction status
-    $tablename = "transactions";
 
-    $column = "transactionStatus";
-    $condition = "transactionID";
-    
-    if($userType === "Responder"){
-        $name = "responder feedback";
-    } else {
-        $name = "requestor feedback";
-    }
-    
+    $feedbackID = $DBHandler->getData("feedbacks","transactionID",$transactionID,"feedbackID");
+    echo $feedbackID;
 
-    $conditionvalue = $transactionID;
-    
-    
-    echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
 
-header("location: ../RequestBoard.php");
+    $myID=$_POST["myID"];
+    $ratingValue = $_POST['rate'];
+    $revieweeID=$_POST["serviceRevieweeID"]; 
+    $requestID=$_POST["requestID"];
+
+    echo $result = $DBHandler->registerRequestRatings($myID,$revieweeID,$transactionID,$ratingValue,$feedbackID,$requestID);
+
+} else{
+    echo "error";
+} 
+
+
+header("location: ../Requestor_RequestTransactions.php?q=1");
 
 
 

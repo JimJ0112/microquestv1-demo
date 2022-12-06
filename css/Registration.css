@@ -537,6 +537,7 @@ input:checked + .slider:before {
     margin: 10px;
     cursor: pointer;
     filter: brightness(30%);
+    z-index: 99;
 }
 
 #Registration-BackButton:hover {
@@ -546,28 +547,31 @@ input:checked + .slider:before {
 }
 
 #RegistrationBackground {
-    width: 60%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     /* min-height: 900px; */
-    border-radius: 25% 0 0 25%;
+    border-radius: 25% 0 0 0%;
     position: absolute;
     background-color: orangered;
-    margin-top: 35px;
-    margin-left: 30px;
+    /* margin-top: 35px; */
+    /* margin-left: 30px; */
     /* object-fit: cover; */
     z-index: 0;
     /* background-image: url("../img/businessidea.png"); */
+    /* display: none; */
+    /* mix-blend-mode: darken; */
+    /* opacity: 100%; */
 }
 
 #RegistrationContainer {
-    background-color: #ffffff;
-    border: 1px solid rgb(63, 50, 48);
-    width: 800px;
-    height: 500px;
+    background-color: #ffffff00;
+    /* border: 1px solid rgb(63, 50, 48); */
+    width: 100%;
+    height: 100%;
     z-index: 1;
     position: absolute;
-    margin-left: 29%;
-    margin-top: 7%;
+    /* margin-left: 29%; */
+    /* margin-top: 7%; */
 }
 
 .RegisterTypeText {
@@ -578,20 +582,65 @@ input:checked + .slider:before {
     top: 20px;
     font-size: 50px;
     color: rgb(63, 50, 48);
+    display: none;
 }
 
 .Registration-TextBox {
     border: 1px solid rgb(63, 50, 48);
     /* border-radius: 10px; */
     height: 40px;
-    width: 60%;
+    width: 95%;
     margin: auto;
 }
 
-.inputItem {
+.inputItem1 {
     text-align: center;
     /* margin-left: 10%; */
     width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+}
+.inputItem2 {
+    /* text-align: center; */
+    /* margin-left: 10%; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /* column-count: auto; */
+    column-width: 30%;
+    /* text-align: right; */
+}
+.inputItem3 {
+    text-align: center;
+    /* margin-left: 10%; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin: auto;
+    row-gap: 40px;
+}
+.inputItem4 {
+    text-align: center;
+    /* margin-left: 10%; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+}
+.inputItem5 {
+    text-align: center;
+    /* margin-left: 10%; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+}
+
+.inputItem1,
+.inputItem2,
+.inputItem3,
+.inputItem4,
+.inputItem5{
+    border-bottom: solid 1px black;
+    padding: 10px 0px 10px 0px;
 }
 
 #RegistrationNextButton:disabled {
@@ -633,15 +682,20 @@ input:checked + .slider:before {
 
 /*Responder Registration Forms */
 #AccountInfoForm {
+    padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     color: rgb(63, 50, 48);
-    font-size: large;
-    display: block;
-    align-content: center;
+    /* font-size: large; */
+    /* display: block; */
+    /* align-content: center; */
     padding: auto;
-    height: 500px;
-    margin-top: 0;
+    /* height: 500px; */
+    /* margin-top: 50px; */
+    background: #9d9d9d9c;
+    width: 50%;
+    margin: 60px 25% 0 30%;
+    height: 60%;
 }
 
 #passwordmatch {
@@ -649,11 +703,11 @@ input:checked + .slider:before {
 }
 
 #AccountInfoForm1 {
-    width: 80%;
+    /* width: 80%; */
     /* height: fit-content; */
     /* margin-left: 30%; */
-    margin: auto;
-    margin-top: 50px;
+    /* margin: auto; */
+    /* margin-top: 50px; */
 }
 
 #EmailVerificationForm {
@@ -678,10 +732,10 @@ input:checked + .slider:before {
 }
 
 #EmailVerificationForm1 {
-    width: 300px;
+    width: 400px;
     height: fit-content;
     /*margin-left: 30%;*/
-    margin: auto;
+    margin: 50px auto 0 auto;
 }
 
 #GeneralInfoForm {
@@ -689,31 +743,38 @@ input:checked + .slider:before {
     font-weight: bold;
     color: rgb(63, 50, 48);
     font-size: large;
-    display: none;
+    /* display: none; */
+    display: grid;
+    /* grid-template-columns: auto auto; */
+    row-gap: px;
+    width: 75%;
+    margin: 60px 0px 10px 20%;
+    background: #e0e0e0a1;
+    height: 100%;
 }
 
 #GeneralInfoForm1 {
-    width: 50%;
+    width: 100%;
     height: 100%;
-    position: absolute;
+    /* position: absolute; */
     text-align: left;
     margin: auto;
     display: grid;
     align-content: center;
     padding: 0;
+    row-gap: 40px;
 }
 
 #GeneralInfoForm2 {
-    width: 50%;
+    width: 100%;
     height: 100%;
-    position: absolute;
+    /* position: absolute; */
     text-align: left;
     margin: auto;
     display: grid;
     align-content: center;
     padding: 0;
-    right: 0;
-    /* top: 0; */
+    row-gap: 40px;
 }
 
 #ResponderInfoForm {
@@ -721,30 +782,32 @@ input:checked + .slider:before {
     font-weight: bold;
     color: rgb(63, 50, 48);
     font-size: large;
-    display: none;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 #ResponderInfoForm1 {
-    width: 50%;
+    width: 100%;
     height: 100%;
-    position: absolute;
+    /* position: absolute; */
     text-align: left;
     margin: auto;
     display: grid;
     align-content: center;
     padding: 0;
+    row-gap: 40px;
 }
 
 #ResponderInfoForm2 {
-    width: 50%;
+     width: 100%;
     height: 100%;
-    position: absolute;
+    /* position: absolute; */
     text-align: left;
     margin: auto;
     display: grid;
     align-content: center;
     padding: 0;
-    right: 0;
+    row-gap: 40px;
 }
 
 #RegistrationBackButton {
@@ -769,19 +832,21 @@ input:checked + .slider:before {
 #RegistrationNextButton {
     /* margin-right: 80px; */
     border: 0;
-    background-color: rgb(63, 50, 48);
+    background-color: orangered;
     color: white;
-    position: absolute;
-    right: 100px;
-    bottom: 40px;
+    position: fixed;
+    right: 360px;
+    bottom: 300px;
     margin:5px;
     height: 35px;
     width: 90px;
     font-size: large;
     font-weight: bolder;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
+    /* cursor: pointer; */
+    /* font-family: Arial, Helvetica, sans-serif; */
     font: Arial;
+    /* float: right; */
+    /* margin: 30px; */
 }
 
 #RegistrationRegisterButton {
@@ -811,16 +876,31 @@ input:checked + .slider:before {
     top: 100px;
     left: 100px;
     box-shadow: -1px 0px 8px 1px black;
+    /* display: none; */
+    background: orangered;
+    padding FONT-WEIGHT: 100;
+    padding: 1;
+    padding: 10px;
+    /* border-top-left-radius: 40%; */
 }
 
 #SignUpText {
     /* font-family: Retroking; */
     margin: 0;
     position: absolute;
-    top: 200px;
-    left: 150px;
+    top: 0;
+    left: 45%;
     font-size: 50px;
-    color: white;
+    color: orangered;
+}
+#SignUpText1 {
+    /* font-family: Retroking; */
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 60%;
+    font-size: 50px;
+    color: orangered;
 }
 
 /*Nav Bar*/
@@ -1658,18 +1738,21 @@ input:checked + .slider:before {
 .formPageIndicator {
     opacity: 50%;
     margin-top: 0;
+    display: none;
 }
 
 #userProfilePicOutput {
-    width: 70px;
-    height: 70px;
+    background-color: white;
+    width: 200px;
+    height: 100%;
     object-fit: contain;
 }
 
 #userIDPicOutput {
-    width: 100px;
-    height: 70px;
+    width: 200px;
+    height: 100%;
     object-fit: contain;
+    background: white;
 }
 
 .checker {
@@ -1782,7 +1865,39 @@ input:checked + .slider:before {
         bottom: unset;
     }
 }
+.textBox{
+    margin: auto;
 
+    margin-right: 5px;
+}
+.textBox1{
+    margin: auto;
+    margin-left: 0;
+    
+}
+form#RegistrationForm {
+    height: 90%;
+}
+#hidden{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+
+.nextBtn{
+        position: absolute;
+        bottom: 26px;
+        right: 100px;
+        background: orangered;
+        margin: 5px;
+        height: 35px;
+        width: 90px;
+        font-size: large;
+        font-weight: bolder;
+        color: white;
+        display: none;
+}
 @media only screen and (min-width: 768px) and (max-width: 991px){
 
 }

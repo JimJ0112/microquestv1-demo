@@ -58,28 +58,31 @@ body{
 #RequestsContainer{
 	margin-top: 0;
 	margin: auto;
+	margin-left: 20%;
 	background-color: white;
 	width: 80%;
 	height: 100%;
-
-	border: 5px solid rgb(136, 75, 38);
-	min-height: 1000px;
-	max-height: 100%;
-	padding: 0;
+	border: 1px solid rgb(136, 75, 38);
+	/* min-height: 1000px; */
+	/* max-height: 100%; */
+	/* padding: 0; */
 	overflow: hidden;
-	/*overflow-y: scroll;*/
+	overflow-y: scroll;
 }
 
 #RequestsContainer-Controls{
 
-	width: 100%;
-	height: 70px;
-	background-color: rgba(119, 65, 32, 0.644);
-	display: inline-block;
-	overflow: hidden;
+width: 100%;
 
+height: 70px;
 
-	
+background-color: rgba(119, 65, 32, 0.644);
+
+display: inline-block;
+
+overflow: hidden;
+
+display: none;
 }
 
 #RequestsContainer-ControlItems{
@@ -199,21 +202,21 @@ body{
 
 display: grid;
 
-grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-template-columns: auto auto auto auto;
 
-overflow: hidden;
+/* overflow: hidden; */
 
-/* grid-column-gap: 50px; */
+grid-column-gap: 50px;
 
 grid-row-gap: 50px;
 
 overflow-y: scroll;
 
-padding-left: 50px;
+/* padding-left: 50px; */
 
 height: 100%;
 
-padding-bottom: 100px;
+/* padding-bottom: 100px; */
 
 width: 100%;
 
@@ -245,9 +248,8 @@ margin: auto;
 }
 
 .requestorUsername{
-	text-decoration: none;
-	transition-delay: 2s;
-	
+	/* text-decoration: none; */
+	/* transition-delay: 2s; */
 }
 /*.userPhotoPic{
 	width: 70px;
@@ -269,7 +271,7 @@ margin: auto;
 
 }
 .requestorLocation{
-	font-size: small;
+	/* font-size: small; */
 }
 .viewRequest{
 	width: 90px;
@@ -584,8 +586,14 @@ margin: auto;
 
 
 .wrapper {
-  padding-top: 40px;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  font-family: arial;
+  /* display: table-header-group; */
+  /* padding-top: 40px; */
   /* padding-bottom: 40px; */
+  /* margin: auto; */
 }
 .wrapper:focus {
     outline: 0;
@@ -595,41 +603,47 @@ margin: auto;
 
 
 .request-card {
-  background-color: wheat;
-  width: 300px;
-  display: inline-block;
+  background-color: #9a9a9a52;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto;
+  /* display: inline-block; */
   margin: auto;
-  border-radius: 14px;
-  position: relative;
-  text-align: center;
-  box-shadow: -1px 15px 30px -12px black;
-  z-index: 9999;
-  cursor: pointer;
+  /* border-radius: 14px; */
+  /* position: relative; */
+  /* text-align: center; */
+  /* box-shadow: -1px 15px 30px -12px black; */
+  /* z-index: 9999; */
+  /* cursor: pointer; */
   animation: fadein 1.5s;
-
 }
 .request-card:hover{
 	box-shadow: -1px 15px 30px -12px #d27234bd;
 }
 
 .request-card__image {
-  position: relative;
-  height: 115px;
-  margin-bottom: 35px;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
+  /* position: relative; */
+  /* height: 115px; */
+  /* margin-bottom: 35px; */
+  /* border-top-left-radius: 14px; */
+  /* border-top-right-radius: 14px; */
+  margin: auto;
 }
 
 .request-card__image {
-  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg');
+  /* background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg'); */
 }
 .request-card__image  .userPhotopic{
     width: 100px;
-	height: 100px;
-	border-radius: 100%;
-	border: 3px solid rgb(63, 50, 48);
-	margin-top: 35px;
-	object-fit: cover;
+    height: 100px;
+    border-radius: 100%;
+    border: orangered 1px solid;
+    /* margin-top: 35px; */
+    object-fit: cover;
+    /* margin: auto; */
+    /* text-align: center; */
+    /* margin: auto; */
 }
 
 
@@ -648,38 +662,55 @@ margin: auto;
 .requestorUserName {
   font-size: 26px;
   color: black;
-  font-weight: 900;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
 .requestDescription{
 
-  margin-bottom: 10px;  
-  height:70px;
+/* margin-bottom: 10px; */
+
+/* height:70px; */
+
+width: 80%;
+
+margin: auto;
+
+text-align: center;
 }
 a{
 	color: #645f4b;
 }
 .request-card__unit-stats {
-  background: #EC9B3B;
+  /* background: #EC9B3B; */
 }
 .request-card__unit-stats  .one-third {
-     border-right: 1px solid #BD7C2F;
+     /* border-right: 1px solid #BD7C2F; */
   }
 
 
 .request-card__unit-stats {
   
-  color: white;
-  font-weight: 700;
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
-  height: 100px;
+/* color: white; */
+  
+/* font-weight: 700; */
+  
+/* border-bottom-left-radius: 14px; */
+  
+/* border-bottom-right-radius: 14px; */
+  
+/* height: 100px; */
+  
+display: grid;
+  
+grid-template-columns: auto auto;
 }
   .request-card__unit-stats  .one-third {
-    width: 50%;
-    float: left;
-	height: 100px;
+    margin: auto;
+    width: 80%;
+    /* float: left; */
+    /* height: 100px; */
+    /* text-align: left; */
   }
   
   .request-card__unit-stats  sup {
@@ -690,28 +721,29 @@ a{
   }
   
   .request-card__unit-stats  .requestExpectedPrice,.request-card__unit-stats .requestCategory {
-    position: relative;
+    /* position: relative; */
     font-size: 24px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
   
   .request-card__unit-stats  .isNegotiable,.request-card__unit-stats .requestTitle{
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 12px;
+    /* text-transform: uppercase; */
+    /* font-weight: 400; */
+    /* font-size: 12px; */
   }
 
   .request-card__unit-stats   .no-border {
-    border-right: none;
-	height: 100%;
+    /* border-right: none; */
+    /* height: 100%; */
+    text-align: right;
   }
 
 
 .clearfix:after {
-	visibility: hidden;
-	display: block;
-	font-size: 0;
-	content: " ";
+	/* visibility: hidden; */
+	/* display: block; */
+	/* font-size: 0; */
+	/* content: " "; */
 	clear: both;
 	height: 0;
 }
@@ -724,4 +756,30 @@ a{
 .clearfix .slick-next {
   right: 100px;
   
+}
+.grid-head {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: auto;
+    height: fit-content;
+    column-gap: 5px;
+}
+
+.dueDate {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.nameLoc{
+	margin: auto;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: auto auto;
+}.requestExpectedPrice {}
+
+.price {
+    margin: auto;
 }

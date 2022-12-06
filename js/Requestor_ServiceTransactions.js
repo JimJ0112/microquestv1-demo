@@ -1201,6 +1201,7 @@ function SetPaidData(dataArray){
 
                
 
+          generateFeedbackButton(dataArray[i]['transactionID'],i,dataArray[i]['responderID'],dataArray[i]['serviceID']);
 
           var button = document.createElement('button');
           button.setAttribute('class','Button');
@@ -1367,71 +1368,83 @@ function SetDeliveredData(dataArray){
 /* Update Services Status  */
 
 function acceptServiceOrder(transactionID,update){
-    var transactionID = transactionID;
-    var update = update;
-    var query = "transactionID=" + transactionID+"&update="+update;
-    console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
+    if (confirm("Accept Order?")) {
 
-    xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            var dataArray = this.response;
-            console.log(dataArray);
-            alert("Order Accepted");
-
-
-            transactionsUserId = sessionStorage.getItem("transactionsUserId");
-            getOrders(transactionsUserId);
- 
-            
-
-        }else{
-            console.log(err);
-        }      
-    };
+        var transactionID = transactionID;
+        var update = update;
+        var query = "transactionID=" + transactionID+"&update="+update;
+        console.log(query);
     
+        var xmlhttp = new XMLHttpRequest();
+    
+        xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+               
+                var dataArray = this.response;
+                console.log(dataArray);
+                alert("Order Accepted");
+    
+    
+                transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                getOrders(transactionsUserId);
+     
+                
+    
+            }else{
+                console.log(err);
+            }      
+        };
+        
+    
+        xmlhttp.send(query);
+       
+      } else {
+        
+      }
 
-    xmlhttp.send(query);
+    
 
     
 }// end of function
 
 
 function cancelServiceOrder(transactionID,update){
-    var transactionID = transactionID;
-    var update = update;
-    var query = "transactionID=" + transactionID+"&update="+update;
-    console.log(query);
+    if (confirm("Cancel Order?")) {
+            var transactionID = transactionID;
+            var update = update;
+            var query = "transactionID=" + transactionID+"&update="+update;
+            console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
+            var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            var dataArray = this.response;
-            console.log(dataArray);
-            alert("Order Cancelled");
-
-
-            transactionsUserId = sessionStorage.getItem("transactionsUserId");
-            getCancelledOrders(transactionsUserId);
- 
+            xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.onload = function() {
+                if (this.readyState === 4 || this.status === 200){ 
+                
+                    var dataArray = this.response;
+                    console.log(dataArray);
+                    alert("Order Cancelled");
+                
+                
+                        transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                    getCancelledOrders(transactionsUserId);
+                
             
+                
+                }else{
+                    console.log(err);
+                }      
+            };
 
-        }else{
-            console.log(err);
-        }      
-    };
-    
-    xmlhttp.send(query);
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+            xmlhttp.send(query);
+    }else{
+
+    }
+
     
 }// end of function
 

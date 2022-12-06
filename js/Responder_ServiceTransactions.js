@@ -1252,156 +1252,168 @@ function SetPaidData(dataArray){
 /* Update Services Status  */
 
 function acceptServiceOrder(transactionID,update){
-    var transactionID = transactionID;
-    var update = update;
-    var query = "transactionID=" + transactionID+"&update="+update;
-    console.log(query);
-    alert("Order Accepted");
+
+    if (confirm("Accept Order?")) {
+            var transactionID = transactionID;
+            var update = update;
+            var query = "transactionID=" + transactionID+"&update="+update;
+            console.log(query);
+            alert("Order Accepted");
 
 
-    var xmlhttp = new XMLHttpRequest();
+            var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            var dataArray = this.response;
-            console.log(dataArray);
-            
+            xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xmlhttp.onload = function() {
+                if (this.readyState === 4 || this.status === 200){ 
+                
+                    var dataArray = this.response;
+                    console.log(dataArray);
 
+                
 
-            transactionsUserId = sessionStorage.getItem("transactionsUserId");
-            getOrders(transactionsUserId);
- 
-            
+                    transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                    getOrders(transactionsUserId);
+                
+                
+                
+                    }else{
+                    console.log(err);
+                }      
+            };
 
-        }else{
-            console.log(err);
-        }      
-    };
-    
-    xmlhttp.send(query);
-    alert("Order Accepted");
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+            xmlhttp.send(query);
+            alert("Order Accepted");
+    }else{
+
+    }
     
 }// end of function
 
 
 function cancelServiceOrder(transactionID,update){
-    var transactionID = transactionID;
-    var update = update;
-    var query = "transactionID=" + transactionID+"&update="+update;
-    console.log(query);
-    alert("Order Canceled");
-    
 
-    var xmlhttp = new XMLHttpRequest();
+    if (confirm("Cancel Order?")) {
+            var transactionID = transactionID;
+            var update = update;
+            var query = "transactionID=" + transactionID+"&update="+update;
+            console.log(query);
+            alert("Order Canceled");
 
-    xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            var dataArray = this.response;
-            console.log(dataArray);
+
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.onload = function() {
+                if (this.readyState === 4 || this.status === 200){ 
+                
+                    var dataArray = this.response;
+                    console.log(dataArray);
+
+
+                
+                    transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                    getCancelledOrders(transactionsUserId);
+                
             
+                
+                }else{
+                    console.log(err);
+                }      
+            };
 
+            xmlhttp.send(query);
+            alert("Order Canceled");
 
-            transactionsUserId = sessionStorage.getItem("transactionsUserId");
-            getCancelledOrders(transactionsUserId);
- 
-            
+    }else{
 
-        }else{
-            console.log(err);
-        }      
-    };
-    
-    xmlhttp.send(query);
-    alert("Order Canceled");
-
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+    }
     
 }// end of function
 
 
 
 function deliverServiceOrder(transactionID,update){
-    var transactionID = transactionID;
-    var update = update;
-    var query = "transactionID=" + transactionID+"&update="+update;
-    console.log(query);
-    alert("Order Delivered");
-
-
-    var xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            var dataArray = this.response;
-            console.log(dataArray);
-            //alert("Order Delivered");
-
-
-            transactionsUserId = sessionStorage.getItem("transactionsUserId");
-            getAcceptedOrders(transactionsUserId);
- 
-            
-
-        }else{
-            console.log(err);
-        }      
-    };
     
-    xmlhttp.send(query);
-    alert("Order Delivered");
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+    if (confirm("Deliver Order?")) {
+            var transactionID = transactionID;
+            var update = update;
+            var query = "transactionID=" + transactionID+"&update="+update;
+                console.log(query);
+            alert("Order Delivered");
+
+
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.onload = function() {
+                if (this.readyState === 4 || this.status === 200){ 
+                
+                    var dataArray = this.response;
+                    console.log(dataArray);
+                    //alert("Order Delivered");
+                
+                
+                    transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                    getAcceptedOrders(transactionsUserId);
+                
+
+                
+                }else{
+                    console.log(err);
+                }      
+            };
+
+         xmlhttp.send(query);
+         alert("Order Delivered");
+    } else{
+
+    }
     
 }// end of function
 
 
 function confirmPaymentServiceOrder(transactionID,update){
-    var transactionID = transactionID;
-    var update = update;
-    var query = "transactionID=" + transactionID+"&update="+update;
-    console.log(query);
-    alert("Payment Confirmed");
+
+    if (confirm("Confirm Payment?")) {
+        var transactionID = transactionID;
+        var update = update;
+        var query = "transactionID=" + transactionID+"&update="+update;
+        console.log(query);
+        alert("Payment Confirmed");
 
 
-    var xmlhttp = new XMLHttpRequest();
+        var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
+        xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
            
-            var dataArray = this.response;
-            console.log(dataArray);
+                var dataArray = this.response;
+                console.log(dataArray);
           
 
 
-            transactionsUserId = sessionStorage.getItem("transactionsUserId");
-            getPaidOrders(transactionsUserId);
+                transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                getPaidOrders(transactionsUserId);
  
             
 
-        }else{
-            console.log(err);
-        }      
-    };
+            }else{
+                console.log(err);
+            }      
+        };
     
-    alert("Payment Confirmed");
-    xmlhttp.send(query);
-    
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+        alert("Payment Confirmed");
+        xmlhttp.send(query);
+    }else{
+
+    }
+
     
 }// end of function
 

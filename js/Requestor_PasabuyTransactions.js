@@ -1549,37 +1549,40 @@ function generatePasabuyFeedbackButton(transactionID,number,responderID,serviceI
 
 //---------------------------------------button functions/actions-------------------------------------------
 function cancelPasabuyTransaction(transactionID){
-    var transactionID = transactionID;
-    var query = "transactionID=" + transactionID+"&update=Cancelled&userType=Requestor";
-    console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
+    if (confirm("Cancel Order?")) {
+            var transactionID = transactionID;
+            var query = "transactionID=" + transactionID+"&update=Cancelled&userType=Requestor";
+            console.log(query);
 
-    xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            var dataArray = this.response;
-            console.log(dataArray);
-        
+            var xmlhttp = new XMLHttpRequest();
 
+            xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.onload = function() {
+                if (this.readyState === 4 || this.status === 200){ 
+                
+                    var dataArray = this.response;
+                    console.log(dataArray);
+                
 
-           var transactionsUserId = sessionStorage.getItem("transactionsUserId");
-           // getCancelledRequests(transactionsUserId);
-           pasabuyNavItem (5,transactionsUserId);
- 
-            
+                
+                   var transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                          // getCancelledRequests(transactionsUserId);
+                   pasabuyNavItem (5,transactionsUserId);
+                
 
+                
+                }else{
+                    console.log(err);
+                }      
+            };
+
+            xmlhttp.send(query);
+            alert("Transaction Cancelled");
         }else{
-            console.log(err);
-        }      
-    };
-    
-    xmlhttp.send(query);
-    alert("Transaction Cancelled");
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+
+        }
     
 }// end of function
 

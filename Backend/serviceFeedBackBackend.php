@@ -56,7 +56,7 @@ if($insertFeedback){
 } 
 
 
-header("location: ../Requestor_Transactions.php?q=1");
+header("location: ../Requestor_ServiceTransactions.php?q=1");
 
 
 

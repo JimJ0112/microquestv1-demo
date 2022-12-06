@@ -21,28 +21,31 @@
 
 <body onload="getServices()">
 
+	<script> init(); </script>
 	<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
-		<img src="img/businessidea.png" id="RegistrationBackground">
+	<img src="img/f.jpg" id="RegistrationBackground">
 
-		<h3 class="RegisterTypeText"> Responder </h3>
 
-		<img src="img/logo.png" id="RegistrationLogo"> 
-		<h3 id="SignUpText"> Sign up</h3>
+
+<img src="img/logo.png" id="RegistrationLogo"> 
+<h3 id="SignUpText"> Responder</h3>
+<h4 id="SignUpText1"> Sign up</h3>
+
 
 		<div id="RegistrationContainer">
 
 			<!--Form -->
 			<form action="Backend/RegisterBackend.php" method="post" enctype="multipart/form-data" id="RegistrationForm">
 				<input type="hidden" name="userType" value="Responder">
-				<!-- 1st page -->
-					<div id="AccountInfoForm">
-						<span class="formPageIndicator"> 1 out of 4</span>
+				<div id="AccountInfoForm">
+						
 						<div id="AccountInfoForm1">
 
 							<div class="inputItem"> 
 								Username: <br/>
 								<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-								<input type="text" name="userName" class="Registration-TextBox" id="Username" oninput="checkUserName()" onkeyup="checkInputs_AccountInfo()"  placeholder="Username.."> 
+								<input type="text" name="userName" class="Registration-TextBox" id="Username" oninput="checkUserName()" onkeyup="checkInputs_AccountInfo()" placeholder="Username.."> 
+								
 								<br/>
 								<span id="userNameChecker" class="checker"> </span>
 							</div><br/>
@@ -67,20 +70,23 @@
 								<input type="password" class="Registration-TextBox" id="ConfirmPassword" oninput="checkInputs_ConfirmPassword()" placeholder="Confirm Password.."> 
 								<p id="passwordmatch"></p>
 							</div><br/>
+
+							<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled>
 						</div>		
-								
+						 		
 					</div>
 				
-					<!-- 2nd page -->
+					
 					<div id="EmailVerificationForm">
-						<span class="formPageIndicator"> 2 out of 5</span>
+						<span class="formPageIndicator"> 2 out of 4</span>
 						<div id="EmailVerificationForm1">
 
 							<div class="inputItem"> 
 								<br/>
 								<center> Enter the code we have sent to your email </center> <br/>
+								<input type="number"  class="Registration-TextBox" id="emailConfirmationInput">
 								<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-								<input type="number"  class="Registration-TextBox" id="emailConfirmationInput"> <br/> 
+								<br/> 
 								<span id="ConfirmEmailResult"> </span>
 								<span id="ConfirmEmailAttempts"> </span>
 							</div><br/>
@@ -101,38 +107,29 @@
 
 
 				<!-- 3rd page -->
+				<div id="hidden">
 				<div id="GeneralInfoForm">
-					<span class="formPageIndicator"> 3 out of 4</span>
 					<div id="GeneralInfoForm1">
 					
-						<div class="inputItem"> 
-							First name: <br/>
-							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							<input type="text" name="firstName" class="Registration-TextBox" id="FirstName" oninput="checkInputs_GeneralInfo()"> 
-						</div> <br/>
+						<div class="inputItem1">
+						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>First name:</div>
+							<input type="text" name="firstName" class="Registration-TextBox" id="FirstName"> 
+						
+						<div class="textBox">Middle name:</div>
+							<input type="text" name="middleName" class="Registration-TextBox" id="MiddleName"> 
+					
+						<div class="textBox">Last name: </div>
+							<input type="text" name="lastName" class="Registration-TextBox" id="LastName" > 
+						
+						</div> 
+						<div class="inputItem2">
+						<div class="textBox"> <span class="asteriskRequiredField" title="This Field is Required"> * </span>Birthdate: </div>
+							<input type="date" class="Registration-TextBox" id="Birthdate" name="birthDate"  /> 
 
-						<div class="inputItem"> 
-							Middle name: <br/>
-							<input type="text" name="middleName" class="Registration-TextBox" id="MiddleName" oninput="checkInputs_GeneralInfo()"> 
-						</div> <br/>
-
-						<div class="inputItem"> 
-							Last name: <br/>
-							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							<input type="text" name="lastName" class="Registration-TextBox" id="LastName" oninput="checkInputs_GeneralInfo()"> 
-						</div><br/>
-
-						<div class="inputItem"> 
-							Birthdate: <br/>
-							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							<input type="date" class="Registration-TextBox" id="Birthdate" name="birthDate" oninput="checkInputs_GeneralInfo()"> 
-						</div><br/>
-
-						<div class="inputItem"> 
-							Sex: <br/>
-							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							<input type="radio" name="Sex"  value="Male" id="Male" oninput="checkInputs_GeneralInfo()"> Male 
-							<input type="radio" name="Sex"  value="Female" id="Female" oninput="checkInputs_GeneralInfo()"> Female 
+						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Sex: </div>
+							
+							<div class="textBox1"><input  type="radio" name="Sex"  value="Male" id="Male" > Male 
+							<input type="radio" name="Sex"  value="Female" id="Female" > Female </div>
 
 						</div>
 
@@ -141,10 +138,10 @@
 
 					<div id="GeneralInfoForm2">
 					
-						<div class="inputItem"> 
-							Municipality: <br/>
-							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-								<select name="municipality" class="Registration-TextBox" id="Municipality" oninput="checkInputs_GeneralInfo()"> 
+						<div class="inputItem3"> 
+						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Municipality:</div> 
+							
+								<select name="municipality" class="Registration-TextBox" id="Municipality"> 
 									<option selected="" disabled="">Select City / Municipality</option>
                      				<option value="Abucay">Abucay</option>
                      				<option value="Bagac">Bagac</option>
@@ -159,37 +156,28 @@
                      				<option value="Pilar">Pilar</option>
                      				<option value="Samal">Samal</option>
 								</select>
-						</div> <br/>
-
-						<div class="inputItem"> 
-							House No: <br/>
-							<input type="text" name="houseNumber" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()"> 
-						</div> <br/>
-
-						<div class="inputItem"> 
-							Street: <br/>
-							<input type="text" name="street" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()"> 
-						</div> <br/>
-
-						<div class="inputItem"> 
-							Barangay: <br/>
-							<input type="text" name="baranggay" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()"> 
-						</div> <br/> <br/><br/>
 						
-					</div>
+						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>House No: </div>
+							
+							<input type="text" name="houseNumber" class="Registration-TextBox" id="Address"> 
+						
+						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Street: </div>
+							
+							<input type="text" name="street" class="Registration-TextBox" id="Address" > 
+						
+						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Baranggay: </div>
+							
+							<input type="text" name="baranggay" class="Registration-TextBox" id="Address" > 
+						</div> 
 
-				</div>
-
-
-				<!--4th page-->
-
-				<div id="ResponderInfoForm">
-					<span class="formPageIndicator"> 4 out of 4</span>
+					
+					</div>	
 					<div id="ResponderInfoForm1">
 					
-						<div class="inputItem"> 
-							Educational Attainment: <br/>
-							<select name="education" class="Registration-TextBox" id="Education" oninput=" checkInputs_ResponderInfo()"> 
+						<div class="inputItem4"> 
+						
+						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Educational Attainment </div>
+							<select name="education" class="Registration-TextBox" id="Education" > 
 								<option selected="" disabled="">Select  Education</option>
                      			<option value="Elementary Graduate">Elementary Graduate</option>
                      			<option value="Secondary Graduate">Secondary Graduate</option>
@@ -198,69 +186,62 @@
                      			<option value="College/University Graduate">College/University Graduate</option>
                      			<option value="Vocational Training Graduate">Vocational Training Graduate</option>
 							</select>
-						</div> <br/>
-
-						<div class="inputItem"> 
-							Identification Card: <br/>
-							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							<select name="idType" class="Registration-TextBox" id="IDType" oninput=" checkInputs_ResponderInfo()"> 
+						
+							
+							
+						
+							<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Identification Card: </div>
+							<select name="idType" class="Registration-TextBox" id="IDType" > 
 								<option value="Driver's License"> Driver's License</option>    
                     			<option value="Philhealth"> Philhealth</option>    
                     			<option value="Voter's ID"> Voter's ID</option> 
 								<option value="National ID"> National ID</option> 
 							</select>
-						</div> <br/>
+						
+							
+							
+							<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>ID Expiration date: </div>
+								<input type="date" name="idExpiration" class="Registration-TextBox" id="IDExpirationDate"> 
 
-						<div class="inputItem"> 
-							<img id="userIDPicOutput"> <br/>
-							ID: <br/>
-							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							<input type="file" name="idFile" id="IDFile" oninput=" checkInputs_ResponderInfo()" onchange="showIDPicOutput(event)" accept="image/png, image/jpg, image/jpeg" > 
-						</div><br/>
-
-						<div class="inputItem"> 
-							ID Number: <br/>
-							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							<input type="text" name="idNumber" class="Registration-TextBox" id="IDNumber" oninput=" checkInputs_ResponderInfo()"> 
-						</div><br/>
+						<div class="textBox">
+							ID Number: </div>
+							<input type="text" name="idNumber" class="Registration-TextBox" id="IDNumber"> 
+						</div>
 						
 					</div>
-
-					<div id="ResponderInfoForm2">
 					
-						<div class="inputItem"> 
-							ID Expiration date: <br/>
-								<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-								<input type="date" name="idExpiration" class="Registration-TextBox" id="IDExpirationDate" oninput=" checkInputs_ResponderInfo()"> 
+						<div class="inputItem5"> 
+						
+						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>ID: </br>
+						<input type="file" name="idFile" id="IDFile"  onchange="showIDPicOutput(event)" accept="image/png, image/jpg, image/jpeg"></div><img id="userIDPicOutput"> 
+							 
 								
-						</div> <br/>
 
-						<div class="inputItem"> 
-							Work Specialization: <br/>
-							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							<select name="specialization" class="Registration-TextBox" id="specialization" oninput="checkInputs_ResponderInfo()"> 
-							</select>
-						</div> <br/>
-
-
-						<div class="inputItem"> 
-							<img id="userProfilePicOutput"> <br/>
-							<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							Profile Picture <br/>
-							<input type="file" name="userPhoto" id="ProfilePicture" oninput=" checkInputs_ResponderInfo()" onchange="showProfilePicOutput(event)" accept="image/png, image/jpg, image/jpeg"> 
+							 
+							<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Profile Picture</br>
+							<input  type="file" name="userPhoto" id="ProfilePicture"  onchange="showProfilePicOutput(event)" accept="image/png, image/jpg, image/jpeg">  </div><img id="userProfilePicOutput">
+							
 	
 
-						</div><br/>
+						</div>
 						
-					</div>
+					
+						<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled>
+				
+						
+					
 
 				</div>
 
-				<input type="button" id="RegistrationBackButton" value= "Back" onclick="backForm()" > 
+	</div>
+
+
+
+				
 				<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled> 
 
 			
-				<input type="button" id="RegistrationRegisterButton" value= "Register" onclick="submitForm()">
+				<input type="submit" id="RegistrationRegisterButton" value= "Register" onclick="submitForm()">
 			
 
 			</form>

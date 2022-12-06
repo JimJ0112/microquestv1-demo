@@ -951,11 +951,9 @@ function SetFinishedRequestsData(dataArray){
 
         
         requestStatus[i].style.color = "blue";
-        var button1 = document.createElement('button');
-        button1.setAttribute('class','Button');
-        button1.innerText = "Give a Feedback";
-        button1.setAttribute('onclick',"setFeedbackForm(" + dataArray[i]['transactionID'] + ")");
-        actionsDiv[i].appendChild(button1);
+
+        generateFeedbackButton(dataArray[i]['transactionID'],i,dataArray[i]['responderID'],dataArray[i]['requestID']);
+
         
 
         myID = sessionStorage.getItem("userID");
@@ -1386,6 +1384,20 @@ function SetPaidRequestsData(dataArray){
             
         }
 
+        
+        requestStatus[i].style.color = "blue";
+
+        /*
+        var button1 = document.createElement('button');
+        button1.setAttribute('class','Button');
+        button1.innerText = "Give a Feedback";
+        button1.setAttribute('onclick',"setFeedbackForm(" + dataArray[i]['transactionID'] + ")");
+        actionsDiv[i].appendChild(button1);
+        */
+        generateFeedbackButton(dataArray[i]['transactionID'],i,dataArray[i]['responderID'],dataArray[i]['requestID']);
+
+
+
 
         var button = document.createElement('button');
         button.setAttribute('class','Button');
@@ -1669,8 +1681,7 @@ function confirmPaymentRequest(transactionID,update){
     };
     
     xmlhttp.send(query);
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+
     
 }// end of function
 
@@ -1730,36 +1741,40 @@ function closeFeedbackForm(){
 
 
 function cancelRequestApplication(transactionID,update){
-    var transactionID = transactionID;
-    var update = update;
-    var query = "transactionID=" + transactionID+"&update="+update;
-    console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
+    if (confirm("Cancel Responder? ")) {
+            var transactionID = transactionID;
+            var update = update;
+            var query = "transactionID=" + transactionID+"&update="+update;
+            console.log(query);
 
-    xmlhttp.open("POST", "Backend/UpdateRequestTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            var dataArray = this.response;
-            console.log(dataArray);
-            alert("Request Application Canceled");
+            var xmlhttp = new XMLHttpRequest();
 
+            xmlhttp.open("POST", "Backend/UpdateRequestTransaction.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.onload = function() {
+                if (this.readyState === 4 || this.status === 200){ 
+                
+                    var dataArray = this.response;
+                    console.log(dataArray);
+                    alert("Request Application Canceled");
+                
+                
+                    transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                    getCancelledRequests(transactionsUserId);
+                
 
-            transactionsUserId = sessionStorage.getItem("transactionsUserId");
-            getCancelledRequests(transactionsUserId);
- 
-            
-
-        }else{
-            console.log(err);
-        }      
-    };
+                
+                }else{
+                    console.log(err);
+                }      
+            };
     
-    xmlhttp.send(query);
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+            xmlhttp.send(query);
+    } else{
+
+    }
+
     
 }// end of function
 
@@ -1981,36 +1996,42 @@ function redirect(url){
 /* Update Services Status  */
 
 function acceptRequestApplication(transactionID,update){
-    var transactionID = transactionID;
-    var update = update;
-    var query = "transactionID=" + transactionID+"&update="+update;
-    console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/UpdateRequestTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
+    if (confirm("Accept Responder?")) {
+        var transactionID = transactionID;
+        var update = update;
+        var query = "transactionID=" + transactionID+"&update="+update;
+        console.log(query);
+
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.open("POST", "Backend/UpdateRequestTransaction.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+            
+                var dataArray = this.response;
+                console.log(dataArray);
            
-            var dataArray = this.response;
-            console.log(dataArray);
-           
 
 
-            transactionsUserId = sessionStorage.getItem("transactionsUserId");
-            requestClickedItem(0,transactionsUserId);
- 
+                transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                requestClickedItem(0,transactionsUserId);
             
 
-        }else{
-            console.log(err);
-        }      
-    };
+
+            }else{
+                console.log(err);
+             }      
+        };
+
+
+        xmlhttp.send(query);
+        alert("Accepted");
+    }else{
+
+    }
     
-
-    xmlhttp.send(query);
-    alert("Accepted");
-
     
 }// end of function

@@ -225,10 +225,13 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-image: url(../images/banner_first.jpeg);
+    background-image: url(../img/f.jpg);
+    /* background-position: center; */
+    background-size: cover;
     height: auto;
-    background-size: 100%;
+    /* background-size: 100%; */
     padding: 0px 0px 160px 0px;
+    color: orangered;
 }
 
 .bg-light {
@@ -239,7 +242,7 @@ button {
 .logo {
     width: 100%;
     float: left;
-    text-align: center;
+    /* text-align: center; */
     padding: 20px 0px 50px 0px;
 }
 
@@ -291,6 +294,7 @@ button {
     width: 100%;
     text-align: center;
     margin: 0 auto;
+    background-color: #d0cfcfb8;
 }
 
 .menu_nav ul {
@@ -306,16 +310,18 @@ button {
     padding-right: 10px;
     font-size: 18px;
     text-transform: uppercase;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: #fff;
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    color: orangered;
     border-radius: 40px;
 }
 
 .menu_nav li a {
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 10px;
+    color: orangered;
+    padding: 0px 20px;
+    /* border-radius: 10px; */
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .menu_nav li a:hover {
@@ -332,9 +338,9 @@ button {
 
 .header_main {
     width: 100%;
-    background-image: url(../images/header-bg.png);
-    background-size: 100%;
-    padding: 10px 0px 0px 0px;
+    /* background-image: url(../images/header-bg.png); */
+    /* background-size: 100%; */
+    /* padding: 10px 0px 0px 0px; */
 }
 
 
@@ -346,14 +352,17 @@ button {
 .banner_section {
     width: 100%;
     float: left;
-    padding-bottom: 305px;
+    padding-bottom: 250px;
+    /* color: orangered; */
+    background-color: #d0cfcfb8;
+    height: 700;
 }
 
 .banner_taital {
     width: 100%;
     float: left;
     font-size: 80px;
-    color: #ffffff;
+    color: orangered;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
@@ -364,7 +373,7 @@ button {
     width: 63%;
     margin: 0 auto;
     font-size: 16px;
-    color: #ffffff;
+    color: black;
     text-align: center;
 }
 
@@ -500,9 +509,8 @@ button {
 
 
 .dev_text {
-    background-color: rgba(71, 50, 37, 0.553);
+    background-color: orangered;
     width: 100%;
-    
     font-size: 40px;
     color: #fffefe;
     font-weight: bold;
@@ -550,7 +558,7 @@ button {
     width: 100%;
     font-size: 40px;
     color: white;
-    background-color:  rgba(71, 50, 37, 0.553);;
+    background-color: orangered;
     font-weight: bold;
     padding-top: 30px;
     text-align: center;
@@ -680,12 +688,11 @@ button {
     width: 100%;
     font-size: 40px;
     color: #fffbfb;
-    background-color: rgba(71, 50, 37, 0.553);;
+    background-color: orangered;
     font-weight: bold;
     text-align: center;
     padding: 20px;
     margin-top: -40px;
-    
 }
 
 .choose_text {
@@ -720,14 +727,11 @@ button {
 
 .sign_box {
     width: 100%;
-    
-    background-color: rgba(71, 50, 37, 0.553);
-    
+    background-color: orangered;
     padding: 20px 30px;
     display: flex;
     margin-top: 90px !important;
     float: left;
-   
 }
 
 .journey_text {

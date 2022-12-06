@@ -150,7 +150,7 @@
 <div id="giveFeedBackPopUpBack"> 
 	<div id="giveFeedBackPopUp"> 
 	
-	<form action="Backend/serviceFeedBackBackend.php" method="post" enctype="multipart/form-data">
+	<form action="Backend/requestFeedBackBackend.php" method="post" enctype="multipart/form-data">
 		
 		<center>
 			<br/>
@@ -158,7 +158,7 @@
 			<input type="hidden" name="myID" value="<?php echo $myUserID;?>"/>
 			<input type="hidden" name="serviceTransactionID" id="TransactionFeedbackID"/>
 			<input type="hidden" name="serviceRevieweeID" id="serviceRevieweeFeedbackID"/>
-			<input type="hidden" name="serviceID" id="serviceFeedbackID"/>
+			<input type="hidden" name="requestID" id="serviceFeedbackID"/>
 			<input type="hidden" name="userType" id="Responder"/>
 			<h3> Please Enter your feedbacks </h3>
 			<br/>

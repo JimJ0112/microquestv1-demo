@@ -244,7 +244,7 @@ function getUserReviews(userID){
       }      
   };
   
-  xmlhttp.open("POST", "Backend/Get_ratingsandFeedbacks.php", true);
+  xmlhttp.open("POST", "Backend/Get_requestRatingsandFeedbacks.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send(query);
   
@@ -258,34 +258,50 @@ function createReviewsElements(number){
   for(var i = 0; i< number; i++){
 
     reviewContainer_Content = document.createElement("div");
+    reviewerInfo = document.createElement('div');
+    reviewerPhotoDiv = document.createElement('div');
+    reviewerName= document.createElement("p");
+    reviewerEmail= document.createElement("p");
+
+
     reviewCard = document.createElement("div");
-    reviewInfoList = document.createElement("ul");
-    reviewerName= document.createElement("li");
-    jobTitle= document.createElement("li");
-    reviewRating= document.createElement("li");
-    reviewDescription= document.createElement("li");
+
+    reviewInfoList = document.createElement("div");
+    RequestInfo= document.createElement("p");
+    reviewRating= document.createElement("p");
+    reviewDescription= document.createElement("p");
 
 
     reviewContainer_Content.setAttribute("class","reviewContainer-Content");
+
     reviewCard.setAttribute("class","reviewCard");
-    reviewInfoList.setAttribute("class","reviewInfoList");
+
+    reviewerInfo.setAttribute("class","reviewerInfo");
+    reviewerPhotoDiv.setAttribute("class","reviewerPhotoDiv");
     reviewerName.setAttribute("class","reviewerName");
-    jobTitle.setAttribute("class","jobTitle");
+    reviewerEmail.setAttribute("class","reviewerEmail");
+
+    reviewInfoList.setAttribute("class","reviewInfoList");
+    RequestInfo.setAttribute("class"," RequestInfo");
     reviewRating.setAttribute("class","reviewRating");
     reviewDescription.setAttribute("class","reviewDescription");
 
-    reviewInfoList.appendChild(reviewerName)
-    reviewInfoList.appendChild(jobTitle)
-    reviewInfoList.appendChild(reviewRating)
+    reviewerInfo.appendChild(reviewerPhotoDiv)
+    reviewerInfo.appendChild(reviewerName)
+    reviewerInfo.appendChild(reviewerEmail)
+
+
+    reviewInfoList.appendChild(RequestInfo)
+    reviewInfoList.appendChild(reviewRating);
     reviewInfoList.appendChild(reviewDescription)
 
+
+    reviewCard.appendChild(reviewerInfo);
     reviewCard.appendChild(reviewInfoList);
+
     reviewContainer_Content.appendChild(reviewCard);
 
     reviewContainer.appendChild(reviewContainer_Content)
-
-
-
 
     
 
@@ -299,15 +315,29 @@ function setReviewDatas(dataArray){
   var number = dataArray.length;
 
   reviewerName = document.getElementsByClassName("reviewerName");
-  jobTitle= document.getElementsByClassName("jobTitle");
+  RequestInfo= document.getElementsByClassName("RequestInfo");
   reviewRating= document.getElementsByClassName("reviewRating");
   reviewDescription= document.getElementsByClassName("reviewDescription");
 
+  reviewerPhotoDiv= document.getElementsByClassName("reviewerPhotoDiv");
+  
+  reviewerEmail= document.getElementsByClassName("reviewerEmail");
+  reviewerInfo = document.getElementsByClassName("reviewerInfo");
+
 
   for(var i = 0; i<number; i++){
-    reviewerName[i].innerText = "Username: "+dataArray[i]['ReviewerUserName'];
-    jobTitle[i].innerText = "Service: " + dataArray[i]['servicePosition'];
+
+
+    var image = new Image();
+    image.src = dataArray[i]["requestorUserPhoto"];
+    image.setAttribute("class","requestorUserPhoto");
+    reviewerPhotoDiv[i].append(image);
+
+    reviewerName[i].innerText = dataArray[i]['ReviewerUserName'];
+    reviewerEmail[i].innerText = dataArray[i]['requestorUserEmail'];
+    RequestInfo[i].innerText =  dataArray[i]['requestCategory'] + " : " + dataArray[i]['requestTitle'];
     
+    reviewerInfo[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID="+ dataArray[i]['ratingReviewerID'] + "&userType=Requestor')");
 
     if(dataArray[i]['rating1star'] === "1"){
       reviewRating[i].innerText = "Ratings: 1⭐";

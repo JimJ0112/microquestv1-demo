@@ -7,10 +7,10 @@ function submitForm(){
 /* Dropdown menus */
 
 
-
+/*
 function nextForm(){
 
-    var ResponderInfoForm = document.getElementById("ResponderInfoForm");
+   // var ResponderInfoForm = document.getElementById("ResponderInfoForm");
     var GeneralInfoForm = document.getElementById("GeneralInfoForm");
     var AccountInfoForm = document.getElementById("AccountInfoForm");
     
@@ -23,7 +23,7 @@ function nextForm(){
     var GeneralInfoFormDisplay = window.getComputedStyle(GeneralInfoForm).display;
     var AccountInfoFormDisplay = window.getComputedStyle(AccountInfoForm).display;
     var EmailVerificationFormDisplay = window.getComputedStyle(EmailVerificationForm).display;
-    var ResponderInfoFormDisplay = window.getComputedStyle(ResponderInfoForm);
+   // var ResponderInfoFormDisplay = window.getComputedStyle(ResponderInfoForm);
 
     console.log(AccountInfoFormDisplay);
 
@@ -31,7 +31,7 @@ function nextForm(){
         AccountInfoForm.style.display = "none";
         EmailVerificationForm.style.display = "block";
         GeneralInfoForm.style.display = "none";
-        ResponderInfoForm.style.display = "none";
+        //ResponderInfoForm.style.display = "none";
         RegistrationNextButton.style.display = "block";
         RegistrationBackButton.style.display = "none";
         RegistrationRegisterButton.style.display = "none";
@@ -48,7 +48,7 @@ function nextForm(){
         AccountInfoForm.style.display = "none";
         EmailVerificationForm.style.display = "none";
         GeneralInfoForm.style.display = "block";
-        ResponderInfoForm.style.display = "none";
+        //ResponderInfoForm.style.display = "none";
         RegistrationNextButton.style.display = "block";
         RegistrationBackButton.style.display = "block";
         RegistrationRegisterButton.style.display = "none";
@@ -84,62 +84,40 @@ function nextForm(){
         checkInputs_ResponderInfo();
 
 
-    }else {
-
-        /*
-        GeneralInfoForm.style.display = "block";
-        ResponderInfoForm.style.display = "none";
-        RegistrationBackButton.style.display = "none";
-        checkInputs_AccountInfo();
-        */
     }
 
 }
+*/
 
-function backForm(){
 
-    var ResponderInfoForm = document.getElementById("ResponderInfoForm");
+function nextForm(){
     var GeneralInfoForm = document.getElementById("GeneralInfoForm");
     var AccountInfoForm = document.getElementById("AccountInfoForm");
+    
 
+    
+    checkUserName();
+    checkEmail();
     var RegistrationBackButton = document.getElementById("RegistrationBackButton");
     var RegistrationRegisterButton = document.getElementById("RegistrationRegisterButton");
     var RegistrationNextButton = document.getElementById("RegistrationNextButton");
+    var EmailVerificationForm = document.getElementById("EmailVerificationForm");
+
+    checkInputs_AccountInfo();
+    emailVerification();
+    sessionStorage.setItem("EmailConfirmationAttempt", 3);
+
+    var RegistrationNextButton = document.getElementById("RegistrationNextButton");
+    RegistrationNextButton.disabled = true;
 
 
-    var ResponderInfoFormDisplay = window.getComputedStyle(ResponderInfoForm).display;
-    var GeneralInfoFormDisplay = window.getComputedStyle(GeneralInfoForm).display;
-    var AccountInfoFormDisplay = window.getComputedStyle(AccountInfoForm).display;
 
+    AccountInfoForm.style.display = "none";
+    EmailVerificationForm.style.display = "block";
 
-
-    if(ResponderInfoFormDisplay === "block" && GeneralInfoFormDisplay ==="none"){
-
-        GeneralInfoForm.style.display = "block";
-        ResponderInfoForm.style.display = "none";
-        AccountInfoForm.style.display = "none";
-        RegistrationBackButton.style.display = "block";
-        RegistrationRegisterButton.style.display = "none";
-        RegistrationNextButton.style.display = "block";
-
-
-    } else if(GeneralInfoFormDisplay === "block" && AccountInfoFormDisplay === "none"){
-
-        GeneralInfoForm.style.display = "none";
-        ResponderInfoForm.style.display = "none";
-        AccountInfoForm.style.display = "grid";
-        RegistrationBackButton.style.display = "none";
-        RegistrationRegisterButton.style.display = "none";
-        RegistrationNextButton.style.display = "block";
-       
-
-    } else {
-        GeneralInfoForm.style.display = "none";
-        ResponderInfoForm.style.display = "block";
-        RegistrationBackButton.style.display = "none";
-    }
 
 }
+
 
 
 
@@ -167,9 +145,11 @@ function checkInputs_ConfirmPassword(){
             RegistrationNextButton.disabled = true;
             passwordmatch.innerText = "Password doesn't match";
             passwordmatch.style.color = "darkred";
-            ConfirmPassword.focus();
+            //ConfirmPassword.focus();
         }
         //checkInputs_GeneralInfo();
+        //checkUserName();
+        //checkEmail();
 
 }
 
@@ -181,6 +161,9 @@ function checkInputs_AccountInfo(){
     Email= document.getElementById("Email");
     Password= document.getElementById("Password");
     ConfirmPassword= document.getElementById("ConfirmPassword");
+    //checkUserName();
+    //checkEmail();
+
     var checkedUserNameResult = sessionStorage.getItem("userNameExists");
     var checkedEmailResult = sessionStorage.getItem("EmailExists");
     
@@ -192,103 +175,50 @@ function checkInputs_AccountInfo(){
        checkedUserNameResult === "false" &&
        checkedEmailResult === "false"
     ){
-        RegistrationNextButton.disabled = false;
-    } else{
-        RegistrationNextButton.disabled = true;
-    }
+        //RegistrationNextButton.disabled = false;
 
-}
-
-
-function checkInputs_GeneralInfo(){
-
-    var RegistrationNextButton = document.getElementById("RegistrationNextButton");
-
-    FirstName = document.getElementById("FirstName");
-    MiddleName= document.getElementById("MiddleName");
-    LastName= document.getElementById("LastName");
-    Municipality= document.getElementById("Municipality");
-    Address= document.getElementById("Address");
-    Birthdate = document.getElementById("Birthdate");
-    Male= document.getElementById("Male");
-    Female = document.getElementById("Female");
-
-
-   console.log("checkInputs_GeneralInfo")
+        emailVerification();
+        sessionStorage.setItem("EmailConfirmationAttempt", 3);
     
-  
+        //var RegistrationNextButton = document.getElementById("RegistrationNextButton");
+        //RegistrationNextButton.disabled = true;
     
-
-        if( FirstName.value !="" &&
-        MiddleName.value !="" &&
-        LastName.value  !="" &&
-        Municipality.value!="" &&
-        Address.value !="" &&
-        Birthdate.value != "" &&
-        Male.checked == true ||
-        Female.checked == true
-        
-    ){
-        //console.log("type");
-        RegistrationNextButton.disabled = false;
-    } else{
-       //console.log("not type");
-        RegistrationNextButton.disabled = true;
-    }
-
     
+    
+        AccountInfoForm.style.display = "none";
+        EmailVerificationForm.style.display = "block";
 
+    } else if (checkedUserNameResult === "true"){
+        //RegistrationNextButton.disabled = true;
+        alert("username already exists");
+    }else if(checkedEmailResult === "true"){
+        alert("email already exists");
 
-}
-
-
-function checkInputs_ResponderInfo(){
-
-    var RegistrationRegisterButton = document.getElementById("RegistrationRegisterButton");
-
-
-
-    Education= document.getElementById("Education");
-    IDType= document.getElementById("IDType");
-    IDFile= document.getElementById("IDFile");
-    IDNumber= document.getElementById("IDNumber");
-    IDExpirationDate= document.getElementById("IDExpirationDate");
-    Specialization= document.getElementById("specialization");
-    ProfilePicture = document.getElementById("ProfilePicture ");
-
-    if( 
-        Education.value !="" &&
-        IDType.value !="" &&
-       // IDFile.files.size  != 0 &&
-        IDNumber.value!="" &&
-        IDExpirationDate.value !="" 
-       // IDExpirationDate.value !="" &&
-        //Specialization.value != "" &&
-        //ProfilePicture.files.size != 0
-    ){
-        console.log("type");
-        RegistrationRegisterButton.disabled = false;
-    } else{
-        console.log("not type");
-        RegistrationRegisterButton.disabled = true;
+    }else{
+        Username.focus();
     }
 
 }
 
 
 
-function init() { 
+
+
+
+
+
+
+function init(){ 
     // This is the function the browser first runs when it's loaded.
     //checkInputs_AccountInfo();
-    //checkInputs_GeneralInfo();  
+    
     
     // Then runs the refresh function for the first time.
     var int = self.setInterval(function () {
-   // getMessages();
-   // setConversation();
+
    //checkInputs_AccountInfo();
-   //checkInputs_AccountInfo();
-   //checkInputs_GeneralInfo();  
+  // checkUserName();
+  // checkEmail();
 
     }, 2000); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.
 }
@@ -328,6 +258,7 @@ function emailVerification(){
 
 }
 
+
 function checkEmailVerificationCode(){
     code = sessionStorage.getItem("vercode");
     var emailConfirmationInput = document.getElementById("emailConfirmationInput").value;
@@ -335,8 +266,8 @@ function checkEmailVerificationCode(){
     var ConfirmEmailAttempts = document.getElementById("ConfirmEmailAttempts");
     var ConfirmEmailResult = document.getElementById("ConfirmEmailResult");
     var ResumeInText = document.getElementById("ResumeInText");
+    var RegistrationNextButton1 = document.getElementById("RegistrationNextButton1");
     var RegistrationNextButton = document.getElementById("RegistrationNextButton");
-
 
     RegistrationNextButton.disabled = true;
     var Attempts= sessionStorage.getItem("EmailConfirmationAttempt");
@@ -361,38 +292,37 @@ function checkEmailVerificationCode(){
 
         }
     } else if(code === emailConfirmationInput){
+
         RegistrationNextButton.disabled = false;
-        var ResponderInfoForm = document.getElementById("ResponderInfoForm");
+   
         var GeneralInfoForm = document.getElementById("GeneralInfoForm");
         var AccountInfoForm = document.getElementById("AccountInfoForm");
+        var hidden = document.getElementById('hidden');
         
     
         var RegistrationBackButton = document.getElementById("RegistrationBackButton");
         var RegistrationRegisterButton = document.getElementById("RegistrationRegisterButton");
+        var RegistrationNextButton1 = document.getElementById("RegistrationNextButton1");
+        var nextBtn = document.getElementsByClassName('nextBtn');
         var RegistrationNextButton = document.getElementById("RegistrationNextButton");
         var EmailVerificationForm = document.getElementById("EmailVerificationForm");
     
-        var GeneralInfoFormDisplay = window.getComputedStyle(GeneralInfoForm).display;
-        var AccountInfoFormDisplay = window.getComputedStyle(AccountInfoForm).display;
-        var EmailVerificationFormDisplay = window.getComputedStyle(EmailVerificationForm).display;
-        var ResponderInfoFormDisplay = window.getComputedStyle(ResponderInfoForm);
+        
+        AccountInfoForm.style.display = "none";
+        EmailVerificationForm.style.display = "none";
+        hidden.style.display = "unset";
+       
+        RegistrationNextButton1.style.display = "unset";
+        nextBtn[0].style.display = "unset";
 
 
-        if(AccountInfoFormDisplay === "none" && EmailVerificationFormDisplay  === "block"){
 
-            AccountInfoForm.style.display = "none";
-            EmailVerificationForm.style.display = "none";
-            GeneralInfoForm.style.display = "block";
-            ResponderInfoForm.style.display = "none";
-            RegistrationNextButton.style.display = "block";
-            RegistrationBackButton.style.display = "block";
-            RegistrationRegisterButton.style.display = "none";
-            RegistrationNextButton.disabled = true;
-            checkInputs_GeneralInfo();
+      
+        //checkInputs_GeneralInfo();
     
     
     
-        }
+     
         
     }
 
@@ -562,19 +492,7 @@ function setData(array){
 
 
 
-/*    
-function showProfilePicOutput(event){
-    var imageOutputContainer = document.getElementById("userProfilePicOutput");
-    imageOutputContainer.src =  URL.createObjectURL(event.target.files[0]);
 
-  }
-
-function showIDPicOutput(event){
-    var userIDPicOutput = document.getElementById("userIDPicOutput");
-    userIDPicOutput.src =  URL.createObjectURL(event.target.files[0]);
-  }
-
-*/
 
 function showProfilePicOutput(event){
     var imageOutputContainer = document.getElementById("userProfilePicOutput");
@@ -614,6 +532,7 @@ function showProfilePicOutput(event){
         }
 
   }
+
 
   function showIDPicOutput(event){
     var imageOutputContainer = document.getElementById("userIDPicOutput");
@@ -662,6 +581,7 @@ function showProfilePicOutput(event){
     var username = document.getElementById("Username").value;
     var userNameChecker = document.getElementById("userNameChecker");
     var query = "userName="+username;
+    var RegistrationNextButton = document.getElementById('RegistrationNextButton');
     
   
     if(!username.replace(/\s/g, '').length){
@@ -681,13 +601,16 @@ function showProfilePicOutput(event){
                     userNameChecker.innerText = "UserName already exists!";
                     userNameChecker.style.color = "red";
                     sessionStorage.setItem("userNameExists",true);
-                    checkInputs_AccountInfo();
+                  // RegistrationNextButton.disabled = true;
+                    //checkInputs_AccountInfo();
+                    
+
                 
                 } else{
                     userNameChecker.innerText = username + " is available";
                     userNameChecker.style.color = "green";
                     sessionStorage.setItem("userNameExists",false);
-                    checkInputs_AccountInfo()
+                   // checkInputs_AccountInfo()
 
                 }
     
@@ -713,6 +636,7 @@ function checkEmail(){
     var xmlhttp = new XMLHttpRequest();
     var Email = document.getElementById("Email").value;
     var emailChecker = document.getElementById("emailChecker");
+    var RegistrationNextButton = document.getElementById('RegistrationNextButton');
     
 
 
@@ -736,12 +660,14 @@ function checkEmail(){
                     emailChecker.innerText = "Email already exists!";
                     emailChecker.style.color = "red";
                     sessionStorage.setItem("EmailExists",true);
-                    checkInputs_AccountInfo();
+                   // RegistrationNextButton.disabled = true;
+                    
+                    //checkInputs_AccountInfo();
                 } else{
                     emailChecker.innerText = Email + " is available";
                     emailChecker.style.color = "green";
                     sessionStorage.setItem("EmailExists",false);
-                    checkInputs_AccountInfo();
+                    //checkInputs_AccountInfo();
 
                 }
     
@@ -754,7 +680,7 @@ function checkEmail(){
         };
         
         xmlhttp.send(query);
-        checkInputs_AccountInfo();
+       // checkInputs_AccountInfo();
 
     } else{
 
