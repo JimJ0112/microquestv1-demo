@@ -834,10 +834,10 @@ input:checked + .slider:before {
     border: 0;
     background-color: orangered;
     color: white;
-    position: fixed;
-    right: 360px;
-    bottom: 300px;
-    margin:5px;
+    /* position: fixed; */
+    /* right: 360px; */
+    /* bottom: 300px; */
+    margin: 50px;
     height: 35px;
     width: 90px;
     font-size: large;
@@ -845,7 +845,7 @@ input:checked + .slider:before {
     /* cursor: pointer; */
     /* font-family: Arial, Helvetica, sans-serif; */
     font: Arial;
-    /* float: right; */
+    float: right;
     /* margin: 30px; */
 }
 
