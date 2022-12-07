@@ -244,14 +244,13 @@ session_start();
 
     <center>
  
-            <div id="CreateServiceControlsContainer">
+           <!-- <div id="CreateServiceControlsContainer">
                 <form method="GET" action="Backend/Get_products.php" id="SearchForm"> 
                     <button id="CreateServiceSearchButton">🔍</button>
                     <span>
                         <input type="Search" name="q" id="CreateServiceSearch" placeholder="Search..">
                     </span>
-                </form>
-
+                </form> 
                 <div id="ControlItemRequestsButton">
                     <table>
                         <tr>
@@ -281,7 +280,7 @@ session_start();
                         <tr>
                     </table>
                 </div>
-            <div>
+            <div>-->
       
 
     </center>

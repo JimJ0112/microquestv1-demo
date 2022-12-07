@@ -52,11 +52,11 @@
     width: 100%;
     height: fit-content;
     color: aliceblue;
-    background-color: #3a2719;
+    background-color: rgb(255 69 0);
     margin: auto;
     padding-top: 10px;
     font-family: Georgia;
-    border: solid rgb(136 75 38) 5px;
+    border: solid rgb(255 69 0) 2px;
     
 }
 

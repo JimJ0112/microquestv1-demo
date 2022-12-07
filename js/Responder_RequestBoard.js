@@ -120,50 +120,62 @@ function createRequestElements(Number){
     var one_third = document.createElement('div');
     var requestCategory = document.createElement('div');
     var requestTitle = document.createElement('div');
-    var no_border = document.createElement('div');
     var requestExpectedPrice = document.createElement('div');
     var isNegotiable = document.createElement('div');
-
-
+    var nameLoc = document.createElement('div');
+    var footer = document.createElement('div');
+    var price = document.createElement('div');
+    var grid_head= document.createElement('grid-head');
 
     // set attributes
      wrapper.setAttribute("class","wrapper"); 
-     card.setAttribute("class","request-card"); 
-     request_card__image.setAttribute("class","request-card__image"); 
-     requestorLocation.setAttribute("class","requestorLocation"); 
-     requestorUserName.setAttribute("class","requestorUserName"); 
-     requestDescription.setAttribute("class","requestDescription"); 
-     dueDate.setAttribute("class","dueDate"); 
-     request_card__unit_stats.setAttribute("class","request-card__unit-stats"); 
-     one_third.setAttribute("class","one-third"); 
-     requestCategory.setAttribute("class","requestCategory"); 
-     requestTitle.setAttribute("class","requestTitle"); 
-     no_border.setAttribute("class","no_border"); 
-     requestExpectedPrice.setAttribute("class","requestExpectedPrice"); 
-     isNegotiable.setAttribute("class","isNegotiable"); 
+        card.setAttribute("class","request-card"); 
+            grid_head.setAttribute("class", "grid-head");
+                request_card__image.setAttribute("class","request-card__image"); 
+                nameLoc.setAttribute("class", "nameLoc");
+                   requestorUserName.setAttribute("class","requestorUserName"); 
+                   requestorLocation.setAttribute("class","requestorLocation"); 
+
+            request_card__unit_stats.setAttribute("class","request-card__unit-stats"); 
+               one_third.setAttribute("class","one-third"); 
+                   requestCategory.setAttribute("class","requestCategory"); 
+                   requestTitle.setAttribute("class","requestTitle"); 
+
+            requestDescription.setAttribute("class","requestDescription"); 
+
+            footer.setAttribute("class", "footer");
+               price.setAttribute("class", "price");
+                   requestExpectedPrice.setAttribute("class","requestExpectedPrice"); 
+                   isNegotiable.setAttribute("class","isNegotiable"); 
+
+
+                dueDate.setAttribute("class","dueDate"); 
 
 
     // append elements to the row
 
+    price.appendChild(requestExpectedPrice);
+    price.appendChild(isNegotiable);
+
+    footer.appendChild(price);
+    footer.appendChild(dueDate); 
+
     one_third.appendChild(requestCategory);
     one_third.appendChild(requestTitle);
-    no_border.appendChild(requestExpectedPrice);
-    no_border.appendChild(isNegotiable);
-
-
+     
     request_card__unit_stats.appendChild(one_third);
-    request_card__unit_stats.appendChild(no_border);
 
     
+    nameLoc.appendChild(requestorUserName);
+    nameLoc.appendChild(requestorLocation);
 
-    card.appendChild(request_card__image);
-    
-    card.appendChild(requestorUserName);
-    card.appendChild(requestorLocation);
-    card.appendChild(requestDescription);
-    card.appendChild(dueDate);
+    grid_head.appendChild(request_card__image);
+    grid_head.appendChild(nameLoc);
+
+    card.appendChild(grid_head);
     card.appendChild(request_card__unit_stats);
-
+    card.appendChild(requestDescription);
+    card.appendChild(footer);
 
     wrapper.appendChild(card);
 
@@ -193,11 +205,11 @@ function setData(array){
     one_third= document.getElementsByClassName("one-third"); 
     requestCategory= document.getElementsByClassName("requestCategory"); 
     requestTitle= document.getElementsByClassName("requestTitle"); 
-    no_border= document.getElementsByClassName("no_border"); 
     requestExpectedPrice= document.getElementsByClassName("requestExpectedPrice"); 
     isNegotiable= document.getElementsByClassName("isNegotiable"); 
-
-
+    footer= document.getElementsByClassName("footer"); 
+    price= document.getElementsByClassName("price"); 
+    grid_head= document.getElementsByClassName("grid-head"); 
 
 
     for(var i = 0; i<number;i++){
@@ -701,18 +713,266 @@ function setSpecialization(){
 
 }
 
+function getLeaderBoard(category){
+  
+
+    var xmlhttp = new XMLHttpRequest();
+    
+    
+    var category = category;
+    var query = "Category=" + category;
+    
+ 
+    xmlhttp.open("POST", "Backend/LeaderBoardBackend.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+            var dataArray = this.response;
+            //console.log(dataArray);
+
+            if(dataArray != ""){
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+
+                var number = dataArray.length;
+                createElements(number);
+                setData(dataArray);
+
+            } else{
+                console.log("no result");
+                
+                document.getElementById('LeaderBoardContent').innerHTML = "";
+                document.getElementById('LeaderBoardContent').innerHTML = " No Leaderboard Result yet";
 
 
-/*Initialization of the page*/
-function init(){
-    getCategories();
-    //setSpecialization();
-    var select = document.getElementById("RequestCategory");
-    var specialization = sessionStorage.getItem('specialization');
-    select.value = specialization;
+            }
 
-    var timeout = setTimeout(function(){
-        setSpecialization();
-        console.log("1");
-    }, 1000)
+
+     
+        }else{
+           
+           console.log("error");
+        }      
+    };
+    
+    xmlhttp.send(query);
+    
+}// end of function
+
+function getSelectValue(){
+    var category = document.getElementById('LeaderBoardCategories').value;
+    console.log(category);
+    getLeaderBoard(category);
 }
+
+
+
+// set options to dropdown  
+function setOptions(array){
+
+    var dataArray = array;
+    var number = dataArray.length;
+
+    var serviceDropDown = document.getElementById("LeaderBoardCategories");
+    
+
+
+    for(var i = 0; i<number;i++){
+        
+        if(dataArray[i]["serviceCategory"] === "Pasabuy"){
+
+        } else{
+            var option = new Option;
+            option.innerText = dataArray[i]["serviceCategory"];
+            option.value = dataArray[i]["serviceCategory"];
+            serviceDropDown.add(option);
+        }
+
+
+    }
+
+
+
+    
+}
+
+
+// gets all services 
+function getServices(){
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "Backend/Get_allServices.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+           
+
+            var dataArray = this.response;
+
+            if(dataArray === "failed to fetch"){
+
+
+            } else{
+
+            dataArray = JSON.parse(dataArray);
+            console.log(dataArray);
+
+
+            var number = dataArray.length;
+          
+            //document.getElementById("LeaderBoardCategories").innerHTML = "";
+            //setOptions(dataArray);
+            //getSelectValue(); 
+            createCategoryElements(number);
+            setCategoryDatas(dataArray);
+
+     
+            }
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send();
+    
+}// end of function
+
+
+function createElements(number){
+
+    document.getElementById('LeaderBoardContent').innerHTML = "";
+    var table = document.getElementById('LeaderBoardContent');
+    var number = number;
+
+    for(var i = 0; i<number;i++){
+
+        var tr = document.createElement('tr');
+        var rank = document.createElement('td');
+        var responderInfo = document.createElement('td');
+        var rating = document.createElement('td');
+
+        tr.setAttribute('class','leaderboardTR');
+        rank.setAttribute('class','rankTR');
+        responderInfo.setAttribute('class','responderInfo');
+        rating.setAttribute('class','rating');
+
+        tr.appendChild(rank);
+        tr.appendChild(responderInfo);
+        tr.appendChild(rating);
+
+        table.appendChild(tr);
+
+
+    }
+
+
+
+    
+
+}
+
+
+
+// gets all services 
+function getServices(){
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "Backend/Get_allServices.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+           
+
+            var dataArray = this.response;
+
+            if(dataArray === "failed to fetch"){
+
+
+            } else{
+
+            dataArray = JSON.parse(dataArray);
+            console.log(dataArray);
+
+
+            var number = dataArray.length;
+          
+            //document.getElementById("LeaderBoardCategories").innerHTML = "";
+            //setOptions(dataArray);
+            //getSelectValue(); 
+            createCategoryElements(number);
+            setCategoryDatas(dataArray);
+
+     
+            }
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send();
+    
+}// end of function
+
+
+
+function createCategoryElements(number){
+    var number = number;
+    var cetegoriesContainer = document.getElementById('cetegoriesContainer');
+
+    for(var i=0; i<number; i++){
+
+        var div = document.createElement('div');
+        div.setAttribute('class','grid-item');
+
+        cetegoriesContainer.appendChild(div);
+
+    }
+
+}
+
+
+// set options to dropdown  
+function setCategoryDatas(array){
+
+    var dataArray = array;
+    var number = dataArray.length;
+
+    //var serviceDropDown = document.getElementById("LeaderBoardCategories");
+    var grid_item = document.getElementsByClassName('grid-item');
+
+
+    for(var i = 0; i<number;i++){
+        
+        if(dataArray[i]["serviceCategory"] === "Pasabuy"){
+
+            grid_item[i].style.display = "none";
+
+        } else{
+
+            /*
+            var option = new Option;
+            option.innerText = dataArray[i]["serviceCategory"];
+            option.value = dataArray[i]["serviceCategory"];
+            serviceDropDown.add(option);
+            */
+            grid_item[i].innerText = dataArray[i]["serviceCategory"];
+           // grid_item[i].setAttribute("onclick","getLeaderBoard('" + dataArray[i]['serviceCategory'] + "')");
+
+            grid_item[i].setAttribute("onclick","chooseNav('" + dataArray[i]['serviceCategory'] + "'," + i +")" );
+        }
+
+
+    }
+    chooseNav(dataArray[0]["serviceCategory"],0)
+
+
+
+    
+}
+
+

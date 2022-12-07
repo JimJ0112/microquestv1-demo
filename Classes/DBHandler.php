@@ -50,7 +50,7 @@ function __construct(){
     $this->dbservername = "localhost";
     $this->dbusername = "root";
     $this->dbpassword = "";
-    $this->dbname = "microquestdbv2";
+    $this->dbname = " microquestdbv2";
     
     $this-> dbconnection = mysqli_connect($this->dbservername,$this->dbusername,$this->dbpassword,$this->dbname);
  

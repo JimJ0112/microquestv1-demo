@@ -80,29 +80,28 @@
 
 #ServicesContainer{
 	margin-top: 0;
-    margin: auto;
-    background-color: white; 
-    width: 80%;
-    height: 100%;
-    
-    min-height: 1000px;
-    max-height: 100%;
-    padding: 0;
-    overflow: hidden;
-    overflow-y: scroll;
+	margin: auto;
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	min-height: 1000px;
+	max-height: 100%;
+	padding: 0;
+	overflow: hidden;
+	overflow-y: scroll;
 }
 
 #AvailableServicesContainer-Controls{
 
-	width: 100%;
-	height: 70px;
-	
-	display: inline-block;
-	overflow: hidden;
-	z-index: 5;
+/* width: 100%; */
 
+height: 70px;
 
-	
+display: inline-block;
+
+/* overflow: hidden; */
+
+z-index: 5;
 }
 
 #AvailableServicesContainer-ControlItems{
@@ -119,13 +118,11 @@
 
 #AvailableServicesContainer-ControlItems a{
 
+color:white;
 
-	color:white;
-	font-family: Arial, Helvetica, sans-serif;
+font-family: Arial, Helvetica, sans-serif;
 
-	
-	text-decoration: none;
-	
+text-decoration: none;
 }
 
 .AvailableServicesContainer-ControlItem{
@@ -176,38 +173,57 @@
 
 #AvailableServicesContainer_Content{
 
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-row-gap: 50px;
-	grid-column-gap: 10px;
-	
-	padding: 10px;
-	align-content: center;
-	overflow: hidden;
-	text-align: center;
-	overflow:hidden;
+display: grid;
+
+grid-template-columns: 1fr 1fr 1fr;
+
+grid-row-gap: 50px;
+
+grid-column-gap: 10px;
+
+padding: 10px;
+
+align-content: center;
+
+overflow: hidden;
+
+text-align: center;
+
+overflow:hidden;
+
+width: 100%;
 }
 
 
 .AvailableService_Card{
 	
-	width: 350px;
-	height: 290px;
+width: 350px;
 	
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
-	margin: auto;
-	text-align: center;
-
-	overflow: hidden;
-	position:relative;
-	box-shadow: 2px 2px 10px rgb(42, 41, 41);
-	border-radius: 10px;
-	cursor: pointer;
-	display: grid;
-	background: linear-gradient(white, wheat);
-	animation: fadein 2s;
-
+height: 290px;
+	
+font-family: Arial, Helvetica, sans-serif;
+	
+font-weight: bold;
+	
+margin: auto;
+	
+text-align: center;
+	
+overflow: hidden;
+	
+position:relative;
+	
+box-shadow: 2px 2px 10px rgb(42, 41, 41);
+	
+border-radius: 10px;
+	
+cursor: pointer;
+	
+display: grid;
+	
+background: linear-gradient(white, #ff9c797d);
+	
+animation: fadein 2s;
 }
 
 
@@ -232,7 +248,7 @@
 	
 	z-index: 9;
 	font-size: larger;
-	background-color: rgba(0, 0, 0, 0.663);
+	background-color: rgba(255 69 0);
 	border:1px solid white;
 	color: white;
 	padding: 10px;
@@ -276,7 +292,7 @@
 #OfferaServiceButton{
 	width: fit-content;
 	
-	background-color: rgb(63, 50, 48);
+	background-color: rgb(255 69 0);
 	color: white;
 	padding: 10px;
 	border: none;
@@ -287,7 +303,7 @@
 
 #OfferaServiceButton:hover{
 
-	background-color: rgb(148, 111, 63);
+	background-color: rgb(230, 124, 86);
 
 
 }
@@ -340,7 +356,7 @@
 }
 
 #myServiceView{
-	background-image: url("../img/b.jpg");
+	/*background-image: url("../img/b.jpg");*/
 	background-size: cover;
 	margin: auto;
 	width: 40%;
@@ -348,9 +364,8 @@
 	background-color: white;
 	z-index: 20;
 	position: relative;
-	border-radius: 20px;
-	border: rgb(148, 111, 63) solid 4px ;
-
+	border-radius: 10px;
+	border: rgb(148, 111, 63) solid 1px;
 }
 
 #myServiceViewTable{
@@ -370,13 +385,14 @@
 
 #serviceTableTitle{
 	font-family: Arial, Helvetica, sans-serif;
-    font-weight: bolder;
-    float: left;
-    text-align: center;
-    font-size: xx-large;
-    margin: 0;
-    padding: 20px;
-    color: wheat;
+	font-weight: bolder;
+	float: left;
+	text-align: center;
+	font-size: xx-large;
+	margin: auto;
+	padding: 20px;
+	color: orangered;
+	width: 100%;
 }
 
 #myServiceViewForm{
@@ -396,11 +412,11 @@
 	cursor: pointer;
 	position:absolute;
 	left: 40%;
-	border-radius: 20px;
+	border-radius: 5px;
 }
 
 #myServiceViewEditButton:hover{
-	background-color: #765949;
+	background-color: rgb(255 69 0);
 	color: white;
 }
 
@@ -411,45 +427,47 @@
 
 .serviceFirstRow{
 
-	width: 20%;
-	height: 20px;
-	font-size: medium;
-	color: white;
+width: 30%;
 
+height: 20px;
+
+font-size: x-large;
+
+color: orangered;
 }
 
 
 #myServiceViewTable .serviceSecondRow{
 	width: 70%;
-    height: fit-content;
-    font-size: xx-large;
-    border-radius: 15px;
-    border: rgb(253, 252, 252) solid 1.5px;
-    background-color: #e7e2d969;
-    font-weight: bold;
+	height: fit-content;
+	font-size: xx-large;
+	border-radius: 15px;
+	border: rgb(253, 252, 252) solid 1.5px;
+	background-color: #9999998f;
+	font-weight: bold;
 	padding: 5px;
-
+	/* color: white; */
 }
 
 
 #myServiceViewForm .serviceSecondRow{
 	width: 70%;
-    height: fit-content;
-    font-size: xx-large;
-    border-radius: 15px;
-    border: rgb(253, 252, 252) solid 1.5px;
-    background-color: #e7e2d969;
-    font-weight: bold;
-
+	height: fit-content;
+	font-size: xx-large;
+	border-radius: 15px;
+	border: rgb(253, 252, 252) solid 1.5px;
+	background-color: #e7e2d969;
+	font-weight: bold;
+	/* padding: 10; */
 }
 
 
-#serviceIDHidden, #ServiceFormCategory, #ServiceFormPosition, #ServiceFormRate{	
+#serviceIDHidden, #ServiceFormCategory, #ServiceFormPosition, #ServiceFormRate{
     height: 100%;
     border-radius: inherit;
     width: 100%;
     border: none;
-
+    padding: 10px;
 }
 
 #ServiceFormStatus{

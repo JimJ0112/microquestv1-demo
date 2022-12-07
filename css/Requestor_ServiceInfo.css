@@ -32,12 +32,12 @@ body{
 
 #serviceInfoDivBg{
 	background-color: white;
-	width: 100%;
+	width: 80%;
 	/* min-height: 800px; */
 	height: 100%;
-	/* margin: auto; */
+	margin: auto;
 	margin-top: 10%;
-	/* text-align: center; */
+	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
 	padding: 0px;
 	/* height: fit-content; */
@@ -57,7 +57,9 @@ box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.167);
 
 height: 80%;
 
-overflow-y: scroll;
+/* overflow-y: scroll; */
+
+overflow: hidden;
 }
 
 #serviceFeedbacksDiv{
@@ -107,7 +109,7 @@ height: 100%;
 	/* left: 50%; */
 	/* transform: translate(-50%, 0); */
 	margin: auto;
-	text-align: center;
+	/* text-align: center; */
 	align-content: center;
 	/* margin-left: 15%; */
 	height: 50%;
@@ -119,6 +121,7 @@ height: 100%;
 	height: 10%;
 	/* border-radius: 10px 10px 0 0; */
 	/* background-size: cover; */
+	text-align: center;
 }
 
 #serviceRatingsDiv{
@@ -132,7 +135,7 @@ height: 100%;
 	overflow: hidden;
 	/* text-overflow: ellipsis; */
 	/* text-align: center; */
-	margin-left: 30%;
+	margin-left: 45%;
 }
 
 .reviewContainer-Content{
@@ -143,27 +146,29 @@ height: 100%;
 }
 
 .reviewerImage{
-	width: 80px;
-	height: 80px;
+	width: 200px;
+	height: 200px;
 	border: 1px solid black;
-	border-radius: 100%;
+	/* border-radius: 100%; */
 	object-fit: cover;
 	background-color: white;
 	margin: auto;
-	margin-top: 40px;
+	/* margin-top: 40px; */
 }
 
 .userProfileTD{
-	display: grid;
-	align-content: center;
-	padding-right: 20px;
+	/* display: grid; */
+	/* align-content: center; */
+	/* padding-right: 20px; */
+	width: 20%;
 }
 .reviewCard{
 	width: 100%;
+	background-color: white;
 }
 
 .reviewDescription{
-	width: 300px;
+	width: 60%;
 }
 
 #serviceCategory{
@@ -177,4 +182,25 @@ height: 100%;
 	/* font-size: x-large; */
 	margin: auto;
 	height: 30%;
+}
+b#responderUserType {
+    /* text-transform: capitalize; */
+    text-transform: uppercase;
+    color: orangered;
+    padding: 10px;
+}
+
+b#responderUserType {}
+
+b#responderUserEmail {
+    font-family: arial;
+    font-size: x-large;
+    padding: 10px;
+    color: #1b00ff;
+}
+
+b#responderUserName {
+    font-family: arial;
+    font-size: xx-large;
+    padding: 5px;
 }

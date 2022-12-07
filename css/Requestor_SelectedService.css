@@ -48,7 +48,7 @@
 	/* margin-top: 0; */
 	/* border: 1px solid rgb(0 0 0); */
 	padding: 0;
-	display:grid;
+	/* display:grid; */
 	/* align-content: center; */
 }
 
@@ -90,36 +90,34 @@
 
 #AvailServiceContent{
 	width: 80%;
-	height: 700px;
+	height: 100%;
 	/*height: auto;*/
 	overflow-x: scroll;
 	/* border: 1px solid rgba(139, 136, 136, 0.353); */
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	/* grid-column-gap:10px; */
-	grid-row-gap: 10px;
+	grid-column-gap:10px;
+	grid-row-gap: 50px;
 	/* padding: 10px; */
-	margin: auto;
+	margin: 0 auto;
 	/* margin-left: 7%; */
 }
 
 .serviceCard{
 	/*border: 5px solid rgb(45, 20, 7);*/
-	width: 250px;
-	height: 300px;
+	/* width: 80%; */
+	/* height: 45%; */
 	cursor: pointer;
 	overflow: hidden;
 	display: grid;
 	text-align: center;
 	align-content: center;
 	/*padding: 5px;*/
-	position: relative;
+	/* position: relative; */
 	box-shadow: 1px 8px 10px #1f1f1f;
 	border: none;
-	border-radius: 40px;
-
-
-
+	border-radius: 10px;
+	margin: auto;
 }
 
 .serviceCard:hover{
@@ -136,8 +134,9 @@
 
 .BannerContainer{
 
-	filter: brightness(40%);
-	
+filter: brightness(40%);
+
+width: 100%;
 }
 
 .serviceTitleBackground:hover {
@@ -730,4 +729,4 @@ td.categories {
     /* border: solid; */
     background-color: #b1b1b173;
     padding: 10px;
-}
+} 

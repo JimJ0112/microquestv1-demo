@@ -17,7 +17,7 @@ function __construct(){
     /* Localhost connection */
     
     
-    $this->dbservername = "localhost:3307";
+    $this->dbservername = "localhost";
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "microquestdbv2";

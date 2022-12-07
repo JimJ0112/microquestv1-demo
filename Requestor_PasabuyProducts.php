@@ -209,7 +209,7 @@
 
 			<form action="Backend/BuyItem.php" method="post"> 
 				<div id="closeButton" onclick="closeForm('pasabuyOrderBack')"> ✕ </div>
-				<br/><br/><br/>
+		
 
 					<input type="hidden" name="productID" id="orderProductID"/>
 					<input type="hidden" name="serviceID" id="orderServiceID"/>
@@ -238,12 +238,12 @@
 					<input type="date" name="dueDate" min="<?php echo $today; ?>" value="<?php echo $today; ?>"> 
 					<br/><br/><br/>
 					<span> Total:  ₱ </span> <span id="totalPriceDisplay"> </span> 
-					<br/><br/><br/> 
+					<br/><br/>
 
 
 
 
-				<input type="submit" value="Check Out" id="CheckOutButton"/>
+				<input class="buyButton" type="submit" value="Check Out" id="CheckOutButton"/>
 
 			</form>
 

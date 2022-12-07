@@ -27,7 +27,7 @@ session_start();
 <body>
 
 
-
+<div class="containerback">
 <!-- NavBar-->
 <?php
 	if(isset($_SESSION["userType"])){
@@ -44,7 +44,7 @@ session_start();
 
 
 <!-- MAIN -->
-<center>
+<div class="tableContainer">
     <table id="serviceInfoDivBg"> 
         <tr>
             <td id="serviceInfoDiv"> 
@@ -66,11 +66,11 @@ session_start();
                     <b id="responderUserName"> Username </b> <br/>
                     <b id="responderUserEmail"> User Email </b> <br/>
                     <b id="responderUserType"> User Type </b> <br/>
-                <div>
+                    
+                    
 
-                <br/>
                 <hr/>
-                <br/>
+                <div>
 
                 <div id="serviceRatingsDiv"> 
                 <h1 id="totalRatings"></h1>
@@ -89,7 +89,7 @@ session_start();
         </tr>
     </table>
     
-</center>
+</div>
 
 
 <?php
@@ -100,5 +100,6 @@ session_start();
     }
 
 ?>
+</div>
 </body>
 </html>

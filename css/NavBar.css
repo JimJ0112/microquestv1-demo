@@ -318,6 +318,15 @@ border-radius: 10px;
 	z-index: 20;
 	background-color: rgb(255 69 0);
 	}
+
+.dropdown-contentMobile{
+	display: none;
+	position: fixed;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 20;
+	background-color: rgb(255 69 0);
+}
   
   /* Links inside the dropdown */
   .dropdown-content a {
@@ -341,59 +350,170 @@ border-radius: 10px;
 	display: block;
 }
 
-.topnav{
+
+
+/*           mobile nav          */
+
+#MobileNav{
+	width: 100%;
+	position: absolute;
+	top:0;
+	background-color: orangered;
+	display: none;
+	height: 8%;
+	z-index: 99;
+	
+}
+
+#MobileNav-logo{
+	
+	width: fit-content;
+	height: 100%;
+	margin: none;
+	display: none;
+	position: absolute;
+	padding-left: 10px;
+	padding-right: 10px;
+	overflow: hidden;
+}
+
+#MobileNav-Img{
+	width: 70px;
+	height: 60px;
+	object-fit: contain;
+	margin: auto;
 	display: none;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px){
-	#NavContainer{
-		display: none;
-	}
+/* Hamburger Button */
+#HamburgerButtonDiv{
+	
+	width: 70px;
+	height: 100%;
+	position: absolute;
+	right: 0;
 
-	.mobile-container {
-		max-width: 480px;
-		margin: auto;
-		background-color: #555;
-		height: 500px;
-		color: white;
-		border-radius: 10px;
-	  }
-	  
-	  .topnav {
-		overflow: hidden;
-		background-color: #333;
-		position: relative;
-	  }
-	  
-	  .topnav #myLinks {
-		display: none;
-	  }
-	  
-	  .topnav a {
-		color: white;
-		padding: 14px 16px;
-		text-decoration: none;
-		font-size: 17px;
-		display: block;
-	  }
-	  
-	  .topnav a.icon {
-		background: black;
-		display: block;
-		position: absolute;
-		right: 0;
-		top: 0;
-	  }
-	  
-	  .topnav a:hover {
-		background-color: #ddd;
-		color: black;
-	  }
-	  
-	  .active {
-		background-color: #04AA6D;
-		color: white;
-	  }
+	padding: auto;
+	display: grid;
+	
+}
+
+#HamburgerButton{
+	
+	margin: auto;
+	background-color: transparent;
+	border: none;
+	display: grid;
+	align-content: center;
+	padding: 10px;
+	cursor: pointer;
+	
+}
+
+
+.bar1, .bar2, .bar3 {
+	width: 30px;
+	height: 5px;
+	background-color: rgb(252, 248, 248);
+	margin: auto;
+	margin-top: 5px;
+	transition: 0.4s;
+	
+	
+}
+.bar1{
+	
+}
+
+#MobileMenu{
+	width: 100%;
+	
+	height: fit-content;
+	background-color: orangered;
+	display: none;
+	text-align: left;
+	text-align: center;
+	
+	
+}
+
+#MobileMenu-list{
+	
+	margin-top: 20%;
+	font-family: Arial, Helvetica, sans-serif;
+	
+	text-decoration: none;
+	box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.349) inset;
+
+}
+
+#MobileMenu-list a{
+	
+	font-weight: bolder;
+	text-decoration: none;
+	color: white;
+	
+
+}
+
+
+.MobileMenu-listItem{
+	color: white;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	display: block;
+}
+
+.MobileMenu-listItem:hover{
+	background-color: orange;
+}
+
+
+/* Rotate first bar */
+.change .bar1 {
+	transform: translate(0, 10px) rotate(-45deg);
+  }
+  
+  /* Fade out the second bar */
+  .change .bar2 {opacity: 0;}
+  
+  /* Rotate last bar */
+  .change .bar3 {
+	transform: translate(0, -10px) rotate(45deg);
+  }
+
+  #MobileNavImageContainer{
+	width:50px;
+	height: 50px;
+	border:1px solid black;
+	margin: auto;
+	border-radius: 100%;
+  }
+
+  #userProfileNavMenu{
+	text-align: center;
+  }
+
+  .selectedMobileNav{
+	width: 100%;
+	background-color: rgb(216, 104, 12);
+	height: fit-content;
+  }
+
+  #redDotOnNotificationMobile{
+	display: none;
+	margin-left: 30%;
+	margin: none;
+	color: blue;
+	font-weight: bolder;
+  }
+  
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+
+
+
 
 
 }
@@ -403,50 +523,24 @@ border-radius: 10px;
 		display: none;
 	}
 
-	.mobile-container {
-		max-width: 480px;
-		margin: auto;
-		background-color: #555;
-		height: 500px;
-		color: white;
-		border-radius: 10px;
-	  }
-	  
-	  .topnav {
-		overflow: hidden;
-		background-color: #333;
-		position: relative;
-	  }
-	  
-	  .topnav #myLinks {
-		display: none;
-	  }
-	  
-	  .topnav a {
-		color: white;
-		padding: 14px 16px;
-		text-decoration: none;
-		font-size: 17px;
-		display: block;
-	  }
-	  
-	  .topnav a.icon {
-		background: black;
-		display: block;
+	#MobileNav{
+		display: grid;
+		width: 100%;
 		position: absolute;
-		right: 0;
-		top: 0;
-	  }
-	  
-	  .topnav a:hover {
-		background-color: #ddd;
-		color: black;
-	  }
-	  
-	  .active {
-		background-color: #04AA6D;
-		color: white;
-	  }
+		top:0;
+		background-color: orangered;
+		display: grid;
+		height: 8%;
+		z-index: 99;
+	}
+
+	#MobileNav-logo{
+		display: grid;
+	}
+	#MobileNav-Img{
+		display: grid;
+	}
+
 
 
 }
@@ -456,50 +550,22 @@ border-radius: 10px;
 		display: none;
 	}
 
-	.mobile-container {
-		max-width: 480px;
-		margin: auto;
-		background-color: #555;
-		height: 500px;
-		color: white;
-		border-radius: 10px;
-	  }
-	  
-	  .topnav {
-		overflow: hidden;
-		background-color: #333;
-		position: relative;
-	  }
-	  
-	  .topnav #myLinks {
-		display: none;
-	  }
-	  
-	  .topnav a {
-		color: white;
-		padding: 14px 16px;
-		text-decoration: none;
-		font-size: 17px;
-		display: block;
-	  }
-	  
-	  .topnav a.icon {
-		background: black;
-		display: block;
+	#MobileNav{
+		display: grid;
+		width: 100%;
 		position: absolute;
-		right: 0;
-		top: 0;
-	  }
-	  
-	  .topnav a:hover {
-		background-color: #ddd;
-		color: black;
-	  }
-	  
-	  .active {
-		background-color: #04AA6D;
-		color: white;
-	  }
+		top:0;
+		background-color: orangered;
+		display: grid;
+		height: 8%;
+		z-index: 99;
+	}
+	#MobileNav-logo{
+		display: grid;
+	}
+	#MobileNav-Img{
+		display: grid;
+	}
 
 	
 }

@@ -25,7 +25,9 @@ function getUserImage(id){
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
             document.getElementById("NavImageContainer").innerHTML = "";
+            document.getElementById("MobileNavImageContainer").innerHTML = "";
             var imageContainer = document.getElementById("NavImageContainer");
+            var MobileNavImageContainer = document.getElementById("MobileNavImageContainer");
             var dataArray = this.response;
             dataArray = JSON.parse(dataArray);
            // console.log(dataArray);
@@ -35,6 +37,7 @@ function getUserImage(id){
             image.src = dataArray[0]["userPhoto"];
             image.setAttribute("class","navUserPhoto");
             imageContainer.appendChild(image);
+            MobileNavImageContainer.appendChild(image);
 
 
      
@@ -81,12 +84,15 @@ function getNewMessages(id){
         if (this.readyState === 4 || this.status === 200){ 
             
             var redDotOnNotification = document.getElementById("redDotOnNotification");
+            var redDotOnNotificationMobile = document.getElementById("redDotOnNotificationMobile");
             var dataArray = this.response;
 
             if(dataArray === "true"){
                 redDotOnNotification.style.display = "inline";
+                redDotOnNotificationMobile.style.display = "block";
             }else{
                 redDotOnNotification.style.display = "none";
+                redDotOnNotificationMobile.style.display = "none";
             }
 
 
@@ -292,3 +298,18 @@ function markAsRead(id){
     xmlhttp.send(query);
 
 }
+
+
+function showMobileNavMenu(r){
+    var r = r;
+    var x = document.getElementById("MobileMenu");
+    if (x.style.display === "grid") {
+      x.style.display = "none";
+      r.classList.toggle("change");
+    } else {
+      x.style.display = "grid";
+      r.classList.toggle("change");
+
+    }
+
+  }

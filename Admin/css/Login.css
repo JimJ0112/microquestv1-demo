@@ -41,7 +41,7 @@
 	width: 100%;
 	height: 100%;
 	
-	background-color:rgb(26, 17, 16);
+	background-color:#ff5414;
 
 	/*background-image: url("../img/3065.jpg");*/
 
@@ -50,21 +50,20 @@
   	background-position: center;
 
 	align-content: center;
-
-
-
 	zoom: 85%;
 }
 
 #Logo{
-	position: absolute;
 
-	z-index: 2;
-	margin-top: 40px;
-	margin-left: 40px;
-	text-shadow: 2px 2px 5px #000000;
-	text-align: center;
-	line-height: 40px;
+
+	position: absolute;
+    z-index: 2;
+    margin-top: 40px;
+    margin-left: 40px;
+    text-shadow: 2px 2px 5px white;
+    text-align: center;
+    line-height: 40px;
+    zoom: 130%;
 
 
 
@@ -75,8 +74,8 @@
 	font-family: Retroking;
 	font-size: 70px;
 	text-align: center;
-	color: white;
-	margin: 10px;
+	color: black;
+	margin:10px;
 
 	
 }
@@ -86,11 +85,11 @@
 	margin: 10px;	
 	font-size: 40px;
 	text-indent: 0px;
-	color: white;
+	color: black;
 
-	font-family: OPTICopperplate-Heavy;
+	font-family:OPTICopperplate-Heavy;
 
-	display: inline-block;
+	display:inline-block;
 
 }
 
@@ -101,7 +100,7 @@
 #LoginForm{
 
 	z-index: 6;
-	background-color:rgb(52,42,41);
+	background-color:rgb(255, 255, 255);
 	
 
 	/*
@@ -109,9 +108,10 @@
 	*/
 	margin: auto;
 	
-	width: 350px;
-	height: 450px;
-	color:white;
+	width: 550px;
+    height: 650px;
+	color:#ff5414;
+	font-size: 25;
 	
 	vertical-align: bottom;
 	border-radius: 20px;
@@ -129,15 +129,33 @@
 	text-align: left;
 	width: fit-content;
 	margin: auto;
-	color: white;
+	color: #ff5414;
+	font-weight: bold;
+	
 }
 
 .Form-Input{
-	border: 1px solid white;
+	/*border: 1px solid white;
 	height: 40px;
 	width: 250px;
 	background-color:rgb(52,42,41);
-	color: white;
+	color: white;*/
+	display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
 }
 
 #FormControls-Buttons{
@@ -158,10 +176,13 @@
 
 #LoginButton{
 	color: rgb(228, 176, 81);
+	font-size: 30px;
+	
 }
 
 #CancelButton{
-	color: white;
+	color: rgb(228, 176, 81);
+	font-size: 30px;
 }
 #RegisterButton{
 	color: rgb(228, 176, 81);
@@ -170,14 +191,14 @@
 
 #Welcome{
 	font-weight: light;
-	font-family:retroking;
 	margin-bottom: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 #Back{
 	margin-top: 0;
 	font-weight: light;
-	font-family:retroking;
 	font:palatino linotype;
+	font-family: 'Courier New', Courier, monospace;
 }
 
 

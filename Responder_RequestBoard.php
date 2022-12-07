@@ -83,6 +83,19 @@ session_start();
 <div id="RequestBoardContainer">
 
 	<center> <h1 id="RequestBoardTitle"> Responder's Request Board </h1> </center>
+	<div class="grid-container" id="cetegoriesContainer">
+		
+	  	<div class="grid-item grid-header" disabled>CATEGORIES</div>
+	  	<div class="grid-item">2</div>
+	  	<div class="grid-item">3</div>  
+	  	<div class="grid-item">4</div>
+	  	<div class="grid-item">5</div>
+	  	<div class="grid-item">6</div>  
+	  	<div class="grid-item">7</div>
+	  	<div class="grid-item">8</div>
+	  	<div class="grid-item">9</div>  
+		
+	</div>
 	<div id="RequestsContainer">
 		<div id="RequestsContainer-Controls">
 
@@ -116,7 +129,7 @@ session_start();
 					<table>
 						<tr>
 							<td>
-								<img src="img/requests.png" class="RequestsContainer-ControlItemIcon">
+								<!--<img src="img/requests.png" class="RequestsContainer-ControlItemIcon">-->
 							</td>
 							<td>
 							<select id="RequestCategory"> 
@@ -376,6 +389,6 @@ session_start();
 	</div>
 
 
-<!--<script src="js/Responder_RequestBoard.js"> </script> -->
+<script src="js/Responder_RequestBoard.js"> </script> 
 </body>
 </html>

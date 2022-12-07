@@ -10,6 +10,7 @@
 
 	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">-->
     
+	
 	<link rel="stylesheet" type="text/css" href="css/NavBar.css">
 	<link rel="stylesheet" href="css/responsive.css">
 
@@ -211,18 +212,166 @@
 	
 
 <!-- Top Navigation Menu -->
-<div class="topnav">
-  	<a href="#home" class="active">Logo</a>
-  	<div id="myLinks">
-    	<a href="#news">News</a>
-    	<a href="#contact">Contact</a>
-    	<a href="#about">About</a>
-  	</div>
 
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-  
+<div id="MobileNav"> 
+	<div id="MobileNav-logo">
+		<img id="MobileNav-Img" src="img/logo.png"> 
+    </div>
+
+	<!-- Hamburger Button-->
+	<div id="HamburgerButtonDiv">
+		<button id="HamburgerButton" onclick="showMobileNavMenu(this)">
+			<div class="bar1"></div>
+  			<div class="bar2"></div>
+  			<div class="bar3"></div>
+		</button>
+	</div>
+
+		<!-- Hamburger Button-->
+	<div id="MobileMenu">
+
+		<div id="MobileMenu-list"> 
+
+			<?php
+				if(isset($_SESSION['userID'])){
+					$userID = $_SESSION['userID'];
+					$profileLink="ViewUserProfile.php?userID=$userID&userType=Requestor";
+				}else{
+					$profileLink="#";
+				}
+				
+			?>
+			
+			<a href="<?php echo $profileLink;?>" class="MobileMenu-listItem" id="userProfileNavMenu" title="Available Services"> 
+
+				<div id='MobileNavImageContainer'> </div>
+
+						<?php
+				    		if(isset($_SESSION["userName"])){
+								$username = $_SESSION["userName"];
+								$usertype = $_SESSION["userType"];
+								$municipality = $_SESSION["municipality"] ;
+
+								echo "<b> $username </b>  <br/>";
+								echo " <span style='font-weight: lighter; font-size:small;'> $usertype </span> | <span style='font-weight: lighter; font-size:small;'> $municipality </span>";
+							}
+						?>
+						<hr/>
+			</a>
+
+
+				<div class="dropdown MobileMenu-listItem">
+    				<button class="dropbtn">
+
+					<?php
+						$pagename = basename($_SERVER['PHP_SELF']);
+						if($pagename === "Requestor_Transactions.php"){
+							echo '<div class="selectedMobileNav"> Transactions </div>';
+						} else if($pagename === "Requestor_ServiceTransactions.php"){
+							echo '<div class="selectedMobileNav"> Service Transactions </div>';
+						} else if($pagename === "Requestor_RequestTransactions.php"){
+							echo '<div class="selectedMobileNav"> Request Transactions </div>';
+						} else if($pagename === "Requestor_PasabuyTransactions.php"){
+							echo '<div class="selectedMobileNav">  Pasabuy Transactions </div>';
+						} else{
+							echo "Transactions";
+						}
+					?>
+
+      					<i class="fa fa-caret-down"> ▼ </i>
+    				</button>
+    				<div class="dropdown-content">
+      					<a href="Requestor_ServiceTransactions.php">Service </a>
+      					<a href="Requestor_RequestTransactions.php">Request </a>
+      					<a href="Requestor_PasabuyTransactions.php">Pasabuy </a>
+    				</div>
+  				</div>
+
+			<a href="Requestor_AvailableServices.php" class="MobileMenu-listItem" title="Available Services"> 
+
+					<?php
+						$pagename = basename($_SERVER['PHP_SELF']);
+						if($pagename === "Requestor_AvailableServices.php" || $pagename === "Requestor_SelectedService.php"){
+							echo '<div class="selectedMobileNav">  Services  </div>';
+						} else{
+							echo "Services";
+						}
+					?>
+				
+			</a>
+
+			
+			<a href="Requestor_RequestBoard.php" class="MobileMenu-listItem" title="Available Services"> 
+
+				<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+					if($pagename === "Requestor_RequestBoard.php" || $pagename === "Requestor_CreateRequest.php"){
+						echo '<div class="selectedMobileNav">  My Requests </div>';
+					} else{
+						echo "My Requests";
+					}
+				?>
+
+			</a>
+
+			<a href="Requestor_PasabuyProducts.php" class="MobileMenu-listItem" title="Available Services"> 
+				
+				<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+					if($pagename === "Requestor_PasabuyProducts.php" || $pagename === "Requestor_PasabuyProducts.php"){
+						echo '<div class="selectedMobileNav">  Pasabuy </div>';
+					} else{
+						echo "Pasabuy";
+					}
+				?>
+			
+			</a>
+
+			<a href="LeaderBoard.php" class="MobileMenu-listItem" title="Available Services"> 
+			
+				<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+					if($pagename === "LeaderBoard.php"){
+						echo '<div class="selectedMobileNav">  LeaderBoard </div>';
+					} else{
+						echo "LeaderBoard";
+					}
+				?>
+			
+			</a>
+
+			<a href="Messages.php" class="MobileMenu-listItem" title="Available Services">
+				
+				<span id="redDotOnNotificationMobile"> • </span>
+					<?php
+						$pagename = basename($_SERVER['PHP_SELF']);
+						if($pagename === "Messages.php"){
+							echo '<div class="selectedMobileNav">  Messages </div>';
+						} else{
+							echo "Messages";
+						}
+					?>
+				
+				
+			</a>
+
+
+			<a href="Backend/Logout.php" class="MobileMenu-listItem" title="Available Services">
+				Log out
+			</a>
+
+
+
+
+
+			
+
+
+		</div>
+
+
+	</div>
+
 </div>
 
 </body>

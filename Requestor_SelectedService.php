@@ -147,7 +147,7 @@
 
             <form action="Backend/RegisterServiceOrder.php" method="post" id="availServiceSubmitForm">
 
-            <h3> Confirm Transaction </h3> <br/><br/><br/>
+            <h3> Confirm Transaction </h3> 
 
             <input type="hidden" name="formServiceID" id="formServiceID"/>
             <input type="hidden" name="requestorID" id="formRequestorID" value="<?php echo $_SESSION["userID"] ?> "/>
@@ -234,7 +234,7 @@
                             <option class="timeSlot" value="04:00 to 05:00 PM"> 04:00 to 05:00 PM</option>
                             <option class="timeSlot" value="05:00 to 06:00 PM"> 05:00 to 06:00 PM</option>
 
-                        </select> <br/>
+                        </select>
                      </td>
 
                 </tr>
@@ -254,13 +254,13 @@
                 
                 </table>
 
-                <br/><br/>
+                
 
                     <a href="#" onclick="showContract()">Terms and Conditions </a> <br/> <br/>
                     <input type="hidden" name="contract" id="contractInput"/>
                     <input type="checkBox" onchange ="allowSubmit()" id="agreementcheckbox" required/>
                     <label> I agree to the terms and conditions </label>
-                    <br/> <br/>
+                    
                 
  
                 <input type="button" value="View Contract" class="confirmButton" id="viewContractButton" onclick="showSubmitContract()" disabled>
@@ -305,10 +305,7 @@
 				</table>
 
             </div>
-        
-    
 
-        <br/>
         <center> 
             <h2 id="selectedCategory">  </h2>
         </center>

@@ -64,21 +64,20 @@
 
 				<!--<li class="AvailableServicesContainer-ControlItem" style="border-bottom:3px solid black"> 
 						
-					
-				
-						<table>
-							<tr>
-								<td>
-									<img src="img/profile-icon-9.png" class="AvailableServicesContainer-ControlItemIcon" id="pasabuyIcon"> 
-								</td>
+					<div id="ControlItemRequestsButton">
+                    <table>
+                        <tr>
+                            <td>
+                                <image src="img/requests.png" class="RequestsButtonImage"> 
+                                
+                            </td>
 
-								<td>
-									<a href="Responder_RequestBoard.php"> <span> &nbsp Request Board </span> </a>
-								</td>
-							</tr>
-	   					</table>
-
-				
+                            <td>
+                                <a href="Responder_RequestBoard.php"> <span id="RequestsButtonText"> RequestBoard </span> </a>
+                            </td>
+                        <tr>
+                    </table>
+						</div>
 					</li>
 					
 				
