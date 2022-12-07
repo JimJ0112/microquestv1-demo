@@ -166,6 +166,7 @@ function checkInputs_AccountInfo(){
 
     var checkedUserNameResult = sessionStorage.getItem("userNameExists");
     var checkedEmailResult = sessionStorage.getItem("EmailExists");
+    var EmailValid = sessionStorage.getItem("EmailValid");
     
 
     if(Username.value != "" &&
@@ -173,7 +174,8 @@ function checkInputs_AccountInfo(){
        Password.value != ""&&
        ConfirmPassword.value !=""&&
        checkedUserNameResult === "false" &&
-       checkedEmailResult === "false"
+       checkedEmailResult === "false" &&
+       EmailValid === "true"
     ){
         //RegistrationNextButton.disabled = false;
 
@@ -194,6 +196,8 @@ function checkInputs_AccountInfo(){
     }else if(checkedEmailResult === "true"){
         alert("email already exists");
 
+    }else if(EmailValid  === "false"){
+        alert("email not valid");
     }else{
         Username.focus();
     }
@@ -601,6 +605,7 @@ function showProfilePicOutput(event){
                     userNameChecker.innerText = "UserName already exists!";
                     userNameChecker.style.color = "red";
                     sessionStorage.setItem("userNameExists",true);
+                    
                   // RegistrationNextButton.disabled = true;
                     //checkInputs_AccountInfo();
                     
@@ -660,13 +665,15 @@ function checkEmail(){
                     emailChecker.innerText = "Email already exists!";
                     emailChecker.style.color = "red";
                     sessionStorage.setItem("EmailExists",true);
-                   // RegistrationNextButton.disabled = true;
                     
+                   // RegistrationNextButton.disabled = true;
                     //checkInputs_AccountInfo();
                 } else{
                     emailChecker.innerText = Email + " is available";
                     emailChecker.style.color = "green";
                     sessionStorage.setItem("EmailExists",false);
+                    sessionStorage.setItem("EmailValid",true);
+
                     //checkInputs_AccountInfo();
 
                 }
@@ -685,10 +692,17 @@ function checkEmail(){
     } else{
 
         if(Email != ""){
-        emailChecker.innerText = "Please Enter a valid email address";
-        emailChecker.style.color = "red";
+
+            emailChecker.innerText = "Please Enter a valid email address";
+            emailChecker.style.color = "red";
+            sessionStorage.setItem("EmailValid",false);
+
         } else{
+
             emailChecker.innerText = "";
+            sessionStorage.setItem("EmailValid",true);
+
+
         }
 
     }

@@ -14,14 +14,14 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Registration.css">
-	<script src="js/Responder_Registration.js"> </script>
+	<script src="js/Requestor_Registration.js"> </script>
 
 
 </head>
 
 <body onload="getServices()">
 
-	<script> init(); </script>
+	
 	<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
 	<img src="img/f.jpg" id="RegistrationBackground">
 
@@ -44,7 +44,7 @@
 							<div class="inputItem"> 
 								Username: <br/>
 								<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-								<input type="text" name="userName" class="Registration-TextBox" id="Username" oninput="checkUserName()" onkeyup="checkInputs_AccountInfo()" placeholder="Username.."> 
+								<input type="text" name="userName" class="Registration-TextBox" id="Username" oninput="checkUserName()" placeholder="Username.."> 
 								
 								<br/>
 								<span id="userNameChecker" class="checker"> </span>
@@ -53,7 +53,7 @@
 							<div class="inputItem"> 
 								Email: <br/>
 								<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-								<input type="email" name="userEmail" class="Registration-TextBox" id="Email" oninput="checkEmail()" onkeyup="checkInputs_AccountInfo()" placeholder="Email.."> 
+								<input type="email" name="userEmail" class="Registration-TextBox" id="Email" oninput="checkEmail()" placeholder="Email.."> 
 								<br/>
 								<span id="emailChecker" class="checker"> </span>
 							</div><br/>
@@ -61,7 +61,7 @@
 							<div class="inputItem"> 
 								Password: <br/>
 								<span class="asteriskRequiredField" title="This Field is Required"> * </span>
-								<input type="password" name="userPassword" class="Registration-TextBox" id="Password" oninput="checkInputs_AccountInfo()" placeholder="Password.."> 
+								<input type="password" name="userPassword" class="Registration-TextBox" id="Password" oninput="checkInputs_ConfirmPassword()" placeholder="Password.."> 
 							</div><br/>
 				
 							<div class="inputItem"> 
@@ -71,7 +71,7 @@
 								<p id="passwordmatch"></p>
 							</div><br/>
 
-							<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled>
+							<input type="button" id="RegistrationNextButton" value= "Next" onclick="checkInputs_AccountInfo()">
 						</div>		
 						 		
 					</div>
@@ -113,22 +113,22 @@
 					
 						<div class="inputItem1">
 						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>First name:</div>
-							<input type="text" name="firstName" class="Registration-TextBox" id="FirstName"> 
+							<input type="text" name="firstName" class="Registration-TextBox" id="FirstName" Required> 
 						
 						<div class="textBox">Middle name:</div>
-							<input type="text" name="middleName" class="Registration-TextBox" id="MiddleName"> 
+							<input type="text" name="middleName" class="Registration-TextBox" id="MiddleName"Required> 
 					
 						<div class="textBox">Last name: </div>
-							<input type="text" name="lastName" class="Registration-TextBox" id="LastName" > 
+							<input type="text" name="lastName" class="Registration-TextBox" id="LastName" Required> 
 						
 						</div> 
 						<div class="inputItem2">
 						<div class="textBox"> <span class="asteriskRequiredField" title="This Field is Required"> * </span>Birthdate: </div>
-							<input type="date" class="Registration-TextBox" id="Birthdate" name="birthDate"  /> 
+							<input type="date" class="Registration-TextBox" id="Birthdate" name="birthDate" Required /> 
 
 						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Sex: </div>
 							
-							<div class="textBox1"><input  type="radio" name="Sex"  value="Male" id="Male" > Male 
+							<div class="textBox1"><input  type="radio" name="Sex"  value="Male" id="Male" Required > Male 
 							<input type="radio" name="Sex"  value="Female" id="Female" > Female </div>
 
 						</div>
@@ -141,7 +141,7 @@
 						<div class="inputItem3"> 
 						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Municipality:</div> 
 							
-								<select name="municipality" class="Registration-TextBox" id="Municipality"> 
+								<select name="municipality" class="Registration-TextBox" id="Municipality" Required> 
 									<option selected="" disabled="">Select City / Municipality</option>
                      				<option value="Abucay">Abucay</option>
                      				<option value="Bagac">Bagac</option>
@@ -159,15 +159,15 @@
 						
 						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>House No: </div>
 							
-							<input type="text" name="houseNumber" class="Registration-TextBox" id="Address"> 
+							<input type="text" name="houseNumber" class="Registration-TextBox" id="Address" Required> 
 						
 						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Street: </div>
 							
-							<input type="text" name="street" class="Registration-TextBox" id="Address" > 
+							<input type="text" name="street" class="Registration-TextBox" id="Address" Required> 
 						
 						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Baranggay: </div>
 							
-							<input type="text" name="baranggay" class="Registration-TextBox" id="Address" > 
+							<input type="text" name="baranggay" class="Registration-TextBox" id="Address" Required> 
 						</div> 
 
 					
@@ -177,7 +177,7 @@
 						<div class="inputItem4"> 
 						
 						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Educational Attainment </div>
-							<select name="education" class="Registration-TextBox" id="Education" > 
+							<select name="education" class="Registration-TextBox" id="Education" Required> 
 								<option selected="" disabled="">Select  Education</option>
                      			<option value="Elementary Graduate">Elementary Graduate</option>
                      			<option value="Secondary Graduate">Secondary Graduate</option>
@@ -191,7 +191,7 @@
 							
 						
 							<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Identification Card: </div>
-							<select name="idType" class="Registration-TextBox" id="IDType" > 
+							<select name="idType" class="Registration-TextBox" id="IDType" Required> 
 								<option value="Driver's License"> Driver's License</option>    
                     			<option value="Philhealth"> Philhealth</option>    
                     			<option value="Voter's ID"> Voter's ID</option> 
@@ -201,11 +201,11 @@
 							
 							
 							<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>ID Expiration date: </div>
-								<input type="date" name="idExpiration" class="Registration-TextBox" id="IDExpirationDate"> 
+								<input type="date" name="idExpiration" class="Registration-TextBox" id="IDExpirationDate" Required> 
 
 						<div class="textBox">
 							ID Number: </div>
-							<input type="text" name="idNumber" class="Registration-TextBox" id="IDNumber"> 
+							<input type="text" name="idNumber" class="Registration-TextBox" id="IDNumber" Required> 
 						</div>
 						
 					</div>
@@ -213,20 +213,22 @@
 						<div class="inputItem5"> 
 						
 						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>ID: </br>
-						<input type="file" name="idFile" id="IDFile"  onchange="showIDPicOutput(event)" accept="image/png, image/jpg, image/jpeg"></div><img id="userIDPicOutput"> 
+						<input type="file" name="idFile" id="IDFile"  onchange="showIDPicOutput(event)" accept="image/png, image/jpg, image/jpeg" Required></div><img id="userIDPicOutput"> 
 							 
 								
 
 							 
 							<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Profile Picture</br>
-							<input  type="file" name="userPhoto" id="ProfilePicture"  onchange="showProfilePicOutput(event)" accept="image/png, image/jpg, image/jpeg">  </div><img id="userProfilePicOutput">
+							<input  type="file" name="userPhoto" id="ProfilePicture"  onchange="showProfilePicOutput(event)" accept="image/png, image/jpg, image/jpeg" Required>  </div><img id="userProfilePicOutput">
 							
 	
 
 						</div>
 						
 					
-						<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled>
+						<!--<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled>-->
+						<!--<input type="submit" id="RegistrationRegisterButton" value= "Register">-->
+						<input class="nextBtn" type="submit" id="RegistrationNextButton1" value= "Register">
 				
 						
 					
@@ -238,10 +240,14 @@
 
 
 				
-				<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled> 
+				<!--<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled> -->
 
 			
-				<input type="submit" id="RegistrationRegisterButton" value= "Register" onclick="submitForm()">
+				<!--<input type="submit" id="RegistrationRegisterButton" value= "Register" onclick="submitForm()">-->
+				<!--<input type="submit" id="RegistrationRegisterButton" value= "Register" onclick="submitForm()"-->
+				<!--<input type="submit" id="RegistrationRegisterButton" value= "Register">-->
+				
+
 			
 
 			</form>
@@ -251,7 +257,7 @@
 		</div>
 
 
-		<script src="js/Responder_Registration.js"> </script>
+		<script src="js/Requestor_Registration.js"> </script>
 
 </body>
 </html>

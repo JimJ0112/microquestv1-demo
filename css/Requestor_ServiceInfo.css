@@ -32,17 +32,17 @@ body{
 
 #serviceInfoDivBg{
 	background-color: white;
-	width: 50%;
+	width: 100%;
 	/* min-height: 800px; */
-	/* height: fit-content; */
+	height: 100%;
 	/* margin: auto; */
 	margin-top: 10%;
-	text-align: center;
+	/* text-align: center; */
 	font-family: Arial, Helvetica, sans-serif;
 	padding: 0px;
-	height: fit-content;
-	border: outset rgb(255 69 0) 5px;
-	border-radius: 20px;
+	/* height: fit-content; */
+	border: solid  rgb(255 69 0) 1px;
+	/* border-radius: 20px; */
 }
 
 #serviceInfoDiv{
@@ -55,18 +55,20 @@ width: 40%;
 
 box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.167);
 
-/* height: 80%; */
+height: 80%;
 
 overflow-y: scroll;
 }
 
 #serviceFeedbacksDiv{
-	background-color: rgb(17 9 4);
+	background-color: rgb(133 133 133 / 40%);
 	width: 500;
-	min-height: 500px;
-	margin-top: 0;
-	border-radius: 0px 0px 10px 10px;
+	/* min-height: 500px; */
+	/* margin-top: 0; */
+	/* border-radius: 0px 0px 10px 10px; */
 	padding: 10px;
+	height: 90%;
+	overflow-y: scroll;
 }
 
 #userInfoDiv{
@@ -79,18 +81,22 @@ width: 25%;
 
 /* height: fit-content; */
 
-background-color: #f5deb3b3;
+background-color: #ffffffb3;
 
 border-radius: 0 10px 10px 0;
 
 /* margin: 5px; */
+
+height: 100%;
+
+/* margin-bottom: 40%; */
 }
 
 #userProfileImg{
-	width: 100px;
-	height: 100px;
+	width: 100%;
+	height: 100%;
 	border: 1px solid black;
-	border-radius: 100%;
+	/* border-radius: 100%; */
 	object-fit: cover;
 	background-color: white;
 }
@@ -100,18 +106,19 @@ border-radius: 0 10px 10px 0;
 	/* top:100px; */
 	/* left: 50%; */
 	/* transform: translate(-50%, 0); */
-	/* margin: auto; */
+	margin: auto;
 	text-align: center;
 	align-content: center;
 	/* margin-left: 15%; */
+	height: 50%;
 }
 
 #serviceInfo{
 	padding: 20px;
-	margin-top: 5px;
-	height: 200%;
-	border-radius: 10px 10px 0 0;
-	background-size: cover;
+	/* margin-top: 5px; */
+	height: 10%;
+	/* border-radius: 10px 10px 0 0; */
+	/* background-size: cover; */
 }
 
 #serviceRatingsDiv{
@@ -160,11 +167,14 @@ border-radius: 0 10px 10px 0;
 }
 
 #serviceCategory{
-	font-size: xx-large;
+	/* font-size: xx-large; */
 	margin: auto;
+	/* height: 30%; */
+	padding-top: 40px;
 }
 
 #serviceTitle{
-	font-size: x-large;
+	/* font-size: x-large; */
 	margin: auto;
+	height: 30%;
 }

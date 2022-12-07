@@ -20,52 +20,12 @@
 
 <!-- NavBar-->
 <div id="NavContainer">
-	<!--
-			<div class="mobile_menu">
-               <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <div class="logo_mobile"></div>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                           <a class="nav-link" href="#AboutUsSection">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#ServicesSection">Services</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="Login.php">Log in</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link " href="ChooseAccountType.php">Sign Up</a>
-                        </li>
-               
-                     </ul>
-                  </div>
-               </nav>
-            </div>
-	-->
+
 	<img src="img/logo.png" id="Nav-Logo" title="Home"> 
 	<ul id="NavBar">
 		
 
 	
-		
-
-		<!--
-			<li class="Nav-item" title="My Transactions">
-				<?php
-					$pagename = basename($_SERVER['PHP_SELF']);
-					if($pagename === "Requestor_Transactions.php"){
-						//echo '<u> Transactions </u>';
-					} else{
-						//echo "Transactions";
-					}
-				?>
-			</li>
-		-->
 			<li class="Nav-item" title="My Transactions">
 				<div class="dropdown">
     				<button class="dropbtn">
@@ -250,30 +210,19 @@
 
 	
 
-<div class="mobile_menu">
-               <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                  <div class="logo_mobile"></div>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                           <a class="nav-link" href="#AboutUsSection">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#ServicesSection">Services</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="Login.php">Log in</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link " href="ChooseAccountType.php">Sign Up</a>
-                        </li>
-               
-                     </ul>
-                  </div>
-               </nav>
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  	<a href="#home" class="active">Logo</a>
+  	<div id="myLinks">
+    	<a href="#news">News</a>
+    	<a href="#contact">Contact</a>
+    	<a href="#about">About</a>
+  	</div>
+
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+  
 </div>
 
 </body>

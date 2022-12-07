@@ -60,21 +60,29 @@
 				<ul id="AvailableServicesContainer-ControlItems">
 
 
-					<li class="AvailableServicesContainer-ControlItem"> 
+					
+
+				<!--<li class="AvailableServicesContainer-ControlItem" style="border-bottom:3px solid black"> 
+						
+					
+				
 						<table>
 							<tr>
 								<td>
-									<img src="img/requests.png"class="AvailableServicesContainer-ControlItemIcon"> 
+									<img src="img/profile-icon-9.png" class="AvailableServicesContainer-ControlItemIcon" id="pasabuyIcon"> 
 								</td>
 
 								<td>
-									<a href="Responder_RequestBoard.php"> <span> RequestBoard </span> </a>
+									<a href="Responder_RequestBoard.php"> <span> &nbsp Request Board </span> </a>
 								</td>
 							</tr>
 	   					</table>
-					</li>
 
-					<li class="AvailableServicesContainer-ControlItem" style="border-bottom:3px solid black"> 
+				
+					</li>
+					
+				
+				<li class="AvailableServicesContainer-ControlItem" style="border-bottom:3px solid black"> 
 						
 					
 				
@@ -89,8 +97,7 @@
 								</td>
 							</tr>
 	   					</table>
-				
-						
+
 				
 					</li>
 					
@@ -109,7 +116,8 @@
 							</tr>
 	   					</table>
 				
-					</li>
+					</li>>-->
+
 
 					<li class="AvailableServicesContainer-ControlItem" id="AvailableServicesCategoryContainer"> 
 						

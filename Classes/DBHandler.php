@@ -27,12 +27,12 @@ function __construct(){
 
     /* remote database connection */
     
-    
+    /*
     $this->dbservername = "localhost";
     $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
     $this->dbname = "u774227372_microquestdbv2";
-    
+    */
    
     
   /* remote database connection 2 */
@@ -44,6 +44,14 @@ function __construct(){
     $this->dbname = "railway";
     */
 
+
+
+    // kala yujin
+    $this->dbservername = "localhost";
+    $this->dbusername = "root";
+    $this->dbpassword = "";
+    $this->dbname = "microquestdbv2";
+    
     $this-> dbconnection = mysqli_connect($this->dbservername,$this->dbusername,$this->dbpassword,$this->dbname);
  
   

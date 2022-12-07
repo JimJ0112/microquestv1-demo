@@ -48,7 +48,7 @@ session_start();
 	<tr>
 		<td id="LoginTable-Left">
 			
-				<center>
+				
 					<!-- Carousel -->
 				<div class="carousel">
 			   		<!-- Slideshow container -->
@@ -74,7 +74,7 @@ session_start();
    
 			 <script src="js/carousel.js"> </script>
 			 <!-- End of Carousel-->
-		   </center>
+		   
 	
 		</div>
 	</td>
