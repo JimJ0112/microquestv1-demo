@@ -49,10 +49,12 @@
 
 	<script src="js/Responder_ServiceTransactions.js"> </script>
 	<script src="js/report.js"> </script>
+	<script src="js/sideBarShow.js"> </script>
 
 
 </head>
 <body>
+	<button class="sideMenu" onclick="sideButton()" id="sideMenu" > >> </button>
 
 <!-- NavBar-->
 <?php
@@ -74,7 +76,7 @@
 	<div class="grid-container" id="TransactionsNav">
 		  <div id="TransactionTypeTd" class="grid-item">
 			<div id="TransactionTypeDropDown">
-				Services
+				Services<button class="hideMenu" onclick="hideButton()" id="hideMenu" > X </button>
 			</div>
 		</div>
 

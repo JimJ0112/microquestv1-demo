@@ -36,6 +36,8 @@ session_start();
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/Responder_RequestBoard.css">
+	<script src="js/Responder_RequestBoard.js"> </script> 
+
 
 </head>
 <body onload="<?php
@@ -47,10 +49,7 @@ session_start();
         	echo 'setCategory(\''.$specialization.'\');';
 			
 
-			
-			//echo'getCategories();';
-			//echo'setSpecialization();';
-			//echo 'setSpecialization()';
+		
 			
 
 			echo 'init();';
@@ -58,7 +57,7 @@ session_start();
 			
         	echo'getRequests();';
 			echo'getCategories();';
-			echo 'setSpecialization();';
+		
         }
 
 
@@ -71,7 +70,7 @@ session_start();
     
     ?>">
 
-<img src="img/b.jpg" id="BodyBackgroundImg"/>
+
 
 
 <!-- NavBar-->
@@ -105,8 +104,8 @@ session_start();
 					<table>
 						<tr>
 							<td>
-								<label class="switch">
- 								 	<input type="checkbox" id="nearestRequestSlider">
+								<label class="switch" for="nearestRequestSlider">
+ 								 	<input type="checkbox" id="nearestRequestSlider" onchange="SliderAction()">
  								 	<span class="slider round"></span>
 								</label>
 							</td>
@@ -388,7 +387,7 @@ session_start();
 
 	</div>
 
-
+<script> getCategories(); </script>
 <script src="js/Responder_RequestBoard.js"> </script> 
 </body>
 </html>

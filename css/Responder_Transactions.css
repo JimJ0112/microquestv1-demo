@@ -31,16 +31,20 @@
 /*Responder_Transactions.html*/
 #TransactionsBackContainerBack{
 	
-	width: 100%;
-    height: 100%;
-    position: relative;
-    top: 110px;
-    background-color: rgb(243, 240, 240);
+width: 100%;
+	
+height: 100%;
+	
+position: absolute;
+	
+top: 120px;
+	
+background-color: rgb(243, 240, 240);
 }
 
 #TransactionsContainer{
-	width: 80%;
-	height: 780px;
+	width: 70%;
+	height: 100%;
 	margin: 40px 0 0 20%;
 	background-color: white;
 	/* margin-top: 0; */
@@ -76,11 +80,12 @@
     height: 650px;
     margin: auto;
     background-color: rgb(225, 223, 223);
-    margin: 40px 0px 0px 20px;
+    /* margin: 0px 0px 0px 0px; */
     /* overflow: hidden; */
     /* padding: 5px; */
     /* display: grid; */
     position: absolute;
+    /* top: 0; */
 }
 
 .grid-container {
@@ -649,6 +654,9 @@ button.red{
 	z-index: 20;
 
 }
+button#sideMenu {
+    display: none;
+}
 
 #PhotoViewer{
 	margin: auto;
@@ -707,3 +715,83 @@ button.red{
 	border: 1px solid black;
 	margin-top: 100px;
 }
+
+button#hideMenu {
+    display: none;
+}
+
+
+@media (max-width: 390px){
+	#TransactionsNav{
+		margin: 10px 0px 0px -270px;
+		transition: ease 1.5s;
+	}
+	button#sideMenu{
+		display: unset;
+	}
+	.sideMenu{
+		position: absolute;
+		left: 0;
+		top: 9%;
+		z-index: 100;
+		height: 50px;
+		width: fit-content;
+		margin-left: -5px;
+		transition: ease 1.5s;
+	}
+	#TransactionsContainer{
+		width: 100%;
+		margin: unset;
+		height: 100%;
+	}
+	#TransactionsContainerBody{
+		/* height: 250px; */
+		width: 100%;
+		zoom: 100%;
+	}
+	.header-item{
+		font-size:15px;
+	}
+	.grid-container2 > div {
+		font-size:12px;
+	}
+	.responderprofiletransaction{
+		width: 50px;
+		height: 50px;
+		padding: 20 0;
+	}
+	div#responderEmail{
+		width: 150px;
+		font-size: 12px;
+	}
+	p.description{
+		width: 150px;
+		padding: 0px;
+		margin: auto;
+		font-size: 12px;
+	}
+	.grid-footer{
+		padding: 0;
+		width: 100%;
+		height: 100%;
+
+		
+	}
+	.button{
+		font-size: 10px;
+		padding: 10px
+	}
+	#requestDate p{
+		font-size: 10px;
+	}
+	div#requestTitle{
+		display: grid;
+	}
+	button#hideMenu {
+    display: unset;
+	float: right;
+}
+	
+}
+
+

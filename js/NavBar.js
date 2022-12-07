@@ -37,7 +37,11 @@ function getUserImage(id){
             image.src = dataArray[0]["userPhoto"];
             image.setAttribute("class","navUserPhoto");
             imageContainer.appendChild(image);
-            MobileNavImageContainer.appendChild(image);
+
+            var image1 = new Image();
+            image1.src = dataArray[0]["userPhoto"];
+            image1.setAttribute("class","navUserPhoto");
+            MobileNavImageContainer.appendChild(image1);
 
 
      

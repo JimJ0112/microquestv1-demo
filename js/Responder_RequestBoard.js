@@ -1,103 +1,4 @@
 
-// create elements to be appended 
-/*
-function createRequestElements(Number){
- 
-    DataNumber = Number;
-    div = document.getElementById("RequestsContainer-Content");
-   
-    
-    for(var i = 0;i<DataNumber;i++){
-    
-    // create elements for rows
-    var card = document.createElement('div');
-
-
-    var dueDate= document.createElement('li');
-    var isNegotiable= document.createElement('li');
-    var requestCategory= document.createElement('li');
-    var requestDescription= document.createElement('li');
-    var requestExpectedPrice= document.createElement('li');
-    var requestID= document.createElement('li');
-    var requestTitle= document.createElement('li');
-    var requestorID = document.createElement('li');
-    var requestorUserName = document.createElement('a');
-    var requestorLocation = document.createElement('span');
-    var viewRequest = document.createElement('a');
-    var MessageButton = document.createElement('a');
-    var userPhotoDiv = document.createElement('div');
-   // var requestBannerDiv = document.createElement('div');
-
-    var RequestorProfileDiv = document.createElement('table');
-    var userprofileTR = document.createElement('tr');
-    var userprofilePicSide = document.createElement('td');
-    var userinfoSide = document.createElement('td');
-
-    var RequestInfoList = document.createElement('ul');
-
-
-
-
-    // set attributes
-    card.setAttribute('class','requestCard');
-
-
-    
-    dueDate.setAttribute('class','dueDate');
-    isNegotiable.setAttribute('class','isNegotiable');
-    requestCategory.setAttribute('class','requestCategory');
-    requestDescription.setAttribute('class','requestDescription');
-    requestExpectedPrice.setAttribute('class','requestExpectedPrice');
-    requestID.setAttribute('class','requestID');
-    requestTitle.setAttribute('class','requestTitle');
-    requestorID.setAttribute('class','requestorID');
-    requestorUserName.setAttribute('class','requestorUserName');
-    requestorLocation.setAttribute('class','requestorLocation');
-    viewRequest.setAttribute('class','viewRequest');
-    viewRequest.innerText = "View More";
-    MessageButton.innerText = "Message";
-    userPhotoDiv.setAttribute('class','userPhotoDiv');
-   // requestBannerDiv.setAttribute('class','requestBannerDiv');
-    RequestorProfileDiv.setAttribute('class','RequestorProfileDiv');
-    MessageButton.setAttribute('class','MessageButton');
-    RequestInfoList.setAttribute('class','RequestInfoList');
-
-
-    // append elements to the row
-    card.appendChild(RequestorProfileDiv);
-
-  
-    RequestInfoList.appendChild(requestID);
-    //card.appendChild(requestBannerDiv);
-    RequestInfoList.appendChild(requestCategory);
-    RequestInfoList.appendChild(requestTitle);
-    RequestInfoList.appendChild(requestDescription);
-    RequestInfoList.appendChild(requestExpectedPrice);
-    RequestInfoList.appendChild(isNegotiable);
-    RequestInfoList.appendChild(dueDate);
-    RequestInfoList.appendChild(requestorID);
-    card.appendChild(RequestInfoList);
-    card.appendChild(viewRequest)
-    card.appendChild(MessageButton)
-
-    userprofileTR.appendChild(userprofilePicSide);
-    userprofileTR.appendChild(userinfoSide);
-
-    RequestorProfileDiv.appendChild(userprofileTR);
-
-
-    userprofilePicSide.appendChild(userPhotoDiv);
-    userinfoSide.appendChild(requestorUserName);
-    userinfoSide.appendChild(requestorLocation);
-
-
-    div.append(card);
-
-    } 
-    
-    
-} // end of function
-*/
 
 // create elements to be appended 
 function createRequestElements(Number){
@@ -252,8 +153,7 @@ function getRequests(){
    
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/Get_requests.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
@@ -280,7 +180,19 @@ function getRequests(){
             console.log(err);
         }      
     };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('RequestsContainer-Content').innerText = "Loading...";
+
+        }
+  
+    };
     
+    xmlhttp.open("POST", "Backend/Get_requests.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send();
     
 }// end of function
@@ -291,8 +203,6 @@ function getOtherRequests(){
    
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/Get_otherRequests.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
@@ -309,6 +219,7 @@ function getOtherRequests(){
             var number = dataArray.length;
             createServiceElements(number);
             setData(dataArray);
+
             } else{
                 RequestsContainer.innerText = "No Requests";
             }
@@ -318,7 +229,19 @@ function getOtherRequests(){
             console.log(err);
         }      
     };
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('RequestsContainer-Content').innerText = "Loading...";
+
+        }
+  
+    };
     
+    xmlhttp.open("POST", "Backend/Get_otherRequests.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send();
     
 }// end of function
@@ -332,8 +255,7 @@ function setCategory(category){
 
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/Get_categorizedRequests.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
     xmlhttp.onload = function() {
 
         if (this.readyState === 4 || this.status === 200){ 
@@ -354,6 +276,9 @@ function setCategory(category){
                 setData(dataArray);
 
                 
+            }else{
+                RequestsContainer.innerText = "No Requests";
+
             }
 
             
@@ -363,7 +288,19 @@ function setCategory(category){
             console.log(err);
         }      
     };
-    
+
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('RequestsContainer-Content').innerText = "Loading...";
+
+        }
+  
+    };
+    xmlhttp.open("POST", "Backend/Get_categorizedRequests.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
 }
 
@@ -371,14 +308,14 @@ function setCategory(category){
 
 function getNearestRequest(municipality){
     var municipality = municipality;
-    var category = document.getElementById('RequestCategory').value;
+    var category = sessionStorage.getItem('requestCategory');
+    //var category = document.getElementById('RequestCategory').value;
     var query = "municipality=" + municipality + "&category=" + category;
     console.log(query);
 
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/Get_nearestRequest.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
     xmlhttp.onload = function() {
 
         if (this.readyState === 4 || this.status === 200){ 
@@ -409,7 +346,19 @@ function getNearestRequest(municipality){
             console.log(err);
         }      
     };
+
     
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('RequestsContainer-Content').innerText = "Loading...";
+
+        }
+  
+    };
+    xmlhttp.open("POST", "Backend/Get_nearestRequest.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
 }
 
@@ -420,8 +369,7 @@ function getPasabuyRequests(){
     
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/Get_pasabuyRequests.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
@@ -449,6 +397,8 @@ function getPasabuyRequests(){
         }      
     };
     
+    xmlhttp.open("POST", "Backend/Get_pasabuyRequests.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send();
 }
 
@@ -583,43 +533,7 @@ function setPasabuyData(array){
 
 }
 
-/*Get request categories */
-function getCategories(){
 
-
-    var xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open("POST", "Backend/Get_requestCategories.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            var dataArray = this.response;
-
-
-            if(dataArray != "failed to fetch"){
-                dataArray = JSON.parse(dataArray);
-                console.log(dataArray);
-
-                var number = dataArray.length;
-                addCategories(dataArray)
-               
-
-
-            } else{
-                console.log("failed to fetch");
-            }
-
-     
-        }else{
-            console.log(err);
-        }      
-        
-    };
-    
-    xmlhttp.send();
-}
 
 
 
@@ -649,31 +563,10 @@ function addCategories(data){
 
 
 // for setting category
-var select = document.getElementById("RequestCategory");
-    select.addEventListener("change",function(){
-        var select = document.getElementById("RequestCategory").value;
-        var nearestRequestSlider = document.getElementById('nearestRequestSlider');
 
-        if(nearestRequestSlider.checked){
-            var municipality = sessionStorage.getItem('municipality');
-            getNearestRequest(municipality);
-        } else{
-        
-            if(select != "All Requests"){
-                setCategory(select);
-                
-        
-            } else{ 
-                getRequests();
-            }
-
-        }
-
-
-
-});
 
 // nearest request slider trigger
+/*
 var nearestRequestSlider = document.getElementById('nearestRequestSlider');
 nearestRequestSlider.addEventListener("change",function(){
 
@@ -686,9 +579,23 @@ nearestRequestSlider.addEventListener("change",function(){
     }
 
 });
+*/
+
+function SliderAction(){
+    var nearestRequestSlider = document.getElementById('nearestRequestSlider');
+    if(nearestRequestSlider.checked){
+        var select = document.getElementById("RequestCategory").value;
+        var municipality = sessionStorage.getItem('municipality');
+        getNearestRequest(municipality);
+    } else{
+        getRequests();
+    }
+}
 
 
 // for setting specialization on load
+
+/*
 function setSpecialization(){
 
     var select = document.getElementById("RequestCategory");
@@ -713,58 +620,7 @@ function setSpecialization(){
 
 }
 
-function getLeaderBoard(category){
-  
-
-    var xmlhttp = new XMLHttpRequest();
-    
-    
-    var category = category;
-    var query = "Category=" + category;
-    
- 
-    xmlhttp.open("POST", "Backend/LeaderBoardBackend.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            var dataArray = this.response;
-            //console.log(dataArray);
-
-            if(dataArray != ""){
-                dataArray = JSON.parse(dataArray);
-                console.log(dataArray);
-
-                var number = dataArray.length;
-                createElements(number);
-                setData(dataArray);
-
-            } else{
-                console.log("no result");
-                
-                document.getElementById('LeaderBoardContent').innerHTML = "";
-                document.getElementById('LeaderBoardContent').innerHTML = " No Leaderboard Result yet";
-
-
-            }
-
-
-     
-        }else{
-           
-           console.log("error");
-        }      
-    };
-    
-    xmlhttp.send(query);
-    
-}// end of function
-
-function getSelectValue(){
-    var category = document.getElementById('LeaderBoardCategories').value;
-    console.log(category);
-    getLeaderBoard(category);
-}
+*/
 
 
 
@@ -798,130 +654,66 @@ function setOptions(array){
 }
 
 
-// gets all services 
-function getServices(){
+
+
+
+/*Get request categories */
+function getCategories(){
+
 
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/Get_allServices.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
     xmlhttp.onload = function() {
+
         if (this.readyState === 4 || this.status === 200){ 
            
-           
-
             var dataArray = this.response;
 
-            if(dataArray === "failed to fetch"){
+
+            if(dataArray != "failed to fetch"){
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+
+                var number = dataArray.length;
+                createCategoryElements(number);
+                setCategoryDatas(dataArray)
+                setSpecialization(dataArray);
+
+
+               
 
 
             } else{
-
-            dataArray = JSON.parse(dataArray);
-            console.log(dataArray);
-
-
-            var number = dataArray.length;
-          
-            //document.getElementById("LeaderBoardCategories").innerHTML = "";
-            //setOptions(dataArray);
-            //getSelectValue(); 
-            createCategoryElements(number);
-            setCategoryDatas(dataArray);
+                console.log("failed to fetch");
+            }
 
      
-            }
         }else{
             console.log(err);
         }      
+        
     };
     
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('cetegoriesContainer').innerText = "Loading...";
+
+        }
+  
+    };
+    xmlhttp.open("POST", "Backend/Get_requestCategories.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send();
-    
-}// end of function
-
-
-function createElements(number){
-
-    document.getElementById('LeaderBoardContent').innerHTML = "";
-    var table = document.getElementById('LeaderBoardContent');
-    var number = number;
-
-    for(var i = 0; i<number;i++){
-
-        var tr = document.createElement('tr');
-        var rank = document.createElement('td');
-        var responderInfo = document.createElement('td');
-        var rating = document.createElement('td');
-
-        tr.setAttribute('class','leaderboardTR');
-        rank.setAttribute('class','rankTR');
-        responderInfo.setAttribute('class','responderInfo');
-        rating.setAttribute('class','rating');
-
-        tr.appendChild(rank);
-        tr.appendChild(responderInfo);
-        tr.appendChild(rating);
-
-        table.appendChild(tr);
-
-
-    }
-
-
-
-    
-
 }
-
-
-
-// gets all services 
-function getServices(){
-
-    var xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open("POST", "Backend/Get_allServices.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-           
-
-            var dataArray = this.response;
-
-            if(dataArray === "failed to fetch"){
-
-
-            } else{
-
-            dataArray = JSON.parse(dataArray);
-            console.log(dataArray);
-
-
-            var number = dataArray.length;
-          
-            //document.getElementById("LeaderBoardCategories").innerHTML = "";
-            //setOptions(dataArray);
-            //getSelectValue(); 
-            createCategoryElements(number);
-            setCategoryDatas(dataArray);
-
-     
-            }
-        }else{
-            console.log(err);
-        }      
-    };
-    
-    xmlhttp.send();
-    
-}// end of function
 
 
 
 function createCategoryElements(number){
     var number = number;
+    document.getElementById('cetegoriesContainer').innerHTML = "";
     var cetegoriesContainer = document.getElementById('cetegoriesContainer');
 
     for(var i=0; i<number; i++){
@@ -948,31 +740,116 @@ function setCategoryDatas(array){
 
     for(var i = 0; i<number;i++){
         
-        if(dataArray[i]["serviceCategory"] === "Pasabuy"){
+        if(dataArray[i]["requestCategory"] === "Pasabuy"){
 
             grid_item[i].style.display = "none";
 
         } else{
 
-            /*
-            var option = new Option;
-            option.innerText = dataArray[i]["serviceCategory"];
-            option.value = dataArray[i]["serviceCategory"];
-            serviceDropDown.add(option);
-            */
-            grid_item[i].innerText = dataArray[i]["serviceCategory"];
-           // grid_item[i].setAttribute("onclick","getLeaderBoard('" + dataArray[i]['serviceCategory'] + "')");
+            grid_item[i].innerText = dataArray[i]["requestCategory"];
 
-            grid_item[i].setAttribute("onclick","chooseNav('" + dataArray[i]['serviceCategory'] + "'," + i +")" );
+            grid_item[i].setAttribute("onclick","chooseNav('" + dataArray[i]['requestCategory'] + "'," + i +")" );
         }
 
 
     }
-    chooseNav(dataArray[0]["serviceCategory"],0)
 
+    //chooseNav(dataArray[0]["requestCategory"],0)
+    setSpecialization(dataArray);
 
 
     
 }
 
 
+function chooseNav(category,number){
+    var category = category;
+    var number = number;
+    var grid_item = document.getElementsByClassName('grid-item');
+    var length = grid_item.length;
+
+    for(var i=0;i<length;i++){
+
+        grid_item[i].style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+        grid_item[i].style.color = "black";
+
+    }
+
+    grid_item[number].style.backgroundColor = "orangered";
+    grid_item[number].style.color = "white";
+
+    sessionStorage.setItem("requestCategory",category);
+    
+
+    //getLeaderBoard(category);
+
+    setCategory(category);
+
+}
+
+
+function setSpecialization(dataArray){
+
+    var grid_item = document.getElementsByClassName('grid-item');
+    var dataArray = dataArray;
+    var specialization = sessionStorage.getItem('specialization');
+
+   
+
+    for(var i =0; i<dataArray.length;i++){
+
+        
+
+        if(dataArray[i]['requestCategory'] === specialization){
+          
+
+            grid_item[i].style.backgroundColor = "orangered";
+            grid_item[i].style.color = "white";
+
+           // chooseNav(dataArray[i]["requestCategory"],i)
+            console.log(dataArray[i]['requestCategory']);
+
+        } else{
+           // console.log(selval);
+           console.log("not working");
+        }
+        
+       //console.log(select.options[i].value);
+    }
+
+}
+
+/*
+
+function setSpecialization2(specialization){
+
+    var grid_item = document.getElementsByClassName('grid-item');
+    var number = grid_item.length;
+   // var specialization = sessionStorage.getItem('specialization');
+   var specialization = specialization;
+
+   
+
+    for(var i =0; i<dataArray.length.length;i++){
+
+        
+
+        if(grid_item[i].innerText === specialization){
+          
+
+            grid_item[i].style.backgroundColor = "orangered";
+            grid_item[i].style.color = "white";
+
+           // chooseNav(dataArray[i]["requestCategory"],i)
+            console.log(grid_item[i]);
+
+        } else{
+           // console.log(selval);
+           console.log("not working");
+        }
+        
+       //console.log(select.options[i].value);
+    }
+
+}
+*/
