@@ -14,6 +14,8 @@ session_start();
     if(isset($_SESSION["specialization"])){
         $specialization = $_SESSION["specialization"];
 
+    }else{
+        $specialization = "Home Services";
     }
 ?>
 <!DOCTYPE html>
