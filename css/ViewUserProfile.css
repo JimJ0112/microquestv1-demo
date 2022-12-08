@@ -1,340 +1,333 @@
 body{
-   /* background-color: #3a2719e8; */
-   background-color: rgb(231, 226, 226);
-
-
-}
-
-#viewUserProfileContent{
-    position:absolute;
-    /*width: 80%;*/
-    height: fit-content;
-    display: grid;
-    top:15%;
-    font-family: Arial, Helvetica, sans-serif;
-    /*margin-left: 10%;*/
-    /*margin-right: 10%; */
-    width: 100%;
+    /* background-color: #3a2719e8; */
+    background-color: rgb(231, 226, 226);
  
-    /*
-    background-image: url("../img/businessidea.png");
-    background-size: 900px;
+ 
+ }
+ 
+ #viewUserProfileContent{
+     position:absolute;
+     /* width: 80%; */
+     height: fit-content;
+     display: grid;
+     top: 10%;
+     font-family: Arial, Helvetica, sans-serif;
+     /* margin-left: 10%; */
+     /* margin-right: 10%; */
+     width: 100%;
+     /*
+     background-image: url("../img/businessidea.png");
+     background-size: 900px;
+     
+     */
+ }
+ 
+ #viewUserProfileTable{
+     width: 100%;
+ 
+ }
+ 
+ #userNameAndType{
+     margin: 10px;
+     display: grid;
+     grid-column-gap: 0px;
+ }
+ 
+ #userName{
+     font-size: 50px;
+ }
+ 
+ #userType{
+     font-size: 25px;
+ }
+ 
+ #viewUserProfileNav{
     
-    */
+     width: 50%;
+     /*margin: auto;*/
+     
+ }
+ 
+ .userPost{
+     
+ }
+ 
+ .userMore{
+     
+ 
+ }
+ 
+ #viewUserProfileTableBackground{
+     width: 100%;
+     height: fit-content;
+     background-color: white;
+     margin: auto;
+     margin-left: 0;
+     border-bottom: 1px solid rgb(167, 165, 165);
+     /* padding-top: 100px; */
+     background-image: linear-gradient(rgb(163 163 163), rgb(248, 248, 245));
+     box-shadow: inset 0px 0px 1000px 0 #b7b7b78f;
+ }
+ 
+ #userNav{
+     width:25%;
+     height: 50px;
+     text-align: center;
+     /*border: 1px solid black;*/
+     cursor: pointer;
+     
+ 
+     /*box-shadow: 1px 1px 5px #535252;*/
+     
+     
+ }
+ 
+ #userNav:hover{
+     background-color: rgb(255 69 0);
+     color: white;
+     /*cursor: default;*/
+ }
+ 
+ #ContainerBackground{
+     width: 100%;
+     min-height: 100%;
+     height: fit-content;
+     background-color: white;
+     display: grid;
+     margin: auto;
+     border-radius: 20px;
+     padding-top: 20px;
+     /* margin-top: 10px; */
+ }
+ 
+ #postContainer{
+     display: none;
+     height:fit-content;
+     background-color: rgb(179 179 179 / 45%);
+     width: 90%;
+     border-radius: 10px;
+     padding: 10px;
+     margin: auto;
+     margin-top:5px;
+ }
+ 
+ #aboutContainer{
+     display: none;
+     height:fit-content;
+     background-color: rgb(213 213 213 / 45%);
+     border-radius: 5px;
+     padding: 10px;
+     width: 80%;
+     margin: auto;
+     /* margin-top:5px; */
+     font-weight: bold;
+     /* color: white; */
+     border: solid 1px orangered;
+ }
+ .userInfoTR{
+     margin-bottom: 100px;
+     margin-top: 100px;
+     padding: 100px;
+ }
+ 
+ #reviewContainer{
+     display: none;
+     height:fit-content;
+     background-color: rgb(183 183 183 / 46%);
+     border-radius: 10px;
+     padding: 10px;
+     width: 80%;
+     margin: auto;
+     margin-top:5px;
+ }
+ 
+ #moreContainer{
+     display: none;
+     height:fit-content;
+     background-color: rgb(193 193 193 / 50%);
+     border-radius: 10px;
+     padding: 10px;
+     width: 80%;
+     margin: auto;
+     margin-top:5px;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ #userImageContainer{
+    
+     border-radius: 100px;
+     height: 200px;
+     width: 200px;
+     margin: 30px;
+     position: relative;
+     float: left;
+ }
+ 
+ #userImageContainerTd{
+     width:10%;
+ }
+ 
+ #messageMe{
+     overflow: hidden;
+     float: right;
+     width: fit-content;
+     height: fit-content;
+     padding: 50px;
+     
+     margin: auto;
+     font-family: Georgia;
+     top:5px;
+ }
+ 
+ #userName{
+     position: relative;
+     float: left;
+     overflow: hidden;
+     color: orangered;
+ }
+ 
+ .userProfileUserPhoto{
+     border : white 2px solid;
+     border-radius: 100px;
+     height: 200px;
+     width: 200px;
+    
   
     
-}
-
-#viewUserProfileTable{
-    width: 100%;
-
-}
-
-#userNameAndType{
-    margin: 10px;
-    display: grid;
-    grid-column-gap: 0px;
-}
-
-#userName{
-    font-size: 50px;
-}
-
-#userType{
-    font-size: 25px;
-}
-
-#viewUserProfileNav{
-   
-    width: 50%;
-    /*margin: auto;*/
-    
-}
-
-.userPost{
-    
-}
-
-.userMore{
-    
-
-}
-
-#viewUserProfileTableBackground{
-    width: 100%;
-    height: fit-content;
-    background-color: white;
-    margin: auto;
-    margin-left: 0;
-    border-bottom: 1px solid rgb(167, 165, 165);
-    padding-top: 100px;
-    background-image: linear-gradient(rgb(255 69 0), rgb(248, 248, 245));
-   
-}
-
-#userNav{
-    width:25%;
-    height: 50px;
-    text-align: center;
-    /*border: 1px solid black;*/
-    cursor: pointer;
-    
-
-    /*box-shadow: 1px 1px 5px #535252;*/
-    
-    
-}
-
-#userNav:hover{
-    background-color: rgb(175, 60, 18);
-    color: white;
-    
-    /*cursor: default;*/
-}
-
-#ContainerBackground{
-    width: 80%;
-    min-height: 1000px;
-    height: fit-content;
-    background-color: white;
-
-
-    display: grid;
-    margin: auto;
-    border-radius: 20px;
-    padding-top: 20px;
-    margin-top: 10px;
-    
-
-}
-
-#postContainer{
-    display: none;
-    height:fit-content;
-    background-color: rgb(255 69 0);
-    width: 90%;
-
-    border-radius: 10px;
-    padding: 10px;
-    margin: auto;
-    margin-top:5px;
-
-}
-
-#aboutContainer{
-    display: none;
-    height:fit-content;
-    background-color: rgb(255 69 0);
-    border-radius: 10px;
-    padding: 10px;
-    width: 80%;
-    margin: auto;
-    margin-top:5px;
-    font-weight: bold;
-
-
-}
-.userInfoTR{
-    margin-bottom: 100px;
-    margin-top: 100px;
-    padding: 100px;
-}
-
-#reviewContainer{
-    display: none;
-    height:fit-content;
-    background-color: rgba(255 69 0);
-
-  
-    border-radius: 10px;
-    padding: 10px;
-    width: 80%;
-    margin: auto;
-    margin-top:5px;
-
-
-}
-
-#moreContainer{
-    display: none;
-    height:fit-content;
-    background-color: rgb(255 69 0);
-    border-radius: 10px;
-    padding: 10px;
-    width: 80%;
-    margin: auto;
-    margin-top:5px;
-
-}
-
-
-
-
-
-
-
-#userImageContainer{
-   
-    border-radius: 100px;
-    height: 200px;
-    width: 200px;
-    margin: 30px;
-    position: relative;
-    float: left;
-}
-
-#userImageContainerTd{
-    width:10%;
-}
-
-#messageMe{
-    overflow: hidden;
-    float: right;
-    width: fit-content;
-    height: fit-content;
-    padding: 50px;
-    
-    margin: auto;
-    font-family: Georgia;
-    top:5px;
-}
-
-#userName{
-    position: relative;
-    float: left;
-    overflow: hidden;
-
-}
-
-.userProfileUserPhoto{
-    border : white 2px solid;
-    border-radius: 100px;
-    height: 200px;
-    width: 200px;
-   
  
-   
-
-    object-fit: cover;
-    background-color: white;
-    
-}
-
-
-/*Services */
-
-#postContainer-Content{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 20px;
-    width: 100%;
-    background-color: orangered;
-
-}
-
-.AvailableService_Card{
-	
-	width: 350px;
-	height: 290px;
-	
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
-	margin: auto;
-	text-align: center;
-
-	overflow: hidden;
-	position:relative;
-	box-shadow: 2px 2px 10px rgb(42, 41, 41);
-	border-radius: 10px;
-	cursor: pointer;
-	display: grid;
-	background: linear-gradient(white, wheat);
-	animation: fadein 2s;
-
-}
-
-
-
-.ServiceBanner{
-	width: 100%;
-	height: 100px;
-	object-fit: cover;
-	z-index: 4;
-	filter: brightness(30%);
-	cursor: pointer;
-	position:absolute;
-	left: 0;
-	
-}
-
-.ServiceBanner:hover{
-	filter: brightness(80%);
-}
-
-.serviceTitle{
-	
-	z-index: 9;
-	font-size: larger;
-	background-color: rgb(255 69 0);
-	border:1px solid white;
-	color: white;
-	padding: 10px;
-	cursor: pointer;
-	margin: auto;
-	margin-top: 100px;
-
-	text-align: center;
-	min-width: 100px;
-	max-width: 300px;
-	width: 250px;
-
-	position: absolute;
-	left: 90%;
-    transform: translate(-50%, 0);
-	
-}
-
-.ServiceTitleBackground{
-	position: absolute;
-	width: 200px;
-	height: 300px;
-	pointer-events: auto;
-	display: grid;
-	text-align: center;
-
-}
-
-
-.infoDiv{
-	position:absolute;
-	top:160px;
-	width: 100%;
-	text-align: left;
-	left: 0px;
-	margin: auto;
-	font-size: small;
-	padding: 10px;
-	
-}
-
-.reviewerInfo{
-    text-align: center;
-    float: left;
-}
-
-.reviewInfoList{
-    float: right;
-    margin-left: 0;
-}
-.requestorUserPhoto{
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    object-fit: contain;
-    background-color: white;
-}
-
-.reviewerInfo{
-    cursor: pointer;
+     object-fit: cover;
+     background-color: white;
+     
+ }
+ 
+ 
+ /*Services */
+ 
+ #postContainer-Content{
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     grid-column-gap: 10px;
+     grid-row-gap: 20px;
+     width: 100%;
+     background-color: orangered;
+ 
+ }
+ 
+ .AvailableService_Card{
+     
+     width: 350px;
+     height: 290px;
+     
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     margin: auto;
+     text-align: center;
+ 
+     overflow: hidden;
+     position:relative;
+     box-shadow: 2px 2px 10px rgb(42, 41, 41);
+     border-radius: 10px;
+     cursor: pointer;
+     display: grid;
+     background: linear-gradient(white, wheat);
+     animation: fadein 2s;
+ 
+ }
+ 
+ 
+ 
+ .ServiceBanner{
+     width: 100%;
+     height: 100px;
+     object-fit: cover;
+     z-index: 4;
+     filter: brightness(30%);
+     cursor: pointer;
+     position:absolute;
+     left: 0;
+     
+ }
+ 
+ .ServiceBanner:hover{
+     filter: brightness(80%);
+ }
+ 
+ .serviceTitle{
+     
+     z-index: 9;
+     font-size: larger;
+     background-color: rgb(255 69 0);
+     border:1px solid white;
+     color: white;
+     padding: 10px;
+     cursor: pointer;
+     margin: auto;
+     margin-top: 100px;
+ 
+     text-align: center;
+     min-width: 100px;
+     max-width: 300px;
+     width: 250px;
+ 
+     position: absolute;
+     left: 90%;
+     transform: translate(-50%, 0);
+     
+ }
+ 
+ .ServiceTitleBackground{
+     position: absolute;
+     width: 200px;
+     height: 300px;
+     pointer-events: auto;
+     display: grid;
+     text-align: center;
+ 
+ }
+ 
+ 
+ .infoDiv{
+     position:absolute;
+     top:160px;
+     width: 100%;
+     text-align: left;
+     left: 0px;
+     margin: auto;
+     font-size: small;
+     padding: 10px;
+     
+ }
+ 
+ .reviewerInfo{
+     text-align: center;
+     float: left;
+ }
+ 
+ .reviewInfoList{
+     float: right;
+     margin-left: 0;
+ }
+ .requestorUserPhoto{
+     width: 100px;
+     height: 100px;
+     border-radius: 100%;
+     object-fit: contain;
+     background-color: white;
+ }
+ 
+ .reviewerInfo{
+     cursor: pointer;
+ }
+ @media (max-width:390px){
+     #viewUserProfileContent{
+         zoom: 50%;
+     }
+ }
+table.userInfoTable {
+    border-spacing: 25px;
 }

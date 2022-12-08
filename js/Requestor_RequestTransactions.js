@@ -1425,7 +1425,7 @@ function SetPaidRequestsData(dataArray){
 
 
 /* update Requests  */
-
+/*
 function confirmPaymentRequest(transactionID,update){
     var transactionID = transactionID;
     var update = update;
@@ -1459,7 +1459,7 @@ function confirmPaymentRequest(transactionID,update){
     //getRequestApplications(myID);
     
 }// end of function
-
+*/
 
 
 function setPaymentForm(transactionID){
@@ -1498,41 +1498,45 @@ function closeFeedbackForm(){
 
 
 
-
+/*
 function cancelRequestApplication(transactionID,update){
-    var transactionID = transactionID;
-    var update = update;
-    var query = "transactionID=" + transactionID+"&update="+update;
-    console.log(query);
+    if (confirm("Cancel?")) {
+        var transactionID = transactionID;
+        var update = update;
+        var query = "transactionID=" + transactionID+"&update="+update;
+        console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
+        var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/UpdateRequestTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
+        xmlhttp.open("POST", "Backend/UpdateRequestTransaction.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
            
-            var dataArray = this.response;
-            console.log(dataArray);
+                var dataArray = this.response;
+                console.log(dataArray);
 
-            transactionsUserId = sessionStorage.getItem("transactionsUserId");
-            alert("Request Application Cancelled");
-            getCancelledRequests(transactionsUserId);
+                transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                alert("Request Application Cancelled");
+                getCancelledRequests(transactionsUserId);
  
             
 
-        }else{
-            console.log(err);
-        }      
-    };
+            }else{
+                console.log(err);
+            }      
+        };
     
-    xmlhttp.send(query);
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+        xmlhttp.send(query);
+    }else{
+
+    }
+ 
     
 }// end of function
+*/
 
-
+/*
 function deliverRequestApplication(transactionID,update){
     var transactionID = transactionID;
     var update = update;
@@ -1567,7 +1571,7 @@ function deliverRequestApplication(transactionID,update){
     
 }// end of function
 
-
+*/
 
 // show payment proof output file
 
@@ -1652,6 +1656,7 @@ function checkRequestReports(myID,reportedID,serviceID,requestID,transactionType
 
 /* update Requests  */
 
+/*
 function confirmPaymentRequest(transactionID,update){
     var transactionID = transactionID;
     var update = update;
@@ -1684,6 +1689,7 @@ function confirmPaymentRequest(transactionID,update){
 
     
 }// end of function
+*/
 
 
 
@@ -1742,7 +1748,7 @@ function closeFeedbackForm(){
 
 function cancelRequestApplication(transactionID,update){
 
-    if (confirm("Cancel Responder? ")) {
+    if (confirm("Cancel? ")) {
             var transactionID = transactionID;
             var update = update;
             var query = "transactionID=" + transactionID+"&update="+update;
@@ -1778,7 +1784,7 @@ function cancelRequestApplication(transactionID,update){
     
 }// end of function
 
-
+/*
 function deliverRequestApplication(transactionID,update){
     var transactionID = transactionID;
     var update = update;
@@ -1814,7 +1820,7 @@ function deliverRequestApplication(transactionID,update){
     //getRequestApplications(myID);
     
 }// end of function
-
+*/
 
 
 // show payment proof output file

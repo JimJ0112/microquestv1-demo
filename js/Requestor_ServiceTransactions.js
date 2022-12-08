@@ -1451,36 +1451,39 @@ function cancelServiceOrder(transactionID,update){
 
 
 function deliverServiceOrder(transactionID,update){
-    var transactionID = transactionID;
-    var update = update;
-    var query = "transactionID=" + transactionID+"&update="+update;
-    console.log(query);
+    if (confirm("Cancel Order?")) {
+        var transactionID = transactionID;
+        var update = update;
+        var query = "transactionID=" + transactionID+"&update="+update;
+        console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
+        var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
+        xmlhttp.open("POST", "Backend/UpdateServiceTransaction.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
            
-            var dataArray = this.response;
-            console.log(dataArray);
-            alert("Order Delivered");
+                var dataArray = this.response;
+                console.log(dataArray);
+                alert("Order Delivered");
 
 
-            transactionsUserId = sessionStorage.getItem("transactionsUserId");
-            getAcceptedOrders(transactionsUserId);
+                transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                getAcceptedOrders(transactionsUserId);
  
             
 
-        }else{
-            console.log(err);
-        }      
-    };
+            }else{
+                console.log(err);
+            }      
+        };
     
-    xmlhttp.send(query);
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+        xmlhttp.send(query);
+    }else{
+
+    }
+ 
     
 }// end of function
 
@@ -1526,6 +1529,7 @@ function confirmPaymentServiceOrder(transactionID,update){
 
 /* update Requests  */
 
+/*
 function confirmPaymentRequest(transactionID,update){
     var transactionID = transactionID;
     var update = update;
@@ -1555,11 +1559,10 @@ function confirmPaymentRequest(transactionID,update){
     };
     
     xmlhttp.send(query);
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+
     
 }// end of function
-
+*/
 
 
 function setPaymentForm(transactionID){
@@ -1608,13 +1611,12 @@ function closeFeedbackForm(){
     document.getElementById("giveFeedBackPopUpBack").style.display = "none";
     document.getElementById("giveFeedBackPopUp").style.display = "none";
 
-
 }
 
 
 
 
-
+/*
 function cancelRequestApplication(transactionID,update){
     var transactionID = transactionID;
     var update = update;
@@ -1685,7 +1687,7 @@ function deliverRequestApplication(transactionID,update){
     //getRequestApplications(myID);
     
 }// end of function
-
+*/
 
 
 // show payment proof output file

@@ -53,7 +53,7 @@
 
 
 </head>
-<body onload="setTransactionType()">
+<body>
 
 	<button class="sideMenu" onclick="sideButton()" id="sideMenu" > >> </button>
 

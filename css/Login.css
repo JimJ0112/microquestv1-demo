@@ -338,7 +338,9 @@
 	}
 	  #Logo{
 		  margin-top:20px;
-	  }
+		  z-index: 100;
+		  zoom: 70%;
+		 }
 	#LoginTable-left {
 		display: none;
 	}

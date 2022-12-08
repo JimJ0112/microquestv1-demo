@@ -594,7 +594,7 @@ input:checked + .slider:before {
 }
 
 .inputItem1 {
-    text-align: center;
+    /* text-align: center; */
     /* margin-left: 10%; */
     width: 100%;
     display: grid;
@@ -757,7 +757,7 @@ input:checked + .slider:before {
     width: 100%;
     height: 100%;
     /* position: absolute; */
-    text-align: left;
+    /* text-align: left; */
     margin: auto;
     display: grid;
     align-content: center;
@@ -1850,22 +1850,23 @@ span.asteriskRequiredField {
         zoom: 40%;
         width: 100%;
         margin: auto;
-        height: 85%;
+        height: 80%;
         padding-top: 40%;
     }
-    #GeneralInfoForm1, #GeneralInfoForm2, #ResponderInfoForm1,.inputItem5{
+    #GeneralInfoForm1, #GeneralInfoForm2, #ResponderInfoForm1{
         height: fit-content;
-        position: absolute;
+        zoom: 140%;
+        
     }
     #GeneralInfoForm1{
-        top: 20%;
+       
     }
     #GeneralInfoForm2{
-        top: 30%;
+        
         
     }
     #ResponderInfoForm1{
-        top:40%;
+        
     }
     .inputItem5{
         top: 45%;
@@ -1882,6 +1883,14 @@ span.asteriskRequiredField {
         position:absolute;
         top: 30%;
         
+    }
+    .inputItem1, .inputItem3, .inputItem4{
+        grid-template-columns: 1.75fr 6.5fr;
+        width: 70%;
+        margin: auto;
+    }
+    .inputItem4{
+        row-gap: 20px;
     }
     
     

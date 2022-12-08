@@ -132,8 +132,8 @@ border: solid rgb(255 69 0) 2px;
     width: 20%;
     margin: auto;
     padding: 10px;
-    border-radius: 20px;
-    border: inset brown;
+    border-radius: 5px;
+    border: inset #ff450094 1px;
 }
 
 /* My Services */
@@ -326,6 +326,8 @@ body{
 	#requestInfoMessageBody{
 		width: 100%;
 	}
-	
+	#AreYouSureDialog{
+		width: 70%;
+	}
 	
 }

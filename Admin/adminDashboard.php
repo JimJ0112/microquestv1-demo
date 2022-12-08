@@ -65,7 +65,7 @@ session_start();
     -->      
                     <table id="DashBoardContent_Table">
 
-                        <img src="../img/logo.png" id="loadingImage"/>
+                        <img src="img/logo.png" id="loadingImage"/>
 
 
                         <thead id="DashBoardContent_TableHead"> 

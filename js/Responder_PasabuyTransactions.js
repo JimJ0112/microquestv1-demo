@@ -1483,37 +1483,39 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
 
 //---------------------------------------button functions/actions-------------------------------------------
 function cancelPasabuyTransaction(transactionID){
-    var transactionID = transactionID;
-    var query = "transactionID=" + transactionID+"&update=Cancelled&userType=Responder";
-    console.log(query);
+    if (confirm("Cancel Order?")) {
+        var transactionID = transactionID;
+        var query = "transactionID=" + transactionID+"&update=Cancelled&userType=Responder";
+        console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
+        var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
+        xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
            
-            var dataArray = this.response;
-            console.log(dataArray);
+                var dataArray = this.response;
+                console.log(dataArray);
         
 
 
-           var transactionsUserId = sessionStorage.getItem("transactionsUserId");
-           // getCancelledRequests(transactionsUserId);
-           pasabuyNavItem (5,transactionsUserId);
+                var transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                // getCancelledRequests(transactionsUserId);
+                pasabuyNavItem (5,transactionsUserId);
  
             
 
-        }else{
-            console.log(err);
-        }      
-    };
+            }else{
+                console.log(err);
+             }      
+        };
     
-    xmlhttp.send(query);
-    alert("Transaction Cancelled");
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+        xmlhttp.send(query);
+        alert("Transaction Cancelled");
+    }else{
+
+    }
     
 }// end of function
 
@@ -1521,112 +1523,120 @@ function cancelPasabuyTransaction(transactionID){
 //acceptPasabuyOrder
 
 function acceptPasabuyOrder(transactionID){
-    var transactionID = transactionID;
-    var query = "transactionID=" + transactionID+"&update=Accepted&userType=Responder";
-    console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
+    if (confirm("Accept Order?")) {
+            var transactionID = transactionID;
+            var query = "transactionID=" + transactionID+"&update=Accepted&userType=Responder";
+            console.log(query);
 
-    xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
+            var xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.onload = function() {
+                if (this.readyState === 4 || this.status === 200){ 
            
-            var dataArray = this.response;
-            console.log(dataArray);
+                   var dataArray = this.response;
+                   console.log(dataArray);
         
 
 
-           var transactionsUserId = sessionStorage.getItem("transactionsUserId");
-           // getCancelledRequests(transactionsUserId);
-           pasabuyNavItem (1,transactionsUserId);
+                  var transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                   // getCancelledRequests(transactionsUserId);
+                  pasabuyNavItem (1,transactionsUserId);
  
             
 
-        }else{
-            console.log(err);
-        }      
-    };
+                }else{
+                   console.log(err);
+                }      
+            };
     
-    xmlhttp.send(query);
-    alert("Order Accepted");
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
-    
+            xmlhttp.send(query);
+            alert("Order Accepted");
+
+    }else{
+
+    }
 }// end of function
 
 
 
 //deliverPasabuyOrder
 function deliverPasabuyOrder(transactionID){
-    var transactionID = transactionID;
-    var query = "transactionID=" + transactionID+"&update=Delivered&userType=Responder";
-    console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
+    if (confirm("Deliver Order?")) {
+        var transactionID = transactionID;
+        var query = "transactionID=" + transactionID+"&update=Delivered&userType=Responder";
+        console.log(query);
 
-    xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
            
-            var dataArray = this.response;
-            console.log(dataArray);
-        
+                var dataArray = this.response;
+                console.log(dataArray);
+    
 
-
-           var transactionsUserId = sessionStorage.getItem("transactionsUserId");
-        
-           pasabuyNavItem (2,transactionsUserId);
+                var transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                pasabuyNavItem (2,transactionsUserId);
  
             
 
-        }else{
-            console.log(err);
-        }      
-    };
+            }else{
+                console.log(err);
+             }      
+        };
     
-    xmlhttp.send(query);
-    alert("Order Delivered");
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
-    
+        xmlhttp.send(query);
+        alert("Order Delivered");
+    }else{
+
+    }
 }// end of function
 
 //confirmPasabuyPayment
 
 function confirmPasabuyPayment(transactionID){
-    var transactionID = transactionID;
-    var query = "transactionID=" + transactionID+"&update=Finished&userType=Responder";
-    console.log(query);
 
-    var xmlhttp = new XMLHttpRequest();
+    if (confirm("Confirm Payment?")){
+        var transactionID = transactionID;
+        var query = "transactionID=" + transactionID+"&update=Finished&userType=Responder";
+        console.log(query);
 
-    xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.onload = function() {
-        if (this.readyState === 4 || this.status === 200){ 
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.open("POST", "Backend/UpdatePasabuyTransaction.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
            
-            var dataArray = this.response;
-            console.log(dataArray);
+                var dataArray = this.response;
+                console.log(dataArray);
         
 
 
-           var transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                var transactionsUserId = sessionStorage.getItem("transactionsUserId");
         
-           pasabuyNavItem (4,transactionsUserId);
+                pasabuyNavItem (4,transactionsUserId);
  
             
 
-        }else{
-            console.log(err);
-        }      
-    };
+            }else{
+                console.log(err);
+            }      
+        };
+
     
-    xmlhttp.send(query);
-    alert("Payment Confirmed");
-    //var myID = sessionStorage.getItem('myID');
-    //getRequestApplications(myID);
+        xmlhttp.send(query);
+        alert("Payment Confirmed");
+    }else{
+
+    }
+
     
 }// end of function
 

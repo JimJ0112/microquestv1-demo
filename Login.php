@@ -83,7 +83,7 @@ session_start();
 		<form id="LoginForm" form action="Backend/LoginBackend.php" method="post">
 		
 		<center>
-		<h1 id="Welcome"> Welcome Back</h1>
+		<h1 id="Welcome"> Welcome!</h1>
 		
 		</center>
 

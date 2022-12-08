@@ -493,4 +493,9 @@ color: orangered;
 	.AvailableService_Card{
 		zoom: 80%
 	}
+	#myServiceView{
+		zoom: 60%;
+		width: 80%;
+		height: 60%;
+	}
 }
