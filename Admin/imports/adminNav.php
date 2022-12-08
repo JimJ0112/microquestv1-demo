@@ -24,6 +24,21 @@
 	    <img src="img/logo.png" id="Nav-Logo" title="Home"> 
 
 	        <ul id="navUL">
+			<a href="adminDashboard.php">
+			        <li class="Nav-item" title="Get requestors" onclick="getRequestors()">
+                        <?php
+					        $pagename = basename($_SERVER['PHP_SELF']);
+					        if($pagename === "adminDashboard.php"){
+						        echo '<u>  Dashboard  </u>';
+					        } else{
+						        echo " Dashboard ";
+					        }
+				        ?>
+
+			        </li>
+                </a>
+
+
                 <a href="approveRequestors.php">
 			        <li class="Nav-item" title="Get requestors" onclick="getRequestors()">
                         <?php
@@ -37,6 +52,7 @@
 
 			        </li>
                 </a>
+
 	
                 <a href="approveResponders.php">
 			        <li class="Nav-item" title="Get responders" onclick="getResponders()">
@@ -74,7 +90,7 @@
                             $userName = $_SESSION["microquest_AdminUsername"];
                             $adminType= $_SESSION["microquest_AdminType"];
 
-                            echo "<a> <b>  $userName | $adminType  </b> </a> ";
+                            echo " <b>  $userName | $adminType  </b>  ";
                         }
                     ?>
 

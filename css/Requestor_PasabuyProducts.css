@@ -81,8 +81,8 @@
 	width: 100%;
 	height: 100%;
 	/* border: 5px solid rgb(136, 75, 38); */
-	min-height: 1000px;
-	max-height: 100%;
+	/* min-height: 1000px; */
+	/* max-height: 100%; */
 	padding: 0;
 	overflow:hidden;
 	overflow-y: scroll;
@@ -177,17 +177,29 @@ text-decoration: none;
 
 #AvailableServicesContainer_Content{
 
-	display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-row-gap: 50px;
-    grid-column-gap: 10px;
-    padding: 10px;
-    /* align-content: center; */
-    /* overflow: hidden; */
-    text-align: center;
-    /* overflow: hidden; */
-    /* margin: auto; */
-    /* width: 100%;*/
+display: grid;
+
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+grid-row-gap: 50px;
+
+grid-column-gap: 10px;
+
+padding: 10px;
+
+padding-bottom: 50px;
+
+/* align-content: center; */
+
+/* overflow: hidden; */
+
+text-align: center;
+
+/* overflow: hidden; */
+
+/* margin: auto; */
+
+/* width: 100%;*/
 }
 
 
@@ -678,4 +690,22 @@ button.addToCartButton {
     cursor: pointer;
     border-radius: 3px;
     height: fit-content;
+}
+
+@media (min-width: 220px) and (max-width: 555px){
+	#AvailableServicesTitle{
+		zoom: 100%;
+	}
+	#myCart{
+		zoom: 100%;
+	}
+	#AvailableServicesContainer{
+		zoom: 60%;
+	}
+	#ServicesContainer{
+		
+	}
+	#AvailableServicesContainer_Content{
+		grid-template-columns: 1fr 1fr ;
+	}
 }

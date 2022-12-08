@@ -218,17 +218,31 @@ animation: fadein 1s;
 
 .ServicePopUp2{
 
-	background-color: rgba(97, 96, 96, 0.39);
-	background-size: cover;
-	background-position: center;
-	padding:35px;
-	margin: auto;
-	width:70%;
-	height: fit-content;
-	border: 10px solid rgb(136 75 38);
-	border-radius: 50px;
-	animation: fadein 1s;
-	
+background-color: rgba(97, 96, 96, 0.39);
+
+background-size: cover;
+
+background-position: center;
+
+padding:10px;
+
+margin: auto;
+
+width:70%;
+
+height: fit-content;
+
+border: 1px solid rgb(255 69 0);
+
+border-radius: 10px;
+
+animation: fadein 1s;
+
+background-color: #525252;
+
+background-image: url(../img/f.jpg);
+
+background-blend-mode: overlay;
 }
 
 
@@ -241,6 +255,7 @@ animation: fadein 1s;
 	align-content: center;
 	background-color: rgb(22 15 15 / 14%);
 	display:none;
+	/* background-image: url("../img/f.jpg"); */
 }
 
 #regularServicesForm{
@@ -389,6 +404,9 @@ a{
 	margin: auto;
 	overflow-y: scroll;
 	font-family: arial;
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
 }
 
 
@@ -489,4 +507,22 @@ ul{
 	}
 
 
+}
+img#RegistrationBackground {
+    display: none;
+}
+
+.welcome {
+    display: grid;
+    grid-template-columns: auto auto;
+    background: orangered;
+    /* z-index: 10; */
+    text-align: right;
+    color: white;
+    font-family: arial;
+}
+
+img#Nav-logo {
+    height: 100px;
+    width: 200px;
 }

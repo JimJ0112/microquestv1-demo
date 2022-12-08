@@ -841,4 +841,29 @@ display: none;
 	color: #ff9600;
 }
 
+button#hideMenu {
+    /* display: none; */
+}
 
+@media (min-width: 200px) and (max-width: 555px){
+	#RequestBoardTitle{
+		zoom: 70%;
+		margin-top: 60px;
+	}
+	#RequestsContainer-Content{
+		grid-template-columns: 1fr 1fr;
+		zoom: 50%;
+		column-gap: 20px;
+		width: 100%;
+		margin: auto;
+		height: 100%;
+	}
+	#TransactionsNav{
+		/* display: none; */
+		z-index: 20;
+		margin: 110px 0 0 -270px;
+		zoom: 80%;
+		transition: 1.5s;
+	}
+
+}

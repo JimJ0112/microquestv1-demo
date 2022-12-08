@@ -202,6 +202,9 @@ ul{
 	/* background-color: bisque; */
 	/* border-radius: 10px; */
 }
+button#hideMenu {
+    display: none;
+}
 
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -216,11 +219,24 @@ ul{
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
-@media only screen and (max-width: 768px) {
+@media (max-width: 390px) {
   /* For mobile phones: */
-  [class*="col-"] {
-    width: 100%;
-  }
+  button#sideMenu{
+	display: unset;
+}
+.sideMenu{
+	position: absolute;
+	left: 0;
+	top: 9%;
+	z-index: 100;
+	height: 50px;
+	width: fit-content;
+	margin-left: -5px;
+	transition: ease 1.5s;
+	z-index: 9;
+}
+button#hideMenu {display: unset;float: right;margin: auto;height: 100%;}
+  
 }
 
 #BodyBackgroundImg{

@@ -41,9 +41,12 @@ if(isset($_POST["userType"])){
     $usertype = $_POST["userType"];
 
     if($usertype === "Requestor"){
-        header("location: ../Requestor_Transactions.php");
+       // header("location: ../Requestor_Transactions.php");
+       header("location: ../Requestor_ServiceTransactions.php");
     } else {
-        header("location: ../Responder_Transactions.php");
+        //header("location: ../Responder_Transactions.php");
+       header("location: ../Responder_ServiceTransactions.php");
+
     }
 
 }

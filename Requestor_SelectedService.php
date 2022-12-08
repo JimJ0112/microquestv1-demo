@@ -145,7 +145,7 @@
         
             <div id="closeButton" onclick="closeForms()"> ✕ </div>
 
-            <form action="Backend/RegisterServiceOrder.php" method="post" id="availServiceSubmitForm">
+            <form action="Backend/RegisterServiceOrder.php" method="post" id="availServiceSubmitForm" enctype="multipart/form-data">
 
             <h3> Confirm Transaction </h3> 
 

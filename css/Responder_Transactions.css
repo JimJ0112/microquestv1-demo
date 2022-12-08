@@ -294,13 +294,13 @@ td{
 
 #ReportedAccountProfile{
 	float: left;
-    left: 38%;
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border: 2px solid white;
-    object-fit: cover;
-    border-radius: 50%;
+	left: 5%;
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	border: 2px solid white;
+	object-fit: cover;
+	border-radius: 50%;
 	top: 12%;
 	padding: 3;
 }
@@ -380,6 +380,7 @@ td{
 	background-image: url("../img/coc-background.jpg");
 	background-size: cover;
 	border-radius: 10px;
+	position: relative;
 }
 
 #reportType, #reportProof{

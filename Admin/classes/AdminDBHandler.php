@@ -64,6 +64,30 @@ function __destruct(){
 }
 // methods
 
+public function runGET($query){
+
+    $query = $query;
+
+	
+    $result = mysqli_query($this->dbconnection, $query);
+    $row = mysqli_fetch_assoc($result);
+   
+    return $row;
+
+}
+
+public function runGETAll($query){
+
+    $query = $query;
+
+	
+    $result = mysqli_query($this->dbconnection, $query);
+    
+   
+    return $result;
+
+}
+
 // for registration
 public function registerUser($userType,	$userName, $userEmail,$userPassword,$userPhoto,$firstName,$lastName,$userGender,$education,$birthDate,$houseNo,$street,$baranggay,$municipality,$idType,$idFile,$idNumber,$idExpiration,$otherIDType,$otherIDFile,$otherIDNumber,$otheridExpiration,$idFileType,$specialization = null){
 

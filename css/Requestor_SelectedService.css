@@ -104,16 +104,16 @@
 }
 
 .serviceCard{
-	/*border: 5px solid rgb(45, 20, 7);*/
-	/* width: 80%; */
-	/* height: 45%; */
+	/* border: 5px solid rgb(45, 20, 7); */
+	width: 60%;
+	height: 45%;
 	cursor: pointer;
 	overflow: hidden;
 	display: grid;
 	text-align: center;
-	align-content: center;
-	/*padding: 5px;*/
-	/* position: relative; */
+	/* align-content: center; */
+	/* padding: 5px; */
+	position: relative;
 	box-shadow: 1px 8px 10px #1f1f1f;
 	border: none;
 	border-radius: 10px;
@@ -132,12 +132,7 @@
 	filter: blur(0.5px);
 }
 
-.BannerContainer{
-
-filter: brightness(40%);
-
-width: 100%;
-}
+.BannerContainer{filter: brightness(40%);width: 100%;}
 
 .serviceTitleBackground:hover {
 
@@ -156,8 +151,6 @@ width: 100%;
 	position: absolute;
 	display: grid;
 	align-content: center;
-	
-
 }
 .serviceTitle{
 	
@@ -730,3 +723,57 @@ td.categories {
     background-color: #b1b1b173;
     padding: 10px;
 } 
+
+@media (min-width: 200px) and (max-width: 555px){
+	
+	#Requestor_SelectedServiceMainControls{
+		
+		min-width: 200px;
+		
+		max-width: 375px;
+		
+		overflow: hidden;
+		
+		overflow-x: scroll;
+		  
+	
+	}
+	
+	
+	#canvas{
+		
+		display: none;
+	
+	}
+
+
+	#AvailServiceContent{
+		width: 100%;
+		margin: auto;
+		grid-template-columns: auto auto;
+		zoom: 60%;
+		height: 100%;
+		overflow-y: scroll;
+		row-gap: 0px;
+	}
+	.serviceCard{
+		margin-top: 20px;
+		width: fit-content;
+		height: fit-content;
+	}
+	#selectedCategory{
+		width: auto;
+		zoom: 60%;
+	}
+	#Responders{
+		width: 90%;
+		height: 70%;
+		zoom: 60%;
+	}
+	#AvailServiceForm{
+		width: 90%;
+		height: 70%;
+		zoom: 60%;
+	}
+	
+}

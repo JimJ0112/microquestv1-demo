@@ -53,7 +53,7 @@ session_start();
 					<label>ADMIN USERNAME</label><br/>
 					<input type="email" class="Form-Input" name="email"> <br/> 
 					<label> PASSWORD</label><br/>
-					<input type="password" class="Form-Input" name="password"> <br/><br/><br/>
+					<input type="password" class="Form-Input" name="password"> <br/><br/><br/><br/><br/>
 
 					<br/> 
 					<div id="FormControls-Buttons">

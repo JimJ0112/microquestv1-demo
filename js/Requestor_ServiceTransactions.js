@@ -1385,7 +1385,7 @@ function acceptServiceOrder(transactionID,update){
                
                 var dataArray = this.response;
                 console.log(dataArray);
-                alert("Order Accepted");
+                
     
     
                 transactionsUserId = sessionStorage.getItem("transactionsUserId");
@@ -1400,6 +1400,7 @@ function acceptServiceOrder(transactionID,update){
         
     
         xmlhttp.send(query);
+        alert("Order Accepted");
        
       } else {
         
@@ -1427,7 +1428,7 @@ function cancelServiceOrder(transactionID,update){
                 
                     var dataArray = this.response;
                     console.log(dataArray);
-                    alert("Order Cancelled");
+                   
                 
                 
                         transactionsUserId = sessionStorage.getItem("transactionsUserId");
@@ -1441,6 +1442,7 @@ function cancelServiceOrder(transactionID,update){
             };
 
             xmlhttp.send(query);
+            alert("Order Cancelled");
     }else{
 
     }
@@ -1466,7 +1468,7 @@ function deliverServiceOrder(transactionID,update){
            
                 var dataArray = this.response;
                 console.log(dataArray);
-                alert("Order Delivered");
+                
 
 
                 transactionsUserId = sessionStorage.getItem("transactionsUserId");
@@ -1480,6 +1482,7 @@ function deliverServiceOrder(transactionID,update){
         };
     
         xmlhttp.send(query);
+        alert("Order Delivered");
     }else{
 
     }
@@ -1503,7 +1506,7 @@ function confirmPaymentServiceOrder(transactionID,update){
            
             var dataArray = this.response;
             console.log(dataArray);
-            alert("Payment Confirmed");
+            
 
 
             transactionsUserId = sessionStorage.getItem("transactionsUserId");
@@ -1513,6 +1516,7 @@ function confirmPaymentServiceOrder(transactionID,update){
 
         }else{
             console.log(err);
+            alert("Payment Confirmed");
         }      
     };
     

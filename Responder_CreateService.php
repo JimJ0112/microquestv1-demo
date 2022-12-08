@@ -40,6 +40,7 @@ session_start();
     ?>
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
 
+
 <script>otherPosition(); </script>
 <!-- forms -->
 <div id="regularServicesFormBack" class="formBack">
@@ -78,7 +79,7 @@ session_start();
 
                 <tr class="home_computerRelated_Tr">
 
-                    <td class="home_computerRelated_Td column1_td"> Rate:&nbsp </td>
+                    <td class="home_computerRelated_Td column1_td"> Service Fee:&nbsp </td>
                     <td>
                         <input required type="number" name="rate"  Required> <span class="asteriskRequiredField"> * </span>
                     </td> 
@@ -193,7 +194,7 @@ session_start();
                 </tr>
 
                 <tr>
-                    <td class="column1_td"> Rate </td>
+                    <td class="column1_td"> Service Fee </td>
                     <td> 
                         <input type="number" name="rate" Required> 
                         <span class="asteriskRequiredField" title="This Field is Required"> * </span>
@@ -227,11 +228,14 @@ session_start();
 </div>
 
 <!-- Main -->
+
 <?php
             if(isset($_GET['newUser'])){
                 echo" <a href='Responder_Home.php'> <div class='createRequestButton'> Skip for now </div> <a/>";
             }
+            
 ?>
+
 
 <div id="Responder_CreateServiceMainBack">
    

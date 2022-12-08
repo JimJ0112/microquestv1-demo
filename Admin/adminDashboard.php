@@ -24,6 +24,8 @@ session_start();
     <meta content='yes' name='apple-mobile-web-app-capable'/>
     <meta content='yes' name='mobile-web-app-capable'/>
     <script src="js/adminDashboard.js"> </script>
+    <script src="js/dashBoardSummary.js"> </script>
+
 
 
     <title>Admin Dash</title>
@@ -33,113 +35,50 @@ session_start();
 
 
     <?php
-           
-        /*
-	    if(isset($_SESSION["userType"])){
-		    $userType = $_SESSION["userType"];
 
-			require_once("imports/adminNav.php");
-
-	    }
-        */
         require_once("imports/adminNav.php");
 
     ?>
-    <div id="DashBoardContent">
 
-    <!--
-        <div id="usersContainer">
-            <div id="Users">
-            <table id="usersTable">
-                <tr>
-                    <td id="usersTotal"><span id="totalUsers">toal</span></td>
-                </tr>
-                <tr>
-                    <td>
-                        <span id="totalRequestors">requestors</span>
-                        <span id="totalResponders">responders</span>
-                    </td>
-                </tr>
-            </table>
-        </div>        
-    -->      
-                    <table id="DashBoardContent_Table">
-
-                        <img src="img/logo.png" id="loadingImage"/>
-
-
-                        <thead id="DashBoardContent_TableHead"> 
-                        </thead>
-
-                        <tbody id="DashBoardContent_TableBody"> </tbody>
-
-                    </table>
-
+    
+<div class="grid-content">
+    <div class="grid-container">
+        <div class="item1">
+            <h1> Total number of users: </h1>
+            <p id="totalUsers"> N </p>
+        </div>
+        <div class="item2">
+            <div>
+                <h1> Responders </h1>
+                <p id="totalResponders"> N </p>
+            </div>
+            <div>
+                <h1> Requestors </h1>
+                <p id="totalRequestors"> N </p>
+            </div>
+        </div>
+        <div class="item3">
+            <div><h1>Pending Users</h1><div>
+            </div><p id="totalNewUsers"> N </p></div>
+        </div>  
+        <div class="item4">
+            <h1> Banned users: </h1>
+            <p id="totalBannedUsers"> N </p>
+        </div>
+        <div class="item5">
+            <h1> Restricted users: </h1>
+            <p id="totalRestrictedUsers"> N </p>
+        </div>
     </div>
-    
-
-    <!-- report action forms --> 
-    <div id="restrictFormBack"> 
-    
-        
-
-    <form id="restrictForm" method="post" action="backend/RestrictUser.php"> 
-        <div id="closeButton" onclick="closeForms()"> ✕ </div>
-        <h1> Restrict </h1>
-        <input type="hidden" name="reportedUserID"/>
-        <input type="hidden" name="reportID" id="reportIDRestrict"/>
-        <label for="restrictDuration"> Duration in days: </label>
-        <input type="number" name="restrictDuration" max="360" min="1"/> 
-        <br/>
-        <br/>
-        <input type="submit" value="Confirm"/>
-        <input type="reset" value="Cacncel" onclick="closeForms()"/>
-
-
-    </form>
-
 </div>
 
-<div id="BanFormBack" method="post" action="backend/BanUser.php"> 
-    <form id="banForm" method="post"> 
-        <div id="closeButton" onclick="closeForms()"> ✕ </div>
-        
-        <h1> Ban </h1>
-        <input type="hidden" name="reportedUserID"  id="reportedUserIDBan"/>
-        <input type="hidden" name="reportID"/>
-
-        <br/>
-        <br/>
-        <label> Are you sure to ban this user? </label>
-        <input type="submit" value="Confirm"/>
-        <input type="reset" value="Cacncel" onclick="closeForms()"/>
+ 
 
 
-    </form>
-</div>
 
-<div id="sendNotificationFormBack"> 
-    <form id="NotificationForm" method="post" action="backend/sendNotifications.php"> 
-        <div id="closeButton" onclick="closeForms()"> ✕ </div>
-
-        <h1> Send Notification </h1>
-        <input type="hidden" name="reportedUserID" id="reportIDNotif" />
-        <input type="hidden" name="reportID" />
-        <label for="notifType"> Notification Type: </label> <br/>
-        <select name="notifType"> 
-            <option value="Warning"> Warning </option>
-            <option value="Update"> Update </option>
-            <option value="Message"> Message </option>
-        </select> <br/>
-        <textarea name="notifMessage" col="10" rows="5" style="resize:none;"></textarea>
-        <br/>
-        <br/>
-        <input type="submit" value="Confirm"/>
-        <input type="reset" value="Cacncel" onclick="closeForms()"/>
-
-    </form>
-</div>
-
+    <script> init(); </script>
     <script src="js/navbar.js"> </script>
+    <script src="js/dashBoardSummary.js"> </script>
+
 </body>
 </html> 

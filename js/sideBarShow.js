@@ -13,5 +13,5 @@ function hideButton(){
     TransactionsNav.style.marginLeft="-270px";
 
     sideMenu = document.getElementById('sideMenu');
-    sideMenu.style.marginLeft="-6"
+    sideMenu.style.marginLeft="0"
 }

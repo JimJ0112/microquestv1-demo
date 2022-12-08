@@ -109,6 +109,8 @@
   width: 20%;
   position: absolute;
   margin: 193px 0 0 20px;
+  /* grid-auto-columns: auto; */
+  /* grid-column: auto; */
 }
 
 .grid-item {
@@ -138,4 +140,24 @@ td.rating {
 
 td.responderInfo {
     border-bottom: solid 1px black;
+}
+
+@media (min-width: 220px) and (max-width:555px){
+	#LeaderBoardContainerBack{
+		zoom:50%;
+	}
+	.grid-container{
+		zoom: 70%;
+		margin-top: 210px;
+	}
+	#LeaderBoardTable{
+		zoom: 150%;
+		margin-top: 0;
+	}
+	#LeaderBoardHead{
+		zoom: 70%;
+	}
+	#LeaderBoardContent{
+		zoom: 70%;
+	}
 }

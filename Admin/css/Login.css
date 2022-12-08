@@ -60,7 +60,7 @@
     z-index: 2;
     margin-top: 40px;
     margin-left: 40px;
-    text-shadow: 2px 2px 5px white;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
     text-align: center;
     line-height: 40px;
     zoom: 130%;
@@ -74,7 +74,7 @@
 	font-family: Retroking;
 	font-size: 70px;
 	text-align: center;
-	color: black;
+	color: rgb(255, 255, 255);
 	margin:10px;
 
 	
@@ -85,7 +85,7 @@
 	margin: 10px;	
 	font-size: 40px;
 	text-indent: 0px;
-	color: black;
+	color: rgb(255, 255, 255);
 
 	font-family:OPTICopperplate-Heavy;
 
@@ -108,8 +108,8 @@
 	*/
 	margin: auto;
 	
-	width: 550px;
-    height: 650px;
+	width: 350px;
+    height: 500px;
 	color:#ff5414;
 	font-size: 25;
 	
@@ -131,6 +131,8 @@
 	margin: auto;
 	color: #ff5414;
 	font-weight: bold;
+	font-size: medium;
+	font-family: Arial, Helvetica, sans-serif;
 	
 }
 
@@ -175,14 +177,20 @@
 }
 
 #LoginButton{
-	color: rgb(228, 176, 81);
-	font-size: 30px;
+	color: white;
+	font-size: 20px;
+	padding: 10px;
+	background-color: #ff5414;
+	border-radius: 10px;
 	
 }
 
 #CancelButton{
-	color: rgb(228, 176, 81);
-	font-size: 30px;
+	color: white;
+	font-size: 20px;
+	padding: 10px;
+	background-color: #cd1414;
+	border-radius: 10px;
 }
 #RegisterButton{
 	color: rgb(228, 176, 81);

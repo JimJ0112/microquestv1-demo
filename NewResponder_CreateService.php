@@ -39,9 +39,7 @@ session_start();
 </head>
 
 <body onload="getServices()" id="Responder_CreateServiceBackground">
-    <?php
-                require_once("imports/ResponderNavBar.php");
-    ?>
+    
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
 
 
@@ -164,7 +162,8 @@ session_start();
     </form>
 </div>
 <!-- For other categories -->
-
+<div class="welcome"><h1>Welcome to </h1><img class="logo" id="Nav-logo" src="img/logo.png"></div>
+<div class="welcome"><h3>Create your first service to offer. </h1></div>
 <div id="otherCategoriesFormBack" class="formBack" style="display:grid;">
     <form action="Backend/CreateServiceBackend.php" method="post" enctype="multipart/form-data" id="otherCategoriesForm" class="ServicePopUp2"> 
 

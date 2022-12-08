@@ -1763,7 +1763,7 @@ function cancelRequestApplication(transactionID,update){
                 
                     var dataArray = this.response;
                     console.log(dataArray);
-                    alert("Request Application Canceled");
+                    
                 
                 
                     transactionsUserId = sessionStorage.getItem("transactionsUserId");
@@ -1777,6 +1777,7 @@ function cancelRequestApplication(transactionID,update){
             };
     
             xmlhttp.send(query);
+            alert("Request Application Canceled");
     } else{
 
     }

@@ -26,12 +26,13 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/Requestor_RequestBoard.css">
 
 	<script src="js/Requestor_RequestBoard.js"> </script>
-
+	<script src="js/sideBarShow.js"> </script>
 
 </head>
 <body id="Requestor_RequestBoardBackground">
 
-
+	<button class="sideMenu" onclick="sideButton()" id="sideMenu" > >> </button>
+	
 
 <!-- NavBar-->
 <?php
@@ -57,15 +58,20 @@ session_start();
 <!--Main-->
 
 	<div id="RequestBoardContainer">
+	
 		<div class="grid-container" id="TransactionsNav">
 
-			<a href="Requestor_CreateRequest.php">
-				<div id="TransactionTypeTd" class="grid-item">
+			
+			<div id="TransactionTypeTd" class="grid-item">
+				<a href="Requestor_CreateRequest.php">
 					<div id="TransactionTypeDropDown">
-						+Create
+						+Create 
 					</div>
-				</div>
-			</a>
+				</a>
+				<button class="hideMenu" onclick="hideButton()" id="hideMenu" > X </button>
+			</div>
+			
+			
   			
 			
 			<div id="TransactionsNavItem1" class="TransactionsNavItems grid-item" onclick="clickedNavItem(0,<?php echo $userID; ?>)"> <img class="navIcon" src="img/select-all.png"> <span class="sideNav-text">  All Requests </span> </div>  

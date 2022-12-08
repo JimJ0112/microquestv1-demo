@@ -49,6 +49,7 @@
 .Nav-item:hover{
 
 	color: white;
+	
 
 	
 }
@@ -74,16 +75,27 @@
 #LogOutButton{
 	text-align: center;
     color: white;
-    margin-top: 5;
+    margin-top: 1;
 	float: right;
+	background-color:rgb(193, 85, 45) ;
+	padding: 10px;
+	border-radius: 10px;
 }
 
 a{
 	color: white;
+	
+	
 } 
+b{
+	background-color: rgb(151, 59, 26);
+	padding: 10px;
+	border-radius: 10px;
+}
 
 #LogOutButton a:hover{
 	color: rgb(212, 166, 16);
+	
 } 
 
 

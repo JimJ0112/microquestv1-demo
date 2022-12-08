@@ -878,7 +878,7 @@ input:checked + .slider:before {
     box-shadow: -1px 0px 8px 1px black;
     /* display: none; */
     background: orangered;
-    padding FONT-WEIGHT: 100;
+   
     padding: 1;
     padding: 10px;
     /* border-top-left-radius: 40%; */

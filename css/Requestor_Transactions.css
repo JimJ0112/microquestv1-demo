@@ -119,6 +119,7 @@ border-collapse: collapse;
 	/* padding: 5px; */
 	/* display: grid; */
 	position: absolute;
+	transition: 1.5s;
 }
 
 #TransactionsNav td{
@@ -174,6 +175,7 @@ border-collapse: collapse;
 	/* height: 100%; */
 	cursor: pointer;
 	width: 100%;
+	/* transition: 1s; */
 }
 /*
 td{
@@ -1084,6 +1086,19 @@ button.red{
 .Description {
     margin: auto;
 }
-button#hideMenu {
-    display: none;
+.hideMenu{
+	display: none;
+}
+
+
+@media (min-width: 220px) and (max-width: 555px){
+	#TransactionsNav{
+		margin: 0px 0 0 -270px;
+	}
+	#TransactionsContainer{
+		margin: auto;
+		width: 100%;
+		height: fit-content;
+		zoom: 60%
+	}
 }

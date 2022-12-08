@@ -36,18 +36,18 @@ echo $result = $DBHandler -> setPasabuyPayment($name,$conditionvalue,$paymentFil
 date_default_timezone_set("Asia/Manila");
 $today = date("Y-m-d");
 
-/*
+
 if(isset($_POST["userType"])){
     $usertype = $_POST["userType"];
 
     if($usertype === "Requestor"){
-        header("location: ../Requestor_Transactions.php");
+        header("location: ../Requestor_PasabuyTransactions.php");
     } else {
-        header("location: ../Responder_Transactions.php");
+        header("location: ../Responder_PasabuyTransactions.php");
     }
 
 }
-*/
+
 
 
 //header("location: ../");
