@@ -3773,7 +3773,7 @@ public function addToCart($productID,$serviceID,$responderID,$requestorID,$dateA
 
 public function registerPasabuyTransaction($productID,$serviceID,$requestorID,$responderID,$price,$quantity,$orderDate,$orderStatus,$paymentFile,$transactionStartDate,$transactionEndDate,$totalPrice,$dueDate){
 
-    $tablename = "pasabuyTransactions";
+    $tablename = "pasabuytransactions";
     $pasabuyTransactionID = 0;
    
     
