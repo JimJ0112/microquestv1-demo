@@ -16,17 +16,17 @@ $today= date("Y-m-d");
   //	pasabuyTransactionID	productID	serviceID	requestorID	responderID	price	quantity	orderDate	orderStatus	paymentFile	transactionStartDate	transactionEndDate	
    
 
-          echo  $productID = $_POST['productID'];
-          echo  $serviceID = $_POST['serviceID'];
-          echo  $requestorID = $_POST['requestorID'];
-          echo  $responderID = $_POST['responderID'];
-          echo  $price = $_POST['price'];
-          echo  $quantity = $_POST['quantity'];
-          echo  $orderDate = $_POST['dateAssigned'];
-          echo  $orderStatus = "pending";
-          echo  $paymentFile = "none";
-          echo  $transactionStartDate = $today;
-          echo  $transactionEndDate = "none";
+            $productID = $_POST['productID'];
+            $serviceID = $_POST['serviceID'];
+            $requestorID = $_POST['requestorID'];
+            $responderID = $_POST['responderID'];
+            $price = $_POST['price'];
+            $quantity = $_POST['quantity'];
+            $orderDate = $_POST['dateAssigned'];
+            $orderStatus = "pending";
+            $paymentFile = "none";
+            $transactionStartDate = $today;
+            $transactionEndDate = "none";
             
         
             $totalPrice = (int)$price * (int)$quantity;

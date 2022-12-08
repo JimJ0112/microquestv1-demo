@@ -3798,8 +3798,11 @@ public function registerPasabuyTransaction($productID,$serviceID,$requestorID,$r
         $query = "INSERT INTO $tablename() VALUES ($pasabuyTransactionID,$productID,$serviceID,$requestorID,$responderID,$price,$quantity,'$orderDate','$orderStatus','$paymentFile','$transactionStartDate','$transactionEndDate',$totalPrice,'$dueDate')";
    
         echo mysqli_error($this->dbconnection);
-        
-    return mysqli_query($this->dbconnection, $query);
+
+        $result = mysqli_query($this->dbconnection, $query)
+
+    //return mysqli_query($this->dbconnection, $query);
+    return $result;
 
 }
 
