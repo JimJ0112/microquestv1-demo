@@ -282,24 +282,24 @@
       
             <div id="Requestor_SelectedServiceMainControls">
                 <table class="allServices">
-					<tr>
+					<tr id="ServicesNavRow">
 						<td class="categories">
-							Cleaning
+					
 						</td>
 						<td class="categories">
-                            Computer Realated
+                     
 						</td>
                         <td class="categories">
-                            Documents
+                     
 						</td>
                         <td class="categories">
-                            Home Service
+                   
 						</td>
                         <td class="categories">
-                            Art
+                 
 						</td>
                         <td class="categories">
-                           Music
+                       
 						</td>
 					</tr>
 				</table>
@@ -367,6 +367,7 @@
 
 
 
+    <script> getAllServices(); </script>
     <script type="text/javascript" src="html2canvas.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 

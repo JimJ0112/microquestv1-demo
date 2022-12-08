@@ -175,7 +175,7 @@ function getRequests(){
                 RequestsContainer.innerText = "No Requests";
             }
 
-            getCategories();
+           // getCategories();
         }else{
             console.log(err);
         }      
@@ -361,6 +361,8 @@ function getNearestRequest(municipality){
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
 }
+
+
 
 
 
@@ -584,43 +586,17 @@ nearestRequestSlider.addEventListener("change",function(){
 function SliderAction(){
     var nearestRequestSlider = document.getElementById('nearestRequestSlider');
     if(nearestRequestSlider.checked){
-        var select = document.getElementById("RequestCategory").value;
-        var municipality = sessionStorage.getItem('municipality');
-        getNearestRequest(municipality);
+
+       // var select = document.getElementById("RequestCategory").value;
+       // var municipality = sessionStorage.getItem('municipality');
+       // getNearestRequest(municipality);
+        chooseNav("All Requests",0)
     } else{
         getRequests();
     }
 }
 
 
-// for setting specialization on load
-
-/*
-function setSpecialization(){
-
-    var select = document.getElementById("RequestCategory");
-    var specialization = sessionStorage.getItem('specialization');
-
-    //select.value = specialization;
-
-    for(var i =0; i<select.length;i++){
-
-        selval = select.options[i].value;
-
-        if(selval === specialization){
-            //select.selectedIndex = select.options[i].value;
-            console.log(select.options[i].value)
-            select.selectedIndex = i;
-        } else{
-            console.log(selval);
-        }
-        
-       //console.log(select.options[i].value);
-    }
-
-}
-
-*/
 
 
 
@@ -738,7 +714,7 @@ function setCategoryDatas(array){
     var grid_item = document.getElementsByClassName('grid-item');
 
 
-    for(var i = 0; i<number;i++){
+    for(var i = 1; i<number;i++){
         
         if(dataArray[i]["requestCategory"] === "Pasabuy"){
 
@@ -754,6 +730,10 @@ function setCategoryDatas(array){
 
     }
 
+    grid_item[0].innerText = "All";
+
+    grid_item[0].setAttribute("onclick","chooseNav('All Requests'," + 0 +")" );
+
     //chooseNav(dataArray[0]["requestCategory"],0)
     setSpecialization(dataArray);
 
@@ -767,6 +747,7 @@ function chooseNav(category,number){
     var number = number;
     var grid_item = document.getElementsByClassName('grid-item');
     var length = grid_item.length;
+    var nearestRequestSlider = document.getElementById('nearestRequestSlider');
 
     for(var i=0;i<length;i++){
 
@@ -783,7 +764,18 @@ function chooseNav(category,number){
 
     //getLeaderBoard(category);
 
-    setCategory(category);
+    if(category ==="All Requests" && nearestRequestSlider.checked ){
+        var municipality = sessionStorage.getItem('municipality');
+        getNearestRequest(municipality);
+
+    } else if(category ==="All Requests" && !nearestRequestSlider.checked){
+        getRequests();
+    }else{
+        sessionStorage.setItem("requestCategory",category);
+        setCategory(category);
+    }
+
+
 
 }
 

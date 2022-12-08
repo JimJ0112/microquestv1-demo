@@ -722,8 +722,14 @@ td.categories {
     /* border: solid; */
     background-color: #b1b1b173;
     padding: 10px;
+	cursor: pointer;
 } 
 
+
+td.categories:hover {
+	background-color: #6f6d6d73;
+
+} 
 @media (min-width: 200px) and (max-width: 555px){
 	
 	#Requestor_SelectedServiceMainControls{

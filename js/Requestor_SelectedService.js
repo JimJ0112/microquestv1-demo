@@ -1235,3 +1235,86 @@ function toggleNav(){
     name.style.width = "100%";
     name.style.overflowX = "scroll";
 }
+
+
+// for when a category has been selected
+function selectCategory(string){
+
+    var category = string;
+    sessionStorage.setItem("selectedCategory",category);
+
+    if(category != "Pasabuy"){
+        location.href= "Requestor_SelectedService.php?category=" + category;
+    } else {
+        //location.href= "PasabuyService.php?category=" + category;
+        location.href= "Requestor_PasabuyProducts.php";
+    }
+
+}
+
+
+function getAllServices(){
+    
+    
+    var xmlhttp = new XMLHttpRequest();
+    
+  
+    
+ 
+    xmlhttp.open("POST", "Backend/Get_allServices.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+            document.getElementById("ServicesNavRow").innerHTML = "";
+            
+            //selectedCategory = document.getElementById("selectedCategory");
+  
+
+                var dataArray = this.response;
+
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+
+                var number = dataArray.length;
+                createNavElements(number);
+                setNavElements(dataArray)
+
+     
+        }else{
+           // console.log(err);
+           console.log("error");
+        }      
+    };
+    
+    xmlhttp.send();
+    
+}// end of function
+
+function createNavElements(number){
+    var ServicesNavRow = document.getElementById('ServicesNavRow');
+    var number = number;
+
+    for(var i=0;i<number;i++){
+        var category = document.createElement('td');
+        category.setAttribute('class','categories');
+        ServicesNavRow.appendChild(category);
+    }
+
+
+}
+
+function setNavElements(dataArray){
+    var dataArray = dataArray;
+    var number = dataArray.length;
+
+    var categories = document.getElementsByClassName('categories');
+
+    for(var i=0; i<number; i++){
+        categories[i].innerText = dataArray[i]['serviceCategory'];
+        categories[i].setAttribute('onclick',"selectCategory('" + dataArray[i]['serviceCategory'] + "')");
+    }
+
+
+
+}

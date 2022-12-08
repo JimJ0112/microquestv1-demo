@@ -212,7 +212,8 @@ function selectCategory(string){
     if(category != "Pasabuy"){
         location.href= "Requestor_SelectedService.php?category=" + category;
     } else {
-        location.href= "PasabuyService.php?category=" + category;
+        //location.href= "PasabuyService.php?category=" + category;
+        location.href= "Requestor_PasabuyProducts.php";
     }
 
 }
