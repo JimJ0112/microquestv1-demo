@@ -207,6 +207,12 @@
 							ID Number: </div>
 							<input type="text" name="idNumber" class="Registration-TextBox" id="IDNumber" Required> 
 						</div>
+
+						<div class="textBox"> <span class="asteriskRequiredField" title="This Field is Required"> * </span>
+							<select name="specialization" id="specialization"> 
+
+							</select>
+						</div>
 						
 					</div>
 					
