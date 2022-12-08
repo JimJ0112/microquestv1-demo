@@ -3799,7 +3799,7 @@ public function registerPasabuyTransaction($productID,$serviceID,$requestorID,$r
    
         echo mysqli_error($this->dbconnection);
 
-        $result = mysqli_query($this->dbconnection, $query)
+        $result = mysqli_query($this->dbconnection, $query);
 
     //return mysqli_query($this->dbconnection, $query);
     return $result;
