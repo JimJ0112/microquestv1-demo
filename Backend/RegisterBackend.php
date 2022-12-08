@@ -71,7 +71,7 @@ if($exists){
         if(isset($_POST["specialization"])){
             $specialization = $_POST["specialization"];
         } else {
-            $specialization = "";
+            $specialization = "Home Service";
         }
 
         if($_FILES['userPhoto']["size"] > 1500000){
