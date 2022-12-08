@@ -10,33 +10,32 @@ $DBHandler = new DBHandler();
 date_default_timezone_set("Asia/Manila");
 $today= date("Y-m-d");
 
-$dataArray = [];
 
 
 
   //	pasabuyTransactionID	productID	serviceID	requestorID	responderID	price	quantity	orderDate	orderStatus	paymentFile	transactionStartDate	transactionEndDate	
    
 
-            $productID = $_POST['productID'];
-            $serviceID = $_POST['serviceID'];
-            $requestorID = $_POST['requestorID'];
-            $responderID = $_POST['responderID'];
-            $price = $_POST['price'];
-            $quantity = $_POST['quantity'];
-            $orderDate = $_POST['dateAssigned'];
-            $orderStatus = "pending";
-            $paymentFile = "none";
-            $transactionStartDate = $today;
-            $transactionEndDate = "none";
+          echo  $productID = $_POST['productID'];
+          echo  $serviceID = $_POST['serviceID'];
+          echo  $requestorID = $_POST['requestorID'];
+          echo  $responderID = $_POST['responderID'];
+          echo  $price = $_POST['price'];
+          echo  $quantity = $_POST['quantity'];
+          echo  $orderDate = $_POST['dateAssigned'];
+          echo  $orderStatus = "pending";
+          echo  $paymentFile = "none";
+          echo  $transactionStartDate = $today;
+          echo  $transactionEndDate = "none";
             
         
             $totalPrice = (int)$price * (int)$quantity;
             $totalPrice;
             
             if(isset($_POST['dueDate'])){
-                $dueDate = $_POST['dueDate'];
+                echo  $dueDate = $_POST['dueDate'];
             } else {
-                $dueDate = "no due date";
+                echo  $dueDate = "no due date";
 
             }
             
