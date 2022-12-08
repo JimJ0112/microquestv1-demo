@@ -86,6 +86,6 @@ if(isset($_POST['cartItem'])){
 
 
 
-header("location:../Requestor_MyCart.php?msg=Transaction Success!");
+//header("location:../Requestor_MyCart.php?msg=Transaction Success!");
 
 
