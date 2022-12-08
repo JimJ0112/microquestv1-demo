@@ -39,3 +39,31 @@ if(isset($_POST["userType"])){
 
 //header("location: ../");
 
+// for sending notifications to the users
+
+$notifType = "Update";
+date_default_timezone_set("Asia/Manila");
+$notificationDate = date("Y-m-d");
+
+// for constructing notif message
+$transactionID = $_POST['transactionID'];
+$status = $_POST['update'];
+
+//$query = "SELECT $name FROM $tablename WHERE $column = '$condition'";
+$requestorID = $DBHandler ->getData("pasabuytransactions","pasabuyTransactionID",$transactionID,"requestorID");
+$responderID = $DBHandler ->getData("pasabuytransactions","pasabuyTransactionID",$transactionID,"responderID");
+
+
+
+$productID = $DBHandler ->getData("pasabuytransactions","pasabuyTransactionID",$transactionID,"productID");
+$ProductName= $DBHandler ->getData("products","productID",$productID,"productName");
+$ProductBrand = $DBHandler ->getData("products","productID",$productID,"productBrand");
+
+
+
+$notifMessage = "Transaction #$transactionID for $ProductBrand : $ProductName 's status has been changed to $status ";
+
+
+$result = $DBHandler->sendNotifs($requestorID,$notifType,$notifMessage,$notificationDate);
+$result1 = $DBHandler->sendNotifs($responderID,$notifType,$notifMessage,$notificationDate);
+

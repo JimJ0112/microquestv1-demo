@@ -27,12 +27,12 @@ function __construct(){
 
     /* remote database connection */
     
-    
+    /*
     $this->dbservername = "localhost";
     $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
     $this->dbname = "u774227372_microquestdbv2";
-    
+    */
    
     
   /* remote database connection 2 */
@@ -47,12 +47,11 @@ function __construct(){
 
 
     // kala yujin
-    /*
     $this->dbservername = "localhost";
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = " microquestdbv2";
-    */
+    
     $this-> dbconnection = mysqli_connect($this->dbservername,$this->dbusername,$this->dbpassword,$this->dbname);
  
   
@@ -3712,6 +3711,40 @@ public function deleteColumn($tablename,$column,$name,$condition,$conditionvalue
 }
 
 /*--------------------------------INSERT FUNCTIONS------------------------------------------------------ */
+
+// INSERT NOTIFS
+// send notifications
+
+public function sendNotifs($reportedUserID,$notifType,$notifMessage,$notificationDate){
+
+    $tablename = "notificationsinfo";
+
+    //reportID	reportedAccountID	reporterAccountID	reportCategory	reportDescription	reportEvidence	reportedServiceID	reportedRequestID	reportDate	
+  
+    
+    $reportedUserID= mysqli_real_escape_string($this->dbconnection,$reportedUserID);
+    $notifType= mysqli_real_escape_string($this->dbconnection,$notifType);
+    $notifMessage= mysqli_real_escape_string($this->dbconnection,$notifMessage);
+    $notificationDate= mysqli_real_escape_string($this->dbconnection,$notificationDate);
+    $notificationStatus = "Sent";
+
+
+    //$query = "INSERT INTO $tablename VALUES (0,$reportedAccountID,$reporterAccountID,'$reportCategory','$reportDescription','',$reportedServiceID,$reportedRequestID,'$reportDate','$reportStatus')";
+    $query = "INSERT INTO $tablename VALUES (0,$reportedUserID,'$notifType','$notificationDate','$notifMessage','$notificationStatus')";
+    
+        if(mysqli_query($this->dbconnection,$query)){
+            return 1;
+        } else {
+            return mysqli_error($this->dbconnection);
+        }
+    
+   
+    //return mysqli_query($this->dbconnection, $query);
+
+
+    
+}// end of class
+
 
 //insert to card / add to cart
 public function addToCart($productID,$serviceID,$responderID,$requestorID,$dateAssigned,$quantity){

@@ -48,11 +48,11 @@
 	<script src="js/Requestor_RequestTransactions.js"> </script>-->
 	<script src="js/Requestor_PasabuyTransactions.js"> </script>
 	<script src="js/report.js"> </script>
-
+	<script src="js/sideBarShow.js"> </script>
 
 </head>
 <body onload="setTransactionType()">
-
+	<button class="sideMenu" onclick="sideButton()" id="sideMenu" > >> </button>
 <!-- NavBar-->
 <?php
 	require_once("imports/RequestorNavBar.php");
@@ -81,7 +81,7 @@
 
   		<div id="TransactionTypeTd" class="grid-item">
 			<div id="TransactionTypeDropDown">
-				Pasabuy
+				Pasabuy <button class="hideMenu" onclick="hideButton()" id="hideMenu" > X </button>
 			</div>
 		</div>
 

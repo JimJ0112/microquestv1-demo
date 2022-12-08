@@ -13,3 +13,4 @@ $conditionvalue = $_POST['requestID'];
 echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
 
 // $query = "UPDATE $tablename SET $column = '$name' WHERE $condition = '$conditionvalue' ";
+

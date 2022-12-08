@@ -913,6 +913,7 @@ select#RequestCategory {
 		width: 100%;
 		overflow-x: scroll;
 		grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+		margin: 20px 0 0 0px;
 	}
 	#RequestsContainer{
 		

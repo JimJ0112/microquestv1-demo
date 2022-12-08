@@ -550,7 +550,7 @@ input:checked + .slider:before {
     width: 100%;
     height: 100%;
     /* min-height: 900px; */
-    border-radius: 25% 0 0 0%;
+    /* border-radius: 25% 0 0 0%; */
     position: absolute;
     background-color: orangered;
     /* margin-top: 35px; */
@@ -1744,13 +1744,13 @@ input:checked + .slider:before {
 #userProfilePicOutput {
     background-color: white;
     width: 200px;
-    height: 100%;
+    height: 200px;
     object-fit: contain;
 }
 
 #userIDPicOutput {
     width: 200px;
-    height: 100%;
+    height: 200px;
     object-fit: contain;
     background: white;
 }
@@ -1759,112 +1759,7 @@ input:checked + .slider:before {
     font-size: small;
 }
 
-@media (max-width: 575px) {
-    #RegistrationLogo {
-        top:30px;
-        left: 240px;
-    }
 
-    #RegistrationContainer {
-        width: 80%;
-        margin: 145px 0px 40px 50px;
-        position: fixed;
-        height: 65%;
-        min-height: 520px;
-        overflow: hidden;
-        overflow-y: scroll;
-    }
-
-    #RegistrationBackground {
-        width: 100%;
-        position: fixed;
-    }
-
-    .RegisterTypeText {
-        display: none;
-    }
-
-    #SignUpText {
-        display: none;
-    }
-
-    #GeneralInfoForm1 {
-        width: 50%;
-        height: 100%;
-        /* position: absolute; */
-        text-align: left;
-        /* margin: auto; */
-        display: grid;
-        align-content: center;
-        padding: 10px 0 20px 0;
-    }
-
-    #GeneralInfoForm2 {
-        width: 50%;
-        height: 100%;
-        /* position: absolute; */
-        text-align: left;
-        /* margin: auto; */
-        display: grid;
-        align-content: center;
-        padding: 0 0 10px 0px;
-    }
-
-    #RegistrationNextButton {
-        /* margin-left:70%; */
-        /* position: absolute; */
-        right: 100;
-        /* bottom: unset; */
-        /* position: fixed; */
-    }
-
-    #RegistrationBackButton {
-        /* bottom: -245px; */
-        /* right: 150px; */
-    }
-
-    #GeneralInfoForm {
-        margin-left: 10px;
-    }
-
-    .asteriskRequiredField {
-        display: none;
-    }
-
-    #ResponderInfoForm1 {
-        width: 50%;
-        height: 100%;
-        position: unset;
-        text-align: left;
-        margin: unset;
-        display: grid;
-        align-content: center;
-        padding: 0;
-        right: 0;
-    }
-    #ResponderInfoForm2 {
-        width: 50%;
-        height: 100%;
-        position: unset;
-        text-align: left;
-        margin: unset;
-        display: grid;
-        align-content: center;
-        padding: 0;
-        right: 0;
-    }
-
-    #RegistrationRegisterButton {
-        position: absolute;
-        right: 250;
-        bottom: unset;
-    }
-    #RegistrationBackButton{
-        position: absolute;
-        right: 100;
-        bottom: unset;
-    }
-}
 .textBox{
     margin: auto;
 
@@ -1886,13 +1781,13 @@ form#RegistrationForm {
 
 
 .nextBtn{
-        position: absolute;
+        /* position: absolute; */
         bottom: 26px;
         right: 100px;
         background: orangered;
-        margin: 5px;
+        margin: auto;
         height: 35px;
-        width: 90px;
+        width: 20%;
         font-size: large;
         font-weight: bolder;
         color: white;
@@ -1925,4 +1820,69 @@ form#RegistrationForm {
 
 span.asteriskRequiredField {
     float: none;
+}
+
+@media (max-width: 390px){
+    #RegistrationLogo{
+        left: 20px;
+        top: 100px;
+        zoom: 70%;
+    }
+    #SignUpText1{
+        zoom: 70%;
+        z-index: 2;
+    }
+    #RegistrationContainer{
+        width: 100%;
+    }
+    form#RegistrationForm{
+        height: 100%;
+        width:100%;
+    }
+    #AccountInfoForm{
+        width: 95%;
+        height: 70%;
+        margin:auto;
+        top: 20%;
+        position: absolute;
+    }
+    #GeneralInfoForm{
+        zoom: 40%;
+        width: 100%;
+        margin: auto;
+        height: 85%;
+        padding-top: 40%;
+    }
+    #GeneralInfoForm1, #GeneralInfoForm2, #ResponderInfoForm1,.inputItem5{
+        height: fit-content;
+        position: absolute;
+    }
+    #GeneralInfoForm1{
+        top: 20%;
+    }
+    #GeneralInfoForm2{
+        top: 30%;
+        
+    }
+    #ResponderInfoForm1{
+        top:40%;
+    }
+    .inputItem5{
+        top: 45%;
+    }
+    #SignUpText{
+        z-index: 2;
+        zoom: 60%;
+        top: 60px;
+        right: 10px;
+        left: unset;
+    }
+    #EmailVerificationForm1{
+        margin: 0;
+        position:absolute;
+        top: 30%;
+        
+    }
+    
+    
 }

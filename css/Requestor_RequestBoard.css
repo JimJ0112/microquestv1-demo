@@ -493,7 +493,7 @@ display: none;
 	/* padding-top: 40px; */
 	/* padding-bottom: 40px; */
 	/* cursor: pointer; */
-	/* MARGIN: auto; */
+	MARGIN: 0px auto;
 	}
   .wrapper:focus {
 	  outline: 0;

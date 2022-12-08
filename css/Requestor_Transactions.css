@@ -1084,3 +1084,6 @@ button.red{
 .Description {
     margin: auto;
 }
+button#hideMenu {
+    display: none;
+}
