@@ -263,6 +263,7 @@
 		</div>
 
 
+		<script> getServices(); </script>
 		<script src="js/Requestor_Registration.js"> </script>
 
 </body>
