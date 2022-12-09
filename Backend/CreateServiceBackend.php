@@ -102,6 +102,8 @@ if(isset($_POST["formType"])){
         echo $serviceInfoID = $DBHandler ->getData('servicesinfo','responderID',$responderID,'serviceID');
         echo $DBHandler-> registerProduct($serviceInfoID,$itemCategory,$productName,$productBrand,$productDescription,$productPrice,$productImage,$responderID,$productStore,$storeLocation,$rate);      
 
+        header("location:../Responder_PasabuyProducts.php");
+
 
     } else if($formType === "otherCategories"){
         if(is_uploaded_file($_FILES['bannerImage']["tmp_name"])){
