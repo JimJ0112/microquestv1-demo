@@ -130,10 +130,10 @@ function setData(array){
             myRequestCard[i].setAttribute("onclick","viewRequest("+dataArray[i]['requestID']+")");
 
             if(dataArray[i]['requestStatus'] === "Delisted"){
-                requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small; color:darkred;'> " + dataArray[i]['requestStatus'] + "</span>";
+                requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small; color:orangered;'> " + dataArray[i]['requestStatus'] + "</span>";
 
             }else if(dataArray[i]['requestStatus'] === "Completed"){
-                requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small;  color:Yellow;'> " + dataArray[i]['requestStatus'] + "</span>";
+                requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small;  color:Blue;'> " + dataArray[i]['requestStatus'] + "</span>";
 
             }else{
                 requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small'> " + dataArray[i]['requestStatus'] + "</span>";

@@ -93,17 +93,13 @@ body{
 
 #navMenu{
 	position: absolute;
-	background-color: rgb(22, 8, 2);
+	background-color: rgb(255 69 0);
 	right: 5px;
 	top:115px;
-	width: 270px;
-	height: 300px;
+	width: 240px;
 	z-index: 17;
 	border-radius: 30px;
 	display: none;
-
-
-
 }
 
 .NavMenu-item{

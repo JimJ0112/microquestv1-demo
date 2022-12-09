@@ -176,7 +176,7 @@ function setRatingsData(dataArray){
 
      var totalRatingstofixed = parseFloat(dataArray[0]['totalratings']).toFixed(2);
 
-     totalRatings.innerText=  " ⭐"+ dataArray[0]['total ratings'];
+     totalRatings.innerText=  " ⭐"+ dataArray[0]['total ratings'].toFixed(2);
     // totalRatings.innerText=  " ⭐"+ totalRatingstofixed;
 
      totalNumberOfRatings.innerText= dataArray[0]['all Ratings'];

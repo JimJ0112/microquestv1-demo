@@ -418,7 +418,7 @@ table#conversationSearchDiv {
     font-size: x-large;
     font-weight: bold;
 }
-@media(max-width:390px){
+@media (min-width: 220px) and (max-width:555px){
 	#MessagesMainContainer{
 		margin-top:0;
 		width: 100%;
@@ -430,5 +430,10 @@ table#conversationSearchDiv {
 	table#conversationSearchDiv {
 		display:none;
 	}
-	
+	.inboxUserName{
+		display:none;
+	}
+	.lastmessagediv{
+		display:none;
+	}
 }

@@ -119,7 +119,7 @@ function setData(array){
         isNegotiable[i].innerHTML = dataArray[i]['isNegotiable'];
         requestCategory[i].innerHTML = dataArray[i]['requestCategory'];
         requestDescription[i].innerHTML = "</br>" + dataArray[i]['requestDescription'];
-        requestExpectedPrice[i].innerHTML = dataArray[i]['requestExpectedPrice'];
+        requestExpectedPrice[i].innerHTML = "Php "+dataArray[i]['requestExpectedPrice'] +".00";
       
         requestTitle[i].innerHTML = dataArray[i]['requestTitle'];
         //[i].innerHTML = "<b>Requestor ID: </b>"+dataArray[i]['requestorID'];

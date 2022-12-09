@@ -110,7 +110,7 @@ function setData(array){
 
         servicePosition[i].innerHTML = " <b> Position: </b> "+ dataArray[i]['servicePosition'];
         serviceStatus[i].innerHTML = " <b>Status: </b> "+ dataArray[i]['serviceStatus'];
-        rate[i].innerHTML = " <b> Rate: Php</b>"+ dataArray[i]['rate'];
+        rate[i].innerHTML = " <b> Rate: Php </b>"+ dataArray[i]['rate'] + ".00";
         ratings[i].innerHTML = " <b> Ratings: </b> 5.0 ⭐";
         
 
@@ -164,7 +164,7 @@ function getAvailableResponderRatings(serviceID,number){
                 dataArray = JSON.parse(dataArray);
                 console.log(dataArray);
   
-                ratings[number].innerText = "Ratings: " + dataArray[0]['total ratings'] + "⭐";
+                ratings[number].innerText = "Ratings: " + dataArray[0]['total ratings'].toFixed(2) + "⭐";
   
             }
   

@@ -674,7 +674,12 @@ z-index: 99;
   font-size: 26px;
   color: black;
   font-weight: bold;
+  margin: auto;
   margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .requestDescription{
@@ -782,7 +787,7 @@ margin: auto;
 }
 .grid-head {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1.5fr 2fr;
     margin: auto;
     height: 100%;
     column-gap: 5px;
@@ -799,6 +804,12 @@ margin: auto;
 
 .nameLoc{
 	margin: auto;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: grid;
+	grid-auto-columns: auto;
 }
 
 .footer {
@@ -879,12 +890,13 @@ select#RequestCategory {
 	.grid-item{
 		width: 100%;
 		background-color: rgba(255, 255, 255, 0.8);
-		border: 1px solid rgba(0, 0, 0, 0.8);
+		border: none;
 		padding: 20px;
 		font-size: 100%;
-		text-align: center;
+		text-align: left;
 		cursor: pointer;
 		font-family: Arial, Helvetica, sans-serif;
+		font-weight: bold;
 	}
 }
 @media (max-width: 1220px){

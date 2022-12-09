@@ -77,7 +77,7 @@ session_start();
 			<div id="TransactionsNavItem1" class="TransactionsNavItems grid-item" onclick="clickedNavItem(0,<?php echo $userID; ?>)"> <img class="navIcon" src="img/select-all.png"> <span class="sideNav-text">  All Requests </span> </div>  
 			<div id="TransactionsNavItem2" class="TransactionsNavItems grid-item" onclick="clickedNavItem(1,<?php echo $userID; ?>)"> <img class="navIcon" src="img/wall-clock.png"> <span class="sideNav-text">  On Going </span> </div>  
   			<div id="TransactionsNavItem3" class="TransactionsNavItems grid-item" onclick="clickedNavItem(2,<?php echo $userID; ?>)"> <img class="navIcon" src="img/power.png"> <span class="sideNav-text"> Active  </span> </div> 
-  			<div id="TransactionsNavItem4" class="TransactionsNavItems grid-item" onclick="clickedNavItem(3,<?php echo $userID; ?>)"> <img class="navIcon" src="img/sleep-mode.png"> <span class="sideNav-text"> Inactive  </span> </div> 
+  			<div id="TransactionsNavItem4" class="TransactionsNavItems grid-item" onclick="clickedNavItem(3,<?php echo $userID; ?>)"> <img class="navIcon" src="img/sleep-mode.png"> <span class="sideNav-text"> Delisted </span> </div> 
   			<div id="TransactionsNavItem5" class="TransactionsNavItems grid-item" onclick="clickedNavItem(4,<?php echo $userID; ?>)"> <img class="navIcon" src="img/check.png"> <span class="sideNav-text"> Completed  </span> </div>   
   			
 

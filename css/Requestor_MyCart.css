@@ -723,3 +723,10 @@ text-decoration: none;
 	padding: 40px;
 
 }
+
+@media(min-width:220px) and (max-width:555px){
+	div#AvailableServicesContainer {
+    zoom: 60%;
+    margin-top: 15%;
+}
+}

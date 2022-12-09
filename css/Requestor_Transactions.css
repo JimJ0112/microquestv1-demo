@@ -372,13 +372,13 @@ td{
 
 #closeImage{
 	position: absolute;
-	right: 100px;
-	top: 5px;
+	right: 33%;
+	top: 10%;
 	cursor: pointer;
 	z-index: 18;
 	color:rgb(7, 7, 7);
 	font-weight:bolder;
-	padding: 5px;
+	/* padding: 5px; */
 }
 
 #closeImage:hover{
@@ -486,7 +486,7 @@ td{
     color:#ccc;
 }
 .rate:not(:checked) > label:before {
-    content: 'â˜…';
+    content: 'Ã¢Ëœâ€¦';
 }
 .rate > input:checked ~ label {
     color: #ffc700;    
@@ -847,13 +847,12 @@ background-color: white;
 	display: none;
 	align-content: center;
 	z-index: 20;
-
 }
 
 #TextViewer{
 	margin: auto;
-	margin-top: 0;
-	width: 90%;
+	margin-top: -40;
+	width: fit-content;
 	height: 100%;
 	background-color: none;
 	display: grid;

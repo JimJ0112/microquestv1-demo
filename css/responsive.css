@@ -487,9 +487,9 @@
         display: none;
     }
     .header_section {
-        background-image: url(../images/banner_first.jpeg);
+        /* background-image: url(../images/banner_first.jpeg); */
         background-size: cover;
-        padding: 0px; 
+        padding: 0px;
     }
     .navbar-toggler {
         background-color: #ffffff;
@@ -581,12 +581,13 @@
         padding: 0px;
     }
     .navbar-expand-lg .navbar-nav .nav-link {
-        color: #ffffff;
+        color: orangered;
         text-align: center;
         background: transparent;
         width: 100%;
         margin: 10px 0px;
         border-radius: 30px;
+        font-weight: bold;
     }
     .nav-item {
         position: relative;
