@@ -46,7 +46,7 @@
 	$userID = $_SESSION["userID"];
 	
 	echo"<script> getMyServices($userID) </script>";
-	echo "<script> generatePasabuyButton($userID) </script>";
+	//echo "<script> generatePasabuyButton($userID) </script>";
 ?>
 
 <!--Main-->
