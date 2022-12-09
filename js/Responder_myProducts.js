@@ -66,7 +66,7 @@ function createServiceElements(Number){
     ProductInfo.appendChild(productPrice);
     ProductInfo.appendChild(deliveryRate);
     ProductInfo.appendChild(itemStatus);
-    ProductInfo.appendChild(responder);
+   // ProductInfo.appendChild(responder);
 
     card.appendChild(ProductImageDiv);
     card.appendChild(ProductInfo);
