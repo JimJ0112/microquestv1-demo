@@ -56,8 +56,8 @@ function createServiceElements(Number){
 
     
    // ProductImageDiv.appendChild(ProductImage);
-    ProductCardButtons.appendChild(BuyButton);
-    ProductCardButtons.appendChild(addToCartButton);
+   // ProductCardButtons.appendChild(BuyButton);
+   // ProductCardButtons.appendChild(addToCartButton);
 
 
 
@@ -91,7 +91,7 @@ function setData(array){
     var card = document.getElementsByClassName("productCard");
     var ProductImageDiv=document.getElementsByClassName("ProductImageDiv");
 
-    var addToCartButton = document.getElementsByClassName("addToCartButton");
+   // var addToCartButton = document.getElementsByClassName("addToCartButton");
     //var ProductImage=document.getElementsByClassName("ProductImage");
 
     var ProductInfo=document.getElementsByClassName("ProductInfo");
@@ -102,7 +102,7 @@ function setData(array){
     var itemStatus=document.getElementsByClassName("itemStatus");
 
     var ProductCardButtons=document.getElementsByClassName("ProductCardButtons");
-    var BuyButton = document.getElementsByClassName("BuyButton");
+    //var BuyButton = document.getElementsByClassName("BuyButton");
 
     var responder = document.getElementsByClassName('responder');
 
@@ -128,10 +128,10 @@ function setData(array){
         //setCartForm(productID,serviceID,responderID,ProductImage,ProductName)
     
         // /EditButton[i].setAttribute();
-        addToCartButton[i].setAttribute("onclick","setCartForm("+dataArray[i]['productID']+","+dataArray[i]['servicesInfoID']+","+dataArray[i]['responderID']+",'" + dataArray[i]['productImage'] +"','" +dataArray[i]['productName']+"')");
+        //addToCartButton[i].setAttribute("onclick","setCartForm("+dataArray[i]['productID']+","+dataArray[i]['servicesInfoID']+","+dataArray[i]['responderID']+",'" + dataArray[i]['productImage'] +"','" +dataArray[i]['productName']+"')");
     
 
-        BuyButton[i].setAttribute("onclick","setCheckOutForm("+dataArray[i]['productID']+","+dataArray[i]['servicesInfoID']+","+dataArray[i]['responderID']+",'" + dataArray[i]['productImage'] +"','" +dataArray[i]['productName']+"'," + dataArray[i]['productPrice']+")");
+       // BuyButton[i].setAttribute("onclick","setCheckOutForm("+dataArray[i]['productID']+","+dataArray[i]['servicesInfoID']+","+dataArray[i]['responderID']+",'" + dataArray[i]['productImage'] +"','" +dataArray[i]['productName']+"'," + dataArray[i]['productPrice']+")");
         //setCheckOutForm(productID,serviceID,responderID,ProductImage,ProductName)
     }
 
