@@ -446,8 +446,8 @@ function subQuantity1(){
 
 function setTotal(){
     
-    var quantity1 = document.getElementById('quantity1');
-    var orderPrice = document.getElementById('orderPrice');
+    var quantity1 = document.getElementById('quantity1').value;
+    var orderPrice = document.getElementById('orderPrice').value;
     
 
     totalPriceDisplay.innerText = parseInt(orderPrice)*parseInt(quantity1);
