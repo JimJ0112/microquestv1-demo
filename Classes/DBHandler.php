@@ -3877,7 +3877,7 @@ public function registerCategory($serviceCategory,$servicePosition){
      $responderID = mysqli_real_escape_string($this->dbconnection,$responderID);
      $deliveryRate = mysqli_real_escape_string($this->dbconnection,$deliveryRate);
 
-     $itemStatus = "";
+     $itemStatus = "Available";
      
      $productStore=mysqli_real_escape_string($this->dbconnection, $productStore);
      $storeLocation=mysqli_real_escape_string($this->dbconnection,$storeLocation);

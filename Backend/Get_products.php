@@ -6,7 +6,7 @@ $DBHandler = new DBHandler();
 
 $tablename = "products";
 $column = "itemStatus";
-$condition = "";
+$condition = "Available";
 $categories = $DBHandler->getProducts($tablename,$column,$condition,'productCategory');
 
 
