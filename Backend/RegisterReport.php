@@ -37,6 +37,22 @@ if($transactionType === "service"){
 //echo $result = $DBHandler->registerReport($ReportedAccountID,$ReporterAccountID,$reportType,$reportDescription,$reportProof,$serviceID,$requestID,$reportDate);
 
 
-header("location:../Requestor_Transactions.php");
+//header("location:../Requestor_ServiceTransactions.php");
+
+
+if(isset($_SESSION["userType"])){
+
+    $userType = $_SESSION["userType"];
+
+    if($userType === "Responder"){
+
+        header("location:../Requestor_ServiceTransactions.php");
+
+    } else if($userType === "Requestor"){
+
+        header("location:../Responder_ServiceTransactions.php");
+
+    }
+}
 
 

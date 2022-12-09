@@ -223,5 +223,76 @@
 	
 </div>
 
+
+
+<div id="reportPopUpBack"> 
+	<div id="reportPopUp"> 
+	
+	<form action="Backend/RegisterReport.php" method="post" enctype="multipart/form-data">
+		
+		<center>
+			
+			<div id="reportHeader">	
+			<br/>
+			<p> Reported Account:</p> 
+			
+			<?php
+				$userID = $_SESSION["userID"];
+			?>
+			
+			<input type="hidden" id="ReportedAccountID" name="ReportedAccountID"/>
+			<input type="hidden" id="ReporterAccountID" name="ReporterAccountID" value="<?php echo $userID;?>"/>
+			
+
+
+
+			
+
+			<img id="ReportedAccountProfile"> 
+			<span id="ReportedAccountName"> Dummy Acc </span> <br/>
+			<span id="ReportedAccountEmail"> Dummy Email </span> <br/>
+			<span id="ReportedAccountType"> Responder </span> 
+			</div>
+			<div id="reportContent">
+			<br/> 
+			<hr/>
+			<input type="hidden" name="transactionReportID" id="TransactionReportIDInput"/>
+			<input type="hidden" name="transactionType" id="TransactionTypeInput"/>
+
+			<h3> Please Select a problem </h3>
+			
+		
+			<select id="reportType" name="reportType" onchange="otherProblems()" required>
+				<option value="Pretending to be someone"> Pretending to be someone </option>
+				<option value="Posting inappropriate things"> Posting inappropriate things </option>
+				<option value="Harassment or bullying"> Harassment or bullying </option>
+				<option value="Doing inappropriate things during transaction"> Doing inappropriate things during transaction </option>
+				<option value="Something Else"> Something Else </option>
+			</select> <br/>
+			<input type="text" id="otherReportType" name="otherReportType" placeholder="Other Report type"/>
+			<br/><br/>
+
+
+			<div id="reportProofOutputBackground">
+				<div id="closeImage" onclick="closeImage()" style="color:white;"> ✕ </div>
+				<img id="reportProofOutput"> 
+			</div>
+			<br/>
+			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)" hidden required/><label for="reportProof">upload file ↑</label><br/><br/>
+
+			<span> Description: </span> <br/>
+			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8" required></textarea>  
+			<br/><br/>
+		
+
+			<input  class="formButton Button" type="submit" value="Submit Report"/> 
+			<input  class="formButton Button" type="button" value="Cancel" onclick="hideReportForm()"/>
+		</center>
+	</form>
+
+	</div>
+
+</div>
+
 </body>
 </html>

@@ -59,21 +59,7 @@
 			<div id="AvailableServicesContainer-Controls">
 
 				<ul id="AvailableServicesContainer-ControlItems">
-	<!--
-					<li class="AvailableServicesContainer-ControlItem"> 
-						<table>
-							<tr>
-								<td>
-									<img src="img/requests.png"class="AvailableServicesContainer-ControlItemIcon"> 
-								</td>
 
-								<td>
-									<a href="Requestor_RequestBoard.php"> <span> My Requests</span> </a>
-								</td>
-							</tr>
-	   					</table>
-					</li>
--->
 					<li class="AvailableServicesContainer-ControlItem" >
 						<table style="background-color: #a6999975;padding: 4px;">
 							<tr>
@@ -123,43 +109,7 @@
 				
 				<div class="AvailableService-Card">
 
-					<!--<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>
 
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>
-
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>
-
-				<div class="AvailableService-Card">
-
-					<div class="ServiceTitleBackground">
-						<span class="ServiceTitle"> Service Title </span>
-					</div>
-					
-					<img class="ServiceBanner" src="img/laundry-services.jpg"/>
-				
-				</div>-->
 
 			</div>
 

@@ -200,7 +200,7 @@
 <div id="reportPopUpBack"> 
 	<div id="reportPopUp"> 
 	
-	<form action="backend/RegisterReport.php" method="post" enctype="multipart/form-data">
+	<form action="Backend/RegisterReport.php" method="post" enctype="multipart/form-data">
 		
 		<center>
 			
