@@ -303,6 +303,26 @@ public function existsLike($tablename,$column,$name){
   
 }
 
+
+public function serviceExists($tablename,$userID,$service){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $userID = mysqli_real_escape_string($this->dbconnection, $userID);
+    $service = mysqli_real_escape_string($this->dbconnection, $service);
+
+    $query = "SELECT * FROM $tablename WHERE serviceCategory = '$service' AND responderID = $userID";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+
+
+    if($resultCheck > 0){
+        return true;
+    } else {
+        return false;
+    }
+  
+}
+
 /*------------------------------------------GET FUNCTIONS---------------------------------------------- */
 // get data, 1 column only
 public function getData($tablename,$column,$condition,$name){
