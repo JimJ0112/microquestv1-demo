@@ -7,8 +7,8 @@ $DBHandler = new DBHandler();
 $tablename = "products";
 $column = "itemStatus";
 $condition = "";
-//$responderID = 11;
-$responderID = $_POST["myID"];
+$responderID = 11;
+//$responderID = $_POST["myID"];
 $categories = $DBHandler->getMyProducts($tablename,$responderID);
 
 

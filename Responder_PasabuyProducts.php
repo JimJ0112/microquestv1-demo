@@ -39,7 +39,7 @@
 	<script src="js/Responder_myProducts.js"> </script>
 
 </head>
-<body id="Requestor_AvailableServicesBackground" onload="getProducts()">
+<body id="Requestor_AvailableServicesBackground">
 
 <img src="img/b.jpg" id="BodyBackgroundImg"/>
 
