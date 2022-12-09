@@ -97,7 +97,7 @@
 		</a>
 
 
-		<a href="Responder_PasabuyProducts.php"> 
+		<a href="Responder_PasabuyProducts.php" id="responderPasabuyNavItem"> 
 			<li class="Nav-item" title="My Products"> 
 				<?php
 					$pagename = basename($_SERVER['PHP_SELF']);
@@ -371,7 +371,16 @@
 
 </div>
 
-							
+<?php
+	if(isset($_SESSION["userID"])){
+		$userID = $_SESSION["userID"];
+
+		echo "<script> showPasabuyButton($userID) </script> ";
+
+		
+	}
+
+?>
 
 </body>
 </html>
