@@ -61,9 +61,6 @@
 		<center> <h1 id="AvailableServicesTitle"> Pasabuy Products </h1> </center>
 		<div><a href="Requestor_MyCart.php"> 
 					  <div class="AvailableServicesContainer-ControlItem" id="myCart"> 
-						
-
-				
 					</div>
 					</a></div>
 
@@ -72,21 +69,7 @@
 			<div id="AvailableServicesContainer-Controls">
 
 				<ul id="AvailableServicesContainer-ControlItems">
-<!--
-					<li class="AvailableServicesContainer-ControlItem"> 
-						<table>
-							<tr>
-								<td>
-									<img src="img/requests.png"class="AvailableServicesContainer-ControlItemIcon"> 
-								</td>
 
-								<td>
-									<a href="Requestor_RequestBoard.php"> <span> My Requests</span> </a>
-								</td>
-							</tr>
-	   					</table>
-					</li>
--->
 					<li class="AvailableServicesContainer-ControlItem">
 						<table>
 							<tr>
