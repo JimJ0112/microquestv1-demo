@@ -36,7 +36,7 @@
 	<link rel="stylesheet" type="text/css" href="css/Requestor_PasabuyProducts.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
-	<script src="js/Requestor_PasabuyProducts.js"> </script>
+	<script src="js/Responder_myProducts.js"> </script>
 
 </head>
 <body id="Requestor_AvailableServicesBackground" onload="getProducts()">
@@ -58,7 +58,7 @@
 <!--Main-->
 	<div id="AvailableServicesContainer">
 
-		<center> <h1 id="AvailableServicesTitle"> Pasabuy Products </h1> </center>
+		<center> <h1 id="AvailableServicesTitle"> My Products </h1> </center>
 		<div><a href="Requestor_MyCart.php"> 
 					  <div class="AvailableServicesContainer-ControlItem" id="myCart"> 
 					</div>
@@ -225,7 +225,8 @@
 </div>
 
 
-<script src="js/Requestor_PasabuyProducts.js"> </script>
+<script src="js/Responder_myProducts.js"> </script>
+
 
 
 </body>
