@@ -27,7 +27,7 @@ function createServiceElements(Number){
     var productPrice  = document.createElement('p');
     var deliveryRate  = document.createElement('p');
     var itemStatus = document.createElement('p');
-    var responder = document.createElement('p');
+    //var responder = document.createElement('p');
     var ProductCardButtons = document.createElement('div');
     var BuyButton = document.createElement('button');
     var addToCartButton = document.createElement('button');
@@ -44,7 +44,7 @@ function createServiceElements(Number){
     productPrice.setAttribute("class","productPrice");
     deliveryRate.setAttribute("class","deliveryRate");
     itemStatus.setAttribute("class","itemStatus");
-    responder.setAttribute("class","responder");
+    //responder.setAttribute("class","responder");
 
     ProductCardButtons.setAttribute("class","ProductCardButtons");
     BuyButton.setAttribute("class","BuyButton");
@@ -104,7 +104,7 @@ function setData(array){
     var ProductCardButtons=document.getElementsByClassName("ProductCardButtons");
     //var BuyButton = document.getElementsByClassName("BuyButton");
 
-    var responder = document.getElementsByClassName('responder');
+   // var responder = document.getElementsByClassName('responder');
 
 
 
@@ -123,7 +123,7 @@ function setData(array){
         productPrice[i].innerText = "Price: Php "+ dataArray[i]['productPrice'] + ".00";
         deliveryRate[i].innerText = "Delivery price: "+ dataArray[i]['deliveryRate'];
         itemStatus[i].innerText = "Status: "+ dataArray[i]['itemStatus'];
-        responder[i].innerText = "Responder: " + dataArray[i]['userName'];
+       // responder[i].innerText = "Responder: " + dataArray[i]['userName'];
 
         //setCartForm(productID,serviceID,responderID,ProductImage,ProductName)
     
