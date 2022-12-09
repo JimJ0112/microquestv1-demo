@@ -91,7 +91,7 @@ session_start();
 				<div id="FormControls">	
 
 					<label> Email &nbsp</label><br/> 
-					<input type="text" class="Form-Input" name="email" placeholder = "Enter your email..."> <br/> <br/> <br/>
+					<input type="email" class="Form-Input" name="email" placeholder = "Enter your email..."> <br/> <br/> <br/>
 					<label> Password</label><br/>
 					<input type="password" class="Form-Input" name="password" placeholder = "Enter your password..."> <br/>
 
