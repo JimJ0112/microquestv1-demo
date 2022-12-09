@@ -101,7 +101,7 @@
 		if(isset($_SESSION["userID"])){
 			$userID =$_SESSION["userID"];
 
-			echo"<script> clickedNavItem(1,$userID) </script>";
+			echo"<script> clickedNavItem(0,$userID) </script>";
 
 
 		}

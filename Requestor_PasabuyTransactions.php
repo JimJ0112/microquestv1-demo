@@ -100,7 +100,7 @@
 		if(isset($_SESSION["userID"])){
 			$userID =$_SESSION["userID"];
 
-			echo"<script> pasabuyNavItem(1,$userID) </script>";
+			echo"<script> pasabuyNavItem(0,$userID) </script>";
 
 
 		}
