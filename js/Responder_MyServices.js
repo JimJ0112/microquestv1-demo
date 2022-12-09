@@ -260,6 +260,11 @@ function getMyServices(userID){
   
 
             var dataArray = this.response;
+
+            if(dataArray === "failed to fetch"){
+                document.getElementById("AvailableServicesContainer_Content").innerHTML = "no services";
+
+            }else{
                 dataArray = JSON.parse(dataArray);
                 console.log(dataArray);
 
@@ -269,6 +274,9 @@ function getMyServices(userID){
                 setData(dataArray);
 
             //console.log(positions(dataArray));
+
+            }
+
 
            
      
