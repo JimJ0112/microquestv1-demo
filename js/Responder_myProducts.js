@@ -147,6 +147,7 @@ function getProducts(userID){
    var query = "myID="+myID;
     
     var xmlhttp = new XMLHttpRequest();
+    document.getElementById('AvailableServicesContainer_Content').innerHTML = "";
     
 
     xmlhttp.open("POST", "Backend/Get_myProducts.php", true);
@@ -161,6 +162,7 @@ function getProducts(userID){
             if(dataArray === "failed to fetch"){
 
                 console.log(dataArray);
+                document.getElementById('AvailableServicesContainer_Content').innerHTML = "No Products";
 
             } else{
                 dataArray = JSON.parse(dataArray);
