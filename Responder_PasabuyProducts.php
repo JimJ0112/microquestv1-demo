@@ -225,6 +225,11 @@
 </div>
 
 
+<?php
+	$myID = $_SESSION['userID'];
+	echo"<script> getProducts($myID) </script>";
+?>
+
 <script src="js/Responder_myProducts.js"> </script>
 
 
