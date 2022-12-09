@@ -175,19 +175,25 @@
 					<div id="ResponderInfoForm1">
 					
 						<div class="inputItem4"> 
-						
-						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Educational Attainment </div>
-							<select name="education" class="Registration-TextBox" id="Education" Required> 
-								<option selected="" disabled="">Select  Education</option>
-                     			<option value="Elementary Graduate">Elementary Graduate</option>
-                     			<option value="Secondary Graduate">Secondary Graduate</option>
-                     			<option value="Junior High School Graduate">Junior High School Graduate</option>
-                     			<option value="Senior High School Graduate">Senior High School Graduate</option>
-                     			<option value="College/University Graduate">College/University Graduate</option>
-                     			<option value="Vocational Training Graduate">Vocational Training Graduate</option>
-							</select>
-						
 							
+								<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Educational Attainment </div>
+								<select name="education" class="Registration-TextBox" id="Education" Required> 
+									<option selected="" disabled="">Select  Education</option>
+                     				<option value="Elementary Graduate">Elementary Graduate</option>
+                     				<option value="Secondary Graduate">Secondary Graduate</option>
+                     				<option value="Junior High School Graduate">Junior High School Graduate</option>
+                     				<option value="Senior High School Graduate">Senior High School Graduate</option>
+                     				<option value="College/University Graduate">College/University Graduate</option>
+                     				<option value="Vocational Training Graduate">Vocational Training Graduate</option>
+								</select>
+
+								<div class="textBox"> <span class="asteriskRequiredField" title="This Field is Required"> * </span>Specialization</div>
+									<select name="specialization" id="specialization"> 
+
+									</select>
+							
+						</div>
+						<div class="inputItem4"> 	
 							
 						
 							<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Identification Card: </div>
@@ -208,11 +214,7 @@
 							<input type="text" name="idNumber" class="Registration-TextBox" id="IDNumber" Required> 
 						</div>
 
-						<div class="textBox"> <span class="asteriskRequiredField" title="This Field is Required"> * </span>
-							<select name="specialization" id="specialization"> 
-
-							</select>
-						</div>
+						
 						
 					</div>
 					

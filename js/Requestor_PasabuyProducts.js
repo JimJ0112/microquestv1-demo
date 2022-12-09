@@ -113,10 +113,10 @@ function setData(array){
         ProductImageDiv[i].appendChild(image);
 
         productName[i].innerText =  dataArray[i]['productName'];
-        productBrand[i].innerText = "Brand: " + dataArray[i]['productBrand']
+        productBrand[i].innerText = "Brand: " + dataArray[i]['productBrand'];
         productPrice[i].innerText = "Price: Php "+ dataArray[i]['productPrice'] + ".00";
-        deliveryRate[i].innerText = "Delivery price: "+ dataArray[i]['deliveryRate']
-        itemStatus[i].innerText = "Status: "+ dataArray[i]['itemStatus']
+        deliveryRate[i].innerText = "Delivery price: "+ dataArray[i]['deliveryRate'];
+        itemStatus[i].innerText = "Status: "+ dataArray[i]['itemStatus'];
 
         //setCartForm(productID,serviceID,responderID,ProductImage,ProductName)
     
