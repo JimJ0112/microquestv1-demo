@@ -992,10 +992,18 @@ public function getProducts($tablename,$column,$condition,$orderby = null){
     $condition = mysqli_real_escape_string($this->dbconnection, $condition);
     
    
+    /*
     if(isset($orderby)){
         $query = "SELECT * FROM $tablename WHERE $column = '$condition' ORDER BY $orderby";
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
+    }
+    */
+
+    if(isset($orderby)){
+        $query = "SELECT products.*, responder.userID, responder.userName, responder.userEmail, responder.userPhoto FROM $tablename INNER JOIN userprofile responder ON (products.responderID = responder.userID) WHERE $column = '$condition' ORDER BY $orderby";
+    }else{
+        $query = "SELECT products.*, responder.userID, responder.userName, responder.userEmail, responder.userPhoto FROM $tablename INNER JOIN userprofile responder ON (products.responderID = responder.userID) WHERE $column = '$condition'";
     }
 
     $result = mysqli_query($this->dbconnection, $query);
@@ -1013,6 +1021,10 @@ public function getProducts($tablename,$column,$condition,$orderby = null){
                 
                 $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
                 $row['productImage'] = $file;
+
+                             
+                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+                $row['userPhoto'] = $file;
                 
 
                 $data[] = $row;

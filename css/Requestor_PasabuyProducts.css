@@ -709,3 +709,7 @@ button.addToCartButton {
 		grid-template-columns: 1fr 1fr ;
 	}
 }
+
+.productImage{
+	object-fit:contain;
+}
