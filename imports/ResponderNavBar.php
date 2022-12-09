@@ -96,6 +96,21 @@
 			</li> 
 		</a>
 
+
+		<a href="Responder_PasabuyProducts.php"> 
+			<li class="Nav-item" title="My Products"> 
+				<?php
+					$pagename = basename($_SERVER['PHP_SELF']);
+					
+					if($pagename === "Responder_PasabuyProducts.php"){
+						echo '<u> My Products </u>';
+					} else{
+						echo "My Products";
+					}
+				?>
+			</li> 
+		</a>
+
 		<a href="LeaderBoard.php"> 
 			<li class="Nav-item" title="Available Services"> 
 				<?php
