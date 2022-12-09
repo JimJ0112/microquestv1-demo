@@ -121,7 +121,7 @@ function setData(array){
         productName[i].innerText =  dataArray[i]['productName'];
         productBrand[i].innerText = "Brand: " + dataArray[i]['productBrand'];
         productPrice[i].innerText = "Price: Php "+ dataArray[i]['productPrice'] + ".00";
-        deliveryRate[i].innerText = "Delivery price: "+ dataArray[i]['deliveryRate'];
+        deliveryRate[i].innerText = "Delivery price: Php "+ dataArray[i]['deliveryRate']+ ".00";
         itemStatus[i].innerText = "Status: "+ dataArray[i]['itemStatus'];
         responder[i].innerText = "Responder: " + dataArray[i]['userName'];
 

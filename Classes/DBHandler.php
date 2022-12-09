@@ -3624,6 +3624,22 @@ public function updateColumn($tablename,$column,$name,$condition,$conditionvalue
   
 }
 
+public function completeRequestStatus($requestID){
+    $tablename = "requestsinfo";
+    $column = "requestStatus";
+    $condition = "requestID";
+    $requestID = mysqli_real_escape_string($this->dbconnection, $requestID);
+    $conditionvalue = "Completed";
+
+    $query = "UPDATE $tablename SET $column = '$requestID' WHERE $condition = '$conditionvalue' ";
+
+    $result = mysqli_query($this->dbconnection, $query);
+
+
+        
+  
+}
+
 // update paymentcolumn 
 public function setPayment($name,$conditionvalue,$paymentFile){
     $tablename = "transactions";

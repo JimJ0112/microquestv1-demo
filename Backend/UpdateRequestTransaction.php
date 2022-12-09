@@ -25,6 +25,9 @@ echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$c
 date_default_timezone_set("Asia/Manila");
 $today = date("Y-m-d");
 
+
+
+/*
 if(isset($_POST["userType"])){
     $usertype = $_POST["userType"];
 
@@ -36,7 +39,7 @@ if(isset($_POST["userType"])){
 
 }
 
-
+*/
 //header("location: ../");
 
 
@@ -67,4 +70,13 @@ $notifMessage = "Transaction #$transactionID for $RequestCategory : $RequestTitl
 
 $result = $DBHandler->sendNotifs($requestorID,$notifType,$notifMessage,$notificationDate);
 $result1 = $DBHandler->sendNotifs($responderID,$notifType,$notifMessage,$notificationDate);
+
+$updateStatus = $_POST['update'];
+if($updateStatus === "completed"){
+    $RequestID= $DBHandler ->getData("transactions","transactionID",$conditionvalue,"requestID");
+    $updateRequestStatus = $DBHandler->completeRequestStatus($requestID);
+}else{
+    
+}
+
 
