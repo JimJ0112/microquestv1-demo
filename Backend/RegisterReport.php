@@ -53,6 +53,9 @@ if(isset($_SESSION["userType"])){
         header("location:../Responder_ServiceTransactions.php");
 
     }
+}else{
+    header("location:../Messages.php");
+
 }
 
 
