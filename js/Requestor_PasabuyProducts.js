@@ -394,7 +394,7 @@ function setCheckOutForm(productID,serviceID,responderID,ProductImage,ProductNam
     var cartFormProductName = document.getElementById("checkOutFormProductName");
     var orderPrice = document.getElementById('orderPrice');
     var totalPriceDisplay = document.getElementById('totalPriceDisplay');
-    var quantity1 = document.getElementById('quantity1');
+    var quantity1 = document.getElementById('quantity1').value;
 
 
     productIDEl.value = productID;
@@ -406,7 +406,7 @@ function setCheckOutForm(productID,serviceID,responderID,ProductImage,ProductNam
     cartFormProductName.innerText = ProductName;
 
     totalPriceDisplay.innerText = parseInt(Price)*parseInt(quantity1);
-   
+    //totalPriceDisplay.innerText = Price * parseInt(quantity1);
 
     document.getElementById("pasabuyOrderBack").style.display = "grid";
 
