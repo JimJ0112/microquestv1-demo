@@ -62,17 +62,7 @@
 		<div><a href="Requestor_MyCart.php"> 
 					  <div class="AvailableServicesContainer-ControlItem" id="myCart"> 
 						
-						<table>
-							<tr>
-								<td>
-									<img src="img/shopping-cart.png" class="AvailableServicesContainer-ControlItemIcon" id="cartIcon"> 
-								</td>
 
-								<td>
-									<a href="Requestor_MyCart.php"> <span>  </span> </a>
-								</td>
-							</tr>
-	   					</table>
 				
 					</div>
 					</a></div>
