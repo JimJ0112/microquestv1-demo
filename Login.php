@@ -99,9 +99,9 @@ session_start();
 					<div id="FormControls-Buttons">
 						<input type="submit" value="Login" class="LoginForm-button" id="LoginButton"/>
 
-						<a href="index.html">
-							<input type="reset" value="Cancel" class="LoginForm-button" id="CancelButton"/>
-						</a>
+				
+							<a href="index.html"  class="LoginForm-button" id="CancelButton"> Cancel </a>
+				
 
 					</div>
 				</div>
