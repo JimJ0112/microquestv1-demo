@@ -195,6 +195,102 @@ function init() {
         getTotalNewUsers();
         getTotalRestrictedUsers();
         getTotalBannedUsers();
+        getTotalResponders();
+        getTotalRequestors();
 
     }, 2200); // Set the refresh() function to run every 10 seconds. [1 second would be 1000, and 1/10th of a second would be 100 etc.
 }
+
+
+
+function getTotalResponders(){
+    
+    totalNewUsers = document.getElementById("totalNewUsers");
+    var xmlhttp = new XMLHttpRequest();
+    
+
+
+
+    xmlhttp.onload  = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+            
+            document.getElementById("totalResponders").innerHTML = "";
+         
+           
+            //hideNavMenu();
+            
+
+           
+            var dataArray = this.response;
+           
+
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+
+                var number = dataArray.length;
+                document.getElementById("totalResponders").innerText = dataArray["COUNT('userID')"];
+
+        
+
+     
+        }else{
+            //document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading...";
+            document.getElementById("totalResponders").innerText="Loading..";
+            
+            //console.log(err);
+        }      
+    };
+    
+    xmlhttp.open("POST", "backend/Get_AllResponders.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send();
+    
+}// end of function
+
+
+
+function getTotalRequestors(){
+    
+    totalNewUsers = document.getElementById("totalNewUsers");
+    var xmlhttp = new XMLHttpRequest();
+    
+
+
+
+    xmlhttp.onload  = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+            
+            document.getElementById("totalRequestors").innerHTML = "";
+         
+           
+            //hideNavMenu();
+            
+
+           
+            var dataArray = this.response;
+           
+
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+
+                var number = dataArray.length;
+                document.getElementById("totalRequestors").innerText = dataArray["COUNT('userID')"];
+
+        
+
+     
+        }else{
+            //document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading...";
+            document.getElementById("totalRequestors").innerText="Loading..";
+            
+            //console.log(err);
+        }      
+    };
+    
+    xmlhttp.open("POST", "backend/Get_AllRequestors.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send();
+    
+}// end of function
