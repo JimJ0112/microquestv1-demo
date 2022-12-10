@@ -45,9 +45,39 @@
 
 <!-- NavBar-->
 <?php
-	require_once("imports/RequestorNavBar.php");
+	//require_once("imports/RequestorNavBar.php");
 
 ?>
+
+
+
+<?php
+	//require_once("imports/RequestorNavBar.php");
+
+
+	if(isset($_SESSION["userStatus"]) && isset($_SESSION["userType"])){
+		$status = $_SESSION["userStatus"];
+		$userType = $_SESSION["userType"];
+		echo $status;
+
+		if($status === "not verified" || $status === "Declined"){
+			header("location: NotVerifiedMessage.php?msg=Not verified yet");
+
+		}else{
+			if($userType === "Requestor"){
+				require_once("imports/RequestorNavBar.php");
+			} else{
+				header("location: Responder_RequestBoard.php?msg=Not a Responder!");
+			}
+
+		}
+
+
+	}
+
+?>
+
+
 
 <?php
     date_default_timezone_set("Asia/Manila");

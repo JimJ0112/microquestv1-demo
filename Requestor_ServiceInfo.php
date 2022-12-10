@@ -30,6 +30,7 @@ session_start();
 <div class="containerback">
 <!-- NavBar-->
 <?php
+/*
 	if(isset($_SESSION["userType"])){
 		$userType = $_SESSION["userType"];
 		if($userType === "Responder"){
@@ -40,6 +41,33 @@ session_start();
 
 		}
 	}
+*/
+?>
+
+<?php
+	//require_once("imports/RequestorNavBar.php");
+
+
+	if(isset($_SESSION["userStatus"]) && isset($_SESSION["userType"])){
+		$status = $_SESSION["userStatus"];
+		$userType = $_SESSION["userType"];
+		echo $status;
+
+		if($status === "not verified" || $status === "Declined"){
+			header("location: NotVerifiedMessage.php?msg=Not verified yet");
+
+		}else{
+			if($userType === "Requestor"){
+				require_once("imports/RequestorNavBar.php");
+			} else{
+				header("location: Responder_RequestBoard.php?msg=Not a Responder!");
+			}
+
+		}
+
+
+	}
+
 ?>
 
 

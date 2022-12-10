@@ -41,10 +41,35 @@ session_start();
 
 <!--<body onload="getServices()" id="Responder_CreateServiceBackground"> -->
 <body id="Responder_CreateServiceBackground"> 
+
     <?php
-                require_once("imports/ResponderNavBar.php");
+         //require_once("imports/ResponderNavBar.php");
     ?>
-<img src="img/b.jpg" id="BodyBackgroundImg"/>
+
+<?php
+	//require_once("imports/ResponderNavBar.php");
+
+	if(isset($_SESSION["userStatus"]) && isset($_SESSION["userType"])){
+		$status = $_SESSION["userStatus"];
+		$userType = $_SESSION["userType"];
+
+		echo $status;
+
+		if($status === "not verified" || $status === "Declined"){
+			header("location: NotVerifiedMessage.php?msg=Not Verified yet");
+
+		}else{
+			if($userType === "Responder"){
+				require_once("imports/ResponderNavBar.php");
+			} else{
+				header("location: Requestor_AvailableServices.php?msg=Not a Responder!");
+			}
+
+		}
+
+
+	}
+?>
 
 
 <script>otherPosition(); </script>
