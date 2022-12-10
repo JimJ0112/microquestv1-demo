@@ -336,6 +336,7 @@ td{border: none;}
     width: 80%;
     height: 90%;
     background-color: aliceblue;
+    display: grid;
 }
 
 #viewImage{
