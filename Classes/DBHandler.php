@@ -544,7 +544,7 @@ public function checkUserRestricted($tablename,$column,$condition,$column1,$cond
     if($resultCheck > 0){
        
 
-            while($row = mysqli_fetch_assoc($result)){
+            while($row = mysqli_fetch_array($result)){
                 
 
 

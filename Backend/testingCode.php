@@ -31,7 +31,7 @@ if($results !== "failed to fetch" || $results !== null ){
    $today =  date("Y-m-d"); 
 
 
- //  $restrictDate =  $results[0]['reportActionDate'];
+   $restrictDate =  $results[0]['reportActionDate'];
    //$restrictDate =  "2022-11-15";
 
    //$today = "2023-11-15";
