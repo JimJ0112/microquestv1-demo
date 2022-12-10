@@ -47,6 +47,17 @@ session_start();
 
 
                         <thead id="DashBoardContent_TableHead"> 
+                            <tr> 
+                                <td> Actions </td>
+                                <td> User </td>
+
+                                <td> Location </td>
+
+                                <td> Name </td>
+
+                                <td> ID provided </td>
+
+                            </tr>
                         </thead>
 
                         <tbody id="DashBoardContent_TableBody"> </tbody>

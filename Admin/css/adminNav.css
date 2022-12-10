@@ -87,11 +87,13 @@ a{
 	
 	
 } 
+/*
 b{
 	background-color: rgb(151, 59, 26);
 	padding: 10px;
 	border-radius: 10px;
 }
+*/
 
 #LogOutButton a:hover{
 	color: rgb(212, 166, 16);

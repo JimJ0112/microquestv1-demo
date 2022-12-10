@@ -26,7 +26,7 @@ function getResponders(){
 
                 var number = dataArray.length;
                 createUserElements(number);
-              //  setData(dataArray);
+                setData(dataArray);
 
         
 
@@ -77,7 +77,7 @@ function getRequestors(){
                 console.log(dataArray);
                 var number = dataArray.length;
                 createUserElements(number);
-               // setData(dataArray);
+                setData(dataArray);
 
 
         
@@ -236,8 +236,8 @@ function createUserElements(Number){
     
     
 } // end of function
-
 */
+
 
 // create elements to be appended 
 
@@ -254,25 +254,9 @@ function createUserElements(Number){
     var tr = document.createElement('tr');
 
 
-    var userPhotoTD = document.createElement('td');
-    // firstname, lastname
-    var nameTD = document.createElement('td');
-
-    // birthday, sex
-    var Birthday = document.createElement('td');
-    var Gender = document.createElement('td');
-
-    var location = document.createElement('td');
-
-    // userID, username,email 
+    var generalInfo = document.createElement('td');
+    var locationTD = document.createElement('td');
     var accountInfo = document.createElement('td');
-    var userType = document.createElement('td');
-
-    var specialization = document.createElement('td');
-
-    var userIDPhotoTD = document.createElement('td');
-    // id type, id exp, id number
-
     var userIDInfo = document.createElement('td');
 
 
@@ -292,25 +276,10 @@ function createUserElements(Number){
 
    // set attributes
 
-   userPhotoTD.setAttribute("class","userPhotoTD");
-
-   nameTD.setAttribute("class","nameTD");
-
-   
-   Birthday.setAttribute("class","Birthday");
-
-   Gender.setAttribute("class","Gender");
-
-   location.setAttribute("class","location");
-
- 
-   accountInfo.setAttribute("class"," accountInfo");
-   userType.setAttribute("class","userType");
-
-   specialization.setAttribute("class","specialization");
-
-   userIDPhotoTD.setAttribute("class","userIDPhotoTD");
    userIDInfo.setAttribute("class","userIDInfo");
+   locationTD.setAttribute("class","location");
+   generalInfo.setAttribute("class","generalInfo");
+   accountInfo.setAttribute("class","accountInfo");
 
    userControls.setAttribute("class","userControls");
    acceptButton.setAttribute("class","acceptButton");
@@ -320,35 +289,13 @@ function createUserElements(Number){
 
 
    // append elements to the row
-
-   /*
    userControls.appendChild(acceptButton);
    userControls.appendChild(cancelButton);
    tr.appendChild(userControls);
-   tr.appendChild(userPhotoTD);
    tr.appendChild(accountInfo);
-   tr.appendChild(name);
+   tr.appendChild(locationTD);
    tr.appendChild(generalInfo);
-   tr.appendChild(location);
-   tr.appendChild(userIDPhotoTD);
    tr.appendChild(userIDInfo);
-*/
-
-
-    tr.appendChild(userPhotoTD)
-    tr.appendChild(accountInfo)
-    tr.appendChild(userType)
-    tr.appendChild(nameTD)
-    tr.appendChild(location)
-    tr.appendChild(Birthday)
-    tr.appendChild(Gender)
-   
-    tr.appendChild(specialization)
-
-    tr.appendChild(userIDPhotoTD)
-    tr.appendChild(userIDInfo)
-
-    tr.appendChild(userControls)
 
 
 
@@ -365,99 +312,6 @@ function createUserElements(Number){
 
 
 
-// set positions data 
-/*
-function setData(array){
-
-    var dataArray = array;
-    var number = dataArray.length;
-
-   // set attributes
-   baranggay= document.getElementsByClassName("baranggay");
-   birthDate= document.getElementsByClassName("birthDate");
-   education= document.getElementsByClassName("education");
-   firstName= document.getElementsByClassName("firstName");
-   houseNo= document.getElementsByClassName("houseNo");
-   idExpiration= document.getElementsByClassName("idExpiration");
-   idFile= document.getElementsByClassName("idFile");
- 
-   idNumber= document.getElementsByClassName("idNumber");
-   idType= document.getElementsByClassName("idType");
-   lastName= document.getElementsByClassName("lastName");
-   municipality= document.getElementsByClassName("municipality");
-   otherIDFile= document.getElementsByClassName("otherIDFile");
-   otherIDNumber= document.getElementsByClassName("otherIDNumber");
-   otherIDType= document.getElementsByClassName("otherIDType");
-   otheridExpiration= document.getElementsByClassName("otheridExpiration");
-   specialization= document.getElementsByClassName("specialization");
-   street= document.getElementsByClassName("street");
-   userEmail= document.getElementsByClassName("userEmail");
-   userGender= document.getElementsByClassName("userGender");
-   userID= document.getElementsByClassName("userID");
-   userName= document.getElementsByClassName("userName");
-   userPhoto= document.getElementsByClassName("userPhoto");
-   userType= document.getElementsByClassName("userType");
-   acceptButton= document.getElementsByClassName("acceptButton");
-   cancelButton= document.getElementsByClassName("cancelButton");
-
-
-
-    for(var i = 0; i<number;i++){
-        
-        
-
-        var image = new Image();
-        image.src = dataArray[i]['userPhoto'];
-
-        image.setAttribute('class','userPhotoImage');
-        image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
-        userPhoto[i].appendChild(image);
-
-        var idFileImage = new Image();
-        idFileImage.src = dataArray[i]["idFile"];
-        idFileImage.setAttribute('class','idFileImage');
-        image.setAttribute('onerror',"this.src='img/laundry_servics.jpg'");
-        idFile[i].appendChild(idFileImage);
-
-        var otherIDFileImage = new Image();
-        otherIDFileImage.src = dataArray[i]["otherIDFile"];
-        otherIDFileImage.setAttribute('class','otherIDFileImage');
-        otherIDFileImage.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
-        otherIDFile[i].appendChild(otherIDFileImage);
-        
-
-
-        baranggay[i].innerText= dataArray[i]['baranggay']
-        birthDate[i].innerText= dataArray[i]['birthDate']
-        education[i].innerText= dataArray[i]['education']
-        firstName[i].innerText= dataArray[i]['firstName']
-        houseNo[i].innerText= dataArray[i]['houseNo']
-        idExpiration[i].innerText= dataArray[i]['idExpiration']
-        //idFile[i].innerText= dataArray[i]['userPhoto']
-      
-        idNumber[i].innerText= dataArray[i]['idNumber']
-        idType[i].innerText=dataArray[i]['idType']
-        lastName[i].innerText= dataArray[i]['lastName']
-        municipality[i].innerText= dataArray[i]['municipality']
-        //otherIDFile[i].innerText=dataArray[i]['userPhoto']
-        otherIDNumber[i].innerText= dataArray[i]['otherIDNumber']
-        otherIDType[i].innerText= dataArray[i]['otherIDType']
-        otheridExpiration[i].innerText= dataArray[i]['otheridExpiration']
-        specialization[i].innerText= dataArray[i]['specialization']
-        street[i].innerText= dataArray[i]['street']
-        userEmail[i].innerText= dataArray[i]['userEmail']
-        userGender[i].innerText= dataArray[i]['userGender']
-        userID[i].innerText= dataArray[i]['userID']
-        userName[i].innerText= dataArray[i]['userName']
-        //userPhoto[i].innerText= dataArray[i]['userPhoto']
-        userType[i].innerText= dataArray[i]['userType']
-        //acceptButton[i].innerText= dataArray[i]['acceptButton']
-        //cancelButton[i].innerText= dataArray[i]['userPhoto']
-    }
-
-}
-*/
-
 
 function setData(array){
 
@@ -465,17 +319,12 @@ function setData(array){
     var number = dataArray.length;
 
    // set attributes
-   userPhotoTD= document.getElementsByClassName("userPhotoTD");
-   nameTD= document.getElementsByClassName("nameTD");
-   Birthday= document.getElementsByClassName("Birthday");
-   Gender= document.getElementsByClassName("Gender");
-   location= document.getElementsByClassName("location");
-   accountInfo= document.getElementsByClassName("accountInfo");
-   userType= document.getElementsByClassName("userType");
-   specialization= document.getElementsByClassName("specialization");
-   userIDPhotoTD= document.getElementsByClassName("userIDPhotoTD");
+   
    userIDInfo= document.getElementsByClassName("userIDInfo");
-   userControls= document.getElementsByClassName("userControls");
+   locationTD= document.getElementsByClassName("location");
+   generalInfo= document.getElementsByClassName("generalInfo");
+   accountInfo= document.getElementsByClassName("accountInfo");
+
    
 
    acceptButton= document.getElementsByClassName("acceptButton");
@@ -485,36 +334,53 @@ function setData(array){
 
     for(var i = 0; i<number;i++){
         
-        
-        
+      
 
         var image = new Image();
         image.src = dataArray[i]['userPhoto'];
+
         image.setAttribute('class','userPhotoImage');
         image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
+        accountInfo[i].appendChild(image);
     
 
         var idFileImage = new Image();
         idFileImage.src = dataArray[i]["idFile"];
         idFileImage.setAttribute('class','idFileImage');
         image.setAttribute('onerror',"this.src='img/laundry_servics.jpg'");
+        userIDInfo[i].appendChild(idFileImage);
     
-        
 
  
    
         
-        nameTD[i].innerText = dataArray[i]['firstName'] +" "+  dataArray[i]['lastName'];
 
-        location[i].innerText =  dataArray[i]['houseNo'] +  dataArray[i]['street']+ dataArray[i]['baranggay'] + dataArray[i]['municipality'];
 
-        Birthday[i].innerHTML= dataArray[i]['birthDate'] 
-        Gender[i].innerHTML= dataArray[i]['userGender'];
+        locationTD[i].innerText=  dataArray[i]['houseNo'] +" "+  dataArray[i]['street']+" "+ dataArray[i]['baranggay'] +" "+ dataArray[i]['municipality'];
        
-        //userIDInfo[i].innerHTML = "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
+      
+     
+        generalInfo[i].innerHTML = " <b> Name: <b/>"+ dataArray[i]['firstName'] +" "+  dataArray[i]['lastName']; + "<br/> <b> Birth Date: <b/>" + dataArray[i]['birthDate'] + "<br/> <b> Education: <b/>" + dataArray[i]['education'] + " <b> Gender:  <b/>" + dataArray[i]['userGender'];
+       
+     
+       
+       userIDInfo[i].innerHTML = userIDInfo[i].innerHTML + "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
+      
+     
 
-       // accountInfo[i].innerHTML = "<b> User ID: </b> " +  dataArray[i]['userID'] +" <br/><b> Username: </b>" + dataArray[i]['userName'] + " <br/><b> User Email: </b>" + dataArray[i]['userEmail'] + " <br/><b> User Type: </b>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
-  
+        
+
+        accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<br/> <b> User ID: </b> " +  dataArray[i]['userID'] +" <br/>" + dataArray[i]['userName'] + " <br/>" + dataArray[i]['userEmail'] + " <br/>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
+       
+        if(dataArray[i]['userType'] === "Responder"){
+            acceptButton[i].setAttribute("onclick","acceptResponder(" + dataArray[i]['userID'] +")");
+            cancelButton[i].setAttribute("onclick","cancelResponder(" + dataArray[i]['userID'] +")");
+
+        }else{
+            acceptButton[i].setAttribute("onclick","acceptRequestor(" + dataArray[i]['userID'] +")");
+            cancelButton[i].setAttribute("onclick","cancelRequestor(" + dataArray[i]['userID'] +")");
+
+        }
 
     }
 
@@ -856,3 +722,198 @@ function reportSeeMore(reportID){
     location.href="ReportSummary.php?reportID="+reportID;
 
 }
+
+
+function acceptResponder(userID){
+    var userID = userID;
+    var status = "verified";
+    var query = "userID="+userID+"&status="+status;
+
+    if (confirm('Are you sure you want to accept this user?')) {
+    
+        var xmlhttp = new XMLHttpRequest();
+    
+
+
+
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+
+
+     
+            
+
+                var dataArray = this.response;
+
+                console.log(dataArray);
+                if(dataArray = 1){
+                    alert("success");
+                    location.href="approveResponders.php";
+                } else{
+                    alert("failed");
+                    location.href="approveResponders.php";
+
+                }
+
+
+
+     
+            }else{
+         
+      
+            }      
+        };
+    
+        xmlhttp.open("POST", "backend/UpdateRequestStatus.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(query);
+    }else{
+
+    }
+    
+}// end of function
+
+function cancelResponder(userID){
+    var userID = userID;
+    var status = "Declined";
+    var query = "userID="+userID+"&status="+status;
+    
+    if (confirm('Are you sure you want to decline this user?')) {
+
+        var xmlhttp = new XMLHttpRequest();
+    
+
+
+
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+
+
+     
+            
+
+                var dataArray = this.response;
+
+                console.log(dataArray);
+                if(dataArray = 1){
+                    alert("success");
+                    location.href="approveResponders.php";
+                } else{
+                    alert("failed");
+                    location.href="approveResponders.php";
+
+                }
+
+
+
+     
+            }else{
+         
+      
+            }      
+        };
+    
+        xmlhttp.open("POST", "backend/UpdateRequestStatus.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(query);
+    }else{
+
+    }
+    
+}// end of function
+
+function acceptRequestor(userID){
+    var userID = userID;
+    var status = "verified";
+    var query = "userID="+userID+"&status="+status;
+    
+    if (confirm('Are you sure you want to accept this user?')) {
+        var xmlhttp = new XMLHttpRequest();
+    
+
+
+
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+
+
+     
+            
+
+                var dataArray = this.response;
+
+                console.log(dataArray);
+                if(dataArray =1){
+                    alert("success");
+                    location.href="approveRequestors.php";
+                } else{
+                    alert("failed");
+                    location.href="approveRequestors.php";
+
+                }
+
+
+
+     
+            }else{
+         
+      
+            }      
+        };
+    
+        xmlhttp.open("POST", "backend/UpdateRequestStatus.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(query);
+    }else{
+
+    }
+    
+}// end of function
+
+function cancelRequestor(userID){
+    var userID = userID;
+    var status = "Declined";
+    var query = "userID="+userID+"&status="+status;
+    
+    if (confirm('Are you sure you want to decline this user?')) {
+
+    var xmlhttp = new XMLHttpRequest();
+    
+
+
+
+        xmlhttp.onload = function() {
+                if (this.readyState === 4 || this.status === 200){ 
+
+
+     
+            
+
+                var dataArray = this.response;
+
+                console.log(dataArray);
+                if(dataArray = 1){
+                    alert("success");
+                    location.href="approveResponders.php";
+                } else{
+                    alert("failed");
+                    location.href="approveResponders.php";
+
+                }
+
+
+
+     
+            }else{
+         
+      
+            }      
+        };
+    
+    xmlhttp.open("POST", "backend/UpdateRequestStatus.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+    }else{
+
+    }
+}// end of function
