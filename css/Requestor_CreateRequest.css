@@ -439,3 +439,20 @@ color: white;
     width: 100%;
     color: #ff9600;
 }
+
+@media (min-width: 220px) and (max-width:555px){
+	#Requestor_CreateRequestMain{
+		zoom: 70%;
+		margin: auto;
+		width: 100%;
+	}
+	#TransactionsNav{
+		display: none;
+	}
+	#regularRequestForm{
+		width: 100%;
+	}
+	#otherCategoriesRequestForm{
+		width: 100%;
+	}
+}
