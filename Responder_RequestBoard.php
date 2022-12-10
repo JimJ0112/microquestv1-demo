@@ -85,7 +85,8 @@ session_start();
 		echo $status;
 
 		if($status === "not verified" || $status === "Declined"){
-			require_once("imports/GuestNavBar.php");
+			header("location: NotVerifiedMessage.php?msg=Not a Responder!");
+
 		}else{
 			if($userType === "Responder"){
 				require_once("imports/ResponderNavBar.php");
