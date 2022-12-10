@@ -453,10 +453,10 @@ function setData(array){
     for(var i = 0; i<number;i++){
         
         
+        /*
 
         var image = new Image();
         image.src = dataArray[i]['userPhoto'];
-
         image.setAttribute('class','userPhotoImage');
         image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
     
@@ -466,6 +466,7 @@ function setData(array){
         idFileImage.setAttribute('class','idFileImage');
         image.setAttribute('onerror',"this.src='img/laundry_servics.jpg'");
     
+        */
 
  
    
