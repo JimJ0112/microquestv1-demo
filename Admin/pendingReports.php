@@ -117,6 +117,18 @@ session_start();
     </form>
 </div>
 
+
+<div id="viewImageBack">
+    <div id="viewImageForm"> 
+        <div id="closeButton" onclick="closeForms()"> ✕ </div>
+        <img id="viewImage"> 
+
+
+    </div> 
+
+
+</div>
+
     <script>getAllReports() </script>
     <script src="js/navbar.js"> </script>
 </body>
