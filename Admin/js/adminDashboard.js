@@ -512,10 +512,16 @@ function createReportElements(Number){
   button2.setAttribute("class","Suspend");
   button2.innerText = "Restrict";
 
+  
+  var button3 = document.createElement('button');
+  button3.setAttribute("class","Decline");
+  button3.innerText = "Decline";
+
    // append elements to the row
    Actions.appendChild(button);
    Actions.appendChild(button1);
    Actions.appendChild(button2);
+   Actions.appendChild(button3);
 
    tr.appendChild(Actions);
    tr.appendChild(reportID);
@@ -558,6 +564,7 @@ function setReportData(array){
    var Suspend= document.getElementsByClassName("Suspend");
    var sendNotification= document.getElementsByClassName("sendNotification") 
    var reportSeeMore = document.getElementsByClassName("reportSeeMore");
+   var Decline = document.getElementsByClassName("Decline");
    
    var reportCategory = document.getElementsByClassName("reportCategory");
    var reportDate= document.getElementsByClassName("reportDate");
@@ -606,7 +613,7 @@ function setReportData(array){
         sendNotification[i].setAttribute("onclick","notifUserForm(" + dataArray[i]['reportedAccountID'] + ")");
         Suspend[i].setAttribute("onclick","restrictUserForm(" +dataArray[i]['reportID']+ ")" );
 
-        
+        Decline[i].setAttribute("onclick","declineReport(" +dataArray[i]['reportID'] + ")" );
 
 
     }
@@ -920,3 +927,54 @@ function cancelRequestor(userID){
 
     }
 }// end of function
+
+
+
+function declineReport(reportID){
+    var reportID = reportID;
+    var status = "Declined";
+    var query = "reportID="+reportID+"&status="+status;
+    
+    if (confirm('Are you sure you want to decline this report?')) {
+
+    var xmlhttp = new XMLHttpRequest();
+    
+
+
+
+        xmlhttp.onload = function() {
+                if (this.readyState === 4 || this.status === 200){ 
+
+
+     
+            
+
+                var dataArray = this.response;
+
+                console.log(dataArray);
+                if(dataArray = 1){
+                    alert("success");
+                    location.href="pendingReports.php";
+                } else{
+                    alert("failed");
+                    location.href="pendingReports.php";
+
+                }
+
+
+
+     
+            }else{
+         
+      
+            }      
+        };
+    
+    xmlhttp.open("POST", "backend/UpdateReportStatus.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+    }else{
+
+    }
+
+}
