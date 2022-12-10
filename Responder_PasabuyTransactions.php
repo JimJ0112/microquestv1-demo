@@ -74,7 +74,7 @@
 	<div class="grid-container" id="TransactionsNav">
 		  <div id="TransactionTypeTd" class="grid-item">
 			<div id="TransactionTypeDropDown">
-				Requests
+				Pasabuy
 			</div>
 		</div>
 
