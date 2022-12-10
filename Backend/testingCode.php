@@ -24,14 +24,18 @@ if($results !== "failed to fetch" || $results !== null ){
 
    print_r($results);
    
-   $restrictDuration =  $results[0]['restrictDuration'];
+  // $restrictDuration =  $results[0]['restrictDuration'];
+   $restrictDuration =  $results[11];
+
 
     
    date_default_timezone_set("Asia/Manila");
    $today =  date("Y-m-d"); 
 
 
-   $restrictDate =  $results[0]['reportActionDate'];
+ //  $restrictDate =  $results[0]['reportActionDate'];
+  $restrictDate =  $results[10];
+
 
    //$restrictDate =  "2022-11-15";
 
