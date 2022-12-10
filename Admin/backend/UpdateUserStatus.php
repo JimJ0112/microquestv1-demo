@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include "../Classes/DBHandler.php";
+include "../classes/DBHandler.php";
 
 $DBHandler = new DBHandler();
 
