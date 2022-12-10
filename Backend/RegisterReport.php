@@ -46,15 +46,15 @@ if(isset($_SESSION["userType"])){
 
     if($userType === "Responder"){
 
-        header("location:../Requestor_ServiceTransactions.php");
+        header("location:../Requestor_ServiceTransactions.php?msg=Report Sent!");
 
     } else if($userType === "Requestor"){
 
-        header("location:../Responder_ServiceTransactions.php");
+        header("location:../Responder_ServiceTransactions.php?msg=Report Sent!");
 
     }
 }else{
-    header("location:../Messages.php");
+    header("location:../Messages.php?msg=Report Sent!");
 
 }
 

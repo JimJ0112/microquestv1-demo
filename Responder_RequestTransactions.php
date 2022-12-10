@@ -151,6 +151,7 @@
 			
 			<input type="hidden" id="ReportedAccountID" name="ReportedAccountID"/>
 			<input type="hidden" id="ReporterAccountID" name="ReporterAccountID" value="<?php echo $userID;?>"/>
+			
 
 			
 

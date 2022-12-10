@@ -72,9 +72,12 @@ $result = $DBHandler->sendNotifs($requestorID,$notifType,$notifMessage,$notifica
 $result1 = $DBHandler->sendNotifs($responderID,$notifType,$notifMessage,$notificationDate);
 
 $updateStatus = $_POST['update'];
+
 if($updateStatus === "completed"){
+
     $RequestID= $DBHandler ->getData("transactions","transactionID",$conditionvalue,"requestID");
     $updateRequestStatus = $DBHandler->completeRequestStatus($requestID);
+
 }else{
     
 }
