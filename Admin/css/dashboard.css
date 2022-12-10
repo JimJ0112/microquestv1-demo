@@ -338,6 +338,7 @@ td{border: none;}
     height: fit-content;
     background-color: aliceblue;
     overflow: hidden;
+    display:block;
     
  
 }
@@ -348,4 +349,5 @@ td{border: none;}
     object-fit: contain;
     border: 1px solid rgba(128, 128, 128, 0.31);
     margin:auto;
+    display:block;
 }
