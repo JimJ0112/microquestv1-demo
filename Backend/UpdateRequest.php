@@ -57,6 +57,23 @@ if(isset($_POST['updateTitle'])){
 
 }
 
+// /updateStatus
+
+$column = "requestStatus";
+echo $name = $_POST['updateStatus'];
+
+echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
+
+
+if(isset($_POST['updateStatus'])){
+    $column = "requestStatus";
+    echo $name = $_POST['updateStatus'];
+    echo $result = $DBHandler -> updateColumn($tablename,$column,$name,$condition,$conditionvalue);
+    
+}else{
+
+}
+
 
 // $query = "UPDATE $tablename SET $column = '$name' WHERE $condition = '$conditionvalue' ";
 

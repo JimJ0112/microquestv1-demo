@@ -309,6 +309,25 @@ public function serviceExists($tablename,$userID,$service){
     $userID = mysqli_real_escape_string($this->dbconnection, $userID);
     $service = mysqli_real_escape_string($this->dbconnection, $service);
 
+    $query = "SELECT * FROM $tablename WHERE servicePosition = '$service' AND responderID = $userID";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+
+
+    if($resultCheck > 0){
+        return true;
+    } else {
+        return false;
+    }
+  
+}
+
+public function servicePasabuyExists($tablename,$userID,$service){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $userID = mysqli_real_escape_string($this->dbconnection, $userID);
+    $service = mysqli_real_escape_string($this->dbconnection, $service);
+
     $query = "SELECT * FROM $tablename WHERE serviceCategory = '$service' AND responderID = $userID";
 
     $result = mysqli_query($this->dbconnection, $query);
@@ -3769,15 +3788,16 @@ public function updateSenderReciever($userID,$myID){
 }
 
 
-public function updateMyService($serviceID,$category,$position,$rate){
+public function updateMyService($serviceID,$category,$position,$rate,$Status){
     $tablename = "servicesinfo";
     $serviceID = mysqli_real_escape_string($this->dbconnection, $serviceID);
     $category = mysqli_real_escape_string($this->dbconnection, $category);
     $position = mysqli_real_escape_string($this->dbconnection, $position);
     $rate = mysqli_real_escape_string($this->dbconnection, $rate);
+    $Status  = mysqli_real_escape_string($this->dbconnection, $Status);
  
 
-    $query = "UPDATE $tablename SET serviceCategory = '$category', servicePosition = '$position', rate = $rate WHERE serviceID = $serviceID;";
+    $query = "UPDATE $tablename SET serviceCategory = '$category', servicePosition = '$position', rate = $rate , serviceStatus = '$Status'  WHERE serviceID = $serviceID;";
 
     $result = mysqli_query($this->dbconnection, $query) or die(mysqli_error($this->dbconnection));
         

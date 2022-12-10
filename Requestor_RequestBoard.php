@@ -166,6 +166,17 @@ session_start();
 			</tr>
 
 			<tr>
+				<td class="col- tdleft">
+					<span> Status </span>
+				</td>
+
+				<td class="col- tdright">
+					<input type="radio" name="updateStatus" id="updateStatus" class="col- UpdateRequests-Input" value="Active" checked="checked" Required/> Active
+					<input type="radio" name="updateStatus"  class="col- UpdateRequests-Input" value="Delisted"/> Delisted
+				</td>
+			</tr>
+
+			<tr>
 				<td>
 
 				</td>

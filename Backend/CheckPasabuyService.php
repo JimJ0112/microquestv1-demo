@@ -10,7 +10,7 @@ $userID = $_POST['userID'];
 //$userID = 11;
 
 
-$pasabuy = $DBHandler->serviceExists('servicesinfo',$userID,'Pasabuy');
+$pasabuy = $DBHandler->servicePasabuyExists('servicesinfo',$userID,'Pasabuy');
 
 
 if($pasabuy){

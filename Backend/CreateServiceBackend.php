@@ -4,50 +4,40 @@ include "../Classes/DBHandler.php";
 
 $DBHandler = new DBHandler();
 
-	
-
-
-
-if(isset($_POST["formType"])){
-    $formType = $_POST["formType"];
-
     $responderID = $_POST["responderID"];
-    $serviceCategory= $_POST["serviceCategory"]; 
-    $servicePosition=$_POST["servicePosition"];
-    $rate = $_POST["rate"];
-    $certification=$_POST["certification"];
+    $serviceName=$_POST["servicePosition"];
+    $AlreadyExists = $DBHandler->serviceExists("servicesInfo",$responderID,$serviceName);
 
-    if(is_uploaded_file($_FILES["certificateFile"]["tmp_name"])){
-        $certificateFile=file_get_contents($_FILES["certificateFile"]["tmp_name"]);
-    }else{
-        $certificateFile = "none";
-    }
-    
+    if($AlreadyExists){
+        header("location:../Responder_CreateService.php?msg= You have already Offered this service! ");
+    } else{
 
     
-    /*
-    if($servicePosition ==="Other" || $servicePosition === "other"){
-            
-           
-        $servicePosition = $_POST['otherServicePosition'];
-        $bannerImage = file_get_contents($_FILES['bannerImage']["tmp_name"]);
-        
-        echo $servicePosition;
-        //echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile);
-        
-    }else{
 
+
+
+    if(isset($_POST["formType"])){
+        $formType = $_POST["formType"];
+
+        $responderID = $_POST["responderID"];
+        $serviceCategory= $_POST["serviceCategory"]; 
         $servicePosition=$_POST["servicePosition"];
-        $bannerImage = "";
-        //echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile);
-        echo $servicePosition;
-    }
+        $rate = $_POST["rate"];
+        $certification=$_POST["certification"];
 
-    */
+        if(is_uploaded_file($_FILES["certificateFile"]["tmp_name"])){
+            $certificateFile=file_get_contents($_FILES["certificateFile"]["tmp_name"]);
+        }else{
+            $certificateFile = "none";
+        }
     
-    if($formType === "regularServices"){
 
-        if($servicePosition ==="Other"){
+    
+
+    
+        if($formType === "regularServices"){
+
+            if($servicePosition ==="Other"){
             
            
             $servicePosition = $_POST['otherServicePosition'];
@@ -120,36 +110,8 @@ if(isset($_POST["formType"])){
         header("location:../Responder_MyServices.php");
 
 
-}
+    }
 
 
  
-/*
-
-//<!-- For Pasabuy -->
-$responderID = $_POST["responderID"];
-
-$serviceCategory= $_POST["serviceCategory"]; 
-
-$servicePosition=$_POST["servicePosition"];
-$rate = $_POST["rate"];
-$certification=$_POST["certification"];
-$certificateFile=$_POST["certificateFile"];
-  
-
-
-
-  
-
-//for other categories
-
-
-$responderID = $_POST["responderID"];
-
-$serviceCategory= $_POST["serviceCategory"]; 
-
-$servicePosition=$_POST["servicePosition"];
-$rate = $_POST["rate"];
-$certification=$_POST["certification"];
-$certificateFile=$_POST["certificateFile"];
-*/
+}

@@ -339,7 +339,9 @@
 					</td>
 
 					<td class="statusTD">
-						<input type="button" name="" id="ServiceFormStatus" required/>
+						 <input type="radio" value="Active" name="Status" class="serviceStatusRadio" required/> <label>  Active </label>
+						 <input type="radio" value="Delisted" name="Status" class="serviceStatusRadio"/> <label> Delisted <label>
+
 					</td>
 				</tr>
 

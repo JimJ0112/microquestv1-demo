@@ -338,13 +338,20 @@ function showServiceView(serviceID,serviceCategory,servicePosition,rate,certific
     ServiceFormPosition = document.getElementById("ServiceFormPosition");
     ServiceFormRate = document.getElementById("ServiceFormRate");
     //ServiceFormCertification = document.getElementById("ServiceFormCertification");
-    ServiceFormStatus = document.getElementById("ServiceFormStatus");
+   // ServiceFormStatus = document.getElementById("ServiceFormStatus");
+   serviceStatusRadio = document.getElementsByClassName('serviceStatusRadio');
 
     ServiceFormCategory.value = serviceCategory
     ServiceFormPosition.value = servicePosition;
     ServiceFormRate.value = rate;
     //ServiceFormCertification.value = certification;
-    ServiceFormStatus.value = serviceStatus;
+    //ServiceFormStatus.value = serviceStatus;
+
+    if(serviceStatus != "Active"){
+        serviceStatusRadio[1].checked = true;
+    } else {
+        serviceStatusRadio[0].checked = true;
+    }
     ServiceFormID.innerText = serviceID;
     serviceIDHidden.value = serviceID;
 
@@ -399,171 +406,3 @@ function closeEditMyService(){
 }
 
 
-// gets all services 
-function generatePasabuyButton(userID){
-    
-    var userID = userID;
-    var query = "userID="+userID;
-    
-    var xmlhttp = new XMLHttpRequest();
-    
-  
-
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState === 4 || this.status === 200){ 
-           
-            document.getElementById("AvailableServicesContainer_Content").innerHTML = "";
-            
-            //selectedCategory = document.getElementById("selectedCategory");
-  
-
-            var dataArray = this.response;
-                dataArray = JSON.parse(dataArray);
-                console.log(dataArray);
-
-                // positions(dataArray);
-                var number = dataArray.length;
-                createServiceElements(number);
-                setData(dataArray);
-
-            //console.log(positions(dataArray));
-
-           
-     
-        }else{
-            document.getElementById("AvailableServicesContainer_Content").innerHTML = "Loading..";
-
-        }      
-    };
-    
-    
-    xmlhttp.open("POST", "Backend/CheckPasabuyService.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send(query);
-    
-}// end of function
-
-
-
-// create elements to be appended when pasabuy exists
-function createPasabuyServiceElements(Number){
- 
-    DataNumber = Number + 1;
-    div = document.getElementById("AvailableServicesContainer_Content");
-   
-    
-    for(var i = 0;i<DataNumber;i++){
-    
-   // create elements for rows
-    var card = document.createElement('div');
-    var ServiceTitleBackground = document.createElement('div');
-    var serviceTitle = document.createElement('span');
-    var BannerContainer = document.createElement('div');
-    var br = document.createElement('br');
-    var servicePosition = document.createElement('p');
-    var serviceStatus= document.createElement('p');
-    var rate= document.createElement('p');
-    var ratings= document.createElement('p');
-    var infoDiv = document.createElement('div');
-   
-
-   // set attributes
-    card.setAttribute('class','AvailableService_Card');
-    ServiceTitleBackground.setAttribute('class','ServiceTitleBackground');
-    serviceTitle.setAttribute('class','serviceTitle');
-    BannerContainer.setAttribute('class','BannerContainer');
-    servicePosition.setAttribute('class','servicePosition');
-    serviceStatus.setAttribute('class','serviceStatus');
-    rate.setAttribute('class','rate');
-    ratings.setAttribute('class','ratings');
-    infoDiv.setAttribute('class','infoDiv');
-
-
-   // append elements to the row
-    ServiceTitleBackground.appendChild(serviceTitle);
-    card.appendChild(ServiceTitleBackground);
-    card.appendChild(BannerContainer);
-
-    infoDiv.appendChild(servicePosition);
-    infoDiv.appendChild(rate);
-    infoDiv.appendChild(ratings);
-    infoDiv.appendChild(serviceStatus);
-    card.appendChild(infoDiv);
-
-   
-
-
-    div.append(card);
-
-    } 
-    
-    
-} // end of function
-
-
-// set positions data 
-function setPasabuyServicesData(array){
-
-    var dataArray = array;
-    var number = dataArray.length;
-
-
-
-    var selectedCategory = sessionStorage.getItem("selectedCategory");
-    var BannerContainer = document.getElementsByClassName('BannerContainer');
-    var serviceTitle = document.getElementsByClassName('serviceTitle');
-    var serviceCard = document.getElementsByClassName("AvailableService_Card");
-
-    var servicePosition = document.getElementsByClassName('servicePosition');
-    var serviceStatus = document.getElementsByClassName('serviceStatus');
-    var rate = document.getElementsByClassName('rate');
-    var ratings = document.getElementsByClassName('ratings');
-
-    for(var i = 1; i<number;i++){
-        
-        serviceTitle[i].innerHTML = " <b>"+ dataArray[i]['serviceCategory'] +"</b>";
-        //serviceCard[i].setAttribute("onclick","selectCategory('" + dataArray[i]['serviceCategory'] + "')");
-
-        servicePosition[i].innerHTML = " <b> Position: </b> "+ dataArray[i]['servicePosition'];
-        serviceStatus[i].innerHTML = " <b>Status: </b> "+ dataArray[i]['serviceStatus'];
-        rate[i].innerHTML = " <b> Rate: Php </b>"+ dataArray[i]['rate'] + ".00";
-        ratings[i].innerHTML = " <b> Ratings: </b> 5.0 ⭐";
-        
-
-        var image = new Image();
-        image.src = dataArray[i]['bannerImage'];
-
-        image.setAttribute('class','ServiceBanner');
-        image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
-        BannerContainer[i].appendChild(image);
-
-
-        //"showServiceView(serviceID,serviceCategory,servicePosition,rate,certification,certificateFile,serviceStatus)
-        serviceCard[i].setAttribute("onclick","showServiceView("+dataArray[i]["serviceID"]+",'"+dataArray[i]["serviceCategory"]+"','"+dataArray[i]["servicePosition"]+"',"+dataArray[i]["rate"]+",'"+dataArray[i]["certification"]+"','"+dataArray[i]["certificationFile"]+"','"+dataArray[i]["serviceStatus"]+"')");
-        getAvailableResponderRatings(dataArray[i]["serviceID"],i);
-    
-    }
-
-
-    serviceTitle[0].innerHTML = " <b> Pasabuy </b>";
-    //serviceCard[i].setAttribute("onclick","selectCategory('" + dataArray[i]['serviceCategory'] + "')");
-
-    servicePosition[0].innerHTML = " <b> Position: </b> "+ dataArray[i]['servicePosition'];
-    serviceStatus[0].innerHTML = " <b>Status: </b> "+ dataArray[i]['serviceStatus'];
-    rate[0].innerHTML = " <b> Rate: Php </b>"+ dataArray[i]['rate'] + ".00";
-    ratings[0].innerHTML = " <b> Ratings: </b> 0.00 ⭐";
-    
-
-    var image1 = new Image();
-    image1.src = dataArray[i]['bannerImage'];
-
-    image1.setAttribute('class','ServiceBanner');
-    image1.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
-    BannerContainer[0].appendChild(image1);
-
-
-    //"showServiceView(serviceID,serviceCategory,servicePosition,rate,certification,certificateFile,serviceStatus)
-  
-   
-
-}

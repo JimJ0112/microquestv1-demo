@@ -10,7 +10,13 @@ session_start();
             header("location: User_Profile.php?msg= Not a Reponder");
         }
     }
+
+    if(isset($_GET['msg'])){
+        $msg = $_GET['msg'];
+        echo "<script> alert('$msg');</script> ";
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

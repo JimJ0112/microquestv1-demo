@@ -23,7 +23,8 @@ echo $rate= $_POST['rate'];
 echo $serviceID = $_POST['serviceID'];
 echo $category = $_POST['category'];
 echo $position = $_POST['position'];
+echo $Status = $_POST['Status'];
 
-echo $result = $DBHandler -> updateMyService($serviceID,$category,$position,$rate);
+echo $result = $DBHandler -> updateMyService($serviceID,$category,$position,$rate,$Status);
 header("location:../Responder_MyServices.php");
 

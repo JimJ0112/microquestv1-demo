@@ -97,13 +97,16 @@ function setData(array){
     var serviceTitle = document.getElementsByClassName('serviceTitle');
     var serviceCard = document.getElementsByClassName("serviceCard");
     var j = 1;
+
+    var myID = sessionStorage.getItem('myID');
+
     for(var i = 0; i<number;i++){
         
         
         serviceTitle[j].innerHTML = "<center> <b>"+ dataArray[i]['serviceCategory'] +"</b> </center>";
 
         serviceCard[j].setAttribute("onclick","setCategory('" + dataArray[i]['serviceCategory'] + "')");
-
+        //serviceCard[j].setAttribute("onclick","checkServiceExists(" + myID +',"'+dataArray[j]['serviceCategory']+'")');
 
         var image = new Image();
         //image.src = dataArray[i]['bannerImage'];
@@ -354,6 +357,7 @@ function getProducts(){
     
 }// end of function
 
+
 // gets data from php 
 function getPositions(name){
     var data = name;
@@ -469,3 +473,32 @@ function deSelectOthers(){
     otherServiceNavItem.style.backgroundColor = "transparent";
 
 }
+
+
+// for getting products for pasabuy
+function checkServiceExists(userID,category){
+   
+    userID = userID;
+    category = category;
+    query = "userID="+userID+"&category="+category;
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("POST", "Backend/CheckResponderServiceExists.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+
+            var dataArray = this.response;
+ 
+
+     
+        }else{
+            console.log(err);
+        }      
+    };
+    
+    xmlhttp.send(query);
+    
+}// end of function
