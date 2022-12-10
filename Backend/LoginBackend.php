@@ -37,7 +37,9 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     $condition1 = "Banned";
     echo $isBanned = $DBHandler->checkUserReported($tablename,$column,$condition,$column1,$condition1);
                       
-    
+    if($isBanned){
+        header("location: ../Login.php?msg=Your Account has been banned");
+    }
 
     // check if restricted
 
@@ -76,6 +78,8 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
             if($daysRemain > 0){
                 $isRestricted = true;
+                header("location: ../Login.php?msg=Your Account has been Restricted for $daysRemain days");
+
 
             } else{
                 $isRestricted = false;
