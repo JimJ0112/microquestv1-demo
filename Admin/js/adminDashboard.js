@@ -108,7 +108,7 @@ function getRequestors(){
 }// end of function
 
 
-
+/*
 // create elements to be appended 
 function createUserElements(Number){
  
@@ -237,7 +237,7 @@ function createUserElements(Number){
     
 } // end of function
 
-
+*/
 
 // create elements to be appended 
 
@@ -437,13 +437,13 @@ function setData(array){
 
 
 
-   userPhotoTD=document.getElementsByClassName("userPhotoTD");
-   nameTD=document.getElementsByClassName("nameTD");
-   userIDPhoto=TDdocument.getElementsByClassName(" userIDPhotoTD.");
+   userPhotoTD= document.getElementsByClassName("userPhotoTD");
+   nameTD = document.getElementsByClassName("nameTD");
+   userIDPhotoTD = document.getElementsByClassName(" userIDPhotoTD.");
    userIDInfo=document.getElementsByClassName("userIDInfo");
   
 
-   //userControls.setAttribute("class","userControls");
+   
 
    acceptButton= document.getElementsByClassName("acceptButton");
    cancelButton= document.getElementsByClassName("cancelButton");
@@ -470,19 +470,15 @@ function setData(array){
  
    
         
+        nameTD[i].innerText = dataArray[i]['firstName'] +" "+  dataArray[i]['lastName'];
 
+        location[i].innerText =  dataArray[i]['houseNo'] +  dataArray[i]['street']+ dataArray[i]['baranggay'] + dataArray[i]['municipality'];
 
-        location[i].innerHTML=  dataArray[i]['houseNo'] +  dataArray[i]['street']+ dataArray[i]['baranggay'] + dataArray[i]['municipality'];
+        generalInfo[i].innerHTML= "<b> Birth Date: <b/>" + dataArray[i]['birthDate'] + "<br/> <b> Education: <b/>" + dataArray[i]['education'] + " <b> Gender:  <b/>" + dataArray[i]['userGender'];
        
-      
-     
-        generalInfo[i].innerHTML= " <b> Name: <b/>"+ dataArray[i]['firstName'] +" "+  dataArray[i]['lastName']; + "<br/> <b> Birth Date: <b/>" + dataArray[i]['birthDate'] + "<br/> <b> Education: <b/>" + dataArray[i]['education'] + " <b> Gender:  <b/>" + dataArray[i]['userGender'];
-       
-     
-    
-       userIDInfo[i].innerHTML = "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
+        userIDInfo[i].innerHTML = "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
 
-       accountInfo[i].innerHTML = "<b> User ID: </b> " +  dataArray[i]['userID'] +" <br/><b> Username: </b>" + dataArray[i]['userName'] + " <br/><b> User Email: </b>" + dataArray[i]['userEmail'] + " <br/><b> User Type: </b>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
+        accountInfo[i].innerHTML = "<b> User ID: </b> " +  dataArray[i]['userID'] +" <br/><b> Username: </b>" + dataArray[i]['userName'] + " <br/><b> User Email: </b>" + dataArray[i]['userEmail'] + " <br/><b> User Type: </b>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
   
 
     }
