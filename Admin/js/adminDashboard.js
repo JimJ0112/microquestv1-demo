@@ -25,9 +25,8 @@ function getResponders(){
                 console.log(dataArray);
 
                 var number = dataArray.length;
-                console.log(number);
-                createUserElements(number);
-                setData(dataArray);
+                //createUserElements(number);
+               // setData(dataArray);
 
         
 

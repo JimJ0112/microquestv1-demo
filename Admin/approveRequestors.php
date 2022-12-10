@@ -33,8 +33,6 @@ session_start();
 
 
     <?php
-           
-
         require_once("imports/adminNav.php");
 
     ?>
@@ -49,7 +47,8 @@ session_start();
                         <thead id="DashBoardContent_TableHead"> 
                         </thead>
 
-                        <tbody id="DashBoardContent_TableBody"> </tbody>
+                        <tbody id="DashBoardContent_TableBody">
+                        </tbody>
 
                     </table>
 
