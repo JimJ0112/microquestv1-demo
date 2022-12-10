@@ -144,91 +144,73 @@
 		
 	</div>
 
-	<!-- productID	serviceID	responderID	requestorID	dateAssigned	quantity-->
 
-	<div id="addToCartFormBg"> 
-		<div id="addToCartFormDiv">
-			<div id="closeButton" onclick="closeForm('addToCartFormBg')" style="color:gray; filter: invert(0%);"> ✕ </div>
-			<br/><br/>
-			<form action="Backend/addToCart.php" method="post" id="addToCartForm"> 
-            	
-
-				<input type="hidden" name="productID" id="productID"/>
-				<input type="hidden" name="serviceID" id="serviceID"/>
-				<input type="hidden" name="responderID" id="responderID"/>
-				<input type="hidden" name="requestorID" id="requestorID" value="<?php echo $userID;?>"/>
-				<input type="hidden" name="dateAssigned" id="dateAssigned" value="<?php echo $today; ?>"/>
-
-				<img id="cartFormProductImage"> <br/>
-				<p id="cartFormProductName"> Name </p>
-
-				<h3> Enter Quantity </h3> <br/>
-				<span class="addminusButton" onclick="addQuantity()">&nbsp + &nbsp</span> 
-				<input type="number" name="quantity" min="1" max="99" id="quantity" onchange="quantityLimit()" value="1"/> 
-				<span class="addminusButton" onclick="subQuantity()">&nbsp - &nbsp</span> 
-				<br/><br/>
-				<input class="BuyButton" type="submit" value="Add to cart"/>
-
-			</form>
-		</div>
-	</div>
-
-
-
-
-	<div id="pasabuyOrderBack">
-
-		<div id="pasabuyOrderForm">
-
-			<form action="Backend/BuyItem.php" method="post"> 
-				<div id="closeButton" onclick="closeForm('pasabuyOrderBack')"> ✕ </div>
-		
-
-					<input type="hidden" name="productID" id="orderProductID"/>
-					<input type="hidden" name="serviceID" id="orderServiceID"/>
-					<input type="hidden" name="responderID" id="orderResponderID"/>
-					<input type="hidden" name="price" id="orderPrice"/>
-					<input type="hidden" name="requestorID" id="requestorID" value="<?php echo $userID;?>"/>
-					<input type="hidden" name="dateAssigned" id="dateAssigned" value="<?php echo $today; ?>"/>
-
-
-					<h3> Confirm Check Out </h3><br/>
-
-			
-					<img id="checkOutFormProductImage"> <br/>
-					<p id="checkOutFormProductName"> Name </p>
-
-						<h3> Enter Quantity </h3> <br/>
-
-						<span class="addminusButton" onclick="addQuantity1()">&nbsp + &nbsp</span> 
-						<input type="number" name="quantity" min="1" max="99" id="quantity1" onchange="quantityLimit()" value="1"/> 
-						<span class="addminusButton" onclick="subQuantity1()">&nbsp - &nbsp</span> 
-
-					<br/><br/> <br/> <br/>
-
-					<label> Expected Delivery Date: </label>
-
-					<input type="date" name="dueDate" min="<?php echo $today; ?>" value="<?php echo $today; ?>"> 
-					<br/><br/><br/>
-					<span> Total:  ₱ </span> <span id="totalPriceDisplay"> </span> 
-					<br/><br/>
-
-
-
-
-				<input class="buyButton" type="submit" value="Check Out" id="CheckOutButton"/>
-
-			</form>
-
-		</div> 
-
-</div>
 
 
 <?php
 	$myID = $_SESSION['userID'];
 	echo"<script> getProducts($myID) </script>";
 ?>
+
+
+<div id="updateProductFormBack">
+
+	<div id="productUpdateForm">
+		
+		<form method="post" action="Backend/" enctype="multipart/form-data"> 
+			<table id="myServiceViewForm"> 
+				<input type="hidden" name="productID" id="productIDHidden"/>
+				<tr> 
+					<td> Product Name </td>
+					<td>  
+						<input type="text" name="productName" id="productNameText" Required/>
+					</td>
+				</tr>
+
+				<tr> 
+					<td> Product Brand </td>
+					<td> 
+						<input type="text" name="productBrand" id="productBrandText" Required/>
+					</td>
+				</tr>
+
+				<tr> 
+					<td> Product Price </td>
+					<td> 
+						<input type="number" name="productPrice" id="productPriceText" placeholder="Php 0.00" Required/>
+					</td>
+				</tr>
+
+				<tr> 
+					<td> Delivery Price </td>
+					<td> 
+						<input type="number" name="productDeliveryPrice" id="productDeliveryPriceText" placeholder="Php 0.00" Required/>
+
+					</td>
+				</tr>
+
+				<tr> 
+					<td> Status </td>
+					<td> 
+						 <input type="radio" value="Available" name="productStatus" id="productStatus"/> Available
+						 <input type="radio" value="Not Available" name="productStatus" id="productStatus"/> Not Available
+
+					</td>
+				</tr>
+		
+			</table>
+
+			<input type="submit" value="Save"/>
+
+		</form>
+	</div>
+ 
+
+</div>
+
+
+
+
 
 <script src="js/Responder_myProducts.js"> </script>
 
