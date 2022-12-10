@@ -360,7 +360,7 @@ function setData(array){
        
       
      
-        generalInfo[i].innerHTML = " <b> Name: <b/>"+ dataArray[i]['firstName'] +" "+  dataArray[i]['lastName']; + "<br/> <b> Birth Date: <b/>" + dataArray[i]['birthDate'] + "<br/> <b> Education: <b/>" + dataArray[i]['education'] + " <b> Gender:  <b/>" + dataArray[i]['userGender'];
+        generalInfo[i].innerHTML =  dataArray[i]['firstName'] +" "+  dataArray[i]['lastName']; + "<br/> <b> Birth Date: <b/>" + dataArray[i]['birthDate'] + "<br/> <b> Education: <b/>" + dataArray[i]['education'] + " <b> Gender:  <b/>" + dataArray[i]['userGender'];
        
      
        
@@ -370,13 +370,16 @@ function setData(array){
 
         
 
-        accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<br/> <b> User ID: </b> " +  dataArray[i]['userID'] +" <br/>" + dataArray[i]['userName'] + " <br/>" + dataArray[i]['userEmail'] + " <br/>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
+        //accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<br/> <b> User ID: </b> " +  dataArray[i]['userID'] +" <br/>" + dataArray[i]['userName'] + " <br/>" + dataArray[i]['userEmail'] + " <br/>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
        
         if(dataArray[i]['userType'] === "Responder"){
+            accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<br/> <b> User ID: </b> " +  dataArray[i]['userID'] +" <br/>" + dataArray[i]['userName'] + " <br/>" + dataArray[i]['userEmail'] + " <br/>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
+
             acceptButton[i].setAttribute("onclick","acceptResponder(" + dataArray[i]['userID'] +")");
             cancelButton[i].setAttribute("onclick","cancelResponder(" + dataArray[i]['userID'] +")");
 
         }else{
+            accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<br/> <b> User ID: </b> " +  dataArray[i]['userID'] +" <br/>" + dataArray[i]['userName'] + " <br/>" + dataArray[i]['userEmail'] + " <br/>" + dataArray[i]['userType'];
             acceptButton[i].setAttribute("onclick","acceptRequestor(" + dataArray[i]['userID'] +")");
             cancelButton[i].setAttribute("onclick","cancelRequestor(" + dataArray[i]['userID'] +")");
 
