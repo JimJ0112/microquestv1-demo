@@ -41,7 +41,7 @@
 </head>
 <body id="Requestor_AvailableServicesBackground">
 
-<img src="img/b.jpg" id="BodyBackgroundImg"/>
+
 
 <!-- NavBar-->
 <?php
@@ -156,10 +156,10 @@
 <div id="updateProductFormBack">
 
 	<div id="productUpdateForm">
-		<div id="closeImage" class="closeButtonProduct" onclick="close()"> ✕ </div>
+		<div id="closeImage" class="closeButtonProduct" onclick="closeForm('updateProductFormBack')"> ✕ </div>
 
 		
-		<form method="post" action="Backend/" enctype="multipart/form-data"> 
+		<form method="post" action="Backend/UpdateProduct.php" enctype="multipart/form-data"> 
 			<table id="myProductViewTable"> 
 				<input type="hidden" name="productID" id="productIDHidden"/>
 				<tr> 
@@ -173,6 +173,13 @@
 					<td class="serviceFirstRow" > Product Brand </td>
 					<td class="serviceSecondRow"> 
 						<input type="text" name="productBrand" id="productBrandText" Required/>
+					</td>
+				</tr>
+
+				<tr> 
+					<td class="serviceFirstRow" > Description </td>
+					<td class="serviceSecondRow"> 
+						<input type="text" name="productDescription" id="productDescriptionText" Required/>
 					</td>
 				</tr>
 
@@ -194,8 +201,8 @@
 				<tr> 
 					<td class="serviceFirstRow" > Status </td>
 					<td class="serviceSecondRow"> 
-						 <input type="radio" value="Available" name="productStatus" id="productStatus" Required/> <label>  Available </label>
-						 <input type="radio" value="Not Available" name="productStatus" id="productStatus"/> <label> Not Available <label>
+						 <input type="radio" value="Available" name="productStatus" class="productStatus" Required/> <label>  Available </label>
+						 <input type="radio" value="Not Available" name="productStatus" class="productStatus"/> <label> Not Available <label>
 
 					</td>
 				</tr>

@@ -123,16 +123,12 @@ function setData(array){
         productPrice[i].innerText = "Price: Php "+ dataArray[i]['productPrice'] + ".00";
         deliveryRate[i].innerText = "Delivery price Php : "+ dataArray[i]['deliveryRate']+ ".00";
         itemStatus[i].innerText = "Status: "+ dataArray[i]['itemStatus'];
-       // responder[i].innerText = "Responder: " + dataArray[i]['userName'];
 
-        //setCartForm(productID,serviceID,responderID,ProductImage,ProductName)
-    
-        // /EditButton[i].setAttribute();
-        //addToCartButton[i].setAttribute("onclick","setCartForm("+dataArray[i]['productID']+","+dataArray[i]['servicesInfoID']+","+dataArray[i]['responderID']+",'" + dataArray[i]['productImage'] +"','" +dataArray[i]['productName']+"')");
-    
+        //id,name,brand,price,deliveryPrice,status
 
-       // BuyButton[i].setAttribute("onclick","setCheckOutForm("+dataArray[i]['productID']+","+dataArray[i]['servicesInfoID']+","+dataArray[i]['responderID']+",'" + dataArray[i]['productImage'] +"','" +dataArray[i]['productName']+"'," + dataArray[i]['productPrice']+")");
-        //setCheckOutForm(productID,serviceID,responderID,ProductImage,ProductName)
+        card[i].setAttribute("onclick","setEditProduct("  + dataArray[i]['productID'] + ',"' + dataArray[i]['productName'] + '","' + dataArray[i]['productBrand'] + '",' + dataArray[i]['productPrice'] + "," +dataArray[i]['deliveryRate'] + ',"' +dataArray[i]['itemStatus'] +'","' + dataArray[i]['productDescription']+ '")');
+
+
     }
 
 }
@@ -212,92 +208,11 @@ function productCategory(array){
 
 
 
-function closeServiceView(){
-    myServiceViewBack = document.getElementById("myServiceViewBack");
-    myServiceViewBack.style.display = "none";
-}
-
-
-function showServiceView(serviceID,serviceCategory,servicePosition,rate,certification,certificateFile,serviceStatus){
-
-    serviceIDViewContainer  = document.getElementById("serviceIDViewContainer");
-    serviceCategoryViewContainer = document.getElementById("serviceCategoryViewContainer");
-    servicePositionViewContainer = document.getElementById("servicePositionViewContainer");
-    rateViewContainer = document.getElementById("rateViewContainer");
-    certificationViewContainer = document.getElementById("certificationViewContainer");
-    certificateFileViewContainer = document.getElementById("certificateFileViewContainer");
-    serviceStatusViewContainer = document.getElementById("serviceStatusViewContainer");
-    myServiceViewEditButton = document.getElementById("myServiceViewEditButton");
-    serviceIDHidden = document.getElementById("serviceIDHidden");
-
-
-    myServiceViewBack = document.getElementById("myServiceViewBack");
-    myServiceViewForm = document.getElementById("myServiceViewForm");
-    myServiceViewTable = document.getElementById("myServiceViewTable");
-
-
-    
-    ServiceFormID = document.getElementById("ServiceFormID");
-    ServiceFormCategory = document.getElementById("ServiceFormCategory");
-    ServiceFormPosition = document.getElementById("ServiceFormPosition");
-    ServiceFormRate = document.getElementById("ServiceFormRate");
-    //ServiceFormCertification = document.getElementById("ServiceFormCertification");
-    ServiceFormStatus = document.getElementById("ServiceFormStatus");
-
-    ServiceFormCategory.value = serviceCategory
-    ServiceFormPosition.value = servicePosition;
-    ServiceFormRate.value = rate;
-    //ServiceFormCertification.value = certification;
-    ServiceFormStatus.value = serviceStatus;
-    ServiceFormID.innerText = serviceID;
-    serviceIDHidden.value = serviceID;
-
-    
-    serviceIDViewContainer.innerText  =  serviceID
-    serviceCategoryViewContainer.innerText =  serviceCategory
-    servicePositionViewContainer.innerText = servicePosition
-    rateViewContainer.innerText = rate
-    certificationViewContainer.innerText = certification
-    certificateFileViewContainer.innerText = certificateFile
-    serviceStatusViewContainer.innerText = serviceStatus
-
-    myServiceViewBack.style.display = "grid";
-    myServiceViewTable.style.display = "block";
-    myServiceViewForm.style.display = "none";
-    myServiceViewEditButton.innerText = "Edit";
 
 
 
-    
-}
-
-function editMyService(){
-    myServiceViewTable = document.getElementById("myServiceViewTable");
-    myServiceViewForm = document.getElementById("myServiceViewForm");
-    myServiceViewEditButton = document.getElementById("myServiceViewEditButton");
-
-    myServiceViewTable.style.display = "none";
-    myServiceViewForm.style.display = "block";
-    myServiceViewEditButton.innerText = "Cancel";
-    myServiceViewEditButton.style.backgroundColor="red";
-    myServiceViewEditButton.style.color="white";
-    myServiceViewEditButton.setAttribute("onclick","closeEditMyService()");
 
 
-}
-
-function closeEditMyService(){
-    myServiceViewTable = document.getElementById("myServiceViewTable");
-    myServiceViewForm = document.getElementById("myServiceViewForm");
-    myServiceViewEditButton = document.getElementById("myServiceViewEditButton");
-
-    myServiceViewTable.style.display = "block";
-    myServiceViewForm.style.display = "none";
-    myServiceViewEditButton.innerText = "Edit";
-    myServiceViewEditButton.setAttribute("onclick","editMyService()");
-    myServiceViewEditButton.style.backgroundColor="white";
-    myServiceViewEditButton.style.color="black";
-}
 
 
 
@@ -358,62 +273,6 @@ function closeForm(id){
 
 
 
-function setCartForm(productID,serviceID,responderID,ProductImage,ProductName){
-    var productID = productID;
-    var serviceID = serviceID;
-    var responderID = responderID;
-    var ProductImage = ProductImage;
-    var ProductName = ProductName;
-
-    var productIDEl = document.getElementById("productID");
-    var serviceIDEl = document.getElementById("serviceID");
-    var responderIDEl = document.getElementById("responderID");
-    var cartFormProductImage = document.getElementById("cartFormProductImage");
-    var cartFormProductName = document.getElementById("cartFormProductName");
-
-    productIDEl.value = productID;
-    serviceIDEl.value = serviceID;
-    responderIDEl.value = responderID;
-    cartFormProductImage.src = ProductImage;
-    cartFormProductName.innerText = ProductName;
-
-    document.getElementById("addToCartFormBg").style.display = "grid";
-
-}
-
-
-function setCheckOutForm(productID,serviceID,responderID,ProductImage,ProductName,Price){
-    var productID = productID;
-    var serviceID = serviceID;
-    var responderID = responderID;
-    var ProductImage = ProductImage;
-    var ProductName = ProductName;
-    var Price = Price;
-
-    var productIDEl = document.getElementById("orderProductID");
-    var serviceIDEl = document.getElementById("orderServiceID");
-    var responderIDEl = document.getElementById("orderResponderID");
-    var cartFormProductImage = document.getElementById("checkOutFormProductImage");
-    var cartFormProductName = document.getElementById("checkOutFormProductName");
-    var orderPrice = document.getElementById('orderPrice');
-    var totalPriceDisplay = document.getElementById('totalPriceDisplay');
-    var quantity1 = document.getElementById('quantity1');
-
-
-    productIDEl.value = productID;
-    serviceIDEl.value = serviceID;
-    responderIDEl.value = responderID;
-    orderPrice.value = Price;
-
-    cartFormProductImage.src = ProductImage;
-    cartFormProductName.innerText = ProductName;
-
-    totalPriceDisplay.innerText = parseInt(Price)*parseInt(quantity1);
-   
-
-    document.getElementById("pasabuyOrderBack").style.display = "grid";
-
-}
 
 function addQuantity1(){
     var quantity = document.getElementById("quantity1");
@@ -454,4 +313,52 @@ function setTotal(){
     
 
     totalPriceDisplay.innerText = parseInt(orderPrice)*parseInt(quantity1);
+}
+
+
+function setEditProduct(id,name,brand,price,deliveryPrice,status,description){
+    var name = name;
+    var brand = brand;
+    var price = price;
+    var deliveryPrice = deliveryPrice;
+    var status = status;
+    var id = id;
+    var description = description;
+
+    productIDHidden = document.getElementById('productIDHidden');
+    productNameText = document.getElementById('productNameText');
+    productBrandText = document.getElementById('productBrandText');
+    productPriceText = document.getElementById('productPriceText');
+    productDeliveryPriceText = document.getElementById('productDeliveryPriceText');
+    productStatus = document.getElementsByClassName('productStatus');
+    productDescriptionText = document.getElementById('productDescriptionText');
+
+    updateProductFormBack = document.getElementById('updateProductFormBack');
+
+    productIDHidden.value = "";
+    productNameText.value = "";
+    productBrandText.value = "";
+    productPriceText.value = "";
+    productDeliveryPriceText.value = "";
+    productDescriptionText.value = "";
+
+    productIDHidden.value = id;
+    productNameText.value = name;
+    productBrandText.value = brand;
+    productPriceText.value = price;
+    productDeliveryPriceText.value = deliveryPrice;
+    productDescriptionText.value = description;
+
+    if(status === "Not Available"){
+        productStatus[1].checked = true; 
+    }else{
+        productStatus[0].checked = true; 
+        
+    }
+    updateProductFormBack.style.display = "grid";
+
+
+
+
+
 }

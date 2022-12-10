@@ -177,8 +177,8 @@ text-decoration: none;
 
 .AvailableService-Card{
 	border: 5px solid rgb(255 69 0 / 84%);
-	width: 250px;
-	height: 250px;
+	width: 350px;
+	height: 350px;
 	padding: 5px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
@@ -194,13 +194,13 @@ text-decoration: none;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position-x: center;*/
-	border-radius: 50%;
+	/* border-radius: 50%; */
 }
 
 .AvailableService-Card:hover{
-	box-shadow: 1px 0px 20px #de923df0;
-    margin-bottom: 10px;
-    margin-top: 10px;
+	/* box-shadow: 1px 0px 20px #de923df0; */
+	/* margin-bottom: 10px; */
+	/* margin-top: 10px; */
 }
 
 .ServiceBanner{
@@ -210,8 +210,7 @@ text-decoration: none;
 	z-index: 4;
 	filter: brightness(30%);
 	cursor: pointer;
-	border-radius: 50%;
-	
+	/* border-radius: 50%; */
 }
 
 .ServiceBanner img{
@@ -256,7 +255,7 @@ cursor: pointer;
 	
 margin: auto;
 	
-margin-top: 50%;
+/* margin-top: 50%; */
 	
 border-radius: 5px;
 	
@@ -266,12 +265,10 @@ width: 120px;
 .ServiceTitleBackground{
 	position: absolute;
 	width: 100%;
-	height: 200px;
+	height: 100%;
 	pointer-events: auto;
 	display: grid;
 	text-align: center;
-	
-
 }
 
 .ServiceTitleBackground:hover{

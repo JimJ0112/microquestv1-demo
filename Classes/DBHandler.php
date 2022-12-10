@@ -3785,6 +3785,28 @@ public function updateMyService($serviceID,$category,$position,$rate){
     return $result;
 }
 
+
+public function updateMyProducts($productStatus,$productDeliveryPrice,$productPrice,$productBrand,$productName,$productID,$productDescription){
+    $tablename = "products";
+    $productName = mysqli_real_escape_string($this->dbconnection, $productName);
+    $productID = mysqli_real_escape_string($this->dbconnection, $productID);
+    $productBrand = mysqli_real_escape_string($this->dbconnection, $productBrand);
+    $productPrice = mysqli_real_escape_string($this->dbconnection, $productPrice);
+    $productDeliveryPrice = mysqli_real_escape_string($this->dbconnection, $productDeliveryPrice);
+    $productStatus = mysqli_real_escape_string($this->dbconnection, $productStatus);
+    $productDescription =  mysqli_real_escape_string($this->dbconnection,$productDescription);
+ 
+
+    $query = "UPDATE $tablename SET productName = '$productName', productBrand = '$productBrand', productPrice = $productPrice, deliveryRate = $productDeliveryPrice, itemStatus = '$productStatus',productDescription = ' $productDescription'   WHERE productID = $productID;";
+
+
+    $result = mysqli_query($this->dbconnection, $query);
+    echo mysqli_error($this->dbconnection);
+        
+  
+    return $result;
+}
+
 /*---------------------------------DELETE FUNCTIONS----------------------------------------------------- */
 
 // update columns 

@@ -14,7 +14,7 @@
 	<script src="js/NavBar.js"> </script>
 
 </head>
-<body onload="requestAndShowPermission()">
+<body onload="init()">
 
 
 <!-- NavBar-->

@@ -232,6 +232,8 @@ button {
     /* background-size: 100%; */
     padding: 0px 0px 160px 0px;
     color: orangered;
+    background-blend-mode: overlay;
+    background-color: #747272;
 }
 
 .bg-light {
@@ -294,7 +296,7 @@ button {
     width: 100%;
     text-align: center;
     margin: 0 auto;
-    background-color: #d0cfcfb8;
+    /* background-color: #d0cfcfb8; */
 }
 
 .menu_nav ul {
@@ -354,7 +356,7 @@ button {
     float: left;
     padding-bottom: 250px;
     /* color: orangered; */
-    background-color: #d0cfcfb8;
+    /* background-color: #d0cfcfb8; */
     height: 700;
 }
 
