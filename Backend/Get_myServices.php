@@ -12,7 +12,7 @@ $services = $DBHandler->getMyServices($tablename,$column,$condition);
 
 if($services === "failed to fetch"){
     echo $services;
-} else {
+} else {    
     echo json_encode($services);
 }
 
