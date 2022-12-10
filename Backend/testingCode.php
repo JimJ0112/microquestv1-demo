@@ -24,7 +24,7 @@ if($results !== "failed to fetch" || $results !== null ){
 
    var_dump($results);
    
- //  $restrictDuration =  $results[0]['restrictDuration'];
+   $restrictDuration =  $results[0]['restrictDuration'];
 
     
    date_default_timezone_set("Asia/Manila");
@@ -41,7 +41,7 @@ if($results !== "failed to fetch" || $results !== null ){
    $thisDate = new DateTime($today);
 
    $abs_diff = $thisDate->diff($restrictionStartDate)->format("%a"); //3
-   $restrictDuration;
+  
    echo $daysRemain =   $restrictDuration - $abs_diff;
 
     
