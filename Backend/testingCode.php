@@ -17,7 +17,7 @@ $condition1 = "Restricted";
 
 echo $results =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
 
-if($results !== "failed to fetch"){
+if($results !== "failed to fetch" || $results !== null ){
     $results = json_encode($results);
     $results = json_decode($results,true);
 
