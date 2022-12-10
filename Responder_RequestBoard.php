@@ -88,7 +88,7 @@ session_start();
 			require_once("imports/GuestNavBar.php");
 		}else{
 			if($userType === "Responder"){
-				//require_once("imports/ResponderNavBar.php");
+				require_once("imports/ResponderNavBar.php");
 			} else{
 				header("location: Requestor_AvailableServices.php?msg=Not a Responder!");
 			}

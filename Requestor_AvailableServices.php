@@ -56,7 +56,7 @@
 			require_once("imports/GuestNavBar.php");
 		}else{
 			if($userType === "Requestor"){
-				//require_once("imports/RequestorNavBar.php");
+				require_once("imports/RequestorNavBar.php");
 			} else{
 				header("location: Responder_RequestBoard.php?msg=Not a Responder!");
 			}
