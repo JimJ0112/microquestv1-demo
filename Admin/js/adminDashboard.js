@@ -446,16 +446,17 @@ function setData(array){
 
         location[i].innerText=  dataArray[i]['houseNo'] +  dataArray[i]['street']+ dataArray[i]['baranggay'] + dataArray[i]['municipality'];
        
-        var birthDate = dataArray[i]['birthDate']
-        var education = dataArray[i]['education']
-        var name =  dataArray[i]['firstName'] + dataArray[i]['lastName']
+        var birthDate = dataArray[i]['birthDate'];
+        var education = dataArray[i]['education'];
+        var name =  dataArray[i]['firstName'] + dataArray[i]['lastName'];
         var gender = dataArray[i]['userGender'];
      
         generalInfo[i].innerHTML = " <b> Name: <b/>"+ name + "<br/> <b> Birth Date: <b/>" + birthDate + "<br/> <b> Education: <b/>" + education + " <b> Gender:  <b/>" + gender;
        
      
        // userIDInfo[i].appendChild(idFileImage);
-        userIDInfo[i].innerHTML = userIDInfo[i].innerHTML + "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
+       // userIDInfo[i].innerHTML = userIDInfo[i].innerHTML + "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
+       userIDInfo[i].innerHTML = "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
 
        
      
@@ -470,7 +471,8 @@ function setData(array){
 
        // accountInfo.appendChild(image);
 
-        accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<b> User ID: </b> " +  userID +" <br/><b> Username: </b>" + userName + " <br/><b> User Email: </b>" + userEmail + " <br/><b> User Type: </b>" + userType + " <br/><b> Specialization: </b>" + specialization;
+        //accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<b> User ID: </b> " +  userID +" <br/><b> Username: </b>" + userName + " <br/><b> User Email: </b>" + userEmail + " <br/><b> User Type: </b>" + userType + " <br/><b> Specialization: </b>" + specialization;
+        accountInfo[i].innerHTML = "<b> User ID: </b> " +  userID +" <br/><b> Username: </b>" + userName + " <br/><b> User Email: </b>" + userEmail + " <br/><b> User Type: </b>" + userType + " <br/><b> Specialization: </b>" + specialization;
   
 
     }
