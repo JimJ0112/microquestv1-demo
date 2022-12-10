@@ -1537,7 +1537,7 @@ public function getMyServices($tablename,$column,$condition,$orderby = null){
     if(isset($orderby)){
         $query = "SELECT * FROM $tablename WHERE $column = '$condition' GROUP BY $orderby";
     }else{
-        $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceCategory != 'Pasabuy'";
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND serviceCategory != 'Pasabuy' ORDER BY serviceID";
     }
 
     $result = mysqli_query($this->dbconnection, $query);
