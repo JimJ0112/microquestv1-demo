@@ -32,7 +32,7 @@ body{
 
 #serviceInfoDivBg{
 	background-color: white;
-	width: 80%;
+	width: 70%;
 	/* min-height: 800px; */
 	height: 100%;
 	margin: auto;
@@ -45,22 +45,7 @@ body{
 	/* border-radius: 20px; */
 }
 
-#serviceInfoDiv{
-
-/* margin-top: 0; */
-
-/* position: relative; */
-
-width: 40%;
-
-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.167);
-
-height: 80%;
-
-/* overflow-y: scroll; */
-
-overflow: hidden;
-}
+#serviceInfoDiv{/* margin-top: 0; *//* position: relative; *//* width: 40%; */box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.167);height: 100%;overflow-y: scroll;overflow: hidden;display: grid;grid-template-rows: 1fr 4fr;}
 
 #serviceFeedbacksDiv{
 	background-color: rgb(133 133 133 / 40%);
@@ -69,7 +54,7 @@ overflow: hidden;
 	/* margin-top: 0; */
 	/* border-radius: 0px 0px 10px 10px; */
 	padding: 10px;
-	height: 90%;
+	height: 100%;
 	overflow-y: scroll;
 }
 
@@ -116,12 +101,15 @@ height: 100%;
 }
 
 #serviceInfo{
-	padding: 20px;
+	/* padding: 20px; */
 	/* margin-top: 5px; */
-	height: 10%;
+	/* height: 10%; */
 	/* border-radius: 10px 10px 0 0; */
 	/* background-size: cover; */
 	text-align: center;
+	background-color: white;
+	background-blend-mode: overlay;
+	color: orangered;
 }
 
 #serviceRatingsDiv{
@@ -135,7 +123,7 @@ height: 100%;
 	overflow: hidden;
 	/* text-overflow: ellipsis; */
 	/* text-align: center; */
-	margin-left: 45%;
+	/* margin-left: 45%; */
 }
 
 .reviewContainer-Content{

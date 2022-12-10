@@ -12,13 +12,13 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
     // password hashing 
     $dbPassword = $DBHandler ->getData("userprofile","userEmail",$email,"userPassword");
-    $dbPasswordUserName = $DBHandler ->getData("userprofile","userName",$email,"userPassword");
+   
 
   
 
 
     $exists = $DBHandler->exists("userprofile","userEmail",$email);
-    $existsUserName = $DBHandler->exists("userprofile","userName",$email);
+   
    
     if(!$exists){
         header("location: ../Login.php?msg=User does not exist");
@@ -45,11 +45,11 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     $condition1 = "Restricted";
 
 
-    $results =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
+    $isRestricted =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
 
     
     
-    if($results !== "failed to fetch"){
+    if($isRestricted !== "failed to fetch"){
         $results = json_encode($results);
         $results = json_decode($results,true);
 
