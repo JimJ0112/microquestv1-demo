@@ -50,12 +50,13 @@
 	if(isset($_SESSION["userStatus"]) && isset($_SESSION["userType"])){
 		$status = $_SESSION["userStatus"];
 		$userType = $_SESSION["userType"];
+		echo $status;
 
 		if($status === "not verified" || $status === "Declined"){
 			require_once("imports/GuestNavBar.php");
 		}else{
 			if($userType === "Requestor"){
-				require_once("imports/RequestorNavBar.php");
+				//require_once("imports/RequestorNavBar.php");
 			} else{
 				header("location: Responder_RequestBoard.php?msg=Not a Responder!");
 			}

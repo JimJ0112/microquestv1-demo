@@ -215,6 +215,9 @@ background-color: rgb(255 69 0);
 #send{
 	height: 40px;
 	width: 80px;
+	background-color: orangered;
+	cursor: pointer;
+	color: white;
 }
 #file{
 	height: 40px;	
@@ -306,17 +309,19 @@ background-color: rgb(255 69 0);
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.246);
-	display: grid;
-	align-content: center;
+	/* display: grid; */
+	/* align-content: center; */
 	z-index: 20;
 	display: none;
 }
 
 #messageSendPhoto{
-	width: 40%;
-	height: 500px;
+	width: fit-content;
+	height: fit-content;
 	background-color: white;
 	margin: auto;
+	align-content: center;
+	display: grid;
 }
 
 #closeImage{
@@ -324,6 +329,7 @@ background-color: rgb(255 69 0);
 	cursor: pointer;
 	font-weight: bolder;
 	z-index: 20;
+	margin-bottom: 50px;
 }
 
 #messageImageFileOutputContainer{
@@ -363,6 +369,22 @@ background-color: rgb(255 69 0);
 	display: grid;
 
 }
+
+form#messageSendPhotoForm {
+    margin: auto;
+    height: 100%;
+    padding: 100px;
+}
+
+center {
+    margin: auto;
+}
+
+input#messageSendPhotoBody {
+    font-size: x-large;
+    height: 50;
+}
+
 
 #viewImageBack{
 

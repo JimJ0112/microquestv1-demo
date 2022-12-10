@@ -82,11 +82,13 @@ session_start();
 		$status = $_SESSION["userStatus"];
 		$userType = $_SESSION["userType"];
 
+		echo $status;
+
 		if($status === "not verified" || $status === "Declined"){
 			require_once("imports/GuestNavBar.php");
 		}else{
 			if($userType === "Responder"){
-				require_once("imports/ResponderNavBar.php");
+				//require_once("imports/ResponderNavBar.php");
 			} else{
 				header("location: Requestor_AvailableServices.php?msg=Not a Responder!");
 			}
