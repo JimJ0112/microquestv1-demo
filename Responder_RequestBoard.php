@@ -76,7 +76,25 @@ session_start();
 <!-- NavBar-->
 
 <?php
-	require_once("imports/ResponderNavBar.php");
+	//require_once("imports/ResponderNavBar.php");
+
+	if(isset($_SESSION["userStatus"]) && isset($_SESSION["userType"])){
+		$status = $_SESSION["userStatus"];
+		$userType = $_SESSION["userType"];
+
+		if($status === "not verified"){
+			require_once("imports/GuestNavBar.php");
+		}else{
+			if($userType === "Responder"){
+				require_once("imports/ResponderNavBar.php");
+			} else{
+				header("location: Requestor_AvailableServices.php?msg=Not a Responder!");
+			}
+
+		}
+
+
+	}
 ?>
 
 <div id="RequestBoardContainer">

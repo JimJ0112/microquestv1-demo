@@ -31,43 +31,77 @@
 /*Responder_Transactions.html*/
 #TransactionsBackContainerBack{
 	
-width: 100%;
+	width: 100%;
 	
-height: 100%;
+	height: 100%;
 	
-position: absolute;
+	position: relative;
 	
-top: 120px;
+	top:110px;
 	
-background-color: rgb(243, 240, 240);
+	background-color: rgb(243, 240, 240);
+
 }
 
 #TransactionsContainer{
-	width: 70%;
-	height: 100%;
-	margin: 40px 0 0 20%;
-	background-color: white;
-	/* margin-top: 0; */
-	/* margin-bottom: 0; */
-	font-family: Arial, Helvetica, sans-serif;
-	text-align: center;
-	overflow-y: scroll;
+	
+/* border: solid 1px black; */
+	
+height: 780px;
+	
+margin: 40px 20px 0px 20%;
+	
+background-color: white;
+	
+/* margin-top: 0; */
+	
+/* margin-bottom: 0; */
+	
+font-family: Arial, Helvetica, sans-serif;
+	
+text-align: center;
+	
+table-layout: fixed;
+	
+width: 70%;
+	
+overflow: scroll;
+	
+font-size: medium;
+	
+border-collapse: collapse;
+	
+/* border-bottom: double; */
 }
 
 #TransactionsContainerThead{
-	color: gray;
+	color: #e95f0f;
 	padding: 10px;
-	font-size: small;
+	font-size: large;
+	/* font-stretch: expanded; */
+	font-weight: bold;
+	height: 100px;
 }
 
-#TransactionsContainerBody {
-    height: fit-content;
-    width: 100%;
-    overflow: scroll;
-    background-color: rgba(210, 202, 202, 0.184);
-    display: grid;
-    grid-row-gap: 10px;
-    /* border-collapse: collapse; */
+#TransactionsContainerBody td{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 5px;
+	font-size: medium;
+	border: 1px solid black;
+	border-spacing: 0px;
+	/* border-collapse: collapse; */
+}
+
+#TransactionsContainerBody{
+	height: fit-content;
+	width: 100%;
+	overflow: scroll;
+	background-color: rgba(210, 202, 202, 0.184);
+	display: grid;
+	grid-row-gap: 10px;
+	/* border-collapse: collapse; */
 }
 
 .contractAgreement{
@@ -75,63 +109,18 @@ background-color: rgb(243, 240, 240);
 	overflow: hidden;
 }
 
-#TransactionsNav {
-    width: 250px;
-    height: 650px;
-    margin: auto;
-    background-color: rgb(225, 223, 223);
-    /* margin: 0px 0px 0px 0px; */
-    /* overflow: hidden; */
-    /* padding: 5px; */
-    /* display: grid; */
-    position: absolute;
-    /* top: 0; */
-    margin-top: 40px;
+#TransactionsNav{
+	width: 250px;
+	height: 650px;
+	margin: auto;
+	background-color: rgb(225, 223, 223);
+	margin: 40px 0px 0px 20px;
+	/* overflow: hidden; */
+	/* padding: 5px; */
+	/* display: grid; */
+	position: absolute;
+	transition: 1.5s;
 }
-
-.grid-container {
-	display: grid;
-	background-color: #2196F3;
-	padding: 10px;
-	grid-template-rows: 20px 10px 10px 10px 10px 10px 10px;
-	row-gap: 40px;
-
-}
-
-.grid-item {
-	background-color: rgba(255, 255, 255, 0.8);
-	
-	padding: 10px;
-	font-size: medium;
-	text-align: center;
-	cursor: pointer;
-	display:flex;
-	height: 30px;
-
-	font-family: Arial, Helvetica, sans-serif;
-	
-	
-}
-
-.navIcon{
-	width: 30px;
-	height: 30px;
-	margin-right: 10px;
-	vertical-align:middle;
-	object-fit:contain;
-	
-}
-
-.sideNav-text{
-	vertical-align:bottom;	
-	
-}
-
-.grid-item:hover{
-	color: orangered;
-	
-}
-
 
 #TransactionsNav td{
 	display: inline;
@@ -170,8 +159,8 @@ background-color: rgb(243, 240, 240);
 
 #TransactionTypeTd{
 	/* margin-right: 100px; */
-	/* width: 500px; */
-	/* border-bottom: none; */
+	/* width: 100%; */
+	/* border: none; */
 	/* display: none; */
 	text-align: center;
 }
@@ -181,12 +170,13 @@ background-color: rgb(243, 240, 240);
 	border: none;
 	font-weight: bold;
 	font-size: larger;
-	width: 200px;
+	/* width: 200px; */
 	text-align: center;
-	height: 100%;
+	/* height: 100%; */
 	cursor: pointer;
+	width: 100%;
+	/* transition: 1s; */
 }
-
 /*
 td{
 	padding: 20px;
@@ -201,8 +191,7 @@ td{
 	font-family: Arial, Helvetica, sans-serif;
 	border: none;
 	margin: 5px;
-	padding: 10px;
-	border-radius: 10px;
+	padding: 5px;
 	cursor: pointer;
 	
 }
@@ -237,8 +226,7 @@ td{
 	font-family: Arial, Helvetica, sans-serif;
 	border: none;
 	margin: 5px;
-	padding: 10px;
-	border-radius: 10px;
+	padding: 5px;
 	cursor: pointer;
 }
 
@@ -265,6 +253,69 @@ td{
 }
 
 
+
+#paymentPopUpBack{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 999;
+	background-color: rgba(32, 32, 35, 0.378);
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+#paymentPopUp{
+	margin: auto;
+	background-color: white;
+	width: 35%;
+	height: 70%;
+	/* background-image: url("../img/coc-background.jpg"); */
+	/* border: 5px saddlebrown solid; */
+	border-radius: 5px;
+}
+
+#paymentPopUp input{
+	/* width: 30%; */
+	/* height: 30px; */
+	/* border-radius: 5px; */
+	/* font-size: 100%; */
+}
+
+#paymentPopUp input:hover{
+	/* width: 30%; */
+	/* height: 30px; */
+	/* border-radius: 5px; */
+	/* background-color: rgb(233, 154, 57); */
+	/* cursor: pointer; */
+}
+
+#paymentPopUp label {
+	background-color: white;
+	padding: 0.5rem;
+	font-family: sans-serif;
+	/* border-radius: 0.3rem; */
+	cursor: pointer;
+	margin-top: 1rem;
+	border: 1px solid black;
+	/* border-radius: 5px; */
+	}
+
+  #paymentPopUp label:hover {
+	background-color: rgb(233, 154, 57);
+	cursor: pointer;
+	margin-top: 1rem;
+  }
+
+
+#paymentFileOutput{
+	width: 250px;
+	height: 300px;
+	border: 1px solid black;
+	object-fit: contain;
+}
+
+
 #reportPopUpBack{
 	width: 100%;
 	height: 100%;
@@ -272,48 +323,30 @@ td{
 	z-index: 20;
 	background-color: rgba(32, 32, 35, 0.378);
 	top: 0;
+	left: 0;
 	display: grid;
 	align-content: center;
 	display: none;
-	
-	
 }
 
 #reportPopUp{
 	margin: auto;
-	background-color:wheat;
+	background-color: white;
 	width: 500px;
 	height: 700px;
 	overflow-y: scroll;
 	margin-top: 20px;
 	padding: 10px;
-	border: rgba(160, 104, 51, 0.849) solid 5px;
-	border-radius: 20px;
-
+	/* border: rgba(160, 104, 51, 0.849) solid 5px; */
+	border-radius: 5px;
 }
+
 
 #ReportedAccountProfile{
-	float: left;
-	left: 5%;
-	position: absolute;
-	width: 120px;
-	height: 120px;
-	border: 2px solid white;
-	object-fit: cover;
-	border-radius: 50%;
-	top: 12%;
-	padding: 3;
-}
-
-#reportHeader span{
-    font-size: 20px;
-    font-weight: bold;
-    text-align: left;
-    width: fit-content;
-    height: 20%;
-    float: left;
-    margin-left: 40%;
-    overflow: hidden;
+	width: 50px;
+	height: 50px;
+	border: 1px solid black;
+	object-fit: cover  ;
 }
 
 #reportProofOutputBackground{
@@ -339,13 +372,14 @@ td{
 
 #closeImage{
 	position: absolute;
-	right: 100px;
-	top: 5px;
+	right: 10px;
+	top: 15%;
 	cursor: pointer;
-	z-index: 18;
+	z-index: 20103;
 	color:rgb(7, 7, 7);
 	font-weight:bolder;
-	padding: 5px;
+	/* padding: 5px; */
+	float: right;
 }
 
 #closeImage:hover{
@@ -360,7 +394,6 @@ td{
 
 #otherReportType{
 	display: none;
-
 }
 
 .isReported{
@@ -371,17 +404,136 @@ td{
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 50px;
+	width: 10px;
 }
+
+
+
+/*Feedback */
+
+
+#giveFeedBackPopUpBack{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 20;
+	background-color: rgba(32, 32, 35, 0.378);
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+#giveFeedBackPopUp{
+	margin: auto;
+	/* background-image: url("../img/coc-background.jpg"); */
+	width: 30%;
+	height: 500px;
+	/* display: none; */
+	margin-top: 100px;
+	border: solid saddlebrown 3px;
+	border-radius: 20px;
+	background-color: white;
+}
+
+#feedbackInput{
+	resize: none;
+	margin: auto;
+	border-radius: 10px;
+}
+
+#ButtonsDivFeedback{
+	margin: auto;
+	width:fit-content;
+	height: fit-content;
+
+}
+
+#ButtonsDivFeedback input{
+	margin: auto;
+	width:fit-content;
+	/* height: 30px; */
+	border-radius: 5px;
+}
+
+#ButtonsDivFeedback input:hover{
+	/* margin: auto; */
+	/* width:fit-content; */
+	/* height: 30px; */
+	/* border-radius: 5px; */
+	/* background-color: rgb(233, 154, 57); */
+	/* cursor: pointer; */
+}
+
+
+
+.rate {
+	margin: auto;
+	
+	width:fit-content;
+	height: fit-content;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.rate:not(:checked) > input {
+   display: none;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: 'Ã¢Ëœâ€¦';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+
 
 #reportHeader{
 	height: 30%;
 	width: 100%;
-	background-image: url("../img/coc-background.jpg");
-	background-size: cover;
-	border-radius: 10px;
-	position: relative;
+	/* background-image: url("../img/coc-background.jpg"); */
+	/* background-size: cover; */
+	/* border-radius: 10px; */
+	background-color: rgb(188 181 179 / 28%);
 }
+
+
+
+#reportContent label {
+	background-color: white;
+	padding: 0.5rem;
+	font-family: sans-serif;
+	border-radius: 0.3rem;
+	cursor: pointer;
+	margin-top: 1rem;
+	border: 1px solid black;
+	border-radius: 5px;
+
+  }
+
+  #reportContent label:hover {
+	background-color: rgb(233, 154, 57);
+	cursor: pointer;
+	margin-top: 1rem;
+  }
 
 #reportType, #reportProof{
 	font-size: x-large;
@@ -396,14 +548,57 @@ td{
 	font-size: large;
 }
 
+#reportHeader span{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    width: fit-content;
+    height: 20%;
+    float: left;
+    margin-left: 40%;
+    overflow: hidden;
+}
+
+#ReportedAccountProfile{
+	float: left;
+    left: 38%;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 2px solid white;
+    object-fit: cover;
+    border-radius: 50%;
+	top: 12%;
+	padding: 3;
+}
+
+.additionalNotes{
+	width: 100;
+	
+	overflow: hidden;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	
+
+}
+.controlsTd{
+	width: fit-content;
+}
 
 
 .pasabuyTransactionRow{
 	height: 200px;
 	width: 100%;
 	margin: auto;
-	border-bottom: 1px solid black;
 	text-align: center;
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.103) outset;
+	border-bottom: 10px;
+
+}
+
+
+.pasabuyTransactionRow td{
+background-color: white;
 
 }
 
@@ -419,6 +614,8 @@ td{
 	height: 100px;
 	object-fit: contain;
 }
+
+
 
 .ActionsTR{
 
@@ -466,9 +663,258 @@ td{
 	border: none;
 	padding:10px;
 	border-radius: 10px;
-	cursor: pointer;
+}
+
+
+
+#pasabuyPaymentPopUpBack{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 20;
+	background-color: rgba(32, 32, 35, 0.378);
+	top: 0;
+	display: none;
+}
+
+#pasabuyPaymentPopUp{
+	margin: auto;
+    background-color: white;
+    width: 35%;
+    height: 70%;
+    background-image: url("../img/coc-background.jpg");
+    border: 5px saddlebrown solid;
+    border-radius: 20px;
+}
+
+#pasabuyPaymentPopUp input{
+	width: 30%;
+	height: 30px;
+	border-radius: 5px;
+	font-size: 100%;
 
 }
+
+#pasabuyPaymentPopUp input:hover{
+	width: 30%;
+	height: 30px;
+	border-radius: 5px;
+	background-color: rgb(233, 154, 57);
+	cursor: pointer;
+}
+
+#pasabuyPaymentPopUp label {
+	background-color: white;
+	padding: 0.5rem;
+	font-family: sans-serif;
+	border-radius: 0.3rem;
+	cursor: pointer;
+	margin-top: 1rem;
+	border: 1px solid black;
+	border-radius: 5px;
+
+  }
+
+  #pasabuyPaymentPopUp label:hover {
+	background-color: rgb(233, 154, 57);
+	cursor: pointer;
+	margin-top: 1rem;
+  }
+
+
+#pasabuyPaymentFileOutput{
+	width: 250px;
+	height: 300px;
+	border: 1px solid black;
+	object-fit: contain;
+}
+
+#pasabuyPaymentProof{
+
+}
+
+
+
+#pasabuyGiveFeedBackPopUpBack{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 20;
+	background-color: rgba(32, 32, 35, 0.378);
+	top: 0;
+	display: none;
+	
+}
+
+#pasabuyGiveFeedBackPopUp{
+	margin: auto;
+	background-image: url("../img/coc-background.jpg");
+	width: 30%;
+	height: 500px;
+	display: none;
+	margin-top: 100px;
+	border: solid saddlebrown 3px;
+	border-radius: 20px;
+}
+
+#feedbackInput{
+	resize: none;
+	margin: auto;
+	border-radius: 10px;
+}
+
+#ButtonsDivFeedback{
+	/* margin: auto; */
+	/* width:fit-content; */
+	/* height: fit-content; */
+}
+
+#ButtonsDivFeedback input{
+	/* margin: auto; */
+	/* width:fit-content; */
+	/* height: 30px; */
+	/* border-radius: 5px; */
+}
+
+#ButtonsDivFeedback input:hover{
+	/* margin: auto; */
+	/* width:fit-content; */
+	/* height: 30px; */
+	/* border-radius: 5px; */
+	/* background-color: rgb(233, 154, 57); */
+	/* cursor: pointer; */
+}
+
+.responderProfileTransaction{
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+.transactionInfo{
+	text-align: left;
+}
+
+.paymentPic{
+	width: 70px;
+	height: 100px;
+	object-fit: contain;
+	cursor: pointer;
+}
+
+
+#PhotoViewerBackground{
+	position: fixed;
+	background-color: rgba(28, 27, 27, 0.9);
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left: 0;
+	display: none;
+	align-content: center;
+	z-index: 20;
+
+}
+
+#PhotoViewer{
+	margin: auto;
+	margin-top: 0;
+	width: 90%;
+	height: 100%;
+	background-color: none;
+	display: grid;
+}
+
+
+
+#photoViewerImage{
+	width: 600px;
+	height: 700px;
+	object-fit: contain;
+	margin: auto;
+	background-color: white;
+}
+
+#TextViewerBackground{
+	position: fixed;
+	background-color: rgba(28, 27, 27, 0.9);
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left: 0;
+	display: none;
+	align-content: center;
+	z-index: 20;
+}
+
+#TextViewer{
+	margin: auto;
+	margin-top: -40;
+	width: fit-content;
+	height: 100%;
+	background-color: none;
+	display: grid;
+	position: relative;
+}
+
+#textContainer{
+	width: 600px;
+	height: 700px;
+	object-fit: contain;
+	margin: auto;
+	background-color: white;
+	text-align: center;
+	border: 1px solid black;
+	margin-top: 100px;
+}
+
+
+.grid-container {
+	display: grid;
+	background-color: #2196F3;
+	padding: 10px;
+	grid-template-rows: 20px 10px 10px 10px 10px 10px 10px;
+	row-gap: 40px;
+
+}
+
+.grid-item {
+	background-color: rgba(255, 255, 255, 0.8);
+	
+	padding: 10px;
+	font-size: medium;
+	text-align: center;
+	cursor: pointer;
+	display:flex;
+	height: 30px;
+
+	font-family: Arial, Helvetica, sans-serif;
+	
+	
+}
+
+.navIcon{
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	vertical-align:middle;
+	object-fit:contain;
+	
+}
+
+.sideNav-text{
+	vertical-align:bottom;	
+	
+}
+
+.grid-item:hover{
+	color: orangered;
+	
+}
+
 
 .item1 {
 	 grid-area: header; 
@@ -641,160 +1087,19 @@ button.red{
 .Description {
     margin: auto;
 }
-
-
-#PhotoViewerBackground{
-	position: fixed;
-	background-color: rgba(28, 27, 27, 0.9);
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	top:0;
-	left: 0;
+.hideMenu{
 	display: none;
-	align-content: center;
-	z-index: 20;
-
-}
-button#sideMenu {
-    display: none;
-}
-
-#PhotoViewer{
-	margin: auto;
-	margin-top: 0;
-	width: 90%;
-	height: 100%;
-	background-color: none;
-	display: grid;
-}
-
-#photoViewerImage{
-	width: 600px;
-	height: 700px;
-	object-fit: contain;
-	margin: auto;
-	background-color: white;
-}
-
-.responderProfileTransaction{
-	width: 100px;
-	height: 100px;
-	object-fit: cover;
-	border-radius: 100%;
-}
-
-#TextViewerBackground{
-	position: fixed;
-	background-color: rgba(28, 27, 27, 0.9);
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	top:0;
-	left: 0;
-	display: none;
-	align-content: center;
-	z-index: 20;
-
-}
-
-#TextViewer{
-	margin: auto;
-	margin-top: 0;
-	width: 90%;
-	height: 100%;
-	background-color: none;
-	display: grid;
-}
-
-#textContainer{
-	width: 600px;
-	height: 700px;
-	object-fit: contain;
-	margin: auto;
-	background-color: white;
-	text-align: center;
-	border: 1px solid black;
-	margin-top: 100px;
-}
-
-button#hideMenu {
-    display: none;
 }
 
 
-@media (max-width: 390px){
+@media (min-width: 220px) and (max-width: 555px){
 	#TransactionsNav{
-		margin: 10px 0px 0px -270px;
-		transition: ease 1.5s;
-	}
-	button#sideMenu{
-		display: unset;
-	}
-	.sideMenu{
-		position: absolute;
-		left: 0;
-		top: 9%;
-		z-index: 100;
-		height: 50px;
-		width: fit-content;
-		margin-left: -5px;
-		transition: ease 1.5s;
-		z-index: 9;
+		margin: 0px 0 0 -270px;
 	}
 	#TransactionsContainer{
-		width: 100%;
-		margin: unset;
-		height: 100%;
-	}
-	#TransactionsContainerBody{
-		/* height: 250px; */
-		width: 100%;
-		zoom: 100%;
-	}
-	.header-item{
-		font-size:15px;
-	}
-	.grid-container2 > div {
-		font-size:12px;
-	}
-	.responderprofiletransaction{
-		width: 50px;
-		height: 50px;
-		padding: 20 0;
-	}
-	div#responderEmail{
-		width: 150px;
-		font-size: 12px;
-	}
-	p.description{
-		width: 150px;
-		padding: 0px;
 		margin: auto;
-		font-size: 12px;
-	}
-	.grid-footer{
-		padding: 0;
 		width: 100%;
-		height: 100%;
-
-		
+		height: fit-content;
+		zoom: 60%
 	}
-	.button{
-		font-size: 10px;
-		padding: 10px
-	}
-	#requestDate p{
-		font-size: 10px;
-	}
-	div#requestTitle{
-		display: grid;
-	}
-	button#hideMenu {
-    display: unset;
-	float: right;
 }
-	
-}
-
-

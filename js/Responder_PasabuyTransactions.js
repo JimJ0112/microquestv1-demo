@@ -830,7 +830,7 @@ function setPasabuyAcceptedItem(array){
         actionsDiv[i].appendChild(deliverButton);
 
         myID = sessionStorage.getItem("userID");
-        reportedID = dataArray[i]["responderID"];
+        reportedID = dataArray[i]["requestorID"];
         serviceIDParam = dataArray[i]["serviceID"];
         requestID = null;
         transactionType = "service";
@@ -967,7 +967,7 @@ function setPasabuyDeliveredItem(array){
 
 
         myID = sessionStorage.getItem("userID");
-        reportedID = dataArray[i]["responderID"];
+        reportedID = dataArray[i]["requestorID"];
         serviceIDParam = dataArray[i]["serviceID"];
         requestID = null;
         transactionType = "service";
@@ -1116,7 +1116,7 @@ function setPasabuyPaidItem(array){
 
 
         myID = sessionStorage.getItem("userID");
-        reportedID = dataArray[i]["responderID"];
+        reportedID = dataArray[i]["requestorID"];
         serviceIDParam = dataArray[i]["serviceID"];
         requestID = null;
         transactionType = "service";
@@ -1261,7 +1261,7 @@ function setPasabuyFinishedItem(array){
 
 
         myID = sessionStorage.getItem("userID");
-        reportedID = dataArray[i]["responderID"];
+        reportedID = dataArray[i]["requestorID"];
         serviceIDParam = dataArray[i]["serviceID"];
         requestID = null;
         transactionType = "service";
@@ -1397,7 +1397,7 @@ function setPasabuyCancelledItem(array){
         requestStatus[i].innerText = dataArray[i]['orderStatus'];
                
        myID = sessionStorage.getItem("userID");
-       reportedID = dataArray[i]["responderID"];
+       reportedID = dataArray[i]["requestorID"];
        serviceIDParam = dataArray[i]["serviceID"];
        requestID = null;
        transactionType = "service";

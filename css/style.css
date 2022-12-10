@@ -175,13 +175,11 @@ input::-webkit-inner-spin-button {
 	cursor: pointer;
 	font-weight: bolder;
 	float: right;
-
 	text-align: center;
 	font-size: xx-large;
-	
 	margin: 0;
 	padding:10px;
-	color: beige;
+	color: black;
 }
 
 #closeButton:hover{

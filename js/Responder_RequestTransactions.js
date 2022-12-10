@@ -320,7 +320,7 @@ function SetRequestsData(dataArray){
 
             //controlsTd[i].innerText = dataArray[i]['dueDate'];
             myID = sessionStorage.getItem("userID");
-            reportedID = dataArray[i]["responderID"];
+            reportedID = dataArray[i]["resquestor"];
             serviceIDParam = null;
             requestID = dataArray[i]['requestID'];
             transactionType = "request";
@@ -456,7 +456,7 @@ function SetFinishedRequestsData(dataArray){
 
             //controlsTd[i].innerText = dataArray[i]['dueDate'];
             myID = sessionStorage.getItem("userID");
-            reportedID = dataArray[i]["responderID"];
+            reportedID = dataArray[i]["requestorID"];
             serviceIDParam = null;
             requestID = dataArray[i]['requestID'];
             transactionType = "request";
