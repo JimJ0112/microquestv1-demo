@@ -88,7 +88,7 @@ function getRequestors(){
 }// end of function
 
 
-
+/*
 // create elements to be appended 
 function createUserElements(Number){
  
@@ -216,9 +216,104 @@ function createUserElements(Number){
     
     
 } // end of function
+*/
+
+
+// create elements to be appended 
+function createUserElements(Number){
+ 
+    DataNumber = Number;
+    table = document.getElementById("DashBoardContent_TableBody");
+    table.innerHtml = "";
+   
+    
+    for(var i = 0;i<DataNumber;i++){
+    
+   // create elements for rows
+    var tr = document.createElement('tr');
+
+
+    var generalInfo = document.createElement('td');
+    var location = document.createElement('td');
+    var accountInfo = document.createElement('td');
+    var userIDInfo = document.createElement('td');
+
+
+    /*
+    baranggay = document.createElement('td');//location
+    birthDate = document.createElement('td');//general info
+    education = document.createElement('td');//general info
+    firstName= document.createElement('td');//general info
+    houseNo= document.createElement('td');//location
+    idExpiration= document.createElement('td');//general info
+    idFile= document.createElement('td');//general info
+    idNumber= document.createElement('td');//general info
+    idType= document.createElement('td');//general info
+    lastName= document.createElement('td');//name
+    municipality= document.createElement('td');//location
+    specialization= document.createElement('td');
+    street= document.createElement('td');//location
+    userEmail= document.createElement('td');//accountInfo
+    userGender= document.createElement('td');
+    userID= document.createElement('td');//accountInfo
+    userName= document.createElement('td');//accountInfo
+    userPhoto= document.createElement('td');//accountInfo
+    userStatus= document.createElement('td');//accountInfo
+    userType= document.createElement('td');//accountInfo
+    */
+
+    userControls = document.createElement('td');
+    acceptButton = document.createElement('button');
+    cancelButton = document.createElement('button');
+
+
+
+   
+
+
+   
+
+
+
+   // set attributes
+
+   userIDInfo.setAttribute("class","userIDInfo");
+   location.setAttribute("class","location");
+   generalInfo.setAttribute("class","generalInfo");
+   accountInfo.setAttribute("class","accountInfo");
+
+   userControls.setAttribute("class","userControls");
+   acceptButton.setAttribute("class","acceptButton");
+   cancelButton.setAttribute("class","cancelButton");
+   acceptButton.innerText = "Accept";
+   cancelButton.innerText = "Cancel";
+
+
+   // append elements to the row
+   userControls.appendChild(acceptButton);
+   userControls.appendChild(cancelButton);
+   tr.appendChild(userControls);
+   tr.appendChild(accountInfo);
+   tr.appendChild(location);
+   tr.appendChild(generalInfo);
+
+
+
+
+   
+
+
+    table.append(tr);
+
+    } 
+    
+    
+} // end of function
+
 
 
 // set positions data 
+/*
 function setData(array){
 
     var dataArray = array;
@@ -308,7 +403,81 @@ function setData(array){
     }
 
 }
+*/
 
+function setData(array){
+
+    var dataArray = array;
+    var number = dataArray.length;
+
+   // set attributes
+   
+   userIDInfo= document.getElementsByClassName("userIDInfo");
+   location= document.getElementsByClassName("location");
+   generalInfo= document.getElementsByClassName("generalInfo");
+   accountInfo= document.getElementsByClassName("accountInfo");
+
+   userControls.setAttribute("class","userControls");
+
+   acceptButton= document.getElementsByClassName("acceptButton");
+   cancelButton= document.getElementsByClassName("cancelButton");
+
+
+
+    for(var i = 0; i<number;i++){
+        
+        
+
+        var image = new Image();
+        image.src = dataArray[i]['userPhoto'];
+
+        image.setAttribute('class','userPhotoImage');
+        image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
+    
+
+        var idFileImage = new Image();
+        idFileImage.src = dataArray[i]["idFile"];
+        idFileImage.setAttribute('class','idFileImage');
+        image.setAttribute('onerror',"this.src='img/laundry_servics.jpg'");
+    
+
+ 
+   
+        
+
+
+        location[i].innerText=  dataArray[i]['houseNo'] +  dataArray[i]['street']+ dataArray[i]['baranggay'] + dataArray[i]['municipality'];
+       
+        var birthDate = dataArray[i]['birthDate']
+        var education = dataArray[i]['education']
+        var name =  dataArray[i]['firstName'] + dataArray[i]['lastName']
+        var gender = dataArray[i]['userGender'];
+     
+        generalInfo[i].innerHTML = " <b> Name: <b/>"+ name + "<br/> <b> Birth Date: <b/>" + birthDate + "<br/> <b> Education: <b/>" + education + " <b> Gender:  <b/>" + gender;
+       
+     
+        userIDInfo[i].appendChild(idFileImage);
+        userIDInfo[i].innerHTML = userIDInfo[i].innerHTML + "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
+
+       
+     
+        specialization[i].innerText= dataArray[i]['specialization']
+    
+        userEmail[i].innerText= dataArray[i]['userEmail']
+     
+        userID=  dataArray[i]['userID']
+        userName= dataArray[i]['userName']
+     
+        userType= dataArray[i]['userType']
+
+        accountInfo.appendChild(image);
+
+        accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<b> User ID: </b> " +  userID +" <br/><b> Username: </b>" + userName + " <br/><b> User Email: </b>" + userEmail + " <br/><b> User Type: </b>" + userType + " <br/><b> Specialization: </b>" + specialization;
+  
+
+    }
+
+}
 
 
 function hideNavMenu(){
