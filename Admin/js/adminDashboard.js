@@ -33,9 +33,20 @@ function getResponders(){
      
         }else{
             //document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading...";
-            document.getElementById("loadingImage").style.display = "block";
+            document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading";
+            
             
             //console.log(err);
+        }      
+    };
+
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+    
+        }else{
+            document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading";
+
         }      
     };
     
@@ -77,6 +88,16 @@ function getRequestors(){
             //document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading..";
             document.getElementById("loadingImage").style.display = "block";
             //console.log(err);
+        }      
+    };
+
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+    
+        }else{
+            document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading";
+
         }      
     };
 
