@@ -26,6 +26,20 @@
 
 }
 
+div#closeButton {}
+
+div#closeButton {
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    font-weight: bolder;
+    float: right;
+    text-align: center;
+    font-size: xx-large;
+    margin: 0;
+    padding: 10px;
+    color: black;
+}
+
 
 /*Requestor_AvailableServices.html*/
 #Requestor_AvailableServicesBackground{
