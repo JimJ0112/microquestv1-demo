@@ -14,6 +14,11 @@ session_start();
 		$userID = $_SESSION["userID"];
 		echo "<script > sessionStorage.setItem('myID',$userID); </script>";
 	}
+
+    if(isset($_GET["msg"])){
+        $msg = $_GET["msg"];
+		echo "<script > alert('$msg') </script>";
+    }
 	
 ?>
 
@@ -40,35 +45,7 @@ session_start();
 
 
 </head>
-<body onload="<?php
-       if(isset($_SESSION['specialization'])){
-
-            $specialization = $_SESSION['specialization'];
-
-			echo "sessionStorage.setItem('specialization'".",'$specialization');";
-        	echo 'setCategory(\''.$specialization.'\');';
-			
-
-		
-			
-
-			echo 'init();';
-        } else{
-			
-        	echo'getRequests();';
-			echo'getCategories();';
-		
-        }
-
-
-
-		if(isset($_SESSION['userID'])){
-   	 		$userID = $_SESSION['userID'];
-    		
-    		echo "sessionStorage.setItem('myID','$userID');";
-		}
-    
-    ?>">
+<body>
 
 
 
@@ -78,11 +55,11 @@ session_start();
 <?php
 
 			require_once("imports/GuestNavBar.php");
-            
+
 ?>
 
-
-<h1> Not yet verified </h1> 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<center> <h1> Not yet verified </h1>  </center>
 
 </body>
 </html>

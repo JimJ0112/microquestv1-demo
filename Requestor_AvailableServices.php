@@ -53,7 +53,7 @@
 		echo $status;
 
 		if($status === "not verified" || $status === "Declined"){
-			header("location: NotVerifiedMessage.php?msg=Not a Responder!");
+			header("location: NotVerifiedMessage.php?msg=Not verified yet");
 
 		}else{
 			if($userType === "Requestor"){

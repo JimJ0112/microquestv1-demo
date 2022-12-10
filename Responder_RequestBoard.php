@@ -85,7 +85,7 @@ session_start();
 		echo $status;
 
 		if($status === "not verified" || $status === "Declined"){
-			header("location: NotVerifiedMessage.php?msg=Not a Responder!");
+			header("location: NotVerifiedMessage.php?msg=Not Verified yet");
 
 		}else{
 			if($userType === "Responder"){
