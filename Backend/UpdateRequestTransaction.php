@@ -76,7 +76,7 @@ $updateStatus = $_POST['update'];
 if($updateStatus === "completed"){
 
    echo $RequestID= $DBHandler ->getData("transactions","transactionID",$conditionvalue,"requestID");
-   echo $updateRequestStatus = $DBHandler->completeRequestStatus($requestID);
+   echo  $DBHandler->completeRequestStatus($RequestID);
 
 }else{
     
