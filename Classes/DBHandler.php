@@ -1813,8 +1813,8 @@ public function getNearestAllRequests($tablename,$column,$condition,$orderby = n
     
    
     if(isset($orderby)){
-       // $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' AND requestStatus = 'active' ORDER BY $orderby";
-        $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' ORDER BY $orderby";
+        $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' AND requestStatus = 'Active' ORDER BY $orderby";
+       // $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' ORDER BY $orderby";
 
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
@@ -1862,7 +1862,9 @@ public function getNearestRequests($tablename,$column,$condition,$category,$orde
    
     if(isset($orderby)){
        // $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' AND requestStatus = 'active' ORDER BY $orderby";
-        $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' AND $tablename.requestCategory = '$category' ORDER BY $orderby";
+       // $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' AND $tablename.requestCategory = '$category' ORDER BY $orderby";
+
+       $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' AND $tablename.requestCategory = '$category' AND requestStatus = 'Active' ORDER BY $orderby";
 
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
