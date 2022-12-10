@@ -239,7 +239,7 @@ button#hideMenu {
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
-@media (max-width: 390px) {
+@media (min-width:220px) and (max-width: 555px) {
   /* For mobile phones: */
   button#sideMenu{
 	display: unset;

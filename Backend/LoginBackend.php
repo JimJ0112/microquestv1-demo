@@ -45,11 +45,11 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     $condition1 = "Restricted";
 
 
-    $isRestricted =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
+    $results =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
 
     
     
-    if($isRestricted !== "failed to fetch"){
+    if($results !== "failed to fetch"){
         $results = json_encode($results);
         $results = json_decode($results,true);
 
@@ -64,14 +64,12 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
         $thisDate = new DateTime($today);
 
         $abs_diff = $thisDate->diff($restrictionStartDate)->format("%a"); //3
-        $restrictDuration;
+       // $restrictDuration;
         echo $daysRemain =   $restrictDuration - $abs_diff;
 
     
 
-        if($daysRemain > 0){
-
-       
+        if($restrictDuration> 0){
             $isRestricted = true;
             //$isRestricted = false;
         } else {
@@ -83,7 +81,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             $condition = "reportID";
             $conditionvalue =  $results[0]['reportID'];
 
-            echo $DBHandler->updateColumn($tablename,$column,$name,$condition,$conditionvalue);
+           // echo $DBHandler->updateColumn($tablename,$column,$name,$condition,$conditionvalue);
 
         }
 
