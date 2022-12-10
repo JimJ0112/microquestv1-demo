@@ -38,70 +38,48 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     }
 
     // check if restricted
-
-
+    
+    $tablename = "reportsinfo";
+    $column = "reportedAccountID";
+    $condition =  $userID;
+    $column1 = "reportStatus";
     $condition1 = "Restricted";
-
-
     $results =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
 
-    
-    
-    if($results !== "failed to fetch"){
-        $results = json_encode($results);
-        $results = json_decode($results,true);
+    if($results !== "failed to fetch" || $results !== null ){
 
-        $restrictDuration = $results[0]['restrictDuration'];
-        $restrictDate =  $results[0]['reportActionDate'];
-
+        echo $restrictDuration =  $results[0][11];
         date_default_timezone_set("Asia/Manila");
         $today =  date("Y-m-d"); 
-       //$today = "2022-11-23";
+        echo $restrictDate =  $results[0][10];
+
+ 
+
+
 
         $restrictionStartDate = new DateTime($restrictDate);
         $thisDate = new DateTime($today);
 
         $abs_diff = $thisDate->diff($restrictionStartDate)->format("%a"); //3
-       // $restrictDuration;
+  
         echo $daysRemain =   $restrictDuration - $abs_diff;
 
+        if($daysRemain > 0){
+            echo $isRestricted = true;
+            header("location: ../Login.php?msg=Your Account has been Restricted for $daysRemain days");
+
+        } else{
+            echo $isRestricted = false;
+         }
+   
     
-
-        if($restrictDuration> 0){
-            //$isRestricted = true;
-            //$isRestricted = false;
-            $daysRemain =   $restrictDuration - $abs_diff;
-
-            if($daysRemain > 0){
-                $isRestricted = true;
-                header("location: ../Login.php?msg=Your Account has been Restricted for $daysRemain days");
-
-
-            } else{
-                $isRestricted = false;
-            }
-
-        } else {
-            $isRestricted = false;
-
-            $reportID = $results[0]['reportID'];
-            $column = "reportStatus";
-            $name = "Unrestricted";
-            $condition = "reportID";
-            $conditionvalue =  $results[0]['reportID'];
-
-           // echo $DBHandler->updateColumn($tablename,$column,$name,$condition,$conditionvalue);
-
-        }
-
-        
-
-
-
-
+    
     } else {
-       $isRestricted = false;
+        echo $isRestricted = false;
     }
+
+
+
 
     
     //echo $verifyPass;
