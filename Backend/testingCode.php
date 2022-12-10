@@ -25,7 +25,7 @@ if($results !== "failed to fetch" || $results !== null ){
    print_r($results);
    
   // $restrictDuration =  $results[0]['restrictDuration'];
-   $restrictDuration =  $results[11];
+   $restrictDuration =  $results[0][11];
 
 
     
@@ -34,7 +34,7 @@ if($results !== "failed to fetch" || $results !== null ){
 
 
  //  $restrictDate =  $results[0]['reportActionDate'];
-  $restrictDate =  $results[10];
+  $restrictDate =  $results[0][10];
 
 
    //$restrictDate =  "2022-11-15";
