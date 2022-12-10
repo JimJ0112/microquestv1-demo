@@ -256,17 +256,23 @@ function createUserElements(Number){
 
     var userPhotoTD = document.createElement('td');
     // firstname, lastname
-    var name = document.createElement('td');
+    var nameTD = document.createElement('td');
 
     // birthday, sex
-    var generalInfo = document.createElement('td');
+    var Birthday = document.createElement('td');
+    var Gender = document.createElement('td');
+
     var location = document.createElement('td');
 
-    // userID, email, userType, specializtion
+    // userID, username,email 
     var accountInfo = document.createElement('td');
+    var userType = document.createElement('td');
+
+    var specialization = document.createElement('td');
 
     var userIDPhotoTD = document.createElement('td');
     // id type, id exp, id number
+
     var userIDInfo = document.createElement('td');
 
 
@@ -287,12 +293,24 @@ function createUserElements(Number){
    // set attributes
 
    userPhotoTD.setAttribute("class","userPhotoTD");
-   name.setAttribute("class","nameTD");
-   userIDPhotoTD.setAttribute("class"," userIDPhotoTD.");
-   userIDInfo.setAttribute("class","userIDInfo");
+
+   nameTD.setAttribute("class","nameTD");
+
+   
+   Birthday.setAttribute("class","Birthday");
+
+   Gender.setAttribute("class","Gender");
+
    location.setAttribute("class","location");
-   generalInfo.setAttribute("class","generalInfo");
-   accountInfo.setAttribute("class","accountInfo");
+
+ 
+   accountInfo.setAttribute("class"," accountInfo");
+   userType.setAttribute("class","userType");
+
+   specialization.setAttribute("class","specialization");
+
+   userIDPhotoTD.setAttribute("class","userIDPhotoTD");
+   userIDInfo.setAttribute("class","userIDInfo");
 
    userControls.setAttribute("class","userControls");
    acceptButton.setAttribute("class","acceptButton");
@@ -302,6 +320,8 @@ function createUserElements(Number){
 
 
    // append elements to the row
+
+   /*
    userControls.appendChild(acceptButton);
    userControls.appendChild(cancelButton);
    tr.appendChild(userControls);
@@ -312,7 +332,23 @@ function createUserElements(Number){
    tr.appendChild(location);
    tr.appendChild(userIDPhotoTD);
    tr.appendChild(userIDInfo);
+*/
 
+
+    tr.appendChild(userPhotoTD)
+    tr.appendChild(accountInfo)
+    tr.appendChild(userType)
+    tr.appendChild(nameTD)
+    tr.appendChild(location)
+    tr.appendChild(Birthday)
+    tr.appendChild(Gender)
+   
+    tr.appendChild(specialization)
+
+    tr.appendChild(userIDPhotoTD)
+    tr.appendChild(userIDInfo)
+
+    tr.appendChild(userControls)
 
 
 
@@ -429,20 +465,17 @@ function setData(array){
     var number = dataArray.length;
 
    // set attributes
-   
-   userIDInfo= document.getElementsByClassName("userIDInfo");
-   location= document.getElementsByClassName("location");
-   generalInfo= document.getElementsByClassName("generalInfo");
-   accountInfo= document.getElementsByClassName("accountInfo");
-
-
-
    userPhotoTD= document.getElementsByClassName("userPhotoTD");
-   nameTD = document.getElementsByClassName("nameTD");
-   userIDPhotoTD = document.getElementsByClassName(" userIDPhotoTD.");
-   userIDInfo=document.getElementsByClassName("userIDInfo");
-  
-
+   nameTD= document.getElementsByClassName("nameTD");
+   Birthday= document.getElementsByClassName("Birthday");
+   Gender= document.getElementsByClassName("Gender");
+   location= document.getElementsByClassName("location");
+   accountInfo= document.getElementsByClassName("accountInfo");
+   userType= document.getElementsByClassName("userType");
+   specialization= document.getElementsByClassName("specialization");
+   userIDPhotoTD= document.getElementsByClassName("userIDPhotoTD");
+   userIDInfo= document.getElementsByClassName("userIDInfo");
+   userControls= document.getElementsByClassName("userControls");
    
 
    acceptButton= document.getElementsByClassName("acceptButton");
@@ -453,7 +486,7 @@ function setData(array){
     for(var i = 0; i<number;i++){
         
         
-        /*
+        
 
         var image = new Image();
         image.src = dataArray[i]['userPhoto'];
@@ -466,7 +499,7 @@ function setData(array){
         idFileImage.setAttribute('class','idFileImage');
         image.setAttribute('onerror',"this.src='img/laundry_servics.jpg'");
     
-        */
+        
 
  
    
@@ -475,9 +508,10 @@ function setData(array){
 
         location[i].innerText =  dataArray[i]['houseNo'] +  dataArray[i]['street']+ dataArray[i]['baranggay'] + dataArray[i]['municipality'];
 
-        generalInfo[i].innerHTML= "<b> Birth Date: <b/>" + dataArray[i]['birthDate'] + "<br/> <b> Education: <b/>" + dataArray[i]['education'] + " <b> Gender:  <b/>" + dataArray[i]['userGender'];
+        Birthday[i].innerHTML= dataArray[i]['birthDate'] 
+        Gender[i].innerHTML= dataArray[i]['userGender'];
        
-      //  userIDInfo[i].innerHTML = "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
+        //userIDInfo[i].innerHTML = "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
 
        // accountInfo[i].innerHTML = "<b> User ID: </b> " +  dataArray[i]['userID'] +" <br/><b> Username: </b>" + dataArray[i]['userName'] + " <br/><b> User Email: </b>" + dataArray[i]['userEmail'] + " <br/><b> User Type: </b>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
   
