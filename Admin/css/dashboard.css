@@ -334,8 +334,8 @@ td{border: none;}
 #viewImageForm{
     padding: 10px;
     margin: auto;
-    width: 700px;
-    height: 800px;
+    width: 80%;
+    height: fit-content;
     background-color: aliceblue;
     overflow: hidden;
     

@@ -120,7 +120,7 @@ session_start();
 
 <div id="viewImageBack">
     <div id="viewImageForm"> 
-        <div id="closeButton" onclick="closeForms()"> ✕ </div>
+        <div id="closeButton" onclick="closeForms()"> ✕ </div> <br/> <br/> <br/>
         <img id="viewImage"> 
 
 
