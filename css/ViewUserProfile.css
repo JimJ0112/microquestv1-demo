@@ -39,6 +39,7 @@ body{
  
  #userType{
      font-size: 25px;
+     margin-top: -20px;
  }
  
  #viewUserProfileNav{
@@ -65,7 +66,7 @@ body{
      margin-left: 0;
      border-bottom: 1px solid rgb(167, 165, 165);
      /* padding-top: 100px; */
-     background-image: linear-gradient(rgb(253 165 75), rgb(248, 248, 245));
+     background-image: linear-gradient(rgb(255 182 118), rgb(248, 248, 245));
      box-shadow: inset 0px 0px 1000px 0 #b7b7b78f;
  }
  
@@ -83,8 +84,8 @@ body{
  }
  
  #userNav:hover{
-     background-color: rgb(255 69 0);
-     color: white;
+     color: rgb(255 69 0);
+     /* color: white; */
      /*cursor: default;*/
  }
  
@@ -114,15 +115,15 @@ body{
  #aboutContainer{
      display: none;
      height:fit-content;
-     background-color: rgb(213 213 213 / 45%);
+     background-color: rgb(255 182 118 / 26%);
      border-radius: 5px;
      padding: 10px;
      width: 80%;
      margin: auto;
      /* margin-top:5px; */
      font-weight: bold;
-     /* color: white; */
-     border: solid 1px orangered;
+     color: rgb(216 104 12);
+     /* border: solid 1px rgb(255 69 0); */
  }
  .userInfoTR{
      margin-bottom: 100px;
@@ -330,4 +331,25 @@ body{
  }
 table.userInfoTable {
     border-spacing: 25px;
+    font-size: 20px;
+}
+
+input#send {
+    background-color: orangered; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+input#send:hover {
+    background-color: #e7e7e7;
+    color: orangered;
 }
