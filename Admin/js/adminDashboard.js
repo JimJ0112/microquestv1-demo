@@ -446,12 +446,9 @@ function setData(array){
 
         location[i].innerText=  dataArray[i]['houseNo'] +  dataArray[i]['street']+ dataArray[i]['baranggay'] + dataArray[i]['municipality'];
        
-        var birthDate = dataArray[i]['birthDate'];
-        var education = dataArray[i]['education'];
-        var name =  dataArray[i]['firstName'] + dataArray[i]['lastName'];
-        var gender = dataArray[i]['userGender'];
+      
      
-        generalInfo[i].innerHTML = " <b> Name: <b/>"+ name + "<br/> <b> Birth Date: <b/>" + birthDate + "<br/> <b> Education: <b/>" + education + " <b> Gender:  <b/>" + gender;
+        generalInfo[i].innerHTML = " <b> Name: <b/>"+ dataArray[i]['firstName'] +" "+  dataArray[i]['lastName']; + "<br/> <b> Birth Date: <b/>" + dataArray[i]['birthDate'] + "<br/> <b> Education: <b/>" + dataArray[i]['education'] + " <b> Gender:  <b/>" + dataArray[i]['userGender'];
        
      
        // userIDInfo[i].appendChild(idFileImage);
@@ -460,19 +457,11 @@ function setData(array){
 
        
      
-        specialization[i].innerText= dataArray[i]['specialization']
-    
-        userEmail[i].innerText= dataArray[i]['userEmail']
-     
-        userID=  dataArray[i]['userID']
-        userName= dataArray[i]['userName']
-     
-        userType= dataArray[i]['userType']
 
        // accountInfo.appendChild(image);
 
         //accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<b> User ID: </b> " +  userID +" <br/><b> Username: </b>" + userName + " <br/><b> User Email: </b>" + userEmail + " <br/><b> User Type: </b>" + userType + " <br/><b> Specialization: </b>" + specialization;
-        accountInfo[i].innerHTML = "<b> User ID: </b> " +  userID +" <br/><b> Username: </b>" + userName + " <br/><b> User Email: </b>" + userEmail + " <br/><b> User Type: </b>" + userType + " <br/><b> Specialization: </b>" + specialization;
+        accountInfo[i].innerHTML = "<b> User ID: </b> " +  dataArray[i]['userID'] +" <br/><b> Username: </b>" + dataArray[i]['userName'] + " <br/><b> User Email: </b>" + dataArray[i]['userEmail'] + " <br/><b> User Type: </b>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
   
 
     }
