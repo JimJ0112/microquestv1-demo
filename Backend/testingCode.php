@@ -16,7 +16,7 @@ $condition1 = "Restricted";
 
 
  $results =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
-
+ print_r($results);
 if($results !== "failed to fetch" || $results !== null ){
     $results = json_encode($results);
     $results = json_decode($results,true);
@@ -32,6 +32,7 @@ if($results !== "failed to fetch" || $results !== null ){
 
 
    $restrictDate =  $results[0]['reportActionDate'];
+
    //$restrictDate =  "2022-11-15";
 
    //$today = "2023-11-15";
