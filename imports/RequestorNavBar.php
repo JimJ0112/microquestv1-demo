@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="css/responsive.css">
 
 </head>
-<body onload="init()">
+<body onload="">
 
 <!--<img src="img/b.jpg" id="RequestboardBackground"/>-->
 
