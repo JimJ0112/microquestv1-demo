@@ -40,6 +40,35 @@ if($transactionType === "service"){
 //header("location:../Requestor_ServiceTransactions.php");
 
 
+
+// for sending notifications to the users
+
+
+$notifType = "Warning";
+date_default_timezone_set("Asia/Manila");
+$notificationDate = date("Y-m-d");
+
+
+
+
+
+// for constructing notif message
+
+
+
+$notifMessage = "You have been reported for $reportType, our team is currently investigating the situation";
+
+
+echo $result = $DBHandler->sendNotifs($ReportedAccountID,$notifType,$notifMessage,$notificationDate);
+
+
+$notifMessage = "Your report $reportType has been successfully recieved by our team";
+echo $result = $DBHandler->sendNotifs($ReporterAccountID,$notifType,$notifMessage,$notificationDate);
+
+
+
+
+
 if(isset($_SESSION["userType"])){
 
     $userType = $_SESSION["userType"];
