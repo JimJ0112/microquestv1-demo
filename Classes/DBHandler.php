@@ -422,7 +422,7 @@ public function getImage($tablename,$column,$condition,$name){
 }
 
 // get Rows 
-public function getRow($tablename,$column,$condition,$orderby = null){
+public function getRow($tablename,$column,$condition,$orderby = null,$desc = null){
     $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
     $column = mysqli_real_escape_string($this->dbconnection, $column);
     $condition = mysqli_real_escape_string($this->dbconnection, $condition);
@@ -430,6 +430,8 @@ public function getRow($tablename,$column,$condition,$orderby = null){
    
     if(isset($orderby)){
         $query = "SELECT * FROM $tablename WHERE $column = '$condition' ORDER BY $orderby";
+    }else if(isset($desc)){
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition' ORDER BY $orderby DESC";
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
     }

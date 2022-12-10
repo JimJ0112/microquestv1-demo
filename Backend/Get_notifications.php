@@ -16,7 +16,7 @@ $orderby = "notificationID";
 //$query = "SELECT * FROM $tablename WHERE $column = '$condition' ORDER BY $orderby";
 
 
-$results =$DBHandler-> getRow($tablename,$column,$condition,$orderby);
+$results =$DBHandler-> getRow($tablename,$column,$condition,$orderby,"DESC");
 
 if($results === "failed to fetch"){
     echo $results;
