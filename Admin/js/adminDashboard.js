@@ -764,7 +764,7 @@ function acceptResponder(userID){
             }      
         };
     
-        xmlhttp.open("POST", "backend/UpdateRequestStatus.php", true);
+        xmlhttp.open("POST", "backend/UpdateUserStatus.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(query);
     }else{
@@ -813,7 +813,7 @@ function cancelResponder(userID){
             }      
         };
     
-        xmlhttp.open("POST", "backend/UpdateRequestStatus.php", true);
+        xmlhttp.open("POST", "backend/UpdateUserStatus.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(query);
     }else{
@@ -861,7 +861,7 @@ function acceptRequestor(userID){
             }      
         };
     
-        xmlhttp.open("POST", "backend/UpdateRequestStatus.php", true);
+        xmlhttp.open("POST", "backend/UpdateUserStatus.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(query);
     }else{
@@ -910,7 +910,7 @@ function cancelRequestor(userID){
             }      
         };
     
-    xmlhttp.open("POST", "backend/UpdateRequestStatus.php", true);
+    xmlhttp.open("POST", "backend/UpdateUserStatus.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
     }else{
