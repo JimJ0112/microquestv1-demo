@@ -429,8 +429,9 @@ public function getRow($tablename,$column,$condition,$orderby = null,$desc = nul
     
    
     if(isset($orderby)){
-        $query = "SELECT * FROM $tablename WHERE $column = '$condition' ORDER BY $orderby";
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition' ORDER BY $orderby DESC";
     }else if(isset($desc)){
+
         $query = "SELECT * FROM $tablename WHERE $column = '$condition' ORDER BY $orderby DESC";
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
