@@ -109,7 +109,7 @@ session_start();
 
 		</div>
 
-		<center> <h1 id="RequestBoardTitle"> Requestor's Request Board </h1> </center>
+		<center> <h1 id="RequestBoardTitle"> My Requests </h1> </center>
 		<div id="RequestsContainer">
 
 

@@ -240,9 +240,9 @@
 <div id="TextViewerBackground"> 
 
 	<div id="TextViewer"> 
-		<div id="closeImage" onclick="closeTextViewer()"> ✕ </div>
+		
 		<div id="textContainer"> 
-
+			<div id="closeImage" onclick="closeTextViewer()"> ✕ </div>
 		</div>
 
 	</div>

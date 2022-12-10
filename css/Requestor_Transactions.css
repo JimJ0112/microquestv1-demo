@@ -372,8 +372,8 @@ td{
 
 #closeImage{
 	position: absolute;
-	right: 33%;
-	top: 10%;
+	right: 05px;
+	top: 0;
 	cursor: pointer;
 	z-index: 18;
 	color:rgb(7, 7, 7);
@@ -851,11 +851,12 @@ background-color: white;
 
 #TextViewer{
 	margin: auto;
-	margin-top: -40;
+	/* margin-top: -40; */
 	width: fit-content;
 	height: 100%;
 	background-color: none;
 	display: grid;
+	position: relative;
 }
 
 #textContainer{
@@ -866,7 +867,7 @@ background-color: white;
 	background-color: white;
 	text-align: center;
 	border: 1px solid black;
-	margin-top: 100px;
+	/* margin-top: 100px; */
 }
 
 

@@ -255,10 +255,10 @@ session_start();
             <label> Product Brand: </label> 
             <input type="text" name="productBrand"required>
 
-            <label> Price: </label> 
+            <label> Product Price: </label> 
             <input type="number" name="requestExpectedPrice" required>
 
-            <label> Negotiable: </label> 
+            <label> Negotiable Price: </label> 
             <select name="isNegotiable" required>
                 <option> Negotiable </option> 
                 <option> Not-negotiable </option> 
@@ -292,16 +292,22 @@ session_start();
             <Table id="formsTable">
 
             <tr>
+                <td class="infoTD">
+                <p title="The new category for the request.">&#9432;</p>
+                </td>
                 <td class="tdright">
-                    <label> Category</label> 
+                    <label> Request Category</label> 
                 </td>
                 <td>
                 <input type="text" name="requestCategory" required>   <span class="asteriskRequiredField"> * </span>
                 </td> 
             </tr>
             <tr>
+                <td class="infoTD">
+                <p title="Specific title for the request.(e.g: 'Lawn Mowing', 'Logo Making', 'Computer Repair')">&#9432;</p>
+                </td>
                 <td class="tdright">
-                    <label> Title:</label> 
+                    <label> Request Title:</label> 
                 </td>
                 <td>
                     <input type="text" name="requestTitle" required>  <span class="asteriskRequiredField"> * </span>
@@ -309,8 +315,11 @@ session_start();
             </tr>
 
             <tr>
+                <td class="infoTD">
+                <p title="Amount the responder will recieve after completing the request.">&#9432;</p>
+                </td>
                 <td class="tdright">
-                    <label> Price: </label> 
+                    <label> Request Fee: </label> 
                 </td> 
                 <td>   
                     <input type="number" name="requestExpectedPrice" required><span class="asteriskRequiredField"> * </span>
@@ -318,8 +327,11 @@ session_start();
             </tr>
 
             <tr>
+                <td class="infoTD">
+                <p title="Fee can set to lower or higher amount depends on the agreed price.">&#9432;</p>
+                </td>
                 <td class="tdright">    
-                    <label> Negotiable: </label> 
+                    <label> Negotiable Fee: </label> 
                 </td> 
                 <td>   
                     <select name="isNegotiable" required> 
@@ -330,8 +342,11 @@ session_start();
             </tr>
                 
             <tr>
+                <td class="infoTD">
+                <p title= "Responders can only apply on request until this date.">&#9432;</p>
+                </td>
                 <td class="tdright"> 
-                    <label> Due Date: </label> 
+                    <label> Available Until: </label> 
                 </td> 
                 <td>
                     <input type="date" name="dueDate" min="<?php echo $today; ?>" max="" value="<?php echo $today;?>" required>
@@ -340,6 +355,9 @@ session_start();
             </tr>
     
             <tr>
+                <td class="infoTD">
+                <p title="Please give atleast simple description of your request.">&#9432;</p>
+                </td>
                 <td class="tdright">
                     <label> More Details: </label> 
                 </td> 
