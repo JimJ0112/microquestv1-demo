@@ -3631,7 +3631,7 @@ public function completeRequestStatus($requestID){
     $requestID = mysqli_real_escape_string($this->dbconnection, $requestID);
     $conditionvalue = "Completed";
 
-    $query = "UPDATE $tablename SET $column = '$requestID' WHERE $condition = '$conditionvalue' ";
+    $query = "UPDATE $tablename SET $column = '$conditionvalue' WHERE $condition = '$requestID' ";
 
     echo mysqli_error($this->dbconnection);
     $result = mysqli_query($this->dbconnection, $query);
