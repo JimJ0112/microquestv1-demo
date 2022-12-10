@@ -2402,7 +2402,8 @@ public function getMyTransactions($ID,$column,$transactionType){
 
     if($transactionType === "Request"){
         // added AND transactionStatus = 'pending'
-        $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'pending';";
+       // $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'pending';";
+       $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'pending' ORDER BY transactions.transactionID DESC;";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
@@ -2439,7 +2440,9 @@ public function getMyTransactions($ID,$column,$transactionType){
     } else if($transactionType === "Service"){
        // $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM transactions INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.responderID = 11;";
        // added AND transactionStatus = 'pending'
-       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'pending';";
+      // $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'pending';";
+
+      $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'pending' ORDER BY transactions.transactionID DESC ;";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
@@ -2535,6 +2538,7 @@ public function getMyPasabuyTransactions($ID,$column,$status){
 
        */
 
+       /*
        $query="SELECT 
        pasabuytransactions.*, 
        requestor.userID, 
@@ -2560,6 +2564,32 @@ public function getMyPasabuyTransactions($ID,$column,$status){
        
        WHERE pasabuytransactions.$column = $ID AND pasabuytransactions.orderStatus = '$status'";
 
+       */
+
+      $query="SELECT 
+      pasabuytransactions.*, 
+      requestor.userID, 
+      responder.userID, 
+      responder.userPhoto as responderPhoto, 
+      requestor.userName as RequestorName, 	
+      responder.userName as ResponderName,
+      responder.userEmail as ResponderEmail,
+      requestor.userEmail as RequestorEmail, 
+      requestor.userPhoto as requestorPhoto, 
+      product.*, 
+      services.* 
+      
+      FROM pasabuytransactions	
+             
+      INNER JOIN userprofile requestor ON (requestor.userID = pasabuytransactions.requestorID) 
+             
+      INNER JOIN userprofile responder ON (responder.userID = pasabuytransactions.responderID) 
+             
+      INNER JOIN servicesinfo services ON (services.serviceID = pasabuytransactions.serviceID) 
+             
+      INNER JOIN products product ON (product.productID = pasabuytransactions.productID)
+      
+      WHERE pasabuytransactions.$column = $ID AND pasabuytransactions.orderStatus = '$status' ORDER BY pasabuytransactions.pasabuyTransactionID DESC";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
@@ -2747,7 +2777,9 @@ public function getCancelledTransactions($ID,$column,$transactionType){
 
     if($transactionType === "Request"){
         // added AND transactionStatus = 'pending'
-        $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'cancelled';";
+       // $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'cancelled';";
+
+       $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'cancelled' ORDER BY transactionID DESC;";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
@@ -2865,7 +2897,8 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
 
     if($transactionType === "Request"){
         // added AND transactionStatus = 'pending'
-        $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'accepted';";
+        //$query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'accepted';";
+        $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'accepted' ORDER BY transactionID DESC;";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
@@ -2905,7 +2938,8 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
     } else if($transactionType === "Service"){
        // $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM transactions INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.responderID = 11;";
        // added AND transactionStatus = 'pending'
-       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'accepted';";
+       //$query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'accepted';";
+       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'accepted' ORDER BY transactionID DESC;";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
@@ -2981,7 +3015,8 @@ public function getDeliveredTransactions($ID,$column,$transactionType){
 
     if($transactionType === "Request"){
         // added AND transactionStatus = 'pending'
-        $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'delivered';";
+        //$query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'delivered';";
+        $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'delivered' ORDER BY transactionID DESC;";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
@@ -3021,7 +3056,8 @@ public function getDeliveredTransactions($ID,$column,$transactionType){
     } else if($transactionType === "Service"){
        // $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM transactions INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.responderID = 11;";
        // added AND transactionStatus = 'pending'
-       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'delivered';";
+       //$query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'delivered';";
+       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND transactionStatus = 'delivered' ORDER BY transactionID DESC;";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
@@ -3098,7 +3134,9 @@ public function getPaidTransactions($ID,$column,$transactionType){
 
     if($transactionType === "Request"){
         // added AND transactionStatus = 'pending'
-        $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'paid' OR transactionStatus = 'payment confirmed';";
+       // $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'paid' OR transactionStatus = 'payment confirmed';";
+
+       $query = "SELECT transactions.*, requestor.userID, requestor.userEmail as RequestorUserEmail, requestor.userPhoto as RequestorPhoto, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, responder.userEmail as ResponderUserEmail, responder.userPhoto as ResponderPhoto, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND transactionStatus = 'paid' OR transactionStatus = 'payment confirmed' ORDER BY transactionID DESC;";
 
         $result = mysqli_query($this->dbconnection, $query);
         $resultCheck = mysqli_num_rows($result);
