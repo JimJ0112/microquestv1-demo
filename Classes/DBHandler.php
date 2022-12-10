@@ -2709,7 +2709,7 @@ public function reportExists($reporterID,$reportedID){
 
    
 
-    $query = "SELECT * FROM $tablename WHERE reportedAccountID = $reportedID AND reporterAccountID = $reporterID AND (reportedServiceID = NULL AND reportedRequestID = NULL)";
+    $query = "SELECT * FROM $tablename WHERE reportedAccountID = $reportedID AND reporterAccountID = $reporterID AND (reportedServiceID = NULL AND reportedRequestID = NULL) AND reportStatus = 'pending'";
 
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);
@@ -2738,7 +2738,7 @@ public function reportRequestExists($reporterID,$reportedID,$requestID){
 
    
 
-    $query = "SELECT * FROM $tablename WHERE (reportedAccountID = $reportedID AND reporterAccountID = $reporterID) AND reportedRequestID = $requestID";
+    $query = "SELECT * FROM $tablename WHERE (reportedAccountID = $reportedID AND reporterAccountID = $reporterID) AND reportedRequestID = $requestID AND reportStatus = 'pending'";
 
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);
@@ -2767,7 +2767,7 @@ public function reportServiceExists($reporterID,$reportedID,$serviceID){
 
    
 
-    $query = "SELECT * FROM $tablename WHERE (reportedAccountID = $reportedID AND reporterAccountID = $reporterID) AND reportedServiceID = $serviceID";
+    $query = "SELECT * FROM $tablename WHERE (reportedAccountID = $reportedID AND reporterAccountID = $reporterID) AND reportedServiceID = $serviceID AND reportStatus = 'pending'";
 
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);
