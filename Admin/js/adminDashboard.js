@@ -238,28 +238,6 @@ function createUserElements(Number){
     var userIDInfo = document.createElement('td');
 
 
-    /*
-    baranggay = document.createElement('td');//location
-    birthDate = document.createElement('td');//general info
-    education = document.createElement('td');//general info
-    firstName= document.createElement('td');//general info
-    houseNo= document.createElement('td');//location
-    idExpiration= document.createElement('td');//general info
-    idFile= document.createElement('td');//general info
-    idNumber= document.createElement('td');//general info
-    idType= document.createElement('td');//general info
-    lastName= document.createElement('td');//name
-    municipality= document.createElement('td');//location
-    specialization= document.createElement('td');
-    street= document.createElement('td');//location
-    userEmail= document.createElement('td');//accountInfo
-    userGender= document.createElement('td');
-    userID= document.createElement('td');//accountInfo
-    userName= document.createElement('td');//accountInfo
-    userPhoto= document.createElement('td');//accountInfo
-    userStatus= document.createElement('td');//accountInfo
-    userType= document.createElement('td');//accountInfo
-    */
 
     userControls = document.createElement('td');
     acceptButton = document.createElement('button');
@@ -426,7 +404,7 @@ function setData(array){
     for(var i = 0; i<number;i++){
         
         
-
+/*
         var image = new Image();
         image.src = dataArray[i]['userPhoto'];
 
@@ -439,7 +417,7 @@ function setData(array){
         idFileImage.setAttribute('class','idFileImage');
         image.setAttribute('onerror',"this.src='img/laundry_servics.jpg'");
     
-
+*/
  
    
         
@@ -455,7 +433,7 @@ function setData(array){
         generalInfo[i].innerHTML = " <b> Name: <b/>"+ name + "<br/> <b> Birth Date: <b/>" + birthDate + "<br/> <b> Education: <b/>" + education + " <b> Gender:  <b/>" + gender;
        
      
-        userIDInfo[i].appendChild(idFileImage);
+       // userIDInfo[i].appendChild(idFileImage);
         userIDInfo[i].innerHTML = userIDInfo[i].innerHTML + "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
 
        
@@ -469,7 +447,7 @@ function setData(array){
      
         userType= dataArray[i]['userType']
 
-        accountInfo.appendChild(image);
+       // accountInfo.appendChild(image);
 
         accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<b> User ID: </b> " +  userID +" <br/><b> Username: </b>" + userName + " <br/><b> User Email: </b>" + userEmail + " <br/><b> User Type: </b>" + userType + " <br/><b> Specialization: </b>" + specialization;
   
