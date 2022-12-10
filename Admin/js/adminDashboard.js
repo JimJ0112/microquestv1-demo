@@ -437,10 +437,10 @@ function setData(array){
 
 
 
-   userPhotoTDdocument.getElementsByClassName("userPhotoTD");
-   nameTDdocument.getElementsByClassName("nameTD");
-   userIDPhotoTDdocument.getElementsByClassName(" userIDPhotoTD.");
-   userIDInfodocument.getElementsByClassName("userIDInfo");
+   userPhotoTD=document.getElementsByClassName("userPhotoTD");
+   nameTD=document.getElementsByClassName("nameTD");
+   userIDPhoto=TDdocument.getElementsByClassName(" userIDPhotoTD.");
+   userIDInfo=document.getElementsByClassName("userIDInfo");
   
 
    //userControls.setAttribute("class","userControls");
