@@ -240,7 +240,6 @@ function createUserElements(Number){
 
 
 // create elements to be appended 
-/*
 
 function createUserElements(Number){
  
@@ -255,9 +254,19 @@ function createUserElements(Number){
     var tr = document.createElement('tr');
 
 
+    var userPhotoTD = document.createElement('td');
+    // firstname, lastname
+    var name = document.createElement('td');
+
+    // birthday, sex
     var generalInfo = document.createElement('td');
     var location = document.createElement('td');
+
+    // userID, email, userType, specializtion
     var accountInfo = document.createElement('td');
+
+    var userIDPhotoTD = document.createElement('td');
+    // id type, id exp, id number
     var userIDInfo = document.createElement('td');
 
 
@@ -277,6 +286,9 @@ function createUserElements(Number){
 
    // set attributes
 
+   userPhotoTD.setAttribute("class","userPhotoTD");
+   name.setAttribute("class","nameTD");
+   userIDPhotoTD.setAttribute("class"," userIDPhotoTD.");
    userIDInfo.setAttribute("class","userIDInfo");
    location.setAttribute("class","location");
    generalInfo.setAttribute("class","generalInfo");
@@ -293,9 +305,14 @@ function createUserElements(Number){
    userControls.appendChild(acceptButton);
    userControls.appendChild(cancelButton);
    tr.appendChild(userControls);
+   tr.appendChild(userPhotoTD);
    tr.appendChild(accountInfo);
-   tr.appendChild(location);
+   tr.appendChild(name);
    tr.appendChild(generalInfo);
+   tr.appendChild(location);
+   tr.appendChild(userIDPhotoTD);
+   tr.appendChild(userIDInfo);
+
 
 
 
@@ -309,12 +326,11 @@ function createUserElements(Number){
     
     
 } // end of function
-*/
 
 
 
 // set positions data 
-
+/*
 function setData(array){
 
     var dataArray = array;
@@ -404,9 +420,9 @@ function setData(array){
     }
 
 }
+*/
 
 
-/*
 function setData(array){
 
     var dataArray = array;
@@ -419,7 +435,15 @@ function setData(array){
    generalInfo= document.getElementsByClassName("generalInfo");
    accountInfo= document.getElementsByClassName("accountInfo");
 
-   userControls.setAttribute("class","userControls");
+
+
+   userPhotoTDdocument.getElementsByClassName("userPhotoTD");
+   nameTDdocument.getElementsByClassName("nameTD");
+   userIDPhotoTDdocument.getElementsByClassName(" userIDPhotoTD.");
+   userIDInfodocument.getElementsByClassName("userIDInfo");
+  
+
+   //userControls.setAttribute("class","userControls");
 
    acceptButton= document.getElementsByClassName("acceptButton");
    cancelButton= document.getElementsByClassName("cancelButton");
@@ -448,30 +472,22 @@ function setData(array){
         
 
 
-        location[i].innerText=  dataArray[i]['houseNo'] +  dataArray[i]['street']+ dataArray[i]['baranggay'] + dataArray[i]['municipality'];
+        location[i].innerHTML=  dataArray[i]['houseNo'] +  dataArray[i]['street']+ dataArray[i]['baranggay'] + dataArray[i]['municipality'];
        
       
      
-        generalInfo[i].innerText = " <b> Name: <b/>"+ dataArray[i]['firstName'] +" "+  dataArray[i]['lastName']; + "<br/> <b> Birth Date: <b/>" + dataArray[i]['birthDate'] + "<br/> <b> Education: <b/>" + dataArray[i]['education'] + " <b> Gender:  <b/>" + dataArray[i]['userGender'];
+        generalInfo[i].innerHTML= " <b> Name: <b/>"+ dataArray[i]['firstName'] +" "+  dataArray[i]['lastName']; + "<br/> <b> Birth Date: <b/>" + dataArray[i]['birthDate'] + "<br/> <b> Education: <b/>" + dataArray[i]['education'] + " <b> Gender:  <b/>" + dataArray[i]['userGender'];
        
      
-       // userIDInfo[i].appendChild(idFileImage);
-       // userIDInfo[i].innerHTML = userIDInfo[i].innerHTML + "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
-       userIDInfo[i].innerText = "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
+    
+       userIDInfo[i].innerHTML = "<br/> <b> ID #: </b>"+ dataArray[i]['idNumber'] + "<br/> <b> ID Type: </b>"+dataArray[i]['idType'] + "<br/> <b> ID Expiration Date: </b>" +  dataArray[i]['idExpiration'];
 
-       
-     
-
-       // accountInfo.appendChild(image);
-
-        //accountInfo[i].innerHTML = accountInfo[i].innerHTML + "<b> User ID: </b> " +  userID +" <br/><b> Username: </b>" + userName + " <br/><b> User Email: </b>" + userEmail + " <br/><b> User Type: </b>" + userType + " <br/><b> Specialization: </b>" + specialization;
-        accountInfo[i].innerText = "<b> User ID: </b> " +  dataArray[i]['userID'] +" <br/><b> Username: </b>" + dataArray[i]['userName'] + " <br/><b> User Email: </b>" + dataArray[i]['userEmail'] + " <br/><b> User Type: </b>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
+       accountInfo[i].innerHTML = "<b> User ID: </b> " +  dataArray[i]['userID'] +" <br/><b> Username: </b>" + dataArray[i]['userName'] + " <br/><b> User Email: </b>" + dataArray[i]['userEmail'] + " <br/><b> User Type: </b>" + dataArray[i]['userType'] + " <br/><b> Specialization: </b>" + dataArray[i]['specialization'];
   
 
     }
 
 }
-*/
 
 
 function hideNavMenu(){
