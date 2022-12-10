@@ -13,6 +13,10 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     // password hashing 
     $dbPassword = $DBHandler ->getData("userprofile","userEmail",$email,"userPassword");
    
+
+  
+
+
     $exists = $DBHandler->exists("userprofile","userEmail",$email);
    
    
@@ -105,7 +109,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
     
     //echo $verifyPass;
-    if($exists){
+    if($exists || $existsUserName){
         $verifyAccount = true;
         echo "account exists \n";
     } else{
@@ -137,7 +141,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
     
 
-    if($verify === true && $isBanned === false && $isRestricted === false){
+    if($verify && $isBanned === false && $isRestricted === false){
         $test = $DBHandler ->getData("userprofile","userEmail",$email,"UserID");
 
         if($test != "failed to fetch"){
@@ -225,7 +229,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     //end of inner if
 
 } else {
-    header("location: ../Login.php?msg= No email or password entered");
+    header("location: ../Login.php?msg= Not isset!");
 
 }
 

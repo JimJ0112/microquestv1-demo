@@ -45,22 +45,7 @@ body{
 	/* border-radius: 20px; */
 }
 
-#serviceInfoDiv{
-
-/* margin-top: 0; */
-
-/* position: relative; */
-
-width: 40%;
-
-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.167);
-
-height: 80%;
-
-/* overflow-y: scroll; */
-
-overflow: hidden;
-}
+#serviceInfoDiv{/* margin-top: 0; *//* position: relative; *//* width: 40%; */box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.167);height: 80%;/* overflow-y: scroll; */overflow: hidden;/* color: orangered; */}
 
 #serviceFeedbacksDiv{
 	background-color: rgb(133 133 133 / 40%);
@@ -68,7 +53,7 @@ overflow: hidden;
 	/* min-height: 500px; */
 	/* margin-top: 0; */
 	/* border-radius: 0px 0px 10px 10px; */
-	padding: 10px;
+	/* padding: 10px; */
 	height: 90%;
 	overflow-y: scroll;
 }
@@ -122,6 +107,7 @@ height: 100%;
 	/* border-radius: 10px 10px 0 0; */
 	/* background-size: cover; */
 	text-align: center;
+	display: grid;
 }
 
 #serviceRatingsDiv{
@@ -135,7 +121,7 @@ height: 100%;
 	overflow: hidden;
 	/* text-overflow: ellipsis; */
 	/* text-align: center; */
-	margin-left: 45%;
+	/* margin-left: 45%; */
 }
 
 .reviewContainer-Content{
@@ -174,14 +160,16 @@ height: 100%;
 #serviceCategory{
 	/* font-size: xx-large; */
 	margin: auto;
-	/* height: 30%; */
-	padding-top: 40px;
+	height: 30%;
+	/* padding-top: 40px; */
+	color: orangered;
 }
 
 #serviceTitle{
 	/* font-size: x-large; */
-	margin: auto;
+	/* margin: auto; */
 	height: 30%;
+	color: orangered;
 }
 b#responderUserType {
     /* text-transform: capitalize; */
