@@ -156,44 +156,46 @@
 <div id="updateProductFormBack">
 
 	<div id="productUpdateForm">
+		<div id="closeImage" class="closeButtonProduct" onclick="close()"> ✕ </div>
+
 		
 		<form method="post" action="Backend/" enctype="multipart/form-data"> 
-			<table id="myServiceViewForm"> 
+			<table id="myProductViewTable"> 
 				<input type="hidden" name="productID" id="productIDHidden"/>
 				<tr> 
-					<td> Product Name </td>
-					<td>  
+					<td class="serviceFirstRow"> Product Name </td>
+					<td class="serviceSecondRow">  
 						<input type="text" name="productName" id="productNameText" Required/>
 					</td>
 				</tr>
 
 				<tr> 
-					<td> Product Brand </td>
-					<td> 
+					<td class="serviceFirstRow" > Product Brand </td>
+					<td class="serviceSecondRow"> 
 						<input type="text" name="productBrand" id="productBrandText" Required/>
 					</td>
 				</tr>
 
 				<tr> 
-					<td> Product Price </td>
-					<td> 
+					<td class="serviceFirstRow"> Product Price </td>
+					<td class="serviceSecondRow"> 
 						<input type="number" name="productPrice" id="productPriceText" placeholder="Php 0.00" Required/>
 					</td>
 				</tr>
 
 				<tr> 
-					<td> Delivery Price </td>
-					<td> 
+					<td class="serviceFirstRow" > Delivery Price </td>
+					<td class="serviceSecondRow"> 
 						<input type="number" name="productDeliveryPrice" id="productDeliveryPriceText" placeholder="Php 0.00" Required/>
 
 					</td>
 				</tr>
 
 				<tr> 
-					<td> Status </td>
-					<td> 
-						 <input type="radio" value="Available" name="productStatus" id="productStatus"/> Available
-						 <input type="radio" value="Not Available" name="productStatus" id="productStatus"/> Not Available
+					<td class="serviceFirstRow" > Status </td>
+					<td class="serviceSecondRow"> 
+						 <input type="radio" value="Available" name="productStatus" id="productStatus" Required/> <label>  Available </label>
+						 <input type="radio" value="Not Available" name="productStatus" id="productStatus"/> <label> Not Available <label>
 
 					</td>
 				</tr>
