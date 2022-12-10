@@ -51,7 +51,7 @@
 		$status = $_SESSION["userStatus"];
 		$userType = $_SESSION["userType"];
 
-		if($status === "not verified"){
+		if($status === "not verified" || $status === "Declined"){
 			require_once("imports/GuestNavBar.php");
 		}else{
 			if($userType === "Requestor"){
