@@ -7,7 +7,7 @@ function getResponders(){
 
 
 
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
 
             
@@ -52,7 +52,7 @@ function getRequestors(){
     var xmlhttp = new XMLHttpRequest();
 
    
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
 
 
