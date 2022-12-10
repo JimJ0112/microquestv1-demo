@@ -1003,153 +1003,6 @@ function saveAspdf(){
 
 
 
-/*
-function demoFromHTML(){
-
-    var pdf = new jsPDF();
-
-
-    source = $('#contractDiv');
-
-
-    // Create a canvas with double-resolution.
-    html2canvas(source, {
-        scale: 2
-    });
-    // Create a canvas with 144 dpi (1.5x resolution).
-    html2canvas(source, {
-        dpi: 144
-    });
-
-
-    margins = {
-        top: 0,
-        bottom: 0,
-        left: 0,
-        width: 10
-    };
-
-    pdf.addHTML(
-        source, // HTML string or DOM elem ref.
-        margins.left, // x coord
-        margins.top, { // y coord
-            'width': window.width // max width of content on PDF
-        },
-
-        function (dispose) {
-
-            pdf.save('Test.pdf');
-        }, margins
-    );
-
-   // pdf.save('web.pdf');
-}
-
-*/
-
-/*
-function demoFromHTML(){
-
- 
-    source = $('#contractDiv');
-    // Create a canvas with 144 dpi (1.5x resolution).
-    html2canvas(source, {
-        scale: 4,
-        onrendered: function(){
-
-            var pdf = new jsPDF('p','pt','a4');
-
-
-
-            margins = {
-                top: 0,
-                bottom: 0,
-                left: 0,
-                width: 10
-            };
-        
-            pdf.HTML(
-                source, // HTML string or DOM elem ref.
-                margins.left, // x coord
-                margins.top, { // y coord
-                    'width': window.width // max width of content on PDF
-                },
-        
-                function (dispose) {
-        
-                    pdf.save('Test.pdf');
-                }, margins
-            );
-        
-        }
-    });
-
-
-   
-}
-
-
-
-function saveDoc(){
-    var pdf = new jsPDF('p', 'pt', 'a4');
-    window.html2canvas = html2canvas
-    const doc = document.getElementById('contractDiv');
-
-    if (doc) {
- 
-
-        pdf.html(document.getElementById('contractDiv'), {
-            callback: function (pdf) {
-                pdf.save('DOC.pdf');
-            }
-        })
-   }
- }
-
-
-function genPDFNew(){
-
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-
-    today = mm + '-' + dd + '-' + yyyy;
-
-
-    var formServiceID = document.getElementById('formServiceID').value;
-    var formRequestorID= document.getElementById('formRequestorID').value;
-    var Category= document.getElementById('Category').value;
-    var Position= document.getElementById('Position').value;
-    var responderID= document.getElementById('responderID').value;
-    var servicePrice= document.getElementById('servicePrice').value;
-    var dueDate= document.getElementById('dueDate').value;
-    var responderTimeSlots= document.getElementById('responderTimeSlots').value;
-    var additionalNotes= document.getElementById('additionalNotes').value;
-    var contractInput = document.getElementById('contractInput');
-
-    responderInfoArray = sessionStorage.getItem('responderInfoArray'); 
-    responderInfoArray = JSON.parse(responderInfoArray);
-    console.log(responderInfoArray);
-
-    myInfoArray = sessionStorage.getItem('myInfoArray'); 
-    myInfoArray = JSON.parse(myInfoArray);
-    console.log(responderInfoArray);
-
-    var contract = " This Freelance Contract, is entered into by and between:  <br/> <br/> " + myInfoArray[0]['lastName']+" "+ myInfoArray[0]['firstName']+
-    " <br/>  from  <br/> &nbsp"+myInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ myInfoArray[0]['municipality']+ ", Bataan <br/>  And  <br/> "+ responderInfoArray[0]['lastName']+" "+ responderInfoArray[0]['firstName']+
-    " <br/>  from  <br/> &nbsp"+responderInfoArray[0]['street']+" , "+myInfoArray[0]['baranggay']+" , "+ responderInfoArray[0]['municipality']+ ", Bataan <br/>" + " <br/>  <br/>  WHEREAS,  "+myInfoArray[0]['firstName']+" has a need for "+ Category + ", "+ Position + "."
-    + "<br/> <br/> NOW THEREFORE, the parties hereby agree as follows: <br/> <br/>  Service Price:  Php "+servicePrice+" <br/> <br/>  Deadline: "+ dueDate + " <br/> <br/>  Time: "+ responderTimeSlots+ " <br/> <br/>  Additional Notes:  <br/> <br/>" + additionalNotes; 
-
-    
-
-    var pdf = new jsPDF('p', 'in', [8.5, 11]);
-
-    pdf.text(100,100,"MICROQUEST");
-
-
-}
-*/
 
 function h2canvaspdf(){
     var width = 200;
@@ -1167,12 +1020,12 @@ function h2canvaspdf(){
                 'image/png');              
             var doc = new jsPDF('p', 'mm');
             doc.addImage(imgData, 'PNG',4,4,width,height);
-            //doc.save('sample-file.pdf');
+            doc.save('ServiceOrder.pdf');
 
-            doc.output('save', 'ServiceOrder.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
-            doc.output('datauristring');        //returns the data uri string
-            doc.output('dataurlnewwindow');     //opens the data uri in new window
-            contractInput.value = doc.output('datauri');
+           // doc.output('save', 'ServiceOrder.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
+           // doc.output('datauristring');        //returns the data uri string
+           // doc.output('dataurlnewwindow');     //opens the data uri in new window
+           // contractInput.value = doc.output('datauri');
 
         }
     });
