@@ -128,6 +128,18 @@ session_start();
     </form>
 </div>
 
+
+<div id="viewImageBack">
+    <div id="viewImageForm"> 
+        <div id="closeButton" onclick="closeImage()"> ✕ </div> 
+        <img id="viewImage"> 
+
+
+    </div> 
+
+
+</div>
+
     <script>getRequestors() </script>   
     <script src="js/navbar.js"> </script>
 </body>

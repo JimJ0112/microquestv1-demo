@@ -348,6 +348,7 @@ function setData(array){
         idFileImage.src = dataArray[i]["idFile"];
         idFileImage.setAttribute('class','idFileImage');
         image.setAttribute('onerror',"this.src='img/laundry_servics.jpg'");
+        image.setAttribute('onclick','viewImage("' + dataArray[i]['idFile'] + '")');
         userIDInfo[i].appendChild(idFileImage);
     
 
@@ -588,6 +589,8 @@ function setReportData(array){
 
         image.setAttribute('class','reportEvidence');
         image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
+        image.setAttribute('onclick','viewImage("' + dataArray[i]['reportEvidence'] + '")');
+
         reportEvidenceContainer[i].appendChild(image);
 
         reportCategory[i].innerText = dataArray[i]["reportCategory"];
@@ -976,5 +979,21 @@ function declineReport(reportID){
     }else{
 
     }
+
+}
+
+
+function viewImage(image){
+    var image = image;
+    var viewImageBack = document.getElementById("viewImageBack");
+    var viewImage = document.getElementById("viewImage");
+    viewImage.src = image;
+    viewImageBack.style.display = "grid";
+
+}
+
+function closeImage(){
+    var viewImageBack = document.getElementById("viewImageBack");
+    viewImageBack.style.display = "none";
 
 }
