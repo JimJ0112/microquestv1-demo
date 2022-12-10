@@ -108,7 +108,7 @@ function getRequestors(){
 }// end of function
 
 
-/*
+
 // create elements to be appended 
 function createUserElements(Number){
  
@@ -236,10 +236,11 @@ function createUserElements(Number){
     
     
 } // end of function
-*/
+
 
 
 // create elements to be appended 
+/*
 function createUserElements(Number){
  
     DataNumber = Number;
@@ -307,11 +308,11 @@ function createUserElements(Number){
     
     
 } // end of function
-
+*/
 
 
 // set positions data 
-/*
+
 function setData(array){
 
     var dataArray = array;
@@ -401,8 +402,9 @@ function setData(array){
     }
 
 }
-*/
 
+
+/*
 function setData(array){
 
     var dataArray = array;
@@ -425,7 +427,7 @@ function setData(array){
     for(var i = 0; i<number;i++){
         
         
-/*
+
         var image = new Image();
         image.src = dataArray[i]['userPhoto'];
 
@@ -438,7 +440,7 @@ function setData(array){
         idFileImage.setAttribute('class','idFileImage');
         image.setAttribute('onerror',"this.src='img/laundry_servics.jpg'");
     
-*/
+
  
    
         
@@ -467,6 +469,7 @@ function setData(array){
     }
 
 }
+*/
 
 
 function hideNavMenu(){
