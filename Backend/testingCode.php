@@ -22,7 +22,7 @@ if($results !== "failed to fetch" || $results !== null ){
     $results = json_decode($results,true);
 
 
-   var_dump($results);
+   print_r($results);
    
    $restrictDuration =  $results[0]['restrictDuration'];
 
