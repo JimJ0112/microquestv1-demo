@@ -337,3 +337,10 @@ td{border: none;}
     height: 90%;
     background-color: aliceblue;
 }
+
+#viewImage{
+    width: 600px;
+    height: 700px;
+    object-fit: contain;
+    border: 1px solid rgba(128, 128, 128, 0.31);
+}
