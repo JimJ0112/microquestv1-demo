@@ -26,7 +26,7 @@ function getResponders(){
 
                 var number = dataArray.length;
                 createUserElements(number);
-                setData(dataArray);
+              //  setData(dataArray);
 
         
 
@@ -77,7 +77,7 @@ function getRequestors(){
                 console.log(dataArray);
                 var number = dataArray.length;
                 createUserElements(number);
-                setData(dataArray);
+               // setData(dataArray);
 
 
         
