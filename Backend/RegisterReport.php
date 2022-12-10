@@ -34,14 +34,6 @@ if($transactionType === "service"){
 
 
 
-//echo $result = $DBHandler->registerReport($ReportedAccountID,$ReporterAccountID,$reportType,$reportDescription,$reportProof,$serviceID,$requestID,$reportDate);
-
-
-//header("location:../Requestor_ServiceTransactions.php");
-
-
-
-// for sending notifications to the users
 
 
 $notifType = "Warning";
@@ -69,22 +61,7 @@ echo $result = $DBHandler->sendNotifs($ReporterAccountID,$notifType,$notifMessag
 
 
 
-if(isset($_SESSION["userType"])){
+header("location:../Messages.php?msg=Report Sent!");
 
-    $userType = $_SESSION["userType"];
-
-    if($userType === "Responder"){
-
-        header("location:../Requestor_ServiceTransactions.php?msg=Report Sent!");
-
-    } else if($userType === "Requestor"){
-
-        header("location:../Responder_ServiceTransactions.php?msg=Report Sent!");
-
-    }
-}else{
-    header("location:../Messages.php?msg=Report Sent!");
-
-}
 
 

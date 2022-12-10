@@ -19,17 +19,15 @@
 
 #requestInfoContentTable{
     width: 80%;
-    height: fit-content;
+    /* height: 600px; */
     margin: auto;
-    border: 2px , 
-    
+    border: 2px ,
 }
 
 #requestInfoContentTable td{
     width: 80%;
     height: fit-content;
     padding: 10px;
-  
 }
 
 #requestorProfile{
@@ -46,19 +44,21 @@
 
 #requestInfoMain{
    
-box-shadow: 1px 8px 10px #353535;
+/* box-shadow: 1px 8px 10px #353535; */
    
-border-radius: 50px;
+border-radius: 10px;
    
 width: 100%;
    
-height: fit-content;
+/* height: 100%; */
    
-color: aliceblue;
+color: orangered;
    
-background-image: url(../img/d.jpg);
+background-image: url(../img/f.jpg);
    
 background-color: rgb(141 141 141 / 47%);
+   
+background-size: cover;
    
 margin: auto;
    
@@ -75,7 +75,7 @@ border: solid rgb(255 69 0) 2px;
 }
 #requestInfoMain h1{
     margin:30px;
-
+    /* color: orangered; */
 }
 
 #applyButton{
@@ -87,20 +87,24 @@ border: solid rgb(255 69 0) 2px;
 
 #messageMe{
     border: 1px solid rgb(136 75 38);
-    box-shadow: 1px 8px 10px #353535;
+    /* box-shadow: 1px 8px 10px #353535; */
     border-radius: 10px;
     width: fit-content;
     height: fit-content;
     padding: 50px;
     background-color: #89898900;
-    margin: auto;
+    margin-top: 0px;
+    /* margin: 0px auto; */
     font-family: Georgia;
     top:5px;
 }
 #messageMeTd{
 
-    width: fit-content;
-    overflow: hidden;
+width: fit-content;
+
+overflow: hidden;
+
+position: absolute;
 }
 
 
@@ -252,13 +256,19 @@ border: solid rgb(255 69 0) 2px;
 
 #Registration-BackButton{
 	
-	height: 50px;
-    position: absolute;
-    float: left;
-	margin:10px;
-	cursor: pointer;
-	filter: brightness(30%);
-
+height: 50px;
+	
+position: absolute;
+	
+float: left;
+	
+margin:10px;
+	
+cursor: pointer;
+	
+filter: brightness(30%);
+	
+display: none;
 }
 #Registration-BackButton a{
     width: fit-content;
