@@ -140,7 +140,7 @@ function setData(array){
             }else if(dataArray[i]['requestStatus'] === "On Going"){
                 requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small;  color:Blue;'> " + dataArray[i]['requestStatus'] + "</span>";
                 //myRequestCard[i].setAttribute("onclick","viewRequest("+dataArray[i]['requestID']+")");
-                myRequestCard[i].setAttribute("onclick","showAlert('The request that you are trying to edit has already been On Going')");
+                myRequestCard[i].setAttribute("onclick","");
 
             }else{
 
