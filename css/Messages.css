@@ -275,7 +275,7 @@ background-color: rgb(255 69 0);
 
 form#messageSendPhotoForm {
     margin: auto;
-	height: auto;
+	
 }
 
 input#messageSendPhotoBody {
@@ -332,6 +332,7 @@ input#messageSendPhotoBody {
 	background-color: white;
 	margin: auto;
 	display: grid;
+	overflow: scroll;
 }
 
 #closeImage{
