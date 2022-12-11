@@ -486,7 +486,7 @@ td{
     color:#ccc;
 }
 .rate:not(:checked) > label:before {
-    content: '\2606';
+    content: '\2605';
 }
 .rate > input:checked ~ label {
     color: #ffc700;    
