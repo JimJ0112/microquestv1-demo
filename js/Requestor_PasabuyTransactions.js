@@ -624,7 +624,7 @@ function setPasabuyOrderItem(array){
 
         // set data
         Price[i].innerHTML = "<span style='font-size:small; text-align:left;'> x "+ dataArray[i]['quantity']+ " <br/> Price: Php " +dataArray[i]['price'] +" <br/> " +"Delivery Fee: Php" + dataArray[i]['deliveryRate'] +" </span>  <span style='font-size:medium;'> <br/>  Total Price: Php " + total + "</span>" ;
-        Contract[i].innerHTML = "";
+       // Contract[i].innerHTML = "";
      
         
         // datePosted[i].innerHTML = dataArray[i]['transactionStartDate'] +" <br/>TimeSlot: " + dataArray[i]['timeSlot'];
@@ -762,7 +762,7 @@ function setPasabuyAcceptedItem(array){
 
         // set data
         Price[i].innerHTML = "<span style='font-size:small; text-align:left;'> x "+ dataArray[i]['quantity']+ " <br/> Price: Php " +dataArray[i]['price'] +" <br/> " +"Delivery Fee: Php" + dataArray[i]['deliveryRate'] +" </span>  <span style='font-size:medium;'> <br/>  Total Price: Php " + total + "</span>" ;
-        Contract[i].innerHTML = "";
+       // Contract[i].innerHTML = "";
      
         
         // datePosted[i].innerHTML = dataArray[i]['transactionStartDate'] +" <br/>TimeSlot: " + dataArray[i]['timeSlot'];
@@ -904,7 +904,7 @@ function setPasabuyDeliveredItem(array){
 
         // set data
         Price[i].innerHTML = "<span style='font-size:small; text-align:left;'> x "+ dataArray[i]['quantity']+ " <br/> Price: Php " +dataArray[i]['price'] +" <br/> " +"Delivery Fee: Php" + dataArray[i]['deliveryRate'] +" </span>  <span style='font-size:medium;'> <br/>  Total Price: Php " + total + "</span>" ;
-        Contract[i].innerHTML = "";
+       // Contract[i].innerHTML = "";
      
         
         // datePosted[i].innerHTML = dataArray[i]['transactionStartDate'] +" <br/>TimeSlot: " + dataArray[i]['timeSlot'];
@@ -1060,7 +1060,7 @@ function setPasabuyPaidItem(array){
 
         // set data
         Price[i].innerHTML = "<span style='font-size:small; text-align:left;'> x "+ dataArray[i]['quantity']+ " <br/> Price: Php " +dataArray[i]['price'] +" <br/> " +"Delivery Fee: Php" + dataArray[i]['deliveryRate'] +" </span>  <span style='font-size:medium;'> <br/>  Total Price: Php " + total + "</span>" ;
-        Contract[i].innerHTML = "";
+       // Contract[i].innerHTML = "";
      
         
         // datePosted[i].innerHTML = dataArray[i]['transactionStartDate'] +" <br/>TimeSlot: " + dataArray[i]['timeSlot'];
