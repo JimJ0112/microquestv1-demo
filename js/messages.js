@@ -489,10 +489,18 @@ function noMessageSelected(){
 */
 
 function sendForm(){
-    messageSendPhotoForm = document.getElementById('messageSendPhotoForm');
-    messageSendPhotoForm.submit();
-    closeMessageSendPhotoBack();
-    closeMessageFile();
+    var messageImageFile = document.getElementById('messageImageFile');
+    if(messageImageFile.value === ""){
+        alert('You have not selected a photo to send yet');
+
+    }else{
+        messageSendPhotoForm = document.getElementById('messageSendPhotoForm');
+        messageSendPhotoForm.submit();
+        closeMessageSendPhotoBack();
+        closeMessageFile();
+
+    }
+
 }
 
 
