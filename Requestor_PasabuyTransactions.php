@@ -305,7 +305,7 @@
 				<img id="reportProofOutput"> 
 			</div>
 			<br/>
-			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)" hidden required/><label for="reportProof">upload file ↑</label><br/><br/>
+			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)" hidden/><label for="reportProof">upload file ↑</label><br/><br/>
 
 			<span> Description: </span> <br/>
 			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8" required></textarea>  

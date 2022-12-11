@@ -195,7 +195,7 @@
 			<h3> Please Select a problem </h3>
 			
 		
-			<select id="reportType" name="reportType" onchange="otherProblems()">
+			<select id="reportType" name="reportType" onchange="otherProblems()" Required>
 				<option value="Pretending to be someone"> Pretending to be someone </option>
 				<option value="Posting inappropriate things"> Posting inappropriate things </option>
 				<option value="Harassment or bullying"> Harassment or bullying </option>
@@ -214,7 +214,7 @@
 			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)"/><br/><br/>
 
 			<span> Description: </span> <br/>
-			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8"></textarea>  
+			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8" Required></textarea>  
 			<br/><br/>
 		
 
