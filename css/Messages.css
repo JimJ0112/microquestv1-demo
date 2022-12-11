@@ -327,12 +327,15 @@ input#messageSendPhotoBody {
 }
 
 #messageSendPhoto{
-	width: 40%;
-	height: 50%;
-	background-color: white;
-	margin: auto;
-	display: grid;
-	overflow: scroll;
+
+    width: 40%;
+    z-index: 30;
+    height: fit-content;
+    background-color: white;
+    margin: auto;
+    display: grid;
+
+
 }
 
 #closeImage{
