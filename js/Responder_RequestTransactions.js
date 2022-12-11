@@ -1429,10 +1429,8 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
                     button1.innerText = "Reported";
                     button1.disabled = true;
                     button1.style.backgroundColor = "gray";
-                   // button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["requestorID"] +","+dataArray[rowNum]["serviceID"]+",'request','responder')");
-                   button1.setAttribute("onclick","showReportForm(" + reportedID +","+dataArray[rowNum]["serviceID"]+",'request','responder')");
-                   
-                   controlsTd[rowNum].appendChild(button1);
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["requestorID"] +","+dataArray[rowNum]["serviceID"]+",'request','requestor')");
+                    controlsTd[rowNum].appendChild(button1);
                     
         
                 } else{
@@ -1440,10 +1438,8 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
                     var button1 = document.createElement('button');
                     button1.setAttribute('class','CancelButton');
                     button1.innerText = "Report";
-                   // button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["requestorID"] +","+dataArray[rowNum]["serviceID"]+",'request','responder')");
-                   button1.setAttribute("onclick","showReportForm(" +reportedID +","+dataArray[rowNum]["serviceID"]+",'request','responder')");
-                    
-                   controlsTd[rowNum].appendChild(button1);
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["requestorID"] +","+dataArray[rowNum]["serviceID"]+",'request','requestor')");
+                    controlsTd[rowNum].appendChild(button1);
                    
                 }
 
