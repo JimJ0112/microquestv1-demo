@@ -1461,7 +1461,7 @@ function  checkPasabuyReports(myID,reportedID,serviceID,requestID,transactionTyp
                     button1.innerText = "Reported";
                     button1.disabled = true;
                     button1.style.backgroundColor = "gray";
-                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["serviceID"]+",'service','responder','Pasabuy',"+ pasabuyTransactionID +")");
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["requestorID"] +","+dataArray[rowNum]["serviceID"]+",'service','requestor','Pasabuy',"+ pasabuyTransactionID +")");
                     controlsTd[rowNum].appendChild(button1);
                     
         
@@ -1470,7 +1470,7 @@ function  checkPasabuyReports(myID,reportedID,serviceID,requestID,transactionTyp
                     var button1 = document.createElement('button');
                     button1.setAttribute('class','Button red');
                     button1.innerText = "Report";
-                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["serviceID"]+",'service','responder','Pasabuy',"+ pasabuyTransactionID +")");
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["requestorID"] +","+dataArray[rowNum]["serviceID"]+",'service','requestor','Pasabuy',"+ pasabuyTransactionID +")");
                     controlsTd[rowNum].appendChild(button1);
                    
                 }
