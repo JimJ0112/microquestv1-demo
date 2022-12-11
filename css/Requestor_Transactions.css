@@ -486,7 +486,7 @@ td{
     color:#ccc;
 }
 .rate:not(:checked) > label:before {
-    content: 'Ã¢Ëœâ€¦';
+    content: '⭐';
 }
 .rate > input:checked ~ label {
     color: #ffc700;    
