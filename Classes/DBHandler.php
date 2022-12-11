@@ -3703,6 +3703,23 @@ public function completeRequestStatus($requestID){
   
 }
 
+public function onGoingRequestStatus($requestID){
+    $tablename = "requestsinfo";
+    $column = "requestStatus";
+    $condition = "requestID";
+    $requestID = mysqli_real_escape_string($this->dbconnection, $requestID);
+    $conditionvalue = "On Going";
+
+    $query = "UPDATE $tablename SET $column = '$conditionvalue' WHERE $condition = '$requestID' ";
+
+    echo mysqli_error($this->dbconnection);
+    $result = mysqli_query($this->dbconnection, $query);
+
+
+        
+  
+}
+
 // update paymentcolumn 
 public function setPayment($name,$conditionvalue,$paymentFile){
     $tablename = "transactions";

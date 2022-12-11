@@ -73,11 +73,17 @@ $result1 = $DBHandler->sendNotifs($responderID,$notifType,$notifMessage,$notific
 
 $updateStatus = $_POST['update'];
 
+
+
+
 if($updateStatus === "completed"){
 
    $RequestID= $DBHandler ->getData("transactions","transactionID",$conditionvalue,"requestID");
    echo $DBHandler->completeRequestStatus($RequestID);
 
+}else if($updateStatus === "accepted"){
+    $RequestID= $DBHandler ->getData("transactions","transactionID",$conditionvalue,"requestID");
+    echo $DBHandler->onGoingRequestStatus($RequestID);
 }else{
     
 }
