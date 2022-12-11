@@ -1453,7 +1453,7 @@ function checkReports(myID,reportedID,serviceID,requestID,transactionType,rowNum
                     var button1 = document.createElement('button');
                     button1.setAttribute('class','Button red');
                     button1.innerText = "Report";
-                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["requestor"] +","+dataArray[rowNum]["serviceID"]+",'service','requestor')");
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["requestorID"] +","+dataArray[rowNum]["serviceID"]+",'service','requestor')");
                     controlsTd[rowNum].appendChild(button1);
                    
                 }
