@@ -275,6 +275,7 @@ background-color: rgb(255 69 0);
 
 form#messageSendPhotoForm {
     margin: auto;
+	height: auto;
 }
 
 input#messageSendPhotoBody {
