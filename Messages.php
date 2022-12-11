@@ -217,7 +217,8 @@ if(isset($_SESSION["userName"])){
 								<br/>
 								<span id="messageFileErrorMsg"> </span>
 								<br/>
-            	    			<input type="button" id="send" value="SEND" onclick="sendForm()"> 
+            	    			<!--<input type="button" id="send" value="SEND" onclick="sendForm()"> -->
+								<input type="submit" id="send" value="SEND" onclick="sendForm()"> 
 							</center>
 						</form>
         		</div>
