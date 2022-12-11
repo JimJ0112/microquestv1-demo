@@ -489,7 +489,7 @@ function noMessageSelected(){
 */
 
 function sendForm(){
-    /*
+    
     var messageImageFile = document.getElementById('messageImageFile');
     if(messageImageFile.value === ""){
         alert('You have not selected a photo to send yet');
@@ -501,11 +501,13 @@ function sendForm(){
         closeMessageFile();
 
     }
-    */
+    
 
+    /*
     closeMessageSendPhotoBack();
     closeMessageFile();
     alert('message sent');
+    */
 }
 
 
