@@ -164,7 +164,7 @@ if(isset($_SESSION["userName"])){
 
 						<table>
                				<tr>
-                    			<td> <input type="button" id="file" value="📎" onclick="openMessageSendPhotoBack()"> </td>
+                    			<td> <input type="button" id="file" value="📎" onclick="openMessageSendPhotoBack()" accept="image/png, image/jpg, image/jpeg"> </td>
                     			<td> <input type="text" id="messageBody" oninput="checkText()" placeholder="Send Message.."> </td>
                     			<td> <input type="button" id="send" value="SEND" onclick="sendMessage()" disabled> </td>
                				<tr>

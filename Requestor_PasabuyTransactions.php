@@ -158,7 +158,7 @@
 		<br/>
 
 		<img id="pasabuyPaymentFileOutput"/> <br/> <br/>
-		<input id="pasabuyPaymentProof" type="file" name="pasabuyPaymentFile" onchange="showPasabuyPaymentProofFile(event)"  required hidden/>
+		<input id="pasabuyPaymentProof" type="file" name="pasabuyPaymentFile" onchange="showPasabuyPaymentProofFile(event)" accept="image/png, image/jpg, image/jpeg" required hidden/>
 		<label for="pasabuyPaymentProof"> upload proof of payment ↑</label> 
 		
 		<br/>  <br/> <br/>
@@ -305,7 +305,7 @@
 				<img id="reportProofOutput"> 
 			</div>
 			<br/>
-			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)" hidden/><label for="reportProof">upload file ↑</label><br/><br/>
+			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)" accept="image/png, image/jpg, image/jpeg" hidden/><label for="reportProof">upload file ↑</label><br/><br/>
 
 			<span> Description: </span> <br/>
 			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8" required></textarea>  

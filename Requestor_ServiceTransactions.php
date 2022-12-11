@@ -158,7 +158,7 @@
 		<br/>
 
 		<img id="paymentFileOutput"/> <br/> <br/>
-		<input id="paymentProof" type="file" name="paymentFile" onchange="showPaymentProofFile(event)" hidden required/><label for="paymentProof"> upload proof of payment ↑</label> <br/>  <br/> <br/>
+		<input id="paymentProof" type="file" name="paymentFile" onchange="showPaymentProofFile(event)" accept="image/png, image/jpg, image/jpeg" hidden required/><label for="paymentProof"> upload proof of payment ↑</label> <br/>  <br/> <br/>
 		
 
 		<input class="button" type="submit" value="Confirm"/> 
@@ -276,7 +276,7 @@
 				<img id="reportProofOutput"> 
 			</div>
 			<br/>
-			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)" hidden/><label for="reportProof">upload file ↑</label><br/><br/>
+			<input type="file" name="reportProof" id="reportProof" oninput="showReportProofFile(event)" accept="image/png, image/jpg, image/jpeg" hidden/><label for="reportProof">upload file ↑</label><br/><br/>
 
 			<span> Description: </span> <br/>
 			<textarea name="reportDescription" id="reportDescription" cols="50" rows="8" required ></textarea>  

@@ -248,7 +248,7 @@ session_start();
                 echo date("Y-m-d H:i:s",time());?>">
 
             <label> Sample picture of your requested product </label> 
-            <input type="file" name="productImage"required> 
+            <input type="file" name="productImage" accept="image/png, image/jpg, image/jpeg"required> 
 
             <label> Product name: </label> 
             <input type="text" name="productName"required>

@@ -93,7 +93,7 @@ session_start();
 
                 <tr>
                     <td>Training/Certificate File </td>
-                    <td> <input type="file" name="certificateFile"> </td><br/>
+                    <td> <input type="file" name="certificateFile" accept="image/png, image/jpg, image/jpeg"> </td><br/>
                 </tr>
         
             </table>
@@ -153,7 +153,7 @@ session_start();
 
             <tr>
                 <td> Product Picture </td>
-                <td> <input name="productImage" type="file"/> </td>
+                <td> <input name="productImage" type="file" accept="image/png, image/jpg, image/jpeg"/> </td>
             </tr>
 
 
@@ -210,7 +210,7 @@ session_start();
 
                 <tr>
                     <td class="column1_td">Training/Certificate File </td>
-                    <td> <input type="file" name="certificateFile"> </td>
+                    <td> <input type="file" name="certificateFile" accept="image/png, image/jpg, image/jpeg"> </td>
                 </tr>
 
                 <tr>
