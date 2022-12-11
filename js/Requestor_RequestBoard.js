@@ -127,15 +127,24 @@ function setData(array){
             isNegotiable[i].innerText= dataArray[i]['isNegotiable'];
             dueDateValue[i].innerText= dataArray[i]['dueDate'];
             dueDate[i].innerText='due date';
-            myRequestCard[i].setAttribute("onclick","viewRequest("+dataArray[i]['requestID']+")");
+           // myRequestCard[i].setAttribute("onclick","viewRequest("+dataArray[i]['requestID']+")");
 
             if(dataArray[i]['requestStatus'] === "Delisted"){
                 requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small; color:orangered;'> " + dataArray[i]['requestStatus'] + "</span>";
+                myRequestCard[i].setAttribute("onclick","showAlert('The request that you are trying to edit has already been deleted')");
 
             }else if(dataArray[i]['requestStatus'] === "Completed"){
                 requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small;  color:Blue;'> " + dataArray[i]['requestStatus'] + "</span>";
+                myRequestCard[i].setAttribute("onclick","showAlert('The request that you are trying to edit has already been Completed')");
+
+            }else if(dataArray[i]['requestStatus'] === "On Going"){
+                requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small;  color:Blue;'> " + dataArray[i]['requestStatus'] + "</span>";
+                //myRequestCard[i].setAttribute("onclick","viewRequest("+dataArray[i]['requestID']+")");
+                myRequestCard[i].setAttribute("onclick","showAlert('The request that you are trying to edit has already been On Going')");
 
             }else{
+
+                myRequestCard[i].setAttribute("onclick","viewRequest("+dataArray[i]['requestID']+")");
                 requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small'> " + dataArray[i]['requestStatus'] + "</span>";
             }
             var arrayDueDate = new Date(dataArray[i]['dueDate']);
@@ -154,6 +163,12 @@ function setData(array){
     }
 
 
+
+// show alert
+function showAlert(string){
+    var msg = string;
+    alert(msg);
+};
 
 
 // set update form

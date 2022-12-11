@@ -197,7 +197,7 @@
 				
 			?>
 		<a href="<?php echo $profileLink;?>"><li class="NavMenu-item" title="Log Out">View Profile  </li></a>
-		<a href=""><li class="NavMenu-item" title="Log Out">Edit Profile  </li></a>
+		<a href="Policies.php"><li class="NavMenu-item" title="Log Out"> Policies  </li></a>
 		<a href="Backend/Logout.php"><li class="NavMenu-item" title="Log Out">Log out</li></a>
 
 		</ul>
