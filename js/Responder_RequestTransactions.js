@@ -1496,7 +1496,7 @@ function checkRequestReports(myID,reportedID,serviceID,requestID,transactionType
                     button1.innerText = "Reported";
                     button1.disabled = true;
                     button1.style.backgroundColor = "gray";
-                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["requestID"]+",'request','responder')");
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["requestorID"] +","+dataArray[rowNum]["requestID"]+",'request','responder')");
                     controlsTd[rowNum].appendChild(button1);
                     
         
@@ -1505,7 +1505,7 @@ function checkRequestReports(myID,reportedID,serviceID,requestID,transactionType
                     var button1 = document.createElement('button');
                     button1.setAttribute('class','Button red');
                     button1.innerText = "Report";
-                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["responderID"] +","+dataArray[rowNum]["requestID"]+",'request','responder')");
+                    button1.setAttribute("onclick","showReportForm(" +dataArray[rowNum]["requestorID"] +","+dataArray[rowNum]["requestID"]+",'request','responder')");
                     controlsTd[rowNum].appendChild(button1);
                    
                 }
