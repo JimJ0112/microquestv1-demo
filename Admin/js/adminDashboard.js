@@ -11,7 +11,8 @@ function getResponders(){
         if (this.readyState === 4 || this.status === 200){ 
 
             
-            document.getElementById("DashBoardContent_TableBody").innerHTML = "";
+            document.getElementById("LoadingScreen").style.display = "none";
+
          
            
             //hideNavMenu();
@@ -33,7 +34,8 @@ function getResponders(){
      
         }else{
             //document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading...";
-            document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading";
+            document.getElementById("LoadingScreen").style.display = "grid";
+
             
             
             //console.log(err);
@@ -45,7 +47,8 @@ function getResponders(){
         if (this.readyState === 4 || this.status === 200){ 
     
         }else{
-            document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading";
+
+            document.getElementById("LoadingScreen").style.display = "grid";
 
         }      
     };
@@ -66,7 +69,8 @@ function getRequestors(){
         if (this.readyState === 4 || this.status === 200){ 
 
 
-            document.getElementById("DashBoardContent_TableBody").innerHTML = "";
+            //document.getElementById("DashBoardContent_TableBody").innerHTML = "";
+            document.getElementById("LoadingScreen").style.display = "none";
          
 
 
@@ -96,7 +100,9 @@ function getRequestors(){
         if (this.readyState === 4 || this.status === 200){ 
     
         }else{
-            document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading";
+           // document.getElementById("DashBoardContent_TableBody").innerHTML = "Loading";
+           document.getElementById("LoadingScreen").style.display = "grid";
+
 
         }      
     };
@@ -220,7 +226,7 @@ function setData(array){
         var idFileImage = new Image();
         idFileImage.src = dataArray[i]["idFile"];
         idFileImage.setAttribute('class','idFileImage');
-        idFileImage.setAttribute('onerror',"this.src='img/laundry_servics.jpg'");
+        idFileImage.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
         idFileImage.setAttribute('onclick','viewImage("' + dataArray[i]['idFile'] + '")');
         userIDInfo[i].appendChild(idFileImage);
     
@@ -291,8 +297,10 @@ function getAllReports(){
         if (this.readyState === 4 || this.status === 200){ 
 
             
-            document.getElementById("DashBoardContent_TableBody").innerHTML = "";
-            document.getElementById("loadingImage").style.display = "none";
+           //document.getElementById("DashBoardContent_TableBody").innerHTML = "";
+            //document.getElementById("loadingImage").style.display = "none";
+           document.getElementById("LoadingScreen").style.display = "none";
+
            
            // hideNavMenu();
             
@@ -320,6 +328,11 @@ function getAllReports(){
             //console.log(err);
         }      
     };
+
+    xmlhttp.onreadystatechange = function(){
+        document.getElementById("LoadingScreen").style.display = "grid";
+
+    }
     
     xmlhttp.open("POST", "backend/Get_Reports.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -384,18 +397,26 @@ function createReportElements(Number){
 
   var button2 = document.createElement('button');
   button2.setAttribute("class","Suspend");
-  button2.innerText = "Restrict";
+  button2.innerText = "Restrict Reported Account";
+
+  
 
   
   var button3 = document.createElement('button');
   button3.setAttribute("class","Decline");
   button3.innerText = "Decline";
 
+  var button4 = document.createElement('button');
+  button4.setAttribute("class","BanButton");
+  button4.innerText = "Ban Reported Account";
+
    // append elements to the row
    Actions.appendChild(button);
    Actions.appendChild(button1);
    Actions.appendChild(button2);
+   Actions.appendChild(button4);
    Actions.appendChild(button3);
+   
 
    tr.appendChild(Actions);
    tr.appendChild(reportID);
@@ -439,6 +460,7 @@ function setReportData(array){
    var sendNotification= document.getElementsByClassName("sendNotification") 
    var reportSeeMore = document.getElementsByClassName("reportSeeMore");
    var Decline = document.getElementsByClassName("Decline");
+   var BanButton = document.getElementsByClassName("BanButton");
    
    var reportCategory = document.getElementsByClassName("reportCategory");
    var reportDate= document.getElementsByClassName("reportDate");
@@ -490,6 +512,7 @@ function setReportData(array){
         Suspend[i].setAttribute("onclick","restrictUserForm(" +dataArray[i]['reportID']+ ")" );
 
         Decline[i].setAttribute("onclick","declineReport(" +dataArray[i]['reportID'] + ")" );
+        BanButton[i].setAttribute("onclick","banUserForm("+dataArray[i]['reportID'] + ")");
 
 
     }
@@ -570,7 +593,8 @@ function closeForms(){
   function banUserForm(reportID){
   
     var reportID= reportID;
-    var reportedUserIDBan = document.getElementById("reportedUserIDBan");
+   // var reportedUserIDBan = document.getElementById("reportedUserIDBan");
+   var reportedUserIDBan = document.getElementById("reportID");
     BanFormBack= document.getElementById("BanFormBack");
     BanFormBack.style.display = "grid";
     reportedUserIDBan.value=reportID;
@@ -625,13 +649,12 @@ function acceptResponder(userID){
         xmlhttp.onload = function() {
             if (this.readyState === 4 || this.status === 200){ 
 
-
-     
-            
-
                 var dataArray = this.response;
 
                 console.log(dataArray);
+               document.getElementById("ProcessingScreen").style.display = "none";
+
+
                 if(dataArray = 1){
                     alert("success");
                     location.href="approveResponders.php";
@@ -650,9 +673,32 @@ function acceptResponder(userID){
             }      
         };
     
+
+        xmlhttp.onreadystatechange = function() {
+        
+               var acceptButton = document.getElementsByClassName("acceptButton");
+
+               
+
+                    for(var i=0;i<acceptButton.length;i++){
+
+                        acceptButton[i].disabled = true;
+                        acceptButton[i].backgroundColor="white";
+                        acceptButton.innerText = "Loading...";
+                    }
+              
+                    
+                    document.getElementById("ProcessingScreen").style.display = "grid";
+
+                
+         
+        };
+
+
         xmlhttp.open("POST", "backend/UpdateUserStatus.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(query);
+
     }else{
 
     }
@@ -675,6 +721,7 @@ function cancelResponder(userID){
             if (this.readyState === 4 || this.status === 200){ 
 
 
+                document.getElementById("ProcessingScreen").style.display = "none";
      
             
 
@@ -698,6 +745,26 @@ function cancelResponder(userID){
       
             }      
         };
+
+        xmlhttp.onreadystatechange = function() {
+        
+            var acceptButton = document.getElementsByClassName("acceptButton");
+
+            
+
+                 for(var i=0;i<acceptButton.length;i++){
+
+                     acceptButton[i].disabled = true;
+                     acceptButton[i].backgroundColor="white";
+                     acceptButton.innerText = "Loading...";
+                 }
+           
+                 
+                 document.getElementById("ProcessingScreen").style.display = "grid";
+
+             
+      
+     };
     
         xmlhttp.open("POST", "backend/UpdateUserStatus.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -724,6 +791,7 @@ function acceptRequestor(userID){
 
 
      
+                document.getElementById("ProcessingScreen").style.display = "none";
             
 
                 var dataArray = this.response;
@@ -745,6 +813,26 @@ function acceptRequestor(userID){
          
       
             }      
+        };
+
+        xmlhttp.onreadystatechange = function() {
+        
+            var acceptButton = document.getElementsByClassName("acceptButton");
+
+            
+
+                 for(var i=0;i<acceptButton.length;i++){
+
+                     acceptButton[i].disabled = true;
+                     acceptButton[i].backgroundColor="white";
+                     acceptButton.innerText = "Loading...";
+                 }
+           
+                 
+                 document.getElementById("ProcessingScreen").style.display = "grid";
+
+             
+      
         };
     
         xmlhttp.open("POST", "backend/UpdateUserStatus.php", true);
@@ -774,6 +862,7 @@ function cancelRequestor(userID){
 
      
             
+                document.getElementById("ProcessingScreen").style.display = "none";
 
                 var dataArray = this.response;
 
@@ -795,10 +884,32 @@ function cancelRequestor(userID){
       
             }      
         };
+
+
+        xmlhttp.onreadystatechange = function() {
+        
+            var acceptButton = document.getElementsByClassName("acceptButton");
+
+            
+
+                 for(var i=0;i<acceptButton.length;i++){
+
+                     acceptButton[i].disabled = true;
+                     acceptButton[i].backgroundColor="white";
+                     acceptButton.innerText = "Loading...";
+                 }
+           
+                 
+                 document.getElementById("ProcessingScreen").style.display = "grid";
+
+             
+      
+        };
     
     xmlhttp.open("POST", "backend/UpdateUserStatus.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
+
     }else{
 
     }
@@ -824,6 +935,7 @@ function declineReport(reportID){
 
      
             
+                document.getElementById("ProcessingScreen").style.display = "none";
 
                 var dataArray = this.response;
 
@@ -844,6 +956,27 @@ function declineReport(reportID){
          
       
             }      
+        };
+
+
+        xmlhttp.onreadystatechange = function() {
+        
+            var acceptButton = document.getElementsByClassName("acceptButton");
+
+            
+
+                 for(var i=0;i<acceptButton.length;i++){
+
+                     acceptButton[i].disabled = true;
+                     acceptButton[i].backgroundColor="white";
+                     acceptButton.innerText = "Loading...";
+                 }
+           
+                 
+                 document.getElementById("ProcessingScreen").style.display = "grid";
+
+             
+      
         };
     
     xmlhttp.open("POST", "backend/UpdateReportStatus.php", true);

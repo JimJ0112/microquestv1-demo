@@ -226,8 +226,8 @@ session_start();
 
 </div>
 
-<div id="BanFormBack" method="post" action="backend/BanUser.php"> 
-    <form id="banForm" method="post"> 
+<div id="BanFormBack"> 
+    <form id="banForm" method="post" action="backend/BanUser.php">
         <div id="closeButton" onclick="closeForms()"> ✕ </div>
         
         <h1> Ban </h1>

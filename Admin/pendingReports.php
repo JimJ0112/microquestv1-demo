@@ -40,10 +40,24 @@ session_start();
     <div id="DashBoardContent">
 
 
+
+        <div id="ReportFilter"> 
+            <ul> 
+                <li> List Item </li>
+                <li> List Item </li>
+                <li> List Item </li>
+                <li> List Item </li>
+                <li> List Item </li>
+                <li> List Item </li>
+                <li> List Item </li>
+                <li> List Item </li>
+                <li> List Item </li>
+                <li> List Item </li>
+                
+            </ul>
+        </div>
+
                     <table id="DashBoardContent_Table">
-
-                        <img src="../img/logo.png" id="loadingImage"/>
-
 
                         <thead id="DashBoardContent_TableHead"> 
                         </thead>
@@ -77,8 +91,8 @@ session_start();
 
 </div>
 
-<div id="BanFormBack" method="post" action="backend/BanUser.php"> 
-    <form id="banForm" method="post"> 
+<div id="BanFormBack"> 
+    <form id="banForm" method="post" action="backend/BanUser.php"> 
         <div id="closeButton" onclick="closeForms()"> ✕ </div>
         
         <h1> Ban </h1>
@@ -119,14 +133,32 @@ session_start();
 
 
 <div id="viewImageBack">
+
     <div id="viewImageForm"> 
         <div id="closeButton" onclick="closeImage()"> ✕ </div> 
         <img id="viewImage"> 
 
-
     </div> 
 
+</div>
 
+
+<div id="LoadingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Loading... </h1>
+        <img src="img/loading.gif"  id="loadingImage">
+    </div>
+  
+</div>
+
+<div id="ProcessingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Processing... </h1>
+        <img src="img/processing.gif"  id="loadingImage">
+    </div>
+  
 </div>
 
     <script>getAllReports() </script>

@@ -8,6 +8,7 @@
 
   
     display: grid;
+   
     align-content: center;
 
     overflow-y: auto;
@@ -20,10 +21,62 @@
   font-family: sans-serif;
 }
 
+#ReportFilter{
+    position: relative;
+   
+ 
+    width: 10%;
+    height: fit-content;
+    min-height: 500px;
+    margin: auto;
+   
+    overflow-y: scroll;
+    position: absolute;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    list-style-type:none;
+    
+    display: grid;
+
+  
+}
+#ReportFilter ul{
+
+  margin: auto;
+  
+
+  
+}
+
+#ReportFilter li{
+
+    list-style-type:none;
+  
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+
+  
+}
+
+#ReportFilter li:hover{
+
+  background-color: #ff4500;
+
+
+  
+}
+
 #DashBoardContent_Table{
     position: relative;
     top: 50px;
-    width: 90%;
+    width: 85%;
     height: fit-content;
     min-height: 500px;
     margin: auto;
@@ -33,7 +86,7 @@
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 
-    left: 50%;
+    left: 55%;
     transform: translate(-50%, 0);
 }
 
@@ -76,16 +129,7 @@
     }
 }
 
-#loadingImage{
-    width: 200px;
-    height: 100px;
-    margin: auto;
-    animation: loading 1s infinite;
-    animation-direction: alternate;
-    display: none;
-    cursor: progress;
 
-}
 
 .idFileImage{
     width: 200px;
@@ -350,4 +394,44 @@ td{border: none;}
     border: 1px solid rgba(128, 128, 128, 0.31);
     margin:auto;
     display:block;
+}
+
+#LoadingScreen{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    background-color: white;
+    display: none;
+    text-align: center;
+
+}
+
+#loadingText{
+    margin: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#loadingImage{
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    z-index: 50;
+}
+
+#loadingDiv{
+    margin: auto;
+}
+
+
+#ProcessingScreen{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    background-color: white;
+    display: none;
+    text-align: center;
+
 }

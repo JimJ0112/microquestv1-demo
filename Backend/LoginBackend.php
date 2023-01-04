@@ -33,8 +33,10 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     $condition1 = "Banned";
     echo $isBanned = $DBHandler->checkUserReported($tablename,$column,$condition,$column1,$condition1);
                       
-    if($isBanned){
+    if($isBanned === true){
         header("location: ../Login.php?msg=Your Account has been banned");
+    } else{
+        
     }
 
     // check if restricted
@@ -46,7 +48,9 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     $condition1 = "Restricted";
     $results =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
 
-    if($results !== "failed to fetch" || $results !== null ){
+    if($results === "failed to fetch"){
+        echo $isRestricted = false;
+    }else if($results !== "failed to fetch" || $results !== null ){
 
         echo $restrictDuration =  $results[0][11];
         date_default_timezone_set("Asia/Manila");

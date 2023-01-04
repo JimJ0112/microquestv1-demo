@@ -27,22 +27,22 @@ function __construct(){
 
     /* remote database connection */
     
-    
+    /*
     $this->dbservername = "localhost";
     $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
     $this->dbname = "u774227372_microquestdbv2";
-    
+    */
+
+    /*localhost  */
+        
+    $this->dbservername = "localhost:3307";
+    $this->dbusername = "u774227372_root";
+    $this->dbpassword = "#Microquest12";
+    $this->dbname = "u774227372_microquestdbv2";
    
     
-  /* remote database connection 2 */
-  
-    /*
-    $this->dbservername = "containers-us-west-126.railway.app:5950";
-    $this->dbusername = "root";
-    $this->dbpassword = "1u9IP95GW0pSguFi9Eam";
-    $this->dbname = "railway";
-    */
+
 
 
 
@@ -511,8 +511,7 @@ public function checkUserReported($tablename,$column,$condition,$column1,$condit
     if($resultCheck > 0){
        
         return true;
-        
-
+    
     } else {
         return false;
     }
@@ -524,6 +523,7 @@ public function checkUserReported($tablename,$column,$condition,$column1,$condit
 
 // check if user is reported
 public function checkUserRestricted($tablename,$column,$condition,$column1,$condition1){
+
     $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
     $column = mysqli_real_escape_string($this->dbconnection, $column);
     $condition = mysqli_real_escape_string($this->dbconnection, $condition);
@@ -532,7 +532,7 @@ public function checkUserRestricted($tablename,$column,$condition,$column1,$cond
     
    
 
-        $query = "SELECT * FROM $tablename WHERE $column = $condition AND $column1 = '$condition1'";
+    $query = "SELECT * FROM $tablename WHERE $column = $condition AND $column1 = '$condition1'";
     
 
     $result = mysqli_query($this->dbconnection, $query);

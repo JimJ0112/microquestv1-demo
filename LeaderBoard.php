@@ -96,15 +96,7 @@ session_start();
 
 	<table id="LeaderBoardTable"> 
 
-		<thead id="LeaderBoardHead"> 
-			<tr> 
-				<td> Rank </td>
-				<td> User </td>
-				<td> Ratings </td>
-			</tr>
-
-
-		</thead>
+		
 
 		<tbody id="LeaderBoardContent"> </tbody>
 

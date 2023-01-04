@@ -10,19 +10,23 @@ $DBHandler = new DBHandler();
 
 $tablename = "reportsinfo";
 $column = "reportedAccountID";
+//$condition =  46;
 $condition =  11;
 $column1 = "reportStatus";
 $condition1 = "Restricted";
 
 
- $results =$DBHandler-> checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
+ $results =$DBHandler->checkUserRestricted($tablename,$column,$condition,$column1,$condition1);
 
-if($results !== "failed to fetch" || $results !== null ){
+if($results === "failed to fetch"){
+   echo "failed to fetch detected";
+}else if($results !== "failed to fetch" || $results !== null ){
    // $results = json_encode($results);
   //  $results = json_decode($results,true);
 
 
   echo $restrictDuration =  $results[0][11];
+  var_dump($results);
 
    echo"<br/>";
     

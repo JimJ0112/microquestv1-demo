@@ -59,10 +59,10 @@
 	margin: 40px 0 0 15%;
 	padding: none;
 	height: fit-content;
-	min-height: 600px;
+	/* min-height: 600px; */
 	text-align: center;
 	background-color: white;
-	border: 2px solid rgb(0 0 0);
+	border-top: 2px solid rgb(0 0 0);
 	table-layout: fixed;
 	text-align: center;
 	border-spacing: 0;
@@ -89,11 +89,12 @@
 .leaderboardTR{
 	width: 100%;
 	margin: auto;
-	height: 10px;
+	height: 150px;
 	background-color: #ffeadc;
 	border-bottom: 1px solid black;
 	/* border-spacing: 0px; */
 	/* border-collapse: collapse; */
+	/* padding: 20px; */
 }
 
 .leaderBoardUserPhoto{
@@ -134,9 +135,11 @@ td.rankTR {
     font-size: xxx-large;
     color: orangered;
     border-bottom: 1px solid black;
-    border-right: 1px solid black;
+    /* border-right: 1px solid black; */
     /* border-left: 1px solid; */
     font-family: fantasy;
+    width: 10%;
+    /* padding: 10px; */
 }
 
 td.rating {
@@ -146,6 +149,10 @@ td.rating {
 
 td.responderInfo {
     border-bottom: solid 1px black;
+    font-size: xxx-large;
+    margin: auto;
+    /* height: 100; */
+    color: black;
 }
 
 @media (min-width: 220px) and (max-width:555px){
@@ -166,4 +173,14 @@ td.responderInfo {
 	#LeaderBoardContent{
 		zoom: 70%;
 	}
+}
+.responderInfo a {
+    display: grid;
+    /* display: flex; */
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    grid-column-gap: 30px;
+    color: black;
+    font-family: monospace;
+    text-align: left;
 }

@@ -66,8 +66,8 @@ body{
      margin-left: 0;
      border-bottom: 1px solid rgb(167, 165, 165);
      /* padding-top: 100px; */
-     background-image: linear-gradient(rgb(255 182 118), rgb(248, 248, 245));
-     box-shadow: inset 0px 0px 1000px 0 #b7b7b78f;
+     /* background-image: linear-gradient(rgb(255 182 118), rgb(248, 248, 245)); */
+     /* box-shadow: inset 0px 0px 1000px 0 #b7b7b78f; */
  }
  
  #userNav{
@@ -115,7 +115,7 @@ body{
  #aboutContainer{
      display: none;
      height:fit-content;
-     background-color: rgb(255 182 118 / 26%);
+     /* background-color: rgb(255 182 118 / 26%); */
      border-radius: 5px;
      padding: 10px;
      width: 80%;
@@ -175,16 +175,30 @@ body{
  
  #messageMe{
      overflow: hidden;
-     float: right;
-     width: fit-content;
-     height: fit-content;
+     /* float: right; */
+     /* width: fit-content; */
+     /* height: fit-content; */
      padding: 50px;
-     
      margin: auto;
-     font-family: Georgia;
+     /* font-family: Georgia; */
      top:5px;
+     /* display: grid; */
+     /* grid-template-columns: auto auto auto; */
+     /* grid-auto-flow: column; */
  }
- 
+ form {
+    display: flex;
+    align-items: center;
+    /* grid-template-columns: auto; */
+    grid-column-gap: 1px;
+    font-size: 20px;
+}
+input#requestInfoMessageBody {
+    height: 40px;
+    width: 200px;
+    font-size: 20px;
+    /* float: right; */
+}
  #userName{
      position: relative;
      float: left;
@@ -331,7 +345,7 @@ body{
  }
 table.userInfoTable {
     border-spacing: 25px;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 input#send {

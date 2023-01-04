@@ -140,6 +140,27 @@ session_start();
 
 </div>
 
+
+<div id="LoadingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Loading... </h1>
+        <img src="img/loading.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
+<div id="ProcessingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Processing... </h1>
+        <img src="img/processing.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
     <script>getRequestors() </script>   
     <script src="js/navbar.js"> </script>
 </body>

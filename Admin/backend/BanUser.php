@@ -28,9 +28,9 @@ $actionDate = date("Y-m-d");
 //$reportType = $_POST["restrictDuration"];
 //$reportDescription = $_POST["restrictDuration"];
 
-$result = $DBHandler->BanUser($reportID,$actionDate);
+echo $result = $DBHandler->BanUser($reportID,$actionDate);
 //UPDATE reportsinfo SET reportActionDate = '$actionDate', restrictDuration = $restrictDuration , reportStatus = 'Banned' WHERE reportID = $reportID;
 
-header("Location:../adminDashboard.php?msg=Action Success");
+//header("Location:../adminDashboard.php?msg=Action Success");
 
 ?>

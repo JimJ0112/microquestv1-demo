@@ -68,7 +68,7 @@
 	if(isset($_SESSION["userStatus"]) && isset($_SESSION["userType"])){
 		$status = $_SESSION["userStatus"];
 		$userType = $_SESSION["userType"];
-		echo $status;
+	
 
 		if($status === "not verified" || $status === "Declined"){
 			header("location: NotVerifiedMessage.php?msg=Not verified yet");

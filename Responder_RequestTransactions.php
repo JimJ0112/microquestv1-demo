@@ -71,7 +71,7 @@
 		$status = $_SESSION["userStatus"];
 		$userType = $_SESSION["userType"];
 
-		echo $status;
+	
 
 		if($status === "not verified" || $status === "Declined"){
 			header("location: NotVerifiedMessage.php?msg=Not Verified yet");
@@ -107,7 +107,7 @@
 			</div>
 		</div>
 
-		<div id="TransactionsNavItem1" class="TransactionsNavItems grid-item" onclick="requestClickedItem(0,<?php echo $userID; ?>)"> <img class="navIcon" src="img/wall-clock.png"> <span class="sideNav-text">  Pending Responders </span> </div>  
+		  <div id="TransactionsNavItem1" class="TransactionsNavItems grid-item" onclick="requestClickedItem(0,<?php echo $userID; ?>)"> <img class="navIcon" src="img/wall-clock.png"> <span class="sideNav-text">  Pending Responders </span> </div>  
 		  <div id="TransactionsNavItem2" class="TransactionsNavItems grid-item" onclick="requestClickedItem(1,<?php echo $userID; ?>)"> <img class="navIcon" src="img/setting.png"> <span class="sideNav-text"> On Going Request  </span> </div> 
 		  <div id="TransactionsNavItem3" class="TransactionsNavItems grid-item" onclick="requestClickedItem(2,<?php echo $userID; ?>)"> <img class="navIcon" src="img/delivered.png"> <span class="sideNav-text"> Accomplished Request  </span> </div> 
 		  <div id="TransactionsNavItem4" class="TransactionsNavItems grid-item" onclick="requestClickedItem(3,<?php echo $userID; ?>)"> <img class="navIcon" src="img/money.png"> <span class="sideNav-text"> Paid  </span> </div>   	

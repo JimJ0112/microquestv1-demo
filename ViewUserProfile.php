@@ -69,20 +69,20 @@ session_start();
 
                 <td>
                     <div id="messageMe">
-                        <center>
+                       
                             <form action="Backend/insertMessage.php" method="post">
-                                <label> MESSAGE </label> <br/>
+                            
 
                                 <input type="hidden" name="recieverID" id="recieverID"/>
                                 <input type="hidden" name="senderID" value='<?php echo $_SESSION['userID']; ?>'>
                                 <input type="hidden" name="senderUserName" value='<?php echo $_SESSION['userName']; ?>'>
                                 <input type="hidden" name="recieverUserName" id="recieverUserName">
                  
-                                <textarea name="messageBody" id="requestInfoMessageBody" oninput="checkText()"> </textarea> <br/>
-                                <input type="submit" value="SEND" id="send"/>
+                                <input type="text" name="messageBody" id="requestInfoMessageBody" oninput="checkText()" placeholder="MESSAGE"> </textarea> <br/>
+                                <input type="submit" value="SEND" id="send" />
                 
                             </form>
-                        </center>
+                        
                     </div>
                 </td>
             </tr>

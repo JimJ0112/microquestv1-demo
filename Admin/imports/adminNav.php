@@ -83,6 +83,37 @@
 
 			        </li>
                 </a>
+
+				<a href="BannedUsers.php">
+			        <li class="Nav-item" title="Get reports"> 
+   
+                        <?php
+					        $pagename = basename($_SERVER['PHP_SELF']);
+					        if($pagename === "BannedUsers.php"){
+						        echo '<u>  Banned Users  </u>';
+					        } else{
+						        echo "Banned Users";
+					        }
+				        ?>
+
+			        </li>
+                </a>
+
+
+				<a href="RestrictedUsers.php">
+			        <li class="Nav-item" title="Get reports"> 
+   
+                        <?php
+					        $pagename = basename($_SERVER['PHP_SELF']);
+					        if($pagename === "RestrictedUsers.php"){
+						        echo '<u>  Restricted Users  </u>';
+					        } else{
+						        echo "Restricted Users";
+					        }
+				        ?>
+
+			        </li>
+                </a>
 	
 			    <li class="Nav-item" title="Me">
                     <?php

@@ -38,12 +38,12 @@ session_start();
         require_once("imports/adminNav.php");
 
     ?>
+
     <div id="DashBoardContent">
 
-         
                     <table id="DashBoardContent_Table">
 
-                        <img src="../img/logo.png" id="loadingImage"/>
+                       
 
 
                         <thead id="DashBoardContent_TableHead"> 
@@ -140,6 +140,31 @@ session_start();
 
 
 </div>
+
+<div id="LoadingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Loading... </h1>
+        <img src="img/loading.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
+<div id="ProcessingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Processing... </h1>
+        <img src="img/processing.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
+
+
+
+
     <script>getResponders() </script>
     <script src="js/navbar.js"> </script>
 </body>
