@@ -1003,3 +1003,112 @@ function closeImage(){
     viewImageBack.style.display = "none";
 
 }
+
+
+
+/*get banned users */
+function Get_AllBannedUsersData(){
+    
+    
+    var xmlhttp = new XMLHttpRequest();
+    
+
+
+
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+            
+     
+           document.getElementById("LoadingScreen").style.display = "none";
+
+           
+
+            
+
+                var dataArray = this.response;
+           
+
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+
+  
+        
+
+
+        
+
+     
+        }else{
+         
+            document.getElementById("loadingImage").style.display = "block";
+            
+           
+        }      
+    };
+
+    xmlhttp.onreadystatechange = function(){
+        document.getElementById("LoadingScreen").style.display = "grid";
+
+    }
+    
+    xmlhttp.open("POST", "backend/Get_AllBannedUsersData.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send();
+    
+}// end of function
+
+
+
+// Restricted Users
+/*get banned users */
+function Get_AllRestrictedUsersData(){
+    
+    
+    var xmlhttp = new XMLHttpRequest();
+    
+
+
+
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+            
+     
+           document.getElementById("LoadingScreen").style.display = "none";
+
+           
+
+            
+
+                var dataArray = this.response;
+           
+
+                dataArray = JSON.parse(dataArray);
+                console.log(dataArray);
+
+  
+        
+
+
+        
+
+     
+        }else{
+         
+            document.getElementById("loadingImage").style.display = "block";
+            
+           
+        }      
+    };
+
+    xmlhttp.onreadystatechange = function(){
+        document.getElementById("LoadingScreen").style.display = "grid";
+
+    }
+    
+    xmlhttp.open("POST", "backend/Get_AllRestrictedUsersData.php",true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send();
+    
+}// end of function

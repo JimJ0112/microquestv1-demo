@@ -361,7 +361,7 @@ public function getReports(){
     
    
 
-    $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
+    $query = "SELECT * FROM $tablename WHERE $column = '$condition' ORDER BY reportID DESC";
     
 
     $result = mysqli_query($this->dbconnection, $query);

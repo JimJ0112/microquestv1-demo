@@ -232,7 +232,7 @@ session_start();
         
         <h1> Ban </h1>
         <input type="hidden" name="reportedUserID" value="<?php echo $profileID; ?>"/>
-        <input type="hidden" name="reportID" value="<?php echo $reportID; ?>"/>
+        <input type="hidden" name="reportID" value="<?php echo $reportID; ?>" id="reportID"/>
 
         <br/>
         <br/>

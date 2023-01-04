@@ -97,7 +97,7 @@ session_start();
         
         <h1> Ban </h1>
         <input type="hidden" name="reportedUserID"  id="reportedUserIDBan"/>
-        <input type="hidden" name="reportID" id="reportID"/>
+        <input type="hidden" name="reportID"/>
 
         <br/>
         <br/>
@@ -161,7 +161,7 @@ session_start();
   
 </div>
 
-    <script>getAllReports() </script>
+    <script>Get_AllRestrictedUsersData() </script>
     <script src="js/navbar.js"> </script>
 </body>
 </html> 

@@ -18,7 +18,7 @@ $DBHandler = new DBHandler();
 
 //$reportedUserID = $_POST["reportedUserID"];
 $reportID= $_POST["reportID"];
-//$reportID= 3;
+//$reportID= 2;
 //$restrictDuration= $_POST["restrictDuration"];
 
 
@@ -32,5 +32,11 @@ $result = $DBHandler->RestrictUser($reportID,$actionDate,$restrictDuration);
 //UPDATE reportsinfo SET reportActionDate = '$actionDate', restrictDuration = $restrictDuration , reportStatus = 'Banned' WHERE reportID = $reportID;
 
 header("Location:../adminDashboard.php?msg=Action Success");
+
+
+echo $restrictedUserID = $DBHandler->getData("reportsinfo","reportID",$reportID,"reportedAccountID");
+echo $restrictedUserEmail = $DBHandler->getData("userprofile","userID",$restrictedUserID,"userEmail");
+
+header("Location:sendEmailRestrictedNotification.php?userEmail=$restrictedUserEmail&restrictDuration=$restrictDuration");
 
 ?>
