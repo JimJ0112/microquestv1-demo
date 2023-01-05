@@ -526,3 +526,130 @@ function redirect(url){
   location.href=url;
 
 }
+
+
+
+// get my certificates 
+
+function getMyCertificates(userID){
+  var userID = userID;
+  var query = "responderID=" + userID;
+  var xmlhttp = new XMLHttpRequest();
+  
+  
+
+  xmlhttp.onload = function() {
+      if (this.readyState === 4 || this.status === 200){ 
+         
+
+
+          var dataArray = this.response;
+
+          if(dataArray === "failed to fetch"){
+           
+
+          } else {
+              
+              dataArray = JSON.parse(dataArray);
+              console.log(dataArray); 
+              
+      
+
+              var number = dataArray.length;
+              createCertificateElements(number)
+              setCertificateData(dataArray);
+              //createServiceElements(number);
+              //setServiceData(dataArray);
+             
+
+          }
+
+      }else{
+
+         console.log("Loading...");
+
+      }      
+  };
+  
+  xmlhttp.open("POST", "Backend/Get_myCertificates.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send(query);
+  
+}// end of function
+
+
+function createCertificateElements(number){
+
+  var DataNumber = number;
+  var certificatesContainer = document.getElementById("certificatesContainer");
+
+
+  for(var i = 0;i<DataNumber;i++){
+
+    var certificateCard = document.createElement("div");
+    var certificateImageContainer = document.createElement("div");
+    var certificateTitle = document.createElement("p");
+    var certificateStatus = document.createElement("p");
+    var updateButton = document.createElement("button");
+
+
+    certificateCard.setAttribute("class","certificateCard");
+    certificateImageContainer.setAttribute("class","certificateImageContainer");
+    certificateStatus.setAttribute("class","certificateStatus");
+    certificateTitle.setAttribute("class","certificateTitle");
+    updateButton.setAttribute("class","updateButton");
+    updateButton.innerText="Update";
+
+
+    certificateCard.appendChild(certificateImageContainer);
+    certificateCard.appendChild(certificateTitle);
+    certificateCard.appendChild(certificateStatus);
+    certificateCard.appendChild(updateButton);
+
+    certificatesContainer.append(certificateCard);
+
+  }
+  
+}
+
+
+function setCertificateData(dataArray){
+  var dataArray = dataArray;
+  var number = dataArray.length;
+
+
+  var certificateImageContainer= document.getElementsByClassName("certificateImageContainer");
+  var certificateTitle= document.getElementsByClassName("certificateTitle");
+  var updateButton= document.getElementsByClassName("updateButton");
+  var certificateStatus = document.getElementsByClassName("certificateStatus");
+
+  for(var i = 0; i< number;i++){
+
+    var image = new Image();
+    image.src = dataArray[i]['certificateFile'];
+    image.setAttribute("class","certificateFileImage");
+
+    certificateImageContainer[i].appendChild(image);
+
+    certificateTitle[i].innerText = dataArray[i]['certificateType'];
+    certificateStatus[i].innerText = dataArray[i]['certificateStatus'];
+
+    updateButton[i].setAttribute('onclick',"updateCertificate(" + dataArray[i]['CertificateID'] +')');
+    updateButton[i].className += " buttonGreen";
+
+
+  }
+
+}
+
+
+function closeForms(){
+  otherCategoriesFormBack = document.getElementById("otherCategoriesFormBack");
+  otherCategoriesFormBack.style.display = "none";
+
+}
+
+function showNewCertificateForm(){
+  otherCategoriesFormBack = document.getElementById("otherCategoriesFormBack");
+  otherCategoriesFormBack.style.display = "block";
+}

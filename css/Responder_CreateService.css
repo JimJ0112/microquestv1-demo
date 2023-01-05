@@ -243,6 +243,7 @@ background-color: #525252;
 background-image: url(../img/f.jpg);
 
 background-blend-mode: overlay;
+
 }
 
 
@@ -526,3 +527,22 @@ img#Nav-logo {
     height: 100px;
     width: 200px;
 }
+
+
+#newResponderOtherServicePositionTR{
+	display: none;
+}
+
+#otherCategoriesForm{
+	display: block;
+}
+
+/*
+#otherServiceTextTD{
+	display: none;
+}
+
+#otherServiceTextTD1{
+	display: none;
+}
+*/

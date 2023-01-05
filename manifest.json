@@ -3,7 +3,7 @@
     "lang": "en-us",
     "short_name": "microQuest",
     "description": "A sample PWA for testing purposes",
-    "start_url": "index.php",
+    "start_url": "index.html",
     "scope": "/",
     "display": "standalone",
     "theme_color": "#2f3d58",

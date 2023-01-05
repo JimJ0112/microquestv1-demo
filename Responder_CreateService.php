@@ -83,7 +83,7 @@ session_start();
             <div id="closeButton" onclick="closeForms()"> ✕ </div>
             <table id="home_computerRelated_Table">
 
-            <tr class="home_computerRelated_Tr">
+                <tr class="home_computerRelated_Tr">
                     <td class="home_computerRelated_Td" id="OtherServicePositionText"  style="display:none">
                         Other Service:
                     </td>
@@ -116,6 +116,7 @@ session_start();
                     </td> 
                 </tr>
 
+                <!--
                 <tr class="home_computerRelated_Tr">
                     <td class="home_computerRelated_Td column1_td">Training/Certificate:&nbsp</td>
                     <td> 
@@ -130,6 +131,7 @@ session_start();
                     <td class="home_computerRelated_Td">Training/Certificate File:&nbsp </td>
                     <td><input type="file" name="certificateFile" accept="image/png, image/jpg, image/jpeg"></td><br/>
                 </tr>
+                -->
 
                 
             </table>
@@ -202,10 +204,12 @@ session_start();
 <!-- For other categories -->
 
 <div id="otherCategoriesFormBack" class="formBack">
+
     <form action="Backend/CreateServiceBackend.php" method="post" enctype="multipart/form-data" id="otherCategoriesForm" class="ServicePopUp"> 
 
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
         <input type="hidden" name="formType" value="otherCategories">
+        
         <div id="closeButton" onclick="closeForms()"> ✕ </div>
             <table id="otherTable">
                 <tr>
@@ -232,6 +236,7 @@ session_start();
                     </td> 
                 </tr>
 
+                <!--
                 <tr>
                     <td class="column1_td">Training/Certificate</td>
                     
@@ -246,6 +251,7 @@ session_start();
                     <td class="column1_td">Training/Certificate File </td>
                     <td> <input type="file" name="certificateFile" accept="image/png, image/jpg, image/jpeg"> </td>
                 </tr>
+                -->
                 
                 <tr>
                     <td>Banner Image </td>

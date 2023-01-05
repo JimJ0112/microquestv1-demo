@@ -1,7 +1,7 @@
 <?php 
 session_start();
     if(!isset($_SESSION["userEmail"])){
-        header("location:LoginForm.php?msg=Please Login First");
+        header("location:Login.php?msg=Please Login First");
     }
 
     if(isset($_SESSION["userType"])){
@@ -18,6 +18,7 @@ session_start();
         $specialization = "Home Services";
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,6 +66,7 @@ session_start();
                     </td>
                
                 </tr>
+
                 <tr>
                     <td>
                         Other Service Position:
@@ -76,10 +78,6 @@ session_start();
                 </tr>
 
                 <tr>
-          
-            
-
-           
                     <td> Rate </td>
                     <td>
                         <input type="number" name="rate">
@@ -163,30 +161,53 @@ session_start();
         <input type="submit">
     </form>
 </div>
+
+
+
+
 <!-- For other categories -->
 <div class="welcome"><h1>Welcome to </h1><img class="logo" id="Nav-logo" src="img/logo.png"></div>
 <div class="welcome"><h3>Create your first service to offer. </h1></div>
 <div id="otherCategoriesFormBack" class="formBack" style="display:grid;">
     <form action="Backend/CreateServiceBackend.php" method="post" enctype="multipart/form-data" id="otherCategoriesForm" class="ServicePopUp2"> 
 
+        <input type="hidden" name="formType" value="regularServices">
+
+
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
-        <input type="hidden" name="formType" value="otherCategories">
+       
+        
 
         <center> <h1> <?php echo $specialization; ?> </h1> </center>
         <div id="closeButton" onclick="closeForms()" style="display:none;"> X </div>
+
             <table id="otherTable">
                 <tr style="display:none;">
                     <td> Category </td>
-                    <!--<td> <input type="text" name="serviceCategory" id="serviceCategory"> </td>-->
+                  
                     <span class="asteriskRequiredField"> * </span>
                     <input type="hidden" name="serviceCategory" id="serviceCategory" value="<?php echo $specialization; ?>" required>
                 </tr>
 
-                <tr>
+
+                <tr id="newResponderServicePositionDropDownTR">
                     <td  class="column1_td"> Service </td>
                     <td> 
                         <span class="asteriskRequiredField"> * </span>
-                        <input type="text" name="servicePosition" required/>
+                      
+                        <select name="servicePosition" id="newResponderServicePositionDropDown" onchange="otherPosition()" required>
+                            
+                        </select><br/>
+                   
+                    </td>
+                </tr>
+
+                <tr id="newResponderOtherServicePositionTR">
+                    <td  class="column1_td" id="otherServiceTextTD"> Other Service </td>
+                    <td id="otherServiceTextTD1"> 
+                        
+                        <input type="text" name="otherServicePosition" id="newResponderOtherServicePosition"/>
+                        <span class="asteriskRequiredField"> * </span>  
                     </td>
                 </tr>
 
@@ -199,6 +220,7 @@ session_start();
                     </td> 
                 </tr>
 
+                <!--
                 <tr>
                     <td class="column1_td">Training/Certificate</td>
                     <td>
@@ -212,6 +234,7 @@ session_start();
                     <td class="column1_td">Training/Certificate File </td>
                     <td> <input type="file" name="certificateFile" accept="image/png, image/jpg, image/jpeg"> </td>
                 </tr>
+                -->
 
                 <tr>
                     <td class="column1_td">Banner Image </td>
@@ -225,8 +248,38 @@ session_start();
 </div>
 
 
+    <?php
     
+    if(isset($specialization)){
+        echo "<script> getPositions('$specialization') </script> ";
+    } else{
+        echo "<script> getPositions('Home Services') </script> ";
 
+    }
+    ?>
+
+
+
+
+<div id="LoadingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Loading... </h1>
+        <img src="img/loading.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
+<div id="ProcessingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Processing... </h1>
+        <img src="img/processing.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
 
 
 </body>

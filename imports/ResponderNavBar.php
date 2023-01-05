@@ -190,7 +190,7 @@
 		<?php
 				if(isset($_SESSION['userID'])){
 					$userID = $_SESSION['userID'];
-					$profileLink="ViewUserProfile.php?userID=$userID&userType=Responder";
+					$profileLink="ViewMyProfile.php?userID=$userID&userType=Responder";
 				}else{
 					$profileLink="#";
 				}

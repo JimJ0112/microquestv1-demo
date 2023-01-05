@@ -8,8 +8,7 @@ function getLeaderBoard(category){
     var query = "Category=" + category;
     
  
-    xmlhttp.open("POST", "Backend/LeaderBoardBackend.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
@@ -40,8 +39,17 @@ function getLeaderBoard(category){
            console.log("error");
         }      
     };
+
+    xmlhttp.onreadystatechange = function() {
+        document.getElementById('LeaderBoardContent').innerHTML = "Loading...";
+
     
+    };
+
+    xmlhttp.open("POST", "Backend/LeaderBoardBackend.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
+
     
 }// end of function
 

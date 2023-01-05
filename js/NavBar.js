@@ -319,6 +319,7 @@ function showMobileNavMenu(r){
 }
 
 
+/*
 
 function askNotificationPermission() {
     // function to actually ask the permissions
@@ -399,3 +400,4 @@ function showPasabuyButton(userID){
     xmlhttp.send(query);
     
 }// end of function
+*/

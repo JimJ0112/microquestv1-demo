@@ -265,6 +265,7 @@
 			</td>
 		</tr>
 
+		<!--
 		<tr>
 			<td class="serviceFirstRow">
 				<b>
@@ -277,6 +278,7 @@
 			</td>
 		</tr>
 
+		
 		<tr>
 			<td class="serviceFirstRow">
 				<b>
@@ -288,6 +290,7 @@
 				certificateFile
 			</td>
 		</tr>
+		-->
 
 		<tr>
 			<td class="serviceFirstRow">

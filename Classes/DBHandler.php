@@ -1315,6 +1315,55 @@ public function getAllProductsResponders($municipality,$column,$condition,$order
   
 }
 
+
+// get Services row 
+public function getMyCertificates($tablename,$column,$condition){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+// 09/06/2022 1:28am nilagyan ko muna ng servicesinfo.serviceStatus = 'Active', not sure if that's a good idea tho
+    
+   
+
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition' ORDER BY CertificateID ";
+
+ 
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                $row['certificateFile'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            
+            echo mysqli_error($this->dbconnection);
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
 // get Services row 
 public function getServices($tablename,$column,$condition,$orderby = null){
     $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
@@ -3975,7 +4024,8 @@ public function registerService($serviceCategory,$servicePosition,$rate,$respond
 
     
 
-    $query = "INSERT INTO $tablename() VALUES (0,'$serviceCategory','$servicePosition','$rate','$responderID','$certification','$certificateFile','$serviceStatus','$bannerImage')";
+    $query = "INSERT INTO $tablename() VALUES (0,'$serviceCategory','$servicePosition','$rate',$responderID,'$certification','$certificateFile','$serviceStatus','$bannerImage')";
+    //echo mysqli_error($this->dbconnection);
     return mysqli_query($this->dbconnection, $query);
 
 }
@@ -4057,6 +4107,35 @@ public function registerCategory($serviceCategory,$servicePosition){
     
 
     $query = "INSERT INTO $tablename() VALUES ( 0,'$requestCategory','$requestTitle','$requestDescription','$requestExpectedPrice','$isNegotiable','$datePosted','$dueDate','$requestorID','$requestorMunicipality','$requestStatus')";
+    return mysqli_query($this->dbconnection, $query);
+
+
+}
+
+
+public function registerCertificate($responderID,$certification,$certificateFile){
+
+
+    
+    $tablename = "certificates";
+
+    
+  
+
+    // requestID	requestCategory	requestTitle	requestDescription	requestExpectedPrice	isNegotiable	datePosted	dueDate	requestorID	requestorMunicipality	requestStatus
+
+    //0,'$requestCategory','$requestTitle','$requestDescription','$requestExpectedPrice','$isNegotiable','$datePosted','$dueDate','$requestorID','$requestorMunicipality','$requestStatus'
+    $responderID=mysqli_real_escape_string($this->dbconnection,$responderID);
+    $certification=mysqli_real_escape_string($this->dbconnection,$certification);
+    $certificateFile=mysqli_real_escape_string($this->dbconnection,$certificateFile);
+
+ 
+    $certificateStatus ="Active";
+ 
+
+    
+
+    $query = "INSERT INTO $tablename() VALUES ( 0,$responderID,'$certificateFile','$certification','$certificateStatus')";
     return mysqli_query($this->dbconnection, $query);
 
 

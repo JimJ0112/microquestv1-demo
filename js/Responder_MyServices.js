@@ -35,6 +35,7 @@ function createServiceElements(Number){
     DataNumber = Number;
     div = document.getElementById("AvailableServicesContainer_Content");
    
+    console.log(Number);
     
     for(var i = 0;i<DataNumber;i++){
     
@@ -90,6 +91,7 @@ function setData(array){
 
     var dataArray = array;
     var number = dataArray.length;
+    console.log(dataArray.length);
 
 
 
@@ -320,8 +322,8 @@ function showServiceView(serviceID,serviceCategory,servicePosition,rate,certific
     serviceCategoryViewContainer = document.getElementById("serviceCategoryViewContainer");
     servicePositionViewContainer = document.getElementById("servicePositionViewContainer");
     rateViewContainer = document.getElementById("rateViewContainer");
-    certificationViewContainer = document.getElementById("certificationViewContainer");
-    certificateFileViewContainer = document.getElementById("certificateFileViewContainer");
+   // certificationViewContainer = document.getElementById("certificationViewContainer");
+   // certificateFileViewContainer = document.getElementById("certificateFileViewContainer");
     serviceStatusViewContainer = document.getElementById("serviceStatusViewContainer");
     myServiceViewEditButton = document.getElementById("myServiceViewEditButton");
     serviceIDHidden = document.getElementById("serviceIDHidden");
@@ -360,8 +362,8 @@ function showServiceView(serviceID,serviceCategory,servicePosition,rate,certific
     serviceCategoryViewContainer.innerText =  serviceCategory
     servicePositionViewContainer.innerText = servicePosition
     rateViewContainer.innerText = rate
-    certificationViewContainer.innerText = certification
-    certificateFileViewContainer.innerText = certificateFile
+   // certificationViewContainer.innerText = certification
+   // certificateFileViewContainer.innerText = certificateFile
     serviceStatusViewContainer.innerText = serviceStatus
 
     myServiceViewBack.style.display = "grid";

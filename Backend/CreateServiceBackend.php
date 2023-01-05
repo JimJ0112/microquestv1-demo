@@ -10,6 +10,7 @@ $DBHandler = new DBHandler();
 
     if($AlreadyExists){
         header("location:../Responder_CreateService.php?msg= You have already Offered this service! ");
+    
     } else{
 
     
@@ -23,13 +24,19 @@ $DBHandler = new DBHandler();
         $serviceCategory= $_POST["serviceCategory"]; 
         $servicePosition=$_POST["servicePosition"];
         $rate = $_POST["rate"];
-        $certification=$_POST["certification"];
+        //$certification=$_POST["certification"];
+        $certification = "none";
+        $certificateFile = "none";
+        
 
+        /*
         if(is_uploaded_file($_FILES["certificateFile"]["tmp_name"])){
+            
             $certificateFile=file_get_contents($_FILES["certificateFile"]["tmp_name"]);
         }else{
             $certificateFile = "none";
         }
+        */
     
 
     
@@ -40,33 +47,35 @@ $DBHandler = new DBHandler();
             if($servicePosition ==="Other"){
             
            
-            $servicePosition = $_POST['otherServicePosition'];
-            //$bannerImage = file_get_contents($_FILES['bannerImage']["tmp_name"]);
-            $bannerImage = "";
-            echo $servicePosition;
-            //echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile);
+                $servicePosition = $_POST['otherServicePosition'];
+                //$bannerImage = file_get_contents($_FILES['bannerImage']["tmp_name"]);
+                $bannerImage = "";
+                echo $servicePosition;
+                //echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile);
             
-        }else{
+            }else{
     
-            $servicePosition=$_POST["servicePosition"];
-            $bannerImage = "";
-            //echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile);
-            echo $servicePosition;
-        }
+                $servicePosition=$_POST["servicePosition"];
+                $bannerImage = "";
+                //echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile);
+                echo $servicePosition;
+            }
     
-        $serviceCategory= $_POST["serviceCategory"]; 
-       // $servicePosition=$_POST["servicePosition"];
-        $imageFile = $DBHandler->getServicesBannerImage($serviceCategory,$servicePosition);
+            echo $serviceCategory= $_POST["serviceCategory"]; 
+          
+            $imageFile = $DBHandler->getServicesBannerImage($serviceCategory,$servicePosition);
 
-        if($imageFile === "Null" || $imageFile === null){
-            $imageFile = file_get_contents("../img/magnifying-glass.png");
-            $bannerImage = $imageFile;
-        } else{
-             $bannerImage = $imageFile; 
-        }
-        echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$bannerImage);
+            if($imageFile === "Null" || $imageFile === null){
+                $imageFile = file_get_contents("../img/magnifying-glass.png");
+                $bannerImage = $imageFile;
 
-        //echo $serviceCategory,$servicePosition,$rate,$responderID,$certification;
+            } else{
+                $bannerImage = $imageFile; 
+            }
+
+            echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$bannerImage);
+
+        echo $serviceCategory,$servicePosition,$rate,$responderID,$certification;
 
     } else if($formType === "pasabuy"){
         
@@ -96,6 +105,7 @@ $DBHandler = new DBHandler();
 
 
     } else if($formType === "otherCategories"){
+
         if(is_uploaded_file($_FILES['bannerImage']["tmp_name"])){
             $bannerImage = file_get_contents($_FILES['bannerImage']["tmp_name"]);
         } else {

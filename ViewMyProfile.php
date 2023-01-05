@@ -5,6 +5,12 @@ session_start();
     }
 
      
+    if(isset($_GET["msg"])){
+        $msg = $_GET["msg"];
+
+        echo "<script> alert('$msg')</script>";
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -182,6 +188,29 @@ session_start();
         </div>
 
         <div id="moreContainer">
+            <?php
+
+                        if(isset($_GET["userType"])){
+
+                            $userType = $_GET["userType"];
+
+                            if($userType === "Responder"){
+                                
+                                echo"<button class='buttonGeneral' onclick='showNewCertificateForm()'> Add Certificate </button> ";
+
+                            } else if ($userType === "Requestor"){
+
+                                echo"more";
+                            }
+
+                        } else{
+                            echo"more";
+                        }
+                    
+            ?>
+            
+
+            <div id="certificatesContainer"> </div>
            
         </div>
     </div>
@@ -189,8 +218,44 @@ session_start();
 </div>  
 
 
+<div id="otherCategoriesFormBack" class="formBack">
+    
+
+    <form action="Backend/RegisterCertificate.php" method="post" enctype="multipart/form-data" id="otherCategoriesForm" class="ServicePopUp"> 
+    <div id="closeButton" onclick="closeForms()"> ✕ </div>
+        <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
+
+        
+        <br/> <br/>
+        <table id="otherTable">
+                <tr>
+                    <td class="column1_td">Training/Certificate Title</td>
+                    
+                    <td> 
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span> 
+                        <input type="text" name="certification" Required> 
+                    </td> 
+                </tr>
+
+                <tr>
+                    <td class="column1_td">Training/Certificate File </td>
+                    <td>
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span>  
+                        <input type="file" name="certificateFile" accept="image/png, image/jpg, image/jpeg" required> 
+                    </td>
+                </tr>
+                
+                
+
+            </table>
+
+            <input type="submit"/>
+    </form>
+</div>
+
+
 <?php
-    echo"<script> getUserReviews($userID) </script>";
+    echo"<script> getUserReviews($userID); getMyCertificates($userID) </script>";
 
 ?>
 <script src="js/ViewUserProfile.js"> </script>

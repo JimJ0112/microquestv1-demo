@@ -312,6 +312,10 @@ function getProducts(){
     
 }// end of function
 
+
+
+/* for the dropdown in new responder create service */
+
 // gets data from php 
 function getPositions(name){
     var data = name;
@@ -321,22 +325,26 @@ function getPositions(name){
     query = "condition=" + data;
     console.log(query)
 
-    xmlhttp.open("POST", "Backend/Get_services.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
-            var serviceCard = document.getElementById("servicePositionDropDown").innerHTML = "";
-            //document.getElementById("AvailServiceContent").innerHTML = "";
-            
+            var serviceCard = document.getElementById("newResponderServicePositionDropDown").innerHTML = "";
+          
             var dataArray = this.response;
            
             if(dataArray === "failed to fetch"){
 
-                const cars = ["delivery"];
-                setOptions(cars);
+                //document.getElementById("newResponderOtherServicePosition").style.display = "block";
+                //document.getElementById("newResponderServicePositionDropDown").style.display = "none";
+
 
             } else{
+
+                //document.getElementById("newResponderOtherServicePosition").style.display = "none";
+                //document.getElementById("newResponderServicePositionDropDown").style.display = "block";
+
+                document.getElementById("LoadingScreen").style.display = "none";
 
                 dataArray = JSON.parse(dataArray);
                 console.log(dataArray);
@@ -357,8 +365,17 @@ function getPositions(name){
         }      
     };
     
+    xmlhttp.onreadystatechange = function() {
+
+        if (this.readyState != 4 || this.status != 200){ 
+        document.getElementById("LoadingScreen").style.display = "grid";
+        }
+    };
+
+    xmlhttp.open("POST", "Backend/Get_services.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
-    
+
 }// end of function
 
 
@@ -368,7 +385,7 @@ function setOptions(array){
     var dataArray = array;
     var number = dataArray.length;
 
-    var serviceCard = document.getElementById("servicePositionDropDown");
+    var serviceCard = document.getElementById("newResponderServicePositionDropDown");
     for(var i = 0; i<number;i++){
         
         //serviceCard[i].innerText = dataArray[i];
@@ -390,14 +407,26 @@ function setOptions(array){
 
 
 function otherPosition(){
-    var serviceCard = document.getElementById("servicePositionDropDown");
-    var tb = document.getElementById("otherServicePosition");
-    
-    if(serviceCard.value==="Other"){
+    var dropdownValue = document.getElementById("newResponderServicePositionDropDown");
+    var dropdownTR = document.getElementById("newResponderServicePositionDropDownTR");
+    var otherServiceTR = document.getElementById("newResponderOtherServicePositionTR");
 
-        tb.style.display="block";
+   var otherServiceTextTD = document.getElementById("otherServiceTextTD");
+   var otherServiceTextTD1 = document.getElementById("otherServiceTextTD1");
+    
+    if(dropdownValue.value==="Other"){
+       // otherServiceTextTD.style.display = "inline-block"
+       // otherServiceTextTD1.style.display = "inline-block"
+    
+        otherServiceTR.style.display = "block";
     } else {
-        tb.style.display="none";
+       otherServiceTR.style.display = "none";
+       otherServiceTextTD1.value = "";
+
+       //otherServiceTextTD.style.display = "none"
+       //otherServiceTextTD1.style.display = "none"
+
+    
     }
 }
 
