@@ -81,8 +81,9 @@ requestDueDate.value  = dataArray[0]['dueDate'];
 sessionStorage.setItem('requestorID',dataArray[0]['requestorID']);
 
 
-specializationAlreadyOffered(dataArray[0]['requestCategory']);
+
 checkTransactionExists();
+specializationAlreadyOffered(dataArray[0]['requestCategory']);
 disableApply();
 
 }
@@ -200,10 +201,11 @@ function checkTransactionExists(){
             console.log(dataArray);
 
             if(dataArray === "true"){
-            //document.getElementById('applyButton').disabled = true;
+            document.getElementById('applyButton').disabled = true;
             document.getElementById("alreadyExistsTransactionMessage").style.display = "block";
 
             } else{
+            
             document.getElementById("alreadyExistsTransactionMessage").style.display = "none";
 
             }
@@ -480,10 +482,10 @@ function specializationAlreadyOffered(specialization){
             var applyButton = document.getElementById("applyButton");
             if(dataArray === "true" || myMainSpecialization === Specialization){
                 document.getElementById("noSpecializationMessage").style.display = "none";
-               // applyButton.disabled = false;
+                applyButton.disabled = false;
                // alert("You can't apply to this request because you don't have this specialization, please add this request's category to your specializations");
             }else{
-               // applyButton.disabled = true;
+                applyButton.disabled = true;
                document.getElementById("noSpecializationMessage").style.display = "block";
 
               
