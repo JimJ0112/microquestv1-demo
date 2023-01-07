@@ -170,17 +170,7 @@ input::-webkit-inner-spin-button {
 	float: right;
 }
 
-#closeButton{
-	font-family: Arial, Helvetica, sans-serif;
-	cursor: pointer;
-	font-weight: bolder;
-	float: right;
-	text-align: center;
-	font-size: xx-large;
-	margin: 0;
-	padding:10px;
-	color: black;
-}
+
 
 #closeButton:hover{
 	background-color: rgba(233, 22, 22, 0.701);
@@ -189,20 +179,16 @@ input::-webkit-inner-spin-button {
 
 }
 
-
-.closeButton{
-	font-family: Arial, Helvetica, sans-serif;
-	cursor: pointer;
-	font-weight: bolder;
-	float: right;
-
-	text-align: center;
-	font-size: xx-large;
-	
-	margin: 0;
-	padding:10px;
-	color: black;
+div#closeButton {
+    width: fit-content;
+    padding: 10px;
+    margin-left: 90%;
+    font-size: xx-large;
+    font-weight: bold;
+    background-color: white;
 }
+
+
 
 .closeButton:hover{
 	background-color: rgba(233, 22, 22, 0.701);
@@ -323,5 +309,26 @@ button#hideMenu {display: unset;float: right;margin: auto;height: 100%;}
 .buttonGeneral:hover {
 	background-color: rgb(234, 231, 231);
 	color: orangered;
+
+}
+
+
+.buttonGreen {
+	background-color: green;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+.buttonGreen:hover {
+	background-color: rgb(234, 231, 231);
+	color: green;
 
 }

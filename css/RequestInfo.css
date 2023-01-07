@@ -342,3 +342,71 @@ body{
 	}
 	
 }
+
+
+
+#contractBackGround{
+	position:absolute ;
+	z-index: 21;
+	background-color: rgba(51, 49, 49, 0.299);
+	display: none;
+	width: 99%;
+	height: 1000%;
+	align-content: center;
+	background-color: white;
+	padding: 10px;
+    left: 0;
+
+}
+
+#contractDiv{
+	
+	margin: auto;
+	margin-top: 100px;
+	border: 1px solid rgba(0, 0, 0, 0.287);
+	padding: 30px;
+	width: 60%;
+	height: 1500px;
+	background-color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	box-shadow: 2px 2px 10px black;
+	position: relative;
+	
+}
+
+#contractContent{
+	margin-left: 50px;
+	margin-right: 50px;
+	overflow-wrap: break-word;
+}
+
+#contractHeaderInfo{
+	width: 200px;
+	margin-top: 120px;
+	margin-left: 40px;
+}
+
+#microquestLogo{
+	width: 150px;
+	height: 80px;
+	position: absolute;
+	right: 0;
+	margin:30px;
+	filter: hue-rotate(0);
+
+}
+#RequestorInfoContract{
+	margin-left: 100px;
+}
+#ResponderInfoContract{
+	margin-right: 100px;
+	padding-right:150px;
+}
+
+.errorInfoMessage{
+    color:red;
+    background-color: rgba(255, 255, 255, 0.276);
+    width:400px;
+    display: none;
+}

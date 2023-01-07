@@ -132,6 +132,8 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             $municipality = $DBHandler-> getData("userprofile","userEmail",$email,"municipality");
             $baranggay = $DBHandler-> getData("userprofile","userEmail",$email,"baranggay");
             $specialization = $DBHandler-> getData("userprofile","userEmail",$email,"specialization");
+            $lastName = $DBHandler-> getData("userprofile","userEmail",$email,"lastName");
+            $firstName = $DBHandler-> getData("userprofile","userEmail",$email,"firstName");
         
     
             //$DBHandler-> updateColumn("userprofile","userStatus","online","userEmail",$email);
@@ -145,6 +147,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             $_SESSION["municipality"] = $municipality;
             $_SESSION["baranggay"] = $baranggay;
             $_SESSION['specialization'] = $specialization;
+            $_SESSION['myName'] = $lastName." ".$firstName;
 
 
             if($usertype ==="Responder"){
@@ -165,7 +168,8 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             $municipality = $DBHandler-> getData("userprofile","userName",$email,"municipality");
             $baranggay = $DBHandler-> getData("userprofile","userName",$email,"baranggay");
             $specialization = $DBHandler-> getData("userprofile","userName",$email,"specialization");
-        
+            $lastName = $DBHandler-> getData("userprofile","userEmail",$email,"lastName");
+            $firstName = $DBHandler-> getData("userprofile","userEmail",$email,"firstName");
     
             //$DBHandler-> updateColumn("userprofile","userStatus","online","userEmail",$email);
             $userstatus = $DBHandler ->getData("userprofile","userEmail",$email,"userStatus");
@@ -178,7 +182,8 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
             $_SESSION["municipality"] = $municipality;
             $_SESSION["baranggay"] = $baranggay;
             $_SESSION['specialization'] = $specialization;
-
+            $_SESSION['myName'] = $lastName." ".$firstName;
+            
             if($usertype ==="Responder"){
 
                 header("location: ../Responder_RequestBoard.php");

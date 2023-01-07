@@ -35,6 +35,22 @@ echo $result = $DBHandler->BanUser($reportID,$actionDate);
 
 echo $bannedUserID = $DBHandler->getData("reportsinfo","reportID",$reportID,"reportedAccountID");
 echo $bannedUserEmail = $DBHandler->getData("userprofile","userID",$bannedUserID,"userEmail");
+echo $reportedUserType = $DBHandler->getData("userprofile","userID",$bannedUserID,"userType");
+
+if($reportedUserType === "Responder"){
+
+    echo $hideServices = $DBHandler->updateColumn("servicesinfo","serviceStatus","Delisted","responderID",$bannedUserID);
+    echo $hideTransactions = $DBHandler->updateColumn("transactions","transactionStatus","cancelled","responderID",$bannedUserID);
+    echo $hidePasabuyTransactions = $DBHandler->updateColumn("pasabuytransactions","orderStatus","Cancelled","responderID",$bannedUserID);
+
+
+} else{
+    echo $hideRequests = $DBHandler->updateColumn("requestsinfo","requestStatus","Delisted","requestorID",$bannedUserID);
+    echo $hideTransactions = $DBHandler->updateColumn("transactions","transactionStatus","cancelled","requestorID",$bannedUserID);
+    echo $hidePasabuyTransactions = $DBHandler->updateColumn("pasabuytransactions","orderStatus","Cancelled","requestorID",$bannedUserID);
+
+}
+
 
 header("Location:sendEmailBannedNotification.php?userEmail=$bannedUserEmail");
 

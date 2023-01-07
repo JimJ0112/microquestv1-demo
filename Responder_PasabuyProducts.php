@@ -234,7 +234,7 @@
 		
 			</table>
 
-			<input type="submit" value="Save"/>
+			<input class="Button" type="submit" value="Save"/>
 
 		</form>
 	</div>
@@ -247,6 +247,12 @@
 
 
 <script src="js/Responder_myProducts.js"> </script>
+
+<?php
+	require_once("imports/footer.php"); 
+?>
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
 
 

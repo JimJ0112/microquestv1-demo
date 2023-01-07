@@ -15,10 +15,19 @@ $price= $_POST["price"];
 $transactionStartDate= $_POST["transactionStartDate"];
 $requestDueDate = $_POST['requestDueDate'];
 
-echo $requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate;
-$result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate);
+$contract = $_POST['contract'];
+
+$contract = str_replace(' ','+',$contract);
+
+list(, $contract)= explode(',', $contract);
+
+ $contract = base64_decode($contract);
+
+//echo $requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate;
+$result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate,$contract);
 echo $result;
 
-header("location:../Responder_RequestTransactions.php");
+//header("location:../Responder_RequestTransactions.php");
+echo "<script> window.location='../Responder_RequestTransactions.php' </script>";
 
 

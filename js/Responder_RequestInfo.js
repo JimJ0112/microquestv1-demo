@@ -43,7 +43,7 @@ requestDueDate = document.getElementById('requestDueDate');
 
 // set data to elements
 /*message me portion */
-getUserFeedbacks(dataArray[0]['requestorID']);
+//getUserFeedbacks(dataArray[0]['requestorID']);
 requestorName.innerText= dataArray[0]['userName'];
 requestorName.href="ViewUserProfile.php?userID=" +  dataArray[0]['requestorID'] + "&userType=Requestor";
 recieverID.value = dataArray[0]['requestorID'];
@@ -80,6 +80,11 @@ requestDueDate.value  = dataArray[0]['dueDate'];
 
 sessionStorage.setItem('requestorID',dataArray[0]['requestorID']);
 
+
+specializationAlreadyOffered(dataArray[0]['requestCategory']);
+checkTransactionExists();
+disableApply();
+
 }
 
 
@@ -91,8 +96,7 @@ function getRequest(requestID){
     var query = "requestID=" + requestID;
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/Get_requestInfo.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ 
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
            
@@ -114,6 +118,9 @@ function getRequest(requestID){
                 dataArray = JSON.parse(dataArray);
                 console.log(dataArray);
                 setData(dataArray);    
+                generateContract(dataArray);
+            document.getElementById("LoadingScreen").style.display = "none";
+
             }
 
 
@@ -123,6 +130,16 @@ function getRequest(requestID){
         }      
     };
     
+
+    xmlhttp.onreadystatechange = function() {
+
+        if (this.readyState != 4 || this.status != 200){ 
+          document.getElementById("LoadingScreen").style.display = "grid";
+        }
+    };
+
+    xmlhttp.open("POST", "Backend/Get_requestInfo.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
     
 }// end of function
@@ -141,18 +158,21 @@ function checkText(){
 
 // show modal
 function showApplyForm(){
-    document.getElementById('formBackground').style.display = "grid";
+    //document.getElementById('formBackground').style.display = "grid";
+
+    
 }
 
 
 // set yes or no modal
 function cancelApplyForm(){
-document.getElementById('formBackground').style.display = "none";
+//document.getElementById('formBackground').style.display = "none";
+document.getElementById('contractBackGround').style.display = "none";
 }
 
 // set yes or no modal
 function acceptApplyForm(){
-    document.getElementById('formBackground').style.display = "none";
+    //document.getElementById('formBackground').style.display = "none";
     document.getElementById('requestApplicationForm').submit();
     
 }
@@ -169,18 +189,26 @@ function checkTransactionExists(){
 
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", "Backend/Check_TransactionsExist.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
     xmlhttp.onload = function() {
         if (this.readyState === 4 || this.status === 200){ 
+           
            
   
 
             var dataArray = this.response;
             console.log(dataArray);
+
             if(dataArray === "true"){
-            document.getElementById('applyButton').disabled = true;
+            //document.getElementById('applyButton').disabled = true;
+            document.getElementById("alreadyExistsTransactionMessage").style.display = "block";
+
+            } else{
+            document.getElementById("alreadyExistsTransactionMessage").style.display = "none";
+
             }
+            document.getElementById("LoadingScreen").style.display = "none";
+
    
 
 
@@ -189,13 +217,24 @@ function checkTransactionExists(){
             console.log(err);
         }      
     };
+
+
+    xmlhttp.onreadystatechange = function() {
+
+        if (this.readyState != 4 || this.status != 200){ 
+          document.getElementById("LoadingScreen").style.display = "grid";
+        }
+    };
     
+    xmlhttp.open("POST", "Backend/Check_TransactionsExist.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send(query);
     
 }// end of function
 
 //------------------get feedbacks
 // for getting products for pasabuy
+/*
 function getUserFeedbacks(userID){
    
     
@@ -306,3 +345,186 @@ function setFeedBackElements(array){
 
 
 }
+*/
+
+/* For contracts */
+function showContract(){
+    contractBackGround = document.getElementById('contractBackGround');
+    contractBackGround.style.display = "block";
+    contractDiv = document.getElementById('contractDiv');
+    contractDiv.style.display = "block";
+    h2canvaspdfToInput();
+
+}
+
+function h2canvaspdfToInput(){
+    var width = 200;
+    var height = 270;
+    var doc = new jsPDF('p', 'in', [5,9]);
+    var contractDiv = document.getElementById('contractDiv');
+    var contractInput = document.getElementById('contractInput');
+    contractInput.value = "";
+
+
+    html2canvas(contractDiv, {
+        quality:3,
+        onrendered: function(canvas) {         
+            var imgData = canvas.toDataURL(
+                'image/png');              
+            var doc = new jsPDF('p', 'mm');
+            doc.addImage(imgData, 'PNG',4,4,width,height);
+
+            contractInput.value = doc.output('datauristring');
+            console.log(contractInput.value);
+
+        }
+    });
+
+}
+
+
+function h2canvaspdf(){
+    var width = 200;
+    var height = 270;
+    var doc = new jsPDF('p', 'in', [5,9]);
+    var contractDiv = document.getElementById('contractDiv');
+    var contractInput = document.getElementById('contractInput');
+    contractInput.value = "";
+
+
+    html2canvas(contractDiv, {
+        quality:3,
+        onrendered: function(canvas) {         
+            var imgData = canvas.toDataURL(
+                'image/png');              
+            var doc = new jsPDF('p', 'mm');
+            doc.addImage(imgData, 'PNG',4,4,width,height);
+            doc.save('ServiceOrder.pdf');
+
+           // doc.output('save', 'ServiceOrder.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
+           // doc.output('datauristring');        //returns the data uri string
+           // doc.output('dataurlnewwindow');     //opens the data uri in new window
+           // contractInput.value = doc.output('datauri');
+
+        }
+    });
+
+}
+
+
+function generateContract(dataArray){
+
+    var dataArray = dataArray;
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + '-' + dd + '-' + yyyy;
+
+   
+    var contract = dataArray[0]["requestDescription"];
+
+    
+    document.getElementById('contractContent').innerHTML = contract;
+
+
+        // information elements
+
+        document.getElementById('date').innerText = today
+        document.getElementById('serviceIDHeaderInfo').innerText = "RQST-"+ dataArray[0]["requestorID"];
+        document.getElementById('categoryHeaderInfo').innerText = dataArray[0]["requestCategory"];
+        document.getElementById('titleHeaderInfo').innerText = dataArray[0]["requestTitle"];
+        document.getElementById('dueDateHeaderInfo').innerText = dataArray[0]["dueDate"];
+    
+        /*
+        document.getElementById('responderIDHeader').innerText = responderID
+        document.getElementById('responderUserNameHeader').innerText = responderInfoArray[0]['userName'];
+        document.getElementById('responderNameHeader').innerText = responderInfoArray[0]['lastName']+" "+ responderInfoArray[0]['firstName']
+        document.getElementById('responderEmailHeader').innerText = responderInfoArray[0]['userEmail'];
+        */
+
+        document.getElementById('requestorIDHeader').innerText = dataArray[0]["requestorID"];
+        document.getElementById('requestorUserNameHeader').innerText = dataArray[0]["userName"];
+        document.getElementById('requestorNameHeader').innerText =  dataArray[0]['lastName']+" "+ dataArray[0]['firstName']
+        document.getElementById('requestorEmailHeader').innerText = dataArray[0]['userEmail'];
+
+
+}
+
+
+/* check if specialization already exists */
+
+function specializationAlreadyOffered(specialization){
+    var userID = sessionStorage.getItem("myID");
+    var Specialization = specialization;
+    var myMainSpecialization = sessionStorage.getItem("specialization");
+  
+    var query = "userID=" + userID + "&Specialization="+Specialization;
+    console.log("Specializations: " + query);
+    var xmlhttp = new XMLHttpRequest();
+  
+  
+  
+
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+     
+           
+       
+            var dataArray = this.response;
+            console.log(dataArray);
+
+            var applyButton = document.getElementById("applyButton");
+            if(dataArray === "true" || myMainSpecialization === Specialization){
+                document.getElementById("noSpecializationMessage").style.display = "none";
+               // applyButton.disabled = false;
+               // alert("You can't apply to this request because you don't have this specialization, please add this request's category to your specializations");
+            }else{
+               // applyButton.disabled = true;
+               document.getElementById("noSpecializationMessage").style.display = "block";
+
+              
+            }
+            document.getElementById("LoadingScreen").style.display = "none";
+  
+  
+        }else{
+            console.log(err);
+        }      
+    };
+
+
+    xmlhttp.onreadystatechange = function() {
+
+        if (this.readyState != 4 || this.status != 200){ 
+          document.getElementById("LoadingScreen").style.display = "grid";
+        }
+    };
+    
+    xmlhttp.open("POST", "Backend/CheckSpecializationExists.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+  }
+
+
+
+
+  function disableApply(){
+    var alreadyExistsTransactionMessage = document.getElementById("alreadyExistsTransactionMessage").style.display;
+    var noSpecializationMessage = document.getElementById("noSpecializationMessage").style.display;
+
+    console.log(alreadyExistsTransactionMessage);
+    console.log(noSpecializationMessage);
+    if(alreadyExistsTransactionMessage === "block" || noSpecializationMessage==="block"){
+        document.getElementById("applyButton").disabled = true;
+    } else if(alreadyExistsTransactionMessage === "block" && noSpecializationMessage==="block"){
+        document.getElementById("applyButton").disabled = true;
+
+    }else{
+        document.getElementById("applyButton").disabled = false;
+    }
+
+  }

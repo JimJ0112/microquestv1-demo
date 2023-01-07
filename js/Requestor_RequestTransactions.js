@@ -891,7 +891,7 @@ function SetFinishedRequestsData(dataArray){
 
         // set data
         Price[i].innerText = "Php " + dataArray[i]['price'];
-       // Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
      
 
         //set data
@@ -1040,7 +1040,7 @@ function SetAcceptedRequestsData(dataArray){
 
         // set data
         Price[i].innerText = "Php " + dataArray[i]['price'];
-      //  Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
      
 
         //set data
@@ -1186,7 +1186,7 @@ function SetDeliveredRequestsData(dataArray){
 
         // set data
         Price[i].innerText = "Php " + dataArray[i]['price'];
-    //    Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
      
 
         //set data
@@ -1333,7 +1333,7 @@ function SetPaidRequestsData(dataArray){
 
         // set data
         Price[i].innerText = "Php " + dataArray[i]['price'];
-      //  Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
      
 
         //set data
@@ -1985,12 +1985,14 @@ function closeTextViewer(){
 }
 
 function setTextViewer(text){
+    /*
     var text = text;
     var textContainer = document.getElementById("textContainer");
     var TextViewerBackground = document.getElementById('TextViewerBackground');
 
     textContainer.innerText= text;
     TextViewerBackground.style.display = "grid";
+    */
 }
 
 function redirect(url){

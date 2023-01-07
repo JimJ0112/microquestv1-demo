@@ -27,7 +27,9 @@
 		Available Services
 	</title>
 
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
 	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="manifest" href="manifest.json">
     
     <meta content='yes' name='apple-mobile-web-app-capable'/>
@@ -142,8 +144,11 @@
 
 
 
-
+</div>
 <script src="js/Requestor_AvailableServices.js"> </script>
+<?php
+	require_once("imports/footer.php"); 
+?>
 
 
 </body>

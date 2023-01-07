@@ -6,6 +6,7 @@ $DBHandler = new DBHandler();
 
 echo $responderID = $_POST["responderID"];
 echo $certification=$_POST["certification"];
+echo $specialization = $_POST["specialization"];
 
 if(is_uploaded_file($_FILES["certificateFile"]["tmp_name"])){
     $certificateFile=file_get_contents($_FILES["certificateFile"]["tmp_name"]);
@@ -20,7 +21,7 @@ if($exists){
     
 }else{
 
-    echo $results = $DBHandler->registerCertificate($responderID,$certification,$certificateFile);
+    echo $results = $DBHandler->registerCertificate($responderID,$certification,$certificateFile,$specialization);
 
     header("location:../ViewMyProfile.php?userID=$responderID&userType=Responder&msg=Certificate Registered Successfully");
 }

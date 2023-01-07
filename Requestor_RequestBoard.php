@@ -312,5 +312,11 @@ session_start();
 ?>
 
 <script src="js/Requestor_RequestBoard.js"> </script>
+
+<?php
+	require_once("imports/footer.php"); 
+?>
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </body>
 </html>

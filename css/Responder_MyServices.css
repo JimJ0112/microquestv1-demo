@@ -60,7 +60,7 @@
 }
 
 #AvailableServicesContainer{
-	position: absolute;
+	/* position: absolute; */
 	width: 100%;
 	height: 100%;
 	margin: auto;
@@ -342,14 +342,17 @@ animation: fadein 2s;
 
 #myServiceViewBack{
 
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.561);
-	display: none;
-	z-index: 20;
+position: fixed;
 
-	
+width: 100%;
+
+height: 100%;
+
+background-color: rgba(0, 0, 0, 0.561);
+
+display: none;
+
+z-index: 20;
 }
 
 #myServiceView{

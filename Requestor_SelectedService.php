@@ -99,8 +99,8 @@
 
 <div id="contractBackGround"> 
 
-     
-        <div id="closeButton" onclick="hideContract()"> ✕ </div>
+    <div class="contractNav">
+       
         <div id="printButton" onclick="h2canvaspdf()" title="Save this document">
          <center> ⎙ Save </center>
         </div>
@@ -108,8 +108,9 @@
         
         <button id="ConfirmContractButton" onclick="submitform()" title="Submit">
           Confirm
-        </button>
-
+        </button> 
+        <div id="closeButton" onclick="hideContract()"> ✕ </div>
+    </div>
         <div id="contractDiv" > 
             <img src="img/logo1.jpg" id="microquestLogo" /> 
 
@@ -400,6 +401,10 @@
     <script src="js/Requestor_SelectedService.js"> </script>
 
 
-
+    <?php
+	require_once("imports/footer.php"); 
+?>
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </body>
 </html>

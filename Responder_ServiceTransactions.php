@@ -224,7 +224,7 @@
 
 	</div>
 
-</div>
+
 
 
 <div id="PhotoViewerBackground"> 
@@ -249,6 +249,7 @@
 	
 </div>
 
+
 <?php
 		if(isset($_SESSION["userID"])){
 			$userID =$_SESSION["userID"];
@@ -258,6 +259,12 @@
 
 		}
 ?>
+<?php
+	require_once("imports/footer.php"); 
+?>
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
 
 </body>
 </html>

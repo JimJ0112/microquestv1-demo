@@ -143,32 +143,7 @@
     height: 50px;
 }
 
-.acceptButton{
-    background-color: rgb(15, 88, 15);
-    color: white;
-    height: 40px;
-    width: 60px;
-    cursor: pointer;
-}
 
-.acceptButton:hover{
-    background-color: rgb(5, 186, 5);
-
-}
-
-.cancelButton{
-    background-color: rgb(112, 17, 17);
-    color: white;
-    height: 40px;
-    width: 60px;
-    cursor: pointer;
-
-}
-.cancelButton :hover{
-    background-color: rgb(209, 22, 22);
-
-
-}
 
 .userControls{
     display: grid;
@@ -189,40 +164,7 @@
 }
 
 
-.reportSeeMore{
-    margin: 10px;
-    background-color: blue;
-    color: white;
-    width: 100px;
-    display: block;
-    cursor: pointer;
 
-}
-
-.sendNotification{
-    margin: 10px;
-    background-color: rgb(208, 114, 21);
-    color: white;
-    width: 100px;
-    display: block;
-
-    cursor: pointer;
-
-
-
-}
-
-.Suspend{
-    margin: 10px;
-    background-color: red;
-    color: white;
-    width: 100px;
-    display: block;
-
-    cursor: pointer;
-
-
-}
 
 
 /*report actions*/
@@ -309,9 +251,10 @@
     'header header header header header header'
     'menu main main main right right'
     'menu footer footer footer footer footer';
-  gap: 10px;
+  gap: 2px;
   background-color: #ff4500;
-  padding: 10px;
+  /* padding: 10px; */
+  border: solid 2px orangered;
 }
 
 .grid-container > div {
@@ -344,9 +287,9 @@
 
 .grid-content {
     height: 100%;
-    width: 80%;
+    width: 100%;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 6%;
 }
 
 #DashBoardContent_TableHead{
@@ -433,5 +376,15 @@ td{border: none;}
     background-color: white;
     display: none;
     text-align: center;
+
+}
+
+
+.userInfoDiv{
+    text-align: left;
+}
+
+.reportinfoDiv{
+    text-align: left;
 
 }

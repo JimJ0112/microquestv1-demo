@@ -44,9 +44,9 @@
                         <?php
 					        $pagename = basename($_SERVER['PHP_SELF']);
 					        if($pagename === "approveRequestors.php"){
-						        echo '<u>  Approve requestors  </u>';
+						        echo '<u>  Pending Requestors  </u>';
 					        } else{
-						        echo "Approve requestors";
+						        echo "Pending Requestors";
 					        }
 				        ?>
 
@@ -60,9 +60,9 @@
                         <?php
 					        $pagename = basename($_SERVER['PHP_SELF']);
 					        if($pagename === "approveResponders.php"){
-						        echo '<u>  Approve responders  </u>';
+						        echo '<u>  Pending Responders  </u>';
 					        } else{
-						        echo "Approve responders";
+						        echo "Pending Responders";
 					        }
 				        ?>
 

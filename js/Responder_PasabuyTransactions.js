@@ -1666,12 +1666,14 @@ function closeTextViewer(){
 }
 
 function setTextViewer(text){
+    /*
     var text = text;
     var textContainer = document.getElementById("textContainer");
     var TextViewerBackground = document.getElementById('TextViewerBackground');
 
     textContainer.innerText= text;
     TextViewerBackground.style.display = "grid";
+    */
 }
 
 function redirect(url){

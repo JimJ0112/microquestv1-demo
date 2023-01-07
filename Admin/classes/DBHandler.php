@@ -23,7 +23,7 @@ function __construct(){
     $this->dbname = "microquestdbv2";
     */
 
-    $this->dbservername = "localhost:3307";
+    $this->dbservername = "localhost";
     $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
     $this->dbname = "u774227372_microquestdbv2";
@@ -70,6 +70,8 @@ function __destruct(){
 }
 // methods
 
+
+
 // for registration
 public function registerUser($userType,	$userName, $userEmail,$userPassword,$userPhoto,$firstName,$lastName,$userGender,$education,$birthDate,$houseNo,$street,$baranggay,$municipality,$idType,$idFile,$idNumber,$idExpiration,$otherIDType,$otherIDFile,$otherIDNumber,$otheridExpiration,$idFileType,$specialization = null){
 
@@ -113,6 +115,17 @@ public function registerUser($userType,	$userName, $userEmail,$userPassword,$use
 
 }
 
+public function runQuery($query){
+
+    $query = $query;
+
+	
+    $result = mysqli_query($this->dbconnection, $query);
+    
+   
+    return $result;
+
+}
 
 // for registration of admins
 
@@ -2754,7 +2767,22 @@ public function BanUser($reportID,$reportActionDate){
  
 
     //$query = "UPDATE $tablename SET serviceCategory = '$category', servicePosition = '$position', rate = $rate WHERE serviceID = $serviceID;";
-    $query = "UPDATE reportsinfo SET reportActionDate = '$reportActionDate', reportStatus = '$status' WHERE reportID = $reportID " ;
+    $query = "UPDATE reportsinfo SET reportActionDate = '$reportActionDate', reportStatus = '$status' WHERE reportID = $reportID" ;
+
+    $result = mysqli_query($this->dbconnection, $query) or die(mysqli_error($this->dbconnection));
+        
+    return $result;
+}
+
+public function UnbanUser($reportedID,$reportActionDate){
+    $tablename = "reportsinfo";
+    $reportedID = mysqli_real_escape_string($this->dbconnection, $reportedID);
+    $reportActionDate = mysqli_real_escape_string($this->dbconnection, $reportActionDate);
+    $status = "Unbanned";
+ 
+
+    //$query = "UPDATE $tablename SET serviceCategory = '$category', servicePosition = '$position', rate = $rate WHERE serviceID = $serviceID;";
+    $query = "UPDATE reportsinfo SET reportActionDate = '$reportActionDate', reportStatus = '$status' WHERE reportedAccountID = $reportedID AND reportStatus = 'Banned' " ;
 
     $result = mysqli_query($this->dbconnection, $query) or die(mysqli_error($this->dbconnection));
         
@@ -2772,6 +2800,22 @@ public function RestrictUser($reportID,$reportActionDate,$restrictDuration){
 
     //$query = "UPDATE $tablename SET serviceCategory = '$category', servicePosition = '$position', rate = $rate WHERE serviceID = $serviceID;";
     $query = "UPDATE reportsinfo SET reportActionDate = '$reportActionDate', reportStatus = '$status', restrictDuration = $restrictDuration WHERE reportID = $reportID " ;
+
+    $result = mysqli_query($this->dbconnection, $query) or die(mysqli_error($this->dbconnection));
+        
+    return $result;
+}
+
+
+public function UnrestrictUser($reportedID,$reportActionDate){
+    $tablename = "reportsinfo";
+    $reportedID = mysqli_real_escape_string($this->dbconnection, $reportedID);
+    $reportActionDate = mysqli_real_escape_string($this->dbconnection, $reportActionDate);
+    $status = "Unrestricted";
+ 
+
+    //$query = "UPDATE $tablename SET serviceCategory = '$category', servicePosition = '$position', rate = $rate WHERE serviceID = $serviceID;";
+    $query = "UPDATE reportsinfo SET reportActionDate = '$reportActionDate', reportStatus = '$status' WHERE reportedAccountID = $reportedID AND reportStatus = 'Restricted' " ;
 
     $result = mysqli_query($this->dbconnection, $query) or die(mysqli_error($this->dbconnection));
         

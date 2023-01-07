@@ -4,6 +4,27 @@ session_start();
         header("location:Login.php?msg=Please Login First");
     }
 
+
+    if(isset($_SESSION["userID"]) && isset($_GET["userID"]) && isset($_GET["userType"])){
+        
+        $myID = $_SESSION["userID"];
+        $userID = $_GET["userID"];
+        $userType= $_GET["userType"];
+
+        if($myID === $userID){
+            header("location:ViewMyProfile.php?userID=$userID&userType=$userType");
+
+        }
+        
+	}
+
+    if(isset($_GET["msg"])){
+        $msg = $_GET["msg"];
+
+        echo "<script> alert('$msg')</script>";
+
+    }
+
      
 ?>
 <!DOCTYPE html>
@@ -182,6 +203,8 @@ session_start();
         </div>
 
         <div id="moreContainer">
+
+            <div id="certificatesContainer"> </div>
            
         </div>
     </div>
@@ -189,11 +212,48 @@ session_start();
 </div>  
 
 
+<div id="LoadingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Loading... </h1>
+        <img src="img/loading.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
+<div id="ProcessingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Processing... </h1>
+        <img src="img/processing.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
+
+<div id="showImageBack"> 
+    <div id="closeButton" onclick="closeUserForms()"> ✕ </div>
+    <div id="showImageDiv"> 
+       
+        <img id="showImage"/>
+
+    </div>
+
+</div>
+
 <?php
-    echo"<script> getUserReviews($userID) </script>";
+    echo"<script> getUserReviews($userID); getUserCertificates($userID) </script>";
 
 ?>
 <script src="js/ViewUserProfile.js"> </script>
+<?php
+	require_once("imports/footer.php"); 
+?>
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
 
 </body>
 </html>

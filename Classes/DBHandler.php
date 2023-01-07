@@ -36,7 +36,7 @@ function __construct(){
 
     /*localhost  */
         
-    $this->dbservername = "localhost:3307";
+    $this->dbservername = "localhost";
     $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
     $this->dbname = "u774227372_microquestdbv2";
@@ -303,6 +303,26 @@ public function existsLike($tablename,$column,$name){
   
 }
 
+
+public function specializationExists($userID,$specialization){
+
+    $tablename = "specializations";
+    $userID = mysqli_real_escape_string($this->dbconnection, $userID);
+    $specialization = mysqli_real_escape_string($this->dbconnection, $specialization);
+
+    $query = "SELECT * FROM $tablename WHERE responderID = $userID AND specialization = '$specialization'";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+
+
+    if($resultCheck > 0){
+        return true;
+    } else {
+        return false;
+    }
+  
+}
 
 public function serviceExists($tablename,$userID,$service){
     $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
@@ -857,6 +877,46 @@ public function getMyCart($requestorID){
 }
 
 
+public function getMySpecializations($userID){
+    $tablename = "specializations";
+    $userID = mysqli_real_escape_string($this->dbconnection, $userID);
+ 
+    
+   
+ 
+        $query = "SELECT * FROM $tablename WHERE responderID = $userID";
+    
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
 // get Categories
 public function getCategories($tablename,$column,$condition,$groupby = null){
     $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
@@ -1364,6 +1424,124 @@ public function getMyCertificates($tablename,$column,$condition){
   
 }
 
+
+// get Services row 
+public function getCertificates($tablename,$column,$condition){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+// 09/06/2022 1:28am nilagyan ko muna ng servicesinfo.serviceStatus = 'Active', not sure if that's a good idea tho
+    
+   
+
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition' AND certificateStatus = 'Active' ORDER BY CertificateID ";
+
+ 
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                $row['certificateFile'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            
+            echo mysqli_error($this->dbconnection);
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+// get Services row 
+public function getBannedUsersData(){
+
+
+   
+
+    $query = "SELECT reportsinfo.reportedAccountID,
+reportsinfo.reportCategory,
+reportsinfo.reportDescription,
+reportsinfo.reportedServiceID,
+reportsinfo.reportedRequestID,
+reportsinfo.reportActionDate,
+reportsinfo.reportStatus,
+reportsinfo.reportEvidence,
+userprofile.userID,
+userprofile.userName,
+userprofile.userEmail,
+userprofile.userPhoto,
+userprofile.userType
+
+ FROM reportsinfo
+ INNER JOIN userprofile
+ ON reportsinfo.reportedAccountID = userprofile.userID
+ 
+ WHERE reportsinfo.reportStatus = 'Banned';";
+ 
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+                $row['userPhoto'] = $file;
+
+
+                $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
+                $row['reportEvidence'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            
+            echo mysqli_error($this->dbconnection);
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+
 // get Services row 
 public function getServices($tablename,$column,$condition,$orderby = null){
     $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
@@ -1835,7 +2013,7 @@ public function getRequests($tablename,$column,$condition,$orderby = null){
     
    
     if(isset($orderby)){
-        $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' AND requestStatus = 'active' ORDER BY $orderby";
+        $query = "SELECT $tablename.*,userprofile.userName,userprofile.municipality,userprofile.userPhoto,userprofile.userEmail,userprofile.firstName, userprofile.lastName FROM $tablename INNER JOIN userprofile ON $tablename.requestorID = userprofile.userID WHERE $column = '$condition' AND requestStatus = 'active' ORDER BY $orderby";
     }else{
         $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
     }
@@ -4047,6 +4225,23 @@ public function registerCategory($serviceCategory,$servicePosition){
  
  }
 
+// insert specialization
+ public function addSpecialization($responderID,$specialization){
+    
+    $tablename = "specializations";
+
+    $responderID= mysqli_real_escape_string($this->dbconnection,$responderID);
+    $specialization= mysqli_real_escape_string($this->dbconnection,$specialization);
+    $specializationStatus = "Active";
+
+   
+    
+
+    $query = "INSERT INTO $tablename() VALUES ( 0,$responderID,'$specialization','$specializationStatus')";
+    return mysqli_query($this->dbconnection, $query);
+
+}
+
  // insert products
  public function registerProduct($servicesInfoID,$itemCategory,$productName,$productBrand,$productDescription,$productPrice,$productImage,$responderID,$productStore,$storeLocation,$deliveryRate){
 
@@ -4113,7 +4308,7 @@ public function registerCategory($serviceCategory,$servicePosition){
 }
 
 
-public function registerCertificate($responderID,$certification,$certificateFile){
+public function registerCertificate($responderID,$certification,$certificateFile,$specialization){
 
 
     
@@ -4128,6 +4323,7 @@ public function registerCertificate($responderID,$certification,$certificateFile
     $responderID=mysqli_real_escape_string($this->dbconnection,$responderID);
     $certification=mysqli_real_escape_string($this->dbconnection,$certification);
     $certificateFile=mysqli_real_escape_string($this->dbconnection,$certificateFile);
+    $specialization = mysqli_real_escape_string($this->dbconnection,$specialization);
 
  
     $certificateStatus ="Active";
@@ -4135,7 +4331,7 @@ public function registerCertificate($responderID,$certification,$certificateFile
 
     
 
-    $query = "INSERT INTO $tablename() VALUES ( 0,$responderID,'$certificateFile','$certification','$certificateStatus')";
+    $query = "INSERT INTO $tablename() VALUES ( 0,$responderID,'$certificateFile','$certification','$certificateStatus','$specialization')";
     return mysqli_query($this->dbconnection, $query);
 
 
@@ -4205,7 +4401,7 @@ public function sendPhotoMessage($senderID,$recieverID,$messageBody,$messageDate
 
 
 // register request application
-public function registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate){
+public function registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate,$requestAgreement){
 
     $requestID= mysqli_real_escape_string($this->dbconnection, $requestID);
     $responderID = mysqli_real_escape_string($this->dbconnection, $responderID);
@@ -4216,7 +4412,7 @@ public function registerRequestTransaction($requestID,$responderID,$requestorID,
     $timeslot = '';
     $additionalNotes = '';
     $transactionsStatus = "pending";
-    $contractAgreement = "";
+    $contractAgreement = mysqli_real_escape_string($this->dbconnection,$requestAgreement);
     $paymentFile = "";
 
 
@@ -4228,8 +4424,11 @@ public function registerRequestTransaction($requestID,$responderID,$requestorID,
 
     $query = "INSERT INTO $tablename VALUES(0,$requestID,null,$requestorID,$responderID,$price,'$transactionsStatus','$transactionStartDate',null,'$requestDueDate','$timeslot','$additionalNotes','$contractAgreement','$paymentFile')";
 
+
     $result = mysqli_query($this->dbconnection, $query);
  
+    echo mysqli_error($this->dbconnection);
+    return $result;
   
 }// end of function
 

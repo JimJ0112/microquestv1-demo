@@ -265,6 +265,11 @@ function setData(array){
 
         }
 
+        acceptButton[i].className += " buttonGreen";
+        cancelButton[i].className += " buttonRed";
+
+
+
     }
 
 }
@@ -514,6 +519,11 @@ function setReportData(array){
         Decline[i].setAttribute("onclick","declineReport(" +dataArray[i]['reportID'] + ")" );
         BanButton[i].setAttribute("onclick","banUserForm("+dataArray[i]['reportID'] + ")");
 
+        reportSeeMore[i].className += " buttonOrange";
+        sendNotification[i].className += " buttonGreen";
+        Suspend[i].className += " buttonBlue";
+        BanButton[i].className += " buttonRed";
+        Decline[i].className += " buttonRed";
 
     }
 
@@ -1028,10 +1038,18 @@ function Get_AllBannedUsersData(){
 
                 var dataArray = this.response;
            
+                if(dataArray === "failed to fetch"){
+                    document.getElementById("DashBoardContent_TableBody").innerText = "No Banned Accounts ";
 
-                dataArray = JSON.parse(dataArray);
-                console.log(dataArray);
+                } else{
+                    dataArray = JSON.parse(dataArray);
+                    console.log(dataArray);
 
+                    var number = dataArray.length;
+                    createBannedUsersElements(number)
+                    setBannedData(dataArray);
+
+                }
   
         
 
@@ -1059,9 +1077,141 @@ function Get_AllBannedUsersData(){
 }// end of function
 
 
+function createBannedUsersElements(number){
+    var number = number;
+    var DashBoardContent_TableBody = document.getElementById("DashBoardContent_TableBody");
+    var DashBoardContent_TableHead = document.getElementById("DashBoardContent_TableHead");
+
+    document.getElementById("DashBoardContent_TableBody").innerHTML = "";
+    document.getElementById("DashBoardContent_TableHead").innerHTML = "";
+
+    var tr = document.createElement("tr");
+    var Actions = document.createElement("td");
+    var UserInfo = document.createElement("td");
+    var UserPic = document.createElement("td");
+    var ReportInfo = document.createElement("td");
+    var ReportPic = document.createElement("td");
+    var Status = document.createElement("td");
+
+     Actions.innerText = "Actions";
+     UserInfo.innerText = "User Info";
+     UserPic.innerText = "";
+     ReportInfo.innerText = "Report Info";
+     ReportPic.innerText = "";
+     Status.innerText ="Status";
+
+     tr.appendChild(Actions);
+     tr.appendChild(UserInfo);
+     tr.appendChild(UserPic);
+     tr.appendChild(ReportInfo);
+     tr.appendChild(ReportPic);
+     tr.appendChild(Status);
+
+
+     DashBoardContent_TableHead.appendChild(tr);
+
+
+
+    for(var i =0; i<number;i++){
+        var tr = document.createElement("tr");
+        var userInfoDiv = document.createElement('td');
+        var userProfileDiv = document.createElement('td');
+
+
+        var reportinfoDiv = document.createElement('td');
+        var reportEvidenceDiv = document.createElement('td');
+        var reportStatus = document.createElement('td');
+
+        var buttonsDiv = document.createElement('td');
+        var unbanButton = document.createElement('button');
+        
+
+
+        userInfoDiv.setAttribute("class","userInfoDiv");
+        userProfileDiv.setAttribute("class","userProfileDiv");
+
+
+        reportinfoDiv.setAttribute("class","reportinfoDiv");
+        reportEvidenceDiv.setAttribute("class","reportEvidenceDiv"); 
+        reportStatus.setAttribute("class","reportStatus");
+
+        buttonsDiv.setAttribute("class","buttonsDiv");
+        unbanButton.setAttribute("class","unbanButton");
+        unbanButton.innerText = "Unban";
+
+        buttonsDiv.appendChild(unbanButton);
+
+        tr.appendChild(buttonsDiv);
+        tr.appendChild(userInfoDiv);
+        tr.appendChild(userProfileDiv);
+        tr.appendChild(reportinfoDiv);
+        tr.appendChild(reportEvidenceDiv);
+        tr.appendChild(reportStatus);
+
+        
+        DashBoardContent_TableBody.appendChild(tr);
+        
+    }
+
+}
+
+
+function setBannedData(dataArray){
+    var dataArray = dataArray;
+    var num = dataArray.length;
+
+    
+    userInfoDiv= document.getElementsByClassName("userInfoDiv");
+    userProfileDiv= document.getElementsByClassName("userProfileDiv");
+
+
+    reportinfoDiv= document.getElementsByClassName("reportinfoDiv");
+    reportEvidenceDiv= document.getElementsByClassName("reportEvidenceDiv"); 
+    reportStatus= document.getElementsByClassName("reportStatus");
+
+  
+    unbanButton= document.getElementsByClassName("unbanButton");
+
+    for(var i=0; i<num; i++){
+
+        var image = new Image();
+        image.src = dataArray[i]["userPhoto"];
+        image.setAttribute("class","userPhotoImage");
+        image.setAttribute("onclick","viewImage('" + dataArray[i]["userPhoto"] + "')");
+
+
+        var image1 = new Image();
+        image1.src = dataArray[i]["reportEvidence"];
+        image1.setAttribute("class","reportEvidence");
+        image1.setAttribute("onclick","viewImage('" + dataArray[i]["reportEvidence"]+ "')");
+
+
+        userProfileDiv[i].appendChild(image);
+        reportEvidenceDiv[i].appendChild(image1);
+
+        var userInfo =  "<b> User ID: </b>"+dataArray[i]["userID"]+"<br/>  <b> Username: </b> " + dataArray[i]["userName"] +"<br/> <b> Email: </b> "+ dataArray[i]["userEmail"];
+
+        var reportInfo = "<b> Report Category: </b>" + dataArray[i]["reportCategory"] + "<br/> <b> Description: </b> " + dataArray[i]["reportDescription"] + "<br/> <b> Date: </b>" + dataArray[i]["reportActionDate"];
+        
+        userInfoDiv[i].innerHTML = userInfo;
+        reportinfoDiv[i].innerHTML = reportInfo;
+        reportStatus[i].innerText = dataArray[i]["reportStatus"];
+
+        unbanButton[i].setAttribute("onclick","unbanUser("+dataArray[i]["reportedAccountID"] +")");
+        unbanButton[i].className += " buttonRed";
+
+
+
+    }
+
+
+
+}
+
+
 
 // Restricted Users
-/*get banned users */
+/*get restricted users */
 function Get_AllRestrictedUsersData(){
     
     
@@ -1084,10 +1234,20 @@ function Get_AllRestrictedUsersData(){
                 var dataArray = this.response;
            
 
-                dataArray = JSON.parse(dataArray);
-                console.log(dataArray);
+                if(dataArray === "failed to fetch"){
+                    document.getElementById("DashBoardContent_TableBody").innerText = "No Restricted Accounts ";
 
-  
+                } else{
+                    dataArray = JSON.parse(dataArray);
+                    console.log(dataArray);
+    
+      
+                    var number = dataArray.length;
+                    createRestrictedUsersElements(number)
+                    setRestrictedData(dataArray);
+
+                }
+
         
 
 
@@ -1111,4 +1271,226 @@ function Get_AllRestrictedUsersData(){
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send();
     
+}// end of function
+
+
+
+function createRestrictedUsersElements(number){
+    var number = number;
+    var DashBoardContent_TableBody = document.getElementById("DashBoardContent_TableBody");
+    var DashBoardContent_TableHead = document.getElementById("DashBoardContent_TableHead");
+
+    var tr = document.createElement("tr");
+    var Actions = document.createElement("td");
+    var UserInfo = document.createElement("td");
+    var UserPic = document.createElement("td");
+    var ReportInfo = document.createElement("td");
+    var ReportPic = document.createElement("td");
+    var Status = document.createElement("td");
+
+     Actions.innerText = "Actions";
+     UserInfo.innerText = "User Info";
+     UserPic.innerText = "";
+     ReportInfo.innerText = "Report Info";
+     ReportPic.innerText = "";
+     Status.innerText ="Status";
+
+     tr.appendChild(Actions);
+     tr.appendChild(UserInfo);
+     tr.appendChild(UserPic);
+     tr.appendChild(ReportInfo);
+     tr.appendChild(ReportPic);
+     tr.appendChild(Status);
+
+
+     DashBoardContent_TableHead.appendChild(tr);
+
+
+
+    for(var i =0; i<number;i++){
+        var tr = document.createElement("tr");
+        var userInfoDiv = document.createElement('td');
+        var userProfileDiv = document.createElement('td');
+
+
+        var reportinfoDiv = document.createElement('td');
+        var reportEvidenceDiv = document.createElement('td');
+        var reportStatus = document.createElement('td');
+
+        var buttonsDiv = document.createElement('td');
+        var unbanButton = document.createElement('button');
+        
+
+
+        userInfoDiv.setAttribute("class","userInfoDiv");
+        userProfileDiv.setAttribute("class","userProfileDiv");
+
+
+        reportinfoDiv.setAttribute("class","reportinfoDiv");
+        reportEvidenceDiv.setAttribute("class","reportEvidenceDiv"); 
+        reportStatus.setAttribute("class","reportStatus");
+
+        buttonsDiv.setAttribute("class","buttonsDiv");
+        unbanButton.setAttribute("class","unbanButton");
+        unbanButton.innerText = "Unrestrict";
+
+        buttonsDiv.appendChild(unbanButton);
+
+        tr.appendChild(buttonsDiv);
+        tr.appendChild(userInfoDiv);
+        tr.appendChild(userProfileDiv);
+        tr.appendChild(reportinfoDiv);
+        tr.appendChild(reportEvidenceDiv);
+        tr.appendChild(reportStatus);
+
+        
+        DashBoardContent_TableBody.appendChild(tr);
+        
+    }
+
+}
+
+
+function setRestrictedData(dataArray){
+    var dataArray = dataArray;
+    var num = dataArray.length;
+
+    
+    userInfoDiv= document.getElementsByClassName("userInfoDiv");
+    userProfileDiv= document.getElementsByClassName("userProfileDiv");
+
+
+    reportinfoDiv= document.getElementsByClassName("reportinfoDiv");
+    reportEvidenceDiv= document.getElementsByClassName("reportEvidenceDiv"); 
+    reportStatus= document.getElementsByClassName("reportStatus");
+
+  
+    unbanButton= document.getElementsByClassName("unbanButton");
+
+    for(var i=0; i<num; i++){
+
+        var image = new Image();
+        image.src = dataArray[i]["userPhoto"];
+        image.setAttribute("class","userPhotoImage");
+        image.setAttribute("onclick","viewImage('" + dataArray[i]["userPhoto"] + "')");
+
+
+        var image1 = new Image();
+        image1.src = dataArray[i]["reportEvidence"];
+        image1.setAttribute("class","reportEvidence");
+        image1.setAttribute("onclick","viewImage('" + dataArray[i]["reportEvidence"]+ "')");
+
+
+        userProfileDiv[i].appendChild(image);
+        reportEvidenceDiv[i].appendChild(image1);
+
+        var userInfo =  "<b> User ID: </b>"+dataArray[i]["userID"]+"<br/>  <b> Username: </b> " + dataArray[i]["userName"] +"<br/> <b> Email: </b> "+ dataArray[i]["userEmail"];
+
+        var reportInfo = "<b> Report Category: </b>" + dataArray[i]["reportCategory"] + "<br/> <b> Description: </b> " + dataArray[i]["reportDescription"] + "<br/> <b> Date: </b>" + dataArray[i]["reportActionDate"] +" <br/> <b> Duration: </b> " + dataArray[i]["restrictDuration"];
+        
+        userInfoDiv[i].innerHTML = userInfo;
+        reportinfoDiv[i].innerHTML = reportInfo;
+        reportStatus[i].innerText = dataArray[i]["reportStatus"];
+
+        unbanButton[i].setAttribute("onclick","unrestrictUser("+dataArray[i]["reportedAccountID"] +")");
+        unbanButton[i].className += " buttonRed";
+
+
+
+    }
+
+
+
+}
+
+
+/* unban user  */
+
+function unbanUser(userID){
+    
+    
+    if (confirm('Are you sure you want to unban this user?')) {
+
+        var userID = userID;
+        var query = "reportedUserID="+userID;
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+
+ 
+            document.getElementById("ProcessingScreen").style.display = "none";
+
+  
+                var dataArray = this.response;
+
+                console.log(dataArray);
+                location.href="BannedUsers.php";
+
+                
+
+            }else{
+
+            }      
+        };
+
+        xmlhttp.onreadystatechange = function(){
+            document.getElementById("ProcessingScreen").style.display = "grid";
+
+        }
+    
+        xmlhttp.open("POST", "backend/UnbanUser.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(query);
+ 
+    }else{
+
+    }
+}// end of function
+
+
+
+
+/* unban user  */
+
+function unrestrictUser(userID){
+    
+    
+    if (confirm('Are you sure you want to unrestrict this user?')) {
+
+        var userID = userID;
+        var query = "reportedUserID="+userID;
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onload = function() {
+            if (this.readyState === 4 || this.status === 200){ 
+
+ 
+            document.getElementById("ProcessingScreen").style.display = "none";
+
+  
+                var dataArray = this.response;
+
+                console.log(dataArray);
+                location.href="RestrictedUsers.php";
+
+                
+
+            }else{
+
+            }      
+        };
+
+        xmlhttp.onreadystatechange = function(){
+            document.getElementById("ProcessingScreen").style.display = "grid";
+
+        }
+    
+        xmlhttp.open("POST", "backend/UnrestrictUser.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(query);
+ 
+    }else{
+
+    }
 }// end of function

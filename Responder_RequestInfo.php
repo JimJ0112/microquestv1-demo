@@ -20,12 +20,23 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/RequestInfo.css">
 
+
+        <!-- Load Jspdf -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    
+    <script type="text/javascript" src="html2canvas.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+
     <script src="js/Responder_RequestInfo.js"> </script>
 
     <title> Request </title>
 </head>
-<body onload="checkTransactionExists()">
-
+<!--<body onload="checkTransactionExists()">-->
+<body>
     <?php
         if(isset($_GET['requestID'])){
 
@@ -36,26 +47,10 @@ session_start();
         }
     ?>
 
-<!-- NavBar-->
+
+
 <?php
 	
-    /*
-
-	if(isset($_SESSION["userType"])){
-		$userType = $_SESSION["userType"];
-		if($userType === "Responder"){
-			require_once("imports/ResponderNavBar.php");
-
-		} else if($userType === "Requestor"){
-			require_once("imports/RequestorNavBar.php");
-
-		}
-	}
-    */
-?>
-
-<?php
-	//require_once("imports/ResponderNavBar.php");
 
 	if(isset($_SESSION["userStatus"]) && isset($_SESSION["userType"])){
 		$status = $_SESSION["userStatus"];
@@ -81,6 +76,29 @@ session_start();
 
 
 
+
+
+<div id="LoadingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Loading... </h1>
+        <img src="img/loading.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
+<div id="ProcessingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Processing... </h1>
+        <img src="img/processing.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
+<!--
 <div id="formBackground"> 
     
     <div id="AreYouSureDialog">
@@ -94,17 +112,18 @@ session_start();
 
     <form action="Backend/RegisterRequestApplicationTransaction.php" method="post" id="requestApplicationForm">
         <input type="hidden" name="formType" value="requestApplication"/> 
-        <input type="hidden" name="requestID" value="<?php echo $requestID ?>"/>
+        <input type="hidden" name="requestID" value="<?php //echo $requestID ?>"/>
         <input type="hidden" name="requestorID" id="requestorID"/>
-        <input type="hidden" name="responderID" value="<?php echo $_SESSION['userID']?>"/>
+        <input type="hidden" name="responderID" value="<?php //echo $_SESSION['userID']?>"/>
         <input type="hidden" name="price" id="price"/>
         <input type="hidden" name="transactionStartDate" value="<?php 
-            date_default_timezone_set("Asia/Manila");
-            echo date("Y-m-d H:i:s",time());?>"/>
+           // date_default_timezone_set("Asia/Manila");
+            //echo date("Y-m-d H:i:s",time());?>"/>
         <input type="hidden" name="requestDueDate" id="requestDueDate"/>
+        <input type="hidden" name="contract" id="contractInput"/>;
     </form>
 </div>
-
+-->
 
 
 
@@ -150,11 +169,14 @@ session_start();
                                 $usertype = $_SESSION["userType"];
 
                                 if($usertype === "Responder"){
-                                    echo "<input type=button value=APPLY id=applyButton class=button onclick='showApplyForm()'/>";
+                                    echo "<input type=button value=APPLY id=applyButton class=button onclick='showContract();'/>";
                                 }
                             }
 
                         ?>
+
+                        <p id="alreadyExistsTransactionMessage" class="errorInfoMessage"> ⓘ You already have an ongoing transaction with this request </p> <br/>
+                        <p id="noSpecializationMessage" class="errorInfoMessage"> ⓘ You can't apply to this request because you don't have this specialization, please add this request's category to your specializations</p>
                     </center>
                 </div>
             </td>
@@ -191,6 +213,138 @@ session_start();
 
     <div>
 </div>
+
+
+
+
+
+<!-- Contract --> 
+<div id="contractBackGround"> 
+
+     
+        <div id="closeButton" onclick="cancelApplyForm()"> ✕ </div>
+        <div id="printButton" onclick="h2canvaspdf()" title="Save this document">
+          ⎙ Save 
+        </div>
+
+        <!--
+        <button id="ConfirmContractButton" onclick="acceptApplyForm()" title="Submit" class="buttonGreen">
+          Confirm
+        </button>
+        -->
+
+        <center> 
+        <form action="Backend/RegisterRequestApplicationTransaction.php" method="post" id="requestApplicationForm">
+            <input type="hidden" name="formType" value="requestApplication"/> 
+            <input type="hidden" name="requestID" value="<?php echo $requestID ?>"/>
+            <input type="hidden" name="requestorID" id="requestorID"/>
+            <input type="hidden" name="responderID" value="<?php echo $_SESSION['userID']?>"/>
+            <input type="hidden" name="price" id="price"/>
+            <input type="hidden" name="transactionStartDate" value="<?php 
+                date_default_timezone_set("Asia/Manila");
+                echo date("Y-m-d H:i:s",time());?>"/>
+            <input type="hidden" name="requestDueDate" id="requestDueDate"/>
+            <input type="hidden" name="contract" id="contractInput"/>
+
+            <input type="checkbox" required/> <label> I agree to this contract </label> <br/>
+            <input type="submit" id="ConfirmContractButton" value="Confirm" class="buttonGreen">
+            
+        </form>
+        </center>
+
+        
+
+
+
+        <div id="contractDiv" > 
+            <img src="img/logo1.jpg" id="microquestLogo" /> 
+
+
+            <div id="contractHeaderInfo" >
+                 Date  <br/> &nbsp <span id="date"> 19/11/2022 </span> <br/><br/>
+                 Request ID <br/> &nbsp <span id="serviceIDHeaderInfo"> RQST0-1 </span> <br/><br/>
+                 Category  <br/> &nbsp <span id="categoryHeaderInfo"> Home Services </span> <br/><br/>
+                 Title  <br/>  &nbsp <span id="titleHeaderInfo"> House Cleaning </span> <br/><br/>
+                 Due Date  <br/> &nbsp <span id="dueDateHeaderInfo"> 19/11/2022 </span> <br/><br/>
+            </div>
+
+            <center>
+                <table id="usersInfo">
+                    <tr>
+                        <td id="ResponderInfoContract" > 
+                             Responder  <br/> 
+                            &nbsp<span id="responderIDHeader"> 
+
+                                <?php if(isset($_SESSION['userID'])){
+                                    echo $_SESSION['userID'];
+                                }?> 
+
+                                </span> <br/>
+
+                            &nbsp<span id="responderUserNameHeader">
+                                <?php if(isset($_SESSION['userName'])){
+                                    echo $_SESSION['userName'];
+                                }?> 
+                                
+                                </span> <br/>
+
+                            &nbsp<span id="responderNameHeader"> 
+                                <?php if(isset($_SESSION['myName'])){
+                                    echo $_SESSION['myName'];
+                                }?> 
+                                </span> <br/>
+
+                            &nbsp<span id="responderEmailHeader"> 
+                                <?php if(isset($_SESSION['userEmail'])){
+                                    echo $_SESSION['userEmail'];
+                                }?> 
+                                </span> <br/>
+                            
+
+
+                            
+
+                        </td>
+
+                        <td id="RequestorInfoContract" > 
+                             Requestor  <br/> 
+                            &nbsp<span id="requestorIDHeader"> 46 </span> <br/>
+                            &nbsp<span id="requestorUserNameHeader"> Jimj0112 </span> <br/>
+                            &nbsp<span id="requestorNameHeader"> Jim Manrique</span> <br/>
+                            &nbsp<span id="requestorEmailHeader"> JimManrique12@gmail.com</span> <br/>
+
+                        </td>
+                    </tr>
+            
+                </table>
+                <br/>
+                <br/>
+                <hr/>
+            </center>
+
+     
+            <div id="contractContent" > 
+
+
+            </div>
+         
+        </div>
+   
+
+</div>
+
+
+
+
+<?php
+	require_once("imports/footer.php"); 
+?>
+
+
+
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
 
 </body>
 </html>

@@ -107,7 +107,7 @@
 			</div>
 		</div>
 
-		  <div id="TransactionsNavItem1" class="TransactionsNavItems grid-item" onclick="requestClickedItem(0,<?php echo $userID; ?>)"> <img class="navIcon" src="img/wall-clock.png"> <span class="sideNav-text">  Pending Responders </span> </div>  
+		  <div id="TransactionsNavItem1" class="TransactionsNavItems grid-item" onclick="requestClickedItem(0,<?php echo $userID; ?>)"> <img class="navIcon" src="img/wall-clock.png"> <span class="sideNav-text">  Pending Requests </span> </div>  
 		  <div id="TransactionsNavItem2" class="TransactionsNavItems grid-item" onclick="requestClickedItem(1,<?php echo $userID; ?>)"> <img class="navIcon" src="img/setting.png"> <span class="sideNav-text"> On Going Request  </span> </div> 
 		  <div id="TransactionsNavItem3" class="TransactionsNavItems grid-item" onclick="requestClickedItem(2,<?php echo $userID; ?>)"> <img class="navIcon" src="img/delivered.png"> <span class="sideNav-text"> Accomplished Request  </span> </div> 
 		  <div id="TransactionsNavItem4" class="TransactionsNavItems grid-item" onclick="requestClickedItem(3,<?php echo $userID; ?>)"> <img class="navIcon" src="img/money.png"> <span class="sideNav-text"> Paid  </span> </div>   	
@@ -226,7 +226,7 @@
 
 	</div>
 
-</div>
+
 
 
 <div id="PhotoViewerBackground"> 
@@ -258,6 +258,12 @@
 
 			}
 		?>
+<?php
+	require_once("imports/footer.php"); 
+?>
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
 
 </body>
 </html>

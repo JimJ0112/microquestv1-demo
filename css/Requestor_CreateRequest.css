@@ -111,7 +111,7 @@
 }
 
 #Requestor_CreateRequestMainBack{
-	position: absolute;
+	/* position: absolute; */
 	top:0;
 	margin: auto;
 	padding-top: 6%;

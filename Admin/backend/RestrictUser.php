@@ -36,6 +36,26 @@ header("Location:../adminDashboard.php?msg=Action Success");
 
 echo $restrictedUserID = $DBHandler->getData("reportsinfo","reportID",$reportID,"reportedAccountID");
 echo $restrictedUserEmail = $DBHandler->getData("userprofile","userID",$restrictedUserID,"userEmail");
+echo $restrictedUserType = $DBHandler->getData("userprofile","userID",$restrictedUserID,"userType");
+
+
+if($restrictedUserType === "Responder"){
+
+    echo $hideServices = $DBHandler->updateColumn("servicesinfo","serviceStatus","Delisted","responderID",$restrictedUserID);
+    echo $hideTransactions = $DBHandler->updateColumn("transactions","transactionStatus","cancelled","responderID",$restrictedUserID);
+    echo $hidePasabuyTransactions = $DBHandler->updateColumn("pasabuytransactions","orderStatus","Cancelled","responderID",$restrictedUserID);
+
+
+} else{
+
+    echo $hideRequests = $DBHandler->updateColumn("requestsinfo","requestStatus","Delisted","requestorID",$restrictedUserID);
+    echo $hideTransactions = $DBHandler->updateColumn("transactions","transactionStatus","cancelled","requestorID",$restrictedUserID);
+    echo $hidePasabuyTransactions = $DBHandler->updateColumn("pasabuytransactions","orderStatus","Cancelled","requestorID",$restrictedUserID);
+
+}
+
+
+
 
 header("Location:sendEmailRestrictedNotification.php?userEmail=$restrictedUserEmail&restrictDuration=$restrictDuration");
 

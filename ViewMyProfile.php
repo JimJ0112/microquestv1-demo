@@ -11,6 +11,19 @@ session_start();
         echo "<script> alert('$msg')</script>";
 
     }
+
+    if(isset($_SESSION["userID"]) && isset($_GET["userID"]) && isset($_GET["userType"])){
+        
+        $myID = $_SESSION["userID"];
+        $userID = $_GET["userID"];
+        $userType= $_GET["userType"];
+
+        if($myID != $userID){
+            header("location:ViewUserProfile.php?userID=$userID&userType=$userType");
+
+        }
+        
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +41,7 @@ session_start();
 
     <script src="js/ViewUserProfile.js"> </script>
 
-    <title> User Profile </title>
+    <title> My User Profile </title>
 </head>
 <body>
 <?php
@@ -84,8 +97,7 @@ session_start();
                                 <input type="hidden" name="senderUserName" value='<?php echo $_SESSION['userName']; ?>'>
                                 <input type="hidden" name="recieverUserName" id="recieverUserName">
                  
-                                <input type="text" name="messageBody" id="requestInfoMessageBody" oninput="checkText()" placeholder="MESSAGE"> </textarea> <br/>
-                                <input type="submit" value="SEND" id="send" />
+                
                 
                             </form>
                         
@@ -93,6 +105,29 @@ session_start();
                 </td>
             </tr>
         </table>
+
+        <div id="SpecializationsTable"> 
+            <div> 
+                <?php 
+                $pagename = basename($_SERVER['PHP_SELF']);
+                $myID = $_SESSION["userID"];
+                $userID = $_GET["userID"];
+                $userType = $_SESSION["userType"];
+
+                if($pagename === "ViewMyProfile.php" && $myID === $userID && $userType==="Responder"){
+                    echo "<button class='buttonGreen' onclick='showAddSpecializationForm()'> Add Specialization </button> ";
+                }
+
+                ?> 
+            </div>
+
+            </div>
+
+            <div id="SpecializationsTableBody"> 
+
+            </div>
+
+
 
         <table id="viewUserProfileNav">
             <tr>
@@ -220,14 +255,26 @@ session_start();
 
 <div id="otherCategoriesFormBack" class="formBack">
     
-
+    
     <form action="Backend/RegisterCertificate.php" method="post" enctype="multipart/form-data" id="otherCategoriesForm" class="ServicePopUp"> 
     <div id="closeButton" onclick="closeForms()"> ✕ </div>
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
 
         
-        <br/> <br/>
+        
         <table id="otherTable">
+
+                <tr>
+                    <td class="column1_td">Specialization </td>
+                    
+                    <td> 
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span> 
+                        <Select name="specialization" id="mySpecializationsDropDown" Required> 
+                            <option> </option>
+                        </Select>
+                    </td> 
+                </tr>
+
                 <tr>
                     <td class="column1_td">Training/Certificate Title</td>
                     
@@ -249,16 +296,138 @@ session_start();
 
             </table>
 
-            <input type="submit"/>
+            <input type="submit" value="Save"/>
     </form>
 </div>
 
 
+
+
+<div id="showImageBack"> 
+    <div id="closeButton" onclick="closeForms()"> ✕ </div>
+    <div id="showImageDiv"> 
+       
+        <img id="showImage"/>
+
+    </div>
+
+</div>
+
+<div id="updateCertBack"> 
+    <div id="closeButton" onclick="closeForms()"> ✕ </div>
+
+    <form action="Backend/updateCertificate.php" method="post" enctype="multipart/form-data"  class="ServicePopUp" id="updateCertForm"> 
+            <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
+            <input type="hidden" name="certificateID" id="certificateID"> 
+
+
+        
+        
+            <table id="otherTable">
+                <tr>
+                    <td class="column1_td">Training/Certificate Title</td>
+                    
+                    <td> 
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span> 
+                        <input type="text" name="certification" id="updateCertificateTitle" Required> 
+                    </td> 
+                </tr>
+
+                <tr>
+                    <td class="column1_td">Training/Certificate File </td>
+                    <td>
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span>  
+                        <input type="file" name="certificateFile" accept="image/png, image/jpg, image/jpeg" id="updateCertificateFile"> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="column1_td">Status </td>
+
+                    <td>
+
+                         <input type="radio" value="Active" name="Status" class="certificateStatusRadio" required/> <label>  Active </label>
+						 <input type="radio" value="Delisted" name="Status" class="certificateStatusRadio"/> <label> Delisted <label>
+
+                    </td>
+
+                </tr>
+                
+                
+
+            </table>
+
+            <input type="submit" value="Update"/>
+
+    </form>
+
+</div>
+
+
+
+<div id="AddSpecializationBack" class="formBack">
+    
+    
+    <form action="Backend/AddSpecialization.php" method="post" enctype="multipart/form-data" id="addSpecializationForm" class="ServicePopUp"> 
+    <div id="closeButton" onclick="closeForms()"> ✕ </div>
+        <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
+
+        
+        
+        <table id="otherTable">
+                <tr>
+                    <td class="column1_td">Select a specialization: </td>
+                    
+                    <td> 
+                        <span class="asteriskRequiredField" title="This Field is Required"> * </span> 
+                        <Select name="specialization" id="specializationsDropDown" onchange="specializationAlreadyOffered(<?php echo $_SESSION['userID']; ?>)" Required> 
+                            <option> </option>
+                        </Select>
+                    </td> 
+
+                </tr>
+
+        </table>
+
+            <input type="submit" value="ADD" id="submitSpecialization" disabled/>
+    </form>
+</div>
+
+
+
+
+<div id="LoadingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Loading... </h1>
+        <img src="img/loading.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
+<div id="ProcessingScreen"> 
+
+    <div id="loadingDiv"> 
+        <h1 id="loadingText"> Processing... </h1>
+        <img src="img/processing.gif"  id="loadingImage">
+    </div>
+  
+
+</div>
+
+
 <?php
-    echo"<script> getUserReviews($userID); getMyCertificates($userID) </script>";
+    echo"<script> getUserReviews($userID); getMyCertificates($userID);getServices();  getMySpecializations($userID);</script>";
 
 ?>
 <script src="js/ViewUserProfile.js"> </script>
+<?php
+	require_once("imports/footer.php"); 
+?>
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
 
 </body>
 </html>

@@ -39,24 +39,6 @@ session_start();
     
     <div id="DashBoardContent">
 
-
-
-        <div id="ReportFilter"> 
-            <ul> 
-                <li> List Item </li>
-                <li> List Item </li>
-                <li> List Item </li>
-                <li> List Item </li>
-                <li> List Item </li>
-                <li> List Item </li>
-                <li> List Item </li>
-                <li> List Item </li>
-                <li> List Item </li>
-                <li> List Item </li>
-                
-            </ul>
-        </div>
-
                     <table id="DashBoardContent_Table">
 
                         <thead id="DashBoardContent_TableHead"> 

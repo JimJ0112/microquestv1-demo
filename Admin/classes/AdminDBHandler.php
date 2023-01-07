@@ -23,7 +23,7 @@ function __construct(){
     $this->dbpassword = "";
     $this->dbname = " microquestdbv2";
     */
-    $this->dbservername = "localhost:3307";
+    $this->dbservername = "localhost";
     $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
     $this->dbname = "u774227372_microquestdbv2";
@@ -352,6 +352,143 @@ public function getRow($tablename,$column,$condition,$orderby = null){
   
 }
 
+
+
+
+// get Services row 
+public function getBannedUsersData(){
+
+
+   
+
+    $query = "SELECT reportsinfo.reportedAccountID,reportsinfo.reportID,
+reportsinfo.reportCategory,
+reportsinfo.reportDescription,
+reportsinfo.reportedServiceID,
+reportsinfo.reportedRequestID,
+reportsinfo.reportActionDate,
+reportsinfo.reportStatus,
+reportsinfo.reportEvidence,
+userprofile.userID,
+userprofile.userName,
+userprofile.userEmail,
+userprofile.userPhoto,
+userprofile.userType
+
+ FROM reportsinfo
+ INNER JOIN userprofile
+ ON reportsinfo.reportedAccountID = userprofile.userID
+ 
+ WHERE reportsinfo.reportStatus = 'Banned' ORDER BY reportID DESC;";
+ 
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+                $row['userPhoto'] = $file;
+
+
+                $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
+                $row['reportEvidence'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            
+            echo mysqli_error($this->dbconnection);
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+
+// get Services row 
+public function getRestrictedUsersData(){
+
+
+   
+
+    $query = "SELECT reportsinfo.reportedAccountID, reportsinfo.reportID,
+reportsinfo.reportCategory,
+reportsinfo.reportDescription,
+reportsinfo.reportedServiceID,
+reportsinfo.reportedRequestID,
+reportsinfo.reportActionDate,
+reportsinfo.reportStatus,
+reportsinfo.restrictDuration,
+reportsinfo.reportEvidence,
+userprofile.userID,
+userprofile.userName,
+userprofile.userEmail,
+userprofile.userPhoto,
+userprofile.userType
+
+ FROM reportsinfo
+ INNER JOIN userprofile
+ ON reportsinfo.reportedAccountID = userprofile.userID
+ 
+ WHERE reportsinfo.reportStatus = 'Restricted' ORDER BY reportID DESC;";
+ 
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                
+                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+                $row['userPhoto'] = $file;
+
+
+                $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
+                $row['reportEvidence'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            
+            echo mysqli_error($this->dbconnection);
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
 
 // get Reports 
 public function getReports(){

@@ -110,6 +110,7 @@ function getUserInfo(userID,userType){
   xmlhttp.onload = function() {
       if (this.readyState === 4 || this.status === 200){ 
          
+        document.getElementById("LoadingScreen").style.display = "none";
 
 
           var dataArray = this.response;
@@ -137,6 +138,13 @@ function getUserInfo(userID,userType){
 
       }      
   };
+
+  xmlhttp.onreadystatechange = function() {
+
+    if (this.readyState != 4 || this.status != 200){ 
+      document.getElementById("LoadingScreen").style.display = "grid";
+    }
+};
   
   xmlhttp.open("POST", "Backend/Get_publicProfile.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -528,6 +536,119 @@ function redirect(url){
 }
 
 
+// get users certificates
+
+function getUserCertificates(userID){
+  var userID = userID;
+  var query = "responderID=" + userID;
+  var xmlhttp = new XMLHttpRequest();
+  
+  
+
+  xmlhttp.onload = function() {
+      if (this.readyState === 4 || this.status === 200){ 
+         
+
+
+          var dataArray = this.response;
+
+          if(dataArray === "failed to fetch"){
+           
+
+          } else {
+              
+              dataArray = JSON.parse(dataArray);
+              console.log(dataArray); 
+              
+      
+
+              var number = dataArray.length;
+              createUserCertificateElements(number)
+              setUserCertificateData(dataArray);
+              //createServiceElements(number);
+              //setServiceData(dataArray);
+             
+
+          }
+
+      }else{
+
+         console.log("Loading...");
+
+      }      
+  };
+  
+  xmlhttp.open("POST", "Backend/Get_Certificates.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send(query);
+  
+}// end of function
+
+
+function createUserCertificateElements(number){
+
+  var DataNumber = number;
+  var certificatesContainer = document.getElementById("certificatesContainer");
+
+
+  for(var i = 0;i<DataNumber;i++){
+
+    var certificateCard = document.createElement("div");
+    var certificateImageContainer = document.createElement("div");
+    var specialization = document.createElement("p");
+    var certificateTitle = document.createElement("p");
+
+  
+
+
+    certificateCard.setAttribute("class","certificateCard");
+    certificateImageContainer.setAttribute("class","certificateImageContainer");
+    certificateTitle.setAttribute("class","certificateTitle");
+    specialization.setAttribute("class","certificateSpecialization");
+    
+
+
+    certificateCard.appendChild(certificateImageContainer);
+    certificateCard.appendChild(specialization);
+    certificateCard.appendChild(certificateTitle);
+ 
+
+    certificatesContainer.append(certificateCard);
+
+  }
+  
+}
+
+
+function setUserCertificateData(dataArray){
+  var dataArray = dataArray;
+  var number = dataArray.length;
+
+
+  var certificateImageContainer= document.getElementsByClassName("certificateImageContainer");
+  var certificateTitle= document.getElementsByClassName("certificateTitle");
+  var certificateSpecialization = document.getElementsByClassName("certificateSpecialization");
+
+
+
+  for(var i = 0; i< number;i++){
+
+    var image = new Image();
+    image.src = dataArray[i]['certificateFile'];
+    image.setAttribute("class","certificateFileImage");
+    image.setAttribute("onclick","showImage('" + dataArray[i]['certificateFile'] + "')");
+
+    certificateImageContainer[i].appendChild(image);
+    certificateTitle[i].innerText = dataArray[i]['certificateType'];
+
+    certificateSpecialization[i].innerHTML = "<b>" + dataArray[i]['specialization'] + "</b>";
+
+  }
+
+}
+
+
+
 
 // get my certificates 
 
@@ -588,6 +709,7 @@ function createCertificateElements(number){
 
     var certificateCard = document.createElement("div");
     var certificateImageContainer = document.createElement("div");
+    var specialization = document.createElement("p");
     var certificateTitle = document.createElement("p");
     var certificateStatus = document.createElement("p");
     var updateButton = document.createElement("button");
@@ -599,9 +721,11 @@ function createCertificateElements(number){
     certificateTitle.setAttribute("class","certificateTitle");
     updateButton.setAttribute("class","updateButton");
     updateButton.innerText="Update";
+    specialization.setAttribute("class","certificateSpecialization");
 
 
     certificateCard.appendChild(certificateImageContainer);
+    certificateCard.appendChild(specialization);
     certificateCard.appendChild(certificateTitle);
     certificateCard.appendChild(certificateStatus);
     certificateCard.appendChild(updateButton);
@@ -622,19 +746,39 @@ function setCertificateData(dataArray){
   var certificateTitle= document.getElementsByClassName("certificateTitle");
   var updateButton= document.getElementsByClassName("updateButton");
   var certificateStatus = document.getElementsByClassName("certificateStatus");
+  var certificateSpecialization = document.getElementsByClassName("certificateSpecialization");
+
 
   for(var i = 0; i< number;i++){
 
     var image = new Image();
     image.src = dataArray[i]['certificateFile'];
     image.setAttribute("class","certificateFileImage");
+    image.setAttribute("onclick","showImage('" + dataArray[i]['certificateFile'] + "')");
 
     certificateImageContainer[i].appendChild(image);
 
     certificateTitle[i].innerText = dataArray[i]['certificateType'];
     certificateStatus[i].innerText = dataArray[i]['certificateStatus'];
+    certificateSpecialization[i].innerHTML = "<b>"+dataArray[i]["specialization"] + "</b>";
 
-    updateButton[i].setAttribute('onclick',"updateCertificate(" + dataArray[i]['CertificateID'] +')');
+      if(dataArray[i]['certificateStatus'] === "Active"){
+        certificateStatus[i].style.color="green";
+        
+      } else if(dataArray[i]['certificateStatus'] === "Delisted"){
+        certificateStatus[i].style.color="red";
+       
+      } else{
+        certificateStatus[i].style.color="black";
+        serviceStatusRadio[0].checked = true;
+
+      }
+
+
+      
+
+
+    updateButton[i].setAttribute('onclick',"updateCertificate(" + dataArray[i]['CertificateID'] +",'" + dataArray[i]['certificateType'] +"','"+dataArray[i]['certificateStatus'] +"')");
     updateButton[i].className += " buttonGreen";
 
 
@@ -644,8 +788,68 @@ function setCertificateData(dataArray){
 
 
 function closeForms(){
-  otherCategoriesFormBack = document.getElementById("otherCategoriesFormBack");
+  var otherCategoriesFormBack = document.getElementById("otherCategoriesFormBack");
+  var showImageBack = document.getElementById("showImageBack");
+  var updateCertBack = document.getElementById("updateCertBack");
+  var AddSpecializationBack = document.getElementById("AddSpecializationBack");
+
+
   otherCategoriesFormBack.style.display = "none";
+  showImageBack.style.display = "none";
+  updateCertBack.style.display = "none";
+  AddSpecializationBack.style.display = "none";
+
+}
+
+function closeUserForms(){
+
+  var showImageBack = document.getElementById("showImageBack");
+ 
+
+
+
+  showImageBack.style.display = "none";
+
+
+}
+
+
+function showImage(imageData){
+  var imageData = imageData;
+  var showImage = document.getElementById("showImage");
+  var showImageBack = document.getElementById("showImageBack");
+
+
+
+
+  showImage.src = imageData;
+  showImageBack.style.display = "block";
+
+}
+
+
+function updateCertificate(id,title,status){
+
+  var title = title;
+  var id = id;
+  var status = status;
+  var updateCertificateTitle = document.getElementById("updateCertificateTitle");
+  var updateCertBack = document.getElementById("updateCertBack");
+  var certificateID = document.getElementById("certificateID");
+
+  var certificateStatusRadio = document.getElementsByClassName("certificateStatusRadio");
+
+
+  updateCertificateTitle.value = title;
+  certificateID.value = id;
+  updateCertBack.style.display = "block";
+
+  if(status === "Active"){
+    certificateStatusRadio[0].checked = true;
+  }else{
+    certificateStatusRadio[1].checked = true;
+
+  }
 
 }
 
@@ -653,3 +857,233 @@ function showNewCertificateForm(){
   otherCategoriesFormBack = document.getElementById("otherCategoriesFormBack");
   otherCategoriesFormBack.style.display = "block";
 }
+
+
+/* for specializations */
+
+function showAddSpecializationForm(){
+  document.getElementById("AddSpecializationBack").style.display = "grid";
+}
+
+
+function specializationAlreadyOffered(userID){
+  var userID = userID;
+  var Specialization = document.getElementById("specializationsDropDown").value;
+
+  var query = "userID=" + userID + "&Specialization="+Specialization;
+  console.log("Specializations: " + query);
+  var xmlhttp = new XMLHttpRequest();
+
+
+
+  xmlhttp.open("POST", "Backend/CheckSpecializationExists.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.onload = function() {
+      if (this.readyState === 4 || this.status === 200){ 
+         
+   
+          var dataArray = this.response;
+          console.log(dataArray);
+
+          if(dataArray === "true"){
+            document.getElementById("submitSpecialization").disabled = true;
+          }else{
+            document.getElementById("submitSpecialization").disabled = false;
+            
+          }
+
+
+      }else{
+          console.log(err);
+      }      
+  };
+  
+  xmlhttp.send(query);
+}
+
+
+function getMySpecializations(userID){
+
+  var userID = userID;
+  var query = "userID=" + userID;
+  var xmlhttp = new XMLHttpRequest();
+
+
+
+  xmlhttp.open("POST", "Backend/Get_mySpecializations.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.onload = function() {
+      if (this.readyState === 4 || this.status === 200){ 
+         
+   
+          var dataArray = this.response;
+
+          if(dataArray === "failed to fetch"){
+
+          }else{
+
+            dataArray = JSON.parse(dataArray);
+            var number = dataArray.length;
+            createSpecializationElements(number);
+            setSpecializationData(dataArray);
+            setMySpecializations(dataArray);
+
+          }
+
+
+
+
+      }else{
+          console.log(err);
+      }      
+  };
+  
+  xmlhttp.send(query);
+
+}
+
+function createSpecializationElements(number){
+  var number = number;
+  var SpecializationsTableBody = document.getElementById("SpecializationsTableBody");
+
+
+  for(var i =0; i<number; i++){
+
+    specializationContainer = document.createElement("div");
+    specializationContainer.setAttribute("class","specializationContainer");
+  
+
+    SpecializationsTableBody.appendChild(specializationContainer);
+    
+
+
+
+
+
+
+  }
+}
+
+
+function setSpecializationData(dataArray){
+  var dataArray = dataArray;
+  var number = dataArray.length;
+  var specializationContainer = document.getElementsByClassName("specializationContainer");
+
+
+  for(var i =0; i<number; i++){
+
+    specializationContainer[i].innerText = dataArray[i]["specialization"];
+    
+
+
+
+
+
+
+  }
+}
+
+
+function getServices(){
+
+  var xmlhttp = new XMLHttpRequest();
+
+  var serviceCard = document.getElementById("specializationsDropDown").innerHTML="";
+
+  xmlhttp.open("POST", "Backend/Get_otherservices.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.onload = function() {
+      if (this.readyState === 4 || this.status === 200){ 
+         
+   
+          var dataArray = this.response;
+
+          if(dataArray === "failed to fetch"){
+
+
+          } else{
+
+          dataArray = JSON.parse(dataArray);
+          console.log(dataArray);
+          setOptions(dataArray);
+
+   
+          }
+      }else{
+          console.log(err);
+      }      
+  };
+  
+  xmlhttp.send();
+  
+}// end of function
+
+
+
+// set options to dropdown  
+function setOptions(array){
+
+  var dataArray = array;
+  var number = dataArray.length;
+
+  var serviceCard = document.getElementById("specializationsDropDown");
+
+  var option = new Option;
+  option.innerText = "Select Specialization";
+  option.setAttribute("disabled",true);
+  option.setAttribute("selected",true);
+  serviceCard.add(option);
+
+  for(var i = 0; i<number;i++){
+      
+      //serviceCard[i].innerText = dataArray[i];
+      //serviceCard[i].setAttribute("onclick","setCategory('" + dataArray[i] + "')");
+      var option = new Option;
+      option.innerText = dataArray[i]['serviceCategory'];
+      option.value = dataArray[i]['serviceCategory'];
+      serviceCard.add(option);
+
+  }
+
+  /*
+  var option = new Option;
+  option.innerText = "Other";
+  option.value = "Other";
+  serviceCard.add(option);
+  */
+  
+}
+
+
+
+// set options to dropdown  
+function setMySpecializations(array){
+
+  var dataArray = array;
+  var number = dataArray.length;
+
+  document.getElementById("mySpecializationsDropDown").innerHTML = "";
+  var serviceCard = document.getElementById("mySpecializationsDropDown");
+
+
+
+  for(var i = 0; i<number;i++){
+      
+
+      var option = new Option;
+      option.innerText = dataArray[i]['specialization'];
+      option.value = dataArray[i]['specialization'];
+      serviceCard.add(option);
+
+  }
+
+  /*
+  var option = new Option;
+  option.innerText = "Other";
+  option.value = "Other";
+  serviceCard.add(option);
+  */
+  
+}
+
