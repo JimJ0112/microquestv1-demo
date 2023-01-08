@@ -58,7 +58,7 @@ $message = "
     </td>
 </tr>
 <tr>
-    <td bgcolor='#fffff' align='center' style='padding: 0px 10px 0px 10px;'>
+    <td bgcolor='#fffff' align='center' style='padding: 0px 10px 0px 10px; color:black;' >
         <table border='0' cellpadding='0' cellspacing='0' width='100%' style='max-width: 600px;'>
             <tr>
                 <td bgcolor='#fffff' align='center' valign='top' style='padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;'>
@@ -69,7 +69,7 @@ $message = "
     </td>
 </tr>
 <tr>
-    <td bgcolor='#fffff' align='center'>
+    <td bgcolor='#fffff' align='center' style='color:black;'>
         <table width='100%' border='0' cellspacing='0' cellpadding='0'>
             <tr>
                 <td bgcolor='#fffff' align='center' style='padding: 20px 30px 60px 30px;'>

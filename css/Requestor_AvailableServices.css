@@ -309,7 +309,8 @@ width: 120px;
 
 @media only screen and (min-width: 200px) and (max-width: 599px){
 #AvailableServicesContainer-Content{
-	grid-template-columns: 1fr ;
+	grid-template-columns: 1fr 1fr;
+	zoom: 60%;
 }
 }
 

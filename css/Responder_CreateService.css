@@ -546,3 +546,8 @@ img#Nav-logo {
 	display: none;
 }
 */
+
+.addToSpecializationMessage{
+	font-size: small;
+	color: green;
+}

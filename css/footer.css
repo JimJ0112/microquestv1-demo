@@ -92,3 +92,10 @@
       #play-iconDIV{
         display: none;
       }
+      @media only screen and (min-width: 200px) and (max-width: 599px){
+        
+          .footer-basic ul{
+            width: 100%
+          }
+          
+        }

@@ -255,6 +255,10 @@ function setCategory(string){
     var pasabuy = document.getElementById("pasabuyFormBack");
     var otherServices = document.getElementById("otherCategoriesFormBack");
     var serviceCategoryRegular = document.getElementById("serviceCategoryRegular");
+    var selectedCategoryText = document.getElementById("selectedCategoryText");
+
+    selectedCategoryText.innerText = data;
+    
     getPositions(data);
     deSelectOthers();
 

@@ -21,7 +21,7 @@ $contract = str_replace(' ','+',$contract);
 
 list(, $contract)= explode(',', $contract);
 
- $contract = base64_decode($contract);
+echo $contract = base64_decode($contract);
 
 
 
@@ -30,16 +30,16 @@ list(, $contract)= explode(',', $contract);
 
  $transactionExists = $DBHandler->requestTransactionExists($requestID,$responderID,$requestorID);
  $specializationExists = $DBHandler->specializationExists($responderID,$category);
- $mySpecialization = $_SESSION["specialization"];
+ //$mySpecialization = $_SESSION["specialization"];
 
  if($transactionExists){
-    echo "<script> window.location='../Responder_RequestBoard.php?msg=Transaction already exists with this request' </script>";
+    echo "<script> window.location.href='../Responder_RequestBoard.php?msg=Transaction already exists with this request' </script>";
     
- } else if($specializationExists === false ||  $mySpecialization != $category){
-    echo "<script> window.location='../Responder_RequestBoard.php?msg=You can't apply to this request because you don't have this specialization, please add this request's category to your specializations' </script>";
+ } else if($specializationExists === false){
+    echo "<script> window.location.href='../Responder_RequestBoard.php?msg=You can't apply to this request because you don't have this specialization, please add this request's category to your specializations' </script>";
 
- }else if($transactionExists === true && $specializationExists === false ||  $mySpecialization != $category){
-   echo "<script> window.location='../Responder_RequestBoard.php?msg=You can't apply to this request because you don't have this specialization, please add this request's category to your specializations' </script>";
+ }else if($transactionExists === true && $specializationExists === false){
+   echo "<script> window.location.href='../Responder_RequestBoard.php?msg=You can't apply to this request because you don't have this specialization, please add this request's category to your specializations' </script>";
 
 } else{
 
@@ -48,11 +48,29 @@ list(, $contract)= explode(',', $contract);
     echo $result;
 
     //header("location:../Responder_RequestTransactions.php");
-    echo "<script> window.location='../Responder_RequestTransactions.php' </script>";
+    echo "<script> window.location.href='../Responder_RequestTransactions.php' </script>";
  }
 
+    //echo $requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate;
+   // $result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate,$contract);
+   // echo $result;
 
+   //echo "<script> window.location.href='../Responder_RequestTransactions.php' </script>";
+ 
 
+ /*
+$transactionExists = $DBHandler->requestTransactionExists($requestID,$responderID,$requestorID);
 
+if($transactionExists){
+   echo "<script> window.location='../Responder_RequestBoard.php?msg=Transaction already exists with this request' </script>";
+   
+}  else{
 
+   $result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate,$contract);
+   echo $result;
+
+   //header("location:../Responder_RequestTransactions.php");
+   echo "<script> window.location='../Responder_RequestTransactions.php' </script>";
+}
+* /
 

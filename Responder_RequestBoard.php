@@ -15,6 +15,11 @@ session_start();
 		echo "<script > sessionStorage.setItem('myID',$userID); </script>";
 	}
 	
+	if(isset($_GET['msg'])){
+        $msg = $_GET['msg'];
+        echo "<script> alert('$msg');</script> ";
+    }
+	
 ?>
 
 

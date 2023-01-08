@@ -80,8 +80,13 @@ session_start();
         <input type="hidden" name="formType" value="regularServices">
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
         <input type="hidden" name="serviceCategory" id="serviceCategoryRegular">
-            <div id="closeButton" onclick="closeForms()"> ✕ </div>
+            <div id="closeButton" onclick="closeForms()"> ✕ </div> <br/><br/><br/>
+            <center>
+                <h3 id="selectedCategoryText"> Category </h3>
+                <p class="addToSpecializationMessage"> ⓘ This category will be added to your specializations </p> <br/>
+            </center>
             <table id="home_computerRelated_Table">
+                
 
                 <tr class="home_computerRelated_Tr">
                     <td class="home_computerRelated_Td" id="OtherServicePositionText"  style="display:none">
@@ -147,9 +152,13 @@ session_start();
         <input type="hidden" name="formType" value="pasabuy">
         <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
         <input type="hidden" name="serviceCategory" id="serviceCategory" value="Pasabuy">
-        <div id="closeButton" onclick="closeForms()"> ✕ </div>
+        <div id="closeButton" onclick="closeForms()"> ✕ </div> <br/> <br/><br/> <br/>
         
   
+            <center>
+                <h3> Pasabuy </h3>
+                <p class="addToSpecializationMessage"> ⓘ This category will be added to your specializations </p> <br/>
+            </center>
 
         <table id="pasabayTable">
 
@@ -213,8 +222,10 @@ session_start();
         <div id="closeButton" onclick="closeForms()"> ✕ </div>
             <table id="otherTable">
                 <tr>
+                    
                     <td class="column1_td"> Category </td>
                     <td> 
+                        <p class="addToSpecializationMessage"> ⓘ This category will be added to your specializations </p> <br/>
                         <input type="text" name="serviceCategory" id="serviceCategory"  Required> 
                         <span class="asteriskRequiredField" title="This Field is Required"> * </span>
                     </td>

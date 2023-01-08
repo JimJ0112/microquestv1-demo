@@ -359,6 +359,8 @@ body{
 
 }
 
+form#requestApplicationForm {grid-template-columns: .1fr auto auto auto;display: grid;align-items: center;width: 30%;position: absolute;font-size: large;font-weight: bold;}
+
 #contractDiv{
 	
 	margin: auto;
@@ -409,4 +411,9 @@ body{
     background-color: rgba(255, 255, 255, 0.276);
     width:400px;
     display: none;
+}
+div#printButton {
+    font-size: x-large;
+    font-weight: bold;
+    float: right;
 }

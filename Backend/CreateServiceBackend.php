@@ -14,6 +14,7 @@ $DBHandler = new DBHandler();
     } else{
 
     
+        
 
 
 
@@ -37,7 +38,13 @@ $DBHandler = new DBHandler();
             $certificateFile = "none";
         }
         */
-    
+        $mySpecialization = $_SESSION["specialization"];
+        $SpecializationExists = $DBHandler->specializationExists($responderID,$serviceCategory);
+        if($SpecializationExists || $serviceCategory === $mySpecialization){
+
+        }else{
+            $addSpecialization = $DBHandler->addSpecialization($responderID,$serviceCategory);
+        }
 
     
 

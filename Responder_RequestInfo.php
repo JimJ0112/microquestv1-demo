@@ -216,17 +216,14 @@ session_start();
 
 
 
+        
+
 
 
 <!-- Contract --> 
 <div id="contractBackGround"> 
 
-     
-        <div id="closeButton" onclick="cancelApplyForm()"> ✕ </div>
-        <div id="printButton" onclick="h2canvaspdf()" title="Save this document">
-          ⎙ Save 
-        </div>
-
+                             
         <!--
         <button id="ConfirmContractButton" onclick="acceptApplyForm()" title="Submit" class="buttonGreen">
           Confirm
@@ -246,10 +243,15 @@ session_start();
             <input type="hidden" name="requestDueDate" id="requestDueDate"/>
             <input type="hidden" name="contract" id="contractInput"/>
 
-            <input type="checkbox" required/> <label> I agree to this contract </label> <br/>
+            <input type="checkbox" required/> <label> I agree to this contract </label> 
             <input type="submit" id="ConfirmContractButton" value="Confirm" class="buttonGreen">
+            <div id="printButton" onclick="h2canvaspdf()" title="Save this document">
+              ⎙ Save 
+            </div>
             
+           
         </form>
+        <div id="closeButton" onclick="cancelApplyForm()"> ✕ </div>
         </center>
 
         
