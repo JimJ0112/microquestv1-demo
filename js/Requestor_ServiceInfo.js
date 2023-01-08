@@ -126,7 +126,7 @@ function setServicesData(dataArray){
     getServiceRatings(dataArray[0]['serviceID']);
     getUserInfo(dataArray[0]['responderID'])
     getServiceReviews(dataArray[0]['serviceID']);
-    serviceInfo.style.backgroundImage = "url('"+ dataArray[0]['bannerImage']+"'), url('img/laundry-services.jpg')";
+    //serviceInfo.style.backgroundImage = "url('"+ dataArray[0]['bannerImage']+"'), url('img/laundry-services.jpg')";
 
 }
 

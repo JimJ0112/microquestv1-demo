@@ -424,6 +424,20 @@ session_start();
 
 </div>
 
+<?php
+    $userType = $_GET["userType"];
+    $userID = $_GET["userID"];
+
+    if($userType === "Requestor"){
+        echo "<script> getMyRequests($userID) </script> ";
+
+
+    }else{
+
+    }
+
+?>
+
 
 <?php
     echo"<script> getUserReviews($userID); getMyCertificates($userID);getServices();  getMySpecializations($userID);</script>";
