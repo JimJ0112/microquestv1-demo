@@ -35,10 +35,13 @@ list(, $contract)= explode(',', $contract);
  if($transactionExists){
     echo "<script> window.location='../Responder_RequestBoard.php?msg=Transaction already exists with this request' </script>";
     
- } else if(!$specializationExists ||  $mySpecialization != $category){
-    echo "<script> window.location='../Responder_RequestBoard.php?msg=Transaction already exists with this request' </script>";
+ } else if($specializationExists === false ||  $mySpecialization != $category){
+    echo "<script> window.location='../Responder_RequestBoard.php?msg=You can't apply to this request because you don't have this specialization, please add this request's category to your specializations' </script>";
 
- } else{
+ }else if($transactionExists === true && $specializationExists === false ||  $mySpecialization != $category){
+   echo "<script> window.location='../Responder_RequestBoard.php?msg=You can't apply to this request because you don't have this specialization, please add this request's category to your specializations' </script>";
+
+} else{
 
     //echo $requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate;
     $result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate,$contract);

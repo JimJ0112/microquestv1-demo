@@ -109,6 +109,16 @@ session_start();
             </tr>
         </table>
 
+       
+        <div id="SpecializationsTable">
+            <div id="SpecializationsTableBody"> 
+ 
+
+            </div> 
+            
+
+        </div>
+
         <table id="viewUserProfileNav">
             <tr>
                 <td name="userPost" class="userPost" id="userNav" type="button" onclick="post()">
@@ -244,7 +254,7 @@ session_start();
 </div>
 
 <?php
-    echo"<script> getUserReviews($userID); getUserCertificates($userID) </script>";
+    echo"<script> getUserReviews($userID); getUserCertificates($userID); getMySpecializations($userID); </script>";
 
 ?>
 <script src="js/ViewUserProfile.js"> </script>

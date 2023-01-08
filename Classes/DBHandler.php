@@ -1752,6 +1752,58 @@ public function getOtherServices(){
   
 }
 
+
+// get other Services row 
+public function getOtherServicesGROUPED(){
+    $tablename = "servicesinfo";
+    $column = "serviceCategory";
+ 
+    
+// 09/06/2022 1:28am nilagyan ko muna ng servicesinfo.serviceStatus = 'Active', not sure if that's a good idea tho
+   
+    
+    //$query = "SELECT servicesinfo.serviceCategory,requestsinfo.requestCategory FROM servicesinfo FULL OUTER JOIN requestsinfo ON servicesinfo.serviceCategory = requestsinfo.requestCategory GROUP BY requestCategory";
+
+    //$query = "SELECT DISTINCT servicesinfo.serviceCategory from servicesinfo UNION ALL SELECT DISTINCT requestsinfo.requestCategory as serviceCategory FROM requestsinfo;";
+    $query = "SELECT DISTINCT servicesinfo.serviceCategory from servicesinfo UNION ALL SELECT DISTINCT requestsinfo.requestCategory as serviceCategory FROM requestsinfo;";
+
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+                
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+               // $row['certificateFile'] = $file;
+                
+                
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+               // $row['bannerImage'] = $file;
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
 // get user services
 // 2:25 am nilagyan ko ng serviceCategory != 'Pasabuy' condition to
 
@@ -2034,6 +2086,53 @@ public function getRequests($tablename,$column,$condition,$orderby = null){
                 
                 $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
                 $row['userPhoto'] = $file;
+                
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+// get Requests
+public function getRequestsGROUPED($tablename,$column,$condition,$orderby = null){
+    $tablename = mysqli_real_escape_string($this->dbconnection, $tablename);
+    $column = mysqli_real_escape_string($this->dbconnection, $column);
+    $condition = mysqli_real_escape_string($this->dbconnection, $condition);
+    
+   
+    if(isset($orderby)){
+        $query = "SELECT requestCategory FROM $tablename GROUP BY requestCategory";
+    }else{
+        $query = "SELECT * FROM $tablename WHERE $column = '$condition'";
+    }
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+    
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+
+                
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+               // $row['userPhoto'] = $file;
                 
 
                 $data[] = $row;

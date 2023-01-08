@@ -314,10 +314,10 @@ button#hideMenu {display: unset;float: right;margin: auto;height: 100%;}
 
 
 .buttonGreen {
-	background-color: green;
-	border: none;
+	background-color: #ff6800;
+	/* border: none; */
 	color: white;
-	padding: 15px 32px;
+	padding: 2px 20px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
@@ -325,6 +325,8 @@ button#hideMenu {display: unset;float: right;margin: auto;height: 100%;}
 	margin: 4px 2px;
 	cursor: pointer;
 	border-radius: 3px;
+	font-size: xx-large;
+	float: right;
 }
 
 .buttonGreen:hover {

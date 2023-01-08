@@ -991,13 +991,13 @@ function getServices(){
 
   var serviceCard = document.getElementById("specializationsDropDown").innerHTML="";
 
-  xmlhttp.open("POST", "Backend/Get_otherservices.php", true);
+  xmlhttp.open("POST", "Backend/Get_requestsGrouped.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.onload = function() {
       if (this.readyState === 4 || this.status === 200){ 
          
    
-          var dataArray = this.response;
+          var dataArray = this.responseText;
 
           if(dataArray === "failed to fetch"){
 
@@ -1005,7 +1005,11 @@ function getServices(){
           } else{
 
           dataArray = JSON.parse(dataArray);
+          console.log("Specializations");
           console.log(dataArray);
+
+         
+
           setOptions(dataArray);
 
    
@@ -1025,7 +1029,14 @@ function getServices(){
 function setOptions(array){
 
   var dataArray = array;
+ 
+
+  console.log(Object.values(dataArray));
+  var dataArray = Object.values(dataArray);
+  console.log(dataArray);
+
   var number = dataArray.length;
+  
 
   var serviceCard = document.getElementById("specializationsDropDown");
 
@@ -1037,21 +1048,18 @@ function setOptions(array){
 
   for(var i = 0; i<number;i++){
       
-      //serviceCard[i].innerText = dataArray[i];
-      //serviceCard[i].setAttribute("onclick","setCategory('" + dataArray[i] + "')");
+    console.log(dataArray[i]);
+
       var option = new Option;
-      option.innerText = dataArray[i]['serviceCategory'];
-      option.value = dataArray[i]['serviceCategory'];
+      option.innerText = dataArray[i];
+      option.value = dataArray[i];
       serviceCard.add(option);
 
   }
 
-  /*
-  var option = new Option;
-  option.innerText = "Other";
-  option.value = "Other";
-  serviceCard.add(option);
-  */
+
+
+
   
 }
 
@@ -1078,12 +1086,8 @@ function setMySpecializations(array){
 
   }
 
-  /*
-  var option = new Option;
-  option.innerText = "Other";
-  option.value = "Other";
-  serviceCard.add(option);
-  */
-  
+
 }
+
+
 

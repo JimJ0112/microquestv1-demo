@@ -106,8 +106,12 @@ session_start();
             </tr>
         </table>
 
-        <div id="SpecializationsTable"> 
-            <div> 
+        
+
+            
+        <div id="SpecializationsTable">
+            <div id="SpecializationsTableBody"> 
+                <div> 
                 <?php 
                 $pagename = basename($_SERVER['PHP_SELF']);
                 $myID = $_SESSION["userID"];
@@ -115,18 +119,22 @@ session_start();
                 $userType = $_SESSION["userType"];
 
                 if($pagename === "ViewMyProfile.php" && $myID === $userID && $userType==="Responder"){
-                    echo "<button class='buttonGreen' onclick='showAddSpecializationForm()'> Add Specialization </button> ";
+                    echo "<button class='buttonGreen' onclick='showAddSpecializationForm()'> + </button> ";
+                }else{
+                    echo "<style>
+                          #SpecializationsTable {
+                            display:none;
+                        }         
+                    </style>";
                 }
 
                 ?> 
             </div>
 
-            </div>
+            </div> 
+            
 
-            <div id="SpecializationsTableBody"> 
-
-            </div>
-
+        </div>
 
 
         <table id="viewUserProfileNav">
