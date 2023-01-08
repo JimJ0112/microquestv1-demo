@@ -389,7 +389,7 @@
         </div>
       
 
-        <canvas id="canvas" width="480" height="500"></canvas> 
+        <canvas id="canvas" width="480" height="500"    ></canvas> 
 
 
 

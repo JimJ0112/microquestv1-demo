@@ -416,4 +416,5 @@ div#printButton {
     font-size: x-large;
     font-weight: bold;
     float: right;
+    cursor: pointer;
 }

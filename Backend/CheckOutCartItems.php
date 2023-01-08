@@ -62,7 +62,7 @@ if(isset($_POST['cartItem'])){
             echo $dueDate;
 
             echo  $DBHandler->registerPasabuyTransaction($productID,$serviceID,$requestorID,$responderID,$price,$quantity,$orderDate,$orderStatus,$paymentFile,$transactionStartDate,$transactionEndDate,$totalPrice,$dueDate);
-
+            
 
 
         }
@@ -86,6 +86,6 @@ if(isset($_POST['cartItem'])){
 
 
 
-header("location:../Requestor_MyCart.php?msg=Transaction Success!");
+header("location:../Requestor_MyCart.php?msg=Success!");
 
 

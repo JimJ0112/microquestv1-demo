@@ -554,16 +554,15 @@ h3{
 }
 
 #contractBackGround{
-	position:absolute ;
+	position:absolute;
 	z-index: 21;
 	background-color: rgba(51, 49, 49, 0.299);
 	display: none;
 	width: 99%;
-	height: 1000%;
+	height: 210%;
 	align-content: center;
 	background-color: white;
 	padding: 10px;
-
 }
 
 #contractDiv{
