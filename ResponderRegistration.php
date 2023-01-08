@@ -165,7 +165,7 @@
 							
 							<input type="text" name="street" class="Registration-TextBox" id="Address" Required> 
 						
-						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Baranggay: </div>
+						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Barangay: </div>
 							
 							<input type="text" name="baranggay" class="Registration-TextBox" id="Address" Required> 
 						</div> 

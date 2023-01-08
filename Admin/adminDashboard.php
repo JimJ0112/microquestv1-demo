@@ -44,30 +44,37 @@ session_start();
 <div class="grid-content">
     <div class="grid-container">
         <div class="item1">
-            <h1> Total number of users: </h1>
+            <h2> Total number of users: </h2>
             <p id="totalUsers"> N </p>
+            <img src="img/ad1.png" width="50" height="50" >
         </div>
         <div class="item2">
             <div>
-                <h1> Responders </h1>
+                <h2> Responders </h2>
                 <p id="totalResponders"> N </p>
+                <img src="img/aw1.png" width="50" height="50">
             </div>
             <div>
-                <h1> Requestors </h1>
+                <h2> Requestors </h2>
                 <p id="totalRequestors"> N </p>
+                <img src="img/ae1.png" width="50" height="50">
             </div>
         </div>
         <div class="item3">
-            <div><h1>Pending Users</h1><div>
-            </div><p id="totalNewUsers"> N </p></div>
+            <div><h2>Pending Users</h2><div>
+            </div><p id="totalNewUsers"> N </p>
+            <img src="img/as1.png" width="50" height="50"></div>
+            
         </div>  
         <div class="item4">
-            <h1> Banned users: </h1>
+            <h2> Banned users: </h2>
             <p id="totalBannedUsers"> N </p>
+            <img src="img/ar1.png" width="50" height="50">
         </div>
         <div class="item5">
-            <h1> Restricted users: </h1>
+            <h2> Restricted users: </h2>
             <p id="totalRestrictedUsers"> N </p>
+            <img src="img/ar1.png" width="50" height="50" >
         </div>
     </div>
 </div>

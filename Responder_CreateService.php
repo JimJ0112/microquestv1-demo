@@ -156,7 +156,7 @@ session_start();
         
   
             <center>
-                <h3> Pasabuy </h3>
+                <h1> Pasabuy </h1>
                 <p class="addToSpecializationMessage"> ⓘ This category will be added to your specializations </p> <br/>
             </center>
 
@@ -225,7 +225,7 @@ session_start();
                     
                     <td class="column1_td"> Category </td>
                     <td> 
-                        <p class="addToSpecializationMessage"> ⓘ This category will be added to your specializations </p> <br/>
+                        <p class="addToSpecializationMessage"> ⓘ This category will be added to your specializations </p> 
                         <input type="text" name="serviceCategory" id="serviceCategory"  Required> 
                         <span class="asteriskRequiredField" title="This Field is Required"> * </span>
                     </td>

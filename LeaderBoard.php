@@ -82,17 +82,12 @@ session_start();
 		-->
 	</div>
 
-<center>
-<br/>
-<h1> LeaderBoard </h1>
-<br/> 
-</center>
+
 <!--
 	<select id="LeaderBoardCategories" onchange = "getSelectValue()">
 	</select>
 -->
-	<br/>
-	<br/>
+
 
 	<table id="LeaderBoardTable"> 
 

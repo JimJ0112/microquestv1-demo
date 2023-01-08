@@ -21,7 +21,7 @@ $contract = str_replace(' ','+',$contract);
 
 list(, $contract)= explode(',', $contract);
 
-echo $contract = base64_decode($contract);
+ $contract = base64_decode($contract);
 
 
 
@@ -58,19 +58,5 @@ echo $contract = base64_decode($contract);
    //echo "<script> window.location.href='../Responder_RequestTransactions.php' </script>";
  
 
- /*
-$transactionExists = $DBHandler->requestTransactionExists($requestID,$responderID,$requestorID);
 
-if($transactionExists){
-   echo "<script> window.location='../Responder_RequestBoard.php?msg=Transaction already exists with this request' </script>";
-   
-}  else{
-
-   $result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate,$contract);
-   echo $result;
-
-   //header("location:../Responder_RequestTransactions.php");
-   echo "<script> window.location='../Responder_RequestTransactions.php' </script>";
-}
-* /
 

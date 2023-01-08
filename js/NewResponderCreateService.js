@@ -418,7 +418,7 @@ function otherPosition(){
        // otherServiceTextTD.style.display = "inline-block"
        // otherServiceTextTD1.style.display = "inline-block"
     
-        otherServiceTR.style.display = "block";
+        otherServiceTR.style.display = "table-row";
     } else {
        otherServiceTR.style.display = "none";
        otherServiceTextTD1.value = "";

@@ -1078,7 +1078,7 @@ function SetAcceptedData(dataArray){
 
         var button = document.createElement('button');
         button.setAttribute('class','Button');
-        button.innerText = "Deliver";
+        button.innerText = "Accomplished";
 
         button.setAttribute('onclick',"deliverServiceOrder(" +dataArray[i]['transactionID'] + ",'delivered')" );
         actionsDiv[i].appendChild(button);

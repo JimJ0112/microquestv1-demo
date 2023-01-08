@@ -7,6 +7,7 @@ $DBHandler = new DBHandler();
 
 
  $userID = $_POST["userID"];
+ 
 
  $result = $DBHandler->getRequestReviewsWithRatings($userID);
 

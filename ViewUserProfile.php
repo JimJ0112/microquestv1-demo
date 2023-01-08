@@ -154,11 +154,11 @@ session_start();
 
                             } else if ($userType === "Requestor"){
 
-                                echo"more";
+                                echo"";
                             }
 
                         } else{
-                            echo"more";
+                            echo"";
                         }
                     
                     ?>
@@ -252,6 +252,20 @@ session_start();
     </div>
 
 </div>
+
+<?php
+    $userType = $_GET["userType"];
+    $userID = $_GET["userID"];
+
+    if($userType === "Requestor"){
+        echo "<script> getMyRequests($userID) </script> ";
+
+
+    }else{
+
+    }
+
+?>
 
 <?php
     echo"<script> getUserReviews($userID); getUserCertificates($userID); getMySpecializations($userID); </script>";

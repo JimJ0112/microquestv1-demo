@@ -231,7 +231,7 @@
 <div id="PhotoViewerBackground"> 
 
 	<div id="PhotoViewer"> 
-		<div id="closeImage" onclick="closePhotoViewer()"> ✕ </div>
+		<div id="closeButton" onclick="closePhotoViewer()"> ✕ </div>
 		<img id="photoViewerImage"> 
 
 	</div>
@@ -241,7 +241,7 @@
 <div id="TextViewerBackground"> 
 
 	<div id="TextViewer"> 
-		<div id="closeImage" onclick="closeTextViewer()"> ✕ </div>
+		<div id="closeButton" onclick="closeTextViewer()"> ✕ </div>
 		<div id="textContainer"> 
 
 		</div>
@@ -301,7 +301,7 @@
 
 
 			<div id="reportProofOutputBackground">
-				<div id="closeImage" onclick="closeImage()" style="color:white;"> ✕ </div>
+				<div id="closeButton" onclick="closeImage()" style="color:white;"> ✕ </div>
 				<img id="reportProofOutput"> 
 			</div>
 			<br/>

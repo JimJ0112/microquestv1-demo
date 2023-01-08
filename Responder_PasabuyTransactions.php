@@ -202,7 +202,7 @@
 
 
 			<div id="reportProofOutputBackground">
-				<div id="closeImage" onclick="closeImage()"> ✕ </div>
+				<div id="closeButton" onclick="closeImage()"> ✕ </div>
 				<img id="reportProofOutput"> 
 			</div>
 			<br/>

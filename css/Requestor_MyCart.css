@@ -260,14 +260,14 @@ text-decoration: none;
 
 #closeButton{
 	font-family: Arial, Helvetica, sans-serif;
-    cursor: pointer;
-    font-weight: bolder;
-    float: right;
-    text-align: center;
-    font-size: xx-large;
-    margin: 0;
-    padding: 10px;
-	filter: invert(1);
+	cursor: pointer;
+	font-weight: bolder;
+	float: right;
+	text-align: center;
+	font-size: xx-large;
+	margin: 0;
+	padding: 10px;
+	/* filter: invert(1); */
 }
 
 #OfferaServiceButton{
@@ -718,10 +718,9 @@ text-decoration: none;
 #deliverDateForm{
 	background-color: white;
 	margin: auto;
-	width: 500px;
-	height: 200px;
+	width: fit-content;
+	height: fit-content;
 	padding: 40px;
-
 }
 
 @media(min-width:220px) and (max-width:555px){

@@ -78,7 +78,7 @@ session_start();
                 </tr>
 
                 <tr>
-                    <td> Rate </td>
+                    <td> Service Fee </td>
                     <td>
                         <input type="number" name="rate">
                     </td> 
@@ -184,9 +184,10 @@ session_start();
             <table id="otherTable">
                 <tr style="display:none;">
                     <td> Category </td>
-                  
+                    <td>
                     <span class="asteriskRequiredField"> * </span>
                     <input type="hidden" name="serviceCategory" id="serviceCategory" value="<?php echo $specialization; ?>" required>
+                </td>
                 </tr>
 
 
@@ -197,22 +198,30 @@ session_start();
                       
                         <select name="servicePosition" id="newResponderServicePositionDropDown" onchange="otherPosition()" required>
                             
-                        </select><br/>
+                        </select>
                    
                     </td>
                 </tr>
-
+                <tr id="newResponderOtherServicePositionTR">
+                    <td class="column1_td" id="otherServiceTextTD"> Service Title </td>
+                    
+                    <td td id="otherServiceTextTD1"> 
+                        <span class="asteriskRequiredField"> * </span>
+                        <input type="text" name="otherServicePosition" id="newResponderOtherServicePosition"/>
+                    </td> 
+                </tr>
+                <!--
                 <tr id="newResponderOtherServicePositionTR">
                     <td  class="column1_td" id="otherServiceTextTD"> Other Service </td>
                     <td id="otherServiceTextTD1"> 
-                        
-                        <input type="text" name="otherServicePosition" id="newResponderOtherServicePosition"/>
                         <span class="asteriskRequiredField"> * </span>  
+
+                        <input type="text" name="otherServicePosition" id="newResponderOtherServicePosition"/>
                     </td>
-                </tr>
+                </tr>-->
 
                 <tr>
-                    <td class="column1_td"> Rate </td>
+                    <td class="column1_td"> Service Fee </td>
                     
                     <td> 
                         <span class="asteriskRequiredField"> * </span>

@@ -1072,7 +1072,7 @@ function SetAcceptedRequestsData(dataArray){
        
         var button = document.createElement('button');
         button.setAttribute('class','Button');
-        button.innerText = "Deliver";
+        button.innerText = "Accomplish";
 
         button.setAttribute('onclick',"deliverRequestApplication(" +dataArray[i]['transactionID'] + ",'delivered')" );
         actionsDiv[i].appendChild(button);

@@ -1091,3 +1091,183 @@ function setMySpecializations(array){
 
 
 
+function getMyRequests(userID){
+  var query = "userID=" + userID;
+
+  var xmlhttp = new XMLHttpRequest();
+
+  
+
+  xmlhttp.open("POST", "Backend/Get_myRequests.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.onload = function() {
+      if (this.readyState === 4 || this.status === 200){ 
+         
+   
+          var dataArray = this.responseText;
+
+          if(dataArray === "failed to fetch"){
+
+
+          } else{
+
+          dataArray = JSON.parse(dataArray);
+          var Number = dataArray.length;
+          createRequestElements(Number);
+          setRequestsData(dataArray);
+
+
+          console.log(dataArray);
+
+         
+   
+          }
+      }else{
+          console.log(err);
+      }      
+  };
+  
+  xmlhttp.send(query);
+  
+}// end of function
+
+
+function createRequestElements(Number){
+ 
+  DataNumber = Number;
+  div = document.getElementById("postContainer-Content");
+ 
+  
+  for(var i = 0;i<DataNumber;i++){
+  
+  // create elements for rows
+  var wrapper = document.createElement('div'); 
+  var card = document.createElement('div');
+  var request_card__image = document.createElement('div');
+  var requestorLocation = document.createElement('div');
+  var requestorUserName = document.createElement('div');
+  var requestDescription = document.createElement('div');
+  var dueDate = document.createElement('div');
+  var request_card__unit_stats = document.createElement('div');
+  var one_third = document.createElement('div');
+  var requestCategory = document.createElement('div');
+  var requestTitle = document.createElement('div');
+  var requestExpectedPrice = document.createElement('div');
+  var isNegotiable = document.createElement('div');
+  var nameLoc = document.createElement('div');
+  var footer = document.createElement('div');
+  var price = document.createElement('div');
+  var grid_head= document.createElement('grid-head');
+
+  // set attributes
+   wrapper.setAttribute("class","wrapper"); 
+      card.setAttribute("class","request-card"); 
+          grid_head.setAttribute("class", "grid-head");
+              request_card__image.setAttribute("class","request-card__image"); 
+              nameLoc.setAttribute("class", "nameLoc");
+                 requestorUserName.setAttribute("class","requestorUserName"); 
+                 requestorLocation.setAttribute("class","requestorLocation"); 
+
+          request_card__unit_stats.setAttribute("class","request-card__unit-stats"); 
+             one_third.setAttribute("class","one-third"); 
+                 requestCategory.setAttribute("class","requestCategory"); 
+                 requestTitle.setAttribute("class","requestTitle"); 
+
+          requestDescription.setAttribute("class","requestDescription"); 
+
+          footer.setAttribute("class", "footer");
+             price.setAttribute("class", "price");
+                 requestExpectedPrice.setAttribute("class","requestExpectedPrice"); 
+                 isNegotiable.setAttribute("class","isNegotiable"); 
+
+
+              dueDate.setAttribute("class","dueDate"); 
+
+
+  // append elements to the row
+
+  price.appendChild(requestExpectedPrice);
+  price.appendChild(isNegotiable);
+
+  footer.appendChild(price);
+  footer.appendChild(dueDate); 
+
+  one_third.appendChild(requestCategory);
+  one_third.appendChild(requestTitle);
+   
+  request_card__unit_stats.appendChild(one_third);
+
+  
+  nameLoc.appendChild(requestorUserName);
+  nameLoc.appendChild(requestorLocation);
+
+  grid_head.appendChild(request_card__image);
+  grid_head.appendChild(nameLoc);
+
+  card.appendChild(grid_head);
+  card.appendChild(request_card__unit_stats);
+  card.appendChild(requestDescription);
+  card.appendChild(footer);
+
+  wrapper.appendChild(card);
+
+
+  div.append(wrapper);
+
+  } 
+  
+  
+} // end of function
+
+
+// set positions data 
+function setRequestsData(array){
+
+  var dataArray = array;
+  var number = dataArray.length;
+
+  wrapper = document.getElementsByClassName("wrapper"); 
+  card= document.getElementsByClassName("request-card"); 
+  request_card__image= document.getElementsByClassName("request-card__image"); 
+  requestorLocation= document.getElementsByClassName("requestorLocation"); 
+  requestorUserName= document.getElementsByClassName("requestorUserName"); 
+  requestDescription= document.getElementsByClassName("requestDescription"); 
+  dueDate= document.getElementsByClassName("dueDate"); 
+  request_card__unit_stats= document.getElementsByClassName("request-card__unit-stats"); 
+  one_third= document.getElementsByClassName("one-third"); 
+  requestCategory= document.getElementsByClassName("requestCategory"); 
+  requestTitle= document.getElementsByClassName("requestTitle"); 
+  requestExpectedPrice= document.getElementsByClassName("requestExpectedPrice"); 
+  isNegotiable= document.getElementsByClassName("isNegotiable"); 
+  footer= document.getElementsByClassName("footer"); 
+  price= document.getElementsByClassName("price"); 
+  grid_head= document.getElementsByClassName("grid-head"); 
+
+
+  for(var i = 0; i<number;i++){
+      
+      dueDate[i].innerHTML= "due date: &nbsp" + dataArray[i]['dueDate'];
+      isNegotiable[i].innerHTML = dataArray[i]['isNegotiable'];
+      requestCategory[i].innerHTML = dataArray[i]['requestCategory'];
+      requestDescription[i].innerHTML = "</br>" + dataArray[i]['requestDescription'];
+      requestExpectedPrice[i].innerHTML = "Php "+dataArray[i]['requestExpectedPrice'] +".00";
+    
+      requestTitle[i].innerHTML = dataArray[i]['requestTitle'];
+      //[i].innerHTML = "<b>Requestor ID: </b>"+dataArray[i]['requestorID'];
+     // requestorUserName[i].innerHTML = dataArray[i]['userName'] +"</b> <br/>";
+     // requestorLocation[i].innerHTML = "<b>"+dataArray[i]['requestorMunicipality'] +"</b>";
+     // requestorUserName[i].innerHTML = "<a href = 'ViewUserProfile.php?userID="+dataArray[i]['requestorID']+"&userType=Requestor'>" + dataArray[i]['userName'] +"</a>";
+
+      //requestorUserName[i].innerHTML = "<a href = 'Responder_RequestInfo.php?requestID=" + dataArray[i]['requestID'] + "'> "+ dataArray[i]['userName']+"</a>";
+      
+     // var image = new Image();
+     // image.src = dataArray[i]['userPhoto'];
+     // image.setAttribute('class','userPhotoPic');
+    //  request_card__image[i].appendChild(image);
+
+      //card[i].setAttribute("onclick","redirect('Responder_RequestInfo.php?requestID=" + dataArray[i]['requestID'] + "')");
+
+  }
+
+
+}
