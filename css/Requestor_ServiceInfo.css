@@ -109,6 +109,8 @@ height: 100%;
 	/* background-size: cover; */
 	text-align: center;
 	display: grid;
+	background-color: orangered;
+	color: white;
 }
 
 #serviceRatingsDiv{
@@ -166,14 +168,14 @@ height: 100%;
 	margin: auto;
 	height: 30%;
 	/* padding-top: 40px; */
-	color: orangered;
+	color: white;
 }
 
 #serviceTitle{
 	/* font-size: x-large; */
 	/* margin: auto; */
 	height: 30%;
-	color: orangered;
+	color: white;
 }
 b#responderUserType {
     /* text-transform: capitalize; */
