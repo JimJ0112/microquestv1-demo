@@ -99,7 +99,7 @@ session_start();
                                 <input type="hidden" name="senderUserName" value='<?php echo $_SESSION['userName']; ?>'>
                                 <input type="hidden" name="recieverUserName" id="recieverUserName">
                  
-                                <input type="text" name="messageBody" id="requestInfoMessageBody" oninput="checkText()" placeholder="MESSAGE"> </textarea> <br/>
+                                <input type="text" name="messageBody" id="requestInfoMessageBody" oninput="checkText()" placeholder="MESSAGE" Required></textarea> <br/>
                                 <input type="submit" value="SEND" id="send" />
                 
                             </form>
@@ -188,6 +188,7 @@ session_start();
 					    <td>Full Name</td>
                          <td class="userFullName"></td>
                     </tr>
+                    <!--
                     <tr class="userInfoTR">
 					    <td>Age</td>
                         <td class="userAge">  </td>
@@ -196,6 +197,7 @@ session_start();
 					    <td>Birthday</td>
                         <td class="userDob">  </td>
                     </tr>
+                    -->
                     <tr class="userInfoTR">
 					    <td id="SpecializationTD">Spcialization</td>
                         <td class="userSpecialization">  </td>

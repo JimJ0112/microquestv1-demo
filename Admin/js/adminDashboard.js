@@ -215,19 +215,19 @@ function setData(array){
       
 
         var image = new Image();
-        image.src = dataArray[i]['userPhoto'];
+        image.src = "../"+dataArray[i]['userPhoto'];
 
         image.setAttribute('class','userPhotoImage');
         image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
-        image.setAttribute('onclick','viewImage("' + dataArray[i]['userPhoto'] + '")');
+        image.setAttribute('onclick','viewImage("' + "../"+dataArray[i]['userPhoto'] + '")');
         accountInfo[i].appendChild(image);
     
 
         var idFileImage = new Image();
-        idFileImage.src = dataArray[i]["idFile"];
+        idFileImage.src = "../"+dataArray[i]["idFile"];
         idFileImage.setAttribute('class','idFileImage');
         idFileImage.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
-        idFileImage.setAttribute('onclick','viewImage("' + dataArray[i]['idFile'] + '")');
+        idFileImage.setAttribute('onclick','viewImage("' +"../"+ dataArray[i]['idFile'] + '")');
         userIDInfo[i].appendChild(idFileImage);
     
 
@@ -485,11 +485,11 @@ function setReportData(array){
 
 
         var image = new Image();
-        image.src = dataArray[i]['reportEvidence'];
+        image.src = "../"+dataArray[i]['reportEvidence'];
 
         image.setAttribute('class','reportEvidence');
         image.setAttribute('onerror',"this.src='img/laundry-services.jpg'");
-        image.setAttribute('onclick','viewImage("' + dataArray[i]['reportEvidence'] + '")');
+        image.setAttribute('onclick','viewImage("' + "../"+dataArray[i]['reportEvidence'] + '")');
 
         reportEvidenceContainer[i].appendChild(image);
 
@@ -1175,15 +1175,15 @@ function setBannedData(dataArray){
     for(var i=0; i<num; i++){
 
         var image = new Image();
-        image.src = dataArray[i]["userPhoto"];
+        image.src = "../"+dataArray[i]["userPhoto"];
         image.setAttribute("class","userPhotoImage");
-        image.setAttribute("onclick","viewImage('" + dataArray[i]["userPhoto"] + "')");
+        image.setAttribute("onclick","viewImage('" + "../"+dataArray[i]["userPhoto"] + "')");
 
 
         var image1 = new Image();
-        image1.src = dataArray[i]["reportEvidence"];
+        image1.src = "../"+dataArray[i]["reportEvidence"];
         image1.setAttribute("class","reportEvidence");
-        image1.setAttribute("onclick","viewImage('" + dataArray[i]["reportEvidence"]+ "')");
+        image1.setAttribute("onclick","viewImage('" + "../"+dataArray[i]["reportEvidence"]+ "')");
 
 
         userProfileDiv[i].appendChild(image);
@@ -1370,15 +1370,15 @@ function setRestrictedData(dataArray){
     for(var i=0; i<num; i++){
 
         var image = new Image();
-        image.src = dataArray[i]["userPhoto"];
+        image.src = "../" + dataArray[i]["userPhoto"];
         image.setAttribute("class","userPhotoImage");
-        image.setAttribute("onclick","viewImage('" + dataArray[i]["userPhoto"] + "')");
+        image.setAttribute("onclick","viewImage('" + "../" +dataArray[i]["userPhoto"] + "')");
 
 
         var image1 = new Image();
-        image1.src = dataArray[i]["reportEvidence"];
+        image1.src = "../" +dataArray[i]["reportEvidence"];
         image1.setAttribute("class","reportEvidence");
-        image1.setAttribute("onclick","viewImage('" + dataArray[i]["reportEvidence"]+ "')");
+        image1.setAttribute("onclick","viewImage('" + "../" +dataArray[i]["reportEvidence"]+ "')");
 
 
         userProfileDiv[i].appendChild(image);

@@ -6,7 +6,13 @@ $DBHandler = new DBHandler();
 
     $responderID = $_POST["responderID"];
     $serviceName=$_POST["servicePosition"];
-    $AlreadyExists = $DBHandler->serviceExists("servicesInfo",$responderID,$serviceName);
+
+    if($_POST["formType"] === "pasabuy"){
+        $AlreadyExists = false;
+    } else{
+        $AlreadyExists = $DBHandler->serviceExists("servicesInfo",$responderID,$serviceName);
+    }
+    
 
     if($AlreadyExists){
         header("location:../Responder_CreateService.php?msg= You have already Offered this service! ");
@@ -30,16 +36,11 @@ $DBHandler = new DBHandler();
         $certificateFile = "none";
         
 
-        /*
-        if(is_uploaded_file($_FILES["certificateFile"]["tmp_name"])){
-            
-            $certificateFile=file_get_contents($_FILES["certificateFile"]["tmp_name"]);
-        }else{
-            $certificateFile = "none";
-        }
-        */
+
+
         $mySpecialization = $_SESSION["specialization"];
         $SpecializationExists = $DBHandler->specializationExists($responderID,$serviceCategory);
+        
         if($SpecializationExists || $serviceCategory === $mySpecialization){
 
         }else{
@@ -55,32 +56,68 @@ $DBHandler = new DBHandler();
             
            
                 $servicePosition = $_POST['otherServicePosition'];
-                //$bannerImage = file_get_contents($_FILES['bannerImage']["tmp_name"]);
-                $bannerImage = "";
+
                 echo $servicePosition;
-                //echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile);
-            
+
+                if(is_uploaded_file($_FILES['bannerImage']["tmp_name"])){
+                    $bannerImage = file_get_contents($_FILES['bannerImage']["tmp_name"]);
+        
+                    /* making directory to store the files for user */
+                   $Directory = 'userFiles/serviceBanners/';
+        
+                        if(is_dir("../".$Directory)==false){
+                            echo mkdir("../".$Directory);
+                        } else {
+                            echo"Directory Already Exists!";
+               
+                        }
+        
+                    
+                        $BannerDirectory = $Directory.$servicePosition.'.png';
+                        file_put_contents('../'.$BannerDirectory, $bannerImage);
+        
+        
+                 } else {
+
+             
+          
+    
+                    $imageFile = $DBHandler->getServicesCategoryBannerImage($serviceCategory);
+    
+                    if($imageFile === "Null" || $imageFile === null){
+          
+                        $imageFile = "../img/magnifying-glass.png";
+                        $BannerDirectory = $imageFile;
+        
+                    } else{
+                        $BannerDirectory = $imageFile; 
+                    }
+                }
+
             }else{
     
                 $servicePosition=$_POST["servicePosition"];
-                $bannerImage = "";
-                //echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile);
+          
+            
                 echo $servicePosition;
+
+                $imageFile = $DBHandler->getServicesBannerImage($serviceCategory,$servicePosition);
+
+                if($imageFile === "Null" || $imageFile === null){
+      
+                    $imageFile = "../img/magnifying-glass.png";
+                    $BannerDirectory = $imageFile;
+    
+                } else{
+                    $BannerDirectory = $imageFile; 
+                }
             }
     
             echo $serviceCategory= $_POST["serviceCategory"]; 
           
-            $imageFile = $DBHandler->getServicesBannerImage($serviceCategory,$servicePosition);
 
-            if($imageFile === "Null" || $imageFile === null){
-                $imageFile = file_get_contents("../img/magnifying-glass.png");
-                $bannerImage = $imageFile;
 
-            } else{
-                $bannerImage = $imageFile; 
-            }
-
-            echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$bannerImage);
+            echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$BannerDirectory);
 
         echo $serviceCategory,$servicePosition,$rate,$responderID,$certification;
 
@@ -98,15 +135,28 @@ $DBHandler = new DBHandler();
         $productPrice=$_POST["productPrice"];
         $productImage=file_get_contents($_FILES["productImage"]["tmp_name"]);
         $rate = $_POST['rate'];
-       // $productStore=$_POST["productStore"];
-       // $storeLocation=$_POST["storeLocation"];
 
          $productStore=" ";
          $storeLocation=" ";
 
+         
+        /* making directory to store the files for user */
+           // $Directory = 'userFiles/products/'.$productName.$productBrand.$responderID;
+           $Directory = 'userFiles/products/';
+
+                if(is_dir('../'.$Directory)==false){
+                    echo mkdir("../".$Directory);
+                } else {
+                    echo"Directory Already Exists!";
+                }
+     
+                 
+                $productImageDirectory = $Directory.'/'.$productName.$productBrand.$responderID.'.png';
+                file_put_contents('../'.$productImageDirectory, $productImage);
+
         echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$bannerImage);
         echo $serviceInfoID = $DBHandler ->getData('servicesinfo','responderID',$responderID,'serviceID');
-        echo $DBHandler-> registerProduct($serviceInfoID,$itemCategory,$productName,$productBrand,$productDescription,$productPrice,$productImage,$responderID,$productStore,$storeLocation,$rate);      
+        echo $DBHandler-> registerProduct($serviceInfoID,$itemCategory,$productName,$productBrand,$productDescription,$productPrice,$productImageDirectory,$responderID,$productStore,$storeLocation,$rate);      
 
         header("location:../Responder_PasabuyProducts.php");
 
@@ -115,11 +165,28 @@ $DBHandler = new DBHandler();
 
         if(is_uploaded_file($_FILES['bannerImage']["tmp_name"])){
             $bannerImage = file_get_contents($_FILES['bannerImage']["tmp_name"]);
+
+            /* making directory to store the files for user */
+           // $Directory = 'userFiles/serviceBanners/'.$servicePosition;
+           $Directory = 'userFiles/serviceBanners/';
+
+                if(is_dir("../".$Directory)==false){
+                    echo mkdir("../".$Directory);
+                } else {
+                    echo"Directory Already Exists!";
+       
+                }
+
+            
+                $BannerDirectory = $Directory.$servicePosition.'.png';
+                file_put_contents('../'.$BannerDirectory, $bannerImage);
+
+
         } else {
             $bannerImage = "none";
         }
-        echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$bannerImage);
-        echo $DBHandler-> registerCategory($serviceCategory,$servicePosition);
+        echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$BannerDirectory);
+        //echo $DBHandler-> registerCategory($serviceCategory,$servicePosition);
         
 
     }

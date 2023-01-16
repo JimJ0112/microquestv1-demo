@@ -20,6 +20,6 @@ $categories = $DBHandler->getMyProducts($tablename,$responderID);
         echo "failed to fetch";
     }else{
         echo json_encode($categories);
-
+     
     }
 

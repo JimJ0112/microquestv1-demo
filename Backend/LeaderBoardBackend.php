@@ -27,8 +27,8 @@ if($resultCheck > 0){
           $row['bannerimage'] = $file;
           */
 
-          $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-          $row['userPhoto'] = $file;
+         // $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+         // $row['userPhoto'] = $file;
           
 
           //echo $row['serviceID']."<br/>";

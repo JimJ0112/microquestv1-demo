@@ -682,7 +682,7 @@ function setPasabuyOrderItem(array){
         var button1 = document.createElement('button');
         button1.setAttribute('class','Button red');
         button1.innerText = "Cancel";
-        button1.setAttribute('onclick',"cancelPasabuyTransaction(" +dataArray[i]['transactionID'] + ")" );
+        button1.setAttribute('onclick',"cancelPasabuyTransaction(" +dataArray[i]['pasabuyTransactionID'] + ")" );
         actionsDiv[i].appendChild(button1);
         
 

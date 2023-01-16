@@ -176,8 +176,8 @@ function setData(dataArray){
 
   userEmail = document.getElementsByClassName("userEmail")[0];
   userFullName= document.getElementsByClassName("userFullName")[0];
-  userAge= document.getElementsByClassName("userAge")[0];
-  userDob= document.getElementsByClassName("userDob")[0];
+  //userAge= document.getElementsByClassName("userAge")[0];
+  //userDob= document.getElementsByClassName("userDob")[0];
   userSpecialization= document.getElementsByClassName("userSpecialization")[0];
   //userLocation= document.getElementsByClassName("userLocation")[0];
   userLocation = document.getElementsByClassName('userLocation')[0];
@@ -185,8 +185,8 @@ function setData(dataArray){
 
   userEmail.innerText = dataArray[0]["userEmail"];
   userFullName.innerText = dataArray[0]["firstName"] + " " +dataArray[0]["lastName"]  ;
-  userAge.innerText = dataArray[0]["userName"];
-  userDob.innerText = dataArray[0]["birthDate"];
+ // userAge.innerText = dataArray[0]["userName"];
+  //userDob.innerText = dataArray[0]["birthDate"];
 
   if(dataArray[0]["specialization"] === "" || dataArray[0]["specialization"] === " "||dataArray[0]["specialization"] === null){
     userSpecialization.style.display = "none";
@@ -1253,20 +1253,7 @@ function setRequestsData(array){
       requestExpectedPrice[i].innerHTML = "Php "+dataArray[i]['requestExpectedPrice'] +".00";
     
       requestTitle[i].innerHTML = dataArray[i]['requestTitle'];
-      //[i].innerHTML = "<b>Requestor ID: </b>"+dataArray[i]['requestorID'];
-     // requestorUserName[i].innerHTML = dataArray[i]['userName'] +"</b> <br/>";
-     // requestorLocation[i].innerHTML = "<b>"+dataArray[i]['requestorMunicipality'] +"</b>";
-     // requestorUserName[i].innerHTML = "<a href = 'ViewUserProfile.php?userID="+dataArray[i]['requestorID']+"&userType=Requestor'>" + dataArray[i]['userName'] +"</a>";
-
-      //requestorUserName[i].innerHTML = "<a href = 'Responder_RequestInfo.php?requestID=" + dataArray[i]['requestID'] + "'> "+ dataArray[i]['userName']+"</a>";
-      
-     // var image = new Image();
-     // image.src = dataArray[i]['userPhoto'];
-     // image.setAttribute('class','userPhotoPic');
-    //  request_card__image[i].appendChild(image);
-
-      //card[i].setAttribute("onclick","redirect('Responder_RequestInfo.php?requestID=" + dataArray[i]['requestID'] + "')");
-
+ 
   }
 
 

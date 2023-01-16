@@ -80,8 +80,31 @@ if($exists){
             header("location: ../Login.php?msg=id image file size too big!");
         } else{
 
+
+            
+
             $hashedUserPassword = password_hash($userPassword, PASSWORD_DEFAULT);
-            echo $result = $DBHandler->registerUser($userType,$userName, $userEmail,$hashedUserPassword,$userPhoto,$firstName,$lastName,$userGender,$education,$birthDate,$houseNumber,$street,$baranggay,$municipality,$idType,$idFile,$idNumber,$idExpiration,$otherIDType,$otherIDFile,$otherIDNumber,$otheridExpiration,$idFileType,$specialization);
+
+
+
+
+            /* making directory to store the files for user */
+                $Directory = 'userFiles/userProfiles/'.$userName;
+
+                 if(is_dir($Directory)==false){
+                    echo mkdir("../".$Directory);
+                } else {echo"Directory Already Exists!";
+
+                }
+
+                $ID1directory = $Directory."/ID1".$userName.$firstName.$lastName.'.png';
+                file_put_contents('../'.$ID1directory, $idFile);
+
+                $ProfilePicDirectory = $Directory."/ProfilePic".$userName.$firstName.$lastName.'.png';
+                file_put_contents('../'.$ProfilePicDirectory, $userPhoto);
+                
+
+            echo $result = $DBHandler->registerUser($userType,$userName, $userEmail,$hashedUserPassword,$ProfilePicDirectory,$firstName,$lastName,$userGender,$education,$birthDate,$houseNumber,$street,$baranggay,$municipality,$idType,$ID1directory,$idNumber,$idExpiration,$otherIDType,$otherIDFile,$otherIDNumber,$otheridExpiration,$idFileType,$specialization);
 
             if($userType === "Responder"){
                 
@@ -95,6 +118,9 @@ if($exists){
                 $_SESSION["userID"]=$userID;
                 $specialization = $DBHandler-> getData("userprofile","userEmail",$userEmail,"specialization");
                 $_SESSION['specialization'] = $specialization;
+
+                echo $addSpecialization = $DBHandler->addSpecialization( $userID,$specialization);
+               
                 header("location:../NewResponder_CreateService.php?newUser=true");
 
             } else {

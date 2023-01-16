@@ -21,7 +21,21 @@ if($exists){
     
 }else{
 
-    echo $results = $DBHandler->registerCertificate($responderID,$certification,$certificateFile,$specialization);
+
+        /* making directory to store the files for user */
+        $Directory = 'userFiles/certificates/';
+
+            if(is_dir($Directory)==false){
+                echo mkdir("../".$Directory);
+            } else {
+                echo"Directory Already Exists!";
+            }
+
+            $CertDirectory = $Directory."/Certificate".$responderID.$certification.$specialization.'.png';
+            file_put_contents('../'.$CertDirectory,$certificateFile);
+
+
+    echo $results = $DBHandler->registerCertificate($responderID,$certification,$CertDirectory,$specialization);
 
     header("location:../ViewMyProfile.php?userID=$responderID&userType=Responder&msg=Certificate Registered Successfully");
 }

@@ -112,6 +112,8 @@ function getRequest(requestID){
                 content.innerHTML = "";
                 content.style.textAlign = "center";
                 content.appendChild(h2);
+                document.getElementById("LoadingScreen").style.display = "none";
+
 
 
             } else {

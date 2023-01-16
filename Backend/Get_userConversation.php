@@ -8,6 +8,9 @@ $DBHandler = new DBHandler();
 $ID = $_POST['userID'];
 $myID = $_POST['myID'];
 
+//$ID = 11;
+//$myID = 46;
+
 $result = $DBHandler->getUserConversation($myID,$ID);
 
 $userName = $DBHandler ->getData("userprofile","userID",$ID,"userName");

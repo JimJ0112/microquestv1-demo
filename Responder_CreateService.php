@@ -121,6 +121,11 @@ session_start();
                     </td> 
                 </tr>
 
+                <tr>
+                    <td>Banner Image </td>
+                    <td> <input type="file" name="bannerImage" accept="image/*"> </td>
+                </tr>
+
                 <!--
                 <tr class="home_computerRelated_Tr">
                     <td class="home_computerRelated_Td column1_td">Training/Certificate:&nbsp</td>

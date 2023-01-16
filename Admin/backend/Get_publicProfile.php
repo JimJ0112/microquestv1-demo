@@ -1,7 +1,7 @@
 <?php
-require("../classes/DBHandler.php");
+require("../classes/AdminDBHandler.php");
 
-$DBHandler = new DBHandler();
+$DBHandler = new AdminDBHandler();
 
 
 

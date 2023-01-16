@@ -124,7 +124,9 @@ function setData(array){
         requestTitle[i].innerHTML = dataArray[i]['requestTitle'];
         //[i].innerHTML = "<b>Requestor ID: </b>"+dataArray[i]['requestorID'];
         requestorUserName[i].innerHTML = dataArray[i]['userName'] +"</b> <br/>";
-        requestorLocation[i].innerHTML = "<b>"+dataArray[i]['requestorMunicipality'] +"</b>";
+        //requestorLocation[i].innerHTML = "<b>"+dataArray[i]['requestorMunicipality'] +"</b>";
+        requestorLocation[i].innerHTML = "<b>"+dataArray[i]['municipality'] +"</b>";
+
         requestorUserName[i].innerHTML = "<a href = 'ViewUserProfile.php?userID="+dataArray[i]['requestorID']+"&userType=Requestor'>" + dataArray[i]['userName'] +"</a>";
 
         //requestorUserName[i].innerHTML = "<a href = 'Responder_RequestInfo.php?requestID=" + dataArray[i]['requestID'] + "'> "+ dataArray[i]['userName']+"</a>";
@@ -365,6 +367,63 @@ function getNearestRequest(municipality){
 
 
 
+function getNearestRequestCategory(municipality,category){
+    var municipality = municipality;
+    var category = category;
+    //var category = document.getElementById('RequestCategory').value;
+    var query = "municipality=" + municipality + "&category=" + category;
+    console.log(query);
+
+    var xmlhttp = new XMLHttpRequest();
+
+
+    xmlhttp.onload = function() {
+
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var RequestsContainer = document.getElementById('RequestsContainer-Content');
+            RequestsContainer.innerHTML = "";
+
+            var dataArray = this.response;
+
+            if(dataArray != "failed to fetch"){
+                
+            dataArray = JSON.parse(dataArray);
+            console.log(dataArray);
+
+            var number = dataArray.length;
+            createRequestElements(number);
+            setData(dataArray);
+
+            } else{
+                RequestsContainer.innerText = "No Requests";
+            }
+
+           
+
+     
+        }else{
+            console.log(err);
+        }      
+    };
+
+    
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('RequestsContainer-Content').innerText = "Loading...";
+
+        }
+  
+    };
+    xmlhttp.open("POST", "Backend/Get_nearestRequest.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+}
+
+
 
 function getPasabuyRequests(){
    
@@ -587,9 +646,10 @@ function SliderAction(){
     var nearestRequestSlider = document.getElementById('nearestRequestSlider');
     if(nearestRequestSlider.checked){
 
-       // var select = document.getElementById("RequestCategory").value;
-       // var municipality = sessionStorage.getItem('municipality');
-       // getNearestRequest(municipality);
+        var select = document.getElementById("RequestCategory").value;
+        var municipality = sessionStorage.getItem('municipality');
+        getNearestRequest(municipality);
+
         chooseNav("All Requests",0)
     } else{
         getRequests();
@@ -764,11 +824,15 @@ function chooseNav(category,number){
 
     //getLeaderBoard(category);
 
-    if(category ==="All Requests" && nearestRequestSlider.checked ){
+    if(category ==="All Requests" && nearestRequestSlider.checked === true ){
         var municipality = sessionStorage.getItem('municipality');
         getNearestRequest(municipality);
 
-    } else if(category ==="All Requests" && !nearestRequestSlider.checked){
+    } else if(category !="All Requests" && nearestRequestSlider.checked === true ){
+        var municipality = sessionStorage.getItem('municipality');
+        getNearestRequestCategory(municipality,category);
+
+    }else if(category ==="All Requests" && !nearestRequestSlider.checked === true){
         getRequests();
     }else{
         sessionStorage.setItem("requestCategory",category);

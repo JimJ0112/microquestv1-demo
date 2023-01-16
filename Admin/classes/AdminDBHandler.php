@@ -23,11 +23,20 @@ function __construct(){
     $this->dbpassword = "";
     $this->dbname = " microquestdbv2";
     */
-    $this->dbservername = "localhost";
+
+    /*
+    $this->dbservername = "localhost:3307";
     $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
-    $this->dbname = "u774227372_microquestdbv2";
-    
+    $this->dbname = "u774227372_microquestdbv2(1)";
+    */
+
+        /* V2 sa hostinger */
+
+        $this->dbservername = "localhost";
+        $this->dbusername = "u774227372_root1";
+        $this->dbpassword = "#Microquest12";
+        $this->dbname = "u774227372_MqDBv4";
 
     /*
     $this->dbservername = "localhost";
@@ -396,12 +405,12 @@ userprofile.userType
 
                 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+             //   $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+             //   $row['userPhoto'] = $file;
 
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
-                $row['reportEvidence'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
+             //   $row['reportEvidence'] = $file;
                 
 
                 $data[] = $row;
@@ -465,12 +474,12 @@ userprofile.userType
 
                 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+              //  $row['userPhoto'] = $file;
 
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
-                $row['reportEvidence'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
+               // $row['reportEvidence'] = $file;
                 
 
                 $data[] = $row;
@@ -514,8 +523,8 @@ public function getReports(){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
-                $row['reportEvidence'] = $file;
+                //$file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
+                //$row['reportEvidence'] = $file;
                 
 
                 $data[] = $row;
@@ -558,8 +567,8 @@ public function getReport($tablename,$column,$condition){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
-                $row['reportEvidence'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
+               // $row['reportEvidence'] = $file;
                 
 
                 $data[] = $row;
@@ -737,8 +746,8 @@ public function getUserRow($tablename,$column,$condition){
             while($row = mysqli_fetch_assoc($result)){
                 
                 //if(strpos($row['ID_FILETYPE'],"image")){
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['idFile']);
-                    $row['idFile'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['idFile']);
+                    //$row['idFile'] = $file;
                 /*} else {
                     $file = 'data:application/pdf;base64,'.base64_encode($row['IDCARD']);
                     $row['IDCARD'] = $file;
@@ -746,11 +755,11 @@ public function getUserRow($tablename,$column,$condition){
                   } 
                 */
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+                //$file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+                //$row['userPhoto'] = $file;
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['otherIDFile']);
-                $row['otherIDFile'] = $file;
+                //$file = 'data:image/image/png;base64,'.base64_encode($row['otherIDFile']);
+                //$row['otherIDFile'] = $file;
 
                 $data[] = $row;
                 
@@ -789,8 +798,8 @@ public function getUserByTypeRow($tablename,$column,$condition,$userType){
             while($row = mysqli_fetch_assoc($result)){
                 
                 //if(strpos($row['ID_FILETYPE'],"image")){
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['idFile']);
-                    $row['idFile'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['idFile']);
+                  //  $row['idFile'] = $file;
                 /*} else {
                     $file = 'data:application/pdf;base64,'.base64_encode($row['IDCARD']);
                     $row['IDCARD'] = $file;
@@ -798,11 +807,11 @@ public function getUserByTypeRow($tablename,$column,$condition,$userType){
                   } 
                 */
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+               // $row['userPhoto'] = $file;
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['otherIDFile']);
-                $row['otherIDFile'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['otherIDFile']);
+               // $row['otherIDFile'] = $file;
 
                 $data[] = $row;
                 

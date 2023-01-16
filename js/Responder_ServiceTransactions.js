@@ -626,8 +626,9 @@ function SetData(dataArray){
 
         // set data
         Price[i].innerText = "Php " + dataArray[i]['price'];
-        Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
-     
+       // Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+       Contract[i].innerHTML = "<a href='" + dataArray[i]['contractAgreement'] + "' target='_blank' /> Contract </a>"
+
 
         //set data
         
@@ -760,8 +761,9 @@ function SetFinishedData(dataArray){
 
         // set data
         Price[i].innerText = "Php " + dataArray[i]['price'];
-        Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
-     
+       // Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+        //Contract[i].innerHTML = "<a href='" + dataArray[i]['transactionID'] + "'/> Contract </a>"
+        Contract[i].innerHTML = "<a href='" + dataArray[i]['contractAgreement'] + "' target='_blank' /> Contract </a>"
 
         //set data
         
@@ -895,8 +897,8 @@ function SetOrdersData(dataArray){
 
         // set data
         Price[i].innerText = "Php " + dataArray[i]['price'];
-        Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
-     
+       // Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+       Contract[i].innerHTML = "<a href='" + dataArray[i]['contractAgreement'] + "' target='_blank' /> Contract </a>"
 
         //set data
         
@@ -1033,8 +1035,9 @@ function SetAcceptedData(dataArray){
 
         // set data
         Price[i].innerText = "Php " + dataArray[i]['price'];
-        Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
-     
+       // Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+       Contract[i].innerHTML = "<a href='" + dataArray[i]['contractAgreement'] + "' target='_blank' /> Contract </a>"
+
 
         //set data
         
@@ -1177,8 +1180,9 @@ function SetPaidData(dataArray){
 
         // set data
         Price[i].innerText = "Php " + dataArray[i]['price'];
-        Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
-     
+       // Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
+       Contract[i].innerHTML = "<a href='" + dataArray[i]['contractAgreement'] + "' target='_blank' /> Contract </a>"
+
 
         //set data
         

@@ -36,12 +36,19 @@ function __construct(){
 
     /*localhost  */
         
-    $this->dbservername = "localhost";
+    /*
+    $this->dbservername = "localhost:3307";
     $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
-    $this->dbname = "u774227372_microquestdbv2";
-   
-    
+    $this->dbname = "u774227372_microquestdbv2(1)";
+    */
+
+    /* V2 sa hostinger */
+
+    $this->dbservername = "localhost";
+    $this->dbusername = "u774227372_root1";
+    $this->dbpassword = "#Microquest12";
+    $this->dbname = "u774227372_MqDBv4";
 
 
 
@@ -104,6 +111,23 @@ public function runGETAll($query){
 
 }
 
+
+
+public function runGETLatestTransactionID($query){
+
+    $query = $query;
+
+	
+    $result = mysqli_query($this->dbconnection,$query);
+    
+    $row = mysqli_fetch_array($result);
+
+
+    
+   
+    return $row;
+
+}
 
 public function runInsert($query){
 
@@ -447,8 +471,8 @@ public function getImage($tablename,$column,$condition,$name){
         $row = mysqli_fetch_array($result);
 
   
-        $file = 'data:image/image/png;base64,'.base64_encode($row[0]);
-        $row[0] = $file;
+       // $file = 'data:image/image/png;base64,'.base64_encode($row[0]);
+       // $row[0] = $file;
             
 
         //$data[] = $row;
@@ -738,8 +762,8 @@ public function getRequestReviewsWithRatings($userID){
 
             while($row = mysqli_fetch_assoc($result)){
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['requestorUserPhoto']);
-                $row['requestorUserPhoto'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['requestorUserPhoto']);
+               // $row['requestorUserPhoto'] = $file;
 
                 $data[] = $row;
                 
@@ -785,8 +809,8 @@ public function getServiceReviewsWithRatings($serviceID){
 
             while($row = mysqli_fetch_assoc($result)){
                                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userprofileReviewerPhoto']);
-                $row['userprofileReviewerPhoto'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['userprofileReviewerPhoto']);
+               // $row['userprofileReviewerPhoto'] = $file;
                 
 
                 $data[] = $row;
@@ -857,8 +881,8 @@ public function getMyCart($requestorID){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
-                $row['productImage'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
+                //$row['productImage'] = $file;
                 
 
                 $data[] = $row;
@@ -943,8 +967,8 @@ public function getCategories($tablename,$column,$condition,$groupby = null){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                $row['certificateFile'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+               // $row['certificateFile'] = $file;
                 
 
                 $data[] = $row;
@@ -1028,8 +1052,9 @@ public function getUserRow($tablename,$column,$condition){
             while($row = mysqli_fetch_assoc($result)){
                 
                 //if(strpos($row['ID_FILETYPE'],"image")){
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['idFile']);
-                    $row['idFile'] = $file;
+                   // $idFile = file_get_contents($row['idFile']);
+                   // $file = 'data:image/image/png;base64,'.base64_encode($idFile);
+                   // $row['idFile'] = $file;
                 /*} else {
                     $file = 'data:application/pdf;base64,'.base64_encode($row['IDCARD']);
                     $row['IDCARD'] = $file;
@@ -1037,11 +1062,11 @@ public function getUserRow($tablename,$column,$condition){
                   } 
                 */
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+              //  $row['userPhoto'] = $file;
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['otherIDFile']);
-                $row['otherIDFile'] = $file;
+                //$file = 'data:image/image/png;base64,'.base64_encode($row['otherIDFile']);
+                //$row['otherIDFile'] = $file;
 
                 $data[] = $row;
                 
@@ -1075,8 +1100,8 @@ public function getProfilePic($tablename,$column,$condition,$name){
     if($resultCheck > 0){
        
         $row = mysqli_fetch_array($result);
-        $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-        $row['userPhoto'] = $file;
+      //  $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+       // $row['userPhoto'] = $file;
 
 
         return $row[$name];
@@ -1121,12 +1146,12 @@ public function getProducts($tablename,$column,$condition,$orderby = null){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
-                $row['productImage'] = $file;
+                //$file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
+               // $row['productImage'] = $file;
 
                              
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+               // $row['userPhoto'] = $file;
                 
 
                 $data[] = $row;
@@ -1173,14 +1198,16 @@ public function getMyProducts($tablename,$responderID){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
-                $row['productImage'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
+              //  $row['productImage'] = $file;
                 
 
                 $data[] = $row;
                 
              
             }
+
+            echo mysqli_error($this->dbconnection);
             return $data;
         
         
@@ -1262,8 +1289,8 @@ public function getProductsResponders($municipality,$column,$condition,$orderby 
 
             while($row = mysqli_fetch_assoc($result)){
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+               // $row['userPhoto'] = $file;
                 
          
                 
@@ -1352,8 +1379,8 @@ public function getAllProductsResponders($municipality,$column,$condition,$order
 
             while($row = mysqli_fetch_assoc($result)){
                                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+               // $row['userPhoto'] = $file;
                 
 
                 
@@ -1403,8 +1430,8 @@ public function getMyCertificates($tablename,$column,$condition){
 
                 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                $row['certificateFile'] = $file;
+                //$file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                //$row['certificateFile'] = $file;
                 
 
                 $data[] = $row;
@@ -1452,8 +1479,8 @@ public function getCertificates($tablename,$column,$condition){
 
                 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                $row['certificateFile'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+               // $row['certificateFile'] = $file;
                 
 
                 $data[] = $row;
@@ -1515,8 +1542,8 @@ userprofile.userType
 
                 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+              //  $row['userPhoto'] = $file;
 
 
                 $file = 'data:image/image/png;base64,'.base64_encode($row['reportEvidence']);
@@ -1574,13 +1601,13 @@ public function getServices($tablename,$column,$condition,$orderby = null){
 
                 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                $row['certificateFile'] = $file;
+                //$file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                //$row['certificateFile'] = $file;
                 
                 
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                $row['bannerImage'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+               // $row['bannerImage'] = $file;
 
                 $data[] = $row;
                 
@@ -1625,13 +1652,13 @@ public function getServiceInfo($tablename,$column,$condition){
 
                 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                $row['certificateFile'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+               // $row['certificateFile'] = $file;
                 
                 
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                $row['bannerImage'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+              //  $row['bannerImage'] = $file;
 
                 $data[] = $row;
                 
@@ -1679,12 +1706,12 @@ public function getServicesForSpecialization($tablename,$column,$condition,$orde
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                $row['certificateFile'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+              //  $row['certificateFile'] = $file;
                 
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                $row['bannerImage'] = $file;
+             //   $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+              //  $row['bannerImage'] = $file;
 
                 $data[] = $row;
                 
@@ -1730,12 +1757,12 @@ public function getOtherServices(){
 
                 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                $row['certificateFile'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+              //  $row['certificateFile'] = $file;
                 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                $row['bannerImage'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+              //  $row['bannerImage'] = $file;
 
                 $data[] = $row;
                 
@@ -1832,11 +1859,11 @@ public function getMyServices($tablename,$column,$condition,$orderby = null){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                $row['certificateFile'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+              //  $row['certificateFile'] = $file;
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                $row['bannerImage'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+              //  $row['bannerImage'] = $file;
 
                 $data[] = $row;
                 
@@ -1886,8 +1913,8 @@ public function getResponders($position,$municipality,$serviceCategory){
 
             while($row = mysqli_fetch_assoc($result)){
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+               // $row['userPhoto'] = $file;
 
                 
 
@@ -1935,8 +1962,8 @@ $query = "SELECT servicesinfo.responderID, userprofile.userName,userprofile.user
        
 
             while($row = mysqli_fetch_assoc($result)){
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+             //   $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+              //  $row['userPhoto'] = $file;
                 
 
 
@@ -1986,8 +2013,8 @@ $query = "SELECT servicesinfo.responderID, userprofile.userName,userprofile.user
        
 
             while($row = mysqli_fetch_assoc($result)){
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+             //   $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+             //   $row['userPhoto'] = $file;
                 
 
 
@@ -2034,8 +2061,8 @@ public function getProductCategories(){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
-                $row['productImage'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
+              //  $row['productImage'] = $file;
                 
 
                 $data[] = $row;
@@ -2084,8 +2111,8 @@ public function getRequests($tablename,$column,$condition,$orderby = null){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+             //   $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+              //  $row['userPhoto'] = $file;
                 
 
                 $data[] = $row;
@@ -2179,8 +2206,8 @@ public function getNearestAllRequests($tablename,$column,$condition,$orderby = n
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+              //  $row['userPhoto'] = $file;
                 
 
                 $data[] = $row;
@@ -2229,8 +2256,8 @@ public function getNearestRequests($tablename,$column,$condition,$category,$orde
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+               // $row['userPhoto'] = $file;
                 
 
                 $data[] = $row;
@@ -2274,8 +2301,8 @@ public function getOtherRequests(){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+              //  $row['userPhoto'] = $file;
                 
 
                 $data[] = $row;
@@ -2318,11 +2345,11 @@ public function getPasabuyRequests(){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+             //  $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+              //  $row['userPhoto'] = $file;
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
-                $row['productImage'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
+              //  $row['productImage'] = $file;
 
                 $data[] = $row;
                 
@@ -2465,8 +2492,8 @@ function nearestRequests($tablename,$column,$condition,$orderby = null){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
-                $row['userPhoto'] = $file;
+              //  $file = 'data:image/image/png;base64,'.base64_encode($row['userPhoto']);
+               // $row['userPhoto'] = $file;
                 
 
                 $data[] = $row;
@@ -2486,83 +2513,8 @@ function nearestRequests($tablename,$column,$condition,$orderby = null){
 
 
 
-// getting Messages from messages table
-/*
-
-public function getUserMessages($ID,$groupBy=null){
-    $ID = mysqli_real_escape_string($this->dbconnection, $ID);
-    $tablename = "messages";
-    $column = "messageReciever";
-    $column1 = "messageSender";
-   
-
-   
-   if(isset($groupBy)){
 
 
-        $query = "select messages.*,sender.userID, sender.userPhoto as senderUserPhoto, sender.userName as senderUserName,reciever.userID, reciever.userPhoto as recieverUserPhoto, reciever.userName 
-        FROM  $tablename
-        INNER JOIN userprofile as sender ON(sender.userID = messages.messageSender)
-        INNER JOIN userprofile as reciever ON(reciever.userID = messages.messageReciever)
-        WHERE (messageSender =  $ID  OR messageReciever =  $ID ) 
-        AND firstchat = 1 GROUP BY messageSender,messageReciever ORDER BY messageID ;";
-
-   } else {
-
-
-       $query = "select messages.*,sender.userID, sender.userPhoto as senderUserPhoto, sender.userName as senderUserName,reciever.userID, reciever.userPhoto as recieverUserPhoto, reciever.userName 
-       FROM  $tablename
-       INNER JOIN userprofile as sender ON(sender.userID = messages.messageSender)
-       INNER JOIN userprofile as reciever ON(reciever.userID = messages.messageReciever)
-       WHERE (messageSender =  $ID  OR messageReciever =  $ID ) 
-       AND firstchat = 1 GROUP BY messageSender,messageReciever ORDER BY messageID ;";
-   }
-
-    $result = mysqli_query($this->dbconnection, $query);
-    $resultCheck = mysqli_num_rows($result);
-    $data = array();
-    $file;
-
-
-    if($resultCheck > 0){
-       
-
-            while($row = mysqli_fetch_assoc($result)){
-                
-                //if(strpos($row['ID_FILETYPE'],"image")){
-
-                    if(isset($row['messageFile'])){
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['messageFile']);
-                    $row['messageFile'] = $file;
-                    }
-  
-                  
-                 $file = 'data:image/image/png;base64,'.base64_encode($row["recieverUserPhoto"]);
-
-                 $row['recieverUserPhoto'] = $file;
-
-                 $file = 'data:image/image/png;base64,'.base64_encode($row["senderUserPhoto"]);
-
-                 $row['senderUserPhoto'] = $file;
-
-
-
-                $data[] = $row;
-                
-             
-            }
-            return $data;
-        
-        
-        
-
-    } else {return "failed to fetch";}
-
-        
-  
-}
-
-*/
 
 
 
@@ -2576,13 +2528,7 @@ public function getUserMessages($ID,$groupBy=null){
    if(isset($groupBy)){
 
 
-    /*
-        $query = "select $tablename.*,sender.userID, sender.userPhoto as senderUserPhoto, sender.userName as senderUserName,reciever.userID, reciever.userPhoto as recieverUserPhoto, reciever.userName as recieverUserName 
-        FROM $tablename
-        INNER JOIN userprofile as sender ON(sender.userID = conversations.senderID) 
-        INNER JOIN userprofile as reciever ON(reciever.userID = conversations.recieverID) 
-        WHERE (senderID = $ID OR recieverID = $ID ) ORDER BY latestMessageDate DESC;";
-    */
+
         $query = "select $tablename.*,sender.userID, sender.userPhoto as senderUserPhoto, sender.userName as senderUserName,reciever.userID, reciever.userPhoto as recieverUserPhoto, reciever.userName as recieverUserName 
         FROM $tablename
         INNER JOIN userprofile as sender ON(sender.userID = conversations.senderID) 
@@ -2592,13 +2538,7 @@ public function getUserMessages($ID,$groupBy=null){
    } else {
 
 
-    /*
-        $query = "select $tablename.*,sender.userID, sender.userPhoto as senderUserPhoto, sender.userName as senderUserName,reciever.userID, reciever.userPhoto as recieverUserPhoto, reciever.userName as recieverUserName 
-        FROM $tablename
-        INNER JOIN userprofile as sender ON(sender.userID = conversations.senderID) 
-        INNER JOIN userprofile as reciever ON(reciever.userID = conversations.recieverID) 
-        WHERE (senderID = $ID OR recieverID = $ID ) ORDER BY latestMessageDate DESC;";
-    */
+
 
     $query = "select $tablename.*,sender.userID, sender.userPhoto as senderUserPhoto, sender.userName as senderUserName,reciever.userID, reciever.userPhoto as recieverUserPhoto, reciever.userName as recieverUserName 
     FROM $tablename
@@ -2622,19 +2562,19 @@ public function getUserMessages($ID,$groupBy=null){
                 
                 //if(strpos($row['ID_FILETYPE'],"image")){
 
-                    if(isset($row['messageFile'])){
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['messageFile']);
-                    $row['messageFile'] = $file;
-                    }
+                   // if(isset($row['messageFile'])){
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['messageFile']);
+                  //  $row['messageFile'] = $file;
+                   // }
   
                   
-                    $file = 'data:image/image/png;base64,'.base64_encode($row["recieverUserPhoto"]);
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row["recieverUserPhoto"]);
 
-                     $row['recieverUserPhoto'] = $file;
+                  //   $row['recieverUserPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row["senderUserPhoto"]);
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row["senderUserPhoto"]);
 
-                    $row['senderUserPhoto'] = $file;
+                  //  $row['senderUserPhoto'] = $file;
 
 
 
@@ -2702,10 +2642,10 @@ public function getUserConversation($myID,$ID){
                 
                 //if(strpos($row['ID_FILETYPE'],"image")){
 
-                    if(isset($row['messageFile'])){
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['messageFile']);
-                    $row['messageFile'] = $file;
-                    }
+                  //  if(isset($row['messageFile'])){
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['messageFile']);
+                  //  $row['messageFile'] = $file;
+                  //  }
                 /*} else {
                     $file = 'data:application/pdf;base64,'.base64_encode($row['IDCARD']);
                     $row['IDCARD'] = $file;
@@ -2762,14 +2702,14 @@ public function getMyTransactions($ID,$column,$transactionType){
     
                 while($row = mysqli_fetch_assoc($result)){
                     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                  //  $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                   // $row['ResponderPhoto'] = $file;
                       
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                   // $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                   // $row['contractAgreement'] = $file;
 
     
                     $data[] = $row;
@@ -2804,21 +2744,21 @@ public function getMyTransactions($ID,$column,$transactionType){
                     
     
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                    $row['certificateFile'] = $file;
+                 //   $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                  //  $row['certificateFile'] = $file;
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                    $row['bannerImage'] = $file;
+                 //   $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                 //   $row['bannerImage'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                  //  $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                  //  $row['ResponderPhoto'] = $file;
 
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                   // $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                   // $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     
@@ -2952,25 +2892,25 @@ public function getMyPasabuyTransactions($ID,$column,$status){
                     
                     mb_convert_encoding($row, 'UTF-8', 'UTF-8');
                     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                    $row['certificateFile'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                  //  $row['certificateFile'] = $file;
 
                   
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['responderPhoto']);
-                    $row['responderPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['responderPhoto']);
+                  //  $row['responderPhoto'] = $file;
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                    $row['bannerImage'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                  //  $row['bannerImage'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                   // $row['paymentFile'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
-                    $row['productImage'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['productImage']);
+                  //  $row['productImage'] = $file;
                     
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['requestorPhoto']);
-                    $row['requestorPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['requestorPhoto']);
+                  //  $row['requestorPhoto'] = $file;
 
 
                     $data[] = $row;
@@ -3006,7 +2946,7 @@ public function requestTransactionExists($requestID,$responderID,$requestorID){
 
    
 
-    $query = "SELECT * FROM $tablename WHERE requestID = $requestID AND responderID = $responderID AND requestorID = $requestorID AND ( transactionStatus = 'pending' OR transactionStatus ='accepted')";
+    $query = "SELECT * FROM $tablename WHERE requestID = $requestID AND responderID = $responderID AND requestorID = $requestorID AND ( transactionStatus = 'pending' OR transactionStatus ='accepted' OR transactionStatus = 'completed')";
 
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);
@@ -3139,18 +3079,18 @@ public function getCancelledTransactions($ID,$column,$transactionType){
                 while($row = mysqli_fetch_assoc($result)){
                     
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                 //   $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                 //   $row['paymentFile'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                  //  $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                 //   $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                  //  $row['ResponderPhoto'] = $file;
     
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                  //  $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                  //  $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     
@@ -3182,24 +3122,24 @@ public function getCancelledTransactions($ID,$column,$transactionType){
                     
     
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                    $row['certificateFile'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                   // $row['certificateFile'] = $file;
                     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                    $row['bannerImage'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                  //  $row['bannerImage'] = $file;
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                  //  $row['paymentFile'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                   // $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                   // $row['ResponderPhoto'] = $file;
 
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                  //  $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                 //   $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     
@@ -3257,18 +3197,18 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
     
                 while($row = mysqli_fetch_assoc($result)){
                     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                   // $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                  //  $row['ResponderPhoto'] = $file;
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                  //  $row['paymentFile'] = $file;
 
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                  //  $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                 //   $row['contractAgreement'] = $file;
     
                     $data[] = $row;
                     
@@ -3301,24 +3241,24 @@ public function getAcceptedTransactions($ID,$column,$transactionType){
                     
     
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                    $row['certificateFile'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                  //  $row['certificateFile'] = $file;
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                    $row['bannerImage'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                  //  $row['bannerImage'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                  //  $row['paymentFile'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                   // $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                   // $row['ResponderPhoto'] = $file;
 
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                   // $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                   // $row['contractAgreement'] = $file;
                     
                     $data[] = $row;
                     
@@ -3375,18 +3315,18 @@ public function getDeliveredTransactions($ID,$column,$transactionType){
     
                 while($row = mysqli_fetch_assoc($result)){
                     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                  //  $row['paymentFile'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                   // $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                   // $row['ResponderPhoto'] = $file;
 
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                   // $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                    //$row['contractAgreement'] = $file;
     
                     $data[] = $row;
                     
@@ -3419,24 +3359,24 @@ public function getDeliveredTransactions($ID,$column,$transactionType){
                     
     
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                    $row['certificateFile'] = $file;
+                 //   $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                 //   $row['certificateFile'] = $file;
                     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                    $row['bannerImage'] = $file;
+                 //   $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                 //   $row['bannerImage'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                   // $row['paymentFile'] = $file;
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                  //  $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                  //  $row['ResponderPhoto'] = $file;
 
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                  //  $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                  //  $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     
@@ -3495,19 +3435,19 @@ public function getPaidTransactions($ID,$column,$transactionType){
     
                 while($row = mysqli_fetch_assoc($result)){
                     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                    //$file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                    //$row['paymentFile'] = $file;
     
                     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                   // $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                   // $row['ResponderPhoto'] = $file;
 
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                   // $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                  //  $row['contractAgreement'] = $file;
     
                     $data[] = $row;
                     
@@ -3539,24 +3479,24 @@ public function getPaidTransactions($ID,$column,$transactionType){
                     
     
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                    $row['certificateFile'] = $file;
+                 //   $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                //   $row['certificateFile'] = $file;
                     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                    $row['bannerImage'] = $file;
+                 //   $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                 //   $row['bannerImage'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                   // $row['paymentFile'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                   // $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                    //$row['ResponderPhoto'] = $file;
     
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                  //  $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                   // $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     
@@ -3576,7 +3516,6 @@ public function getPaidTransactions($ID,$column,$transactionType){
    
 
  
-    //$query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID;";
 
 
 
@@ -3587,102 +3526,8 @@ public function getPaidTransactions($ID,$column,$transactionType){
   
 }// end of function
 
-// get completed / finished transactions
-
-/*
-public function getCompletedTransactions($ID,$column,$transactionType){
-
-    $ID = mysqli_real_escape_string($this->dbconnection, $ID);
-    $column = mysqli_real_escape_string($this->dbconnection, $column);
-    $transactionType = mysqli_real_escape_string($this->dbconnection, $transactionType);
-
-    $tablename = "transactions";
-
-   
-
-    if($transactionType === "Request"){
-        // added AND transactionStatus = 'pending'
-        $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID AND (transactions.transactionStatus = 'completed' OR transactions.transactionStatus = 'paid' OR transactions.transactionStatus = 'payment confirmed' OR transactions.transactionStatus = 'responder feedback' OR transactions.transactionStatus = 'requestor feedback') ORDER BY transactions.transactionID DESC";
-
-        $result = mysqli_query($this->dbconnection, $query);
-        $resultCheck = mysqli_num_rows($result);
-        $data = array();
-        
-    
-        if($resultCheck > 0){
-           
-    
-                while($row = mysqli_fetch_assoc($result)){
-                    
-    
-    
-    
-                    $data[] = $row;
-                    
-                 
-                }
-                
-                return $data;
-            
-            
-            
-    
-        } else {return "failed to fetch";}
-
-    } else if($transactionType === "Service"){
-       // $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM transactions INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.responderID = 11;";
-       // added AND transactionStatus = 'pending'
-       $query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, services.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN servicesinfo services ON (services.serviceID = transactions.serviceID) WHERE transactions.$column = $ID AND (transactions.transactionStatus = 'completed' OR transactions.transactionStatus = 'paid' OR transactions.transactionStatus = 'payment confirmed')ORDER BY transactions.transactionID DESC;";
-
-        $result = mysqli_query($this->dbconnection, $query);
-        $resultCheck = mysqli_num_rows($result);
-        $data = array();
-        $file;
-        
-    
-        if($resultCheck > 0){
-           
-    
-                while($row = mysqli_fetch_assoc($result)){
-                    
-    
-    
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                    $row['certificateFile'] = $file;
-
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                    $row['bannerImage'] = $file;
-
-                    $data[] = $row;
-                    
-                 
-                }
-                
-                return $data;
-            
-            
-            
-    
-        } else {return "failed to fetch";}
-
-    } else {
-        echo "failed query"; 
-    }
-   
-
- 
-    //$query = "SELECT transactions.*, requestor.userID, responder.userID, requestor.userName as RequestorName, responder.userName as ResponderName, requests.* FROM $tablename INNER JOIN userprofile requestor ON (requestor.userID = transactions.requestorID) INNER JOIN userprofile responder ON (responder.userID = transactions.responderID) INNER JOIN requestsinfo requests ON (requests.requestID = transactions.requestID) WHERE transactions.$column = $ID;";
 
 
-
-
-
-
-        
-  
-}// end of function
-
-*/
 
 public function getContract($ID){
 
@@ -3707,12 +3552,12 @@ public function getContract($ID){
                     
     
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                  //  $row['paymentFile'] = $file;
 
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                   // $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                  //  $row['contractAgreement'] = $file;
 
 
                   // $file = "".base64_decode($row['contractAgreement']);
@@ -3768,18 +3613,18 @@ public function getCompletedTransactions($ID,$column,$transactionType){
     
                 while($row = mysqli_fetch_assoc($result)){
                     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                   // $row['paymentFile'] = $file;
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                   // $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                    //$file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                    //$row['ResponderPhoto'] = $file;
     
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                   // $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                  //  $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     
@@ -3811,24 +3656,24 @@ public function getCompletedTransactions($ID,$column,$transactionType){
                     
     
     
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
-                    $row['certificateFile'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['certificateFile']);
+                  //  $row['certificateFile'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
-                    $row['bannerImage'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['bannerImage']);
+                  //  $row['bannerImage'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
-                    $row['paymentFile'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['paymentFile']);
+                  //  $row['paymentFile'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
-                    $row['RequestorPhoto'] = $file;
+                   // $file = 'data:image/image/png;base64,'.base64_encode($row['RequestorPhoto']);
+                  //  $row['RequestorPhoto'] = $file;
 
-                    $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
-                    $row['ResponderPhoto'] = $file;
+                  //  $file = 'data:image/image/png;base64,'.base64_encode($row['ResponderPhoto']);
+                  //  $row['ResponderPhoto'] = $file;
 
                                         
-                    $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
-                    $row['contractAgreement'] = $file;
+                   // $file = 'data:application/pdf;base64,'.base64_encode($row['contractAgreement']);
+                   // $row['contractAgreement'] = $file;
 
                     $data[] = $row;
                     
@@ -3941,6 +3786,36 @@ public function getServicesBannerImage($ServiceCategory,$ServicePosition){
   
 }
 
+public function getServicesCategoryBannerImage($ServiceCategory){
+    $tablename = "servicesinfo";
+    $ServiceCategory = mysqli_real_escape_string($this->dbconnection, $ServiceCategory);
+
+    $query = "SELECT bannerImage FROM $tablename WHERE serviceCategory = '$ServiceCategory'";
+  
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+   
+  
+
+
+    if($resultCheck > 0){
+       
+
+            $row = mysqli_fetch_array($result);
+            $data = $row['bannerImage'];
+                
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
 
 
 // get user reviews 
@@ -3971,12 +3846,12 @@ public function getUserReviews($userID){
                 
 
                 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['reviewerUserPhoto']);
-                $row['reviewerUserPhoto'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['reviewerUserPhoto']);
+               // $row['reviewerUserPhoto'] = $file;
                 
 
-                $file = 'data:image/image/png;base64,'.base64_encode($row['revieweeUserPhoto']);
-                $row['revieweeUserPhoto'] = $file;
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['revieweeUserPhoto']);
+               // $row['revieweeUserPhoto'] = $file;
 
                 $data[] = $row;
                 
@@ -4274,9 +4149,10 @@ public function registerPasabuyTransaction($productID,$serviceID,$requestorID,$r
 
         $query = "INSERT INTO $tablename() VALUES ($pasabuyTransactionID,$productID,$serviceID,$requestorID,$responderID,$price,$quantity,'$orderDate','$orderStatus','$paymentFile','$transactionStartDate','$transactionEndDate',$totalPrice,'$dueDate')";
    
-        echo mysqli_error($this->dbconnection);
+     
 
         $result = mysqli_query($this->dbconnection, $query);
+        echo mysqli_error($this->dbconnection);
 
     //return mysqli_query($this->dbconnection, $query);
     return $result;

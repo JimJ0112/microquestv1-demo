@@ -236,11 +236,26 @@ function setMessagesData(array){
        
         }
 
+        /*
+
         base64String = dataArray[i]['messageFile'];
 
         var stringLength = base64String.length - 'data:image/png;base64,'.length;
 
         if(stringLength> 1000){
+            var image = new Image();
+            image.src= dataArray[i]['messageFile'];
+            image.setAttribute("class","conversationMessageImage");
+            image.setAttribute("onclick","viewImage('" + dataArray[i]['messageFile'] + "')");
+            div[i].appendChild(image); 
+         
+            //console.log(stringLength);
+
+        }
+
+        */
+
+        if(dataArray[i]['messageFile'] != ""){
             var image = new Image();
             image.src= dataArray[i]['messageFile'];
             image.setAttribute("class","conversationMessageImage");

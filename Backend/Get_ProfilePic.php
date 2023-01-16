@@ -8,7 +8,7 @@ $DBHandler = new DBHandler();
 $tablename = "userprofile";
 $column = "userID";
 $condition = $_POST['userID'];
-//$condition = 11;
+//$condition = 59;
 $name = "userPhoto";
 //getProfilePic($tablename,$column,$condition,$name)
 //getUserRow($tablename,$column,$condition)

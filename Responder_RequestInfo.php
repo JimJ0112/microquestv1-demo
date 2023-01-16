@@ -27,7 +27,7 @@ session_start();
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     
-    <script type="text/javascript" src="html2canvas.js"></script> 
+    <!--<script type="text/javascript" src="html2canvas.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 
 
@@ -42,8 +42,8 @@ session_start();
 
             $requestID = $_GET['requestID'];
 
-            echo "<script> getRequest($requestID);
-            sessionStorage.setItem('requestID','$requestID') </script>";
+           // echo "<script> getRequest($requestID);
+           // sessionStorage.setItem('requestID','$requestID') </script>";
         }
     ?>
 
@@ -98,32 +98,7 @@ session_start();
 
 </div>
 
-<!--
-<div id="formBackground"> 
-    
-    <div id="AreYouSureDialog">
-        <center>
-        <h3> Are you sure you want to apply to this request?</h3> 
-        <input type="Button" value="Yes" onclick="acceptApplyForm()"/>
-        <input type="Button" value="No" onclick="cancelApplyForm()"/>
-        </center>
-    </div>
 
-
-    <form action="Backend/RegisterRequestApplicationTransaction.php" method="post" id="requestApplicationForm">
-        <input type="hidden" name="formType" value="requestApplication"/> 
-        <input type="hidden" name="requestID" value="<?php //echo $requestID ?>"/>
-        <input type="hidden" name="requestorID" id="requestorID"/>
-        <input type="hidden" name="responderID" value="<?php //echo $_SESSION['userID']?>"/>
-        <input type="hidden" name="price" id="price"/>
-        <input type="hidden" name="transactionStartDate" value="<?php 
-           // date_default_timezone_set("Asia/Manila");
-            //echo date("Y-m-d H:i:s",time());?>"/>
-        <input type="hidden" name="requestDueDate" id="requestDueDate"/>
-        <input type="hidden" name="contract" id="contractInput"/>;
-    </form>
-</div>
--->
 
 
 
@@ -342,8 +317,17 @@ session_start();
 	require_once("imports/footer.php"); 
 ?>
 
+<?php
+        if(isset($_GET['requestID'])){
 
+            $requestID = $_GET['requestID'];
 
+            echo "<script> getRequest($requestID);
+            sessionStorage.setItem('requestID','$requestID') </script>";
+        }
+?>
+
+<script src="js/Responder_RequestInfo.js"> </script>
 <link rel="stylesheet" type="text/css" href="css/footer.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 

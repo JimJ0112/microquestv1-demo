@@ -786,3 +786,333 @@ function setData(array){
         specializations.add(option);
     }
 }
+
+function listBaranggay(){
+
+   
+
+    baranggay = document.getElementById('baranggay');
+    Municipality = document.getElementById('Municipality');
+    console.log(Municipality.value);
+
+    if(Municipality.value === "Abucay"){
+
+        var barangaysList = [
+            "Bangkal", 
+            "Calaylayan", 
+            "Capitangan",
+            "Gabon", 
+            "Laon",
+            "Mabatang", 
+            "Omboy", 
+            "Salian",
+            "Wawa" ];
+
+            addBarangays(barangaysList);
+            console.log(Municipality.value);
+
+    } else if (Municipality.value === "Bagac"){
+        var barangaysList  = [
+            "Atilano L. Ricardo", 
+            "Bagumbayan", 
+            "Banawang", 
+            "Binuangan", 
+            "Binukawan", 
+            "Ibaba", 
+            "Ibis", 
+            "Pag-asa", 
+            "Parang", 
+            "Paysawan", 
+            "Quinawan", 
+            "San Antonio", 
+            "Saysain", 
+            "Tabing-Ilog" ];
+            addBarangays(barangaysList);
+        console.log(Municipality.value);
+
+    }else if (Municipality.value === "Balanga"){
+        var barangaysList  = [
+            "Bagong Silang", 
+            "Bagumbayan", 
+            "Cabog-Cabog", 
+            "Camacho", 
+            "Cataning", 
+            "Central", 
+            "Cupang North", 
+            "Cupang Proper", 
+            "Cupang West", 
+            "Dangcol", 
+            "Doña Francisca", 
+            "Ibayo", 
+            "Lote", 
+            "Malabia", 
+            "Munting Batangas", 
+            "Poblacion", 
+            "Pto. Rivas Ibaba", 
+            "Pto. Rivas Itaas", 
+            "San Jose", 
+            "Sibacan", 
+            "Talisay", 
+            "Tanato", 
+            "Tenejero", 
+            "Tortugas", 
+            "Tuyo" ];
+            addBarangays(barangaysList);
+    }else if (Municipality.value === "Dinalupihan"){
+
+        var barangaysList  = [
+            "Daang Bago", 
+            "Dalao",
+            "Del Pilar", 
+            "Gen. Luna",
+            "Gomez", 
+            "Happy Valley", 
+            "Jose C. Payumo, Jr.", 
+            "Kataasan",
+            "Layac", 
+            "Luacan", 
+            "Mabini Ext.", 
+            "Mabini Proper", 
+            "Magsaysay", 
+            "Maligaya", 
+            "Naparing", 
+            "New San Jose", 
+            "Old San Jose", 
+            "Padre Dandan", 
+            "Pag-asa", 
+            "Pagalanggang", 
+            "Payangan", 
+            "Pentor", 
+            "Pinulot", 
+            "Pita", 
+            "Rizal", 
+            "Roosevelt", 
+            "Roxas", 
+            "Saguing", 
+            "San Benito", 
+            "San Isidro", 
+            "San Pablo", 
+            "San Ramon", 
+            "San Simon", 
+            "Santa Isabel",
+            "Santo Niño", 
+            "Sapang Balas", 
+            "Torres Bugauen", 
+            "Tubo-tubo", 
+            "Tucop", 
+            "Zamora" ];
+            addBarangays(barangaysList);
+    }else if (Municipality.value === "Hermosa"){
+
+        var barangaysList  = [
+           "A. Rivera",
+           "Almacen", 
+           "Bacong", 
+           "Balsic", 
+           "Bamban", 
+           "Burgos-Soliman", 
+           "Cataning", 
+           "Culis", 
+           "Daungan", 
+           "Judge Roman Cruz Sr.", 
+           "Mabiga", 
+           "Mabuco", 
+           "Maite", 
+           "Mambog-Mandama", 
+           "Palihan", 
+           "Pandatung", 
+           "Pulo", 
+           "Saba", 
+           "Sacrifice Valley", 
+           "San Pedro", 
+           "Santo Cristo", 
+           "Sumalo", 
+           "Tipo" ];
+           addBarangays(barangaysList);
+    }else if (Municipality.value === "Limay"){
+        var barangaysList  = [
+            "Alangan", 
+            "Duale", 
+            "Kitang 2 & Luz", 
+            "Kitang I", 
+            "Lamao", 
+            "Landing", 
+            "Poblacion", 
+            "Reformista", 
+            "Saint Francis II", 
+            "San Francisco de Asis", 
+            "Townsite", 
+            "Wawa"];
+            addBarangays(barangaysList);
+    }else if (Municipality.value === "Mariveles"){
+        var barangaysList  = [
+            "Alas-asin", 
+            "Alion", 
+            "Balon-Anito",
+            "Baseco Country", 
+            "Batangas II", 
+            "Biaan", 
+            "Cabcaben", 
+            "Camaya", 
+            "Ipag", 
+            "Lucanin", 
+            "Malaya", 
+            "Maligaya", 
+            "Mt. View", 
+            "Poblacion",
+            "San Carlos",
+            "San Isidro",
+            "Sisiman",
+            "Townsite"];
+            addBarangays(barangaysList);
+    }else if (Municipality.value === "Morong"){
+
+        var barangaysList  = [
+            "Binaritan", 
+            "Mabayo", 
+            "Nagbalayong",
+            "Poblacion", 
+            "Sabang"];
+            addBarangays(barangaysList);
+
+    }else if (Municipality.value === "Orani"){
+        var barangaysList  = [
+            "Apollo",
+            "Bagong Paraiso", 
+            "Balut", 
+            "Bayan", 
+            "Calero", 
+            "Centro I", 
+            "Centro II", 
+            "Dona", 
+            "Kabalutan", 
+            "Kaparangan", 
+            "Maria Fe", 
+            "Masantol", 
+            "Mulawin", 
+            "Pag-asa", 
+            "Paking-Carbonero", 
+            "Palihan", 
+            "Pantalan Bago", 
+            "Pantalan Luma", 
+            "Parang Parang", 
+            "Puksuan", 
+            "Sibul", 
+            "Silahis", 
+            "Tagumpay", 
+            "Tala", 
+            "Talimundoc", 
+            "Tapulao", 
+            "Tenejero", 
+            "Tugatog", 
+            "Wawa"
+            ];
+            addBarangays(barangaysList);
+    }else if (Municipality.value === "Orion"){
+        var barangaysList  = [
+            "Arellano",
+            "Bagumbayan", 
+            "Balagtas", 
+            "Balut", 
+            "Bantan", 
+            "Bilolo", 
+            "Calungusan", 
+            "Camachile", 
+            "Daang Bago", 
+            "Daang Bilolo", 
+            "Daang Pare", 
+            "General Lim", 
+            "Kapunitan", 
+            "Lati", 
+            "Lusungan", 
+            "Puting Buhangin", 
+            "Sabatan", 
+            "San Vicente", 
+            "Santa Elena", 
+            "Santo Domingo", 
+            "Villa Angeles", 
+            "Wakas", 
+            "Wawa"
+            ];
+            addBarangays(barangaysList);
+
+    }else if (Municipality.value === "Pilar"){
+
+        var barangaysList  = [
+            "Ala-uli", 
+            "Bagumbayan", 
+            "Balut I", 
+            "Balut II", 
+            "Bantan Munti", 
+            "Burgos", 
+            "Del Rosario", 
+            "Diwa", 
+            "Landing", 
+            "Liyang", 
+            "Nagwaling", 
+            "Panilao", 
+            "Pantingan", 
+            "Poblacion", 
+            "Rizal", 
+            "Santa Rosa", 
+            "Wakas North", 
+            "Wakas South",
+            "Wawa" 
+            ];
+            addBarangays(barangaysList);
+
+    }else if (Municipality.value === "Samal"){
+        var barangaysList  = [
+            "East Calaguiman",
+            "East Daang Bago", 
+            "Gugo", 
+            "Ibaba",
+            "Imelda", 
+            "Lalawigan", 
+            "Palili", 
+            "San Juan", 
+            "San Roque",
+            "Santa Lucia", 
+            "Sapa",
+            "Tabing Ilog",
+            "West Calaguiman",
+            "West Daang Bago"
+            ];
+
+            addBarangays(barangaysList);
+
+    } else{
+
+        var option = new Option;
+        option.innerText = "Please select a municipality Before selecting a barangay";
+        option.disabled = true;
+        baranggay.add(option);
+    }
+
+}
+
+
+// set options to dropdown  
+function addBarangays(array){
+
+    var dataArray = array;
+    var number = dataArray.length;
+
+    document.getElementById('baranggay').innerHTML = "";
+    baranggay = document.getElementById('baranggay');
+
+    for(var i = 0; i<number;i++){
+        
+        //serviceCard[i].innerText = dataArray[i];
+        //serviceCard[i].setAttribute("onclick","setCategory('" + dataArray[i] + "')");
+        var option = new Option;
+        option.innerText = dataArray[i];
+        option.value = dataArray[i];
+        baranggay.add(option);
+
+    }
+
+
+
+    
+}

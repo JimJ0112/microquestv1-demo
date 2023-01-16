@@ -7,7 +7,9 @@ $DBHandler = new DBHandler();
 
 //$transactionID = 153;
 
-$transactionID = $_POST['transactionID'];
+//$transactionID = $_POST['transactionID'];
+$transactionID = 178;
+
 $results= $DBHandler->getContract($transactionID);
 
 

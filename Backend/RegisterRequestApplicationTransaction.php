@@ -3,6 +3,7 @@ session_start();
 include "../Classes/DBHandler.php";
 
 $DBHandler = new DBHandler();
+$mySpecialization = $_SESSION["specialization"];
 
 
 //	transactionID	requestID	serviceID	requestorID	responderID	price	transactionStatus	transactionStartDate	transactionEndDate	
@@ -38,24 +39,43 @@ list(, $contract)= explode(',', $contract);
  } else if($specializationExists === false){
     echo "<script> window.location.href='../Responder_RequestBoard.php?msg=You can't apply to this request because you don't have this specialization, please add this request's category to your specializations' </script>";
 
- }else if($transactionExists === true && $specializationExists === false){
+ }else if($transactionExists === true && $specializationExists === false && $mySpecialization != $category){
    echo "<script> window.location.href='../Responder_RequestBoard.php?msg=You can't apply to this request because you don't have this specialization, please add this request's category to your specializations' </script>";
 
 } else{
 
     //echo $requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate;
-    $result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate,$contract);
+   
+    $latestIDQuery = "SELECT MAX(transactionID) FROM transactions";
+    $latestID = $DBHandler->runGET($latestIDQuery);
+    $latestID = (int)$latestID['MAX(transactionID)'] + 1;
+
+      /* making directory to store the files for user */
+     $Directory = 'userFiles/contracts/';
+
+     if(is_dir("../".$Directory)==false){
+         echo mkdir("../".$Directory);
+     } else {
+         echo"Directory Already Exists!";
+     }
+
+           $contractDirectory = $Directory."/ContractRequest".$latestID.$requestID.$responderID.$requestorID.'.pdf';
+           file_put_contents('../'.$contractDirectory, $contract);
+   
+   
+   
+    $result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate,$contractDirectory);
     echo $result;
 
     //header("location:../Responder_RequestTransactions.php");
-    echo "<script> window.location.href='../Responder_RequestTransactions.php' </script>";
+   // echo "<script> window.location.href='../Responder_RequestTransactions.php' </script>";
  }
 
     //echo $requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate;
    // $result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate,$contract);
    // echo $result;
 
-   //echo "<script> window.location.href='../Responder_RequestTransactions.php' </script>";
+   echo "<script> window.location.href='../Responder_RequestTransactions.php' </script>";
  
 
 

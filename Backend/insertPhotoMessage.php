@@ -43,7 +43,27 @@ if($senderID != $recieverID){
         }
     
 
-        $result = $DBHandler->sendPhotoMessage($senderID,$recieverID,$messageBody,$messageDate,$messageTime,$firstChat,$senderUserName,$recieverUserName,$messageFileType,$messageImageFile);
+        $latestIDQuery = "SELECT MAX(messageID) FROM messages";
+        $latestID = $DBHandler->runGET($latestIDQuery);
+        $latestID = (int)$latestID['MAX(messageID)'] + 1;
+
+            /* making directory to store the files for user */
+            $Directory = 'userFiles/messagesPictures/';
+
+                if(is_dir("../".$Directory)==false){
+                    echo mkdir("../".$Directory);
+                } else {
+                    echo"Directory Already Exists!";
+                }
+
+ 
+
+                $MessagePicDirectory = $Directory."/IMG_".$latestID.$senderUserName.$recieverUserName.'.png';
+                file_put_contents('../'.$MessagePicDirectory, $messageImageFile);
+
+            
+
+        $result = $DBHandler->sendPhotoMessage($senderID,$recieverID,$messageBody,$messageDate,$messageTime,$firstChat,$senderUserName,$recieverUserName,$messageFileType,$MessagePicDirectory);
  
         $DBHandler-> updateConversation($senderID,$recieverID,"Photo",$messageDate);
 

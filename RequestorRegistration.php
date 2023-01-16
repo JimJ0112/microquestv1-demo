@@ -151,7 +151,10 @@
 						<div class="inputItem3"> 
 						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Municipality:</div> 
 							
-								<select name="municipality" class="Registration-TextBox" id="Municipality" oninput="checkInputs_GeneralInfo()" Required> 
+								<select name="municipality" class="Registration-TextBox" id="Municipality" oninput="checkInputs_GeneralInfo()" onchange="listBaranggay()" Required> 
+
+
+									
 									<option selected="" disabled="">Select City / Municipality</option>
                      				<option value="Abucay">Abucay</option>
                      				<option value="Bagac">Bagac</option>
@@ -166,6 +169,13 @@
                      				<option value="Pilar">Pilar</option>
                      				<option value="Samal">Samal</option>
 								</select>
+
+						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Barangay: </div>
+							
+							<!--<input type="text" name="baranggay" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()" Required>-->
+							<select name="baranggay" class="Registration-TextBox" id="baranggay" oninput="checkInputs_GeneralInfo()" Required> 
+								
+							</select>
 						
 						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>House No: </div>
 							
@@ -175,9 +185,7 @@
 							
 							<input type="text" name="street" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()" Required> 
 						
-						<div class="textBox"><span class="asteriskRequiredField" title="This Field is Required"> * </span>Barangay: </div>
-							
-							<input type="text" name="baranggay" class="Registration-TextBox" id="Address" oninput="checkInputs_GeneralInfo()" Required> 
+
 						</div> 
 
 					

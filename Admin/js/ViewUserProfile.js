@@ -151,7 +151,7 @@ function setData(dataArray){
   
 
   var image = new Image();
-  image.src = dataArray[0]["userPhoto"];
+  image.src = "../" + dataArray[0]["userPhoto"];
   image.setAttribute("class","userProfileUserPhoto");
   userImageContainer.appendChild(image);
 

@@ -206,14 +206,17 @@ session_start();
 					    <td>Full Name</td>
                          <td class="userFullName"></td>
                     </tr>
+                    <!--
                     <tr class="userInfoTR">
 					    <td>Age</td>
                         <td class="userAge">  </td>
                     </tr>
+                    
                     <tr class="userInfoTR">
 					    <td>Birthday</td>
                         <td class="userDob">  </td>
                     </tr>
+                    -->
                     <tr class="userInfoTR">
 					    <td id="SpecializationTD">Spcialization</td>
                         <td class="userSpecialization">  </td>

@@ -33,9 +33,31 @@ list(, $contract)= explode(',', $contract);
 
 $contract = base64_decode($contract);
 
+$latestIDQuery = "SELECT MAX(transactionID) FROM transactions";
+$latestID = $DBHandler->runGET($latestIDQuery);
+ $latestID = (int)$latestID[0] + 1;
+
+/* making directory to store the files for user */
+$Directory = 'userFiles/contracts/';
+
+    if(is_dir($Directory)==false){
+        echo mkdir("../".$Directory);
+    } else {
+        echo"Directory Already Exists!";
+    }
+
+           $contractDirectory = $Directory."/ContractService".$latestID.$formServiceID.$responderID.$requestorID.'.pdf';
+           file_put_contents('../'.$contractDirectory, $contract);
+
+
+           
+
+
+
+
 //echo $contract;
 
-$result = $DBHandler->registerServiceTransaction($formServiceID,$responderID,$requestorID,$servicePrice,$dueDate,$responderTimeSlots,$additionalNotes,$transactionStartDate,$contract);
+$result = $DBHandler->registerServiceTransaction($formServiceID,$responderID,$requestorID,$servicePrice,$dueDate,$responderTimeSlots,$additionalNotes,$transactionStartDate,$contractDirectory);
 echo $result;
 
 header("location:../Requestor_ServiceTransactions.php");

@@ -17,19 +17,33 @@ echo $reportDescription = $_POST["reportDescription"];
 
 if(is_uploaded_file($_FILES["reportProof"]["tmp_name"])){
     $reportProof = file_get_contents($_FILES["reportProof"]["tmp_name"]);
+
+    $Directory = 'userFiles/reportEvidences/';
+
+    if(is_dir("../".$Directory)==false){
+        echo mkdir("../".$Directory);
+    } else {
+        echo"Directory Already Exists!";
+    }
+
+    $reportEvidenceDirectory = $Directory."/Report".$transactionReportID.$ReportedAccountID.$ReporterAccountID.'.png';
+    file_put_contents('../'.$reportEvidenceDirectory, $reportProof);
+
 }else{
-    $reportProof = "";
+    $reportEvidenceDirectory = "";
 }
 
 if($transactionType === "service"){
     echo $serviceID = $transactionReportID;
     echo $requestID = null;
-    echo $result = $DBHandler->registerReportService($ReportedAccountID,$ReporterAccountID,$reportType,$reportDescription,$reportProof,$serviceID,null,$reportDate);
+
+
+    echo $result = $DBHandler->registerReportService($ReportedAccountID,$ReporterAccountID,$reportType,$reportDescription,$reportEvidenceDirectory,$serviceID,null,$reportDate);
 
 } else if($transactionType === "request"){
     echo $serviceID = null;
     echo $requestID = $transactionReportID;
-    echo $result = $DBHandler->registerReportRequest($ReportedAccountID,$ReporterAccountID,$reportType,$reportDescription,$reportProof,null,$requestID,$reportDate);
+    echo $result = $DBHandler->registerReportRequest($ReportedAccountID,$ReporterAccountID,$reportType,$reportDescription,$reportEvidenceDirectory,null,$requestID,$reportDate);
 }
 
 
