@@ -75,8 +75,8 @@ list(, $contract)= explode(',', $contract);
    // $result = $DBHandler->registerRequestTransaction($requestID,$responderID,$requestorID,$price,$transactionStartDate,$requestDueDate,$contract);
    // echo $result;
 
-   echo "<script> window.location.href='../Responder_RequestTransactions.php' </script>";
- 
+   //echo "<script> window.location.href='../Responder_RequestTransactions.php' </script>";
+   header("location:../Responder_RequestTransactions.php");
 
 
 

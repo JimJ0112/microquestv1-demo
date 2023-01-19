@@ -197,10 +197,13 @@ session_start();
         <div id="aboutContainer">
             <div id="aboutContainer-Content">
                 <table class="userInfoTable">
+
+                <!--
                     <tr class="userInfoTR">
                         <td>Email</td>
                         <td class="userEmail">  </td>
                     </tr>
+                    -->
                    
                     <tr class="userInfoTR">
 					    <td>Full Name</td>

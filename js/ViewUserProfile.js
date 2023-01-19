@@ -174,7 +174,7 @@ function setData(dataArray){
 
   // class
 
-  userEmail = document.getElementsByClassName("userEmail")[0];
+ // userEmail = document.getElementsByClassName("userEmail")[0];
   userFullName= document.getElementsByClassName("userFullName")[0];
   //userAge= document.getElementsByClassName("userAge")[0];
   //userDob= document.getElementsByClassName("userDob")[0];
@@ -183,7 +183,7 @@ function setData(dataArray){
   userLocation = document.getElementsByClassName('userLocation')[0];
 
 
-  userEmail.innerText = dataArray[0]["userEmail"];
+ // userEmail.innerText = dataArray[0]["userEmail"];
   userFullName.innerText = dataArray[0]["firstName"] + " " +dataArray[0]["lastName"]  ;
  // userAge.innerText = dataArray[0]["userName"];
   //userDob.innerText = dataArray[0]["birthDate"];
