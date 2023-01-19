@@ -10,9 +10,9 @@ body{
 	display: grid;
 	overflow: hidden;
 	top:0;
-	background-color: orangered;
+	background-color: #1491ea;
 	z-index: 18;
-	box-shadow: 0px -8px 11px 0px orange inset;
+	box-shadow: 0px -8px 11px 0px #64c8fa inset;
 }
 
 #NavBar{
@@ -93,7 +93,7 @@ body{
 
 #navMenu{
 	position: absolute;
-	background-color: rgb(255 69 0);
+	background-color: #1491ea;
 	right: 50px;
 	top:115px;
 	width: 230px;
@@ -113,7 +113,7 @@ body{
 }
 
 .NavMenu-item:hover{
-	background-color: rgb(255 154 0);
+	background-color: #3a4b9a;
 }
 
 #userInfoNav{
