@@ -40,12 +40,12 @@
 }
 
 #RequestBoardContainer{
-	position: absolute;
+	/* position: absolute; */
 	width: 100%;
 	height: 100%;
 	margin-top: 6%;
 	/* margin-left: 5px; */
-	background-color: rgb(243, 240, 240);
+	/* background-color: rgb(243, 240, 240); */
 }
 
 #RequestBoardTitle{
@@ -344,12 +344,11 @@ display: none;
 
 #Requestor_RequestBoardBackground{
 	/* background-image: url("../img/3490.png"); */
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: repeat;
+	/* background-position: center; */
+	/* background-size: cover; */
+	/* background-attachment: fixed; */
+	/* background-repeat: repeat; */
 	background-origin: border-box;
-
 }
 
 .UpdateButton{	
@@ -788,7 +787,7 @@ display: none;
     width: 250px;
     height: 400px;
     /* margin: auto; */
-    background-color: rgb(225, 223, 223);
+    /* background-color: rgb(225, 223, 223); */
     margin: 80px 0px 0px 20px;
     overflow: hidden;
     display: grid;
@@ -809,7 +808,7 @@ display: none;
 
 .grid-container {
     display: grid;
-    background-color: #2196F3;
+    /* background-color: #2196F3; */
     padding: 10px;
     grid-template-rows: 20px 10px 10px 10px 10px;
     row-gap: 30px;
@@ -838,7 +837,7 @@ display: none;
 	/* height: 100%; */
 	cursor: pointer;
 	width: 100%;
-	color: #ff9600;
+	color: #1491ea;
 }
 
 button#hideMenu {

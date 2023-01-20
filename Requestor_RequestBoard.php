@@ -294,7 +294,7 @@ session_start();
 	</div>
 
 </div>
-
+	</div>
 <?php
     if(isset($_SESSION['userID'])){
         $userID = $_SESSION['userID'];

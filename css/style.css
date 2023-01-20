@@ -38,9 +38,10 @@ body{
 	zoom: 75%;
 	display: grid;
 	background-color: white;
-	background-size: cover;
-	background-position: center;
+	background-size: contain;
+	/* background-position: center; */
 	background-attachment: fixed;
+	background-repeat: round;
 	background-image: url(../img/asd.jpg);
 }
 
@@ -56,7 +57,6 @@ body{
 
 a{
 	text-decoration: none;
-
 }
 
 /* For sliders */
@@ -199,6 +199,9 @@ div#closeButton {
 ul{
 	text-decoration: none;
 	list-style-type: none;
+	/* margin: auto; */
+	padding: auto;
+	padding-inline-start: 0;
 }
 
 
