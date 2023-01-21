@@ -28,6 +28,12 @@ if($exists){
     
        
        
+        if(isset($_POST["middleName"])){
+            $middlename = $_POST["middleName"];
+        } else{
+            $middlename = " ";
+
+        }
 
         $userName = $_POST['userName'];
         $userPassword = $_POST['userPassword'];
@@ -104,7 +110,7 @@ if($exists){
                 file_put_contents('../'.$ProfilePicDirectory, $userPhoto);
                 
 
-            echo $result = $DBHandler->registerUser($userType,$userName, $userEmail,$hashedUserPassword,$ProfilePicDirectory,$firstName,$lastName,$userGender,$education,$birthDate,$houseNumber,$street,$baranggay,$municipality,$idType,$ID1directory,$idNumber,$idExpiration,$otherIDType,$otherIDFile,$otherIDNumber,$otheridExpiration,$idFileType,$specialization);
+            echo $result = $DBHandler->registerUser($userType,$userName,$userEmail,$hashedUserPassword,$ProfilePicDirectory,$firstName,$lastName,$userGender,$education,$birthDate,$houseNumber,$street,$baranggay,$municipality,$idType,$ID1directory,$idNumber,$idExpiration,$otherIDType,$otherIDFile,$otherIDNumber,$otheridExpiration,$idFileType,$middlename,$specialization);
 
             if($userType === "Responder"){
                 

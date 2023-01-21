@@ -153,6 +153,7 @@ public function runInsert($query){
 
 
 // for registration
+/*
 public function registerUser($userType,	$userName, $userEmail,$userPassword,$userPhoto,$firstName,$lastName,$userGender,$education,$birthDate,$houseNo,$street,$baranggay,$municipality,$idType,$idFile,$idNumber,$idExpiration,$otherIDType,$otherIDFile,$otherIDNumber,$otheridExpiration,$idFileType,$specialization = null){
 
     $tablename = "userprofile";
@@ -187,6 +188,51 @@ public function registerUser($userType,	$userName, $userEmail,$userPassword,$use
         $query = "INSERT INTO $tablename() VALUES ($userID, '$userType','$userStatus','$userName', '$userEmail','$userPassword','$userPhoto','$firstName','$lastName','$userGender','$education','$birthDate','$houseNo','$street','$baranggay','$municipality','$idType','$idFile','$idNumber','$idExpiration','$otherIDType','$otherIDFile','$otherIDNumber','$otheridExpiration','$idFileType','$specialization')";
     } else{
         $query = "INSERT INTO $tablename() VALUES ($userID, '$userType','$userStatus','$userName', '$userEmail','$userPassword','$userPhoto','$firstName','$lastName','$userGender','$education','$birthDate','$houseNo','$street','$baranggay','$municipality','$idType','$idFile','$idNumber','$idExpiration','$otherIDType','$otherIDFile','$otherIDNumber','$otheridExpiration','$idFileType')";
+    }
+	
+
+   
+    return mysqli_query($this->dbconnection, $query);
+
+}
+*/
+
+public function registerUser($userType,	$userName, $userEmail,$userPassword,$userPhoto,$firstName,$lastName,$userGender,$education,$birthDate,$houseNo,$street,$baranggay,$municipality,$idType,$idFile,$idNumber,$idExpiration,$otherIDType,$otherIDFile,$otherIDNumber,$otheridExpiration,$idFileType,$middlename,$specialization = null){
+
+    $tablename = "userprofile";
+    $userID = 0;
+    $userStatus = 'not verified';
+    $userType  = mysqli_real_escape_string($this->dbconnection, $userType);
+    $userName  = mysqli_real_escape_string($this->dbconnection, $userName);
+    $userEmail = mysqli_real_escape_string($this->dbconnection, $userEmail);
+    $userPassword = mysqli_real_escape_string($this->dbconnection, $userPassword);
+    $userPhoto = mysqli_real_escape_string($this->dbconnection, $userPhoto);
+    $firstName = mysqli_real_escape_string($this->dbconnection, $firstName);
+    $lastName  = mysqli_real_escape_string($this->dbconnection, $lastName );
+    $userGender= mysqli_real_escape_string($this->dbconnection, $userGender);
+    $education = mysqli_real_escape_string($this->dbconnection, $education);
+    $birthDate = mysqli_real_escape_string($this->dbconnection, $birthDate);
+    $houseNo   = mysqli_real_escape_string($this->dbconnection, $houseNo);
+    $street    = mysqli_real_escape_string($this->dbconnection, $street);
+    $baranggay = mysqli_real_escape_string($this->dbconnection, $baranggay);
+    $municipality = mysqli_real_escape_string($this->dbconnection, $municipality);
+    $idType    = mysqli_real_escape_string($this->dbconnection, $idType);
+    $idFile    = mysqli_real_escape_string($this->dbconnection, $idFile);
+    $idNumber  = mysqli_real_escape_string($this->dbconnection, $idNumber);
+    $idExpiration = mysqli_real_escape_string($this->dbconnection, $idExpiration);
+    $otherIDType = mysqli_real_escape_string($this->dbconnection, $otherIDType);
+    $otherIDFile = mysqli_real_escape_string($this->dbconnection, $otherIDFile);
+    $otherIDNumber = mysqli_real_escape_string($this->dbconnection, $otherIDNumber);
+    $otheridExpiration = mysqli_real_escape_string($this->dbconnection, $otheridExpiration);
+    $idFileType = mysqli_real_escape_string($this->dbconnection, $idFileType);
+    $middlename = mysqli_real_escape_string($this->dbconnection, $middlename);
+    $userDescription = "";
+
+    if(isset($specialization)){
+    
+        $query = "INSERT INTO $tablename() VALUES ($userID, '$userType','$userStatus','$userName', '$userEmail','$userPassword','$userPhoto','$firstName','$lastName','$userGender','$education','$birthDate','$houseNo','$street','$baranggay','$municipality','$idType','$idFile','$idNumber','$idExpiration','$otherIDType','$otherIDFile','$otherIDNumber','$otheridExpiration','$idFileType','$specialization','$middlename','$userDescription')";
+    } else{
+        $query = "INSERT INTO $tablename() VALUES ($userID, '$userType','$userStatus','$userName', '$userEmail','$userPassword','$userPhoto','$firstName','$lastName','$userGender','$education','$birthDate','$houseNo','$street','$baranggay','$municipality','$idType','$idFile','$idNumber','$idExpiration','$otherIDType','$otherIDFile','$otherIDNumber','$otheridExpiration','$idFileType','','$middlename','$userDescription')";
     }
 	
 

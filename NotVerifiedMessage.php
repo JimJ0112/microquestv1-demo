@@ -58,8 +58,26 @@ session_start();
 
 ?>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<center> <h1> Not yet verified </h1>  </center>
+<br><br><br><br><br><br>
+<center> 
+	<h1> Not yet verified yet..</h1>  
+	<p> 
+		We will send you an email notifying you of your registration's status. <br/>
+		When you recieve the email notification, please re-login your account to be able to access the system <br/>
+		Once your registration is approved, you will be able to access all the Microquest's features 
+
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		- Microquest Team
+	</p>
+
+
+
+
+</center>
 
 </body>
 </html>
