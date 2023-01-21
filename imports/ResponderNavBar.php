@@ -196,9 +196,9 @@
 				}
 				
 			?>
-		<a href="<?php echo $profileLink;?>"><li class="NavMenu-item" title="Log Out">View Profile  </li></a>
-		<a href="Policies.php"><li class="NavMenu-item" title="Log Out"> Policies  </li></a>
-		<a href="Backend/Logout.php"><li class="NavMenu-item" title="Log Out">Log out</li></a>
+		<div class="listDown"><a href="<?php echo $profileLink;?>"><li class="NavMenu-item" title="Log Out">View Profile  </li></a></div>
+		<div class="listDown"><a href="Policies.php"><li class="NavMenu-item" title="Log Out"> Policies  </li></a></div>
+		<div class="listDown"><a href="Backend/Logout.php"><li class="NavMenu-item" title="Log Out">Log out</li></a></div>
 
 		</ul>
 

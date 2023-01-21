@@ -33,7 +33,7 @@
 
 body{
 	/* background-image:url('../img/b.jpg'); */
-	background-position: center;
+	/* background-position: center; */
 	background-size: cover;
 }
 
@@ -65,6 +65,10 @@ z-index: 10;
 display: grid;
 	
 padding: auto;
+	
+min-height: 800px;
+	
+margin-top: 100px;
 }
 
 
@@ -88,7 +92,7 @@ text-align: center;
 	
 /* height: 80px; */
 	
-background-color: rgb(255 69 0);
+background-color: #3a4b9a;
 }
 
 #conversationsList{
@@ -170,14 +174,16 @@ background-color: rgb(255 69 0);
 	width: 100%;
 	height: 100%;
 	grid-area: Messages;
-	background-color: #a1a1a157;
+	/* background-color: #a1a1a157; */
 	position: relative;
 }
 
 #messagesContent{
 	position: absolute;
 	width: 100%;
-	display: none;
+	/* display: none; */
+	height: 100%;
+	/* display: table-header-group; */
 }
 
 #messagesContentEmpty{
@@ -216,7 +222,7 @@ background-color: rgb(255 69 0);
 	height: 40px;
 	width: 80px;
 	color: white;
-	background-color: orangered;
+	background-color: #3a4b9a;
 	border-radius: 5px;
 }
 #file{
@@ -227,13 +233,11 @@ background-color: rgb(255 69 0);
 #messagesConversation{
 	width: 100%;
 	min-height: 400px;
-	height:545px;
+	height: 80%;
 	background-color: white;
 	overflow:hidden;
 	overflow-y: scroll;
 	display: grid;
-	
-	
 }
 
 .messageContainer{
@@ -449,7 +453,7 @@ table#conversationSearchDiv {
 	#MessagesMainContainer{
 		margin-top:0;
 		width: 100%;
-		height: 660px;
+		height: 100%;
 	}
 	#messageBody{
 		width: 100%;

@@ -102,6 +102,9 @@ body{
 	display: none;
 }
 
+.listDown:hover{
+	background-color: #3a4b9a7d;
+}
 .NavMenu-item{
 	text-decoration: none;
 	list-style-type: none;
@@ -114,7 +117,7 @@ body{
 }
 
 .NavMenu-item:hover{
-	background-color: #3a4b9a;
+	/* background-color: #3a4b9a7d; */
 }
 
 #userInfoNav{
@@ -322,7 +325,7 @@ border-radius: 10px;
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 20;
-	background-color: rgb(255 69 0);
+	background-color: #1491ea;
 	border: 0.5px solid white;
 	}
 
@@ -349,7 +352,7 @@ border-radius: 10px;
   
   /* Add a grey background color to dropdown links on hover */
   .dropdown-content a:hover {
-	background-color: rgb(255 150 0);
+	background-color: #3a4b9a7d;
 	}
   
   /* Show the dropdown menu on hover */
@@ -434,14 +437,11 @@ border-radius: 10px;
 
 #MobileMenu{
 	width: 100%;
-	
 	height: fit-content;
-	background-color: orangered;
+	background-color: #1491ea;
 	display: none;
 	text-align: left;
 	text-align: center;
-	
-	
 }
 
 #MobileMenu-list{
@@ -473,7 +473,7 @@ border-radius: 10px;
 }
 
 .MobileMenu-listItem:hover{
-	background-color: orange;
+	background-color: #3a4b9a;
 }
 
 
@@ -504,9 +504,9 @@ border-radius: 10px;
 
   .selectedMobileNav{
 	width: 100%;
-	background-color: rgb(216, 104, 12);
+	background-color: #3a4b9a;
 	height: fit-content;
-  }
+	}
 
   #redDotOnNotificationMobile{
 	display: none;
@@ -563,7 +563,7 @@ border-radius: 10px;
 		width: 100%;
 		position: absolute;
 		top:0;
-		background-color: orangered;
+		background-color: #1491ea;
 		display: grid;
 		height: 8%;
 		z-index: 99;

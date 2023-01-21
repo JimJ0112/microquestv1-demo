@@ -183,7 +183,7 @@ div#closeButton {
     margin-left: 90%;
     font-size: xx-large;
     font-weight: bold;
-    background-color: white;
+    background-color: #eedbe1;
 }
 
 
@@ -234,8 +234,8 @@ button#hideMenu {
   /* For mobile phones: */
   button#sideMenu{
 	display: unset;
-}
-.sideMenu{
+	}
+	.sideMenu{
 	position: absolute;
 	left: 0;
 	top: 9%;
@@ -245,10 +245,15 @@ button#hideMenu {
 	margin-left: -5px;
 	transition: ease 1.5s;
 	z-index: 9;
+	}
+	button#hideMenu {display: unset;float: right;margin: auto;height: 100%;}
+
+	body{
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
 }
-button#hideMenu {display: unset;float: right;margin: auto;height: 100%;}
-  
-}
+
 
 #BodyBackgroundImg{
 	display:none;

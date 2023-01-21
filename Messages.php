@@ -79,7 +79,7 @@ if(isset($_SESSION["userName"])){
 <!-- main -->
 
 <div id="MessagesMainBack">
-<br/> <br/> <br/> 
+
 	
 	<div id="MessagesMainContainer">
 

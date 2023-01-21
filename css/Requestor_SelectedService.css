@@ -40,7 +40,7 @@
 }
 
 #Requestor_SelectedServiceMain{
-	background-color: white;
+	/* background-color: white; */
 	/* margin: auto; */
 	width: 100%;
 	/* min-height: 900px; */
@@ -286,7 +286,7 @@ text-align: center;
 #Responders .tableHead{
 	width: fit-content;
 	/* margin-left: 10%; */
-	color: orangered;
+	color: #3a4b9a;
 	font-size: x-large;
 	font-weight: bold;
 	margin: auto;
@@ -371,7 +371,7 @@ text-align: center;
 }
 
 .suggestedResponderPic{
-	background-color: #e5764c;
+	background-color: #3a4b9a;
 	display: grid;
 	padding: 5px;
 	border-radius: 20px 20px 0 0px;
@@ -453,7 +453,7 @@ border-bottom-right-radius: 20px;
 	
 border-bottom-left-radius: 20px;
 	
-background-color: #e5764c;
+background-color: #3a4b9a;
 }
 
 
@@ -518,7 +518,7 @@ margin: auto;
 }
 
 h3{
-	color: orangered;
+	color: #3a4b9a;
 	font-size: xx-large;
 	font-weight: bold;
 	text-align: center;
@@ -559,7 +559,7 @@ h3{
 	background-color: rgba(51, 49, 49, 0.299);
 	display: none;
 	width: 99%;
-	height: 210%;
+	height: 100%;
 	align-content: center;
 	background-color: white;
 	padding: 10px;
@@ -641,7 +641,7 @@ height: 20px;
 
 font-size: x-large;
 
-color: orangered;
+color: #3a4b9a;
 }
 
 .transactionSecondRow{
@@ -675,7 +675,7 @@ color: orangered;
 .confirmButton{
 	width: 90px;
 	height: 40px;
-	background-color: orangered;
+	background-color: #3a4b9a;
 	color: white;
 	border-radius: 5px;
 	cursor: pointer;
@@ -771,15 +771,17 @@ td.categories:hover {
 	
 	#Requestor_SelectedServiceMainControls{
 		
-		min-width: 200px;
+min-width: 200px;
 		
-		max-width: 375px;
+width: 100%;
 		
-		overflow: hidden;
+max-width: 375px;
 		
-		overflow-x: scroll;
-		  
-	
+overflow: hidden;
+		
+overflow-x: scroll;
+		
+display: none;
 	}
 	
 	
@@ -795,7 +797,7 @@ td.categories:hover {
 		margin: auto;
 		grid-template-columns: auto auto;
 		zoom: 60%;
-		height: 100%;
+		/* height: 100%; */
 		overflow-y: scroll;
 		row-gap: 0px;
 	}
@@ -816,7 +818,19 @@ td.categories:hover {
 	#AvailServiceForm{
 		width: 90%;
 		height: 70%;
-		zoom: 60%;
+		zoom: 80%;
+	}
+	#contractBackGround{
+		margin-top: 15%;
+	}
+	#contractDiv{
+		
+width: 80%;
+		
+zoom: 70%;
+	}
+	.contractNav{
+		zoom: 80%;
 	}
 	
 }

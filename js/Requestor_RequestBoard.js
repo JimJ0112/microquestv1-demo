@@ -130,7 +130,7 @@ function setData(array){
            // myRequestCard[i].setAttribute("onclick","viewRequest("+dataArray[i]['requestID']+")");
 
             if(dataArray[i]['requestStatus'] === "Delisted"){
-                requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small; color:orangered;'> " + dataArray[i]['requestStatus'] + "</span>";
+                requestCategory[i].innerHTML = "<b>"+requestCategory[i].innerText+" </b> <br/> <span style='font-size:small; color:#3a4b9a;'> " + dataArray[i]['requestStatus'] + "</span>";
                 myRequestCard[i].setAttribute("onclick","showAlert('The request that you are trying to edit has already been deleted')");
 
             }else if(dataArray[i]['requestStatus'] === "Completed"){
@@ -384,7 +384,7 @@ function clickedNavItem (number,userID){
 
 
 
-    TransactionsNavItems[number].style = "background-Color:orangered; color:white; ";
+    TransactionsNavItems[number].style = "background-Color:#3a4b9a; color:white; ";
 
     if(number === 0){
 

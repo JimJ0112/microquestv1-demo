@@ -91,7 +91,7 @@ input.Button {
 #ServicesContainer{
 	margin-top: 0;
 	margin: auto;
-	background-color: white;
+	/* background-color: white; */
 	width: 100%;
 	height: 100%;
 	/* border: 5px solid rgb(136, 75, 38); */
@@ -500,15 +500,25 @@ text-align: center;
 
 .productCard{
 
-	width: 80%;
-    height: 500px;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 1px 1px 10px black;
-    /*padding: 10px;*/
-    font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-    margin: auto;
-	cursor: pointer;
+width: 80%;
+
+height: 500px;
+
+border-radius: 10px 10px 10px 10px;
+
+box-shadow: 1px 1px 10px black;
+
+/*padding: 10px;*/
+
+font-family: Arial, Helvetica, sans-serif;
+
+position: relative;
+
+margin: auto;
+
+cursor: pointer;
+
+background-color: white;
 }
 
 .ProductImageDiv{
@@ -608,10 +618,11 @@ text-align: center;
 	width: fit-content;
 	height: fit-content;
 	margin:auto;
-	background-color: white;
+	background-color: #eedbe1;
 	text-align: center;
 	padding: 20px;
 	zoom: 150%;
+	border: solid 5px #3a4b9a;
 }
 
 #addToCartForm{
@@ -622,7 +633,7 @@ text-align: center;
 }
 
 .addminusButton{
-	background-color: rgb(255 69 0);
+	background-color: #1491ea;
 	padding: 10px;
 	width: 50px;
 	height: 50px;
@@ -658,7 +669,8 @@ text-align: center;
 }
 
 #pasabuyOrderForm{
-	background-color: white;
+	border: solid 5px #3a4b9a;
+	background-color: #eedbe1;
 	margin: auto;
 	align-content: center;
 	text-align: center;
@@ -680,7 +692,7 @@ text-align: center;
 	text-align: center;
 }
 .BuyButton {
-    background-color: orangered;
+    background-color: #3a4b9a;
     border: none;
     color: white;
     padding: 15px 30px;
@@ -696,7 +708,7 @@ text-align: center;
 button.addToCartButton {
     /* background-color: rgb(13 13 90); */
     border: none;
-    color: orangered;
+    color: #3a4b9a;
     padding: 15px;
     text-align: center;
     text-decoration: none;
@@ -724,6 +736,14 @@ button.addToCartButton {
 	#AvailableServicesContainer_Content{
 		grid-template-columns: 1fr 1fr ;
 	}
+	#pasabuyOrderForm{
+		zoom: 2;
+		
+	}
+	#addToCartFormDiv{
+		zoom: 3;
+	}
+	
 }
 
 .productImage{

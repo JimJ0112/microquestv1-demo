@@ -49,7 +49,7 @@
       					<i class="fa fa-caret-down"> ▼ </i>
     				</button>
     				<div class="dropdown-content">
-      					<a href="Requestor_ServiceTransactions.php">Service </a>
+      					<div clas="listDown"><a href="Requestor_ServiceTransactions.php">Service </a>
       					<a href="Requestor_RequestTransactions.php">Request </a>
       					<a href="Requestor_PasabuyTransactions.php">Pasabuy </a>
     				</div>
@@ -185,9 +185,9 @@
 				}
 				
 			?>
-		<a href="<?php echo $profileLink;?>"><li class="NavMenu-item" title="Log Out">View Profile  </li></a>
-		<a href="Policies.php"><li class="NavMenu-item" title="Log Out"> Policies  </li></a>
-		<a href="Backend/Logout.php"><li class="NavMenu-item" title="Log Out">Log out</li></a>
+		<div class="listDown"><a href="<?php echo $profileLink;?>"><li class="NavMenu-item" title="Log Out">View Profile  </li></a></div>
+		<div class="listDown"><a href="Policies.php"><li class="NavMenu-item" title="Log Out"> Policies  </li></a></div>
+		<div class="listDown"><a href="Backend/Logout.php"><li class="NavMenu-item" title="Log Out">Log out</li></a><div>
 
 		</ul>
 

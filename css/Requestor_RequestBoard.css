@@ -46,6 +46,7 @@
 	margin-top: 6%;
 	/* margin-left: 5px; */
 	/* background-color: rgb(243, 240, 240); */
+	min-height: 800px;
 }
 
 #RequestBoardTitle{
@@ -60,7 +61,7 @@
 	/* margin: auto; */
 	/* background-color: white; */
 	/* width: 100%; */
-	/* height: 100%; */
+	height: 100%;
 	/* overflow-y: scroll; */
 	/* border: 5px solid rgb(226 218 212); */
 	/* min-height: 1000px; */
@@ -196,7 +197,7 @@ display: none;
 	filter: invert(0.3);
 }
 
-#RequestsContainer-Content{display: grid;grid-template-columns: 1fr 1fr 1fr 1fr;padding: 20px 0 20px 0;/* align-content: center; *//* overflow: hidden; *//* grid-column-gap: 50px; */grid-row-gap: 50px;overflow-y: scroll;width: 80%;height: 800px;padding: 20px 20 0 2px;margin: 0 0 0 20%;background-color: #ffffff9e;/* z-index: 99; */}
+#RequestsContainer-Content{display: grid;grid-template-columns: 1fr 1fr 1fr 1fr;padding: 20px 0 20px 0;/* align-content: center; *//* overflow: hidden; *//* grid-column-gap: 50px; */grid-row-gap: 50px;/* overflow-y: scroll; */width: 80%;/* height: 800px; */padding: 20px 20 0 2px;margin: 0 0 0 20%;background-color: #ffffff9e;/* z-index: 99; */}
 
 .requestCard{
 	border: 5px solid rgb(63, 50, 48);
@@ -442,7 +443,7 @@ display: none;
 .UpdateControls-Button{
 	width: 90px;
 	margin: auto;
-	background-color: orangered;
+	background-color: #3a4b9a;
 	color: white;
 	padding: 5px;
 	border: none;
@@ -468,7 +469,7 @@ display: none;
 .ViewControls-Button{
 	width: 90px;
 	margin: auto;
-	background-color: orangered;
+	background-color: #3a4b9a;
 	color: white;
 	padding: 5px;
 	border: none;
@@ -668,9 +669,9 @@ display: none;
 
 #UpdateForm{
 	margin: auto;
-	background-color: white;
+	background-color: #eedbe1;
 	width: 40%;
-	height: 100%;
+	height: fit-content;
 	z-index: 10;
 	border: 1px solid rgb(63, 50, 48);
 	color: rgb(63, 50, 48);
@@ -680,12 +681,13 @@ display: none;
 	font-weight: light;
 	position: absolute;
 	left: 50%;
-	/* top: 5%; */
+	top: 5%;
 	transform: translate(-50%, 0);
 	display: none;
 	border-radius: 10px;
 	/* background-image: url("../img/coc-background.jpg"); */
 	background-size: cover;
+	border: solid 5px #3a4b9a;
 }
 
 
@@ -703,16 +705,16 @@ display: none;
 	font-weight: light;
 	/* position: absolute; */
 	/* left: 50%; */
-	/* top: 5%; */
+	top: 5%;
 	/* transform: translate(-50%, 0); */
 	/* display: none; */
 	/* border-radius: 10px; */
 	/* background-image: url("../img/coc-background.jpg"); */
 	/* background-size: cover; */
 	margin: auto;
-	background-color: white;
+	background-color: #eedbe1;
 	width: 40%;
-	height: 100%;
+	height: fit-content;
 	z-index: 10;
 	border: 1px solid rgb(63, 50, 48);
 	color: rgb(63, 50, 48);
@@ -728,6 +730,8 @@ display: none;
 	border-radius: 10px;
 	/* background-image: url(../img/coc-background.jpg); */
 	background-size: cover;
+	margin: auto;
+	border: solid #3a4b9a 5px;
 }
 
 
@@ -753,7 +757,7 @@ display: none;
 	width: 20%;
 	font-size: medium;
 	font-weight: bold;
-	color: orangered;
+	color: #3a4b9a;
 	border: none
 }
 
@@ -863,6 +867,18 @@ button#hideMenu {
 		margin: 110px 0 0 -270px;
 		zoom: 80%;
 		transition: 1.5s;
+	}
+	#ViewRequest-Form{
+		zoom: 80%;
+		width: 90%;
+		height: fit-content;
+		margin-top: 140px
+	}
+	#UpdateForm{
+		zoom: 80%;
+		width: 90%;
+		height: fit-content;
+		margin-top: 140px
 	}
 
 }

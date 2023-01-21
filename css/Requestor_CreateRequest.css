@@ -41,7 +41,7 @@
 }
 
 #RequestOrdersTitle{
-	color: white;
+	color: black;
 	/* font-family: Retroking; */
 	font-weight: bolder;
 }
@@ -103,7 +103,7 @@
 	/* min-height: 900px; */
 	height: fit-content;
 	border: 1px solid rgb(0 0 0 / 55%);
-	padding: 20px;
+	/* padding: 20px; */
 	overflow: hidden;
 	background-color: #e3e3e336;
 	height: 100%;
@@ -117,6 +117,7 @@
 	padding-top: 6%;
 	width: 100%;
 	height: fit-content;
+	min-height: 800px;
 }
 
 
@@ -322,7 +323,7 @@ border-radius: 5px;
 	width: 200px;
 	height: fit-content;
 	margin: auto;
-	background-color: rgb(255 69 0);
+	background-color: #3a4b9a;
 	color: white;
 	padding: 20px;
 	border: none;
@@ -437,15 +438,22 @@ color: white;
     /* height: 100%; */
     cursor: pointer;
     width: 100%;
-    color: #ff9600;
+    color: #3a4b9a;
 }
 
 @media (min-width: 220px) and (max-width:555px){
+	#Requestor_CreateRequestMainBack{
+		margin-top: 30px;
+	}
+	#DropDownRequestCategory{
+		font-size: large;
+	}
 	#Requestor_CreateRequestMain{
 		zoom: 70%;
 		margin: auto;
 		width: 100%;
 	}
+	
 	#TransactionsNav{
 		display: none;
 	}

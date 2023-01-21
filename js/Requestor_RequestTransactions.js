@@ -19,14 +19,14 @@ function requestClickedItem(number,userID){
     var TransactionsNavItem6 = document.getElementById("TransactionsNavItem6");
     var TransactionsNavItems = document.getElementsByClassName("TransactionsNavItems");
 
-    TransactionsNavItem1.style = "background-Color:white; color:black; ";
-    TransactionsNavItem2.style = "background-Color:white; color:black; ";
-    TransactionsNavItem3.style = "background-Color:white; color:black; ";
-    TransactionsNavItem4.style = "background-Color:white; color:black; ";
-    TransactionsNavItem5.style = "background-Color:white; color:black; ";
-    TransactionsNavItem6.style = "background-Color:white; color:black; ";
+    TransactionsNavItem1.style = " color:black; ";
+    TransactionsNavItem2.style = " color:black; ";
+    TransactionsNavItem3.style = " color:black; ";
+    TransactionsNavItem4.style = " color:black; ";
+    TransactionsNavItem5.style = " color:black; ";
+    TransactionsNavItem6.style = " color:black; ";
 
-    TransactionsNavItems[number].style = "background-Color:orangered; color:white; ";
+    TransactionsNavItems[number].style = "background-Color:#3a4b9a; color:white; ";
     if(number === 0){
         getRequestApplications(userID);
     }else if(number === 1){
