@@ -36,12 +36,12 @@ function __construct(){
 
     /*localhost  */
         
-    /*
+        
     $this->dbservername = "localhost:3307";
     $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
-    $this->dbname = "u774227372_microquestdbv2(1)";
-    */
+    $this->dbname = "u774227372_microquestdbv2(2)";
+    
 
     /* V2 sa hostinger */
 
@@ -52,11 +52,14 @@ function __construct(){
     $this->dbname = "u774227372_MqDBv4";
     */
     
+    /*
     $this->dbservername = "localhost";
     $this->dbusername = "root";
     $this->dbpassword = "";
     $this->dbname = "u774227372_microquestdbv2_1";
+    */
 
+    
 
 
 
@@ -4167,7 +4170,7 @@ public function registerPasabuyTransaction($productID,$serviceID,$requestorID,$r
 }
 
 
-
+/*
 // insert services
 public function registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$bannerImage){
   
@@ -4185,6 +4188,29 @@ public function registerService($serviceCategory,$servicePosition,$rate,$respond
     
 
     $query = "INSERT INTO $tablename() VALUES (0,'$serviceCategory','$servicePosition','$rate',$responderID,'$certification','$certificateFile','$serviceStatus','$bannerImage')";
+    //echo mysqli_error($this->dbconnection);
+    return mysqli_query($this->dbconnection, $query);
+
+}
+*/
+
+public function registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$bannerImage,$description){
+  
+    $tablename = "servicesinfo";
+
+    $serviceCategory= mysqli_real_escape_string($this->dbconnection,$serviceCategory);
+    $servicePosition= mysqli_real_escape_string($this->dbconnection,$servicePosition);
+    $rate= mysqli_real_escape_string($this->dbconnection,$rate);
+    $responderID= mysqli_real_escape_string($this->dbconnection,$responderID);
+    $certification= mysqli_real_escape_string($this->dbconnection,$certification);
+    $certificateFile= mysqli_real_escape_string($this->dbconnection,$certificateFile);
+    $bannerImage =  mysqli_real_escape_string($this->dbconnection,$bannerImage);
+    $description = mysqli_real_escape_string($this->dbconnection,$description);
+    $serviceStatus = "Active";
+
+    
+
+    $query = "INSERT INTO $tablename() VALUES (0,'$serviceCategory','$servicePosition','$rate',$responderID,'$certification','$certificateFile','$serviceStatus','$bannerImage','$description')";
     //echo mysqli_error($this->dbconnection);
     return mysqli_query($this->dbconnection, $query);
 

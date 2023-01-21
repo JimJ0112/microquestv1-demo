@@ -75,24 +75,31 @@ $DBHandler = new DBHandler();
                     
                         $BannerDirectory = $Directory.$servicePosition.'.png';
                         file_put_contents('../'.$BannerDirectory, $bannerImage);
+                    
+                    
         
         
                  } else {
 
-             
-          
+                        $imageFile = $DBHandler->getServicesCategoryBannerImage($serviceCategory);
     
-                    $imageFile = $DBHandler->getServicesCategoryBannerImage($serviceCategory);
-    
-                    if($imageFile === "Null" || $imageFile === null){
+                        if($imageFile === "Null" || $imageFile === null){
           
-                        $imageFile = "../img/magnifying-glass.png";
-                        $BannerDirectory = $imageFile;
-        
-                    } else{
-                        $BannerDirectory = $imageFile; 
-                    }
+                            $imageFile = "../img/magnifying-glass.png";
+                            $BannerDirectory = $imageFile;
+                        } else{
+                            $BannerDirectory = $imageFile; 
+                        }
                 }
+
+
+                if(isset($_POST["serviceDescription"])){
+                    $description = $_POST["serviceDescription"];
+                } else{
+                    $description = "No Description";
+                }
+
+                
 
             }else{
     
@@ -111,13 +118,17 @@ $DBHandler = new DBHandler();
                 } else{
                     $BannerDirectory = $imageFile; 
                 }
+
+                $description = $DBHandler->getData("servicesinfo","servicePosition",$servicePosition,"serviceDescription");
+
             }
     
             echo $serviceCategory= $_POST["serviceCategory"]; 
-          
+           
 
 
-            echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$BannerDirectory);
+           // echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$BannerDirectory);
+            echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$BannerDirectory,$description);
 
         echo $serviceCategory,$servicePosition,$rate,$responderID,$certification;
 
@@ -185,7 +196,16 @@ $DBHandler = new DBHandler();
         } else {
             $bannerImage = "none";
         }
-        echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$BannerDirectory);
+
+        if(isset($_POST["serviceDescription"])){
+            $description = $_POST["serviceDescription"];
+        } else{
+            $description = "No Description";
+        }
+
+        //echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$BannerDirectory);
+        echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$BannerDirectory,$description);
+        
         //echo $DBHandler-> registerCategory($serviceCategory,$servicePosition);
         
 

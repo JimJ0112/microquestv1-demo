@@ -98,7 +98,18 @@ session_start();
                         <input name="otherServicePosition"  id="otherServicePosition" type="text" placeholder="Please enter" style="display:none"/>
                         
                     </td>
+
+                    
                 </tr>
+
+                <tr class="home_computerRelated_Tr" id="serviceDescriptionTR">
+                    <td id="serviceDescriptionText">Description </td>
+                    <td id="serviceDescriptionInput"> 
+                        <span class="asteriskRequiredField" title="This Field is Required" id="asteriskRequiredFieldHiddenDescription"  style="display:none"> * </span>
+                        <input type="text" name="serviceDescription"> 
+                    </td>
+                </tr>
+
                 <tr class="home_computerRelated_Tr">
      
                     <td class="home_computerRelated_Td column1_td"> Service:&nbsp </td>
@@ -126,22 +137,7 @@ session_start();
                     <td> <input type="file" name="bannerImage" accept="image/*"> </td>
                 </tr>
 
-                <!--
-                <tr class="home_computerRelated_Tr">
-                    <td class="home_computerRelated_Td column1_td">Training/Certificate:&nbsp</td>
-                    <td> 
-                        <span class="asteriskRequiredField" title="This Field is Required"> * </span>
-                        <span class="enterNone"> Enter "none" if not applicable </span> 
-                        <input type="text" name="certification" Required>  
-                    </td> 
-                    <br/>
-                </tr>
 
-                <tr class="home_computerRelated_Tr column1_td">
-                    <td class="home_computerRelated_Td">Training/Certificate File:&nbsp </td>
-                    <td><input type="file" name="certificateFile" accept="image/png, image/jpg, image/jpeg"></td><br/>
-                </tr>
-                -->
 
                 
             </table>
@@ -167,7 +163,9 @@ session_start();
 
         <table id="pasabayTable">
 
+        <!--
             <tr> 
+                
                 
                 <td class="column1_td"> Category </td>
                 <td>
@@ -178,6 +176,9 @@ session_start();
                 </td>
 
             </tr>
+        -->
+        <input type="hidden" name="itemCategory" value="Groceries" />
+        
             <tr>
                 <td class="column1_td"> Product Name </td>
                 <td> <input name="productName" type="text"  Required/></td>
@@ -272,6 +273,11 @@ session_start();
                 <tr>
                     <td>Banner Image </td>
                     <td> <input type="file" name="bannerImage" accept="image/*"> </td>
+                </tr>
+
+                <tr>
+                    <td>Description </td>
+                    <td> <input type="text" name="serviceDescription"> </td>
                 </tr>
                 
             </table>

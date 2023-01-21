@@ -293,6 +293,7 @@ function setCategory(string){
     } 
 
 
+    otherPosition();
 
 }
 
@@ -445,6 +446,12 @@ function otherPosition(){
     var tr = document.getElementById("OtherServicePositionText");
     var asterisk = document.getElementById("asteriskRequiredFieldHidden");
 
+    var serviceDescriptionTR = document.getElementById('serviceDescriptionTR');
+    var serviceDescriptionText = document.getElementById('serviceDescriptionText');
+    var serviceDescriptionInput = document.getElementById('serviceDescriptionInput');
+    var asteriskRequiredFieldHiddenDescription = document.getElementById("asteriskRequiredFieldHiddenDescription");
+
+
 
     
     if(serviceCard.value !="Other"){
@@ -453,11 +460,22 @@ function otherPosition(){
         tr.style.display= "none";
         asterisk.style.display="none";
 
+        
+        serviceDescriptionTR.style.display="none";
+        serviceDescriptionText.style.display="none";
+        serviceDescriptionInput.style.display="none";
+        asteriskRequiredFieldHiddenDescription.style.display = "none";
+
     } else {
 
         tb.style.display="block";
         tr.style.display= "block";
         asterisk.style.display= "inline";
+
+        serviceDescriptionTR.style.display="block";
+        serviceDescriptionText.style.display="block";
+        serviceDescriptionInput.style.display="block";
+        asteriskRequiredFieldHiddenDescription.style.display = "inline";
 
 
     }
