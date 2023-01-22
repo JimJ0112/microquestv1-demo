@@ -503,7 +503,7 @@ display: none;
   
   
   .request-card {
-	background: white;
+	background: #eedbe1;
 	width: 300px;
 	display: inline-block;
 	margin: auto;
@@ -537,7 +537,7 @@ display: none;
 	}
   
   .request-card__image {
-	background-color: #f8f1ed;
+	background-color: #64c8fa;
 	/* background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg'); */
 	}
   .request-card__image  .requestTitle{

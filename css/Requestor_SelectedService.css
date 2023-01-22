@@ -30,13 +30,11 @@
 /*Requestor_AvailableServices.html*/
 #Requestor_AvailableServicesBackground{
 		/*background-image: url("../img/3490.png");*/
-
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: repeat;
-	background-origin: border-box;
-
+		/* background-position: center; */
+		/* background-size: cover; */
+		/* background-attachment: fixed; */
+		/* background-repeat: repeat; */
+		/* background-origin: border-box; */
 }
 
 #Requestor_SelectedServiceMain{
@@ -60,11 +58,11 @@
 	display: grid;
 	/* align-content: center; */
 	/* padding: 0; */
-	margin-top: 120px;
+	/* margin-top: 120px; */
 }
 
 #Requestor_SelectedServiceMainControls{
-	background-color: rgb(164 164 164 / 45%);
+	background-color: #eedbe1;
 	margin-top: 0;
 	/* margin: 0; */
 	width: 100%;
@@ -222,7 +220,7 @@ text-align: center;
 
 
 #Responders{
-	border: 1px solid rgb(63, 50, 48);
+	border: 1px solid #3a4b9a;
 	margin: auto;
 	width: 50%;
 	height: 70%;
@@ -232,7 +230,7 @@ text-align: center;
 	background-size: cover;
 	background-blend-mode: overlay;
 	/* background-position: center; */
-	background-color: #fffbfb;
+	background-color: #eedbe1;
 	/* padding: 20px; */
 	border-radius:10px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -514,7 +512,7 @@ margin: auto;
 	border: 1px solid rgb(108 108 108);
 	/* padding: 10px; */
 	border-radius: 10px;
-	background-color: #ffffff;
+	background-color: #eedbe1;
 }
 
 h3{

@@ -521,6 +521,7 @@ div#closeButton {
 	margin: 4px 2px;
 	cursor: pointer;
 	border-radius: 3px;
+	width: fit-content;
 }
 
 .buttonGreen:hover {
@@ -644,7 +645,7 @@ div#closeButton {
     height: 100%;
     width: 100%;
     font-family: arial;
-    /* display: table-header-group; */
+    display: table-header-group;
     /* padding-top: 40px; */
     /* padding-bottom: 40px; */
     margin: auto;
@@ -660,7 +661,8 @@ div#closeButton {
   .request-card {
     background-color: 50% black;
     width: 350px;
-    height: 500px;
+    height: fit-content;
+    min-height: 250px;
     display: grid;
     grid-template-columns: auto;
     /* display: inline-block; */
@@ -676,7 +678,8 @@ div#closeButton {
     /* border-radius: 10px; */
     cursor: pointer;
     margin: 0 auto;
-    background: linear-gradient(1deg, #f7f0f0, #ff450030);
+    background: #eedbe1;
+    row-gap: 10px;
   }
   .request-card:hover{
       box-shadow: -1px 15px 30px -12px #d27234bd;
@@ -841,19 +844,27 @@ div#closeButton {
       height: 100%;
       column-gap: 5px;
       width: 100%;
-      background: #ff45009e;
+      background: #1491ea;
       border-bottom: inset #878787 1px;
   }
+  .userInfoDiv {
+    display: grid;
+}
 
 
 @media (min-width: 222px) and (max-width: 555px){
 	#viewUserProfileContent{
 		zoom: 70%;
-		min-height: 800px;
+		min-height: 1000px;
+		width: 100%;
+		margin: auto;
 	}
 	#viewUserProfileNav{
 		zoom: 150%;
 		width: 100%;
+	}
+	#postContainer{
+		zoom: 60%;
 	}
 }
 
@@ -866,7 +877,9 @@ div#closeButton {
     border:3px solid black;
     border-radius: 10px;
   }
-
+.footer {
+    padding: 10px;
+}
 .reviewContainer-Content{
     display: grid;
     width: 30%;

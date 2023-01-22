@@ -269,7 +269,7 @@ td{
 
 #paymentPopUp{
 	margin: auto;
-	background-color: white;
+	background-color: #eedbe1;
 	width: 35%;
 	height: 70%;
 	/* background-image: url("../img/coc-background.jpg"); */
@@ -333,7 +333,7 @@ td{
 
 #reportPopUp{
 	margin: auto;
-	background-color: white;
+	background-color: #eedbe1;
 	width: 500px;
 	height: 700px;
 	overflow-y: scroll;
@@ -433,7 +433,7 @@ td{
 	margin-top: 100px;
 	border: solid saddlebrown 3px;
 	border-radius: 20px;
-	background-color: white;
+	background-color: #eedbe1;
 }
 
 #feedbackInput{
@@ -930,7 +930,7 @@ max-width: 300px;
 	display: grid;
 	grid-template-columns: auto auto;
 	grid-area: main;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 .item4 {
 	grid-area: right;
@@ -1024,7 +1024,7 @@ div#requestDescription {
     font-size: large;
 }
 .button {
-	background-color: #4CAF50;
+	background-color: #3a4b9a;
 	border: none;
 	color: white;
 	padding: 15px 32px;
