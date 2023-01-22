@@ -799,7 +799,7 @@ display: none;
 }
 
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #eedbe1;
     padding: 10px;
     font-size: x-large;
     text-align: left;

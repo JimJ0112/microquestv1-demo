@@ -25,7 +25,7 @@
 }
 
 #requestInfoContentTable td{
-    width: 80%;
+    /* width: 80%; */
     height: fit-content;
     padding: 10px;
 }
@@ -43,30 +43,18 @@
 
 
 #requestInfoMain{
-   
-/* box-shadow: 1px 8px 10px #353535; */
-   
-border-radius: 10px;
-   
-width: 100%;
-   
-/* height: 100%; */
-   
-color: orangered;
-   
-background-image: url(../img/f.jpg);
-   
-background-color: rgb(141 141 141 / 47%);
-   
-background-size: cover;
-   
-margin: auto;
-   
-padding-top: 10px;
-   
-font-family: Georgia;
-   
-border: solid rgb(255 69 0) 2px;
+   /* box-shadow: 1px 8px 10px #353535; */
+   border-radius: 10px;
+   width: 100%;
+   /* height: 100%; */
+   color: #04847c;
+   /* background-image: url(../img/f.jpg); */
+   background-color: #eedbe1;
+   background-size: cover;
+   margin: auto;
+   padding-top: 10px;
+   font-family: Georgia;
+   border: solid #04847c 2px;
 }
 
 #requestInfoMain h3{
@@ -98,14 +86,7 @@ border: solid rgb(255 69 0) 2px;
     font-family: Georgia;
     top:5px;
 }
-#messageMeTd{
-
-width: fit-content;
-
-overflow: hidden;
-
-position: absolute;
-}
+#messageMeTd{width: fit-content;overflow: hidden;/* position: absolute; */}
 
 
 #viewFeedBacks{
@@ -305,43 +286,7 @@ body{
     border-radius: 25px;
 }
 
-@media(max-width:390px){
-	#Registration-BackButton{
-		top: 0;
-		left: 0;
-	}
-	#requestInfoContentTable{
-		position:absolute;
-		top: 40px;
-	}
-	#messageMe{
-		position: absolute;
-		right:-10px;
-		zoom: 60%;
-		top: -80px;
-		height: 120px;
-		padding: 20px;
-		border-radius: 0;
-		width: 250px;
-		
-	}
-	#requestInfoMain{
-		zoom:60%;
-		position: absolute;
-		left: 0;
-		top: 100px
-	}
-	#requestorProfile{
-		display:none;
-	}
-	#requestInfoMessageBody{
-		width: 100%;
-	}
-	#AreYouSureDialog{
-		width: 70%;
-	}
-	
-}
+
 
 
 
@@ -406,6 +351,8 @@ form#requestApplicationForm {grid-template-columns: .1fr auto auto auto;display:
 	padding-right:150px;
 }
 
+
+
 .errorInfoMessage{
     color:red;
     background-color: rgba(255, 255, 255, 0.276);
@@ -417,4 +364,20 @@ div#printButton {
     font-weight: bold;
     float: right;
     cursor: pointer;
+}
+
+@media (min-width:222px) and (max-width: 555px){
+	#requestInfoContentBack{
+		zoom: 70%;
+	}
+	#requestInfoContent{
+		width: 100%;
+	}
+	#requestInfoContentTable{
+		width: 100%;
+	}
+	#messageMeTd{
+		display: none;
+	}
+	
 }

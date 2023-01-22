@@ -34,7 +34,7 @@
     <meta content='yes' name='mobile-web-app-capable'/>
 	
 	<link rel="stylesheet" type="text/css" href="css/Requestor_PasabuyProducts.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
 	
 	<script src="js/Responder_myProducts.js"> </script>
 

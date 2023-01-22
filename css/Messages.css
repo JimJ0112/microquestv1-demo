@@ -50,6 +50,7 @@ body{
 	overflow: hidden;
 	/*overflow-y: scroll;*/
 	margin-top: 100px;
+	border: solid 5px #3a4b9a;
 }
 
 #MessagesMainBack{
@@ -81,9 +82,10 @@ margin-top: 100px;
 	width: 100%;
 	height: 100%;
 	grid-area: Conversations;
-	background-color: gray;
+	background-color: #eedbe1;
 	z-index: 10;
 	overflow: hidden;
+	border-right: 1px solid #3a4b9a;
 }
 
 #conversationsContent{
@@ -189,7 +191,7 @@ background-color: #3a4b9a;
 #messagesContentEmpty{
 	width: 100%;
 	position: absolute;
-	background-color: #8d8d8d7d;
+	background-color: #eedbe1;
 	/* display: grid; */
 	/* align-content: center; */
 	color: white;
@@ -200,18 +202,18 @@ background-color: #3a4b9a;
 }
 #messageForm{
 	background-color: rgb(199, 199, 204);
-	margin: auto;
+	/* margin: auto; */
 	padding: 5px;
 	display: grid;
-	height: 46px;
-
+	height: 100%;
+	width: 100%;
 }
 
 #messageForm table{
 	
-	margin: auto;
-	padding: auto;
+margin: auto;
 	
+padding: auto;
 }
 
 #messageBody{
@@ -232,8 +234,8 @@ background-color: #3a4b9a;
 
 #messagesConversation{
 	width: 100%;
-	min-height: 400px;
-	height: 80%;
+	min-height: 500px;
+	height: 100%;
 	background-color: white;
 	overflow:hidden;
 	overflow-y: scroll;
@@ -265,10 +267,10 @@ background-color: #3a4b9a;
 }
 
 #conversationHeader{
+	align-items: center;
+	display: grid;
 	overflow: hidden;
 	background-color: rgb(199, 199, 204);
-	
-
 }
 
 #conversationSearch{
@@ -347,6 +349,8 @@ display: grid;
 height: fit-content;
 
 padding: 30px;
+
+border: solid 5px #3a4b9a;
 }
 
 #closeImage{
@@ -383,7 +387,12 @@ padding: 30px;
 	margin: auto;
 	cursor: pointer;
 }
-
+div#messagesMain {
+    height: 100%;
+    display: grid;
+    width: 100%;
+    background-color: white;
+}
 
 #viewImage{
 	

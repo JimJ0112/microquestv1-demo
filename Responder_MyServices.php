@@ -27,7 +27,7 @@
     <meta content='yes' name='apple-mobile-web-app-capable'/>
     <meta content='yes' name='mobile-web-app-capable'/>
 	
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
 	<link rel="stylesheet" type="text/css" href="css/Responder_MyServices.css">
 
 	<script src="js/Responder_MyServices.js"> </script>

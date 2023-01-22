@@ -30,7 +30,7 @@ session_start();
     <meta content='yes' name='mobile-web-app-capable'/>
     
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="css/Responder_CreateService.css">
 
     <script src="js/createService.js"> </script>

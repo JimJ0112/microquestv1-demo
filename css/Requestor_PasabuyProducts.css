@@ -785,7 +785,7 @@ button.addToCartButton {
 	text-align: center;
 }
 
-.serviceFirstRow{width: 30%;height: 20px;font-size: x-large;color: orangered;}
+.serviceFirstRow{width: 30%;height: 20px;font-size: x-large;color: #3a4b9a;}
 
 
 #myProductViewTable{margin: 20px auto;color: black;font-family: Arial, Helvetica, sans-serif;background-color: rgba(240, 248, 255, 0.364);padding: 10px;height: 90%;}

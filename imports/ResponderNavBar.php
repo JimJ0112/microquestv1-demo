@@ -9,8 +9,8 @@
 		Responder Requestboard
 	</title>
 	
-	<link rel="stylesheet" type="text/css" href="css/NavBar.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/NavBar2.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
 	<script src="js/NavBar.js"> </script>
 
 </head>

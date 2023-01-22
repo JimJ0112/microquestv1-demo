@@ -31,7 +31,7 @@ body{
 }
 
 #serviceInfoDivBg{
-	background-color: white;
+	background-color: #eedbe1;
 	width: 80%;
 	/* min-height: 800px; */
 	height: 100%;
@@ -206,5 +206,9 @@ b#responderUserName {
 	}
 	#serviceInfoDivBg{
 		width: 90%;
+	}
+	.reviewCard{
+		zoom: 60%;
+		border-spacing: 10px;
 	}
 }

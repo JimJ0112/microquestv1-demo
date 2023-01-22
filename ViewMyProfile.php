@@ -369,9 +369,10 @@ session_start();
 </div>
 
 <div id="updateCertBack"> 
-    <div id="closeButton" onclick="closeForms()"> ✕ </div>
+
 
     <form action="Backend/updateCertificate.php" method="post" enctype="multipart/form-data"  class="ServicePopUp" id="updateCertForm"> 
+    <div id="closeButton" onclick="closeForms()"> ✕ </div>
             <input type="hidden" name="responderID" value="<?php echo $_SESSION["userID"];?>"> 
             <input type="hidden" name="certificateID" id="certificateID"> 
 

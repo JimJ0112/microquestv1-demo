@@ -84,7 +84,7 @@
 	font-size: 50px;
 	font-family: arial;
 	font-weight: bold;
-	background: orangered;
+	background: #3a4b9a;
 	color: white;
 	/* padding: 20px; */
 }
@@ -131,7 +131,7 @@
 }
 
 .grid-item:hover{
-	color: orangered;
+	color: #3a4b9a;
 
 }
 

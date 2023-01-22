@@ -37,7 +37,7 @@ body{
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     align-content: center;
-    border-bottom: 1px solid orangered;
+    border-bottom: 1px solid #000000;
     text-align: center;
  }
 
@@ -429,7 +429,7 @@ input#send:hover {
 .column1_td{
 	font-size: x-large;
 	font-weight: bold;
-	color: white;
+	color: #3a4b9a;
 }
 
 input[type="text"], input[type="number"], select {
@@ -496,7 +496,7 @@ div#closeButton {
 #otherCategoriesForm{
 	/* display: block; */
 	display: grid;
-	background: orangered;
+	background: #eedbe1;
 	/* display: grid; */
 	width: 50%;
 	margin: auto;
@@ -506,6 +506,7 @@ div#closeButton {
 	/* grid-template-columns: auto auto auto auto auto auto; */
 	/* text-align: right; */
 	border-radius: 5px;
+	border: solid #3a4b9a 5px;
 }
 
 
@@ -526,8 +527,7 @@ div#closeButton {
 
 .buttonGreen:hover {
 	background-color: rgb(234, 231, 231);
-	color: green;;
-
+	color: green;
 }
 
 .certificateFileImage{
@@ -539,9 +539,10 @@ div#closeButton {
 
 .certificateCard{
     text-align: center;
-    background-color: rgb(161, 166, 166);
+    background-color: #eedbe1;
     height: fit-content;
     padding: 10px;
+    border: 2px solid #3a4b9a;
 }
 
 #showImageBack{
@@ -588,7 +589,7 @@ div#closeButton {
 #updateCertForm{
     /* display: block; */
 	display: grid;
-	background: orangered;
+	background: #eedbe1;
 	/* display: grid; */
 	width: 50%;
 	margin: auto;
@@ -598,7 +599,9 @@ div#closeButton {
 	/* grid-template-columns: auto auto auto auto auto auto; */
 	/* text-align: right; */
 	border-radius: 5px;
+	border: solid #3a4b9a 5px;
 }
+
 
 /* For specializations */
 #AddSpecializationBack{
@@ -607,17 +610,19 @@ div#closeButton {
 
 #addSpecializationForm{
     /* display: block; */
-	display: grid;
-	background: orangered;
-	/* display: grid; */
-	width: 50%;
-	margin: auto;
-	/* margin-top: 10%; */
-	height: 50%;
-	grid-template-rows: 1fr 4fr 2fr;
-	/* grid-template-columns: auto auto auto auto auto auto; */
-	/* text-align: right; */
-	border-radius: 5px;
+    display: grid;
+    background: #eedbe1;
+    /* display: grid; */
+    width: 50%;
+    margin: auto;
+    /* margin-top: 10%; */
+    height: 50%;
+    grid-template-rows: 1fr 4fr 2fr;
+    /* grid-template-columns: auto auto auto auto auto auto; */
+    /* text-align: right; */
+    border-radius: 5px;
+    padding: 20px;
+    border: solid 5px #3a4b9a;
 }
 
 
@@ -858,6 +863,7 @@ div#closeButton {
 		min-height: 1000px;
 		width: 100%;
 		margin: auto;
+		margin-top: 100px;
 	}
 	#viewUserProfileNav{
 		zoom: 150%;
@@ -865,6 +871,18 @@ div#closeButton {
 	}
 	#postContainer{
 		zoom: 60%;
+	}
+	#SpecializationsTableBody{
+		zoom: 70%;
+		overflow: hidden;
+		overflow-x: scroll;
+	}
+	#addSpecializationForm{
+		zoom: 60%;
+		width: 80%;
+		background-color:#eedbe1;
+		border: solid 4px #3a4b9a;
+		
 	}
 }
 

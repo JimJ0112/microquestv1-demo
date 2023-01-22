@@ -876,7 +876,7 @@ function chooseNav(category,number){
 
     }
 
-    grid_item[number].style.backgroundColor = "orangered";
+    grid_item[number].style.backgroundColor = "#04847c";
     grid_item[number].style.color = "white";
 
     sessionStorage.setItem("requestCategory",category);
@@ -919,7 +919,7 @@ function setSpecialization(dataArray){
         if(dataArray[i]['requestCategory'] === specialization){
           
 
-            grid_item[i].style.backgroundColor = "orangered";
+            grid_item[i].style.backgroundColor = "#04847c";
             grid_item[i].style.color = "white";
 
            // chooseNav(dataArray[i]["requestCategory"],i)

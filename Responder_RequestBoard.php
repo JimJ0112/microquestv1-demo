@@ -39,7 +39,7 @@ session_start();
     <meta content='yes' name='mobile-web-app-capable'/>
 
 	
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
 	<link rel="stylesheet" type="text/css" href="css/Responder_RequestBoard.css">
 	<script src="js/Responder_RequestBoard.js"> </script> 
 

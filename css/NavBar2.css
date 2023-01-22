@@ -10,9 +10,9 @@ body{
 	display: grid;
 	overflow: hidden;
 	top:0;
-	background-color: #1491ea;
+	background-color: #14d4ac;
 	z-index: 18;
-	box-shadow: 0px -8px 11px 0px #64c8fa inset;
+	box-shadow: 0px -8px 11px 0px #7fe7d4 inset;
 }
 
 #NavBar{
@@ -325,7 +325,7 @@ border-radius: 10px;
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 20;
-	background-color: #1491ea;
+	background-color: #14d4ac;
 	border: 0.5px solid white;
 	}
 
@@ -438,7 +438,7 @@ border-radius: 10px;
 #MobileMenu{
 	width: 100%;
 	height: fit-content;
-	background-color: #1491ea;
+	background-color: #14d4ac;
 	display: none;
 	text-align: left;
 	text-align: center;
@@ -473,7 +473,7 @@ border-radius: 10px;
 }
 
 .MobileMenu-listItem:hover{
-	background-color: #3a4b9a;
+	background-color: #04847c;
 }
 
 
@@ -504,7 +504,7 @@ border-radius: 10px;
 
   .selectedMobileNav{
 	width: 100%;
-	background-color: #3a4b9a;
+	background-color: #04847c;
 	height: fit-content;
 	}
 
@@ -563,7 +563,7 @@ border-radius: 10px;
 		width: 100%;
 		position: absolute;
 		top:0;
-		background-color: #1491ea;
+		background-color: #14d4ac;
 		display: grid;
 		height: 8%;
 		z-index: 99;

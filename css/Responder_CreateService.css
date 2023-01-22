@@ -96,7 +96,7 @@
 #Responder_CreateServiceMain{
 	margin-top: 0;
 	margin: auto;
-	background-color: white;
+	/* background-color: white; */
 	width: 100%;
 	height: 900px;
 	/* border: 2px solid rgb(255 69 0); */
@@ -191,9 +191,9 @@
 
 .ServicePopUp{
 
-background-image: url("../img/f.jpg");
+/* background-image: url("../img/f.jpg"); */
 
-background-color: #525252;
+background-color: #eedbe1;
 
 background-blend-mode: overlay;
 
@@ -205,13 +205,13 @@ padding:35px;
 
 margin: auto;
 
-width:70%;
+width: fit-content;
 
 height: fit-content;
 
-border: 1px solid rgb(222 60 0);
+border: 5px solid #04847c;
 
-border-radius: 10px;
+/* border-radius: 10px; */
 
 animation: fadein 1s;
 }
@@ -351,7 +351,7 @@ center{
 	align-content: center;
 	padding: auto;
 	position: relative;
-	background: #ff4500bd;
+	background: #7fb5a8;
 	/* background: linear-gradient(wheat, white); */
 }
 /*
@@ -399,11 +399,11 @@ a{
 }
 
 #home_computerRelated_Table, #pasabayTable, #otherTable{
-	width: 50%;
+	width: 100%;
 	margin: auto;
 	overflow-y: scroll;
 	font-family: arial;
-	color: white;
+	color: #04847c;
 	font-size: 25px;
 	font-weight: bold;
 }
@@ -423,7 +423,7 @@ padding-top: 20px;
 .column1_td{
 	font-size: x-large;
 	font-weight: bold;
-	color: white;
+	color: #04847c;
 }
 
 
@@ -547,5 +547,5 @@ img#Nav-logo {
 
 .addToSpecializationMessage{
 	font-size: medium;
-	color: #6eff46;
+	color: #444c44;
 }
