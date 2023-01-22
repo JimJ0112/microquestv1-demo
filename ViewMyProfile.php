@@ -158,9 +158,28 @@ session_start();
                     About
                 </td>
                 <td name="userReviews" class="userReviews" id="userNav" type="button" onclick="reviews()">
-                    Reviews
+                    <?php
+
+                        if(isset($_GET["userType"])){
+                            $userType = $_GET["userType"];
+
+                            if($userType === "Responder"){
+        
+                                echo"Completed Requests Reviews";
+
+                            } else if ($userType === "Requestor"){
+
+                                echo"My Request Reviews";
+    
+                            }
+
+                         } else{
+                                echo "Reviews";
+                        }
+
+                    ?>
                 </td>
-                <td name="userMore"  class="userMore" id="userNav" type="button" onclick="more()">
+                <td name="userMore"  class="userMore" id="userNav" type="button" onclick="more()" style="<?php if(isset($_GET["userType"])){if($userType === "Requestor"){ echo "Display:none;";}}; ?>">
                     <?php
 
                         if(isset($_GET["userType"])){
@@ -172,11 +191,11 @@ session_start();
 
                             } else if ($userType === "Requestor"){
 
-                                echo"more";
+                            
                             }
 
                         } else{
-                            echo"more";
+                            
                         }
                     
                     ?>
@@ -269,11 +288,11 @@ session_start();
 
                             } else if ($userType === "Requestor"){
 
-                                echo"more";
+                                
                             }
 
                         } else{
-                            echo"more";
+                           
                         }
                     
             ?>
@@ -460,7 +479,7 @@ session_start();
 
 
     }else{
-        echo "<script>  getUserReviews($userID) </script> ";
+        echo "<script>  getUserReviews($userID);getUserTotalRequestRatings($userID); </script> ";
 
     }
 

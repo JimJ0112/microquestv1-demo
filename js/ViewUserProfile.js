@@ -278,7 +278,9 @@ function getUserReviews(userID){
 
 function createReviewsElements(number){
   var number = number;
-  var reviewContainer = document.getElementById('reviewContainer');
+  //var reviewContainer = document.getElementById('reviewContainer');
+  var reviewContainer = document.getElementById('reviewContainerContentDiv');
+
 
   for(var i = 0; i< number; i++){
 
@@ -1412,3 +1414,60 @@ function editUserDescription(){
 }
   
 }// end of function
+
+
+
+
+/*edit user description*/
+/* get user reviews */
+
+function getUserTotalRequestRatings(userID){
+
+
+    var query = "userID=" + userID;
+    var xmlhttp = new XMLHttpRequest();
+
+
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+         
+
+
+            var dataArray = this.response;
+            if(dataArray != "failed to fetch"){
+              dataArray = JSON.parse(dataArray);
+              console.log("total ratings");
+              console.log(dataArray);
+              setTotalReviewRatingsData(dataArray);
+            } else{
+
+            }
+   
+
+
+
+
+        }else{
+
+           console.log("Loading...");
+
+        }      
+    };
+  
+    xmlhttp.open("POST", "Backend/AverageRequestStars.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+
+  
+}// end of function
+
+
+function setTotalReviewRatingsData(array){
+  var dataArray = array;
+  var totalRequestReviews = document.getElementById("totalRequestReviews");
+  totalRequestReviews.innerHTML = "<center> <span> Average Ratings: </span> <h1> " + dataArray[0]["total ratings"] + "⭐  </h1> <br/> Total Ratings: " + dataArray[0]["all Ratings"] +" </center>";
+
+
+
+}
+
