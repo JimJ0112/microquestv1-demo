@@ -280,6 +280,7 @@ function setCategory(category){
                 
             }else{
                 RequestsContainer.innerText = "No Requests";
+                
 
             }
 
@@ -306,6 +307,65 @@ function setCategory(category){
     xmlhttp.send(query);
 }
 
+
+
+// getting requests based on category selected
+
+function setFirstCategory(category){
+    var selectedCategory = category;
+    var query = "category=" + selectedCategory;
+
+    var xmlhttp = new XMLHttpRequest();
+
+
+    xmlhttp.onload = function() {
+
+        if (this.readyState === 4 || this.status === 200){ 
+           
+
+            var RequestsContainer = document.getElementById('RequestsContainer-Content');
+            RequestsContainer.innerHTML = "";
+
+            var dataArray = this.response;
+
+            if(dataArray != "failed to fetch"){
+                dataArray = JSON.parse(dataArray);
+                
+                console.log(dataArray);
+
+                var number = dataArray.length;
+                createRequestElements(number);
+                setData(dataArray);
+
+                
+            }else{
+                RequestsContainer.innerText = "No Requests";
+                chooseNav("All Requests",0);
+
+            }
+
+            
+
+     
+        }else{
+            console.log(err);
+        }      
+    };
+
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+
+        } else {
+           document.getElementById('RequestsContainer-Content').innerText = "Loading...";
+
+        }
+  
+    };
+    xmlhttp.open("POST", "Backend/Get_categorizedRequests.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+}
 // get nearest requests
 
 function getNearestRequest(municipality){

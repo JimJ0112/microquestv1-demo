@@ -326,9 +326,15 @@ function createReviewsElements(number){
     reviewCard.appendChild(reviewerInfo);
     reviewCard.appendChild(reviewInfoList);
 
+    /*
     reviewContainer_Content.appendChild(reviewCard);
 
     reviewContainer.appendChild(reviewContainer_Content)
+    */
+
+   
+    reviewContainer.appendChild(reviewCard);
+    
 
     
 

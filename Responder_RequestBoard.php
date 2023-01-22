@@ -51,7 +51,8 @@ session_start();
             $specialization = $_SESSION['specialization'];
 
 			echo "sessionStorage.setItem('specialization'".",'$specialization');";
-        	echo 'setCategory(\''.$specialization.'\');';
+        	//echo 'setCategory(\''.$specialization.'\');';
+        	echo 'setFirstCategory(\''.$specialization.'\');';
 			
 
 		
