@@ -109,7 +109,7 @@ height: 100%;
 	/* background-size: cover; */
 	text-align: center;
 	display: grid;
-	background-color: orangered;
+	background-color: #3a4b9a;
 	color: white;
 }
 
@@ -197,4 +197,14 @@ b#responderUserName {
     font-family: arial;
     font-size: xx-large;
     padding: 5px;
+}
+
+@media (min-width: 222px) and (max-width: 555px){
+	.tableContainer{
+		margin-top: 100px;
+		min-height: 700px;
+	}
+	#serviceInfoDivBg{
+		width: 90%;
+	}
 }

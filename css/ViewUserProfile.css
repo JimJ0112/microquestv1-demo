@@ -8,13 +8,14 @@ body{
  #viewUserProfileContent{
      /* position:absolute; */
      width: 80%;
-     height: fit-content;
+     height: 100%;
      margin: 10%;
-     display: grid;
+     /* display: grid; */
      top: 10%;
      font-family: Arial, Helvetica, sans-serif;
      margin-left: 10%;
      margin-right: 10%;
+     min-height: 700px;
      /* width: 100%; */
      /*
      background-image: url("../img/businessidea.png");
@@ -24,7 +25,7 @@ body{
  }
  
  #viewUserProfileTable{
-     border-bottom: 1px solid orangered;
+     border-bottom: 1px solid #3a4b9a;
      width: 100%;
  }
  #SpecializationsTableBody{
@@ -76,9 +77,11 @@ body{
  
  #viewUserProfileNav{
     
-     width: 50%;
-     /*margin: auto;*/
-     
+width: 100%;
+    
+/*margin: auto;*/
+    
+background-color: #eedbe1;
  }
  
  .userPost{
@@ -93,7 +96,7 @@ body{
  #viewUserProfileTableBackground{
      width: 100%;
      height: fit-content;
-     background-color: white;
+     /* background-color: white; */
      /* margin: auto; */
      /* margin-left: 0; */
      /* border-bottom: 1px solid rgb(167, 165, 165); */
@@ -116,27 +119,28 @@ body{
  }
  
  #userNav:hover{
-     color: rgb(255 69 0);
+     color: white;
      /* color: white; */
      /*cursor: default;*/
+     background-color: #3a4b9a;
  }
  
  #ContainerBackground{
      width: 100%;
-     min-height: 100%;
+     /* min-height: 100%; */
      height: fit-content;
-     background-color: white;
+     /* background-color: white; */
      display: grid;
      margin: auto;
      /* border-radius: 20px; */
-     padding-top: 20px;
+     /* padding-top: 20px; */
      /* margin-top: 10px; */
  }
  
  #postContainer{
      display: none;
      height:fit-content;
-     background-color: white;
+     /* background-color: white; */
      width: 90%;
      border-radius: 10px;
      padding: 10px;
@@ -151,7 +155,7 @@ body{
      border-radius: 5px;
      padding: 10px;
      width: 80%;
-     margin: auto;
+     /* margin: auto; */
      /* margin-top:5px; */
      font-weight: bold;
      color: rgb(0 0 0);
@@ -166,7 +170,7 @@ body{
  #reviewContainer{
      display: none;
      height:fit-content;
-     background-color: white;
+     /* background-color: white; */
      border-radius: 10px;
      padding: 10px;
      width: 80%;
@@ -177,7 +181,7 @@ body{
  #moreContainer{
      display: none;
      height:fit-content;
-     background-color: white;
+     /* background-color: white; */
      border-radius: 10px;
      padding: 10px;
      width: 80%;
@@ -235,7 +239,7 @@ input#requestInfoMessageBody {
      position: relative;
      float: left;
      overflow: hidden;
-     color: orangered;
+     color: #3a4b9a;
  }
  
  .userProfileUserPhoto{
@@ -409,7 +413,7 @@ input#send:hover {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
-    background: white;
+    /* background: white; */
 }
 
 #home_computerRelated_Table, #pasabayTable, #otherTable{
@@ -840,3 +844,14 @@ div#closeButton {
       background: #ff45009e;
       border-bottom: inset #878787 1px;
   }
+
+@media (min-width: 222px) and (max-width: 555px){
+	#viewUserProfileContent{
+		zoom: 70%;
+		min-height: 800px;
+	}
+	#viewUserProfileNav{
+		zoom: 150%;
+		width: 100%;
+	}
+}
