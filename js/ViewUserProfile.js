@@ -207,11 +207,13 @@ function setData(dataArray){
 
   if(dataArray[0]['userDescription'] === "" || dataArray[0]['userDescription'] === null ){
     userDescriptionTextArea.placeholder ="Please Write a description about yourself...";
+    userDescriptionTextArea.innerText = "No Description";
   } else{
     userDescriptionTextArea.value = dataArray[0]['userDescription'];
+    userDescriptionTextArea.innerText = dataArray[0]['userDescription'];
   }
   
-  userDescriptionTextArea.innerText = dataArray[0]['userDescription'];
+  
 
   setMessagesData(dataArray[0]['userID'],dataArray[0]['userName']);
 
