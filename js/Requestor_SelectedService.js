@@ -774,10 +774,15 @@ function generateContract(){
 
 function showContract(){
     contractBackGround = document.getElementById('contractBackGround');
+    ConfirmContractButton = document.getElementById('ConfirmContractButton');
+
     contractBackGround.style.display = "block";
     contractDiv = document.getElementById('contractDiv');
     contractDiv.style.display = "block";
+    ConfirmContractButton.style.display = "none";
+
     h2canvaspdfToInput();
+
 
 }
 

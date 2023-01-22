@@ -823,12 +823,18 @@ display: none;
 	}
 	#contractDiv{
 		
-width: 80%;
+		width: 80%;
 		
-zoom: 70%;
+		zoom: 70%;
 	}
 	.contractNav{
 		zoom: 80%;
+	}
+	.RequestorInfoContract{
+		display: block;
+	}
+	.ResponderInfoContract{
+		display: block;
 	}
 	
 }
