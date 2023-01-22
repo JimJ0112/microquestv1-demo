@@ -210,6 +210,12 @@ session_start();
 					    <td>Location</td>
                         <td class="userLocation">  </td>
                     </tr>
+
+                    <tr class="userInfoTR">
+                        <td> About Me </td>
+                        <td id="userDescriptionTextArea"> </td> 
+
+                    </tr>
                 </table>
             </div>
 		</div> 

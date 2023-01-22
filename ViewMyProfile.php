@@ -220,15 +220,35 @@ session_start();
                         <td class="userDob">  </td>
                     </tr>
                     -->
-                    <tr class="userInfoTR">
-					    <td id="SpecializationTD">Spcialization</td>
+                    <tr class="userInfoTR" style="<?php if($userType === "Requestor"){ echo"display:none;";} else{}?>">
+					    <td id="SpecializationTD">Specialization</td>
                         <td class="userSpecialization">  </td>
                     </tr>
+
                     <tr class="userInfoTR">
 					    <td>Location</td>
                         <td class="userLocation">  </td>
                     </tr>
+
+
                 </table>
+
+                <br/>
+                    <div>
+                       
+                            <input type="hidden" name="userID" value="<?php echo $userID; ?>" id="userDescriptionUserID"/>
+                            <textarea name="userDescription" id="userDescriptionTextArea"></textarea>
+                            <button class="buttonGreen" onclick="editUserDescription()"> ✎ Save  </button>
+
+                    
+                    </div>
+
+
+
+
+
+
+
             </div>
 		</div> 
 

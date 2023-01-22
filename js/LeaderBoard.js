@@ -188,7 +188,9 @@ function setData(dataArray){
 
 
         rank[i].innerText = i+1;
-        responderInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" + dataArray[i]['userID'] +"&userType=Responder'>"+ responderInfo[i].innerHTML + dataArray[i]['userName'] +  dataArray[i]['userEmail'] + "</a>";
+        //responderInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" + dataArray[i]['userID'] +"&userType=Responder'>"+ responderInfo[i].innerHTML + dataArray[i]['userName'] +  dataArray[i]['userEmail'] + "</a>";
+        responderInfo[i].innerHTML = "<a href='ViewUserProfile.php?userID=" + dataArray[i]['userID'] +"&userType=Responder'>"+ responderInfo[i].innerHTML + dataArray[i]['userName'] + "</a>";
+        
         rating[i].innerHTML = "⭐ "+dataArray[i]['totalRatings'].toFixed(2);
     }
 }

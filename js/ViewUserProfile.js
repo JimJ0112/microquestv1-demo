@@ -160,6 +160,7 @@ function setData(dataArray){
 
   userName = document.getElementById("userName");
   userType= document.getElementById("userType");
+  userDescriptionTextArea = document.getElementById("userDescriptionTextArea");
 
   userName.innerText = dataArray[0]["userName"];
   userType.innerText = dataArray[0]["userType"];
@@ -182,9 +183,14 @@ function setData(dataArray){
   //userLocation= document.getElementsByClassName("userLocation")[0];
   userLocation = document.getElementsByClassName('userLocation')[0];
 
+ 
+ var middleName = dataArray[0]["middleName"];
+  middleName = Array.from(middleName);
+ var  middleInitial = middleName[0];
+  console.log(middleInitial);
 
  // userEmail.innerText = dataArray[0]["userEmail"];
-  userFullName.innerText = dataArray[0]["firstName"] + " " +dataArray[0]["lastName"]  ;
+  userFullName.innerText = dataArray[0]["firstName"] + " " + middleInitial +". " +dataArray[0]["lastName"]  ;
  // userAge.innerText = dataArray[0]["userName"];
   //userDob.innerText = dataArray[0]["birthDate"];
 
@@ -197,6 +203,15 @@ function setData(dataArray){
 
   //userLocation.innerText = dataArray[0]["municipality"];
   userLocation.innerText = dataArray[0]['baranggay'] +" , "+dataArray[0]['municipality'];
+
+
+  if(dataArray[0]['userDescription'] === "" || dataArray[0]['userDescription'] === null ){
+    userDescriptionTextArea.placeholder ="Please Write a description about yourself...";
+  } else{
+    userDescriptionTextArea.value = dataArray[0]['userDescription'];
+  }
+  
+  userDescriptionTextArea.innerText = dataArray[0]['userDescription'];
 
   setMessagesData(dataArray[0]['userID'],dataArray[0]['userName']);
 
@@ -1258,3 +1273,47 @@ function setRequestsData(array){
 
 
 }
+
+
+
+
+/*edit user description*/
+/* get user reviews */
+
+function editUserDescription(){
+  if (confirm("Are you sure you want to save these changes?") == true) {
+    
+  
+
+    var userID = document.getElementById("userDescriptionUserID").value;
+    var userDescription = document.getElementById("userDescriptionTextArea").value;
+    var query = "userID=" + userID+"&userDescription=" + userDescription;
+    var xmlhttp = new XMLHttpRequest();
+
+
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+         
+
+
+            var dataArray = this.response;
+            alert("Description Updated!");
+            location.reload();
+
+
+
+
+        }else{
+
+           console.log("Loading...");
+
+        }      
+    };
+  
+    xmlhttp.open("POST", "Backend/UpdateUserDescription.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+
+}
+  
+}// end of function
