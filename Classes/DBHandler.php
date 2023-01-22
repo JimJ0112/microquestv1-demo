@@ -757,20 +757,7 @@ public function getRequestReviewsWithRatings($userID){
 
     
 
-    /*
-    $query= "SELECT feedbacks.revieweeID as feedbacksReviewee,feedbacks.feedbackID,feedbacks.reviewerID as feedbacksReviewer, feedbacks.transactionID as feedbacksTransactionID, feedbacks.serviceID, feedbacks.requestID, feedbacks.feedback,rating.ratingID,rating.reviewerID as ratingReviewerID, rating.revieweeID as ratingRevieweeID, rating.transactionID as ratingTransactionID, rating.rating1star, rating.rating2star,rating.rating3star,rating.rating4star,rating.rating5star,
-    userprofile.userID as userprofileReviewerID, userprofile.userID as userprofileRevieweeID, userprofile.userName as ReviewerUserName, userprofile.userName as RevieweeUserName, requestsinfo.requestID, requestsinfo.requestCategory, requestsinfo.requestTitle
-    
-            FROM feedbacks 
-            INNER JOIN rating
-              ON (feedbacks.transactionID = rating.transactionID)
-            INNER JOIN userprofile
-                ON feedbacks.reviewerID = userprofile.userID
-            INNER JOIN requestsinfo
-                ON feedbacks.requestID = requestsinfo.requestID
-                
-            WHERE feedbacks.revieweeID = $userID GROUP BY feedbacks.transactionID DESC";
-    */
+
 
     $query = "SELECT feedbacks.revieweeID as feedbacksReviewee
     ,feedbacks.feedbackID
@@ -808,6 +795,82 @@ public function getRequestReviewsWithRatings($userID){
                 INNER JOIN requestsinfo
                     ON feedbacks.requestID = requestsinfo.requestID
                 WHERE feedbacks.revieweeID = $userID AND feedbacks.requestID IS NOT NULL GROUP BY feedbacks.transactionID DESC";
+            
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['requestorUserPhoto']);
+               // $row['requestorUserPhoto'] = $file;
+
+                $data[] = $row;
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+public function getRequestorRequestReviewsWithRatings($userID){
+    $userID = mysqli_real_escape_string($this->dbconnection, $userID);
+
+    
+
+
+
+    $query = "SELECT feedbacks.revieweeID as feedbacksReviewee
+    ,feedbacks.feedbackID
+    ,feedbacks.reviewerID as feedbacksReviewer
+    , feedbacks.transactionID as feedbacksTransactionID
+    , feedbacks.serviceID
+    , feedbacks.requestID
+    , feedbacks.feedback
+    ,rating.ratingID
+    ,rating.reviewerID as ratingReviewerID
+    , rating.revieweeID as ratingRevieweeID
+    , rating.transactionID as ratingTransactionID
+    ,rating.rating1star
+    ,rating.rating2star
+    ,rating.rating3star
+    ,rating.rating4star
+    ,rating.rating5star
+    ,requestor.userID as userprofileReviewerID
+    ,responder.userID as userprofileRevieweeID
+    ,requestor.userPhoto as requestorUserPhoto
+    ,requestor.userEmail as requestorUserEmail
+    ,requestor.userName as ReviewerUserName
+    ,responder.userName as RevieweeUserName
+    ,responder.userPhoto as responderUserPhoto
+    ,responder.userEmail as responderUserEmail
+    ,requestsinfo.requestID
+    ,requestsinfo.requestCategory
+    ,requestsinfo.requestTitle
+        
+                FROM feedbacks 
+                INNER JOIN rating
+                  ON (feedbacks.transactionID = rating.transactionID)
+                INNER JOIN userprofile as requestor
+                    ON feedbacks.reviewerID = requestor.userID
+                INNER JOIN userprofile as responder
+                    ON feedbacks.revieweeID = responder.userID
+                INNER JOIN requestsinfo
+                    ON feedbacks.requestID = requestsinfo.requestID
+                WHERE feedbacks.reviewerID = $userID AND feedbacks.requestID IS NOT NULL GROUP BY feedbacks.transactionID DESC";
             
     $result = mysqli_query($this->dbconnection, $query);
     $resultCheck = mysqli_num_rows($result);

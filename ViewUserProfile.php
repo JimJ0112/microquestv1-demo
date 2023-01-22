@@ -270,17 +270,21 @@ session_start();
     $userID = $_GET["userID"];
 
     if($userType === "Requestor"){
-        echo "<script> getMyRequests($userID) </script> ";
+        echo "<script> getMyRequests($userID); getMyReviews($userID) </script> ";
+        
 
 
     }else{
+        echo "<script>  getUserReviews($userID) </script> ";
 
     }
 
 ?>
 
 <?php
-    echo"<script> getUserReviews($userID); getUserCertificates($userID); getMySpecializations($userID); </script>";
+   // echo"<script> getUserReviews($userID); getUserCertificates($userID); getMySpecializations($userID); </script>";
+
+   echo"<script>getUserCertificates($userID); getMySpecializations($userID); </script>";
 
 ?>
 <script src="js/ViewUserProfile.js"> </script>

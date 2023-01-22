@@ -384,6 +384,99 @@ function setReviewDatas(dataArray){
 }
 
 
+function getMyReviews(userID){
+  var userID = userID;
+  var query = "userID=" + userID;
+  var xmlhttp = new XMLHttpRequest();
+
+
+  xmlhttp.onload = function() {
+      if (this.readyState === 4 || this.status === 200){ 
+         
+
+
+          var dataArray = this.response;
+
+          if(dataArray === "failed to fetch"){
+              console.log(dataArray); 
+           
+
+          } else {
+              
+              dataArray = JSON.parse(dataArray);
+              console.log(dataArray);
+
+              var number = dataArray.length;
+
+              createReviewsElements(number);
+              setMyReviewDatas(dataArray);
+
+             
+
+          }
+
+      }else{
+
+         console.log("Loading...");
+
+      }      
+  };
+  
+  xmlhttp.open("POST", "Backend/Get_requestorRequestReviews.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send(query);
+  
+}// end of function
+
+
+function setMyReviewDatas(dataArray){
+  var dataArray = dataArray;
+  var number = dataArray.length;
+
+  reviewerName = document.getElementsByClassName("reviewerName");
+  RequestInfo= document.getElementsByClassName("RequestInfo");
+  reviewRating= document.getElementsByClassName("reviewRating");
+  reviewDescription= document.getElementsByClassName("reviewDescription");
+
+  reviewerPhotoDiv= document.getElementsByClassName("reviewerPhotoDiv");
+  
+  reviewerEmail= document.getElementsByClassName("reviewerEmail");
+  reviewerInfo = document.getElementsByClassName("reviewerInfo");
+
+
+  for(var i = 0; i<number; i++){
+
+
+    var image = new Image();
+    image.src = dataArray[i]["responderUserPhoto"];
+    image.setAttribute("class","requestorUserPhoto");
+    reviewerPhotoDiv[i].append(image);
+
+    reviewerName[i].innerText = dataArray[i]['RevieweeUserName'];
+    reviewerEmail[i].innerText = dataArray[i]['responderUserEmail'];
+    RequestInfo[i].innerText =  dataArray[i]['requestCategory'] + " : " + dataArray[i]['requestTitle'];
+    
+    reviewerInfo[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID="+ dataArray[i]['ratingRevieweeID'] + "&userType=Responder')");
+
+    if(dataArray[i]['rating1star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 1⭐";
+    }else if(dataArray[i]['rating2star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 2⭐";
+    }else if(dataArray[i]['rating3star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 3⭐";
+    }else if(dataArray[i]['rating4star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 4⭐";
+    }else if(dataArray[i]['rating5star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 5⭐";
+    }
+
+    reviewDescription[i].innerText = "Feedback: "+dataArray[i]['feedback'];
+
+  }
+
+
+}
+
 function setMessagesData(id,userName){
   document.getElementById('recieverID').value = id;
   document.getElementById('recieverUserName').value = userName;

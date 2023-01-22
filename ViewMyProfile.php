@@ -455,10 +455,12 @@ session_start();
     $userID = $_GET["userID"];
 
     if($userType === "Requestor"){
-        echo "<script> getMyRequests($userID) </script> ";
+        echo "<script> getMyRequests($userID); getMyReviews($userID) </script> ";
+        
 
 
     }else{
+        echo "<script>  getUserReviews($userID) </script> ";
 
     }
 
@@ -466,7 +468,9 @@ session_start();
 
 
 <?php
-    echo"<script> getUserReviews($userID); getMyCertificates($userID);getServices();  getMySpecializations($userID);</script>";
+    //echo"<script> getUserReviews($userID); getMyCertificates($userID);getServices();  getMySpecializations($userID);</script>";
+
+    echo"<script> getMyCertificates($userID);getServices();  getMySpecializations($userID);</script>";
 
 ?>
 <script src="js/ViewUserProfile.js"> </script>
