@@ -253,7 +253,7 @@ session_start();
                 </table>
 
                 <br/>
-                    <div>
+                    <div class="userInfoDiv">
                        
                             <input type="hidden" name="userID" value="<?php echo $userID; ?>" id="userDescriptionUserID"/>
                             <textarea name="userDescription" id="userDescriptionTextArea"></textarea>

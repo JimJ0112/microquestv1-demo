@@ -41,7 +41,7 @@ body{
 	font-family: Arial, Helvetica, sans-serif;
 	padding: 0px;
 	/* height: fit-content; */
-	border: solid  rgb(255 69 0) 1px;
+	border: solid  #3a4b9a 1px;
 	/* border-radius: 20px; */
 }
 
@@ -180,7 +180,7 @@ height: 100%;
 b#responderUserType {
     /* text-transform: capitalize; */
     text-transform: uppercase;
-    color: orangered;
+    color: #1491ea;
     padding: 10px;
 }
 
