@@ -160,6 +160,7 @@ function setData(dataArray){
 
   userName = document.getElementById("userName");
   userType= document.getElementById("userType");
+  userDescriptionTextArea = document.getElementById("userDescriptionTextArea");
 
   userName.innerText = dataArray[0]["userName"];
   userType.innerText = dataArray[0]["userType"];
@@ -182,9 +183,14 @@ function setData(dataArray){
   //userLocation= document.getElementsByClassName("userLocation")[0];
   userLocation = document.getElementsByClassName('userLocation')[0];
 
+ 
+ var middleName = dataArray[0]["middleName"];
+  middleName = Array.from(middleName);
+ var  middleInitial = middleName[0];
+  console.log(middleInitial);
 
  // userEmail.innerText = dataArray[0]["userEmail"];
-  userFullName.innerText = dataArray[0]["firstName"] + " " +dataArray[0]["lastName"]  ;
+  userFullName.innerText = dataArray[0]["firstName"] + " " + middleInitial +". " +dataArray[0]["lastName"]  ;
  // userAge.innerText = dataArray[0]["userName"];
   //userDob.innerText = dataArray[0]["birthDate"];
 
@@ -197,6 +203,17 @@ function setData(dataArray){
 
   //userLocation.innerText = dataArray[0]["municipality"];
   userLocation.innerText = dataArray[0]['baranggay'] +" , "+dataArray[0]['municipality'];
+
+
+  if(dataArray[0]['userDescription'] === "" || dataArray[0]['userDescription'] === null ){
+    userDescriptionTextArea.placeholder ="Please Write a description about yourself...";
+    userDescriptionTextArea.innerText = "No Description";
+  } else{
+    userDescriptionTextArea.value = dataArray[0]['userDescription'];
+    userDescriptionTextArea.innerText = dataArray[0]['userDescription'];
+  }
+  
+  
 
   setMessagesData(dataArray[0]['userID'],dataArray[0]['userName']);
 
@@ -261,7 +278,9 @@ function getUserReviews(userID){
 
 function createReviewsElements(number){
   var number = number;
-  var reviewContainer = document.getElementById('reviewContainer');
+  //var reviewContainer = document.getElementById('reviewContainer');
+  var reviewContainer = document.getElementById('reviewContainerContentDiv');
+
 
   for(var i = 0; i< number; i++){
 
@@ -366,6 +385,99 @@ function setReviewDatas(dataArray){
 
 }
 
+
+function getMyReviews(userID){
+  var userID = userID;
+  var query = "userID=" + userID;
+  var xmlhttp = new XMLHttpRequest();
+
+
+  xmlhttp.onload = function() {
+      if (this.readyState === 4 || this.status === 200){ 
+         
+
+
+          var dataArray = this.response;
+
+          if(dataArray === "failed to fetch"){
+              console.log(dataArray); 
+           
+
+          } else {
+              
+              dataArray = JSON.parse(dataArray);
+              console.log(dataArray);
+
+              var number = dataArray.length;
+
+              createReviewsElements(number);
+              setMyReviewDatas(dataArray);
+
+             
+
+          }
+
+      }else{
+
+         console.log("Loading...");
+
+      }      
+  };
+  
+  xmlhttp.open("POST", "Backend/Get_requestorRequestReviews.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send(query);
+  
+}// end of function
+
+
+function setMyReviewDatas(dataArray){
+  var dataArray = dataArray;
+  var number = dataArray.length;
+
+  reviewerName = document.getElementsByClassName("reviewerName");
+  RequestInfo= document.getElementsByClassName("RequestInfo");
+  reviewRating= document.getElementsByClassName("reviewRating");
+  reviewDescription= document.getElementsByClassName("reviewDescription");
+
+  reviewerPhotoDiv= document.getElementsByClassName("reviewerPhotoDiv");
+  
+  reviewerEmail= document.getElementsByClassName("reviewerEmail");
+  reviewerInfo = document.getElementsByClassName("reviewerInfo");
+
+
+  for(var i = 0; i<number; i++){
+
+
+    var image = new Image();
+    image.src = dataArray[i]["responderUserPhoto"];
+    image.setAttribute("class","requestorUserPhoto");
+    reviewerPhotoDiv[i].append(image);
+
+    reviewerName[i].innerText = dataArray[i]['RevieweeUserName'];
+    reviewerEmail[i].innerText = dataArray[i]['responderUserEmail'];
+    RequestInfo[i].innerText =  dataArray[i]['requestCategory'] + " : " + dataArray[i]['requestTitle'];
+    
+    reviewerInfo[i].setAttribute("onclick","redirect('ViewUserProfile.php?userID="+ dataArray[i]['ratingRevieweeID'] + "&userType=Responder')");
+
+    if(dataArray[i]['rating1star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 1⭐";
+    }else if(dataArray[i]['rating2star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 2⭐";
+    }else if(dataArray[i]['rating3star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 3⭐";
+    }else if(dataArray[i]['rating4star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 4⭐";
+    }else if(dataArray[i]['rating5star'] === "1"){
+      reviewRating[i].innerText = "Ratings: 5⭐";
+    }
+
+    reviewDescription[i].innerText = "Feedback: "+dataArray[i]['feedback'];
+
+  }
+
+
+}
 
 function setMessagesData(id,userName){
   document.getElementById('recieverID').value = id;
@@ -1258,3 +1370,104 @@ function setRequestsData(array){
 
 
 }
+
+
+
+
+/*edit user description*/
+/* get user reviews */
+
+function editUserDescription(){
+  if (confirm("Are you sure you want to save these changes?") == true) {
+    
+  
+
+    var userID = document.getElementById("userDescriptionUserID").value;
+    var userDescription = document.getElementById("userDescriptionTextArea").value;
+    var query = "userID=" + userID+"&userDescription=" + userDescription;
+    var xmlhttp = new XMLHttpRequest();
+
+
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+         
+
+
+            var dataArray = this.response;
+            alert("Description Updated!");
+            location.reload();
+
+
+
+
+        }else{
+
+           console.log("Loading...");
+
+        }      
+    };
+  
+    xmlhttp.open("POST", "Backend/UpdateUserDescription.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+
+}
+  
+}// end of function
+
+
+
+
+/*edit user description*/
+/* get user reviews */
+
+function getUserTotalRequestRatings(userID){
+
+
+    var query = "userID=" + userID;
+    var xmlhttp = new XMLHttpRequest();
+
+
+    xmlhttp.onload = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+         
+
+
+            var dataArray = this.response;
+            if(dataArray != "failed to fetch"){
+              dataArray = JSON.parse(dataArray);
+              console.log("total ratings");
+              console.log(dataArray);
+              setTotalReviewRatingsData(dataArray);
+            } else{
+
+            }
+   
+
+
+
+
+        }else{
+
+           console.log("Loading...");
+
+        }      
+    };
+  
+    xmlhttp.open("POST", "Backend/AverageRequestStars.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+
+  
+}// end of function
+
+
+function setTotalReviewRatingsData(array){
+  var dataArray = array;
+  var totalRequestReviews = document.getElementById("totalRequestReviews");
+  totalRequestReviews.innerHTML = "<center> <span> Average Ratings: </span> <h1> " + dataArray[0]["total ratings"] + "⭐  </h1> <br/> Total Ratings: " + dataArray[0]["all Ratings"] +" </center>";
+
+
+
+}
+

@@ -845,6 +845,7 @@ div#closeButton {
       border-bottom: inset #878787 1px;
   }
 
+<<<<<<< HEAD
 @media (min-width: 222px) and (max-width: 555px){
 	#viewUserProfileContent{
 		zoom: 70%;
@@ -855,3 +856,14 @@ div#closeButton {
 		width: 100%;
 	}
 }
+=======
+
+
+  #userDescriptionTextArea{
+    resize: none;
+    width: 300px;
+    height: 150px;
+    border:3px solid black;
+    border-radius: 10px;
+  }
+>>>>>>> 7bc5314df131f86e3e619d563c294fbbff195c11

@@ -140,9 +140,30 @@ session_start();
                     About
                 </td>
                 <td name="userReviews" class="userReviews" id="userNav" type="button" onclick="reviews()">
-                    Reviews
+                    <?php
+
+                        if(isset($_GET["userType"])){
+                            $userType = $_GET["userType"];
+
+                            if($userType === "Responder"){
+
+                             echo"Completed Requests Reviews";
+
+                            } else if ($userType === "Requestor"){
+
+                                echo"My Request Reviews";
+
+                            }
+
+                        } else{
+                                echo "Reviews";
+                        }
+
+                    ?>
+
                 </td>
-                <td name="userMore"  class="userMore" id="userNav" type="button" onclick="more()">
+
+                <td name="userMore"  class="userMore" id="userNav" type="button" onclick="more()" style="<?php if(isset($_GET["userType"])){if($userType === "Requestor"){ echo "Display:none;";}}; ?>">
                     <?php
 
                         if(isset($_GET["userType"])){
@@ -210,12 +231,19 @@ session_start();
 					    <td>Location</td>
                         <td class="userLocation">  </td>
                     </tr>
+
+                    <tr class="userInfoTR">
+                        <td> About Me </td>
+                        <td id="userDescriptionTextArea"> </td> 
+
+                    </tr>
                 </table>
             </div>
 		</div> 
 
         <div id="reviewContainer">
-
+            <div id="totalRequestReviews"> </div>
+            <div id="reviewContainerContentDiv"> </div>
         </div>
 
         <div id="moreContainer">
@@ -264,17 +292,21 @@ session_start();
     $userID = $_GET["userID"];
 
     if($userType === "Requestor"){
-        echo "<script> getMyRequests($userID) </script> ";
+        echo "<script> getMyRequests($userID); getMyReviews($userID) </script> ";
+        
 
 
     }else{
+        echo "<script>  getUserReviews($userID);getUserTotalRequestRatings($userID);</script> ";
 
     }
 
 ?>
 
 <?php
-    echo"<script> getUserReviews($userID); getUserCertificates($userID); getMySpecializations($userID); </script>";
+   // echo"<script> getUserReviews($userID); getUserCertificates($userID); getMySpecializations($userID); </script>";
+
+   echo"<script>getUserCertificates($userID); getMySpecializations($userID); </script>";
 
 ?>
 <script src="js/ViewUserProfile.js"> </script>
