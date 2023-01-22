@@ -272,7 +272,7 @@ session_start();
 		</div> 
 
         <div id="reviewContainer">
-            <div id="totalRequestReviews"> </div>
+            <div id="totalRequestReviews"> </div> <br/> <hr/>
             <div id="reviewContainerContentDiv"> </div>
 
         </div>

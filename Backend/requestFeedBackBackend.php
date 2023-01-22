@@ -24,6 +24,7 @@ if($insertFeedback){
 
 
     $feedbackID = $DBHandler->getData("feedbacks","transactionID",$transactionID,"feedbackID");
+   // $feedbackID = 11;
     echo $feedbackID;
 
 

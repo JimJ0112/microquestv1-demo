@@ -845,7 +845,7 @@ div#closeButton {
       border-bottom: inset #878787 1px;
   }
 
-<<<<<<< HEAD
+
 @media (min-width: 222px) and (max-width: 555px){
 	#viewUserProfileContent{
 		zoom: 70%;
@@ -856,7 +856,7 @@ div#closeButton {
 		width: 100%;
 	}
 }
-=======
+
 
 
   #userDescriptionTextArea{
@@ -866,4 +866,35 @@ div#closeButton {
     border:3px solid black;
     border-radius: 10px;
   }
->>>>>>> 7bc5314df131f86e3e619d563c294fbbff195c11
+
+.reviewContainer-Content{
+    display: grid;
+    width: 30%;
+    height: fit-content;
+}
+
+
+
+#reviewContainerContentDiv{
+   
+    
+
+    height:fit-content;
+    /* background-color: white; */
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+    margin-top:5px;
+    display: grid;
+    grid-row-gap: 10px;
+    
+
+}
+
+.reviewCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: fit-content;
+    border-bottom: 2px solid gray;
+}
