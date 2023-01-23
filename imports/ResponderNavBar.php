@@ -320,6 +320,19 @@
 			
 				   </a>
 
+				   <a href="Responder_PasabuyProducts.php" class="MobileMenu-listItem" id="responderPasabuyNavItemMobile"> 
+			
+					 <?php
+						$pagename = basename($_SERVER['PHP_SELF']);
+							if($pagename === "Responder_PasabuyProducts.php"){
+								echo '<div class="selectedMobileNav"> My Products </div>';
+							} else{
+								echo "My Products";
+							}
+					  ?>
+	
+		   			</a>
+
 			
 
 

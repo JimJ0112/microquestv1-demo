@@ -103,10 +103,10 @@ session_start();
                 </tr>
 
                 <tr class="home_computerRelated_Tr" id="serviceDescriptionTR">
-                    <td id="serviceDescriptionText">Description </td>
-                    <td id="serviceDescriptionInput"> 
+                    <td id="serviceDescriptionText" style="display:none">Description </td>
+                    <td id="serviceDescriptionInput" style="display:none"> 
                         <span class="asteriskRequiredField" title="This Field is Required" id="asteriskRequiredFieldHiddenDescription"  style="display:none"> * </span>
-                        <input type="text" name="serviceDescription"> 
+                        <input type="text" name="serviceDescription" id="serviceDesciptionInputText"> 
                     </td>
                 </tr>
 
@@ -132,9 +132,9 @@ session_start();
                     </td> 
                 </tr>
 
-                <tr>
-                    <td>Banner Image </td>
-                    <td> <input type="file" name="bannerImage" accept="image/*"> </td>
+                <tr id="serviceBannerTR">
+                    <td id="serviceBannerText" style="display:none">Banner Image </td>
+                    <td id="serviceBannerInput" style="display:none"> <input type="file" name="bannerImage" accept="image/*" id="serviceBannerInputFile"> </td>
                 </tr>
 
 

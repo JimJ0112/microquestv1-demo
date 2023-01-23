@@ -71,8 +71,15 @@
 								<p id="passwordmatch"></p>
 							</div><br/>
 
+							<div class="inputItem">
 							<input type="button" id="RegistrationNextButton" value= "Next" onclick="checkInputs_AccountInfo()">
-						</div>		
+						 	</div>
+						</div>	
+						
+						<div class= "signup-image">
+						<figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+						<a href="#" class="signup-image-link">I am already member</a>
+						</div>
 						 		
 					</div>
 				

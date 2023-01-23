@@ -401,3 +401,51 @@ function showPasabuyButton(userID){
     
 }// end of function
 */
+
+
+function showPasabuyButton(userID){
+    
+    var userID = userID;
+    var query = "userID="+userID;
+    
+    var xmlhttp = new XMLHttpRequest();
+    
+  
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState === 4 || this.status === 200){ 
+           
+           
+            
+        
+  
+
+            var dataArray = this.response;
+                console.log(dataArray);
+
+                if(dataArray === "true"){
+                    document.getElementById("responderPasabuyNavItem").style.display = "inline-block";
+                    document.getElementById("responderPasabuyNavItemMobile").style.display = "block";
+                } else{
+                    document.getElementById("responderPasabuyNavItem").style.display = "none";
+                    document.getElementById("responderPasabuyNavItemMobile").style.display = "none";
+
+                    
+                }
+
+           
+
+           
+     
+        }else{
+        
+
+        }      
+    };
+    
+    
+    xmlhttp.open("POST", "Backend/CheckPasabuyService.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(query);
+    
+}// end of function

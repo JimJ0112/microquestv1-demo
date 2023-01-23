@@ -122,7 +122,7 @@ background-color: #eedbe1;
      color: white;
      /* color: white; */
      /*cursor: default;*/
-     background-color: #3a4b9a;
+     background-color: #455c66;
  }
  
  #ContainerBackground{
@@ -151,10 +151,10 @@ background-color: #eedbe1;
  #aboutContainer{
      display: none;
      height:fit-content;
-     /* background-color: rgb(255 182 118 / 26%); */
+     background-color: #eedbe17d;
      border-radius: 5px;
      padding: 10px;
-     width: 80%;
+     width: 100%;
      /* margin: auto; */
      /* margin-top:5px; */
      font-weight: bold;
@@ -270,23 +270,33 @@ input#requestInfoMessageBody {
  
  .AvailableService_Card{
      
-     width: 350px;
-     height: 290px;
+width: 350px;
      
-     font-family: Arial, Helvetica, sans-serif;
-     font-weight: bold;
-     margin: auto;
-     text-align: center;
- 
-     overflow: hidden;
-     position:relative;
-     box-shadow: 2px 2px 10px rgb(42, 41, 41);
-     border-radius: 10px;
-     cursor: pointer;
-     display: grid;
-     background: linear-gradient(white, wheat);
-     animation: fadein 2s;
- 
+height: 290px;
+     
+font-family: Arial, Helvetica, sans-serif;
+     
+font-weight: bold;
+     
+margin: auto;
+     
+text-align: center;
+     
+overflow: hidden;
+     
+position:relative;
+     
+box-shadow: 2px 2px 10px rgb(42, 41, 41);
+     
+border-radius: 10px;
+     
+cursor: pointer;
+     
+display: grid;
+     
+background: #eedbe1;
+     
+animation: fadein 2s;
  }
  
  
@@ -309,25 +319,37 @@ input#requestInfoMessageBody {
  
  .serviceTitle{
      
-     z-index: 9;
-     font-size: larger;
-     background-color: rgb(255 69 0);
-     border:1px solid white;
-     color: white;
-     padding: 10px;
-     cursor: pointer;
-     margin: auto;
-     margin-top: 100px;
- 
-     text-align: center;
-     min-width: 100px;
-     max-width: 300px;
-     width: 250px;
- 
-     position: absolute;
-     left: 90%;
-     transform: translate(-50%, 0);
+z-index: 9;
      
+font-size: larger;
+     
+background-color: #176c5c;
+     
+border:1px solid white;
+     
+color: white;
+     
+padding: 10px;
+     
+cursor: pointer;
+     
+margin: auto;
+     
+margin-top: 100px;
+     
+text-align: center;
+     
+min-width: 100px;
+     
+max-width: 300px;
+     
+width: 250px;
+     
+position: absolute;
+     
+left: 90%;
+     
+transform: translate(-50%, 0);
  }
  
  .ServiceTitleBackground{
@@ -373,7 +395,7 @@ input#requestInfoMessageBody {
  .reviewerInfo{
      cursor: pointer;
  }
- @media (max-width:390px){
+ @media (min-width:220px) and (max-width:590px){
      #viewUserProfileContent{
          zoom: 50%;
      }

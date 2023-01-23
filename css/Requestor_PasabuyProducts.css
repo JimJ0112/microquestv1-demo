@@ -531,12 +531,17 @@ border: #455c66 solid 5px;
 
 .ProductImage{
 
-	margin: auto;
-    /* margin-top: 20px; */
-    /* box-shadow: 0.5px 0.5px 0.5px black; */
-    height: 100%;
-    width: 100%;
-    border-radius: 10px 10px 0 0;
+margin: auto;
+
+/* margin-top: 20px; */
+
+/* box-shadow: 0.5px 0.5px 0.5px black; */
+
+height: 100%;
+
+width: 100%;
+
+/* border-radius: 10px 10px 0 0; */
 }
 
 .ProductInfo{
@@ -722,36 +727,6 @@ button.addToCartButton {
     height: fit-content;
 }
 
-@media (min-width: 220px) and (max-width: 555px){
-	#AvailableServicesTitle{
-		zoom: 100%;
-	}
-	#myCart{
-		zoom: 100%;
-	}
-	#AvailableServicesContainer{
-		zoom: 60%;
-	}
-	#ServicesContainer{
-		
-	}
-	#AvailableServicesContainer_Content{
-		grid-template-columns: 1fr 1fr ;
-	}
-	#pasabuyOrderForm{
-		zoom: 2;
-		
-	}
-	#addToCartFormDiv{
-		zoom: 3;
-	}
-	
-}
-
-.productImage{
-	object-fit:contain;
-}
-
 
 
 
@@ -775,7 +750,7 @@ button.addToCartButton {
 	margin: auto;
 	width: 40%;
 	height: fit-content;
-	background-color: #ffffff;
+	background-color: #eedbe1;
 	z-index: 20;
 	position: relative;
 	border-radius: 10px;
@@ -790,7 +765,7 @@ button.addToCartButton {
 .serviceFirstRow{width: 30%;height: 20px;font-size: x-large;color: #3a4b9a;}
 
 
-#myProductViewTable{margin: 20px auto;color: black;font-family: Arial, Helvetica, sans-serif;background-color: rgba(240, 248, 255, 0.364);padding: 10px;height: 90%;}
+#myProductViewTable{margin: 20px auto;color: black;font-family: Arial, Helvetica, sans-serif;/* background-color: rgba(240, 248, 255, 0.364); */padding: 10px;height: 90%;}
 
 
 
@@ -846,3 +821,41 @@ button.addToCartButton {
 
 	color: red;
 }
+
+
+@media (min-width: 220px) and (max-width: 555px){
+	#AvailableServicesTitle{
+		zoom: 100%;
+	}
+	#myCart{
+		zoom: 100%;
+	}
+	#AvailableServicesContainer{
+		zoom: 60%;
+		margin-top: 150px;
+	}
+	#ServicesContainer{
+		
+	}
+	#AvailableServicesContainer_Content{
+		grid-template-columns: 1fr 1fr ;
+	}
+	#pasabuyOrderForm{
+		zoom: 2;
+		
+	}
+	#addToCartFormDiv{
+		zoom: 3;
+	}
+	#productUpdateForm{
+		width: 80%;
+		zoom: 150%
+	}
+
+}
+
+.productImage{
+	object-fit: cover;
+}
+
+

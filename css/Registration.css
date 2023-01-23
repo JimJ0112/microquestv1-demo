@@ -688,15 +688,17 @@ input:checked + .slider:before {
     color: rgb(63, 50, 48);
     /* font-size: large; */
     /* display: block; */
-    /* align-content: center; */
+    align-content: center;
     padding: auto;
     /* height: 500px; */
     /* margin-top: 50px; */
-    background: #9d9d9d9c;
-    width: 50%;
+    background: #fefefe;
     margin: 60px 25% 0 30%;
-    height: 60%;
+    height: 103vh;
     position: relative;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
 }
 
 #passwordmatch {
@@ -704,11 +706,11 @@ input:checked + .slider:before {
 }
 
 #AccountInfoForm1 {
-    /* width: 80%; */
+    width: 37vw;
     /* height: fit-content; */
-    /* margin-left: 30%; */
     /* margin: auto; */
-    /* margin-top: 50px; */
+     */
+;
 }
 
 #EmailVerificationForm {
@@ -836,7 +838,7 @@ input:checked + .slider:before {
     background-color: orangered;
     color: white;
     position: fixed;
-    right: 360px;
+    /* right: 360px; */
     /* bottom: 300px; */
     /* margin: 50px; */
     height: 35px;
@@ -1823,7 +1825,7 @@ span.asteriskRequiredField {
     float: none;
 }
 
-@media (max-width: 390px){
+@media (min-width: 222px) and (max-width: 590px){
     #RegistrationLogo{
         left: 20px;
         top: 100px;

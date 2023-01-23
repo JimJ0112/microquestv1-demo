@@ -485,7 +485,7 @@ ul{
 	color: white;
 }
 
-@media (max-width:390px){
+@media (min-width:220px) and (max-width:590px){
 	#Responder_CreateServiceMain, #createServiceNavMain,#RequestOrdersTitle, .ServicePopUp{
 		zoom:60%;
 	}

@@ -261,7 +261,7 @@ function setCategory(string){
     
     getPositions(data);
     deSelectOthers();
-
+   
     var tb = document.getElementById("otherServicePosition");
     var tr = document.getElementById("OtherServicePositionText");
     var asterisk = document.getElementById("asteriskRequiredFieldHidden");
@@ -290,10 +290,33 @@ function setCategory(string){
         serviceCategoryRegular.value = data;
         document.getElementById('OtherServicesContainer').innerHTML = "";
 
+
+        var serviceDescriptionTR = document.getElementById('serviceDescriptionTR');
+        var serviceDescriptionText = document.getElementById('serviceDescriptionText');
+        var serviceDescriptionInput = document.getElementById('serviceDescriptionInput');
+        var asteriskRequiredFieldHiddenDescription = document.getElementById("asteriskRequiredFieldHiddenDescription");
+    
+        var serviceBannerTR = document.getElementById('serviceBannerTR');
+        var serviceBannerText= document.getElementById('serviceBannerText');
+        var serviceBannerInput = document.getElementById('serviceBannerInput');
+    
+    
+    
+    
+            serviceDescriptionTR.style.display="none";
+            serviceDescriptionText.style.display="none";
+            serviceDescriptionInput.style.display="none";
+            asteriskRequiredFieldHiddenDescription.style.display = "none";
+    
+            serviceBannerTR.style.display="none";
+            serviceBannerText.style.display="none";
+            serviceBannerInput.style.display="none";
+    
+
     } 
 
 
-    otherPosition();
+    //otherPosition();
 
 }
 
@@ -311,6 +334,20 @@ function closeForms(){
     var asterisk = document.getElementById("asteriskRequiredFieldHidden");
 
 
+    var serviceDescriptionTR = document.getElementById('serviceDescriptionTR');
+    var serviceDescriptionText = document.getElementById('serviceDescriptionText');
+    var serviceDescriptionInput = document.getElementById('serviceDescriptionInput');
+    var asteriskRequiredFieldHiddenDescription = document.getElementById("asteriskRequiredFieldHiddenDescription");
+
+    var serviceBannerTR = document.getElementById('serviceBannerTR');
+    var serviceBannerText= document.getElementById('serviceBannerText');
+    var serviceBannerInput = document.getElementById('serviceBannerInput');
+    var serviceDesciptionInputText = document.getElementById("serviceDesciptionInputText");
+    var serviceBannerInputFile = document.getElementById("serviceBannerInputFile");
+
+
+
+
 
     regularServices.style.display = "none";
     pasabuy.style.display = "none";
@@ -320,6 +357,18 @@ function closeForms(){
     tb.style.display="none";
     tr.style.display="none";
 
+    serviceDescriptionTR.style.display="none";
+    serviceDescriptionText.style.display="none";
+    serviceDescriptionInput.style.display="none";
+    asteriskRequiredFieldHiddenDescription.style.display = "none";
+    serviceDesciptionInputText.value="";
+
+    serviceBannerTR.style.display="none";
+    serviceBannerText.style.display="none";
+    serviceBannerInput.style.display="none";
+    serviceBannerInputFile.value = "";
+
+    otherPosition();
 
 }
 
@@ -451,6 +500,9 @@ function otherPosition(){
     var serviceDescriptionInput = document.getElementById('serviceDescriptionInput');
     var asteriskRequiredFieldHiddenDescription = document.getElementById("asteriskRequiredFieldHiddenDescription");
 
+    var serviceBannerTR = document.getElementById('serviceBannerTR');
+    var serviceBannerText= document.getElementById('serviceBannerText');
+    var serviceBannerInput = document.getElementById('serviceBannerInput');
 
 
     
@@ -466,6 +518,10 @@ function otherPosition(){
         serviceDescriptionInput.style.display="none";
         asteriskRequiredFieldHiddenDescription.style.display = "none";
 
+        serviceBannerTR.style.display="none";
+        serviceBannerText.style.display="none";
+        serviceBannerInput.style.display="none";
+
     } else {
 
         tb.style.display="block";
@@ -477,6 +533,9 @@ function otherPosition(){
         serviceDescriptionInput.style.display="block";
         asteriskRequiredFieldHiddenDescription.style.display = "inline";
 
+        serviceBannerTR.style.display="block";
+        serviceBannerText.style.display="block";
+        serviceBannerInput.style.display="block";
 
     }
 }

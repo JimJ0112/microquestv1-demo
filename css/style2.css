@@ -304,7 +304,7 @@ button#hideMenu {
 
 
 .buttonGeneral {
-	background-color: #1491ea;
+	background-color: #176c5c;
 	border: none;
 	color: white;
 	padding: 15px 32px;
@@ -319,8 +319,7 @@ button#hideMenu {
 
 .buttonGeneral:hover {
 	background-color: rgb(234, 231, 231);
-	color: #3a4b9a;
-
+	color: #176c5c;
 }
 
 

@@ -252,9 +252,9 @@
     'menu main main main right right'
     'menu footer footer footer footer footer';
   gap: 2px;
-  background-color: #ff4500;
+  background-color: #29366f;
   /* padding: 10px; */
-  border: solid 2px orangered;
+  border: solid 2px #6481ff;
 }
 
 .grid-container > div {

@@ -26,12 +26,12 @@ function __construct(){
     
     /*localhost  */
         
-    
+    /*
     $this->dbservername = "localhost:3307";
     $this->dbusername = "u774227372_root";
     $this->dbpassword = "#Microquest12";
     $this->dbname = "u774227372_microquestdbv2(2)";
-    
+    */
 
    
         /* V2 sa hostinger */
@@ -46,6 +46,10 @@ function __construct(){
         */
         
 
+        $this->dbservername = "localhost";
+        $this->dbusername = "root";
+        $this->dbpassword = "";
+        $this->dbname = "u774227372_microquestdbv2_1";
         
     /*
     $this->dbservername = "localhost";

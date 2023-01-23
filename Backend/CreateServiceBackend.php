@@ -4,12 +4,15 @@ include "../Classes/DBHandler.php";
 
 $DBHandler = new DBHandler();
 
-    $responderID = $_POST["responderID"];
-    $serviceName=$_POST["servicePosition"];
+
 
     if($_POST["formType"] === "pasabuy"){
         $AlreadyExists = false;
+        $responderID = $_POST["responderID"];
+        $serviceName="pasabuy";
     } else{
+        $responderID = $_POST["responderID"];
+        $serviceName=$_POST["servicePosition"];
         $AlreadyExists = $DBHandler->serviceExists("servicesInfo",$responderID,$serviceName);
     }
     
@@ -19,7 +22,8 @@ $DBHandler = new DBHandler();
     
     } else{
 
-    
+    $responderID = $_POST["responderID"];
+    $serviceName=$_POST["servicePosition"];
         
 
 
@@ -165,7 +169,8 @@ $DBHandler = new DBHandler();
                 $productImageDirectory = $Directory.'/'.$productName.$productBrand.$responderID.'.png';
                 file_put_contents('../'.$productImageDirectory, $productImage);
 
-        echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$bannerImage);
+        $description = $productName;
+        echo $DBHandler-> registerService($serviceCategory,$servicePosition,$rate,$responderID,$certification,$certificateFile,$productImageDirectory,$description);
         echo $serviceInfoID = $DBHandler ->getData('servicesinfo','responderID',$responderID,'serviceID');
         echo $DBHandler-> registerProduct($serviceInfoID,$itemCategory,$productName,$productBrand,$productDescription,$productPrice,$productImageDirectory,$responderID,$productStore,$storeLocation,$rate);      
 

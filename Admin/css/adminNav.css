@@ -7,9 +7,9 @@
     display: grid;
     overflow: hidden;
     top: 0;
-    background-color: orangered;
+    background-color: #1491ea;
     z-index: 18;
-    box-shadow: 0px -8px 11px 0px orange inset;
+    box-shadow: 0px -8px 11px 0px #01223a inset;
 }
 
 #navUL{
@@ -77,7 +77,7 @@
     color: white;
     margin-top: 1;
 	float: right;
-	background-color:rgb(193, 85, 45) ;
+	background-color:#64c8fa ;
 	padding: 10px;
 	border-radius: 10px;
 }
@@ -96,7 +96,7 @@ b{
 */
 
 #LogOutButton a:hover{
-	color: rgb(212, 166, 16);
+	color: #1c475c;
 	
 } 
 
