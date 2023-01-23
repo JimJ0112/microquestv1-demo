@@ -77,7 +77,7 @@ body{
 	background-color: rgb(255 255 255);
 	border-radius: 0 100% 0 0;
 	margin-top: 45vh;
-	background-image: url("../img/businessidea.png");
+	/* background-image: url("../img/businessidea.png"); */
 	background-size: contain;
 }
 
@@ -97,7 +97,7 @@ body{
 	width: 75vw;
 	height: 60vh;
 	background-color: white;
-	background-image: url("../img/businessidea.png");
+	/* background-image: url("../img/businessidea.png"); */
 	background-size: contain;
 	z-index: 2;
 	position: fixed;

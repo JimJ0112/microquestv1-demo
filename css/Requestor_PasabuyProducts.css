@@ -504,9 +504,9 @@ width: 80%;
 
 height: 500px;
 
-border-radius: 10px 10px 10px 10px;
+/* border-radius: 10px 10px 10px 10px; */
 
-box-shadow: 1px 1px 10px black;
+/* box-shadow: 1px 1px 10px black; */
 
 /*padding: 10px;*/
 
@@ -518,7 +518,9 @@ margin: auto;
 
 cursor: pointer;
 
-background-color: white;
+background-color: #eedbe1;
+
+border: #455c66 solid 5px;
 }
 
 .ProductImageDiv{

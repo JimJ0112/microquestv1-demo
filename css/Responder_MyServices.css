@@ -454,8 +454,8 @@ color: #04847c;
 	height: fit-content;
 	font-size: xx-large;
 	border-radius: 15px;
-	border: rgb(253, 252, 252) solid 1.5px;
-	background-color: #9999998f;
+	/* border: rgb(253, 252, 252) solid 1.5px; */
+	/* background-color: #9999998f; */
 	font-weight: bold;
 	padding: 5px;
 	/* color: white; */
@@ -501,9 +501,10 @@ color: #04847c;
 }
 
 
-@media (max-width:390px){
+@media (min-width:222px) and (max-width: 590px){
 	#AvailableServicesContainer_Content{
-		grid-template-columns: auto;
+		grid-template-columns: auto auto;
+		zoom: 70%;
 	}
 	.AvailableService_Card{
 		zoom: 80%

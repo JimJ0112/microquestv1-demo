@@ -102,7 +102,7 @@ a{
   }
   
   input:checked + .slider {
-	background-color: #64c8fa;
+	background-color: #14d4ac;
 	}
   
   input:focus + .slider {
@@ -325,7 +325,7 @@ button#hideMenu {
 
 
 .buttonGreen {
-	background-color: #3a4b9a;
+	background-color: #23a088;
 	/* border: none; */
 	color: white;
 	padding: 2px 20px;

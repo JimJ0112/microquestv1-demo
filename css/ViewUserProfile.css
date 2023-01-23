@@ -239,7 +239,7 @@ input#requestInfoMessageBody {
      position: relative;
      float: left;
      overflow: hidden;
-     color: #3a4b9a;
+     color: #434344;
  }
  
  .userProfileUserPhoto{
@@ -384,7 +384,7 @@ table.userInfoTable {
 }
 
 input#send {
-    background-color: orangered; /* Green */
+    background-color: #3a4b9a; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -400,7 +400,7 @@ input#send {
 }
 input#send:hover {
     background-color: #e7e7e7;
-    color: orangered;
+    color: #3a4b9a;
 }
 
 

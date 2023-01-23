@@ -77,7 +77,7 @@
 <!--Main-->
 	<div id="AvailableServicesContainer">
 
-		<center> <h1 id="AvailableServicesTitle"> Responder - My Services </h1> </center>
+		<center> <h1 id="AvailableServicesTitle"> My Services </h1> </center>
 
 		<div id="ServicesContainer">
 			

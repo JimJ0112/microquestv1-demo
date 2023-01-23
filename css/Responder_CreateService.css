@@ -30,14 +30,12 @@
 
 
 #Responder_CreateServiceBackground{
-		/*background-image: url("../img/3490.png");*/
-
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: repeat;
-	background-origin: border-box;
-
+		/* background-image: url("../img/3490.png"); */
+		/* background-position: center; */
+		/* background-size: cover; */
+		/* background-attachment: fixed; */
+		/* background-repeat: repeat; */
+		/* background-origin: border-box; */
 }
 
 #RequestOrdersTitle{
@@ -118,7 +116,7 @@
 	display: inline-block;
 	height: 100px;
 	width: 100%;
-	background-color: rgb(155 155 155 / 30%);
+	background-color: #eedbe1;
 	overflow: hidden;
 	text-align: center;
 	padding: 5px;
@@ -336,7 +334,7 @@ center{
 	align-content: center;
 	padding: auto;
 	position: relative;
-	background-color: #fdfaf996;
+	background-color: #eedbe1;
 	animation: fadein 1.25s;
 }
 

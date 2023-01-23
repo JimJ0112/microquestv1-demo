@@ -266,7 +266,7 @@ function chooseNav(category,number){
 
     }
 
-    grid_item[number].style.backgroundColor = "#3a4b9a";
+    grid_item[number].style.backgroundColor = "#455c66";
     grid_item[number].style.color = "white";
     
 

@@ -120,7 +120,7 @@
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #455c66;
   /* border: 1px solid rgba(0, 0, 0, 0.8); */
   padding: 20px;
   font-size: large;
@@ -137,7 +137,7 @@
 
 td.rankTR {
     font-size: xxx-large;
-    color: #3a4b9a;
+    color: #455c66;
     border-bottom: 1px solid black;
     /* border-right: 1px solid black; */
     /* border-left: 1px solid; */

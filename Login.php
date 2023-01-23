@@ -19,139 +19,55 @@ session_start();
     }
     echo "<script> sessionStorage.clear(); </script> ";
 ?>
+<html lang="en"><head>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>
-		microQuest - Login
-	</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/boot_bootstrap.min.css">
+<link rel="stylesheet" href="css/login_style.css">
 
-	
-    <link rel="manifest" href="manifest.json">
-    
+<link rel="manifest" href="manifest.json">
 
+<title>microQuest - LOGIN</title>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/Login.css">
-
-	<meta content='yes' name='apple-mobile-web-app-capable'/>
-    <meta content='yes' name='mobile-web-app-capable'/>
-
-</head>
-<body id="LoginBody">
-
-
-<table id="LoginTable">
-	<tr>
-		<td id="LoginTable-Left">
-			
-				
-					<!-- Carousel -->
-				<div class="carousel">
-			   		<!-- Slideshow container -->
-			   		<div class="slideshow-container">
-   
-			   			<!-- Full-width images with number and caption text -->
-				 		<div class="mySlides fade">
-				   			<img src="img/home.jpg"  class="SlideImages">
-				 		</div>
-   
-				 		<div class="mySlides fade">
-				   			<img src="img/com.png" class="SlideImages">
-				 		</div>
-   
-				 		<div class="mySlides fade">
-				  			<img src="img/other.png" class="SlideImages">  
-				 		</div>
-   
-	   
-			   		</div>
-		
-			
-   
-			 <script src="js/carousel.js"> </script>
-			 <!-- End of Carousel-->
-		   
-	
+<body>
+<div class="d-lg-flex half">
+		<div class="bg order-1 order-md-2"  style="background-image: url('img/bg_1.jpg');">
 		</div>
-	</td>
+	<div class="contents order-2 order-md-1">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-md-7">
+					<h3>
+						<strong>Login to microQuest</strong>
+					</h3>
 
-		<td id="LoginTable-right">
-		<form id="LoginForm" form action="Backend/LoginBackend.php" method="post">
-		
-		<center>
-		<h1 id="Welcome"> Welcome!</h1>
-		
-		</center>
+					<p class="mb-4">Are you looking for a job and a service provider? Just browse, find, and hire.</p>
+						<!-- FORM -->
+						<form form action="Backend/LoginBackend.php" method="post">
 
+							<div class="form-group first">
+								<label for="username">Username</label>
+								<input type="text" class="Form-Input" name="email" placeholder="ex. imissu@gmail.com" id="username" Required>
+							</div>
 
-				<div id="FormControls">	
+							<div class="form-group last mb-3">
+								<label for="password">Password</label>
+								<input type="password" class="Form-Input" name="password" placeholder="enter your password..." id="password" Required>
+							</div>
 
-					<label> Email &nbsp</label><br/> 
-					<input type="email" class="Form-Input" name="email" placeholder = "Enter your email..." Required> <br/> <br/> <br/>
-					<label> Password</label><br/>
-					<input type="password" class="Form-Input" name="password" placeholder = "Enter your password..." Required> <br/>
-
-					<br/> 
-					<div id="FormControls-Buttons">
-						<input type="submit" value="Login" class="LoginForm-button" id="LoginButton"/>
-
-				
-							<a href="index.html"  class="LoginForm-button" id="CancelButton"> Cancel </a>
-				
-
-					</div>
+							<div class="d-flex mb-5 align-items-center">
+								<span class="ml-auto"> <a href="ChooseAccountType.php" class="register_here">Doesn't have an account? <span class="register">  REGISTER </span></a></span>
+							</div>
+						<!-- BUTTON -->    
+						<input type="submit" value="Log In" class="btn btn-block btn-primary">
+						</form>
+						<!--END OF FORM-->
 				</div>
-		<center>
-			<h4 style= "margin-top: 50px;"> Doesn't have an accout?  <a href="ChooseAccountType.php" > <u id="RegisterButton"> Register</u> </a></h4>
-			
-		</center>
-		
-
-	</form>
-		</td>
-	</tr>
-</table>
-<!--
-	<form id="LoginForm" form action="Backend/LoginBackend.php" method="post">
-		
-		<center>
-		<h1 id="Welcome"> Welcome Back</h1>
-		
-		</center>
-
-
-				<div id="FormControls">	
-
-					<label> Email &nbsp</label><br/> 
-					<input type="text" class="Form-Input" name="email" placeholder = "Enter your email..."> <br/> <br/> <br/>
-					<label> Password</label><br/>
-					<input type="password" class="Form-Input" name="password" placeholder = "Enter your password..."> <br/>
-
-					<br/> 
-					<div id="FormControls-Buttons">
-						<input type="submit" value="Login" class="LoginForm-button" id="LoginButton"/>
-						<input type="reset" value="Reset" class="LoginForm-button" id="CancelButton"/>
-					</div>
-				</div>
-		<center>
-			<h4 style= "margin-top: 50px;"> Doesn't have an accout?  <a href="ChooseAccountType.php" > <u id="RegisterButton"> Register</u> </a></h4>
-			
-		</center>
-		
-
-	</form>
--->
-
-
-	<!-- <img src="img/logo.png" id="Logo"/> -->
-	<h1 id="Logo">
-		 <span id="Micro"> micro </span> <br/>  
-		 <span id="Quest"> QUEST </span> 
-	</h1>
+			</div>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>

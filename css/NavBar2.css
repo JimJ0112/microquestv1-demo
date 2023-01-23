@@ -10,9 +10,9 @@ body{
 	display: grid;
 	overflow: hidden;
 	top:0;
-	background-color: #14d4ac;
+	background-color: #23a088;
 	z-index: 18;
-	box-shadow: 0px -8px 11px 0px #7fe7d4 inset;
+	box-shadow: 0px -8px 11px 0px #b0ecd1 inset;
 }
 
 #NavBar{
@@ -93,17 +93,17 @@ body{
 
 #navMenu{
 	position: absolute;
-	background-color: #1491ea;
 	right: 50px;
 	top:115px;
 	width: 200px;
 	z-index: 50;
 	border-radius: 10px;
 	display: none;
+	background-color: #23a088;
 }
 
 .listDown:hover{
-	background-color: #3a4b9a7d;
+	background-color: #b0ecd1;
 }
 .NavMenu-item{
 	text-decoration: none;
@@ -114,10 +114,11 @@ body{
 	margin-top: 10px;
 	cursor: pointer;
 	width: 50%;
+	/* background-color: #23a088; */
 }
 
 .NavMenu-item:hover{
-	/* background-color: #3a4b9a7d; */
+	background-color: #b0ecd1;
 }
 
 #userInfoNav{
@@ -325,7 +326,7 @@ border-radius: 10px;
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 20;
-	background-color: #14d4ac;
+	background-color: #23a088;
 	border: 0.5px solid white;
 	}
 
@@ -352,7 +353,7 @@ border-radius: 10px;
   
   /* Add a grey background color to dropdown links on hover */
   .dropdown-content a:hover {
-	background-color: #3a4b9a7d;
+	background-color: #b0ecd1;
 	}
   
   /* Show the dropdown menu on hover */
@@ -438,7 +439,7 @@ border-radius: 10px;
 #MobileMenu{
 	width: 100%;
 	height: fit-content;
-	background-color: #14d4ac;
+	background-color: #23a088;
 	display: none;
 	text-align: left;
 	text-align: center;
@@ -563,7 +564,7 @@ border-radius: 10px;
 		width: 100%;
 		position: absolute;
 		top:0;
-		background-color: #14d4ac;
+		background-color: #23a088;
 		display: grid;
 		height: 8%;
 		z-index: 99;
