@@ -1098,4 +1098,7 @@ button.red{
 		height: fit-content;
 		zoom: 50%;
 	}
+	div#requestPrice{
+		zoom: 110%;
+	}
 }

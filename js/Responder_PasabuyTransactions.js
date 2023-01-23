@@ -26,7 +26,7 @@ function pasabuyNavItem (number,userID){
     TransactionsNavItem5.style = "background-Color:white; color:black; ";
     TransactionsNavItem6.style = "background-Color:white; color:black; ";
 
-    TransactionsNavItems[number].style = "background-Color:orangered; color:white; ";
+    TransactionsNavItems[number].style = "background-Color:#176c5c; color:white; ";
     if(number === 0){
       
         getPasabuyOrders(userID)
@@ -1679,4 +1679,22 @@ function setTextViewer(text){
 function redirect(url){
     var url = url;
     window.location.replace(url);
+}
+
+function sideButton(){
+    TransactionsNav = document.getElementById('TransactionsNav');
+    TransactionsNav.style.marginLeft="0px"
+    
+    sideMenu = document.getElementById('sideMenu');
+    sideMenu.style.marginLeft="-50px"
+
+   
+}
+
+function hideButton(){
+    TransactionsNav = document.getElementById('TransactionsNav');
+    TransactionsNav.style.marginLeft="-270px";
+
+    sideMenu = document.getElementById('sideMenu');
+    sideMenu.style.marginLeft="-6"
 }

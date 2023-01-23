@@ -269,8 +269,9 @@ padding: auto;
 #conversationHeader{
 	align-items: center;
 	display: grid;
-	overflow: hidden;
+	/* overflow: hidden; */
 	background-color: rgb(199, 199, 204);
+	padding: 5px;
 }
 
 #conversationSearch{
@@ -461,7 +462,7 @@ table#conversationSearchDiv {
 @media (min-width: 220px) and (max-width:555px){
 	#MessagesMainContainer{
 		margin-top:0;
-		width: 100%;
+		width: 90%;
 	}
 	#messageBody{
 		width: 100%;

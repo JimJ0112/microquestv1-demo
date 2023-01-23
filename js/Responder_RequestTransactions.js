@@ -22,7 +22,7 @@ function requestClickedItem(number,userID){
     TransactionsNavItem5.style = "background-Color:white; color:black; ";
     TransactionsNavItem6.style = "background-Color:white; color:black; ";
 
-    TransactionsNavItems[number].style = "background-Color:orangered; color:white; ";
+    TransactionsNavItems[number].style = "background-Color:#176c5c; color:white; ";
     if(number === 0){
         getRequestApplications(userID);
     }else if(number === 1){

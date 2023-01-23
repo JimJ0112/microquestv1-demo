@@ -227,7 +227,7 @@ background-color: #eedbe1;
     align-items: center;
     /* grid-template-columns: auto; */
     grid-column-gap: 1px;
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 input#requestInfoMessageBody {
     height: 40px;
@@ -458,7 +458,7 @@ input[type="submit"]{
 	/* margin-top: 10px; */
 	/* margin-bottom: 25px; */
 	/* cursor: pointer; */
-	width: 20%;
+	/* width: 20%; */
 	margin: auto;
 }
 .enterNone{
@@ -866,7 +866,7 @@ div#closeButton {
 		margin-top: 100px;
 	}
 	#viewUserProfileNav{
-		zoom: 150%;
+		zoom: 120%;
 		width: 100%;
 	}
 	#postContainer{
@@ -883,6 +883,11 @@ div#closeButton {
 		background-color:#eedbe1;
 		border: solid 4px #3a4b9a;
 		
+	}
+	form{
+		zoom: 70%;
+		display: flex;
+		flex-direction: column;
 	}
 }
 

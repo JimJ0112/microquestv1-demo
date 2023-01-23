@@ -54,6 +54,8 @@
 </head>
 <body onload="setTransactionType()">
 
+	<button class="sideMenu" onclick="sideButton()" id="sideMenu" > >> </button>
+
 <!-- NavBar-->
 <?php
 	//require_once("imports/ResponderNavBar.php");
@@ -99,7 +101,7 @@
 	<div class="grid-container" id="TransactionsNav">
 		  <div id="TransactionTypeTd" class="grid-item">
 			<div id="TransactionTypeDropDown">
-				Pasabuy
+				Pasabuy <button class="hideMenu" onclick="hideButton()" id="hideMenu" > X </button>
 			</div>
 		</div>
 

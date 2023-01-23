@@ -184,13 +184,23 @@ function setData(dataArray){
   userLocation = document.getElementsByClassName('userLocation')[0];
 
  
- var middleName = dataArray[0]["middleName"];
-  middleName = Array.from(middleName);
- var  middleInitial = middleName[0];
-  console.log(middleInitial);
+  if(dataArray[0]["middleName"] === null || dataArray[0]["middleName"] === ""){
+
+    userFullName.innerText = dataArray[0]["firstName"] + " " +dataArray[0]["lastName"]  ;
+  } else {
+    
+    var middleName = dataArray[0]["middleName"];
+      middleName = Array.from(middleName);
+    var  middleInitial = middleName[0];
+    console.log(middleInitial);
+    userFullName.innerText = dataArray[0]["firstName"] + " " + middleInitial +". " +dataArray[0]["lastName"]  ;
+
+
+  }
+
 
  // userEmail.innerText = dataArray[0]["userEmail"];
-  userFullName.innerText = dataArray[0]["firstName"] + " " + middleInitial +". " +dataArray[0]["lastName"]  ;
+  //userFullName.innerText = dataArray[0]["firstName"] + " " + middleInitial +". " +dataArray[0]["lastName"]  ;
  // userAge.innerText = dataArray[0]["userName"];
   //userDob.innerText = dataArray[0]["birthDate"];
 
