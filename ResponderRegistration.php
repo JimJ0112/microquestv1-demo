@@ -19,17 +19,15 @@
 
 </head>
 
-<body onload="getServices()">
+<body onload="getServices()" class ="bg">
 
 	
 	<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
-	<img src="img/f.jpg" id="RegistrationBackground">
+	
 
 
 
-<img src="img/logo.png" id="RegistrationLogo"> 
-<h3 id="SignUpText"> Responder</h3>
-<h4 id="SignUpText1"> Sign up</h3>
+ 
 
 
 		<div id="RegistrationContainer">
@@ -40,7 +38,7 @@
 				<div id="AccountInfoForm">
 						
 						<div id="AccountInfoForm1">
-
+						<center> <h2> Sign up as a Responder </h2> </center>
 							<div class="inputItem"> 
 								Username: <br/>
 								<span class="asteriskRequiredField" title="This Field is Required"> * </span>
@@ -71,15 +69,8 @@
 								<p id="passwordmatch"></p>
 							</div><br/>
 
-							<div class="inputItem">
 							<input type="button" id="RegistrationNextButton" value= "Next" onclick="checkInputs_AccountInfo()">
-						 	</div>
-						</div>	
-						
-						<div class= "signup-image">
-						<figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
-						<a href="#" class="signup-image-link">I am already member</a>
-						</div>
+						</div>		
 						 		
 					</div>
 				

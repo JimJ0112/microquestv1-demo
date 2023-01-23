@@ -214,6 +214,8 @@ text-align: center;
 /* margin: auto; */
 
 /* width: 100%;*/
+
+animation: fadein 1.5s;
 }
 
 

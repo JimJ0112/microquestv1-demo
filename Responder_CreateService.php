@@ -90,7 +90,7 @@ session_start();
 
                 <tr class="home_computerRelated_Tr">
                     <td class="home_computerRelated_Td" id="OtherServicePositionText"  style="display:none">
-                        Other Service:
+                        New Service Title:
                     </td>
 
                     <td>

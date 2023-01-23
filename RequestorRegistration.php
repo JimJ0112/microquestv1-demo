@@ -28,16 +28,14 @@
 <body onload="">
 
 
+<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
 
-	<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
 
-		<img src="img/f.jpg" id="RegistrationBackground">
+		
 
 		<h3 class="RegisterTypeText"> Requestor </h3>
 
-		<img src="img/logo.png" id="RegistrationLogo"> 
-		<h3 id="SignUpText"> Requestor</h3>
-		<h4 id="SignUpText1"> Sign up</h3>
+	
 		<div id="RegistrationContainer">
 
 			<!--Form -->
@@ -49,7 +47,7 @@
 					<div id="AccountInfoForm">
 						
 						<div id="AccountInfoForm1">
-
+						<center> <h2> Sign up as a Requestor </h2> </center>
 							<div class="inputItem"> 
 								Username: <br/>
 								<span class="asteriskRequiredField" title="This Field is Required"> * </span>

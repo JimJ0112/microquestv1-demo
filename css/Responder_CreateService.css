@@ -226,22 +226,21 @@ padding:10px;
 
 margin: auto;
 
-width:70%;
+width: 50%;
 
 height: fit-content;
 
-border: 1px solid rgb(255 69 0);
+border: 5px solid #23a088;
 
 border-radius: 10px;
 
 animation: fadein 1s;
 
-background-color: #525252;
+background-color: #eedbe1;
 
-background-image: url(../img/f.jpg);
+/* background-image: url(../img/f.jpg); */
 
 background-blend-mode: overlay;
-
 }
 
 
@@ -413,9 +412,9 @@ padding-top: 20px;
 }
 
 .home_computerRelated_Td{
-	font-size: large;
+	/* font-size: large; */
 	font-weight: bold;
-	color: white;
+	/* color: white; */
 }
 
 .column1_td{
@@ -500,7 +499,11 @@ ul{
 		width: 100%;
 	}
 	.formBack{
-		background-color: #00000078;
+		/* background-color: #00000078; */
+	}
+	#otherCategoriesForm{
+		width: 80%;
+		zoom: 80%;
 	}
 
 
@@ -512,7 +515,7 @@ img#RegistrationBackground {
 .welcome {
     display: grid;
     grid-template-columns: auto auto;
-    background: orangered;
+    background: #23a088;
     /* z-index: 10; */
     text-align: right;
     color: white;

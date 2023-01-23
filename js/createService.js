@@ -525,15 +525,15 @@ function otherPosition(){
     } else {
 
         tb.style.display="block";
-        tr.style.display= "block";
+        tr.style.display= "table-cell";
         asterisk.style.display= "inline";
 
-        serviceDescriptionTR.style.display="block";
+        serviceDescriptionTR.style.display="table-row";
         serviceDescriptionText.style.display="block";
-        serviceDescriptionInput.style.display="block";
+        serviceDescriptionInput.style.display="table-cell";
         asteriskRequiredFieldHiddenDescription.style.display = "inline";
 
-        serviceBannerTR.style.display="block";
+        serviceBannerTR.style.display="table-row";
         serviceBannerText.style.display="block";
         serviceBannerInput.style.display="block";
 
