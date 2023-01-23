@@ -113,7 +113,28 @@ input:checked + .slider:before {
     display: grid;
     align-content: center;
 }
-
+#GeneralInfoForm {
+    background: linear-gradient(white, white) padding-box, linear-gradient(to left, #98F78A, #6590d4) border-box;
+    border-radius: 1em;
+    border: 4px solid transparent;
+    box-shadow: 0 4px 15px 0 rgb(95 79 168 / 75%);
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: rgb(63, 50, 48);
+    /* font-size: large; */
+    /* display: block; */
+    /* align-content: center; */
+    padding: auto;
+    /* height: 500px; */
+    /* margin-top: 50px; */
+    background: #fefefe;
+    width: 60vw;
+    margin: 60px 25% 0 30%;
+    height: 112vh;
+    position: relative;
+    font-size: 1.2em;
+}
 #Logo {
     position: absolute;
     z-index: 2;
@@ -588,7 +609,7 @@ input:checked + .slider:before {
 .Registration-TextBox {
     border: 2px solid rgb(173 192 235);
     /* border-radius: 10px; */
-    height: 5vh;
+    height: 7vh;
     width: 95%;
     font-size: 1em;
     margin: auto;
@@ -705,7 +726,7 @@ input:checked + .slider:before {
     background: #fefefe;
     width: 60vw;
     margin: 60px 25% 0 30%;
-    height: 112vh;
+    height: 101vh;
     position: relative;
     font-size: 1.2em;
 }
@@ -766,7 +787,7 @@ input:checked + .slider:before {
 }
 
 #GeneralInfoForm1 {
-    width: 100%;
+    width: 101%;
     height: 100%;
     /* position: absolute; */
     /* text-align: left; */
@@ -1765,7 +1786,6 @@ float: right;
 
 .textBox{
     margin: auto;
-
     margin-right: 5px;
 }
 .textBox1{
@@ -1784,6 +1804,7 @@ form#RegistrationForm {
 
 
 .nextBtn{
+        float: right;
         border-radius: 9px;
         /* position: absolute; */
         bottom: 26px;
@@ -1912,32 +1933,34 @@ span.asteriskRequiredField {
         width: fit-content;
     }
     .Registration-TextBox{
-        width: 20em;
-        
+        width: 39em;
     }
     .inputItem1, .inputItem2, .inputItem3, .inputItem4, .inputItem5{
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        /* display: inline-block; */
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
     }
 
 #GeneralInfoForm{
- height:200vh;
- width: fit-content;
- top: 20%;
+ height: 279vh;
+ width: 90%;
+ top: 5%;
+ left: 8%;
 }
+    
     #userIDPicOutput, #userProfilePicOutput{
         width: 40vw;
         height: 15vh;
     }
 
     .nextBtn{
-        width:30vw;
+        width: 23vw;
         height: 5vh;
+        /* top: 3%; */
     }
     #Registration-BackButton{
         width:9vw;
@@ -1948,7 +1971,15 @@ span.asteriskRequiredField {
 
 @media (max-width: 1199.98px) {
 
-    
-   
+    #GeneralInfoForm{
+        width: 84%;
+        padding: 12px 20px;
+        margin: 22px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
 }
 

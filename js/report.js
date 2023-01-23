@@ -3,7 +3,7 @@
 
 function showReportForm(id,transactionID,type,userType){
     reportPopUpBack = document.getElementById("reportPopUpBack");
-    reportPopUpBack.style.display = "block";
+    reportPopUpBack.style.display = "grid";
 
     var reportTransactionType = reportTransactionType;
     var reportTransactionID = reportTransactionID;
@@ -87,7 +87,7 @@ function otherProblems(){
     console.log("something else");
 
     if(reportType === "Something Else"){
-        otherReportType.style.display = "block";
+        otherReportType.style.display = "grid";
     }else{
         otherReportType.style.display = "none";
         

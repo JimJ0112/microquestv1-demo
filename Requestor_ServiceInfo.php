@@ -60,7 +60,9 @@ session_start();
 			if($userType === "Requestor"){
 				require_once("imports/RequestorNavBar.php");
 			} else{
-				header("location: Responder_RequestBoard.php?msg=Not a Requestor!");
+				//header("location: Responder_RequestBoard.php?msg=Not a Requestor!");
+				require_once("imports/ResponderNavBar.php");
+
 			}
 
 		}

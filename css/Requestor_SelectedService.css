@@ -501,7 +501,7 @@ margin: auto;
     border-radius: 20px;
 	*/
 	width: 50%;
-	height: 70%;
+	height: fit-content;
 	/* background-image: url(../img/f.jpg); */
 	background-size: cover;
 	/* background-size: auto; */
@@ -509,10 +509,11 @@ margin: auto;
 	/* background-position: center; */
 	margin: auto;
 	/* z-index: 10; */
-	border: 1px solid rgb(108 108 108);
+	border: 5px solid #3a4b9a;
 	/* padding: 10px; */
 	border-radius: 10px;
 	background-color: #eedbe1;
+	padding-bottom: 50px;
 }
 
 h3{
@@ -802,7 +803,7 @@ display: none;
 	.serviceCard{
 		margin-top: 20px;
 		width: fit-content;
-		height: fit-content;
+		/* height: fit-content; */
 	}
 	#selectedCategory{
 		width: auto;

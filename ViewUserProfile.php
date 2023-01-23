@@ -151,7 +151,7 @@ session_start();
 
                             } else if ($userType === "Requestor"){
 
-                                echo"My Request Reviews";
+                                echo"Reviews";
 
                             }
 

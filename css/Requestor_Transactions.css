@@ -273,7 +273,7 @@ td{
 	width: 35%;
 	height: 70%;
 	/* background-image: url("../img/coc-background.jpg"); */
-	/* border: 5px saddlebrown solid; */
+	border: 5px #3a4b9a solid;
 	border-radius: 5px;
 }
 
@@ -339,7 +339,7 @@ td{
 	overflow-y: scroll;
 	margin-top: 20px;
 	padding: 10px;
-	/* border: rgba(160, 104, 51, 0.849) solid 5px; */
+	border: #3a4b9a solid 5px;
 	border-radius: 5px;
 }
 
@@ -431,7 +431,7 @@ td{
 	height: 500px;
 	/* display: none; */
 	margin-top: 100px;
-	border: solid saddlebrown 3px;
+	border: solid #3a4b9a 3px;
 	border-radius: 20px;
 	background-color: #eedbe1;
 }
@@ -510,6 +510,7 @@ td{
 #reportHeader{
 	height: 30%;
 	width: 100%;
+	position: relative;
 	/* background-image: url("../img/coc-background.jpg"); */
 	/* background-size: cover; */
 	/* border-radius: 10px; */
@@ -562,13 +563,13 @@ td{
 
 #ReportedAccountProfile{
 	float: left;
-    left: 38%;
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border: 2px solid white;
-    object-fit: cover;
-    border-radius: 50%;
+	left: 3%;
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	border: 2px solid white;
+	object-fit: cover;
+	border-radius: 50%;
 	top: 12%;
 	padding: 3;
 }
@@ -1099,5 +1100,9 @@ button.red{
 		height: fit-content;
 		zoom: 60%;
 		min-height: 1000px;
+	}
+	#giveFeedBackPopUp{
+		width: 80%;
+		margin-top:auto;
 	}
 }

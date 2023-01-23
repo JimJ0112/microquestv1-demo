@@ -338,7 +338,7 @@ td{
 	overflow-y: scroll;
 	margin-top: 20px;
 	padding: 10px;
-	/* border: rgba(160, 104, 51, 0.849) solid 5px; */
+	border: #176c5c solid 5px;
 	border-radius: 5px;
 }
 
@@ -514,6 +514,7 @@ td{
 	/* background-size: cover; */
 	/* border-radius: 10px; */
 	background-color: rgb(188 181 179 / 28%);
+	position: relative;
 }
 
 
@@ -562,13 +563,13 @@ td{
 
 #ReportedAccountProfile{
 	float: left;
-    left: 38%;
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border: 2px solid white;
-    object-fit: cover;
-    border-radius: 50%;
+	left: 3%;
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	border: 2px solid white;
+	object-fit: cover;
+	border-radius: 50%;
 	top: 12%;
 	padding: 3;
 }
@@ -1100,5 +1101,8 @@ button.red{
 	}
 	div#requestPrice{
 		zoom: 110%;
+	}
+	#PhotoViewer{
+		zoom:80%;
 	}
 }
