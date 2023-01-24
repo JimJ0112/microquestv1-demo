@@ -888,7 +888,7 @@ function SetAcceptedData(dataArray){
         // set data
         Price[i].innerText = "Php " + dataArray[i]['price'];
        // Contract[i].innerHTML = "<a href='TransactionContract.php?ID=" + dataArray[i]['transactionID'] +"'/> Contract </a>";
-       Contract[i].innerHTML = "<a href='" + dataArray[i]['contractAgreement'] + "' target='_blank' /> Contract </a>"
+        Contract[i].innerHTML = "<a href='" + dataArray[i]['contractAgreement'] + "' target='_blank' /> Contract </a>"
 
 
         //set data
@@ -932,16 +932,18 @@ function SetAcceptedData(dataArray){
 
 
 
-        transactionStatus[i].style.color = "green";
+        //transactionStatus[i].style.color = "green";
 
 
 
+        /*
         var button1 = document.createElement('button');
-        button1.setAttribute('class','CancelButton');
+      
+        button1.setAttribute('class','Button red');
         button1.innerText = "Cancel";
         button1.setAttribute('onclick',"cancelServiceOrder(" +dataArray[i]['transactionID'] + ",'cancelled')" );
         actionsDiv[i].appendChild(button1);
-
+        */
 
 
     }
@@ -1437,8 +1439,9 @@ function cancelServiceOrder(transactionID,update){
                    
                 
                 
-                        transactionsUserId = sessionStorage.getItem("transactionsUserId");
-                    getCancelledOrders(transactionsUserId);
+                    transactionsUserId = sessionStorage.getItem("transactionsUserId");
+                    //getCancelledOrders(transactionsUserId);
+                    clickedNavItem (5,transactionsUserId)
                 
             
                 

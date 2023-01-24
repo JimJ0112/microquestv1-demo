@@ -25,6 +25,13 @@
 	} else {
 		header("location:Login.php?msg=Please Login First");
 	}
+
+
+	if(isset($_GET['msg'])){
+		$msg = $_GET['msg'];
+        echo"<script> alert('$msg') </script>";
+
+	}
 ?>
 
 <!DOCTYPE html>
@@ -153,6 +160,8 @@
 
 		<input type="hidden" name="userType" value="<?php echo $userType; ?>"/>
 		<input type="hidden" name="update" value="paid"/>
+		<input type="hidden" name="transactionType" value="Request"/>
+
 		<center> <h4>  Please Enter your proof of payment  </h4> 
 		<br/>
 
@@ -252,6 +261,10 @@
 			<hr/>
 			<input type="hidden" name="transactionReportID" id="TransactionReportIDInput"/>
 			<input type="hidden" name="transactionType" id="TransactionTypeInput"/>
+
+			
+			<input type="hidden" name="myUserType" value="Requestor"/>
+			<input type="hidden" name="myTransactionType" value="Request"/>
 
 			<h3> Please Select a problem </h3>
 			

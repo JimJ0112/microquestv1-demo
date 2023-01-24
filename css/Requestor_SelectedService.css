@@ -552,13 +552,29 @@ h3{
 	border-radius: 20px;
 }
 
+/*
 #contractBackGround{
 	position:absolute;
 	z-index: 21;
 	background-color: rgba(51, 49, 49, 0.299);
 	display: none;
 	width: 99%;
+
 	height: 100%;
+	align-content: center;
+	background-color: white;
+	padding: 10px;
+}
+*/
+
+#contractBackGround{
+	position:absolute;
+	z-index: 21;
+	background-color: rgba(51, 49, 49, 0.299);
+	display: none;
+	width: 99%;
+	
+	height: 200%;
 	align-content: center;
 	background-color: white;
 	padding: 10px;

@@ -1262,7 +1262,7 @@ function acceptServiceOrder(transactionID,update){
             var update = update;
             var query = "transactionID=" + transactionID+"&update="+update;
             console.log(query);
-            alert("Order Accepted");
+            
 
 
             var xmlhttp = new XMLHttpRequest();
@@ -1278,7 +1278,8 @@ function acceptServiceOrder(transactionID,update){
                 
 
                     transactionsUserId = sessionStorage.getItem("transactionsUserId");
-                    getOrders(transactionsUserId);
+                    //getOrders(transactionsUserId);
+                    clickedNavItem(1,transactionsUserId);
                 
                 
                 
@@ -1303,7 +1304,7 @@ function cancelServiceOrder(transactionID,update){
             var update = update;
             var query = "transactionID=" + transactionID+"&update="+update;
             console.log(query);
-            alert("Order Canceled");
+            
 
 
             var xmlhttp = new XMLHttpRequest();
@@ -1319,7 +1320,8 @@ function cancelServiceOrder(transactionID,update){
 
                 
                     transactionsUserId = sessionStorage.getItem("transactionsUserId");
-                    getCancelledOrders(transactionsUserId);
+                   // getCancelledOrders(transactionsUserId);
+                   clickedNavItem(5,transactionsUserId);
                 
             
                 
@@ -1346,7 +1348,7 @@ function deliverServiceOrder(transactionID,update){
             var update = update;
             var query = "transactionID=" + transactionID+"&update="+update;
                 console.log(query);
-            alert("Order Delivered");
+            
 
 
             var xmlhttp = new XMLHttpRequest();
@@ -1362,8 +1364,10 @@ function deliverServiceOrder(transactionID,update){
                 
                 
                     transactionsUserId = sessionStorage.getItem("transactionsUserId");
-                    getAcceptedOrders(transactionsUserId);
-                
+                   // getAcceptedOrders(transactionsUserId);
+                   //getDeliveredService(transactionsUserId);
+                   clickedNavItem(2,transactionsUserId);
+
 
                 
                 }else{
@@ -1387,7 +1391,7 @@ function confirmPaymentServiceOrder(transactionID,update){
         var update = update;
         var query = "transactionID=" + transactionID+"&update="+update;
         console.log(query);
-        alert("Payment Confirmed");
+    
 
 
         var xmlhttp = new XMLHttpRequest();
@@ -1403,17 +1407,18 @@ function confirmPaymentServiceOrder(transactionID,update){
 
 
                 transactionsUserId = sessionStorage.getItem("transactionsUserId");
-                getPaidOrders(transactionsUserId);
+                //getFinishedService(transactionsUserId);
  
-            
+                clickedNavItem(4,transactionsUserId);
 
             }else{
                 console.log(err);
             }      
         };
     
-        alert("Payment Confirmed");
+        
         xmlhttp.send(query);
+        alert("Payment Confirmed");
     }else{
 
     }

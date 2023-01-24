@@ -50,6 +50,8 @@ date_default_timezone_set("Asia/Manila");
 $today = date("Y-m-d");
 
 
+
+/*
 if(isset($_POST["userType"])){
     $usertype = $_POST["userType"];
 
@@ -63,7 +65,25 @@ if(isset($_POST["userType"])){
     }
 
 }
+*/
 
+if(isset($_POST["transactionType"])){
+
+    $transactionType = $_POST["transactionType"];
+
+    if($transactionType === "Service"){
+        header("location: ../Requestor_ServiceTransactions.php?nav=3");
+    }else if($transactionType === "Request"){
+        header("location: ../Requestor_RequestTransactions.php?nav=3");
+
+    }else{
+        header("location: ../Requestor_ServiceTransactions.php?nav=3");
+
+    }
+} else{
+    header("location: ../Requestor_ServiceTransactions.php?nav=3");
+
+}
 
 
 //header("location: ../");

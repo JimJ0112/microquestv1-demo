@@ -1773,7 +1773,8 @@ function cancelRequestApplication(transactionID,update){
                 
                 
                     transactionsUserId = sessionStorage.getItem("transactionsUserId");
-                    getCancelledRequests(transactionsUserId);
+                    //getCancelledRequests(transactionsUserId);
+                    requestClickedItem(5,transactionsUserId);
                 
 
                 
@@ -2032,7 +2033,7 @@ function acceptRequestApplication(transactionID,update){
 
 
                 transactionsUserId = sessionStorage.getItem("transactionsUserId");
-                requestClickedItem(0,transactionsUserId);
+                requestClickedItem(1,transactionsUserId);
             
 
 

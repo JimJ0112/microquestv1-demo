@@ -1104,4 +1104,8 @@ button.red{
 	#PhotoViewer{
 		zoom:80%;
 	}
+	#reportPopUp{
+		width: 90%;
+		
+	}
 }

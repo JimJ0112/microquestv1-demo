@@ -23,6 +23,12 @@
 	} else {
 		header("location:Login.php?msg=Please Login First");
 	}
+
+	if(isset($_GET['msg'])){
+		$msg = $_GET['msg'];
+        echo"<script> alert('$msg') </script>";
+
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -180,6 +186,8 @@
 			
 
 			
+			<input type="hidden" name="myUserType" value="Responder"/>
+			<input type="hidden" name="myTransactionType" value="Request"/>
 
 			<img id="ReportedAccountProfile">
 			<span id="ReportedAccountName"> Dummy Acc </span> <br/>
@@ -218,8 +226,8 @@
 			<br/><br/>
 		
 
-			<input class="formButton" type="submit" value="Submit Report"/> 
-			<input class="formButton" type="button" value="Cancel" onclick="hideReportForm()"/>
+			<input class="button" type="submit" value="Submit Report"/> 
+			<input class="button" type="button" value="Cancel" onclick="hideReportForm()"/>
 		</center>
 		</div>
 	</form>

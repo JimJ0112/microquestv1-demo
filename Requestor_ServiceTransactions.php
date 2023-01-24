@@ -25,6 +25,12 @@
 	} else {
 		header("location:Login.php?msg=Please Login First");
 	}
+
+	if(isset($_GET['msg'])){
+		$msg = $_GET['msg'];
+        echo"<script> alert('$msg') </script>";
+
+	}
 ?>
 
 <!DOCTYPE html>
@@ -96,10 +102,13 @@
 		echo"<script> sessionStorage.setItem('userID',$userID) </script>";
 	}
 
-	if(isset($_GET["q"])){
-		$mode = $_GET["q"];
-		if($mode === 1){
-			//echo "<script> </script>";
+	if(isset($_GET["nav"]) && isset($_SESSION["userID"])){
+		$mode = $_GET["nav"];
+		$userID = $_SESSION["userID"];
+		if($mode === 3){
+			echo "<script>clickedNavItem(3,$userID);</script>";
+		} else if($mode === 4){
+			echo "<script>clickedNavItem(4,$userID);</script>";
 		}
 	}
 ?>
@@ -154,6 +163,7 @@
 		?>
 		<input type="hidden" name="userType" value="<?php echo $userType; ?>"/>
 		<input type="hidden" name="update" value="paid"/>
+		<input type="hidden" name="transactionType" value="Service"/>
 		<center> <h4>  Please Enter your proof of payment  </h4> 
 		<br/>
 
@@ -186,6 +196,8 @@
 			<input type="hidden" name="serviceRevieweeID" id="serviceRevieweeFeedbackID"/>
 			<input type="hidden" name="serviceID" id="serviceFeedbackID"/>
 			<input type="hidden" name="userType" id="Responder"/>
+			<input type="hidden" name="transactionType" id="Service"/>
+
 			<h3> Please Enter your feedbacks </h3>
 			<br/>
 
@@ -242,6 +254,8 @@
 			<input type="hidden" id="ReporterAccountID" name="ReporterAccountID" value="<?php echo $userID;?>"/>
 			
 
+			<input type="hidden" name="myUserType" value="Requestor"/>
+			<input type="hidden" name="myTransactionType" value="Service"/>
 
 
 			

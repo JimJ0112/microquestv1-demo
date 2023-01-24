@@ -954,6 +954,86 @@ public function getServiceReviewsWithRatings($serviceID){
 
 
 // get Categories
+public function getPasabuyReviewsWithRatings($revieweeID){
+    $revieweeID = mysqli_real_escape_string($this->dbconnection,$revieweeID);
+
+
+
+    $query = "SELECT feedbacks.revieweeID as feedbacksReviewee,
+    feedbacks.feedbackID,
+    feedbacks.reviewerID as feedbacksReviewer,
+    feedbacks.transactionType, 
+    feedbacks.transactionID as feedbacksTransactionID, 
+    feedbacks.serviceID, 
+    feedbacks.requestID, 
+    feedbacks.feedback,
+    
+    
+    rating.ratingID,
+    rating.reviewerID as ratingReviewerID, 
+    rating.revieweeID as ratingRevieweeID, 
+    rating.transactionID as ratingTransactionID, 
+    rating.rating1star, 
+    rating.rating2star,
+    rating.rating3star,
+    rating.rating4star,
+    rating.rating5star,
+    
+    userprofile.userID as userprofileReviewerID, 
+    userprofile.userPhoto as userprofileReviewerPhoto, 
+    userprofile.userID as userprofileRevieweeID, 
+    userprofile.userName as ReviewerUserName, 
+    userprofile.userName as RevieweeUserName, 
+    
+    servicesinfo.serviceID, 
+    servicesinfo.serviceCategory, 
+    servicesinfo.servicePosition
+        
+          FROM feedbacks 
+                INNER JOIN rating
+                  ON (feedbacks.pasabuyTransactionID = rating.pasabuyTransactionID)
+                INNER JOIN userprofile
+                    ON feedbacks.reviewerID = userprofile.userID
+                INNER JOIN servicesinfo
+                    ON feedbacks.serviceID = servicesinfo.serviceID
+                WHERE feedbacks.revieweeID = $revieweeID AND feedbacks.transactionType = 'Pasabuy' GROUP BY feedbacks.pasabuyTransactionID DESC;
+                ";
+
+    $result = mysqli_query($this->dbconnection, $query);
+    $resultCheck = mysqli_num_rows($result);
+    $data = array();
+  
+
+
+    if($resultCheck > 0){
+       
+
+            while($row = mysqli_fetch_assoc($result)){
+                                
+               // $file = 'data:image/image/png;base64,'.base64_encode($row['userprofileReviewerPhoto']);
+               // $row['userprofileReviewerPhoto'] = $file;
+                
+
+                $data[] = $row;
+
+
+    
+                
+             
+            }
+            return $data;
+        
+        
+        
+
+    } else {return "failed to fetch";}
+
+        
+  
+}
+
+
+// get Categories
 public function getMyCart($requestorID){
   
     $requestorID = mysqli_real_escape_string($this->dbconnection, $requestorID);

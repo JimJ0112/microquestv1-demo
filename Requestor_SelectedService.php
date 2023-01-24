@@ -105,10 +105,11 @@
          <center> ⎙ Save </center>
         </div>
 
-        
+        <!--
         <button id="ConfirmContractButton" onclick="submitform()" title="Submit">
           Confirm
         </button> 
+        -->
         <div id="closeButton" onclick="hideContract()"> ✕ </div>
     </div>
         <div id="contractDiv" > 
@@ -273,7 +274,7 @@
 
                     <td class="transactionSecondRow">
 
-                        <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()" cols="30" rows="5"></textarea> 
+                        <textarea name="additionalNotes" id="additionalNotes" onkeypress="generateContract()" cols="30" rows="5" Required></textarea> 
                     </td>
 
                 </tr>
@@ -290,7 +291,9 @@
                     
                 
  
-                <input type="button" value="View Contract" class="confirmButton" id="viewContractButton" onclick="showSubmitContract()" disabled>
+                <!--<input type="button" value="View Contract" class="confirmButton" id="viewContractButton" onclick="showSubmitContract()" disabled>-->
+                <input type="Submit" value="Confirm" class="confirmButton" id="viewContractButton" >
+
 
             </form>
 

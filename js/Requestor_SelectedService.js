@@ -774,14 +774,14 @@ function generateContract(){
 
 function showContract(){
     contractBackGround = document.getElementById('contractBackGround');
-    ConfirmContractButton = document.getElementById('ConfirmContractButton');
+   // ConfirmContractButton = document.getElementById('ConfirmContractButton');
 
     contractBackGround.style.display = "block";
     contractDiv = document.getElementById('contractDiv');
     contractDiv.style.display = "block";
-    ConfirmContractButton.style.display = "none";
+   // ConfirmContractButton.style.display = "none";
 
-    h2canvaspdfToInput();
+    //h2canvaspdfToInput();
 
 
 }
@@ -1072,25 +1072,27 @@ function h2canvaspdfToInput(){
 function h2canvaspdfToInput(){
     var width = 200;
     var height = 270;
-    var doc = new jsPDF('p', 'in', [5,9]);
+
+   // var doc = new jsPDF('p', 'in', [5,9]);
+
+   var doc = new jsPDF('p', 'in', [1,1]);
+
     var contractDiv = document.getElementById('contractDiv');
     var contractInput = document.getElementById('contractInput');
     var contractBackGround = document.getElementById('contractBackGround');
   
 
-
     
-    //var clonedElement = contractDiv.cloneNode(true);
-    //clonedElement.style.display = "block";
     contractBackGround.style.display = "block";
 
     html2canvas(contractDiv, {
-        quality:3,
+        quality:0.5,
         onrendered: function(canvas) {         
             var imgData = canvas.toDataURL(
                 'image/png');              
             var doc = new jsPDF('p', 'mm');
             doc.addImage(imgData, 'PNG',4,4,width,height);
+           
 
             contractInput.value = doc.output('datauristring');
             console.log(contractInput.value);
@@ -1101,7 +1103,7 @@ function h2canvaspdfToInput(){
         }
     });
 
-    //clonedElement.remove();
+
     
 
 }

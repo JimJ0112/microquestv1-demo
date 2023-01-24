@@ -38,6 +38,11 @@
     transition: ease all 0.5s;
 }
 
+div#AboutUsSection {
+    margin-left: 7%;
+    width: 90%;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -112,6 +117,8 @@ h6 {
     box-sizing: border-box;
 }
 
+.quick_icon {}
+
 h1 a,
 h2 a,
 h3 a,
@@ -168,6 +175,15 @@ img {
 		0px 0px 26px 4px rgb(0 0 0 / 15%);
     border:	1px solid rgb(0 123 255 / 10%);
     border-radius:	4px;
+}
+
+img.about_img {
+    border: none;
+    box-shadow: none;
+}
+
+img.about_img {
+    /* border-radius: 102%; */
 }
 
 img.services_img {}
@@ -524,12 +540,13 @@ button {
 
 
 .dev_text {
-    background-color: orangered;
+    background-color: #17a2b8;
     width: 100%;
-    font-size: 40px;
+    font-size: 27px;
     color: #fffefe;
     font-weight: bold;
-    padding-top: 30px;
+    padding-top: 10px;
+    margin-top: -10%;
     text-align: center;
 }
 
@@ -573,11 +590,11 @@ button {
     width: 100%;
     font-size: 40px;
     color: white;
-    background-color: orangered;
+    background-color: #17a2b8;
     font-weight: bold;
-    padding-top: 30px;
+    padding-top: 5px;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 52px;
 }
 
 .developers_section_2 {
@@ -676,12 +693,12 @@ button {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background-color: rgb(191, 161, 119);
+    background-color: rgb(0 123 255 / 50%);
     bottom: -130px;
 }
 
 .carousel-indicators .active {
-    background-color: #53482c;
+    background-color: #0062cc;
 }
 
 
@@ -701,9 +718,9 @@ button {
 
 .choose_taital {
     width: 100%;
-    font-size: 40px;
+    font-size: 35px;
     color: #fffbfb;
-    background-color: orangered;
+    background-color: #17a2b8;
     font-weight: bold;
     text-align: center;
     padding: 20px;
@@ -742,7 +759,7 @@ button {
 
 .sign_box {
     width: 100%;
-    background-color: orangered;
+    background-color: #17a2b8;
     padding: 20px 30px;
     display: flex;
     margin-top: 90px !important;
@@ -750,8 +767,9 @@ button {
 }
 
 .journey_text {
+    /* background-color: saddlebrown; */
     width: 100%;
-    font-size: 40px;
+    font-size: 34px;
     color: rgb(255, 255, 255);
     font-weight: bold;
     padding-bottom: 0px;

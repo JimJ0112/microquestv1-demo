@@ -681,20 +681,19 @@ background-color: white;
 
 #pasabuyPaymentPopUp{
 	margin: auto;
-    background-color: white;
-    width: 35%;
-    height: 70%;
-    background-image: url("../img/coc-background.jpg");
-    border: 5px saddlebrown solid;
-    border-radius: 20px;
+	background-color: white;
+	width: 35%;
+	height: 70%;
+	/* background-image: url("../img/coc-background.jpg"); */
+	border: 5px #3a4b9a solid;
+	border-radius: 20px;
 }
 
 #pasabuyPaymentPopUp input{
-	width: 30%;
-	height: 30px;
-	border-radius: 5px;
-	font-size: 100%;
-
+	/* width: 30%; */
+	/* height: 30px; */
+	/* border-radius: 5px; */
+	/* font-size: 100%; */
 }
 
 #pasabuyPaymentPopUp input:hover{
@@ -827,6 +826,8 @@ background-color: white;
 	height: 100%;
 	background-color: none;
 	display: grid;
+	border: solid #3a4b9a 5px;
+	background-color: #eedbe1;
 }
 
 
@@ -837,6 +838,7 @@ background-color: white;
 	object-fit: contain;
 	margin: auto;
 	background-color: white;
+	margin: 20px;
 }
 
 #TextViewerBackground{
@@ -1104,5 +1106,16 @@ button.red{
 	#giveFeedBackPopUp{
 		width: 80%;
 		margin-top:auto;
+	}
+	#photoViewerImage{
+		zoom: 70%;
+	}
+	#pasabuyPaymentPopUp{
+		width: 90%;
+		height: fit-content;
+	}
+	#reportPopUp{
+		width: 90%;
+		height: fit-content;
 	}
 }

@@ -177,6 +177,8 @@
 			<input type="hidden" id="ReporterAccountID" name="ReporterAccountID" value="<?php echo $userID;?>"/>
 
 			
+			<input type="hidden" name="myUserType" value="Responder"/>
+			<input type="hidden" name="myTransactionType" value="Pasabuy"/>
 
 			<img id="ReportedAccountProfile">
 			<span id="ReportedAccountName"> Dummy Acc </span> <br/>
@@ -215,8 +217,8 @@
 			<br/><br/>
 		
 
-			<input class="formButton" type="submit" value="Submit Report"/> 
-			<input class="formButton" type="button" value="Cancel" onclick="hideReportForm()"/>
+			<input class="button" type="submit" value="Submit Report"/> 
+			<input class="button" type="button" value="Cancel" onclick="hideReportForm()"/>
 		</center>
 		</div>
 	</form>

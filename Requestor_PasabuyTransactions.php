@@ -25,6 +25,13 @@
 	} else {
 		header("location:Login.php?msg=Please Login First");
 	}
+
+
+	if(isset($_GET['msg'])){
+		$msg = $_GET['msg'];
+        echo"<script> alert('$msg') </script>";
+
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -164,8 +171,8 @@
 		<br/>  <br/> <br/>
 		
 
-		<input type="submit" value="Confirm"/> 
-		<input type="button" value="Cancel" onclick="closePasabuyPaymentForm()"/>
+		<input class="button" type="submit" value="Confirm"/> 
+		<input  class="button" type="button"  value="Cancel" onclick="closePasabuyPaymentForm()"/>
 		</center>
 	</form>
 
@@ -271,6 +278,8 @@
 			<input type="hidden" id="ReporterAccountID" name="ReporterAccountID" value="<?php echo $userID;?>"/>
 			
 
+			<input type="hidden" name="myUserType" value="Requestor"/>
+			<input type="hidden" name="myTransactionType" value="Pasabuy"/>
 
 
 			

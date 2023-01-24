@@ -583,11 +583,30 @@ function setServiceData(array){
       serviceTitle[j].innerHTML = " <b>"+ dataArray[i]['serviceCategory'] +"</b>";
       //serviceCard[i].setAttribute("onclick","selectCategory('" + dataArray[i]['serviceCategory'] + "')");
 
-      serviceCard[j].setAttribute("onclick","redirect('Requestor_ServiceInfo.php?serviceID=" + dataArray[i]['serviceID'] +"')");
+      //serviceCard[j].setAttribute("onclick","redirect('Requestor_ServiceInfo.php?serviceID=" + dataArray[i]['serviceID'] +"')");
+
+
+      if(dataArray[i]["serviceCategory"] === "Pasabuy"){
+        serviceCard[j].setAttribute("onclick","redirect('Requestor_PasabuyInfo.php?serviceID=" + dataArray[i]['serviceID'] +"&userID="+ dataArray[i]["responderID"]+"')");
+
+        servicePosition[j].innerHTML = "";
+        serviceStatus[j].innerHTML = " <b>Status: </b> "+ dataArray[i]['serviceStatus'];
+        rate[j].innerHTML = "";
+      
+      } else{
+        serviceCard[j].setAttribute("onclick","redirect('Requestor_ServiceInfo.php?serviceID=" + dataArray[i]['serviceID'] +"')");
+
+        servicePosition[j].innerHTML = " <b> Service: </b> "+ dataArray[i]['servicePosition'];
+        serviceStatus[j].innerHTML = " <b>Status: </b> "+ dataArray[i]['serviceStatus'];
+        rate[j].innerHTML = " <b> Rate: Php</b>"+ dataArray[i]['rate'];
+      
+      }
+
+      /*
       servicePosition[j].innerHTML = " <b> Service: </b> "+ dataArray[i]['servicePosition'];
       serviceStatus[j].innerHTML = " <b>Status: </b> "+ dataArray[i]['serviceStatus'];
       rate[j].innerHTML = " <b> Rate: Php</b>"+ dataArray[i]['rate'];
-    
+      */
       
 
       var image = new Image();

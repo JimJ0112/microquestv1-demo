@@ -1296,8 +1296,8 @@ function confirmPaymentRequest(transactionID,update){
 
 
                 transactionsUserId = sessionStorage.getItem("transactionsUserId");
-                getPaidRequests(transactionsUserId);
- 
+                //getPaidRequests(transactionsUserId);
+                requestClickedItem(4,transactionsUserId);
             
 
             }else{
@@ -1338,8 +1338,9 @@ function cancelRequestApplication(transactionID,update){
 
 
                 transactionsUserId = sessionStorage.getItem("transactionsUserId");
-                getCancelledRequests(transactionsUserId);
+                //getCancelledRequests(transactionsUserId);
  
+                requestClickedItem(5,transactionsUserId);
             
 
             }else{
@@ -1364,7 +1365,7 @@ function deliverRequestApplication(transactionID,update){
         var transactionID = transactionID;
         var update = update;
         var query = "transactionID=" + transactionID+"&update="+update;
-        console.log(query);
+        
   
 
 
@@ -1381,8 +1382,8 @@ function deliverRequestApplication(transactionID,update){
 
 
                 transactionsUserId = sessionStorage.getItem("transactionsUserId");
-                getDeliveredRequests(transactionsUserId);
- 
+                //getDeliveredRequests(transactionsUserId);
+                requestClickedItem(2,transactionsUserId);
             
 
             }else{
@@ -1391,7 +1392,7 @@ function deliverRequestApplication(transactionID,update){
         };
     
         xmlhttp.send(query);
-        alert("Request Application Delivered");
+     
     }else{
 
     }

@@ -73,9 +73,46 @@ echo $result = $DBHandler->sendNotifs($ReporterAccountID,$notifType,$notifMessag
 
 
 
+if(isset($_POST["myUserType"]) && isset($_POST["myTransactionType"])){
+
+    $myUserType = $_POST["myUserType"];
+    $myTransactionType = $_POST["myTransactionType"];
+    if($myUserType === "Responder"){
+        if($myTransactionType === "Service"){
+
+            header("location:../Responder_ServiceTransactions.php?msg=Report Sent!");
+
+        } else if($myTransactionType === "Request"){
+            header("location:../Responder_RequestTransactions.php?msg=Report Sent!");
+
+        } else {
+            header("location:../Responder_PasabuyTransactions.php?msg=Report Sent!");
+
+        }
+
+    } else {
+
+        if($myTransactionType === "Service"){
+
+            header("location:../Requestor_ServiceTransactions.php?msg=Report Sent!");
+
+        } else if($myTransactionType === "Request"){
+            header("location:../Requestor_RequestTransactions.php?msg=Report Sent!");
+
+        } else {
+            header("location:../Requestor_PasabuyTransactions.php?msg=Report Sent!");
+
+        }
+
+    }
 
 
-header("location:../Messages.php?msg=Report Sent!");
+} else{
+
+    header("location:../Messages.php?msg=Report Sent!");
+}
+
+
 
 
 
