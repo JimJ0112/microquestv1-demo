@@ -173,7 +173,7 @@ text-decoration: none;
 	filter: invert(0.3);
 }
 
-#AvailableServicesContainer-Content{display: grid;grid-template-columns: 1fr 1fr 1fr 1fr 1fr;grid-row-gap: 10px;/* grid-column-gap: 10px; */padding: 10px;/* align-content: center; *//* overflow: hidden; *//* text-align: center; */overflow:hidden;overflow-y: scroll;height: 80%;}
+#AvailableServicesContainer-Content{display: grid;grid-template-columns: 1fr 1fr 1fr 1fr 1fr;grid-row-gap: 10px;grid-column-gap: 10px;padding: 10px;/* align-content: center; *//* overflow: hidden; *//* text-align: center; */overflow:hidden;overflow-y: scroll;height: 80%;}
 
 .AvailableService-Card{
 	border: 5px solid #3a4b9a;

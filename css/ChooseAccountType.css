@@ -192,10 +192,10 @@ body{
 .ChooseAccountType-Button{
 	float: right;
 	margin:5px;
-	height: 40px;
+	height: 37px;
 	width: 100px;
 	margin-right: 10px;
-	margin-top: 20px;
+	margin-top: 16px;
 	background-color: transparent;
 	border: 0;
 	font-size: large;
@@ -322,7 +322,7 @@ color: white;
 }
 
 #ChooseAccountType-Container{
-	left: 1.5vw;
+	left: 1vw;
 	z-index: 6;
 	width: 94vw;
 	background-color: white;
@@ -331,7 +331,7 @@ color: white;
 	margin: 0;
 	padding: 0px;
 	overflow: hidden;
-	height: 68%;
+	height: 69%;
 	font-size:12px;
 	justify-content: center;
 }
@@ -342,13 +342,10 @@ color: white;
 }
 
 #ChooseAccountType-Footer{
-	height: 6vh;
+	height: 7vh;
+	
 }
-.ChooseAccountType-Button{
-	height: 3vh;
-	font-size: small;
-	margin: 5%;
-}
+
 
 p {
     display: block;

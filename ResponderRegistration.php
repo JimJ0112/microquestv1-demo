@@ -22,7 +22,7 @@
 <body onload="getServices()" class ="bg">
 
 	
-	<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
+	
 	
 
 
@@ -35,6 +35,7 @@
 			<!--Form -->
 			<form action="Backend/RegisterBackend.php" method="post" enctype="multipart/form-data" id="RegistrationForm">
 				<input type="hidden" name="userType" value="Responder">
+				<div class="half">
 				<div id="AccountInfoForm">
 						
 						<div id="AccountInfoForm1">
@@ -70,6 +71,7 @@
 							</div><br/>
 
 							<input type="button" id="RegistrationNextButton" value= "Next" onclick="checkInputs_AccountInfo()">
+							<a href ="ChooseAccountType.php" style = "font-size: 19px; text-decoration: underline"> Go Back </a>
 						</div>		
 						 		
 					</div>
@@ -102,10 +104,11 @@
 						</div>		
 								
 					</div>
-
+</div>
 
 				<!-- 3rd page -->
 				<div id="hidden">
+					<div class ="half">
 				<div id="GeneralInfoForm">
 					<div id="GeneralInfoForm1">
 					
@@ -240,6 +243,7 @@
 						<!--<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled>-->
 						<!--<input type="submit" id="RegistrationRegisterButton" value= "Register">-->
 						<input class="nextBtn" type="submit" id="RegistrationNextButton1" value= "Register">
+						<a href ="ChooseAccountType.php" style = "font-size: 19px; text-decoration: underline"> Go Back </a>
 				
 						
 					
@@ -263,7 +267,7 @@
 
 			</form>
 
-
+</div>
 
 		</div>
 

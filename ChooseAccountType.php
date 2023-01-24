@@ -30,7 +30,10 @@
 
 
 	
-		<div id="ChooseAccountType-Container" class ="half">
+		<div id="ChooseAccountType-Container">
+			<div class="half">
+				
+			
 			<center>
 				 <h1 id="SelectAccountType"> Select Account Type 
 				</h1>
@@ -46,7 +49,7 @@
 					<label For="ResponderCheck">
 						<img id="ResponderImage" class="Option-Image" src="img/w.jpg">
 						<h3> Responder </h3>
-						<p>Start your day right. Be the one who responds to requests and earns additional income for your work.</p>
+						<p>Start your day right. Be the one who responds to requests and <br/> earns additional income for your work.</p>
 					</label>
 				</div>
 
@@ -74,7 +77,7 @@
 			</footer>
 
 		</div>
-	
+</div>
 		<img id="microQuestLogo" src="img/logo.png"/>
 
 		<script src="js/ChooseAccountType.js"> </script>

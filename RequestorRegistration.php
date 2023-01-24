@@ -28,7 +28,7 @@
 <body onload="">
 
 
-<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>
+<!--<a href="ChooseAccountType.php"> <img src="img/back.png" id="Registration-BackButton"/></a>-->
 
 
 		
@@ -43,7 +43,7 @@
 				
 				<input type="hidden" name="userType" value="Requestor">
 				<!-- 1st page -->
-				
+				<div class ="half">
 					<div id="AccountInfoForm">
 						
 						<div id="AccountInfoForm1">
@@ -80,6 +80,7 @@
 
 							<!--<input type="button" id="RegistrationNextButton" value= "Next" onclick="nextForm()" disabled>-->
 							<input type="button" id="RegistrationNextButton" value= "Next" onclick="checkInputs_AccountInfo()">
+							<a href ="ChooseAccountType.php" style = "font-size: 19px; text-decoration: underline"> Go Back </a>
 						</div>		
 						 		
 					</div>
@@ -116,6 +117,7 @@
 
 				<!-- 3rd page -->
 			<div id="hidden">
+				<div class ="half"> 
 				<div id="GeneralInfoForm">
 					<div id="GeneralInfoForm1">
 					
@@ -233,13 +235,13 @@
 					
 							<!--<input class="nextBtn" type="button" id="RegistrationNextButton1" value= "Next" onclick="submitForm()">-->
 							<input class="nextBtn" type="submit" id="RegistrationNextButton1" value= "Register">
-
+							<a href ="ChooseAccountType.php"> Go Back </a>
 				
 						<!--<input type="button" id="RegistrationRegisterButton1" class="nextBtn" value="Register" onclick="submitForm()">-->
 					
 
 				</div>
-
+</div>
 </div>
 
 
@@ -324,7 +326,7 @@
 
 
 		</div>
-
+</div>
 		<script src="js/Requestor_Registration.js"> </script>
 
 </body>

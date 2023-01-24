@@ -45,7 +45,6 @@ body{
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-image: url(../img/asd.jpg);
-	justify-content: center;
 	flex-direction: column-reverse;
 	align-items: baseline;
 	flex-wrap: wrap;
