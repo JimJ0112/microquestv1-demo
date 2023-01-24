@@ -1037,6 +1037,7 @@ function h2canvaspdf(){
 
 }
 
+/*
 
 function h2canvaspdfToInput(){
     var width = 200;
@@ -1044,8 +1045,11 @@ function h2canvaspdfToInput(){
     var doc = new jsPDF('p', 'in', [5,9]);
     var contractDiv = document.getElementById('contractDiv');
     var contractInput = document.getElementById('contractInput');
-    contractInput.value = "";
+  
 
+
+    
+    var clonedElement = contractDiv.cloneNode(true);
 
     html2canvas(contractDiv, {
         quality:3,
@@ -1054,16 +1058,51 @@ function h2canvaspdfToInput(){
                 'image/png');              
             var doc = new jsPDF('p', 'mm');
             doc.addImage(imgData, 'PNG',4,4,width,height);
-            //doc.save('sample-file.pdf');
 
-           // doc.output('save', 'ServiceOrder.pdf'); //Try to save PDF as a file (not works on ie before 10, and some mobile devices)
-           // doc.output('datauristring');        //returns the data uri string
-           // doc.output('dataurlnewwindow');     //opens the data uri in new window
             contractInput.value = doc.output('datauristring');
             console.log(contractInput.value);
+           
 
         }
     });
+
+}
+*/
+
+function h2canvaspdfToInput(){
+    var width = 200;
+    var height = 270;
+    var doc = new jsPDF('p', 'in', [5,9]);
+    var contractDiv = document.getElementById('contractDiv');
+    var contractInput = document.getElementById('contractInput');
+    var contractBackGround = document.getElementById('contractBackGround');
+  
+
+
+    
+    //var clonedElement = contractDiv.cloneNode(true);
+    //clonedElement.style.display = "block";
+    contractBackGround.style.display = "block";
+
+    html2canvas(contractDiv, {
+        quality:3,
+        onrendered: function(canvas) {         
+            var imgData = canvas.toDataURL(
+                'image/png');              
+            var doc = new jsPDF('p', 'mm');
+            doc.addImage(imgData, 'PNG',4,4,width,height);
+
+            contractInput.value = doc.output('datauristring');
+            console.log(contractInput.value);
+            contractBackGround.style.display = "none";
+            
+           
+
+        }
+    });
+
+    //clonedElement.remove();
+    
 
 }
 
@@ -1079,7 +1118,9 @@ function allowSubmit(){
     viewContractButton= document.getElementById('viewContractButton');
 
     if(agreementcheckbox.checked){
+        h2canvaspdfToInput();
         viewContractButton.disabled=false;
+        
     } else{
         viewContractButton.disabled=true;
 

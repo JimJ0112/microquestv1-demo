@@ -756,7 +756,7 @@ button.addToCartButton {
 	z-index: 20;
 	position: relative;
 	border-radius: 10px;
-	border: rgb(148, 111, 63) solid 1px;
+	border: #434344 solid 5px;
 	/* display: grid; 
 	https://www.microquestbpsu.online/css/Requestor_PasabuyProducts.css */
 	text-align: center;

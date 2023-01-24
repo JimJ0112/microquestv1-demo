@@ -1108,6 +1108,13 @@ function setPasabuyPaidItem(array){
         
         requestStatus[i].innerText = dataArray[i]['orderStatus'];
 
+        var button1 = document.createElement('button');
+        button1.setAttribute('class','Button');
+        button1.innerText = "Confirm Payment";
+
+        button1.setAttribute('onclick',"confirmPasabuyPayment(" +dataArray[i]['pasabuyTransactionID'] + ",'completed')" );
+        actionsDiv[i].appendChild(button1);
+
         var button = document.createElement('button');
         button.setAttribute('class','Button');
         button.innerText = "View Payment File";

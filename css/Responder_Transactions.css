@@ -373,20 +373,19 @@ td{
 
 #closeImage{
 	position: absolute;
-	right: 10px;
-	top: 15%;
+	right: 05px;
+	top: 0;
 	cursor: pointer;
-	z-index: 20103;
+	z-index: 18;
 	color:rgb(7, 7, 7);
 	font-weight:bolder;
 	/* padding: 5px; */
-	float: right;
 }
 
 #closeImage:hover{
 	background-color: red;
 	color: white;
-	border-radius: 100%;
+	
 }
 
 #reportDescription{

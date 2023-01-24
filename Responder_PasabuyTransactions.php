@@ -230,7 +230,7 @@
 <div id="PhotoViewerBackground"> 
 
 	<div id="PhotoViewer"> 
-		<div id="closeImage" onclick="closePhotoViewer()"> ✕ </div>
+		<div id="closeButton" onclick="closePhotoViewer()"> ✕ </div>
 		<img id="photoViewerImage"> 
 
 	</div>

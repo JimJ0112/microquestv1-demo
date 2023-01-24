@@ -49,7 +49,7 @@ body {
     font-weight: normal;
     overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
-    zoom: 80%;
+    zoom: 89%;
 }
 
 a {
@@ -75,12 +75,13 @@ h6 {
     padding: 0 0 10px 0;
     font-weight: normal;
     line-height: normal;
-    color: #111111;
+    color: #0062cc;
     margin: 0
 }
 
 h1 {
-    font-size: 24px
+    font-size: 24px;
+    /* color: blue; */
 }
 
 h2 {
@@ -159,9 +160,17 @@ a,
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+    max-width: 89%;
+    border-radius: 82px;
+    height: 53vh;
+    box-shadow: 	0px 0px 11px 1px rgb(0 123 255 / 23%),
+		0px 0px 19px 14px rgb(102 164 230 / 17%),
+		0px 0px 26px 4px rgb(0 0 0 / 15%);
+    border:	1px solid rgb(0 123 255 / 10%);
+    border-radius:	4px;
 }
+
+img.services_img {}
 
  :focus {
     outline: 0;
@@ -225,10 +234,10 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-image: url(../img/f.jpg);
+    background-image: url(../img/asd.jpg);
     /* background-position: center; */
     background-size: cover;
-    height: auto;
+    height: 96vh;
     /* background-size: 100%; */
     padding: 0px 0px 160px 0px;
     color: orangered;
@@ -319,11 +328,12 @@ button {
 }
 
 .menu_nav li a {
-    color: orangered;
+    text-shadow: 0.1em 0.1em 0.2em #043b8b;
+    color: #e8e4e4;
     padding: 0px 20px;
     /* border-radius: 10px; */
-    font-size: x-large;
-    font-weight: bold;
+    font-size: 1.5em;
+    font-weight: 700;
 }
 
 .menu_nav li a:hover {
@@ -357,18 +367,19 @@ button {
     padding-bottom: 250px;
     /* color: orangered; */
     /* background-color: #d0cfcfb8; */
-    height: 700;
+    height: 17vh;
 }
 
 .banner_taital {
     width: 100%;
     float: left;
     font-size: 80px;
-    color: orangered;
+    color: #7699d4;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Righteous', Regular;
+    text-shadow: 0.07em 0.06em 0.2em #70b0e0;
 }
 
 .banner_text {
@@ -395,7 +406,7 @@ button {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #1f1f1f;
+    color: #032c74d4;
     font-weight: bold;
 }
 
@@ -414,7 +425,8 @@ button {
 }
 
 .services_img {
-    width: 100%;
+    border-radius: 161px;
+    width: 90%;
     float: left;
     text-align: center;
 }
@@ -426,17 +438,18 @@ button {
 }
 
 .btn_main a {
-    width: 100%;
+    margin-left: -16px;
+    width: 90%;
     float: left;
-    font-size: 16px;
-    color: #312e12f9;
-    background-color: #dfdfd885;
+    font-size: 15px;
+    color: #2d508b;
+    background-color: #eeedf6;
     text-align: center;
     padding: 10px 0px;
     border-radius: 3px;
-    border: 2px solid #37300ee5 ;
+    border: 2px solid #1c4057;
     font-weight: bold;
-    margin-top: -250px;
+    margin-top: -91px;
     text-transform: uppercase;
 }
 

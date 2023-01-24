@@ -145,7 +145,7 @@ a{
   }
    
   *::-webkit-scrollbar-thumb {
-	background-color: rgb(78, 45, 20);
+	background-color: #03a9f4;
 	outline: 1px solid slategrey;
 	height: 2px;
 	width: 2px;

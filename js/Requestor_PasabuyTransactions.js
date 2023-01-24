@@ -1639,3 +1639,23 @@ function setPasabuyFeedbackForm(transactionID,responderID,serviceID){
 
 
 }
+
+function showPhoto(dataurl){
+    var dataurl = dataurl;
+    var photoViewerImage = document.getElementById("photoViewerImage");
+    var PhotoViewerBackground = document.getElementById('PhotoViewerBackground');
+
+    photoViewerImage.src = dataurl;
+    PhotoViewerBackground.style.display = "grid";
+}
+
+function redirect(url){
+    var url = url;
+    window.location.replace(url);
+}
+
+function closePhotoViewer(){
+    var PhotoViewerBackground = document.getElementById('PhotoViewerBackground');
+    PhotoViewerBackground.style.display = "none";
+
+}
