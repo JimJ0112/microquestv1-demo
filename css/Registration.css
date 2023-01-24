@@ -765,7 +765,7 @@ input:checked + .slider:before {
 }
 
 #EmailVerificationForm1 {
-    width: 400px;
+    width: fit-content;
     height: fit-content;
     /* margin-left: 30%; */
     margin: 50px auto 0 auto;
@@ -1933,7 +1933,7 @@ span.asteriskRequiredField {
         width: fit-content;
     }
     .Registration-TextBox{
-        width: 39em;
+        /* width: 39em; */
     }
     .inputItem1, .inputItem2, .inputItem3, .inputItem4, .inputItem5{
     width: 95%;
@@ -1969,7 +1969,7 @@ span.asteriskRequiredField {
     
 }
 
-
+/*
 @media (max-width: 991.98px) {
     .half  {
       height: 400px; 
@@ -2030,4 +2030,4 @@ input#emailConfirmationInput, input#ConfirmEmailButton{
         width: 15vw;
     }
 }
-
+*/

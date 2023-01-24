@@ -369,3 +369,9 @@ p {
 		height: 150px;
 	}
 }
+@media (min-width: 220px) and (max-width: 590px){
+	#ChooseAccountType-Container{
+		zoom: 90%;
+		width: 90%;
+	}
+}
