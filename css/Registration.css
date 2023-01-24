@@ -690,7 +690,7 @@ input:checked + .slider:before {
    background-color: #7b96e7;
    color: white;
    height: 8vh;
-   width: 11vw;
+   /* width: 11vw; */
    font-size: large;
    font-weight: bolder;
    border-radius: 9px;
@@ -872,7 +872,7 @@ color: white;
     
 height: 8vh;
     
-width: 6vw;
+/* width: 6vw; */
     
 font-size: large;
     
