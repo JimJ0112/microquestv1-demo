@@ -126,7 +126,7 @@ background-color: #eedbe1;
  }
  
  #ContainerBackground{
-     width: 100%;
+     /* width: 90%; */
      /* min-height: 100%; */
      height: fit-content;
      /* background-color: white; */
@@ -264,7 +264,7 @@ input#requestInfoMessageBody {
      grid-template-columns: 1fr 1fr 1fr;
      grid-column-gap: 10px;
      grid-row-gap: 20px;
-     width: 100%;
+     /* width: 90%; */
      /* background-color: orangered; */
  }
  
@@ -892,7 +892,7 @@ div#closeButton {
 		width: 100%;
 	}
 	#postContainer{
-		zoom: 60%;
+		zoom: 55%;
 	}
 	#SpecializationsTableBody{
 		zoom: 70%;

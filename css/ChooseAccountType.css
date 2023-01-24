@@ -254,13 +254,6 @@ color: white;
 	cursor: pointer;
 }
 
-
-
-#ResponderCheck:checked + #ResponderCheckMark {
-	
-}
-
-
 #RequestorCheck{
 	position: absolute;
 	opacity: 0;
@@ -273,10 +266,6 @@ color: white;
 	cursor: pointer;
 }
 
-#RequestorCheck:checked + #RequestorCheckMark {
-
-}
-
 #Responder:active{
 	filter: grayscale(0);
 }
@@ -287,69 +276,18 @@ color: white;
 	
 }
 
-@media only screen and (max-width: 768px){
-	#microQuestLogo{
-		width: 200px;
-		height: 75px;
-		top: 0;
-		
-	}
-	#SelectAccountType{
-		font-family: brush script mt kursiv;
-		font-size: medium;
-		margin: 20px;
-	}
-	.ChooseAccountType-Option{
-		width: 100%;
-		margin: 0;
-		
-	}
-	#Responder, #Requestor{
-		margin: 0;
-	}
-	#ChooseAccountType-Container{
-		z-index: 6;
-		width: 100%;
-		height: 600px;
-		background-color: white;
-		align-self: center;
-		align-items: center;
-		 margin: 0;
-		padding: 0;
-		overflow: hidden;
-		height: 80%;
-		font-size:12px;
-		
-	}
-	.Option-Image{
-		width:100px;
-		height: 100px;
-	}
-	#ChooseAccountType-Footer{
-		height:min-content ;
-		
-	}
-	.ChooseAccountType-Button{
-		height:30px;
-		font-size:medium;
-		margin:10px;
-	}
-	.CheckMark {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 0;
-    left: 56%;
-    background-color: #80c7ac;
-    border-radius: 100%;
-    opacity: 0;
+@media (max-width: 991.98px) {
+  .half  {
+    height: 400px; 
+  }
+    
 }
 
-@media (max-width: 575px) {
+@media (max-width: 1199.98px) {
 #microQuestLogo{
-	width: 23vw;
-	height: 7vh;
-	top: 16px;
+	width: 32vw;
+	height: 6vh;
+	top: 35px;
 }
 	#ChooseAccountTypeBackground1 {
     width: 100vw;
@@ -370,13 +308,10 @@ color: white;
 .ChooseAccountType-Option{
 	width: 100%;
 	margin: 0;
-	
 }
-	#Next{
-
-margin-right: px;
+#Next{
 height: 3vh;
-width: 13vw;
+width: 18vw;
 background-color: rgb(115 177 175);
 margin: 5%;
 color: white;
@@ -385,10 +320,11 @@ color: white;
 #Responder, #Requestor{
 	margin: 0;
 }
+
 #ChooseAccountType-Container{
-	left: 9%;
+	left: 1.5vw;
 	z-index: 6;
-	width: 81%;
+	width: 94vw;
 	background-color: white;
 	align-self: center;
 	align-items: center;
@@ -399,10 +335,12 @@ color: white;
 	font-size:12px;
 	justify-content: center;
 }
+
 .Option-Image{
 	width:100px;
 	height: 100px;
 }
+
 #ChooseAccountType-Footer{
 	height: 6vh;
 }
@@ -412,31 +350,16 @@ color: white;
 	margin: 5%;
 }
 
-	p {
+p {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 	padding: 1em;
-}
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px){
-
+}	
 }
 
-@media only screen and (min-width: 599px) and (max-width: 767px){
-
-}
-
-@media only screen and (min-width: 280px) and (max-width: 599px){
-
-}
-
-@media (min-width: 992px) and (max-width: 1199px){
-
-}
 @media (min-width: 768px) and (max-width: 991px){
 	#ChooseAccountType-Container{
 		height: 500px;
@@ -448,10 +371,4 @@ color: white;
 		width: 150px;
 		height: 150px;
 	}
-}
-@media (min-width: 576px) and (max-width: 767px){
-
-}
-@media (max-width: 575px){
-
 }

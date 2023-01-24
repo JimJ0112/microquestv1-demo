@@ -27,7 +27,7 @@
 }
 
 body{
-	zoom: 80%;
+	/* zoom: 80%; */
 }
 
 #serviceInfoDivBg{
@@ -191,6 +191,7 @@ b#responderUserEmail {
     font-size: x-large;
     padding: 10px;
     color: #1b00ff;
+    display: none;
 }
 
 b#responderUserName {

@@ -554,7 +554,7 @@ border-radius: 10px;
 
 }
 
-@media only screen and (min-width: 280px) and (max-width: 599px){
+@media only screen and (min-width: 222px) and (max-width: 599px){
 	#NavContainer{
 		display: none;
 	}

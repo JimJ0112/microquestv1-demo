@@ -581,7 +581,7 @@
         padding: 0px;
     }
     .navbar-expand-lg .navbar-nav .nav-link {
-        color: orangered;
+        color: #7d6fd8;
         text-align: center;
         background: transparent;
         width: 100%;
@@ -596,7 +596,7 @@
     .navbar-light .navbar-nav .nav-link:focus,
     .navbar-light .navbar-nav .nav-link:hover {
         color: #ffffff;
-        background: red;
+        background: #9aaecd;
     }
     .navbar-light .navbar-nav .active>.nav-link,
     .navbar-light .navbar-nav .nav-link.active,

@@ -39,13 +39,16 @@ body{
 	display: grid;
 	background-color: white;
 	background-size: contain;
-	
 	background-attachment: fixed;
-	background-position: center; 
+	background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover; 
+	background-size: cover;
 	background-repeat: no-repeat;
 	background-image: url(../img/asd.jpg);
+	justify-content: center;
+	flex-direction: column-reverse;
+	align-items: baseline;
+	flex-wrap: wrap;
 }
 
 #BodyBackgroundImg {

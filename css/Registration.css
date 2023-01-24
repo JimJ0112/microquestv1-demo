@@ -1818,160 +1818,23 @@ form#RegistrationForm {
         color: white;
         display: none;
 }
-@media only screen and (min-width: 768px) and (max-width: 991px){
-    
-}
 
-@media only screen and (min-width: 599px) and (max-width: 767px){
-
-}
-
-@media only screen and (min-width: 280px) and (max-width: 599px){
-
-}
-
-@media (min-width: 992px) and (max-width: 1199px){
-
-}
-@media (min-width: 768px) and (max-width: 991px){
-
-}
-@media (min-width: 576px) and (max-width: 767px){
-
-}
-@media (max-width: 575px){
-
-}
 
 span.asteriskRequiredField {
     float: none;
 }
 
-@media (min-width: 220px) and (max-width: 590px){
-    #RegistrationLogo{
-        left: 20px;
-        top: 100px;
-        zoom: 70%;
-    }
-    #SignUpText1{
-        zoom: 70%;
-        z-index: 2;
-    }
-    #RegistrationContainer{
-        width: 100%;
-    }
-    form#RegistrationForm{
-        height: 100%;
-        width:100%;
-    }
-    #AccountInfoForm{
-        width: 95%;
-        height: 70%;
-        margin:auto;
-        top: 20%;
-        /* position: absolute; */
-    }
-    #GeneralInfoForm{
-        zoom: 40%;
-        width: 100%;
-        margin: auto;
-        height: 100%;
-        /* padding-top: 40%; */
-    }
-    #GeneralInfoForm1, #GeneralInfoForm2, #ResponderInfoForm1{
-        height: fit-content;
-        zoom: 140%;
-    }
-    #GeneralInfoForm1{
-       
-    }
-    #GeneralInfoForm2{
-        
-        
-    }
-    #ResponderInfoForm1{
-        
-    }
-    .inputItem5{
-        top: 45%;
-    }
-    #SignUpText{
-        z-index: 2;
-        zoom: 60%;
-        top: 60px;
-        right: 10px;
-        left: unset;
-    }
-    #EmailVerificationForm1{
-        margin: 0;
-        /* position:absolute; */
-        /* top: 30%; */
-    }
-    .inputItem1, .inputItem3, .inputItem4{
-        /* grid-template-columns: 1.75fr 6.5fr; */
-        width: 70%;
-        margin: auto;
-        display: grid;
-    }
-    .inputItem4{
-        row-gap: 20px;
-    }
-    #AccountInfoForm, #EmailVerificationForm{
-        height: fit-content;
-        width: 80%;
-        /* right: 5em; */
-        top: 8em;
-        padding: 40px;
-        padding-bottom: 100px;
-        margin: auto;
-    }
-
-    #RegistrationNextButton{
-        width: 22vw;
-    }
-    #ConfirmEmailButton {
-        width: fit-content;
-    }
-    .Registration-TextBox{
-        width: 39em;
-    }
-    .inputItem1, .inputItem2, .inputItem3, .inputItem4, .inputItem5{
-    width: 95%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    }
-
-#GeneralInfoForm{
- height: 279vh;
- width: 90%;
- top: 5%;
- left: 8%;
-}
-    
-    #userIDPicOutput, #userProfilePicOutput{
-        width: 40vw;
-        height: 15vh;
-    }
-
-    .nextBtn{
-        width: 23vw;
-        height: 5vh;
-        /* top: 3%; */
-    }
-    #Registration-BackButton{
-        width:9vw;
-        height: 4vh;
-    }
+@media (max-width: 991.98px) {
+  .form_half  {
+    height: 400px; 
+  }
     
 }
+
 
 @media (max-width: 1199.98px) {
 
-    #GeneralInfoForm{
+    .form_half #GeneralInfoForm{
         width: 84%;
         padding: 12px 20px;
         margin: 22px 0;
@@ -1980,6 +1843,22 @@ span.asteriskRequiredField {
         border-radius: 4px;
         box-sizing: border-box;
     }
+    #RegistrationNextButton, #ConfirmEmailButton{
+       width: 17vh;
+    }
 
+    #AccountInfoForm, #EmailVerificationForm{
+        margin-left: 19vh;
+        width: 79vh;
+    }
+    #GeneralInfoForm{
+        width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+    }
 }
 
