@@ -838,7 +838,8 @@ background-color: white;
 	object-fit: contain;
 	margin: auto;
 	background-color: white;
-	margin: 20px;
+	margin: auto;
+	margin-bottom: 20px;
 }
 
 #TextViewerBackground{
@@ -1116,6 +1117,6 @@ button.red{
 	}
 	#reportPopUp{
 		width: 90%;
-		height: fit-content;
+		/* height: fit-content; */
 	}
 }
