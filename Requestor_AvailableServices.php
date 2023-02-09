@@ -71,6 +71,13 @@
 
 ?>
 
+<script> 
+         if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('js/sw.js');
+         }else{
+            console.log("service worker not in navigator");
+         }
+      </script>
 
 <!--Main-->
 	<div id="AvailableServicesContainer">

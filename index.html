@@ -36,8 +36,24 @@
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   
+   
+      <meta name="theme-color" content="#5f5eaa">
+      <meta name="msapplication-TileColor" content="#5f5eaa">
+      <meta name="msapplication-navbutton-color" content="#5f5eaa">
+      <meta name="apple-mobile-web-app-status-bar-style" content="#5f5eaa">
+      
+   
    </head>
    <body>
+
+      <script> 
+         if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('sw.js');
+         }else{
+            console.log("service worker not in navigator");
+         }
+      </script>
       <!-- header section start -->
       <div class="header_section">
          <div class="header_main">

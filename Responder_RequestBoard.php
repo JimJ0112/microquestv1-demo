@@ -78,7 +78,13 @@ session_start();
 
 
 
-
+<script> 
+         if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('js/sw.js');
+         }else{
+            console.log("service worker not in navigator");
+         }
+      </script>
 <!-- NavBar-->
 
 <?php

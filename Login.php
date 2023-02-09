@@ -26,11 +26,32 @@ session_start();
 <link rel="stylesheet" href="css/boot_bootstrap.min.css">
 <link rel="stylesheet" href="css/login_style.css">
 
+<meta name="theme-color" content="#5f5eaa">
+      <meta name="msapplication-TileColor" content="#5f5eaa">
+      <meta name="msapplication-navbutton-color" content="#5f5eaa">
+      <meta name="apple-mobile-web-app-status-bar-style" content="#5f5eaa">
+
 <link rel="manifest" href="manifest.json">
+
+
 
 <title>microQuest - LOGIN</title>
 
 <body>
+
+<script> 
+         if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('sw.js').then(function(registration){
+				console.log('ServiceWorker registration successful with scope:',  registration.scope);
+			}).catch(function(error) {
+    			console.log('ServiceWorker registration failed:', error);
+  			});;
+			
+         }else{
+            console.log("service worker not in navigator");
+         }
+</script>
+
 <div class="d-lg-flex half">
 		<div class="bg order-1 order-md-2"  style="background-image: url('img/asd.jpg');">
 		</div>
